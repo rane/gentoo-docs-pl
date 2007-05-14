@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+
+<guide link="jak-tlumaczyc.xml" lang="pl">
+<title>Przewodnik dla tłumaczy dokumentacji Gentoo na język polski</title>
+
+<author title="Autor">
+  <mail link="rane@gentoo.pl">Łukasz Damentko</mail>
+</author>
+
+<abstract>
+Przewodnik dla tłumaczy dokumentacji Gentoo na język polski.
+</abstract>
+
+<version>5.0</version>
+<date>2007-05-10</date>
+
+<chapter>
+<title>Wprowadzenie</title>
+<section>
+<body>
+
+<p>
+Podstawową zasadą obowiązującą każdego tłumacza jest dobra znajomość języka
+angielskiego. Bardzo ważne jest tu <uri link="#dict">słownictwo
+techniczne</uri> dotyczące systemu Linux, oprogramowania, sprzętu oraz samego
+Gentoo. Oprócz tego każdy chętny powinien posiadać wiedzę i doświadczenie w
+używaniu naszej dystrybucji.
+</p>
+
+<p>
+Informacje zawarte w tym dokumencie zostały spisane, aby ułatwić nowym osobom
+dołączenie do projektu oraz w celu usystematyzowania wszystkich zasad i reguł
+obowiązujących obecnych członków naszego zespołu.
+</p>
+
+<p>
+Wszelkie propozycje zmian tego tekstu należy kierować do <mail
+link="rane@gentoo.org">koordynatora</mail> polskiego projektu tłumaczenia
+dokumentacji Gentoo.
+</p>
+
+<p>
+Cała dokumentacja Gentoo oraz jej tłumaczenia są wydawane na zasadach licencji
+<uri link="http://creativecommons.org/licenses/by-sa/2.5/">Creative Commons -
+Share Alike</uri> i każdy współpracownik projektu musi zgodzić się na
+opublikowanie swojej pracy na tej licencji. W przeciwnym wypadku jego tekst nie
+trafi na oficjalne strony Gentoo.
+</p>
+
+<p>
+Zaczniemy od omówienia procesu tłumaczenia dokumentu:
+</p>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Przygotowanie środowiska pracy</title>
+<section>
+<body>
+
+<p>
+Najpierw musimy pobrać angielski plik:
+</p>
+
+<pre caption="Pobieranie dokumentu w języku angielskim">
+$ <i> wget http://dev.gentoo.org/~rane/docget.py</i>
+$ <i> chmod +x docget.py</i>
+$ <i> ./docget.py nazwa_pliku</i>
+</pre>
+
+<note>
+Program <uri link="http://dev.gentoo.org/~rane/docget.py">docget</uri> został
+napisany przez <mail link="lucass@gentoo.org">Łukasza Strzygowskiego</mail> na
+potrzeby polskiego projektu tłumaczenia dokumentacji Gentoo i służy do
+pobierania angielskich plików dokumentacji w formacie xml.  <c>nazwa_pliku</c>
+to nazwa dokumentu, który chcemy pobrać, otrzymuje się ją zwykle w mailu
+zwrotnym po zgłoszeniu się do projektu.
+</note>
+
+<p>
+Jeśli zakres prac jest szeroki i obejmuje więcej niż jeden lub nawet kilka
+dokumentów, znacznie wygodniej jest pobrać całe repozytorium z dokumentacją
+polską i angielską na dysk niż ściągać pliki jeden po drugim.
+</p>
+
+<pre caption="Pobieranie repozytorium z dokumentacją">
+$ <i>cvs -d :pserver:anonymous@anoncvs.gentoo.org/var/cvsroot co gentoo/xml</i>
+</pre>
+
+<note>
+Kolejne aktualizacje repozytorium wykonuje się za pomocą polecenia <c>cvs update
+-dP</c> w katalogu <path>gentoo/xml</path>.
+</note>
+
+<p>
+Kilka słów o katalogu, który zostanie pobrany na dysk w wyniku powyższego
+polecenia. Jest to katalog z <e>całą</e> stroną <uri>http://gentoo.org</uri>.
+Znajdują się w nim pliki xml, z których strona ta jest generowana. W katalogu
+<path>gentoo/xml/htdocs/doc/pl/</path> (i podkatalogach) znajdują się wszystkie
+polskie tłumaczenia oficjalnej dokumentacji. Oficjalna dokumentacja to teksty,
+którymi zarządza Gentoo Documentation Project (GDP). Są to najbardziej
+podstawowe i najczęściej czytane dokumenty, takie jak <uri
+link="http://gentoo.org/doc/pl/handbook">Podręcznik Gentoo</uri>,
+<uri link="http://gentoo.org/doc/pl/xorg-config.xml">Konfiguracja serwera
+X</uri>, <uri link="http://gentoo.org/doc/pl/alsa-guide.xml">Konfiguracja
+ALSA</uri> etc. Ich angielskie odpowiedniki znajdują się w katalogu
+<path>gentoo/xml/htdocs/doc/en/</path>.
+</p>
+
+<p>
+W katalogu <path>gentoo/xml/htdocs/proj/pl/</path> znajdziemy katalogi z
+tłumaczeniami dokumentów dostarczanych przez inne niż GDP projekty Gentoo - na
+przykład teksty o SELinux projektu Gentoo Hardened czy o modularnych X-ach
+projektu Gentoo Desktop.
+</p>
+
+<p>
+Niezależnie od tego którą metodę pobierania wykorzystano, cvs czy docget,
+kolejnym etapem jest odszukanie pliku do tłumaczenia w katalogu, w którym
+wykonano polecenie docget lub znalezienie go w czeluściach
+<path>gentoo/xml</path> (<c>man find</c>). Najpierw jednak przygotujemy sobie
+najlepszy w świecie edytor, vim, do pracy w kodowaniu UTF-8 i nauczymy go
+odpowiednio zawijać długie wiersze.
+</p>
+
+<p>
+Otwieramy plik <path>~/.vimrc</path> i dopisujemy do niego następujące linijki:
+</p>
+
+<pre caption="Konfigurowanie edytora vim">
+$ <i>vim ~/.vimrc</i>
+set termencoding=iso-8859-2
+set fileencoding=utf-8
+set encoding=utf-8
+set textwidth=80
+</pre>
+
+<p>
+Powyższa wersja <path>.vimrc</path> jest dla użytkowników terminali i konsoli w
+naszym rodzimym kodowaniu ISO-8859-2. Jeśli ktoś ma system w UTF-8, wystarczy mu
+linia <c>set termencoding=UTF-8</c>.
+</p>
+
+<note>
+Oczywiście dokument można przetłumaczyć w dowolnym edytorze. Wciąż obowiązuje
+jednak zasada, że ma to być tekst zakodowany w UTF-8 i z wierszami zawiniętymi
+po 80 znaku.
+</note>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Tłumaczenie dokumentu</title>
+<section>
+<body>
+
+<p>
+Pora na przetłumaczenie czegoś, odnajdujemy i otwieramy nasz plik.
+</p>
+
+<pre caption="Edytowanie dokumentu">
+$ <i>vim nazwa_pliku.xml</i>
+</pre>
+
+<p>
+Naszym oczom ukaże się ładnie pokolorowany dokument, w którym musimy nanieść
+odpowiednie poprawki. Jak to zrobić? Zamieniając angielski tekst polskim i
+starając się jednocześnie nie zrujnować składni xml.
+</p>
+
+<impo>
+Dokumenty muszą być pisane w formie bezosobowej: "należy", "trzeba", "warto",
+którą czasami można poprzeć także liczbą mnogą: "robimy", "instalujemy",
+"klikamy" itp. Zakazane jest pisanie per "ty", nawet jeśli taka forma jest
+używana w oryginale. Nie wolno korzystać ze zwrotów "proszę coś zrobić",
+"uprasza się o" i tym podobnych ozdobników.
+</impo>
+
+<p>
+Kilka przykładów:
+</p>
+
+<pre caption="Nagłówek">
+<comment>(Na czerwono wszystkie zmiany jakie musi wprowadzić tłumacz)</comment>
+
+&lt;?xml version='1.0' encoding="UTF-8"?&gt;
+&lt;!DOCTYPE guide SYSTEM "/dtd/guide.dtd"&gt;
+&lt;!-- $Header$ --&gt;
+
+&lt;guide link="/doc/<comment>pl</comment>/home-router-howto.xml" <comment>lang="pl"</comment>&gt;
+&lt;title&gt;<comment>Konfiguracja routera</comment>&lt;/title&gt;
+
+&lt;author title="<comment>Autor</comment>"&gt;
+  &lt;mail link="swift@gentoo.org"&gt;Sven Vermeulen&lt;/mail&gt;
+&lt;/author&gt;
+<comment>&lt;author title="Tłumaczenie"&gt;
+  &lt;mail link="rane@gentoo.org">Łukasz Damentko&lt;/mail&gt;
+&lt;/author&gt;</comment>
+
+&lt;abstract&gt;
+<comment>Krótki opis umożliwiający skonfigurowanie routera łączącego domową sieć z Internetem.</comment>
+&lt;/abstract&gt;
+
+&lt;!-- The content of this document is licensed under the CC-BY-SA license --&gt;
+&lt;!-- See http://creativecommons.org/licenses/by-sa/2.5 --&gt;
+&lt;license/&gt;
+
+&lt;version&gt;1.10&lt;/version&gt;
+&lt;date&gt;2005-08-14&lt;/date&gt;
+</pre>
+
+<ol>
+  <li>
+    Zaczynamy od przetłumaczenia tytułu dokumentu - znajdującego się wewnątrz
+    taga <c>&lt;title&gt;</c>
+  </li>
+  <li>
+    W linii <c>&lt;guide&gt;</c> zmieniamy w ścieżce dokumentu wpis <c>en</c> na
+    <c>pl</c> i dodajemy parametr <c>lang="pl"</c>. Dzięki temu będzie
+    wyświetlana prawidłowa strona przeznaczona do druku oraz pojawi się polska
+    wersja daty i komentarzy w pliku (np. "Ważne" zamiast "Warning").
+  </li>
+  <li>
+    Role wszystkich autorów oryginału należy przetłumaczyć na język polski.
+    Najczęściej występujące funkcje to "Autor" (Author) i "Redaktor"
+    (Editor).
+  </li>
+  <li>
+    Oczywiście należy się podpisać, obowiązuje zasada, że dokumenty podpisujemy
+    pełnym imieniem i nazwiskiem. Wzór wpisu znajduje się powyżej, adres e-mail
+    jest opcjonalny i jego dodanie zależy od woli tłumacza. Jeśli nie chcemy go
+    dodać usuwamy wpisy <c>&lt;mail link=""&gt;</c> i <c>&lt;/mail&gt;</c> wokół
+    nazwiska.
+  </li>
+  <li>
+    Należy także przetłumaczyć zawartość taga <c>&lt;abstract&gt;</c>. Jest ona
+    wyświetlana jako krótkie podsumowanie zawartości dokumentu w prawym górnym
+    rogu jego strony oraz we wszystkich spisach treści pod jego tytułem.
+  </li>
+</ol>
+
+<pre caption="Akapit">
+&lt;p&gt;
+<comment>Pliki "stage" znajdują się w katalogu
+&lt;path&gt;/mnt/cdrom/stages&lt;/path&gt; płyty instalacyjnej. Ich listę możemy
+uzyskać poleceniem &lt;c&gt;ls&lt;/c&gt;:</comment>
+&lt;/p&gt;
+</pre>
+
+<p>
+Uwagi:
+</p>
+
+<p>
+Pamiętamy o wszystkich <c>&lt;path&gt;</c>, <c>&lt;c&gt;</c> i <c>&lt;e&gt;</c>
+z oryginału i podkreślamy je we właściwy sposób również w odpowiednich
+fragmentach przetłumaczonego tekstu.
+</p>
+
+<ul>
+  <li>
+    <c>&lt;path&gt;</c> musi obejmować wszystkie ścieżki i nazwy plików,
+  </li>
+  <li>
+    <c>&lt;c&gt;</c> służy do wyróżnienia na niebiesko poleceń wpisywanych przez
+    użytkownika,
+  </li>
+  <li>
+    <c>&lt;e&gt;</c> pozwala na wyróżnienie jakiegoś tekstu, który <e>musi</e>
+    być zauważony przez czytelnika.
+  </li>
+</ul>
+
+<pre caption="Przykład listingu">
+&lt;pre caption="<comment>Edytowanie pliku client.conf</comment>"&gt;
+# &lt;i&gt;vim /etc/cups/client.conf&lt;/i&gt;
+
+&lt;comment&gt;(<comment>Oczywiście wpis printserver.mydomain należy zastąpić nazwą odpowiedniego serwera wydruku</comment>)&lt;/comment&gt;
+ServerName &lt;i&gt;printserver.mydomain&lt;/i&gt;
+&lt;/pre&gt;
+</pre>
+
+<p>
+Tu również musimy zachować oryginalne tagi.
+</p>
+
+<ul>
+  <li>
+    <c>&lt;i&gt;</c> podkreśli polecenia wpisywane przez użytkownika na
+    niebiesko, jest to lokalny odpowiednik <c>&lt;c&gt;</c> z akapitu.
+  </li>
+  <li>
+    Zawartość <c>&lt;comment&gt;</c> trzeba przetłumaczyć, w dokumencie jest ona
+    wyświetlana na czerwono
+  </li>
+</ul>  
+
+<p>
+W ten sposób, <b>możliwie wiernie</b>, zdanie po zdaniu, tłumaczymy cały
+dokument. Nie wolno kopiować gramatyki i interpunkcji oryginału, język polski ma
+zupełnie inne zasady i ślepe tłumaczenie słowo po słowie zwykle kończy się
+katastrofą i obłożeniem klątwą do siódmego pokolenia (włącznie) przez dział
+korekty.
+</p>
+
+<p>
+Kiedy skończymy, musimy sprawdzić czy nie zrujnowaliśmy składni xml - dokonuje
+się tego przy pomocy programu <c>xmllint</c>:
+</p>
+
+<pre caption="Sprawdzanie poprawności składni XML">
+$ <i>xmllint --valid --noout nazwa_pliku.xml</i>
+</pre>
+
+<impo>
+Przed pierwszym użyciem <c>xmllint</c> należy dodać następujący wpis do pliku
+<path>/etc/xml/catalog</path>:
+</impo>
+
+<pre caption="Plik /etc/xml/catalog">
+&lt;rewriteURI uriStartString="/dtd" rewritePrefix="/usr/portage/metadata/dtd/"/&gt;
+</pre>
+
+<p>
+W razie problemów z wpisaniem tej linii można skonsultować się z przykładowym
+plikiem, który znajduje się pod adresem
+<uri>http://dev.gentoo.org/~rane/catalog.txt</uri>.
+</p>
+
+<p>
+Jeśli program nie wydrukuje żadnych komunikatów o błędach, możemy przystąpić do
+(niezbędnej przed wysłaniem dokumentu w świat) korekty.
+</p>
+
+<pre caption="Otwieranie pliku tłumaczenia">
+$ <i>vim nazwa_pliku.xml</i>
+</pre>
+
+<p>
+W tym momencie zapominamy o oryginalnym, angielskim tekście i poprawiamy cały
+dokument tak, aby wyglądał możliwie naturalnie dla naszych rodaków. Warto
+poprawić styl i budowę zdań. Staramy się również wyłowić wszystkie błędy
+ortograficzne, gramatyczne i interpunkcyjne jakie popełniliśmy w trakcie
+tłumaczenia. Wszelkie wątpliwości pomogą nam rozwiać: 
+</p>
+
+<ul>
+  <li>
+    Serwis <uri link="http://polszczyzna.pwn.pl">polszczyzna.pwn.pl</uri>.
+  </li>
+  <li>
+    Informacje zebrane na stronie <uri
+    link="http://venus.ci.uw.edu.pl/~milek/slowniki/zasady.htm"> Marcina
+    Miłkowskiego</uri>.
+  </li>
+  <li>
+    <uri link="http://helion.pl/autor/6slown.htm">Zalecenia wydawnictwa
+    Helion</uri> dotyczące tłumaczenia wybranych terminów informatycznych.
+   </li>
+  <li>
+    Zawierający mnóstwo praktycznych uwag <uri
+    link="http://www.piotr.kresak.pl/konwen222.htm">poradnik</uri> dla
+    tłumaczących oprogramowanie firmy Lotus.
+  </li>
+  <li>
+    Świetny angielskojęzyczny serwis <uri
+    link="http://answers.com">answers.com</uri> zawierający ogromny zbiór
+    definicji z wielu różnych dziedzin, w tym z tej najbardziej nas
+    interesującej - informatyki.
+  </li>
+</ul>
+
+<p>
+Jeśli wciąż nie jesteśmy czegoś pewni, odwiedzamy kanał <c>#gentoo-docs-pl</c> w
+sieci freenode i pytamy przebywających tam innych tłumaczy o ich zdanie w
+kontrowersyjnej sprawie. Możemy również zapisać się i wysłać maila na listę
+dyskusyjną tłumaczy Gentoo, o której opowiem za chwilę.
+</p>
+
+<p>
+Kiedy skończymy tłumaczenie wysyłamy przetłumaczony plik na adres
+<mail>rane@gentoo.org</mail> i czekamy aż po wnikliwej i bezlitosnej
+weryfikacji trafi na oficjalną stronę Gentoo i zapewni nam sławę na wieki.
+</p>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Kodowanie UTF-8</title>
+<section>
+<body>
+
+<p>
+Twórcy Gentoo Linux promują Unicode (UTF-8) jako oficjalny standard kodowania
+znaków. Definiuje on litery narodowe niemal wszystkich języków świata i napisana
+jest w nim cała dokumentacja Gentoo. 
+</p>
+
+<p>
+Wcześniej, w paragrafie dotyczącym środowiska pracy, zachęcaliśmy do
+przestawienia edytora na pracę w UTF-8. Inną metodą otrzymania tekstu w
+prawidłowym kodowaniu jest skorzystanie z odpowiedniego do tego programu.
+</p>
+
+<p>
+Bardzo prostym i wygodnym programem służącym do konwersji kodowania jest
+<c>app-text/recode</c>.
+</p>
+
+<pre caption="Praca z recode">
+<comment>(Przede wszystkim musimy zainstalować program)</comment>
+# <i>emerge app-text/recode</i>
+<comment>(Następnie konwertujemy przetłumaczony plik na UTF-8)</comment>
+$ <i>recode l2..u8 plik.xml</i>
+</pre>
+
+<p>
+Takie polecenie spowoduje zamianę kodowania pliku o nazwie <path>plik.xml</path>
+z <c>l2</c> (oznaczającego iso8859-2) na <c>u8</c> (skrót kodowania UTF-8). 
+</p>
+
+<p>
+Pełną listę dostępnych kodowań pomiędzy którymi można konwertować pliki uzyskamy 
+dzięki poleceniu <c>recode -l</c>. Więcej informacji na temat programu
+<c>recode</c> można znaleźć w jego manualu.
+</p>
+
+</body>
+</section>
+</chapter>
+<chapter id="dict">
+<title>Słowniki</title>
+<section>
+<body>
+
+<p>
+Dysponujemy słownikiem zawierającym ponad 13000 terminów informatycznych, w
+miarę możliwości należy wybierać słowa w nim się znajdujące.
+</p>
+
+<p>
+Słownik można <uri link="http://dev.gentoo.org/~rane/slownik.gz">pobrać</uri> z
+mojej strony, później można go przeszukać za pomocą polecenia <c>zgrep</c>:
+</p>
+
+<pre caption="Praca ze słownikiem">
+$ <i>wget http://dev.gentoo.org/~rane/slownik.gz</i>
+$ <i>zgrep 'cross compiler' slownik.gz</i>
+cross compiler  kompilator skrośny
+</pre>
+
+<p>
+Szukanie znaczenia pozostałych angielskich słówek ułatwia skrypt <uri
+link="http://dev.gentoo.org/~rane/tlumacz">tlumacz</uri> napisany na licencji
+GPL przez <mail link="mkay@gentoo.org">Marcina Kryczka</mail>.
+</p>
+
+<p>
+Znajdowanie słówek jest banalnie proste, znacznie łatwiejsze niż szukanie na
+stronach internetowych, czy w normalnym słowniku.
+</p>
+
+<pre caption="Przykład użycia tlumacza">
+<comment>(Pobieramy program)</comment>
+$ <i>wget http://dev.gentoo.org/~rane/tlumacz</i>
+<comment>(Nadajemy mu atrybut wykonywalności)</comment>
+$ <i> chmod +x tlumacz</i>
+<comment>(Następnie możemy przystąpić do wyszukiwania znaczeń interesujących nas słówek)</comment>
+$ <i>./tlumacz emerge</i>
+ang-pol
+   emerge [29](Ectaco-Poland)
+      v,
+      1 wynurzac sie
+      2 ukazac sie
+      3 wydostac sie
+      4 pojawic sie
+      5 wygladac
+      6 wychodzic
+      7 wylaniac sie
+      8 powstac
+      9 wynikac
+      10 nasunac sie
+   emerge from the water [30](Ectaco-Poland)
+      v,
+      wyplynac
+</pre>
+
+<p>
+W przypadku terminów, których znaczenie nie jest jasne lub których w powyższych
+słownikach zwyczajnie nie ma, warto odwiedzić angielskojęzyczny serwis <uri
+link="http://answers.com">answers.com</uri> lub zapytać <uri link="#list">innych
+uczestników projektu</uri>.
+</p>
+
+</body>
+</section>
+</chapter>
+<chapter id="list">
+<title>Grupa dyskusyjna i kanał IRC</title>
+<section>
+<body>
+
+<p>
+Wszystkich tłumaczy zapraszamy do zapisania się na specjalnie dla nich utworzoną
+listę mailingową. Wystarczy wysłać pusty mail pod adres
+<c>gentoo-doc-pl+subscribe@gentoo.org</c> i czekać na list powitalny. Jest to
+doskonałe miejsce do zadawania pytań w sprawach dotyczących tłumaczenia
+dokumentacji.
+</p>
+
+<p>
+Zapraszamy również do odwiedzenia kanału <c>#gentoo-docs-pl</c> w sieci
+freenode, gdzie można dokładnie odpytać stałych uczestników projektu na tematy
+związane z tłumaczeniami.
+</p>
+
+<p>
+Oto polecenia umożliwiające w większości klientów, np. w <c>irssi</c>,
+połączenie się z siecią freenode i wejście na kanał projektu:
+</p>
+
+<pre caption="Wchodzenie na kanał #gentoo-docs-pl">
+<i>/connect irc.freenode.net</i>
+<i>/join #gentoo-docs-pl</i>
+</pre>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Program repodoc</title>
+<section>
+<body>
+
+<p>
+Niejaki <mail link="yoswink@gentoo.org">Jose Luis Rivero</mail> stworzył na
+potrzeby <uri link="http://gentoo.org/proj/en/gdp/">GDP</uri> program
+<c>repodoc</c> służący do sprawdzania poprawności publikowanych na stronach
+Gentoo dokumentów. Można go wykorzystać w celu dokładnego sprawdzenia
+tłumaczenia.
+</p>
+
+<p>
+Zaczynamy od pobrania programu. Znajduje się w drzewie Portage. Zwykle najlepiej
+skorzystać z wersji niestabilnej.
+</p>
+
+<pre caption="Instalacja repodoc">
+<comment>(Na architekturze x86 rzecz jasna)</comment>
+# <i>echo "app-doc/repodoc ~x86" >> /etc/portage/package.keywords</i>
+# <i>emerge repodoc</i>
+</pre>
+
+<p>
+Testy <c>repodoc</c> są najpełniejsze jeśli umieści się sprawdzany plik wewnątrz
+repozytorium z dokumentacją. Dlatego radzimy <uri
+link="#doc_chap2_pre2">pobrać</uri> całość katalogu
+<path>gentoo/xml/htdocs</path> przed przystąpieniem do testów.  Następnie należy
+umieścić przetłumaczony plik w odpowiednim miejscu w tym katalogu. Ścieżka
+znajduje się w nagłówku dokumentu.
+</p>
+
+<p>
+Kiedy już wszystko jest na swoim miejscu, po prostu wpisujemy <c>repodoc
+plik.xml</c> i oglądamy uważnie wynik.
+</p>
+
+<pre caption="Wynik testu">
+[~/work/htdocs/doc/pl] $ repodoc guide-to-mutt.xml 
+ ---------- Info ------------------------------ 
+ Doc: guide-to-mutt.xml
+ Dir: /home/rane/work/htdocs/doc/pl
+ Lang: pl
+ Trans: yes
+ Doc-type: guide
+ ----------------------------------------------
+
+ * Processing module banned     [ ok ]
+ * Processing module header     [ ok ]
+ * Processing module langlinks  [ ok ]
+ * Processing module lang       [ ok ]
+ * Processing module length     [ ok ]
+ * Processing module links      [ ok ]
+ * Processing module path       [ ok ]
+ * Processing module trans      [ ok ]
+ * Processing module up2date    [ ok ]
+ * Processing module utf8       [ ok ]
+ * Processing module xml        [ ok ]
+
+[~/work/htdocs/doc/pl] $ 
+</pre>
+
+<p>
+Udało się i repodoc nie znalazł żadnych błędów. Plik bez większych poprawek może
+trafić do repozytorium CVS dokumentacji, a stamtąd na stronę Gentoo.
+</p>
+
+<impo>
+Nie publikujemy żadnych plików, które nie przechodzą bez problemu wszystkich
+testów.
+</impo>
+
+<p>
+Nie zawsze będzie tak różowo. Często tłumaczenie będzie zawierało wiele błędów.
+Od tego jest repodoc, pozwala na ich odnalezienie i naprawianie.
+</p>
+
+<pre caption="Jedno z nadesłanych tłumaczeń">
+[~/work/htdocs/main/pl/] $ repodoc where.xml 
+ ---------- Info ------------------------------ 
+ Doc: where.xml
+ Dir: /home/rane/work/htdocs/main/pl/
+ Lang: 
+ Trans: yes
+ Doc-type: 
+ ----------------------------------------------
+
+ * Processing module banned     [ !! ]
+ * Processing module header     [ ?? ]
+ * Processing module langlinks  [ ok ]
+ * Processing module length     [ ?? ]
+ * Processing module links      [ ok ]
+ * Processing module path       [ !! ]
+ * Processing module trans      [ ok ]
+ * Processing module up2date    [ ok ]
+ * Processing module utf8       [ ok ]
+ * Processing module xml        [ !! ]
+
+Do you want to see the error log? [y/N] 
+</pre>
+
+<p>
+Jak widać tłumacz zepsuł nagłówek i składnię xml, nawklejał tabów i narobił
+wielu innych szkód. Pełny opis błędów jakie popełnił wyświetli się po wciśnięciu
+<c>y</c>. Potem można przystąpić do napraw.
+</p>
+
+<p>
+Nie wymagamy od nowych tłumaczy perfekcyjnej znajomości składni XML, bardzo
+prawdopodobne też, że wynik testu w repodoc będzie po prostu niezrozumiały. W
+takim wypadku należy po prostu nas odwiedzić, choćby na kanale
+<c>#gentoo-docs-pl</c> w sieci Freenode i poprosić o pomoc.
+</p>
+
+<p>
+Więcej informacji o <c>repodoc</c> znajduje się na stronie
+<uri>http://dev.gentoo.org/~yoswink/repodoc/</uri>.
+</p>
+
+</body>
+</section>
+</chapter>
+</guide>
