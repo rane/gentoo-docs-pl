@@ -261,34 +261,34 @@ IRC-u.
 <chapter>
 <title>Międzynarodowe Gentoo</title>
 <section>
-<title>HSM looking for Gentoo specialists</title>
+<title>HSM szuka specjalistów od Gentoo</title>
 <body>
 
 <p>
-HSM is a renowned, high profile software service provider headquartered in
-Paderborn / Germany. Their strength is the development of interfaces and
-add-ons to standard software programs and databases, programming of
-customer-specific software, provision of standard software in the areas
-security, ERP and emulations.
+HSM to ciesząca się szacunkiem duża firma, zajmująca się dostarczaniem dostępu
+do internetu. Jej kwatera główna mieści się w Paderborn w Niemczech. Mocnym
+punktem HSM jest tworzenie interfejsów i dodatków do standardowych programów i
+baz danych, rozwój oprogramowania dla klientów oraz dostarczaniem standardowego
+oprogramowania w dziedzinach bezpieczeństwa, ERP i emulacji.
 </p>
 
 <p>
-HSM is searching for Linux specialists with strong Gentoo knowledge for
-further development and customer support for their Linux-based universal
-firewall-software with a new and unique product concept. Successful
-candidates will have ample Linux experience, which especially covers TCP/IP
-and Routing, Perl, PHP and BASH Scripting, Apache, Bind, DNS, SQUID,
-Postfix and MySQL, plus communicative skills, organised work habits and
-consequent customer orientation.
+HSM poszukuje ekspertów od Linuksa, którzy specjalizują się w Gentoo, w celu
+dalszego rozwijania i wsparcia ich opartego na Linuksie firewalla o nowej i
+niespotykanej dotąd koncepcji produktu. Pożądani kandydaci powinni mieć bogate
+doświadczenie z Linuksem, w szczególności w takich dziedzinach jak protokół
+TCP/IP i routing, Perl, skrypty PHP i BASH, Apache, Bind, DNS, SQUID, Postfix i
+MySQL. Umiejętność komunikacji, organizowania sobie pracy i zorientowanie na
+klienta to kolejne cechy, których oczekuje się od kandydatów.
 </p>
 
 <p>
-This position offers candidates with the respective long-term professional
-experience the possibility of ascending to a managing position. For
-candidates with initial professional experiences we provide attractive
-training and further qualification possibilities. For further information
-contact HSM's HR Consultant, <mail link="geldmacher@juvo-personal.de">Mr.
-Wolf Geldmacher</mail>.
+Zatrudnieni specjaliści o odpowiednio dużym doświadczeniu będą mieli możliwość
+awansu na stanowisko menadżerskie. Kandydaci dopiero zaczynający profesjonalną
+karierę będą mogli brać udział w szkoleniach, a także w inny sposób podnosić
+swoje kwalifikacje. Więcej informacji można uzyskać kontaktując się z
+Konsultantem HR w HSM, <mail link="geldmacher@juvo-personal.de">Panem Wolfem
+Geldmacherem</mail>.
 </p>
 
 </body>
@@ -299,13 +299,13 @@ Wolf Geldmacher</mail>.
 <chapter>
 <title>Gentoo w prasie</title>
 <section>
-<title>Linux Magazine (26 April, 2007)</title>
+<title>Linux Magazine (26 kwietnia, 2007)</title>
 <body>
 
 <p>
-Linux Magazine posted an article about Gentoo Linux and portage. The feature
-article is entirely about Gentoo and is available to Linux Magazine subscribers
-only. If you are a Linux Magazine subscriber, check out the article.
+W Linux Magazine ukazał się artykuł na temat systemu Gentoo Linux i Portage.
+Jest on w całości poświęcony Gentoo i jest dostępny tylko dla prenumeratorów.
+Zachęcamy posiadaczy prenumeraty do zapoznania się z artykułem.
 </p>
 
 <ul>
