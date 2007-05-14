@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<guide type="newsletter" link="20061113-newsletter.xml" lang="pl">
+<title>Tygodnik Gentoo</title>
+<subtitle>13 listopada 2006</subtitle>
+
+<author title="Redaktor naczelny">
+  <mail link="plate@gentoo.org">Ulrich Plate</mail>
+</author>
+<author title="Redaktor">
+  <mail link="thirtyyearswar@mindspring.com">Chris Atkinson</mail>
+</author>
+<author title="Redaktor">
+  <mail link="dberkholz@gentoo.org">Donnie Berkholz</mail>
+</author>
+<author title="Redaktor">
+  <mail link="robbat2@gentoo.org">Robin H. Miller</mail>
+</author>
+<author title="Redaktor">
+  <mail link="wolf31o2@gentoo.org">Chris Gianelloni</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="karol.kania@gmail.com">Karol Kania</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="moloh@gentoo.org">Michał Kurgan</mail>
+</author>
+
+<abstract>Wydanie Tygodnika Gentoo z 13 listopada 2006.</abstract>
+<summary/>
+
+<version>Wolumin 5, numer 46</version>
+<date>2006-11-13</date>
+
+<!-- Gentoo News -->
+<chapter>
+<title>Wiadomości Gentoo</title>
+<section>
+<title>Anonimowe repozytoria CVS i SVN są dostępne</title>
+<body>
+
+<p>
+<uri link="/proj/en/infrastructure">Zespół Gentoo Infrastructure</uri> czuje się
+zaszczycony mogąc ogłosić, że zakończono proces konfiguracji i testów
+anonimowego, w trybie tylko do odczytu, dostępu do repozytoriów CVS oraz SVN
+Gentoo i zostały one udostępnione do użytku publicznego.
+</p>
+
+<p>
+Głównym celem stojącym za udostępnieniem anonimowych usług jest pomoc dla
+współpracujących z nami nie-deweloperów. Dzięki dostępnym teraz repozytoriom
+proces tworzenia poprawek i modyfikacji (cvs diff/svn diff) jest znacznie
+prostszy. Dodatkowo istnieje też szybki i prosty dostęp do źródeł wszystkich
+projektów tworzonych w ramach Gentoo Linux.
+</p>
+
+<p>
+Naszych bardziej zapalonych użytkowników informujemy że serwisy CVS i SVN
+<b>nie</b> są tak aktualne jak rsync i mogą mieć do 30 minut opóźnienia w
+zależności od obciążenia maszyn. Prosimy o nie używanie udostępnionych
+repozytoriów do uaktualniania lokalnego drzewa Portage tylko by poczuć się
+lepszym lub liczyć na szybszy dostęp do niego. W porównaniu do synchronizacji z
+użyciem rsync anonimowe repozytoria mają przewidziane znacznie mniejsze zasoby
+(moc obliczeniowa i przepustowość łącz). Zespół Gentoo Infrastructure nie
+zawaha się także przed blokowaniem adresów IP które będą zakłócać pracę
+serwisów.
+</p>
+
+<p>
+<b>CVS</b>
+</p>
+
+<p>
+Dostęp do CVS-u jest ograniczony do 5 równoczesnych połączeń. Aktualnie dostępne
+są następujące repozytoria: gentoo, gentoo-projects, gentoo-src i gentoo-x86
+</p>
+
+<pre caption="Pobranie zawartości repozytorium CVS">
+$ cvs -d :pserver:anonymous@anoncvs.gentoo.org/var/cvsroot co &lt;repozytorium&gt;
+</pre>
+
+<p>
+<b>SVN</b>
+</p>
+
+<p>
+Dostępne są następujące repozytoria SVN: apache, baselayout, catalyst, devmanual,
+eselect, genkernel, gentoo-alt, gentoo-python, gentoo-syntax, gentoo-vdr,
+gentoolkit, gli, glsr, hardened, hwdata, keychain, linux-patches, livecd-tools,
+portage, sandbox
+</p>
+
+<pre caption="Pobranie zawartości repozytorium SVN">
+$ svn co http://anonsvn.gentoo.org/repositories/&lt;repozytorium&gt;
+</pre>
+
+<p>
+Strona główna serwisu, <uri>http://anoncvs.gentoo.org/</uri> zawiera dokładną
+listę aktualnie dostępnych repozytoriów. Można tam także znaleźć dokładne
+instrukcje opisujące w jaki sposób należy korzystać z udostępnionych zasobów.
+</p>
+
+<p>
+Prosimy o <uri
+link="http://bugs.gentoo.org/enter_bug.cgi?product=Gentoo%20Infrastructure">zgłaszanie
+problemów</uri>, które pojawią się w czasie korzystania z repozytoriów CVS i
+SVN.
+</p>
+
+<p>
+Ostatnio omawiana blokada usługi gzip została usunięta w związku z
+ograniczeniami w przepustowości części serwerów. Równocześnie został też
+odpowiednio obniżony limit maksymalnej liczby użytkowników, którzy w danej
+chwili mogą korzystać z repozytoriów.
+</p>
+
+<p>
+Podziękowania dla: kengland, robbat2, kingtaco, ramereth, i pozostałych, dzięki
+którym udało się zrealizować ten projekt.
+</p>
+
+</body>
+</section>
+<section>
+<title>Engine Yard wykorzystuje klastry Gentoo dla usług Ruby on Rails</title>
+<body>
+
+<p>
+Engine Yard wykorzystuje oparte o Gentoo klastry udostępniające usługi Ruby on
+Rails. W sieci, pod adresem
+<uri>http://qualityhumans.com/images/tom_ezra_gentoo.mov</uri>, dostępny jest
+film opisujący ten temat. Można w nim usłyszeć wypowiedzi w jaki sposób Gentoo
+pomogło w stworzeniu serwisu, uznanie znalazły szerokie możliwości dostosowania
+systemu do własnych potrzeb. Padło też parę humorystycznych komentarzy, wśród
+nich: „Jestem przekonany, że wszystkie inne dystrybucje oparte są na Gentoo”.
+Omówiono także projekt Xen domU, który będzie środowiskiem deweloperskim Ruby on
+Rails opartym na Gentoo.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Developer of the Week -->
+<!-- Heard in the community -->
+<chapter>
+<title>Społeczność Gentoo</title>
+<!-- forums.gentoo.org -->
+<!-- planet.gentoo.org -->
+<!-- gentoo-user -->
+<section>
+<title>Lista dyskusyjna gentoo-user</title>
+<body>
+
+<p>
+<b>Dostęp do plików spoza środowiska chroot</b>
+</p>
+
+<p>
+Brian Davis planuje uruchomienie serwera Apache w środowisku chroot. Nie chce
+jednak kopiować obrazków i innej zawartości serwowanych stron do chroota. W
+związku z tym chciał się dowiedzieć, czy możliwe jest stworzenie dowiązań
+symbolicznych dających dostęp dostęp do tych plików.
+</p>
+
+<p>
+Odpowiadający wskazali, że nie jest to możliwe, jednak w zastępstwie można
+skorzystać z polecenia <c>mount --bind</c>.
+</p>
+
+<pre caption="Użycie flagi --bind dla polecenia mount">
+# mount --bind /source /chroot/target
+</pre>
+
+<ul>
+  <li><uri>http://archives.gentoo.org/gentoo-user/msg_103623.xml</uri></li>
+</ul>
+
+<p>
+<b>Problemy z pierwszą instalacją Gentoo</b>
+</p>
+
+<p>
+Jon M skonfigurował główną partycję jako <c>/dev/hda3</c>, używając systemu
+plików ReiserFS. Jednak po restarcie i próbie uruchomienia systemu zobaczył
+komunikat „VFS: Cannot open root device "hda3" or unknown-block(0,0)”.
+</p>
+
+<p>
+Richard Fish wskazał że „unknown-block(0,0)” oznacza, iż kernel nie znalazł
+odpowiedniego urządzenia dla hda3. Jest to spowodowane brakiem odpowiednich
+sterowników IDE, czyli złą konfiguracją jądra. Potrzebne są sterowniki do
+chipsetu oraz samo podstawowe wsparcie dla IDE.
+</p>
+
+<p>
+Jon M przyglądnął się swojej konfiguracji jądra i wskazał, że w jego przypadku
+brakuje sterowników do chipsetu na płycie głównej.
+</p>
+
+<ul>
+  <li><uri>http://archives.gentoo.org/gentoo-user/msg_103578.xml</uri></li>
+</ul>
+
+</body>
+</section>
+<!-- gentoo-dev -->
+<!-- gentoo-catalyst -->
+<!-- gentoo-embedded -->
+<!-- gentoo-security -->
+</chapter>
+
+<!-- Gentoo International-->
+<!-- Gentoo in the press -->
+<!-- Tips and Tricks -->
+<!-- Gentoo developer moves -->
+<chapter>
+<title>Zmiana statusu deweloperów Gentoo</title>
+<section>
+<title>Odeszli</title>
+<body>
+
+<p>
+Następujący deweloperzy opuścili projekt Gentoo Linux w minionym tygodniu:
+</p>
+
+<ul>
+  <li><e>Nikt w tym tygodniu</e></li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Przybyli</title>
+<body>
+
+<p>
+Następujący deweloperzy przyłączyli się do projektu Gentoo Linux w minionym
+tygodniu:
+</p>
+
+<ul>
+  <li>Alexander Færøy (eroyf) User Relations/Alpha/MIPS</li>
+  <li>Cédric Krier (cedk) zespół netmon</li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Zmienili status</title>
+<body>
+
+<p>
+Następujący deweloperzy zmienili w minionym tygodniu pełnioną w projekcie Gentoo
+Linux funkcję:
+</p>
+
+<ul>
+  <li><e>Nikt w tym tygodniu</e></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo security -->
+<chapter>
+<title>Bezpieczeństwo Gentoo</title>
+<!-- paste from the script -->
+<section>
+<title>Binarny sterownik dla kart graficznych NVIDIA: Przekroczenie uprawnień</title>
+<body>
+
+<p>
+Binarny sterownik dla kart graficznych NVIDIA zawiera usterkę przekroczenia
+uprawnień za pośrednictwem sesji Xów.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200611-03.xml"> komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>Bugzilla: Wiele usterek</title>
+<body>
+
+<p>
+Bugzilla zawiera wiele usterek XSS (cross-site scripting), wstrzyknięcie skryptu
+oraz podrobienie zapytania.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200611-04.xml"> komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>Netkit FTP Server: Przekroczenie uprawnień</title>
+<body>
+
+<p>
+Nieprawidłowe wywołanie funkcji seteuid() może w pewnych okolicznościach dać
+użytkownikowi FTP dostęp do plików i katalogów, które powinny być dla niego
+niedostępne.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200611-05.xml"> komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Upcoming package removals -->
+<chapter>
+<title>Pakiety przewidziane do usunięcia</title>
+<section>
+<body>
+
+<p>
+Poniżej można znaleźć listę pakietów, które zostaną w najbliższym czasie
+usunięte z drzewa Portage. Informacje te pochodzą z różnych źródeł, włączając
+projekt <uri link="/proj/en/qa/treecleaners">Treecleaners</uri> oraz zgłoszenia
+od poszczególnych deweloperów.
+</p>
+
+</body>
+</section>
+<section>
+<title>Ostatnie namaszczenie:</title>
+<body>
+
+<table>
+
+<tr>
+  <th>Pakiet:</th>
+  <th>Data usunięcia:</th>
+  <th>Kontakt:</th>
+</tr>
+<tr>
+  <ti>games-fps/ut2004-domain2049</ti>
+  <ti>10 grudnia 06</ti>
+  <ti><mail link="wolf31o2@gentoo.org">Chris Gianelloni</mail></ti>
+</tr>
+<tr>
+  <ti>dev-db/dbbalancer</ti>
+  <ti>10 grudnia 06</ti>
+  <ti><mail link="dev-zero@gentoo.org">Tiziano Mueller</mail></ti>
+</tr>
+</table>
+
+</body>
+</section>
+</chapter>
+
+<!-- Bugzilla -->
+<!-- paste from the script -->
+<chapter>
+<title>Bugzilla</title>
+<section>
+<title>Podsumowanie</title>
+<body>
+
+<ul>
+  <li><uri link="#bugs-stats">Statystyki</uri></li>
+  <li><uri link="#bugs-closed">Zamknięte bugi</uri></li>
+  <li><uri link="#bugs-new">Nowe bugi</uri></li>
+</ul>
+
+</body>
+</section>
+<section id="bug-stats">
+<title>Statystyki</title>
+<body>
+
+<p>
+Społeczność Gentoo używa Bugzilli (<uri
+link="http://bugs.gentoo.org/">bugs.gentoo.org</uri>) do zgłaszania i śledzenia
+błędów, ogłoszeń, sugestii oraz innych form kontaktu z deweloperami. Pomiędzy 5
+listopada 2006, a 12 listopada 2006 aktywność w serwisie przedstawiała się
+następująco:
+</p>
+
+<ul>
+  <li>zgłoszono 753 nowe bugi</li>
+  <li>zamknięto lub rozwiązano 484 bugi</li>
+  <li>otwarto ponownie 15 uprzednio zamkniętych bugów</li>
+  <li>183 bugi oznaczono jako NEEDINFO/WONTFIX/CANTFIX/INVALID/UPSTREAM</li>
+  <li>181 bugów oznaczono jako duplikaty</li>
+</ul>
+
+<p>
+Spośród 10914 obecnie otwartych bugów: 29 oznaczono jako 'blocker', 103 jako
+'critical', a 487 jako 'major'.
+</p>
+
+</body>
+</section>
+<section id="bugs-closed">
+<title>Zamknięte Bugi</title>
+<body>
+
+<p>
+Deweloperzy oraz zespoły, które zamknęły najwięcej bugów w minionym tygodniu,
+to:
+</p>
+
+<ul>
+  <li><mail link="base-system@gentoo.org">Gentoo's Team for Core System
+  packages</mail>, 34 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-11-05&amp;chfieldto=2006-11-12&amp;resolution=FIXED&amp;assigned_to=base-system@gentoo.org">zamknięte
+  bugi</uri></li>
+  <li><mail link="gnome@gentoo.org">Gentoo Linux Gnome Desktop Team</mail>, 30
+  <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-11-05&amp;chfieldto=2006-11-12&amp;resolution=FIXED&amp;assigned_to=gnome@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="pgsql-bugs@gentoo.org">PgSQL Bugs</mail>, 22 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-11-05&amp;chfieldto=2006-11-12&amp;resolution=FIXED&amp;assigned_to=pgsql-bugs@gentoo.org">zamknięte
+  bugi</uri></li>
+  <li><mail link="amd64@gentoo.org">AMD64 Project</mail>, 21 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-11-05&amp;chfieldto=2006-11-12&amp;resolution=FIXED&amp;assigned_to=amd64@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="x11-drivers@gentoo.org">X11 External Driver
+  Maintainers</mail>, 17 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-11-05&amp;chfieldto=2006-11-12&amp;resolution=FIXED&amp;assigned_to=x11-drivers@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="games@gentoo.org">Gentoo Games</mail>, 15 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-11-05&amp;chfieldto=2006-11-12&amp;resolution=FIXED&amp;assigned_to=games@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="security@gentoo.org">Gentoo Security</mail>, 12 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-11-05&amp;chfieldto=2006-11-12&amp;resolution=FIXED&amp;assigned_to=security@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="sound@gentoo.org">Gentoo Sound Team</mail>, 10 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-11-05&amp;chfieldto=2006-11-12&amp;resolution=FIXED&amp;assigned_to=sound@gentoo.org">zamkniętych
+  bugów</uri></li>
+</ul>
+</body>
+</section>
+
+<section id="bugs-new">
+<title>Nowe Bugi</title>
+<body>
+
+<p>
+Deweloperzy oraz zespoły, którym przydzielono najwięcej bugów w minionym tygodniu,
+to:
+</p>
+
+<ul>
+  <li><mail link="maintainer-wanted@gentoo.org">Default Assignee for New
+  Packages</mail>, 26 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-11-05&amp;chfieldto=2006-11-12&amp;assigned_to=maintainer-wanted@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="amd64@gentoo.org">AMD64 Project</mail>, 9 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-11-05&amp;chfieldto=2006-11-12&amp;assigned_to=amd64@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="x11-drivers@gentoo.org">X11 External Driver
+  Maintainers</mail>, 8 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-11-05&amp;chfieldto=2006-11-12&amp;assigned_to=x11-drivers@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="sanchan@gentoo.org">Sandro</mail>, 8 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-11-05&amp;chfieldto=2006-11-12&amp;assigned_to=sanchan@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="sound@gentoo.org">Gentoo Sound Team</mail>, 7 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-11-05&amp;chfieldto=2006-11-12&amp;assigned_to=sound@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="java@gentoo.org">Java team</mail>, 7 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-11-05&amp;chfieldto=2006-11-12&amp;assigned_to=java@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="x11@gentoo.org">Gentoo X-windows packagers</mail>, 6 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-11-05&amp;chfieldto=2006-11-12&amp;assigned_to=x11@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="nerdboy@gentoo.org">Steve Arnold</mail>, 6 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-11-05&amp;chfieldto=2006-11-12&amp;assigned_to=nerdboy@gentoo.org">nowych
+  bugów</uri></li>
+</ul>
+</body>
+</section>
+</chapter>
+
+<!-- GWN feedback information -->
+<chapter>
+<title>Opinie czytelników</title>
+<section>
+<body>
+
+<p>
+Tygodnik Gentoo jest tworzony i tłumaczony przez ochotników i członków
+społeczności, którzy nadsyłają swoje pomysły i gotowe artykuły. Zachęcamy
+wszystkich do pomocy i współpracy przy tworzeniu kolejnych numerów Tygodnika
+Gentoo. Oczekujemy na wasze propozycje artykułów, interesują nas także opinie na
+temat tych już opublikowanych. Wszelkie komentarze prosimy kierować na <mail
+link="gwn-feedback@gentoo.org">adres Tygodnika Gentoo</mail>. Uwagi dotyczące
+tłumaczenia należy zgłaszać na adres <mail
+link="moloh@gentoo.org">koordynatora</mail>. Pomóżcie sprawić, by Tygodnik
+Gentoo był jeszcze lepszy.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- GWN subscription information -->
+<chapter>
+<title>Subskrypcja Tygodnika Gentoo</title>
+<section>
+<body>
+
+<p>
+Aby zaprenumerować Tygodnik Gentoo, należy wysłać pustego emaila na adres <mail
+link="gentoo-gwn-pl+subscribe@gentoo.org">gentoo-gwn-pl+subscribe@gentoo.org</mail>.
+</p>
+
+<p>
+Aby zrezygnować z subskrypcji, należy wysłać pustego emaila na adres <mail
+link="gentoo-gwn-pl+unsubscribe@gentoo.org">
+gentoo-gwn-pl+unsubscribe@gentoo.org</mail> z konta, na które jest
+zarejestrowana.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Other Languages -->
+<chapter>
+<title>Inne języki</title>
+<section>
+<body>
+
+<p>
+Tygodnik Gentoo jest dostępny w następujących językach:
+</p>
+
+<ul>
+  <li><uri link="/news/en/gwn/gwn.xml">angielskim</uri></li>
+  <li><uri link="/news/zh_cn/gwn/gwn.xml">chińskim (uproszczony)</uri></li>
+  <li><uri link="/news/da/gwn/gwn.xml">duńskim</uri></li>
+  <li><uri link="/news/fr/gwn/gwn.xml">francuskim</uri></li>
+  <li><uri link="/news/el/gwn/gwn.xml">greckim</uri></li>
+  <li><uri link="/news/es/gwn/gwn.xml">hiszpańskim</uri></li>
+  <li><uri link="/news/nl/gwn/gwn.xml">holenderskim</uri></li>
+  <li><uri link="/news/ja/gwn/gwn.xml">japońskim</uri></li>
+  <li><uri link="/news/ko/gwn/gwn.xml">koreańskim</uri></li>
+  <li><uri link="/news/de/gwn/gwn.xml">niemieckim</uri></li>
+  <li><uri link="/news/pl/gwn/gwn.xml">polskim</uri></li>
+  <li><uri link="/news/pt_br/gwn/gwn.xml">portugalskim (Brazylia)</uri></li>
+  <li><uri link="/news/pt/gwn/gwn.xml">portugalskim (Portugalia)</uri></li>
+  <li><uri link="/news/ru/gwn/gwn.xml">rosyjskim</uri></li>
+  <li><uri link="/news/sk/gwn/gwn.xml">słowackim</uri></li>
+  <li><uri link="/news/tr/gwn/gwn.xml">tureckim</uri></li>
+  <li><uri link="/news/it/gwn/gwn.xml">włoskim</uri></li>
+</ul>
+</body>
+
+</section>
+</chapter>
+
+</guide>
+

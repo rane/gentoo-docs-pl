@@ -1,0 +1,620 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+
+<guide type="newsletter">
+<title>Gentoo Weekly Newsletter</title>
+<subtitle>August 23, 2004</subtitle>
+<author title="Editor">
+    <mail link="carlos@gentoo.org">Yuji Carlos Kosugi</mail>
+</author>
+<author title="Contributor">
+    <mail link="aja@gentoo.org">AJ Armstrong</mail>
+</author>
+<author title="Contributor">
+	<mail link="bdowney@briandowney.net">Brian Downey</mail>
+</author>
+<author title="Contributor">
+	<mail link="klieber@gentoo.org">Kurt Lieber</mail>
+</author>
+<author title="Contributor">
+    <mail link="plate@gentoo.org">Ulrich Plate</mail>
+</author>
+<author title="Contributor">
+	<mail link="swift@gentoo.org">Sven Vermeulen</mail>
+</author>
+<author title="Danish Translation">
+		<mail link="simon@lysbro.net">Simon Holm Thagersen</mail>
+</author>
+<author title="Danish Translation">
+		<mail link="broeman@gentoo.org">Jesper Brodersen</mail>
+</author>
+<author title="Danish Translation">
+		<mail link="aaby@gentoo.org">Arne Mejlholm</mail>
+</author>
+<author title="Dutch Translation">
+        <mail link="Hendrik.Eeckhaut@UGent.be">Hendrik Eeckhaut</mail>
+</author>
+<author title="Dutch Translation">
+        <mail link="sephiroth@quicknet.nl">Jorn Eilander</mail>
+</author>
+<author title="Dutch Translation">
+        <mail link="bernieke@bernieke.com">Bernard Kerckenaere</mail>
+</author>
+<author title="Dutch Translation">
+        <mail link="peter@daborg.nl">Peter ter Borg</mail>
+</author>
+<author title="Dutch Translation">
+        <mail link="linux@sejo.be">Jochen Maes</mail>
+</author>
+<author title="Dutch Translation">
+        <mail link="rgoessen@home.nl">Roderick Goessen</mail>
+</author>
+<author title="Dutch Translation">
+        <mail link="gerard@steelo.net">Gerard van den Berg</mail>
+</author>
+<author title="French Translation">
+    <mail link="mat@frheaven.com">Matthieu Montaudouin</mail>
+</author>
+<author title="French Translation">
+    <mail link="neysx@gentoo.org">Xavier Neys</mail> 
+</author>
+<author title="French Translation">
+    <mail link="riverdale@linuxmail.org">Martin Prieto</mail>
+</author>
+<author title="French Translation">
+    <mail link="cabec2@pegase.net">Antoine Raillon</mail>
+</author>
+<author title="French Translation">
+    <mail link="seb@cine7.net">Sebastien Cevey</mail>
+</author>
+<author title="French Translation">
+    <mail link="mabouya@petitefleure.org">Jean-Christophe Choisy</mail>
+</author>
+<author title="German Translation"><mail link="lordvan@gentoo.org">Thomas Raschbacher</mail></author>
+<author title="German Translation"><mail link="madeagle@gentoo.org">Steffen Lassahn</mail></author>
+<author title="German Translation"><mail link="haim@gentoo.org">Matthias F. Brandstetter</mail></author>
+<author title="German Translation"><mail link="Cyrik@gentoo.org">Lukas Domagala</mail></author>
+<author title="German Translation"><mail link="dertobi123@gentoo.org">Tobias Scherbaum</mail></author>
+<author title="German Translation"><mail link="Sputnik1969@gentoo.org">Daniel Gerholdt</mail></author>
+<author title="German Translation"><mail link="dj-submerge@gentoo.org">Marc Herren</mail></author>
+<author title="German Translation"><mail link="SirSeoman@gentoo.org">Tobias Matzat</mail></author>
+<author title="Italian Translation">
+	<mail link="mush@monrif.net">Marco Mascherpa</mail>
+</author>
+<author title="Italian Translation">
+	<mail link="paper@tiscali.it">Claudio Merloni</mail>
+</author>
+<author title="Italian Translation">
+	<mail link="stefano.lucidi@gentoo-italia.org">Stefano Lucidi</mail>
+</author>
+<author title="Japanese Translation">
+	<mail link="katuyuki@siva.ddo.jp">Katuyuki Konno</mail>
+</author>
+<author title="Japanese Translation">
+	<mail link="hiro@extreme.jspeed.jp">Hiroyuki Takeda</mail>
+</author>
+<author title="Japanese Translation">
+	<mail link="hatake@mx2.ttcn.ne.jp">Masato Hatakeyama</mail>
+</author>
+<author title="Japanese Translation">
+	<mail link="datam@anet.ne.jp">Shigehiro Idani</mail>
+</author>
+<author title="Japanese Translation">
+	<mail link="masayang@masasushi.com">Masayoshi Nakamura</mail>
+</author>
+<author title="Japanese Translation">
+	<mail link="web-gentoo-doc-jp@trombik.mine.nu">Tomoyuki Sakurai</mail>
+</author>
+<author title="Polish Translation">
+    <mail link="lucass@gentoo.pl">Lukasz Strzygowski</mail>
+</author>
+<author title="Polish Translation">
+    <mail link="gooroo@gentoo.pl">Karol Goralski</mail>
+</author>
+<author title="Portuguese (Brazil) Translation">
+	<mail link="bohlke@inf.ufrgs.br">Atila "Jedi" Bohlke Vasconcelos</mail>
+</author>
+<author title="Portuguese (Brazil) Translation">
+	<mail link="dudu@datavibe.net">Eduardo Belloti</mail>
+</author>
+<author title="Portuguese (Brazil) Translation">
+	<mail link="joaoraf@rudah.com.br">Jo&#227;o Rafael Moraes Nicola</mail>
+</author>
+<author title="Portuguese (Brazil) Translation">
+	<mail link="mgazambuja@terra.com.br">Marcelo Gon&#231;alves de Azambuja</mail>
+</author>
+<author title="Portuguese (Brazil) Translation">
+	<mail link="angusy@gentoobr.org">Otavio Rodolfo Piske</mail>
+</author>
+<author title="Portuguese (Brazil) Translation">
+	<mail link="natunobilis@gentoobr.org">Pablo N. Hess -- NatuNobilis</mail>
+</author>
+<author title="Portuguese (Brazil) Translation">
+	<mail link="pzilla@yawl.com.br">Pedro de Medeiros</mail>
+</author>
+<author title="Portuguese (Brazil) Translation">
+	<mail link="venturasbarbeiro@ig.com.br">Ventura Barbeiro</mail>
+</author>
+<author title="Portuguese (Portugal) Translation">
+<mail link="blueroom@digitalmente.net">Bruno Ferreira</mail>
+</author>
+<author title="Portuguese (Portugal) Translation">
+	<mail link="humpback@felisberto.net">Gustavo Felisberto</mail>
+</author>
+<author title="Portuguese (Portugal) Translation">
+	<mail link="jose_costa@netcabo.pt">Jos&#233; Costa</mail>
+</author>
+<author title="Portuguese (Portugal) Translation">
+	<mail link="metalgodin@linuxmail.org">Luis Medina</mail>
+</author>
+<author title="Portuguese (Portugal) Translation">
+	<mail link="rjlouro@rjlouro.org">Ricardo Loureiro</mail>
+</author>
+<author title="Russian Translator">
+       <mail link="amncorp@bk.ru">Aleksandr Martyncev</mail>
+</author>
+<author title="Russian Translator">
+       <mail link="gals_home@list.ru">Sergey Galkin</mail>
+</author>
+<author title="Russian Translator">
+       <mail link="svyatogor@gentoo.org">Sergey Kuleshov</mail>
+</author>
+<author title="Russian Translator">
+       <mail link="asp13@mail.ru">Alex Spirin</mail>
+</author>
+<author title="Russian Translator">
+       <mail link="dzaletov@rambler.ru">Denis Zaletov</mail>
+</author>
+<author title="Spanish Translation">
+     <mail link="guillermo.juarez@hispalinux.es">Guillermo Juarez</mail>
+</author>
+<author title="Spanish Translation">
+     <mail link="ferdy@ferdyx.org">Fernando J. Pereda</mail>
+</author>
+<author title="Spanish Translation">
+     <mail link="andy@enreas.com">Juan Diego Guti&#233;rrez Gallardo</mail>
+</author>
+<author title="Spanish Translation">
+     <mail link="nsilva@purdue.edu">Nicolas Silva</mail>
+</author>
+<author title="Turkish Translation">
+        <mail link="aycan@core.gen.tr">Aycan Irican</mail>
+</author>
+<author title="Turkish Translation">
+        <mail link="bugra@myrealbox.com">Bugra Cakir</mail>
+</author>
+<author title="Turkish Translation">
+        <mail link="cagils@biznet.com.tr">Cagil Seker</mail>
+</author>
+<author title="Turkish Translation">
+        <mail link="emre@core.gen.tr">Emre Kazdagli</mail>
+</author>
+<author title="Turkish Translation">
+        <mail link="evrim@core.gen.tr">Evrim Ulu</mail>
+</author>
+<author title="Turkish Translation">
+        <mail link="gurcell@core.gen.tr">Gursel Kaynak</mail>
+</author>
+<abstract>This is the Gentoo Weekly Newsletter for the week of August 23rd, 2004.</abstract>
+<summary>Gentoo at Linux World Expo</summary>
+<version>Volume 3, Issue 33</version>
+<date>23 August 2004</date>
+
+<chapter>
+	<title>Gentoo News</title>
+<section>
+<title>Gentoo 2004 UK Meeting</title>
+<body>
+<p>
+The first Gentoo UK Meeting will be held at Salford University, Manchester,
+on Saturday 4th September 2004. The day's events will be a mixture of
+presentations from invited speakers and break-out sessions where you get the
+chance to discuss the aspects of Gentoo that matter to you with the
+developers who will be attending on the day.
+</p><p>
+Confirmed Gentoo Linux developers attending include Stuart Herbert from the
+PHP and web-app teams, Rob Holland from the tenshi project, and Ciaranm
+McCreesh from the Sparc team.
+</p><p>
+We're also delighted that Harry Moyes from Manchester Wireless
+(www.manchesterwireless.net) will be speaking at the event.
+</p><p>
+Full details can be found here: <uri>http://dev.gentoo.org/~stuart/2004/</uri>
+</p><p>
+Our thanks to Reuben Finch from <uri link="http://www.freenode.net">Freenode</uri> for
+organizing the event, and to Ricky Clarkson and Andrew Young of Salford
+University for their generous help and support.
+</p>
+</body>
+</section>
+<section>
+<title>Successful 2004.2 Release via BitTorrent Distribution</title>
+<body>
+<p>With only limited publicity for its debut, the latest release of Gentoo Linux was the first to try an additional method of distribution besides the usual
+HTTP or FTP downloads: BitTorrent filesharing. Looking at the data volume that has been piped through in the two weeks since the release, the introduction
+of such a P2P service for downloading Gentoo Linux was immediately very popular with users. The BitTorrent service provided by the German NPO <uri link="http://www.gentoo-ev.org">Gentoo e.V.</uri> reports that already more than two terabytes worth of data have been processed by the tracker, with
+roughly one TB for the x86 and Athlon/P4 LiveCD images alone. Unlike other filesharing services, the MIT-licensed BitTorrent builds peer networks flexibly
+for each individual file, so that clients desiring information about download locations may get different partners for every downloadable item, and
+eventually provide chunks of data they've already got to others in the process.</p>
+
+</body>
+</section>
+<section>
+<title>Gentoo Forums receive a hardware upgrade</title>
+<body>
+<p>
+The Gentoo web forums recently received a much needed hardware upgrade.  Many users have been commenting on the recent poor performance of the forums, which was caused by the site's continued growth and popularity.  The new hardware, graciously provided by the <uri link="http://www.osuosl.org">OSU Open Source Lab</uri>, is nearly twice as powerful as the old system and should hopefully provide some breathing room for further growth.   The Gentoo Foundation wishes to thank the OSU OSL for their continued support of the Gentoo Linux project. 
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter> 
+<title>Projects Update</title>
+<section>
+<body> 
+
+<p><b>Releng</b></p>
+<p>
+The Release Engineering team has named a new Operations Lead: <mail
+link="wolf31o2@gentoo.org">Chris Gianelloni</mail> (wolf31o2). The
+group is starting to get back into the swing of things after a
+well-deserved hiatus following the 2004.2 release.  John Davis (zhen)
+has put together and released catalyst-1.0.9, which incorporates
+complete support for cascading profiles and preliminary X/GameCD
+support, which should completed by 2004.3's release.
+</p>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Gentoo Security</title>
+<section>
+<body>
+<p><b>rsync: Potential information leakage</b></p>
+<p>rsync fails to properly sanitize paths. This vulnerability could allow the listing of arbitrary files and allow file overwriting outside module's path on rsync server configurations that allow uploading.</p>
+<p>For more information, please see the <uri link="http://www.gentoo.org/security/en/glsa/glsa-200408-17.xml">GLSA Announcement</uri></p>
+
+<p><b>xine-lib: VCD MRL buffer overflow</b></p>
+<p>xine-lib contains an exploitable buffer overflow in the VCD handling code</p>
+<p>For more information, please see the <uri link="http://www.gentoo.org/security/en/glsa/glsa-200408-18.xml">GLSA Announcement</uri></p>
+
+<p><b>courier-imap: Remote Format String Vulnerability</b></p>
+<p>There is a format string vulnerability in non-standard configurations of courier-imapd which may be exploited remotely. An attacker may be able to execute arbitrary code as the user running courier-imapd (oftentimes root).</p>
+<p>For more information, please see the <uri link="http://www.gentoo.org/security/en/glsa/glsa-200408-19.xml">GLSA Announcement</uri></p>
+
+<p><b>Qt: Image loader overflows</b></p>
+<p>There are several bugs in Qt's image-handling code which could lead to crashes or arbitrary code execution.</p>
+<p>For more information, please see the <uri link="http://www.gentoo.org/security/en/glsa/glsa-200408-20.xml">GLSA Announcement</uri></p>
+
+<p><b>Cacti: SQL injection vulnerability</b></p>
+<p>With special configurations of Cacti it is possible to change passwords via a SQL injection attack.</p>
+<p>For more information, please see the <uri link="http://www.gentoo.org/security/en/glsa/glsa-200408-21.xml">GLSA Announcement</uri></p>
+
+<p><b>Mozilla, Firefox, Thunderbird: New releases fix vulnerabilities</b></p>
+<p>New releases of Mozilla, Mozilla Thunderbird, and Mozilla Firefox fix several vulnerabilities, including remote DoS and buffer overflows.</p>
+<p>For more information, please see the <uri link="http://www.gentoo.org/security/en/glsa/glsa-200408-22.xml">GLSA Announcement</uri></p>
+
+</body>
+</section>
+</chapter>
+
+<chapter> 
+<title>Featured Developer of the Week</title> 
+<section>
+<body>
+<p><b>Christian Andreetta</b></p> 
+<figure link="http://www.gentoo.org/images/gwn/20040823_satya.jpg" short="Christian Andreetta" caption="Christian Andreetta" />
+
+<p>
+This week, we are featuring <mail link="satya@gentoo.org">Christian
+Andreetta</mail> (satya), one of several developers supporting <uri
+link="http://www.samba.org">samba</uri> under Gentoo.  In addition to
+the traditional developer activities of creating and supporting
+ebuilds, Christian focuses on providing support for antivirus
+integration, printing, and authorization tools like kerberos and ldap.
+He has also contributed to a number of other FOSS projects, like the
+python-based <uri
+link="http://skunkweb.sourceforge.net/">skunkweb</uri> and <uri
+link="http://www.postgresql.org/">postgresql</uri>.  He is also
+looking forward to becoming active working with the clusters and
+app-sci herds in Gentoo.  When pressed for an example of work he was
+particularly proud of, he confessed to being pleased about the
+resolution to <uri
+link="http://bugs.gentoo.org/show_bug.cgi?id=48871">Bug #48871</uri>,
+a new Samba ebuild that resolved a number of other bugs.
+</p> 
+
+<p>
+Christian completed a Bachelor's degree in Information Engineering,
+specializing in biomedical and control systems.  He is currently
+employed as a Technology Officer for the University of Padova in
+Italy, but hinted that he would be interested in working in Applied
+Research in other European countries.  Christian began using Unix in
+the early 90s, with Solaris and HP-UX.  In 1997, he was looking for a
+Unix-like operating system for his home computers and experimented
+with Red Hat and Slackware before settling on Mandrake.  A magazine
+article in 2002 led hem to Gentoo, and he "converted all of [his]
+systems as soon as possible." He became a Gentoo developer by being
+active on bugzilla as a user, contributing patches and ebuilds.  When
+a call went out for samba maintainers, he volunteered and was accepted
+based on his earlier work.
+</p>
+
+<p>
+Christian usually develops using the <uri
+link="http://www.scintilla.org/">Scintilla</uri> text editor, with the
+<uri link="http://amarok.kde.org/">amaroK</uri> radio streamer
+running.  <uri link="http://devel-home.kde.org/~kgpg/">kgpg</uri>,
+<uri
+link="http://docs.kde.org/en/3.2/kdetoys/kworldclock/">kworldclock</uri>
+and <uri link="http://distcc.samba.org/">distcc-gnome</uri> are
+launched automatically when his system starts.  He works on an Asus
+L3C laptop that is abundantly supplied with RAM, and uses KDE for his
+desktop environment.  When away from his computers, Christian
+practices shiatsu massage.  He prefers having people around him, which
+extends to a development philosophy that he describes as preferring
+"group work over lone", adding his pleasure at working with the other
+members of the Samba team.  He closed with the observation that Gentoo
+provides "simple tools and is very well documented.  Every user is
+easily a developer."
+</p>
+
+</body> 
+</section>
+</chapter>
+
+<chapter>
+<title>Heard in the Community</title>
+<section>
+<title>Web Forums</title>
+<body>
+<p>
+<b>Don't Drink and Sing - Gentoo Song Revisited</b>
+</p>
+
+<p>Forum user<uri link="http://forums.gentoo.org/profile.php?mode=viewprofile&amp;u=14901">Ken{NoBeeb}</uri> aka Kristoffer Ericson from Sweden checked back on a
+thread he created in January, and was pleasantly surprised that apparently thousands of people had listened to the Gentoo song he recorded (while
+inebriated, or so he claims), and evidently liked it! So he re-mastered his old tune and put a new version up for download, this time in almost acceptable
+sound quality: </p>
+<ul><li><uri link="http://forums.gentoo.org/viewtopic.php?t=121752">Gentoo Song</uri></li>
+</ul>
+
+<p>
+<b>Booting from Floppies</b>
+</p>
+
+<p>For users with historic hardware, the standard installation method of booting from a Gentoo LiveCD can be challenging at times. Many alternative
+procedures including netbooting via PXE, rescue floppies borrowed from minimal Linux distributions exist, but for those who actually have a CD-ROM drive
+that's just refusing to boot from the media, the GPL'ed Smart Boot Manager may provide an easy solution:</p>
+<ul><li><uri link="http://forums.gentoo.org/viewtopic.php?t=67849">Installing from floppy [Solved]</uri></li>
+<li><uri link="http://btmgr.webframe.org">Smart Boot Manager Website</uri></li>
+</ul>
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Gentoo International</title>
+<section>
+<body>
+<p>
+<b>UK: Gentoo Meet-Up Car Sharing Exchange</b>
+</p>
+
+<p>Since the venue for the planned UK meet-up in September has been decided, users have begun making travel arrangements to get to Manchester.
+Sheffield-based Gentoo developer <mail link="tomk@gentoo.org">Tomk</mail> has set up a tool on his website at dev.gentoo.org that helps tackling the UK
+Gentoo community's geographic challenges. If you plan on coming to Manchester by car, or seek opportunities to hitch a ride to take you there, check the
+<uri link="http://dev.gentoo.org/~tomk/gentoo-uk/car-pool/">UK Meet-Up Car Pool</uri> page provided by Tom.
+</p>
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Bugzilla</title>
+<section>
+<title>Summary</title>
+<body>
+     <ul>
+          <li><uri link="#doc_chap4_sect2" >Statistics</uri></li>
+          <li><uri link="#doc_chap4_sect3" >Closed Bug Ranking</uri></li>
+	  <li><uri link="#doc_chap4_sect4" >New Bug Rankings</uri></li>
+     </ul>
+</body>
+</section>
+
+<section>
+<title>Statistics</title>
+<body>
+     <p>
+     The Gentoo community uses Bugzilla (<uri link="http://bugs.gentoo.org" >bugs.gentoo.org</uri>) to record and track
+     bugs, notifications, suggestions and other interactions with the development team.  Between 14 August 2004 and 20 August 2004, activity
+     on the site has resulted in:
+     </p>
+     <ul>
+          <li>689 new bugs during this period</li>
+	  <li>534 bugs closed or resolved during this period</li>
+	  <li>26 previously closed bugs were reopened this period</li>
+     </ul>
+     <p>
+     Of the 6889 currently open bugs: 135 are labeled 'blocker', 194 are labeled 'critical', and 554 are labeled 'major'.
+     </p>
+</body>
+</section>
+
+<section>
+<title>Closed Bug Rankings</title>
+<body>
+     <p>
+     The developers and teams who have closed the most bugs during this period are:
+     </p>
+     <ul>
+<li><mail link="ppc@gentoo.org" >PPC Porters</mail>, with 62
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2004-08-14&amp;chfieldto=2004-08-20&amp;resolution=FIXED&amp;assigned_to=ppc@gentoo.org" >closed bugs</uri>
+            </li>
+<li><mail link="dev-portage@gentoo.org" >Portage Team</mail>, with 43
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2004-08-14&amp;chfieldto=2004-08-20&amp;resolution=FIXED&amp;assigned_to=dev-portage@gentoo.org" >closed bugs</uri>
+            </li>
+<li><mail link="gnome@gentoo.org" >Gentoo Gnome Team</mail>, with 31
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2004-08-14&amp;chfieldto=2004-08-20&amp;resolution=FIXED&amp;assigned_to=gnome@gentoo.org" >closed bugs</uri>
+            </li>
+<li><mail link="games@gentoo.org" >Gentoo Games</mail>, with 28
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2004-08-14&amp;chfieldto=2004-08-20&amp;resolution=FIXED&amp;assigned_to=games@gentoo.org" >closed bugs</uri>
+            </li>
+<li><mail link="kde@gentoo.org" >Gentoo KDE Team</mail>, with 24
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2004-08-14&amp;chfieldto=2004-08-20&amp;resolution=FIXED&amp;assigned_to=kde@gentoo.org" >closed bugs</uri>
+            </li>
+</ul>
+</body>
+</section>
+
+<section>
+<title>New Bug Rankings</title>
+<body>
+     <p>
+     The developers and teams who have been assigned the most new bugs during this period are:
+     </p>
+     <ul>
+<li><mail link="kernel@gentoo.org" >Gentoo Kernel Bug Wranglers and Kernel Maintainers</mail>, with 19
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2004-08-14&amp;chfieldto=2004-08-20&amp;assigned_to=kernel@gentoo.org" >new bugs</uri>
+            </li>
+<li><mail link="sound@gentoo.org" >Gentoo Sound Team</mail>, with 14
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2004-08-14&amp;chfieldto=2004-08-20&amp;assigned_to=sound@gentoo.org" >new bugs</uri>
+            </li>
+<li><mail link="sci@gentoo.org" >Gentoo Science Related Packages</mail>, with 11
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2004-08-14&amp;chfieldto=2004-08-20&amp;assigned_to=sci@gentoo.org" >new bugs</uri>
+            </li>
+<li><mail link="osx@gentoo.org" >OSX Porters</mail>, with 11
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2004-08-14&amp;chfieldto=2004-08-20&amp;assigned_to=osx@gentoo.org" >new bugs</uri>
+            </li>
+<li><mail link="base-system@gentoo.org" >Gentoo Core System Packages Team</mail>, with 11
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2004-08-14&amp;chfieldto=2004-08-20&amp;assigned_to=base-system@gentoo.org" >new bugs</uri>
+            </li>
+</ul>
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Tips and Tricks</title>
+  
+<section>
+<title>Comparing Files</title>
+<body>
+<p>
+Often people compare the differences between two files using diff.  But
+if you needed to do a comparison of similarities between files, comm is
+the command to use.
+</p>
+<pre caption="comm usage syntax">
+<i>comm [option]  file1  file2</i>
+</pre>
+
+<note>both file1 and file2 need to be sorted before using comm as it
+does a line by line comparison.</note>
+<p>
+comm outputs three columns: lines that are unique to file1, lines that
+are unique to file2, and lines that are common to both files.  The
+options '-1', '-2', '-3' will suppress the corresponding columns.
+</p>
+<p>
+Running comm -2 file1 file2 with the following files, would output five.
+</p>
+<pre caption="comm output">
+<i>File1:</i>
+<i>one</i>
+<i>two</i>
+<i>three</i>
+
+<i>File2:</i>
+<i>one</i>
+<i>five</i>
+<i>three</i>
+</pre>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Moves, Adds, and Changes</title>
+	<section>
+		<title>Moves</title>
+		<body>
+		<p>The following developers recently left the Gentoo team:</p>
+			<ul>
+				<li><e>None this week</e></li>
+			</ul>
+		</body>
+	</section>
+	<section>
+		<title>Adds</title>
+		<body>
+		<p>The following developers recently joined the Gentoo Linux team:</p>
+			<ul>
+				<li><e>None this week</e></li>
+			</ul>
+		</body>
+	</section>
+	<section>
+		<title>Changes</title>
+		<body>
+		<p>The following developers recently changed roles within the Gentoo Linux project:</p>
+			<ul>
+				<li><e>None this week</e></li>
+			</ul>
+		</body>
+	</section>
+</chapter>
+<chapter>
+	<title>Contribute to GWN</title>
+	<section>
+	<body>
+	<p>Interested in contributing to the Gentoo Weekly Newsletter?  Send us an <mail link="gwn-feedback@gentoo.org">email</mail>.</p>
+	</body>
+	</section>
+</chapter>
+<chapter>
+	<title>GWN Feedback</title>
+	<section>
+	<body>
+	<p>Please send us your <mail link="gwn-feedback@gentoo.org">feedback</mail> and help make the GWN better.</p>
+	</body>
+	</section>
+</chapter>
+<chapter>
+	<title>GWN Subscription Information</title>
+	<section>
+	<body>
+	<p>To subscribe to the Gentoo Weekly Newsletter, send a blank email to <mail link="gentoo-gwn-subscribe@gentoo.org">gentoo-gwn-subscribe@gentoo.org</mail>.</p>
+	<p>To unsubscribe to the Gentoo Weekly Newsletter, send a blank email to <mail link="gentoo-gwn-unsubscribe@gentoo.org">gentoo-gwn-unsubscribe@gentoo.org</mail> from the email address you are subscribed under.</p>
+	</body>
+	</section>
+</chapter>
+<chapter>
+	<title>Other Languages</title>
+	<section>
+	<body>
+	<p>The Gentoo Weekly Newsletter is also available in the following languages:</p>
+	<ul>
+		<li><uri link="http://www.gentoo.org/news/da/gwn/gwn.xml">Danish</uri></li>
+		<li><uri link="http://www.gentoo.org/news/be/gwn/gwn.xml">Dutch</uri></li>
+		<li><uri link="http://www.gentoo.org/news/en/gwn/gwn.xml">English</uri></li>
+		<li><uri link="http://www.gentoo.org/news/de/gwn/gwn.xml">German</uri></li>
+		<li><uri link="http://www.gentoo.org/news/fr/gwn/gwn.xml">French</uri></li>
+		<li><uri link="http://www.gentoo.org/news/ja/gwn/gwn.xml">Japanese</uri></li>
+		<li><uri link="http://www.gentoo.org/news/it/gwn/gwn.xml">Italian</uri></li>
+		<li><uri link="http://www.gentoo.org/news/pl/gwn/gwn.xml">Polish</uri></li>
+		<li><uri link="http://www.gentoo.org/news/br/gwn/gwn.xml">Portuguese (Brazil)</uri></li>
+		<li><uri link="http://www.gentoo.org/news/pt/gwn/gwn.xml">Portuguese (Portugal)</uri></li>
+		<li><uri link="http://www.gentoo.org/news/ru/gwn/gwn.xml">Russian</uri></li>
+		<li><uri link="http://www.gentoo.org/news/es/gwn/gwn.xml">Spanish</uri></li>
+		<li><uri link="http://www.gentoo.org/news/tr/gwn/gwn.xml">Turkish</uri></li>
+	</ul>
+	</body>
+	</section>
+</chapter>
+</guide>

@@ -1,0 +1,1151 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<guide type="newsletter" link="/news/pl/gwn/gwn.xml" lang="pl">
+<title>Tygodnik Gentoo</title>
+
+<author title="Autor">
+  <mail link="klieber@gentoo.org">Kurt Lieber</mail>
+</author>
+<author title="Autor">
+  <mail link="carlos@gentoo.org">Yuji Carlos Kosugi</mail>
+</author>
+<author title="Autor">
+  <mail link="plate@gentoo.org">Ulrich Plate</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="jbozanowski@gmail.com">Kuba Bożanowski</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="karol.kania@gmail.com">Karol Kania</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="shadoww@gentoo.org">Damian Kuras</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="moloh@@gentoo.org">Michał Kurgan</mail>
+</author>
+
+<abstract>Oficjalna strona polskiego wydania Tygodnika Gentoo</abstract>
+
+<version>1.3</version>
+<date>2006-02-27</date>
+
+<chapter>
+<title>Czym jest Tygodnik Gentoo?</title>
+<section>
+<body>
+
+<p>
+Nasz Tygodnik dostarcza użytkownikom wielu ciekawych informacji na temat Gentoo.
+Zwykle podsumowuje najważniejsze wydarzenia związane z naszą dystrybucją i
+prezentuje je w krótkiej oraz czytelnej formie. Każdy użytkownik powinien
+znaleźć coś dla siebie wśród akapitów przedstawiających między innymi:
+najświeższe wiadomości, wykryte luki w bezpieczeństwie, inne błędy, czy
+aktualizacje w Portage.
+</p>
+
+<p>
+Najnowsze wydanie Tygonika Gentoo zawsze można znaleźć pod <uri
+link="/news/pl/gwn/current.xml">stałym adresem</uri>.
+</p>
+
+<p>
+Aby zaprenumerować Tygodnik, należy wysłać pusty e-mail na adres
+<mail>gentoo-gwn-pl+subscribe@gentoo.org</mail>.
+</p>
+
+<p>
+Kolejne wydania Tygodnika Gentoo są także ogłaszane na kanale RSS, dostępnym pod
+<uri link="/news/pl/gwn/rss.xml"><img src="/images/xml.gif"/></uri><uri
+link="/news/pl/gwn/rss.xml">tym</uri> adresem.
+</p>
+
+<p>
+Wszelkie uwagi dotyczące każdego wydania jak i projektu jako całości prosimy
+zgłaszać do <mail link="moloh@gentoo.org">koordynatora</mail> tłumaczeń. <uri
+link="http://dev.gentoo.org/~moloh/gwn">Strona projektu polskiego tłumaczenia
+Tygodnika Gentoo</uri> zawiera informacje na temat tłumaczeń i cenne informacje
+dla wszystkich współpracowniów projektu. Można tam także znaleźć kompletną listę
+wszystkich osób, które wspierają bądź wspierały tworzenie kolejnych wydań.
+</p>
+
+<p>
+Obecnie Tygodnik jest publikowany na naszej stronie, poprzez listę dyskusyjną i
+kanał RSS. Ogłoszenia o nowych wydaniach można także znaleźć w niektórych
+serwisach internetowych ze świata wolnego oprogramowania. Rozważamy również
+inne metody jego rozpowszechniania, czekamy w tej kwestii na sugestie
+czytelników.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Archiwum Tygodnika Gentoo</title>
+<section>
+<body>
+<table>
+<tr>
+  <th>Data</th><th>Podsumowanie</th>
+</tr>
+<!--
+<tr>
+  <ti><uri link="/news/pl/gwn/-newsletter.xml"></uri></ti>
+  <ti></ti>
+</tr>
+-->
+<tr>
+  <ti><uri link="/news/pl/gwn/20070430-newsletter.xml">30 kwietnia
+  2007</uri></ti>
+  <ti>Ant 1.7.0 stabilny. Usunięcie Apache 1.x z drzewa Portage. Zespół
+  włoskiego tłumaczenia dokumentacji Gentoo poszukuje tłumaczy. Eksperymentalne
+  pakiety Gentoo/FreeBSD. Gentoo w Wired.com.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20070423-newsletter.xml">23 kwietnia
+  2007</uri></ti>
+  <ti>Podziękowania od zespołu Tygodnika Gentoo. Sylwetka dewelopera Gentoo -
+  Markus Ullmann.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20070416-newsletter.xml">16 kwietnia
+  2007</uri></ti>
+  <ti>Tygodnik Gentoo poszukuje autorów tekstów. Kwietniowe spotkanie Rady
+  Gentoo. Gentoo Linux pierwszą dystrybucją uruchomioną na platformie Apple TV.
+  Zbliża się baselayout-2.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20070312-newsletter.xml">12 marca 2007</uri></ti>
+  <ti>Wydano pliki stage Gentoo/FreeBSD 6.2 i Playstation 3. Projekt
+  Dokumentacji Gentoo poszukuje tłumaczy. Wprowadzenie D do drzewa Portage.
+  Konferencje z udziałem Gentoo - 24 godziny informatyki.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20070305-newsletter.xml">5 marca 2007</uri></ti>
+  <ti>Opengear wspomaga Gentoo serwerami CM4008. Nowy projekt Gentoo: Xfce.
+  Sylwetka dewelopera Gentoo - Joshua Saddler. Konferencje z udziałem Gentoo -
+  FOSDEM, Chemnitzer Linux-Tage, Linuxforum 07.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20070226-newsletter.xml">26 lutego
+  2007</uri></ti>
+  <ti>Tygodnik Gentoo poszukuje chętnych do pomocy. Gdzie instalować pakiety z
+  dokumentacją. Ciekawe zastosowania Gentoo - KlustOS i LeapServ.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20070219-newsletter.xml">19 lutego
+  2007</uri></ti>
+  <ti>Ostrzeżenie o nadchodzących zmianach w pakietach ALSA. Kuba przechodzi na
+  wolne oprogramowanie.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20070212-newsletter.xml">12 lutego
+  2007</uri></ti>
+  <ti>Nadchodząca aktualizacja strefy czasowej. Testowanie pakietu
+  media-libs/freetype-2.3.1. Problemy z NSS/NSPR. Podziękowania od zespołu KDE.
+  Aktualizacja projektu Adopt a Developer.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20070205-newsletter.xml">5 lutego 2007</uri></ti>
+  <ti>Zespół KDE potrzebuje pomocy. Planowane usunięcie pakietu mail-mta/qmail.
+  Sylwetka dewelopera Gentoo - Matthias Schwarzott. Więcej efektownych pulpitów:
+  Metisse. Usunięte pliki ._cfg.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20070129-newsletter.xml">29 stycznia
+  2007</uri></ti>
+  <ti>Wydano Xfce 4.4. Holenderskie forum Gentoo istnieje już dwa lata!
+  Udostępniono nowe pliki stage dla PS3.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20070122-newsletter.xml">22 stycznia
+  2007</uri></ti>
+  <ti>Flash Player 9 oficjalnie wydany. Aktualizacja projektu Adopt a Developer.
+  Zamknięcie projektu KBase. Sylwetka dewelopera Gentoo - Dimitry Bradt. Paludis
+  w natarciu. Sugestie na minimalny system. Konferencje z udziałem Gentoo -
+  Linux Conference w Sydney.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20070115-newsletter.xml">15 stycznia
+  2007</uri></ti>
+  <ti>Poszukiwany opiekun dla gentoo-sources 2.4. Poszukiwani tłumacze na język
+  chiński uproszczony. Wykłady o Gentoo na MIT. Przyszłość projektu Bugday.
+  Gentoo Linux na Playstation 3. Konferencje z udziałem Gentoo - FOSDEM.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20070108-newsletter.xml">8 stycznia
+  2007</uri></ti>
+  <ti>Migracja Bugzilli na nowe serwery. Gentoo Linux na PDA. SCALE gospodarzem
+  mini konferencji „Kobiety w Open Source”. Wywiad z Derekiem Wise,
+  przedstawicielem jednego ze sponsorów Gentoo, firmą GNi. Stabilizacja jądra
+  2.6.19.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20070101-newsletter.xml">1 stycznia
+  2007</uri></ti>
+  <ti>Nowy rok z Tygodnikiem Gentoo! Gentoo Bugday. Wieści z rosyjskiej
+  społeczności zorganizowanej wokół Gentoo.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20061211-newsletter.xml">11 grudnia
+  2006</uri></ti>
+  <ti>Płyty główne EFIKA przekazane deweloperom Gentoo. Testowanie nowych wersji
+  dbus. Flagi CFLAGS dla najnowszych procesorów Intela. Problemy z
+  zależnościami, czy błąd użytkownika? Podejście do problemów związanych z
+  bezpieczeństwem w Gentoo.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20061204-newsletter.xml">4 grudnia
+  2006</uri></ti>
+  <ti>Playstation 3 opanowane przez Gentoo Linux. Rozpoczęto zapisy na SCALE.
+  Wybrano nowego Reprezentanta Użytkowników. Co nowego w udev-103. Jak uprościć
+  aktualizację systemu.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20061127-newsletter.xml">27 listopada
+  2006</uri></ti>
+  <ti>Pliki stage dla architektur x86 dostępne. Eksperymentalne wydanie płyty
+  LiveCD dla architektury Alpha. Stabilizacja Gnome 2.16. Wprowadzenie pakietu
+  wirtualnego virtual/mysql. Koniec z pakietem coldplug.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20061120-newsletter.xml">20 listopada
+  2006</uri></ti>
+  <ti>Zapraszamy do testowania nowej wersji serwisu Bugzilla. Odtworzenie
+  zawartości katalogu /sbin. Lokalizacja poszczególnych pakietów. 5.832
+  procesorów działających pod kontrolą Gentoo Linux.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20061113-newsletter.xml">13 listopada
+  2006</uri></ti>
+  <ti>Anonimowe repozytoria CVS i SVN są dostępne. Ruby on Rail działające
+  dzięki Gentoo Linux. Dostęp do plików spoza środowiska chroot. Kłopoty z
+  pierwszą instalacją Gentoo.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20061106-newsletter.xml">6 listopada
+  2006</uri></ti>
+  <ti>Gentoo Linux i Windows XP na jednym komputerze. Usunięcie Gnome 1.4 z
+  drzewa Portage. Usuwanie zbędnych funkcjonalności, plików z instalowanych
+  pakietów. Przeszukiwanie zdalnych nakładek. 32-bitowy mplayer i 64-bitowy
+  kmplayer razem.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20061030-newsletter.xml">30 października
+  2006</uri></ti>
+  <ti>Usunięcie XMMS z drzewa Portage. Informacje o kanale IRC #gentoo-uk.
+  Zespoły CJK/Scheme oraz tureckiego tłumaczenia dokumentacji poszukują chętnych
+  do pomocy. Jak stworzyć własne LiveCD, czyli narzędzie catalyst.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20061023-newsletter.xml">23 października
+  2006</uri></ti>
+  <ti>Gentoo Linux uzyskało certyfikat dla serwerów Sun Fire T1000 i T2000.
+  vim-syntax globalną flagą USE. Trudna przyszłość i386.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20061016-newsletter.xml">16 października 2006</uri></ti>
+  <ti>Stabilizacja systemu do zarządzania Javą. KDE 3.5.5 znalazło się w drzewie
+  Portage. Podsumowanie minionego tygodnia na listach dyskusyjnych.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20061009-newsletter.xml">9 października 2006</uri></ti>
+  <ti>Stabilizacja X.Org 7.1 na architekturach amd64/x86. Poradnik dla
+  eksperymentujących z flagami CFLAGS. Wywiad z Danielem Ostrowem.
+  Doświadczenia z kartą wifi. Gentoo w firmie Benetech.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20061002-newsletter.xml">2 października 2006</uri></ti>
+  <ti>Gentoo Linux 2006.1 dostępne w sklepie Gentoo. Konkurs OpenOffice.org na
+  najlepsze szablony i kliparty. Gentoo na LinuxParty w Danii. Portage,
+  aktualizacja systemu i until.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060925-newsletter.xml">25 września 2006</uri></ti>
+  <ti>Aktualizacja nośników instalacyjnych 2006.1. Wywiad z deweloperem Gentoo
+  na antenie radia Open Source On The Air. NASA używa robotów z Gentoo Linux.
+  Podstawowa konfiguracja GNU screen.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060918-newsletter.xml">18 września 2006</uri></ti>
+  <ti>Problemy związane z pakietem dev-libs/openssl na architekturze x86.
+  Wydano Portage 2.1.1. Zmiany w pakietach - nakładkach autotools. Zmiana
+  domyślnych kolorów Portage.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060911-newsletter.xml">11 września 2006</uri></ti>
+  <ti>Wybory Rady Gentoo zakończone. Cloanto wspiera rozwój Gentoo. Koniec
+  wsparcia dla monolitycznych X-ów. Czy powstanie graficzny edytor ebuildów?
+  Sectoo - dystrybucja LiveCD oparta o Gentoo.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060904-newsletter.xml">4 września 2006</uri></ti>
+  <ti>Usunięcie z drzewa Portage net-misc/bcm4400 oraz KDE 3.4. Usunięcie z
+  drzewa Portage starych sterowników nvidia. Zbiórka funduszy na projekt Free
+  Linux Disk. Tygodnik Gentoo poszukuje autorów. Kilka recenzji wydania Gentoo
+  Linux 2006.1.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060828-newsletter.xml">28 sierpnia 2006</uri></ti>
+  <ti>Wydanie Gentoo Linux 2006.1. Stabilizacja GCC 4.1.1 i glibc 2.4 na
+  architektórach x86 i amd64. Gentoo Summer Camp w Niemczech i Rosji. Projekt
+  Gentoo Overlays udostępnia miejsce na nakładki Portage. Przyszłość
+  SELinux.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060821-newsletter.xml">21 sierpnia 2006</uri></ti>
+  <ti>Raport z konferencji z udziałem Gentoo - Linux World Conference and Expo.
+  Poszukiwani tłumacze dla greckiej i słowackiej wersji Tygodnika Gentoo. Zbliża
+  się stabilizacja GCC 4.1.1 i glibc 2.4 na architekturach x86 i amd64.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060814-newsletter.xml">14 sierpnia 2006</uri></ti>
+  <ti>Konferencja z udziałem Gentoo - Linux World Conference and Expo. Open
+  Source Lab zbiera fundusze na dalsze funkcjonowanie. Porady dotyczące nowych
+  funkcjonalności w Portage 2.1.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060807-newsletter.xml">7 sierpnia 2006</uri></ti>
+  <ti>Nowy projekt - Adopt a Developer. Wsparcie w Gentoo dla nowych wersji
+  procesora CELL. Zespoły PDA, KDE i Ruby poszykują chętnych do pomocy. Dzień z
+  życia testara architektury. Dalsze losy serwisu larrythecow.org.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060731-newsletter.xml">31 lipca 2006</uri></ti>
+  <ti>Wydano catalyst w wersji 2.0. Trzecia rocznica Gentoo Bugday. Zespół
+  Gentoo Java poszukuje chętnych do pomocy. Dokumentacja Gentoo od teraz
+  dostępna także w jęzuku czeskim.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060724-newsletter.xml">24 lipca 2006</uri></ti>
+  <ti>
+    Nowy sprzęt podarowany projektowi Gentoo SPARC.
+    Ethereal zmienia nazwę na Wireshark.
+    Wybory Reprezentantów Użytkowników rozpoczęte.
+    Czyszczenie nieaktywnych kont na Forum.
+    Jak Gentoo wyglądało w 2001 roku.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060717-newsletter.xml">17 lipca 2006</uri></ti>
+  <ti>
+    Projekt VDR poszukuje chętnych do pomocy.
+    Konferencja z udziałem Gentoo - Gentoo UK Conference, Libre Software Meeting.
+    Nowa eksperymentalna funkcjonalność w PHP.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060710-newsletter.xml">10 lipca 2006</uri></ti>
+  <ti>
+    Stabilizacja GNOME 2.14.
+    Nowy projekt - VDR.
+    Binarne sterowniki wideo, a stabilizacja X.Org 7.1.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060703-newsletter.xml">3 lipca 2006</uri></ti>
+  <ti>
+    Stabilizacja modularnej wersji X.Org.
+    Nowy projekt - KBase.
+    Aktualizacja w systemie zarządzania Javą.
+    Poszukiwani tłumacze hiszpańskiej wersji Tygodnika Gentoo.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060626-newsletter.xml">26 czerwca 2006</uri></ti>
+  <ti>
+    Poszukiwani testerzy wydań.
+    Poszukiwani testerzy architektury x86.
+    Nowe wydanie i zmiany w pakiecie alsa.
+    Aktualizacja w systemie zarządzania Javą.
+    Gry przygodowe w Gentoo Linux.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060619-newsletter.xml">19 czerwca 2006</uri></ti>
+  <ti>
+    Nominacje Reprezentantów Użytkowników.
+    Projekt Sunrise.
+    Java 1.5 w Gentoo.
+    Problemy z nss_ldap.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060612-newsletter.xml">12 czerwca 2006</uri></ti>
+  <ti>
+    Portage 2.1 w Portage!
+    Status projektu Gentoo/Alpha.
+    Zmiany w tetex.
+    Nowy projekt - Gentoo Women.
+    Co nowego w Gentoo^WGoogle Summer of Code.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060529-newsletter.xml">29 maja 2006</uri></ti>
+  <ti>
+    Errata do artykułu o gcc-4.1 z ostatniego numeru.
+    Stabilizacja GnuPG 1.9.
+    Aktualizacja dokumentacji rsync.
+    Oddanie użytkowników Gentoo i ich argumenty.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060522-newsletter.xml">22 maja 2006</uri></ti>
+  <ti>
+    Odmaskowanie gcc-4.1.
+    Dodatkowe informacje o Summer of Code.
+    Usunięcie z drzewa Portage starych pakietów PHP.
+    Konferencja z udziałem Gentoo - Grazer Linuxtage i Linux World Summit w Mediolanie.
+    Zarządzanie nakładkami Portage.
+  </ti>
+</tr>
+<!--
+<tr>
+  <ti><uri link="/news/pl/gwn/20060515-newsletter.xml">15 maja 2006</uri></ti>
+  <ti>
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060508-newsletter.xml">8 maja 2006</uri></ti>
+  <ti>
+  </ti>
+</tr>
+-->
+<tr>
+  <ti><uri link="/news/pl/gwn/20060501-newsletter.xml">1 maja 2006</uri></ti>
+  <ti>
+    Projekty Gentoo w ramach Google Summer of Code.
+    Nowa dokumentacja - backtrace HOWTO.
+    Komentarze użytkowników pomagają w poprawianiu pakietów.
+    Problemy z sumami kontrolnymi w Portage.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060424-newsletter.xml">24 kwietnia 2006</uri></ti>
+  <ti>
+    OpenLDAP 2.3 wkrótce w Portage.
+    Zmiany na Forum Gentoo.
+    Filtrowanie nieznanych flag gcc.
+    Pomoc użytkowników Gentoo przy testowaniu pakietów.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060417-newsletter.xml">17 kwietnia 2006</uri></ti>
+  <ti>
+    Konferencja z udziałem Gentoo - Linux World Expo w Bostonie.
+    Python 2.4.3 w Portage.
+    Porządki w pakietach PHP.
+    Lokalizacja Forum Gentoo.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060403-newsletter.xml">3 kwietnia 2006</uri></ti>
+  <ti>
+    Pliki stage3 dla serwerów Cobalt.
+    Kolab i Gentoo.
+    Konferencja z udziałem Gentoo - Boston Linux World Expo.
+    Zmiany w ABI w niestabilnej wersji libexpat.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060327-newsletter.xml">27 marca 2006</uri></ti>
+  <ti>
+    Poszukiwania kandydatów do zespołu ds. bezpieczeństwa.
+    Zmiana nazwy kategorii w serwisie Bugzilla.
+    Ruby on Rail w Portage.
+    Bezpieczeństwo gier w Gentoo.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060320-newsletter.xml">20 marca 2006</uri></ti>
+  <ti>
+    Poszukiwanie testerzy architektury x86.
+    Serwer AMD64 X2 dostępny dla deweloperów Gentoo.
+    Odmaskowanie modularnej wersji X.
+    Raport z konferencji OSC w Tokio.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060313-newsletter.xml">13 marca 2006</uri></ti>
+  <ti>
+    Gentoo Linux 2006.0 dostępne w sklepie Gentoo.
+    Utworzono oficjalną listę stowarzyszeń i grup entuzjastów Gentoo.
+    Konferencje z udziałem Gentoo w Calicut (Indie) i Chemnitz (Niemcy).
+    Kolejna sztuczka po długiej przerwie - iproute2.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060306-newsletter.xml">6 marca 2006</uri></ti>
+  <ti>Zainteresowanie wydaniem 2006.0. Poprawka błędu występującego w Portage.
+  Spotkanie członków projektu Gentoo PPC. Planowane konferencje - Embedded
+  Systems Conference, brytyjska konferencja użytkowników i deweloperów Gentoo,
+  FrOSCon.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060227-newsletter.xml">27 lutego 2006</uri></ti>
+  <ti>
+    Gentoo 2006.0 opublikowane!
+    Raport z konferencji FOSDEM.
+    Trzecie europejskie spotkanie deweloperów Gentoo.
+    Zbliża się Bugday.
+    Stoisko Gentoo na targach w Chemnitz.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060220-newsletter.xml">20 lutego 2006</uri></ti>
+  <ti>
+    FOSDEM startuje w sobotę.
+    Qmail w Portage - prośba o komentarze.
+    Netykieta w serwisie Bugzilla.
+    Kaboot - kolejna dystrybucja oparta o Gentoo.
+    MacIntel zdobyty! Oczywiście przez Gentoo...
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060213-newsletter.xml">13 lutego
+  2006</uri></ti>
+  <ti>Wydano wersję 1.0 narzędzia eselect. Plusiaczek Linux - kolejna
+  dystrybucja oparta o Gentoo. Zmany w Kuroo - graficznej nakładce na
+  Portage.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060206-newsletter.xml">6 lutego 2006</uri></ti>
+  <ti>
+    Stabilizacja Gnome 2.12.
+    Nowy sprzęt podarowany deweloperom Gentoo.
+    Zmiany w aplikacjach służących do podglądu pdfów.
+    Mini-Pentoo - kolejna specjalizowana wersja Gentoo.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060130-newsletter.xml">30 stycznia
+  2006</uri></ti>
+  <ti>Zbliżają się modularne Xy. Stary system konfiguracji Apache odchodzi do
+  lamusa. MySQL obsługuje sloty w Portage. Zmiany w nowej wersji gentoolkit.
+  Trzy miliony wiadomości na Forum Gentoo.</ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060116-newsletter.xml">16 stycznia 2006</uri></ti>
+  <ti>
+    Koniec z automatycznymi zmianami flag USE... w nowej wersji Portage-2.1.
+    Zbliża się, posiadające wiele usprawnień, nowe wydanie baselayout.
+    Informacje dotyczące projektów Gentoo PPC, AMD64, SPARC.  Przepis na kino
+    domowe z Gentoo Linux na pokładzie.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20060109-newsletter.xml">9 stycznia 2006</uri></ti>
+  <ti>
+    Zbliża się FOSDEM.
+    Poszukiwani nowi tłumacze na język litewski.
+    Sylwetka dewelopera Gentoo - Andrea Barisani.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20051219-newsletter.xml">19 grudnia 2005</uri></ti>
+  <ti>
+    Status projektu dokumentacji.
+    Gentoo Summer Camp - errata oraz dodatkowe informacje dla zainteresowanych.
+    Nowy sprzęt multimedialny bazujący na Gentoo Linux.
+    Migracja serwisu KDE Dot News na platformę Gentoo Linux.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20051212-newsletter.xml">12 grudnia 2005</uri></ti>
+  <ti>
+    Qt4 w niestabilnej gałęzi Portage.
+    Status projektu Gentoo Alpha.
+    Informacje dla przyszłych redaktorów Tygodnika Gentoo.
+    Od teraz statystyki forum Gentoo dostępne są w postaci wykresów.
+    Plany na Gentoo Summer Camp w Niemczech.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20051205-newsletter.xml">5 grudnia 2005</uri></ti>
+  <ti>
+    Stabilizacja gcc-3.4.4 na architekturze x86.
+    Jeden z deweloperów Gentoo dołączył do projektu Power.org.
+    Liczba użytkowników forum Gentoo przekroczyła magiczną liczbę 100.000.
+    Wywiad z Bryanem Greenem z wydziału Advanced Supercomputing NASA.
+    Konferencja FOSS.IN w Bangalore, Linuxtage w Essen.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20051128-newsletter.xml">28 listopada 2005</uri></ti>
+  <ti>
+    Poszukiwane komentarze na temat zmian w xsupplicant.
+    Aktualny stan projektu zmiany interfejsu strony głównej Gentoo.
+    Nowa funkcjonalność Portage, usprawnione debugowanie plików ELF.
+    Konferencja FOSS.IN w Bangalore, Bonekai w Yokohamie.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20051121-newsletter.xml">21 listopada 2005</uri></ti>
+  <ti>
+    Raport z drugiej europejskiej konferencji deweloperów Gentoo.
+    Usunięcie phpgroupware z drzewa Portage.
+    Publikacja wydania 2005.1-r1 na niektóre architektury.
+    Tygodnik Gentoo dostępny przez kanał RSS.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20051114-newsletter.xml">14 listopada 2005</uri></ti>
+  <ti>
+    Zmiana domyślnej metody instalacji.
+    Wywiad z Douglasem Robertsonem opisującym rolę Gentoo Linux w firmie w której pracuje.
+    Wieści z konferencji DevCon i LWE gdzie można usłyszeć o Gentoo.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20051107-newsletter.xml">7 listopada 2005</uri></ti>
+  <ti>
+    GLEP z propozycją zarządzania informacjami o aktualizacjach.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20051031-newsletter.xml">31 października 2005</uri></ti>
+  <ti>
+    Nowe, koreańskie tłumacznie Tygodnika Gentoo.
+    Podfora na forum Gentoo.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20051024-newsletter.xml">24 października 2005</uri></ti>
+  <ti>
+    Stage i LiveCD dla MIPS.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20051017-newsletter.xml">17 października 2005</uri></ti>
+  <ti>
+    Flagedit.
+    Podział na pomniejsze fora.
+    Stabilizacja MySQL 4.1.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20051010-newsletter.xml">10 października 2005</uri></ti>
+  <ti>
+    GNOME 2.12.
+    Konferencja LWE w Londynie.
+    Spotkanie deweloperów w Oberhausen.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20051003-newsletter.xml">3 października 2005</uri></ti>
+  <ti>
+    Aktualizacja do Pythona 2.4.
+    Zmiany w projekcie Gentoo/ALT.
+    Poszukiwani tłumacze.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050926-newsletter.xml">26 września 2005</uri></ti>
+  <ti>
+    Nowy kanał IRC dla autorów ebuildów.
+    Finisz przygotowań do europejskiej konferencji deweloperów Gentoo.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050919-newsletter.xml">19 września 2005</uri></ti>
+  <ti>
+    Spotkanie Rady Gentoo.
+    Zapowiedzi europejskiej konferencji deweloperów Gentoo.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050912-newsletter.xml">12 września 2005</uri></ti>
+  <ti>
+    Aktualiacje pakietów Apache.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050905-newsletter.xml">5 września 2005</uri></ti>
+  <ti>
+    Wybory do Rady Gentoo.
+    PHP4 i PHP5 jednocześnie zainstalowane w Gentoo.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050829-newsletter.xml">29 sierpnia 2005</uri></ti>
+  <ti>
+    Aktualizacje dokumentacji.
+    Szwedzki system ratunkowy oparty na Gentoo.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050822-newsletter.xml">22 sierpnia 2005</uri></ti>
+  <ti>
+    Relacja z targów Linux World Expo w San Francisco.
+    Gentoo w samochodzie.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050815-newsletter.xml">15 sierpnia 2005</uri></ti>
+  <ti>
+    Wydano Gentoo Linux 2005.1.
+    Pierwsza internetowa transmisja konferencji deweloperów Gentoo.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050808-newsletter.xml">08 sierpnia 2005</uri></ti>
+  <ti>
+    Pierwsze wydanie alpha Instalatora Gentoo.
+    Serwery sieci Tor zbanowane na Forum.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050801-newsletter.xml">01 sierpnia 2005</uri></ti>
+  <ti>
+    Konferencja Developerów Gentoo w San Francisco.
+    Poszukiwani tłumacze niemieckiej dokumentacji.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050725-newsletter.xml">25 lipca 2005</uri></ti>
+  <ti>
+    Bugzilla: Bug nr 100,000!
+    Gentoo-sources-2.4 jednak zostają.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050627-newsletter.xml">27 czerwca 2005</uri></ti>
+  <ti>
+    Deweloper Gentoo wygrał nagrodę za domowe centrum rozrywki.
+    Gentoo na LinuxTag 2005 w Karlsruhe.
+    Konta na zasponsorowanym komputerze AMD64 są już dostępne dla developerów.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050620-newsletter.xml">20 czerwca 2005</uri></ti>
+  <ti>
+    Otwarto sklep Fundacji Gentoo.
+    Gentoo na German LinuxTag 2005 w Karlsruhe.
+    Administratorzy i moderatorzy Gentoo Forums zostaną oficjalnymi członkami projektu.
+    Gentoo Forums otrzymało nowy sprzęt.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050530-newsletter.xml">30 maja 2005</uri></ti>
+  <ti>
+    OSU obdarowane sprzętem.
+    Co nowego w dokumentacji?
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050523-newsletter.xml">23 maja 2005</uri></ti>
+  <ti>
+    Wybory członków Zarządu Fundacji Gentoo na okres 2005-2006.
+    Nowa lista dyskusyjna: gentoo-perl.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050509-newsletter.xml">09 maja 2005</uri></ti>
+  <ti>
+    Rekrutacja ekspertów od drukowania.
+    Wiadomości z Forum.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050502-newsletter.xml">02 maja 2005</uri></ti>
+  <ti>
+    Oficjalnie nieoficjalna dokumentacja dla deweloperów.
+    Niebezpieczeństwa na drodze do OpenLDAP 2.2.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050425-newsletter.xml">25 kwietnia 2005</uri></ti>
+  <ti>
+    Projekt „Dolphin”: Eksperymentalne ratunkowe CD.
+    Nowości na liście mailowej International Gentoo.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050418-newsletter.xml">18 kwietnia 2005</uri></ti>
+  <ti>
+    Nowości w dokumentacji.
+    Spotkanie grupy releng po wydaniu wersji 2005.0.
+    Nowe, oficjalne kanały IRC.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050411-newsletter.xml">11 kwietnia 2005</uri></ti>
+  <ti>
+    Poprawki w wyglądzie strony.
+    Zmiany w personelu Forum.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050404-newsletter.xml">04 kwietnia 2005</uri></ti>
+  <ti>
+    Prima Aprilis.
+    Usprawnienie emerge webrsync.
+    Donacje wyższe niż oczekiwano.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050328-newsletter.xml">28 marca 2005</uri></ti>
+  <ti>
+    Gentoo 2005.0 wydane.
+    Donacje dla Gentoo poprzez Paypal.
+    Bugzilla Gentoo obsługuje teraz SSL.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050321-newsletter.xml">21 marca 2005</uri></ti>
+  <ti>
+    Dodatki do zbioru dokumentacji.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050314-newsletter.xml">14 marca 2005</uri></ti>
+  <ti>
+    Planet Gentoo wystartowało.
+    Gentoo UK Conference.
+    Rozpoczęto sprzedaż Pegasos Open Desktop Workstation z preinstalowanym Gentoo.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050307-newsletter.xml">07 marca 2005</uri></ti>
+  <ti>
+    Przebudowa Gentoo 2005.0.
+    Migracja głównego serwera stage/rsync.
+    Fora dyskusyjne aktualizowane.
+    Uwaga! Zmiany w położeniu aplikacji systemowych.
+    Szukamy opinii dotyczących użycia Gentoo w przedsięwzięciach biznesowych.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050228-newsletter.xml">28 lutego 2005</uri></ti>
+  <ti>
+    Pierwsze europejskie spotkanie deweloperów Gentoo.
+    Wystawa i konferencja FOSDEM 2005.
+    Apache odmaskowany.
+    Nowa dokumentacja Gentoo/FreeBSD już dostępna.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050214-newsletter.xml">14 lutego 2005</uri></ti>
+  <ti>
+    Zmiana platformy i oprogramowania Forum Gentoo.
+    Kalendarz Gentoo na luty/marzec 2005.
+    Gentoo Linux Security Team -- Wywiad z Thierry Carrezem.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050207-newsletter.xml">07 lutego 2005</uri></ti>
+  <ti>
+    Gentoo na Linux World Expo w Bostonie.
+    Dwa miliony postów.
+    Nowy kanał IRC oraz lista dyskusyjna dla pakietów medialnych Gentoo.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050131-newsletter.xml">31 stycznia 2005</uri></ti>
+  <ti>
+    Wsparcie dla TCG.
+    Poszukiwani deweloperzy, sprzęt EM64T oraz testerzy architektury AMD64.
+    Wydano Gentoo/PPC GameCD.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050124-newsletter.xml">24 stycznia 2005</uri></ti>
+  <ti>
+    Gentoo/OpenSolaris.
+    Nowe profile jądra w 2005.0.
+    Genesi Open Desktop Workstation z preinstalowanym Gentoo Linux.
+    Plotki potwierdzone - uruchomiono Gentoo na Mac Mini!
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050110-newsletter.xml">10 stycznia 2005</uri></ti>
+  <ti>
+    Nadużycia na Forum: dodano wizualne potwierdzanie rejestracji.
+    Stabilne jądro 2.6.10.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/20050103-newsletter.xml">03 stycznia 2005</uri></ti>
+  <ti>
+    Forum Gentoo: 1000 dni później.
+    Lista dyskusyjna nowego projektu strony.
+    Uaktualnienie Gentoo Documentation Project.
+    Poszukiwani tłumacze polskiego GWN.
+  </ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20041229-newsletter.xml">29 grudnia 2004</uri></ti>
+<ti>
+Druga rocznica Gentoo Weekly Newsletter.
+Klient bazy danych czasów kompilacji i statystyk Gentoo.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20041220-newsletter.xml">20 grudnia 2004</uri></ti>
+<ti>
+Poszukiwani prelegenci na konferencję Gentoo w Wielkiej Brytanii.
+Nowa lista dyskusyjna Catalysta.
+GWN poszukuje dodatkowych tłumaczy.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20041213-newsletter.xml">13 grudnia 2004</uri></ti>
+<ti>
+Nowe Chińskie Forum Gentoo.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20041122-newsletter.xml">22 listopada 2004</uri></ti>
+<ti>
+Gentoo 2004.3 dla x86 dostępne na DVD.
+Uaktualnienia dokumentacji Gentoo.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20040927-newsletter.xml">19 września 2004</uri></ti>
+<ti>
+Nowinki w Dokumentacji Gentoo.
+Nowa sekcja GWN: Gentoo w Prasie.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20040816-newsletter.xml">16 sierpnia 2004</uri></ti>
+<ti>
+Nowości w Infrastrukturze Gentoo.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20040809-newsletter.xml">9 sierpnia 2004</uri></ti>
+<ti>
+Gentoo na Linux World Expo.
+Komunikat w sprawie Gentoo Website Redesign.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20040802-newsletter.xml">2 sierpnia 2004</uri></ti>
+<ti>
+Wydano Gentoo Linux 2004.2.
+Pierwsza Rocznica Bug Day.
+Niemieccy tłumacze GWN poszukują nowych ochotników.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20040726-newsletter.xml">26 lipca 2004</uri></ti>
+<ti>
+net-www odchodzi do lamusa.
+Ochotnicy poszukiwani: UK Meeting Organising Committee.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20040719-newsletter.xml">19 lipca 2004</uri></ti>
+<ti>
+Wydano Gentoo MacOS X.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20040712-newsletter.xml">12 lipca 2004</uri></ti>
+<ti>
+Nowe Portage.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20040705-newsletter.xml">7 lipca 2004</uri></ti>
+<ti>
+Gentoo ogłasza konkurs na nowy projekt strony WWW.
+Bootsplash działa już na PPC.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20040628-newsletter.xml">28 czerwca 2004</uri></ti>
+<ti>
+Pierwsza instalacja dystrybucji Gentoo na poczwórnym Opteronie.
+Gentoo na LinuxTag w Karlsruhe.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20040614-newsletter.xml">14 czerwca 2004</uri></ti>
+<ti>
+Gentoo organizacją niedochodową.
+Jak pomóc: przedstawiamy webapps-request@gentoo.org.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20040607-newsletter.xml">7 czerwca 2004</uri></ti>
+<ti>
+app-admin/wasabi - nowe narzędzie do monitorowania logów systemowych.
+Aktualności w GLEPach.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20040531-newsletter.xml">31 maja 2004</uri></ti>
+<ti>
+Testowe LiveCD oraz stage dla PPC64. 
+Zmiany w net-mail/mailwrapper dotyczące różnych MTA.
+Gentoo/BSD poszukuje deweloperów
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20040524-newsletter.xml">24 maja 2004</uri></ti>
+<ti>
+Aktualizacje Dokumentacji Gentoo.
+Nowe stanowiska w Gentoo/PPC.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20040510-newsletter.xml">10 maja 2004</uri></ti>
+<ti>
+Raport ze Stanu Prac Projektu Dokumentacji Gentoo.
+GLEP 26: Obsługa źródeł jądra w Portage.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20040503-newsletter.xml">3 maja 2004</uri></ti>
+<ti>
+Daniel Robbins, Główny Deweloper Gentoo Linux, zrezygnował ze stanowiska.
+Dziesiąty BugDay zakończył się wielkim sukcesem.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20040426-newsletter.xml">26 kwietnia 2004</uri></ti>
+<ti>
+Apache ma nowego opiekuna oraz listę dyskusyjną.
+Gentoo Linux poszukuje opiekuna pakietu squid.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20040419-newsletter.xml">19 kwietnia 2004</uri></ti>
+<ti>Przekształcenie w organizację niedochodową.</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20030630-newsletter.xml">30 czerwca 2003</uri></ti>
+<ti>
+Gentoo Linux wprowadza nową strukturę zarządzania.
+Powstało odgałęzienie Gentoo.
+GWN poszukuje tłumaczy.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20030623-newsletter.xml">23 czerwca 2003</uri></ti>
+<ti>
+Co z Gentoo Linux 1.4?
+Projekt Meta Package.
+Dwa nowe mirrory w Ameryce Północnej.
+GWN poszukuje tłumaczy.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20030616-newsletter.xml">16 czerwca 2003</uri></ti>  
+<ti>
+bugs.gentoo.org na nowym serwerze.
+"Gentoo Linux Enhancement Proposals".
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20030609-newsletter.xml">09 czerwca 2003</uri></ti>  
+<ti>
+Zapowiedź Gentoo na MaxOS X. 
+Hardened Gentoo prezentuje SELinux-a. 
+Wolne stanowiska w projekcie Gentoo Linux.
+</ti>
+</tr>
+<tr>
+<ti><uri link="/news/pl/gwn/20030602-newsletter.xml">02 czerwca 2003</uri></ti>
+<ti>
+Dwa nowe mirrory w Ameryce północnej.
+Projekt kolekcji CFLAGS/cpuinf.
+Nadchodzące zmiany w infrastrukturze 
+</ti>
+</tr>
+</table>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Tłumaczenia Tygodnika Gentoo</title>  
+<section>
+<body>
+
+<p>
+Tygodnik Gentoo można także przeczytać w następujących językach:
+</p>
+
+<table>
+<tr>
+  <th>kanał RSS</th>
+  <th>Język</th>
+</tr>
+<tr>
+  <ti><uri link="/news/en/gwn/rss.xml"><img src="/images/xml.gif"/></uri></ti>
+  <ti><uri link="/news/en/gwn/gwn.xml">angielski</uri></ti>
+</tr>
+<tr>
+  <ti><uri link="/news/zh_cn/gwn/rss.xml"><img src="/images/xml.gif"/></uri></ti>
+  <ti><uri link="/news/zh_cn/gwn/gwn.xml">chińskim (uproszczony)</uri></ti>
+</tr>
+<tr>
+  <ti><uri link="/news/da/gwn/rss.xml"><img src="/images/xml.gif"/></uri></ti>
+  <ti><uri link="/news/da/gwn/gwn.xml">duński</uri></ti>
+</tr>
+<tr>
+  <ti><uri link="/news/fr/gwn/rss.xml"><img src="/images/xml.gif"/></uri></ti>
+  <ti><uri link="/news/fr/gwn/gwn.xml">francuski</uri></ti>
+</tr>
+<tr>
+  <ti><uri link="/news/el/gwn/rss.xml"><img src="/images/xml.gif"/></uri></ti>
+  <ti><uri link="/news/el/gwn/gwn.xml">grecki</uri></ti>
+</tr>
+<tr>
+  <ti><uri link="/news/es/gwn/rss.xml"><img src="/images/xml.gif"/></uri></ti>
+  <ti><uri link="/news/es/gwn/gwn.xml">hiszpański</uri></ti>
+</tr>
+<tr>
+  <ti><uri link="/news/be/gwn/rss.xml"><img src="/images/xml.gif"/></uri></ti>
+  <ti><uri link="/news/be/gwn/gwn.xml">holenderski</uri></ti>
+</tr>
+<tr>
+  <ti><uri link="/news/ja/gwn/rss.xml"><img src="/images/xml.gif"/></uri></ti>
+  <ti><uri link="/news/ja/gwn/gwn.xml">japoński</uri></ti>
+</tr>
+<tr>
+  <ti><uri link="/news/ko/gwn/rss.xml"><img src="/images/xml.gif"/></uri></ti>
+  <ti><uri link="/news/ko/gwn/gwn.xml">koreański</uri></ti>
+</tr>
+<tr>
+  <ti><uri link="/news/de/gwn/rss.xml"><img src="/images/xml.gif"/></uri></ti>
+  <ti><uri link="/news/de/gwn/gwn.xml">niemiecki</uri></ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pl/gwn/rss.xml"><img src="/images/xml.gif"/></uri></ti>
+  <ti><uri link="/news/pl/gwn/gwn.xml">polski</uri></ti>
+</tr>
+<tr>
+  <ti><uri link="/news/br/gwn/rss.xml"><img src="/images/xml.gif"/></uri></ti>
+  <ti><uri link="/news/br/gwn/gwn.xml">portugalski (Brazylia)</uri></ti>
+</tr>
+<tr>
+  <ti><uri link="/news/pt/gwn/rss.xml"><img src="/images/xml.gif"/></uri></ti>
+  <ti><uri link="/news/pt/gwn/gwn.xml">portugalski (Portugalia)</uri></ti>
+</tr>
+<tr>
+  <ti><uri link="/news/ru/gwn/rss.xml"><img src="/images/xml.gif"/></uri></ti>
+  <ti><uri link="/news/ru/gwn/gwn.xml">rosyjski</uri></ti>
+</tr>
+<tr>
+  <ti><uri link="/news/sk/gwn/rss.xml"><img src="/images/xml.gif"/></uri></ti>
+  <ti><uri link="/news/sk/gwn/gwn.xml">słowacki</uri></ti>
+</tr>
+<tr>
+  <ti><uri link="/news/it/gwn/rss.xml"><img src="/images/xml.gif"/></uri></ti>
+  <ti><uri link="/news/it/gwn/gwn.xml">włoski</uri></ti>
+</tr>
+</table>
+
+</body>
+</section>
+</chapter>
+
+</guide>
+

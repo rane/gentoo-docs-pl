@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<guide type="newsletter" link="20050606-newsletter.xml" lang="en">
+<title>Gentoo Weekly Newsletter</title>
+<subtitle>June 6th, 2005</subtitle>
+<author title="Editor">
+  <mail link="plate@gentoo.org">Ulrich Plate</mail>
+</author>
+<author title="Author">
+  <mail link="patrick@gentoo.org">Patrick Lauer</mail>
+</author>
+<author title="Author">
+  <mail link="fmonero@opensistemas.com">Fernando Monero</mail>
+</author>
+<author title="Author">
+  <mail link="cherry@trombik.mine.nu">Tomoyuki Sakurai</mail>
+</author>
+<abstract>This is the Gentoo Weekly Newsletter for the week of 6 June 2005.</abstract>
+<summary/>
+<version>Volume 4, Issue 23</version>
+<date>2005-06-06</date>
+<chapter>
+<title>Gentoo News</title>
+<section>
+<title>Python 2.4 to be unmasked</title>
+<body>
+<p>
+Bryan Østergaard (see below for his portrait) announces that <c>python-2.4</c> will be 
+unmasked on Wednesday, 8 June. It's been masked for a long time to allow for 
+proper testing and bugfixing. The Python herd members are now confident that 
+there are no major bugs left. Details of what's new in Python-2.4 can be found 
+at the <uri link="http://www.python.org/doc/2.4/whatsnew/whatsnew24.html">official 
+Python website</uri>.
+</p>
+<p>
+Please note that only <path>~arch</path> users will be affected by the unmasking, 
+and please remember to run the <c>python-updater</c> after updating Python to 
+remerge all modules as neccessary.
+</p>
+</body>
+</section>
+<section>
+<title>Busybox glitch contained</title>
+<body>
+<p>
+As some of you may have noticed, the "rescue shell" was changed from <c>sash</c> to 
+<c>busybox</c> a few days ago. This was motivated by the extra features and the 
+extensibility of busybox, but on some systems it has lead to compile failures.
+Since <c>busybox</c> is now part of "system", it was emerged on every update, so all 
+users were potentially affected.
+</p>
+<p>
+After some debugging the problem was identified as a bug in the stable toolchain related to 
+the <path>nptl</path> and <path>nptlonly</path> USE flags which had been overlooked during
+the original testing. It is triggered by <c>busybox</c> being built as a static binary -
+if it isn't, it can't be used for recovery. This has been fixed now as far as we can tell.
+Sorry for the inconvenience!
+</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Future zone</title>
+<section>
+<title>Gentoo for Zaurus</title>
+<body>
+<figure link="/images/gwn/20050606_zaurus.png"
+short="Gentooforzaurus" 
+caption="`emerge -B cpio` on a Sharp Zaurus" />
+
+<p>
+The <uri link="http://gentooforzaurus.opensistemas.com">Gentoo for Zaurus</uri> 
+project is a port of Gentoo Linux and Portage in particular to the Zaurus 
+family of PDAs from Japanese manufacturer Sharp. It is based on Anton 
+Maslovsky's "cacko ROM", a replacement image for Sharp's own Linux 
+implementation shipping with the various Zauri. <uri 
+link="http://my-zaurus.narod.ru/">Cacko ROM</uri> tries to stay as close 
+as possible to Sharp's original ROMs for maximum compatibility with the applications 
+distributed by the manufacturer. Gentoo for Zaurus also makes use of the <uri 
+link="http://emerde.freaknet.org/">Emerde project</uri>, offering a Portage 
+port for Slackware and other distributions.
+</p>
+
+<p>
+Gentoo for Zaurus can be mounted over NFS so no changes to a current 
+configuration are needed. It includes a native <c>gcc</c> environment for ARM, 
+the <c>zgcc-3.3.1</c> cross compiler for the main PC, and X11 for testing 
+applications. Most importantly, Opensistemas has developed a tool called 
+<c>tbz2ipk</c> that converts Gentoo binaries from <path>.tbz2</path> files to 
+the Itsy Package management system format (<path>.ipk</path>) widely used on 
+the Zaurus and other handhelds running Linux. Packages that have been compiled 
+on Gentoo can thus be used on both Qtopia-based implementations such as Cacko 
+or even the original Sharp ROMS, or more losely related alternative 
+distributions like OpenZaurus.
+</p>
+<p>
+The project was started in December 2003. Gentoo was chosen due to its
+"compile all" nature (whcih helped a lot in porting), and because it seemed
+like the right thing to do. Since compiling needs lots of space an NFS mount of 
+external disks is usually needed, but the new Zaurus SL-C3000 (with a 4GB disk) 
+could theoretically do everything locally. However, because the Zaurus is 
+comparatively slow (featuring ARM Xscale processors currently maxing out at 
+400Mhz) a <c>distcc</c> setup is preconfigured.
+</p>
+<p>
+Opensistemas is providing hardware and people to support Gentoo/ARM
+as well as they can. They anticipate a release of Gentoo for Zaurus sometime 
+around July if nothing goes terribly wrong. Among the new features will be a 
+2.6 kernel and a new <c>glibc</c>. Some additional documentation can be found 
+at the <uri link="http://www.openembedded.org">OpenEmbedded website</uri> (the 
+successor to the Openzaurus distribution). If all goes as planned most core 
+packages should be working well near the end of the year, and maybe ARM will be a 
+fully supported architecture in Gentoo again. 
+</p>
+<note>
+The Spanish consultancy <uri link="http://www.opensistemas.org">Opensistemas</uri> 
+recently announced a move to open the source of all their developments, not just 
+Gentoo for Zaurus. CRM software SIC and proprietary modules for content 
+management systems like OpenCMS and Typo3 will be placed under the GNU Public 
+License, reports <uri link="http://www.diarioti.com/gate/n.php?id=8655">Diario TI</uri> 
+(in Spanish).</note>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Developer of the week</title>
+<section>
+<title>"What I love most about Gentoo: the flexibility of Portage and the great community" -- Bryan Østergaard</title>
+<body>
+<figure link="/images/gwn/20050606_kloeri.jpg"
+short="kloeri" 
+caption="Bryan Østergaard aka kloeri" />
+
+<p>
+This week's featured dev is Bryan Østergaard, better known as <mail 
+link="kloeri@gentoo.org">kloeri</mail>. Bryan is the organizer of Gentoo's 
+monthly bugfix rally, the <uri link="http://bugday.gentoo.org">Bugday</uri>, 
+and the maintainer of its website. Bugdays are organized each first Saturday
+of a month, when users and developers gather in an IRC channel that has been
+set aside for this purpose (<path>#gentoo-bugday</path> on 
+<path>irc.freenode.net</path>), and spend the day tackling whatever problems 
+have accumulated over the month. 
+</p>
+<p>
+Bryan is also co-leader of the Gentoo/Alpha project, a member of the Python 
+herd and the IA64 team that takes care of the Itanium architecture in Gentoo -- 
+and he just got appointed to the role of Gentoo's Apache team leader. He manages 
+to keep a healthy balance between maintaining ebuilds on his own, and enjoying 
+lots of opportunities to meet new people on IRC during bugdays. 
+</p>
+<p>
+After finishing Advanced Computer Studies in 1999 <mail 
+link="kloeri@gentoo.org">kloeri</mail> has been self-employed, working mostly 
+as a network and server administrator, but he also does security and 
+development work when needed. Like most other featured devs before him, kloeri 
+has not worked much on other OSS projects yet, but he enjoys improving Gentoo
+(and especially Gentoo/Alpha). At the moment he lives in Denmark's capital 
+Copenhagen.
+</p>
+<p>
+As expected he uses an Alphaserver 800, but also two x86 laptops. These 
+predominantly run things like <c>screen</c>, <c>irssi</c>, <c>vim</c>, 
+<c>bash</c> and Portage. When he does use X (which is not so often) 
+<c>enlightenment</c> is his preferred WM, but "there's not that much that text 
+mode can't do", says Bryan. In the rare instances when he's not connected to 
+his computers he enjoys cycling and watching movies with friends. Hardly 
+surprising, as his motto is borrowed from Douglas Adams: "You live and learn. 
+At any rate, you live."
+</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Społeczność Gentoo</title>
+<section>
+<title>Forum</title>
+<body>
+<p><b>Nowe pliki stage dla komputerów Cobalt Qube2/Raq2</b></p>
+<p>Deweloper Gentoo <mail link="redhatter@gentoo.org">Stuart Longland</mail>
+szuka "odważnych użytkowników", którzy przetestowaliby jego nowe paczki dla
+architektur MIPS. Jeśli posiadasz komputer Cobalt Qube2 lub Raq2, oto gdzie
+możesz go sprawdzić:</p>
+<ul>
+<li>
+<uri link="http://forums.gentoo.org/viewtopic-t-343667.html">Gentoo Linux/MIPS for Cobalt -- Testers Needed </uri>
+</li>
+</ul>
+</body>
+</section>
+<section>
+<title>gentoo-dev</title>
+<body>
+<p><b>Poszukiwania testerów</b></p>
+<p>W niektórych paczkach dokonuje się zmian, które mogą spowodować ich
+nieprawidłowe działanie. Aby zmniejszyć frustrację użytkowników, deweloperzy
+potrzebują opinii w sprawie zachowania się nowych paczek - a gdzie lepiej
+spytać, jeśli nie na liście mailowej deweloperów?</p>
+<ul>
+<li><uri
+link="http://thread.gmane.org/gmane.linux.gentoo.devel/28465">
+dhcpcd-1.3.22_p4-r10 testing request </uri></li>
+<li><uri
+link="http://thread.gmane.org/gmane.linux.gentoo.devel/28411">webapp-config
+v1.11 - call for testers </uri></li>
+<li><uri
+link="http://thread.gmane.org/gmane.linux.gentoo.devel/28317">
+baselayout-1.11.12-r2 request for testers </uri></li>
+</ul>
+
+
+<p><b>Usuwanie paczek</b></p>
+<p>W krótkim czasie pojawiło się kilka ostrzeżeń o usunięciu paczek, które
+nie mają opiekuna, bądź są już nieaktualne:</p>
+<ul>
+<li><uri
+link="http://thread.gmane.org/gmane.linux.gentoo.devel/28395">[RIP] Last
+rites for cinelerra. </uri></li>
+<li><uri
+link="http://thread.gmane.org/gmane.linux.gentoo.devel/28438">Last
+rites: nss-mysql </uri></li>
+<li><uri
+link="http://thread.gmane.org/gmane.linux.gentoo.devel/28463">Last
+rites: mail-filter/amavis </uri></li>
+<li><uri
+link="http://thread.gmane.org/gmane.linux.gentoo.devel/28470">
+media-sound/emu10k1 facing removal </uri></li>
+</ul>
+<p><b>Więcej spamu! Teraz o 30% mniej użytecznego!</b></p>
+<p>Po poszukiwaniach deweloperów Debiana i innym spamie łowców głów z
+ostatnich tygodni, w tym tygodniu mieliśmy okazję obejrzeć piękny przykład, jak
+spammerzy zużywają coraz więcej zasobów, aby dotrzeć do coraz mniejszej
+ilości osób. Ponieważ Gentoo już posiada forum, można się tylko zastanawiać
+co motywuje ludzi do namawiania innych, aby dołączyli do jakiegoś nikomu
+nie znanego "Forum Dyskusyjnego Usług Sieciowych"...</p>
+<ul>
+<li><uri
+link="http://thread.gmane.org/gmane.linux.gentoo.devel/28477">teh sp@m
+</uri></li>
+</ul>
+</body></section>
+
+</chapter>
+<chapter>
+<title>Gentoo International</title>
+<section>
+<title>Japan: GentooJP Friday party fallout</title>
+<body>
+<p>
+One retired and three active Gentoo developers, namely <mail link="nakano@gentoo.org">Masatomo 
+Nakano</mail>, <mail link="matsuu@gentoo.org">Matsuu Takuto</mail>, <mail 
+link="jstubbs@gentoo.org">Jason Stubbs</mail> and former dev <mail 
+link="chriswhite@gentoo.org">Chris White</mail> joined  more than twenty 
+other Gentooists for (American) food and drinks in Tokyo's Ginza district 
+last Friday. The party was a subset of an annual Japanese "Open Source Party" 
+where more than a hundred open-source developers and users gathered -- with 
+one out of four attending the larger event already being a Gentooist.
+</p>
+<p>
+At the private Gentoo party, the fan talk couldn't come to a timely end, so 
+the party was ported to a second venue ("nijikai") in a Japanese pub. With 
+the highly international crowd around the table, conversation was equally 
+fluent in Japanese and English, centering around individual Gentoo stories, 
+Japanese culture and various other topics.
+</p>
+<p>
+Next time you happen to be in Japan, please let the GentooJP people know in 
+advance! The Japanese Gentooists are always looking for good excuses to stage 
+a party... Subscribe to the (Japanese) <path>gentoojp-misc@ml.gentoo.gr.jp</path> 
+mailing list, more information to be found at the <uri 
+link="http://www.gentoo.gr.jp/jpmain/about-gentoojp.xml#doc_chap4">GentooJP website</uri>.
+</p>
+<figure link="/images/gwn/20050606_nomikai.jpg"
+short="GentooJP nomikai" 
+caption="GentooJP drinking party in Tokyo" />
+<note>Left to right: nakano (on visit from the UK), matsuu, mudrii (spearheading 
+the Romanian gentoo.ro, but a local Tokyoite), Tomoyuki Sakurai (GentooJP and 
+GWN lead translator for Japanese), Chris White visiting from California, and jstubbs, 
+Australian living in Japan.</note>
+</body>
+</section>
+<section>
+<title>Spain: "Massive Gentoo Install" in Lloret de Mar</title>
+<body>
+<p>
+70 kilometres up the coast from Barcelona one of Spain's largest LAN 
+parties is going to open its gates for the first time on 23 to 26 June 2005. 
+<uri link="http://www.3lp.org">3LP</uri> is the cyberhome to this event
+taking place in the town of Lloret de Mar on the Costa Brava. About
+400 visitors are expected to get hooked up on roughly 4000 metres of CAT 5 
+cable, to play games, of course, but also to participate in a 
+net-installation fest of several Linux distributions, including a "massive" 
+Gentoo stage3 install, according to the organizers. Applications for one of the 
+remaining seats in the gym used for this event can be made via the 3LP website.</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Gentoo in the press</title>
+<section>
+<title>Newsforge (25 May 2005)</title>
+<body>
+<p>
+Jem Matzan summarizes advice for users to help them down the stony road of tech
+support at a hardware or software vendor's helpdesk, or <uri 
+link=" http://business.newsforge.com/business/05/05/18/2033240.shtml?tid=3">"no-help 
+desk"</uri>, as he prefers to call it. Matzan offers tips on how to 
+prevent help desks from weasling out of a "supported platform" issue, and he 
+explicitly condones lying to the support person if it serves your cause: "If 
+you're asked to restart for Windows changes to take effect, wait a reasonable 
+amount of time before telling them that the system has rebooted successfully." 
+He recommends camouflaging your real environment also in those rare cases when 
+a company indeed supports Linux, as this is usually only valid for officially 
+supported distributions: "The same technique applies: you are using Red Hat 
+Enterprise Linux 3 (or whatever is supported), not 64-bit Gentoo Linux or 
+OpenBSD 3.7. Do not attempt to reason with support personnel."</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Moves, adds, and changes</title>
+<section>
+<title>Moves</title>
+<body>
+<p>
+The following developers recently left the Gentoo team:
+</p>
+<ul>
+<li><e>None this week</e></li>
+</ul>
+</body>
+</section>
+<section>
+<title>Adds</title>
+<body>
+<p>
+The following developers recently joined the Gentoo Linux team:
+</p>
+<ul>
+<li>Colin Kingsley (tercel) - <c>mirrorselect</c>, miscellaneous ebuilds</li>
+<li>Stuart Longland (redhatter) - MIPS</li>
+<li>Kevin Quinn (kevquinn) - Hardened Gentoo</li>
+</ul>
+</body>
+</section>
+<section>
+<title>Changes</title>
+<body>
+<p>The following developers recently changed roles within the
+Gentoo Linux project:</p>
+<ul>
+<li>Bryan Østergaard (kloeri) - Apache lead</li>
+<li>Aaron Walker (ka0ttic) - joined the recruiters</li>
+</ul>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Gentoo security</title>
+<section>
+<title>Binutils, elfutils: Buffer overflow</title>
+<body>
+<p>
+
+Various utilities from the GNU Binutils and elfutils packages are
+vulnerable to a heap based buffer overflow, potentially resulting in the
+execution of arbitrary code.
+
+</p>
+<p>
+For more information, please see the <uri link="/security/en/glsa/glsa-200506-01.xml">GLSA Announcement</uri>
+</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Bugzilla</title>
+<section>
+<title>Summary</title>
+<body>
+<ul>
+	<li><uri link="#doc_chap1_sect2" >Statistics</uri></li>
+	<li><uri link="#doc_chap1_sect3" >Closed bug ranking</uri></li>
+	<li><uri link="#doc_chap1_sect4" >New bug rankings</uri></li>
+</ul>
+</body>
+</section>
+
+<section>
+<title>Statistics</title>
+<body>
+<p>
+The Gentoo community uses Bugzilla (<uri link="http://bugs.gentoo.org" >bugs.gentoo.org</uri>) to record and track
+bugs, notifications, suggestions and other interactions with the development team.  Between 29 May 2005 and 05 June 2005, activity
+on the site has resulted in:
+</p>
+<ul>
+	<li>729 new bugs during this period</li>
+	<li>402 bugs closed or resolved during this period</li>
+	<li>33 previously closed bugs were reopened this period</li>
+</ul>
+<p>
+Of the 8477 currently open bugs: 88 are labeled 'blocker', 216 are labeled 'critical', and 610 are labeled 'major'.
+</p>
+</body>
+</section>
+
+<section>
+<title>Closed bug rankings</title>
+<body>
+<p>
+The developers and teams who have closed the most bugs during this period are:
+</p>
+<ul>
+<li><mail link="base-system@gentoo.org" >Gentoo's Team for Core System packages</mail>, with 17
+	<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-05-29&amp;chfieldto=2005-06-05&amp;resolution=FIXED&amp;assigned_to=base-system@gentoo.org" >closed bugs</uri>
+	</li>
+<li><mail link="kde@gentoo.org" >Gentoo KDE team</mail>, with 16
+	<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-05-29&amp;chfieldto=2005-06-05&amp;resolution=FIXED&amp;assigned_to=kde@gentoo.org" >closed bugs</uri>
+	</li>
+<li><mail link="gnome@gentoo.org" >Gentoo Linux Gnome Desktop Team</mail>, with 16
+	<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-05-29&amp;chfieldto=2005-06-05&amp;resolution=FIXED&amp;assigned_to=gnome@gentoo.org" >closed bugs</uri>
+	</li>
+<li><mail link="web-apps@gentoo.org" >Gentoo Web Application Packages Maintainers</mail>, with 15
+	<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-05-29&amp;chfieldto=2005-06-05&amp;resolution=FIXED&amp;assigned_to=web-apps@gentoo.org" >closed bugs</uri>
+	</li>
+<li><mail link="swift@gentoo.org" >Sven Vermeulen</mail>, with 14
+	<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-05-29&amp;chfieldto=2005-06-05&amp;resolution=FIXED&amp;assigned_to=swift@gentoo.org" >closed bugs</uri>
+	</li>
+<li><mail link="printing@gentoo.org" >Printing Team</mail>, with 13
+	<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-05-29&amp;chfieldto=2005-06-05&amp;resolution=FIXED&amp;assigned_to=printing@gentoo.org" >closed bugs</uri>
+	</li>
+<li><mail link="net-p2p@gentoo.org" >Gentoo net-p2p team</mail>, with 13
+	<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-05-29&amp;chfieldto=2005-06-05&amp;resolution=FIXED&amp;assigned_to=net-p2p@gentoo.org" >closed bugs</uri>
+	</li>
+<li><mail link="neysx@gentoo.org" >Xavier Neys</mail>, with 12
+	<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-05-29&amp;chfieldto=2005-06-05&amp;resolution=FIXED&amp;assigned_to=neysx@gentoo.org" >closed bugs</uri>
+	</li>
+</ul>
+</body>
+</section>
+
+<section>
+<title>New bug rankings</title>
+<body>
+<p>
+The developers and teams who have been assigned the most new bugs during this period are:
+</p>
+<ul>
+<li><mail link="sound@gentoo.org" >Gentoo Sound Team</mail>, with 17
+	<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-05-29&amp;chfieldto=2005-06-05&amp;assigned_to=sound@gentoo.org" >new bugs</uri>
+	</li>
+<li><mail link="games@gentoo.org" >Gentoo Games</mail>, with 13
+	<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-05-29&amp;chfieldto=2005-06-05&amp;assigned_to=games@gentoo.org" >new bugs</uri>
+	</li>
+<li><mail link="amd64@gentoo.org" >AMD64 Porting Team</mail>, with 13
+	<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-05-29&amp;chfieldto=2005-06-05&amp;assigned_to=amd64@gentoo.org" >new bugs</uri>
+	</li>
+<li><mail link="media-video@gentoo.org" >media-video herd</mail>, with 12
+	<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-05-29&amp;chfieldto=2005-06-05&amp;assigned_to=media-video@gentoo.org" >new bugs</uri>
+	</li>
+<li><mail link="kde@gentoo.org" >Gentoo KDE team</mail>, with 8
+	<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-05-29&amp;chfieldto=2005-06-05&amp;assigned_to=kde@gentoo.org" >new bugs</uri>
+	</li>
+<li><mail link="java@gentoo.org" >Java team</mail>, with 8
+	<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-05-29&amp;chfieldto=2005-06-05&amp;assigned_to=java@gentoo.org" >new bugs</uri>
+	</li>
+<li><mail link="base-system@gentoo.org" >Gentoo's Team for Core System packages</mail>, with 8
+	<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-05-29&amp;chfieldto=2005-06-05&amp;assigned_to=base-system@gentoo.org" >new bugs</uri>
+	</li>
+<li><mail link="x11-drivers@gentoo.org" >X11 External Driver Maintainers</mail>, with 7
+	<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-05-29&amp;chfieldto=2005-06-05&amp;assigned_to=x11-drivers@gentoo.org" >new bugs</uri>
+	</li>
+</ul>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>GWN feedback</title>
+<section>
+<body>
+<p>
+Please send us your <mail link="gwn-feedback@gentoo.org">feedback</mail> and
+help make the GWN better.
+</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>GWN subscription information</title>
+<section>
+<body>
+<p>
+To subscribe to the Gentoo Weekly Newsletter, send a blank email to <mail
+link="gentoo-gwn+subscribe@gentoo.org">gentoo-gwn+subscribe@gentoo.org</mail>.
+</p>
+<p>
+To unsubscribe to the Gentoo Weekly Newsletter, send a blank email to <mail
+  link="gentoo-gwn+unsubscribe@gentoo.org">gentoo-gwn+unsubscribe@gentoo.org</mail>
+from the email address you are subscribed under.
+</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Other languages</title>
+<section>
+<body>
+<p>The Gentoo Weekly Newsletter is also available in the
+following languages:</p>
+<ul>
+<li>
+<uri link="/news/da/gwn/gwn.xml">Danish</uri>
+</li>
+<li>
+<uri link="/news/nl/gwn/gwn.xml">Dutch</uri>
+</li>
+<li>
+<uri link="/news/en/gwn/gwn.xml">English</uri>
+</li>
+<li>
+<uri link="/news/de/gwn/gwn.xml">German</uri>
+</li>
+<li>
+<uri link="/news/fr/gwn/gwn.xml">French</uri>
+</li>
+<li>
+<uri link="/news/ja/gwn/gwn.xml">Japanese</uri>
+</li>
+<li>
+<uri link="/news/it/gwn/gwn.xml">Italian</uri>
+</li>
+<li>
+<uri link="/news/pl/gwn/gwn.xml">Polish</uri>
+</li>
+<li>
+<uri link="/news/pt_br/gwn/gwn.xml">Portuguese (Brazil)</uri>
+</li>
+<li>
+<uri link="/news/pt/gwn/gwn.xml">Portuguese (Portugal)</uri>
+</li>
+<li>
+<uri link="/news/ru/gwn/gwn.xml">Russian</uri>
+</li>
+<li>
+<uri link="/news/es/gwn/gwn.xml">Spanish</uri>
+</li>
+<li>
+<uri link="/news/tr/gwn/gwn.xml">Turkish</uri>
+</li>
+</ul>
+</body>
+</section>
+</chapter>
+</guide>

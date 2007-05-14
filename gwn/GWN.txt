@@ -1,0 +1,643 @@
+Wydanie Tygodnika Gentoo z 30 kwietnia 2007.
+============================================
+
+
+1. Wiadomości Gentoo
+--------------------
+
+Ant 1.7.0 stabilny
+^^^^^^^^^^^^^^^^^^
+
+Po miesiącach pracy i testów, Ant 1.7.0 zostanie ustabilizowany w najbliższy
+weekend. Wraz z tą wersją nadchodzi istotna zmiana w sposobie instalacji i
+użycia w Gentoo. Wszystkie opcjonalne „mrówki” będą oddzielnymi pakietami.
+Ułatwi to zarządzanie pozostałymi pakietami Java, dla których Ant jest
+najczęściej wykorzystywanym systemem budowania. Użytkownicy niewykorzystujący
+na co dzień Ant, praktycznie nie odczują żadnych zmian. Ingerencji ze strony
+użytkownika wymaga jedynie aktualizacja z poprzednich wersji, pakiety
+dev-java/ant-tasks oraz dev-java/ant muszą zostać ręcznie usunięte przed
+instalacją dev-java/ant-core-1.7.0. Więcej informacji dla użytkowników,
+autorów ebuildów oraz zainteresowanych nową metodą konfiguracji można znaleźć
+w stworzonym przewodniku Ant Guide[1].
+
+ 1. http://gentoo.org/proj/en/java/ant-guide.xml
+
+Usunięcie Apache 1.x z drzewa Portage
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Apache 2.x jest stabilnym i solidnym następcą Apache 1.x i posiada wiele
+dodatkowych funkcjonalności, poprawiono także cykl konserwacji aplikacji.
+Dlatego też wsparcie dla Apache 1.x w Gentoo zostanie wstrzymane z dniem 12
+maja 2007. Wszystkie ebuildy Apache 1.x jak i również same moduły Apache 1.x,
+zostaną dodane do pliku package.mask na czas około miesiąca, po czym usunięte
+całkowicie z drzewa.
+
+Zespół włoskiego tłumaczenia dokumentacji Gentoo poszukuje tłumaczy
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Nadszedł czas, by zespół włoskiego tłumaczenia dokumentacji Gentoo zaczął
+rekrutować kolejnych tłumaczy. Przetłumaczona dokumentacja jest niezwykle
+istotna w czasie używania Gentoo, szczególnie dla niedoświadczonych
+użytkowników, bądź tych nie znających języka angielskiego. Zachęcamy osoby
+potrafiące posługiwać się językiem angielskim i korzystające z Gentoo do
+pomocy zespołowi włoskich tłumaczy w tłumaczeniu dokumentów.
+
+Marco Mascherpa[2] i Davide Cendron[3] czekają na wasze emaile.
+
+ 2. m.mascherpa@gentoo.org
+ 3. scan@gentoo.org
+
+2. Społeczność Gentoo
+---------------------
+
+Serwis planet.gentoo.org
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Pakiety Gentoo/FreeBSD 7.0_pre
+
+W ostatnim czasie Timothy Redaelli[4] ogłosił, że zakończył pracę nad
+stworzeniem pakietów Gentoo/FreeBSD 7.0_pre200704 bazujących na obrazie
+CURRENT 200704-ZFS. Ebuildy można znaleźć pod adresem
+http://overlays.gentoo.org/dev/drizzt. Aby dokonać aktualizacji, należy
+zmienić profil oraz dokonać migracji CHOST, zachęcamy do zapoznania się z
+dokumentem CHOST Guide[5]. Trzeba skorzystać z pakietów binutils, gcc oraz
+freebsd-libc zamiast glibc. Aktualnie nie działa lokalizacja oraz porzucono
+wsparcie dla sparc-fbsd, a Drizzt musi jeszcze zaktualizować rtld-elf do
+wersji 7.0.
+
+ 4. drizzt@gentoo.org
+ 5. http://www.gentoo.org/doc/pl/change-chost.xml
+
+3. Gentoo w prasie
+------------------
+
+Wired.com (25 kwietnia, 2007)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Na stronie serwisu Wired ukazał się artykuł „Lamest Technology Mascots Ever”
+przedstawiający różne maskotki, znalazł się tam pingwin Tux, Duke - oficjalna
+maskotka Javy. Nie pominięto także naszej sympatycznej krówki - Larrego.
+
+Pomimo tytułu, Wired spojrzał na Larrego bardzo przychylnym okiem, pisząc
+„Krowa Larry, tajemniczy rzecznik dystrybucji Linuksa Gentoo, jest zarówno
+przykuwający uwagę jak i skromny”, dodając „Czy Larry to nie jest aby imię dla
+faceta?”. Czytelnicy Wired mogą głosować, by określić określić los Larrego w
+galerii, w jednym z wątków na forum Gentoo[6] zaproponowano alternatywę dla
+maskotki Gentoo, hybrydę Larrego i Tuxa, warto jej się dokładnie przyjrzeć.
+
+ * http://www.wired.com/culture/design/multimedia/2007/04/gallery_mascots
+
+ 6. http://forums.gentoo.org/viewtopic-t-555487.html
+
+Wired.com (26 kwietnia, 2007)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Czytamy w artykule, „Użytkownicy Mac OS X mają teraz do wyboru następną
+aplikację służącą do wirtualizacji, stworzony przez Innotek VirtualBox można
+teraz uruchomić na Macu. VirtualBox, który był do tej pory dostępny jedynie na
+platformy Windows oraz Linux, wspiera różne systemy operacyjne kompatybilne z
+architekturą x86, włączając Windows Vista oraz Gentoo Linux.”
+
+Gentoo Linux jest jedynie wymienione w samym artykule, na oficjalnej stronie
+VirtualBox nie znajdziemy już wzmianki o naszej dystrybucji (ani o żadnej
+innej).
+
+ * http://blog.wired.com/monkeybites/2007/04/virtualbox_adds.html
+
+4. Zmiana statusu deweloperów Gentoo
+------------------------------------
+
+Odeszli
+^^^^^^^
+
+Następujący deweloperzy opuścili projekt Gentoo Linux w minionym tygodniu:
+
+ * Nikt w tym tygodniu
+
+Przybyli
+^^^^^^^^
+
+Następujący deweloperzy przyłączyli się do projektu Gentoo Linux w minionym
+tygodniu:
+
+ * Dawid Węgliński (cla) projekt Gentoo Artwork
+
+Zmienili status
+^^^^^^^^^^^^^^^
+
+Następujący deweloperzy zmienili w minionym tygodniu pełnioną w projekcie
+Gentoo Linux funkcję:
+
+ * Nikt w tym tygodniu
+
+5. Bezpieczeństwo Gentoo
+------------------------
+
+Blender: Zdalne wykonanie niepożądanego kodu wymagające asysty ze strony
+użytkownika
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Blender zawiera usterkę umożliwiającą zdalne wykonanie niepożądanego kodu
+wymagające asysty ze strony użytkownika.
+
+Więcej informacji można znaleźć w  komunikacie GLSA[7]
+
+ 7. http://www.gentoo.org/security/en/glsa/glsa-200704-19.xml
+
+NAS: Wiele usterek
+^^^^^^^^^^^^^^^^^^
+
+Network Audio System zawiera usterkę przepełnienia bufora, które może zostać
+wykorzystana do wykonania niepożądanego kodu z uprawnieniami superużytkownika.
+
+Więcej informacji można znaleźć w  komunikacie GLSA[8]
+
+ 8. http://www.gentoo.org/security/en/glsa/glsa-200704-20.xml
+
+ClamAV: Wiele usterek
+^^^^^^^^^^^^^^^^^^^^^
+
+ClamAV zawiera wiele usterek umożliwiających zdalne wykonanie niepożądanego
+kodu.
+
+Więcej informacji można znaleźć w  komunikacie GLSA[9]
+
+ 9. http://www.gentoo.org/security/en/glsa/glsa-200704-21.xml
+
+BEAST: Denial of Service
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+BEAST zawiera usterkę umożliwiającą przeprowadzenie ataku Denial of Service.
+
+Więcej informacji można znaleźć w  komunikacie GLSA[10]
+
+ 10. http://www.gentoo.org/security/en/glsa/glsa-200704-22.xml
+
+capi4k-utils: Przepełnienie bufora
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Pakiet capi4k-utils zawiera usterkę przepełnienia bufora w funkcji bufprint().
+
+Więcej informacji można znaleźć w  komunikacie GLSA[11]
+
+ 11. http://www.gentoo.org/security/en/glsa/glsa-200704-23.xml
+
+6. Zmiany w drzewie Portage
+---------------------------
+
+Poniżej znajduje się lista pakietów, które zostały usunięte lub dodane do
+drzewa Portage w ostatnim czasie oraz lista przedstawiająca plany dotyczące
+usunięcia kolejnych pakietów w przyszłości. Informacje te pochodzą z różnych
+źródeł, włączając projekt Treecleaners[12] oraz zgłoszenia od poszczególnych
+deweloperów. Większość pakietów, które można znaleźć w części Ostatnie
+Namaszczenie wymaga jedynie miłości i opieki ze strony deweloperów. W
+przypadku znalezienia nowego opiekuna ich los z pewnością ulegnie poprawie i
+pozostaną one w oficjalnym drzewie Portage.
+
+ 12. http://gentoo.org/proj/en/qa/treecleaners
+
+Usunięte pakiety:
+^^^^^^^^^^^^^^^^^
+
+.-------------------------------------------------------------------.
+| Pakiet:                | Data usunięcia:  | Kontakt:              |
+|-------------------------------------------------------------------|
+| dev-perl/Newt          | 24 kwietnia 2007 | Michael Cummings[13]  |
+|-------------------------------------------------------------------|
+| dev-java/eclipse-core  | 25 kwietnia 2007 | Petteri Räty[14]      |
+|-------------------------------------------------------------------|
+| dev-java/eclipse-jface | 25 kwietnia 2007 | Petteri Räty[14]      |
+|-------------------------------------------------------------------|
+| dev-java/eclipse-osgi  | 25 kwietnia 2007 | Petteri Räty[14]      |
+|-------------------------------------------------------------------|
+| net-misc/nx-x11-bin    | 26 kwietnia 2007 | Bernard Cafarelli[15] |
+|-------------------------------------------------------------------|
+| net-misc/nx-x11        | 26 kwietnia 2007 | Bernard Cafarelli[15] |
+|-------------------------------------------------------------------|
+| net-misc/nxcomp        | 26 kwietnia 2007 | Bernard Cafarelli[15] |
+|-------------------------------------------------------------------|
+| net-misc/nxesd         | 26 kwietnia 2007 | Bernard Cafarelli[15] |
+|-------------------------------------------------------------------|
+| net-misc/nxproxy       | 26 kwietnia 2007 | Bernard Cafarelli[15] |
+|-------------------------------------------------------------------|
+| net-misc/nxssh         | 26 kwietnia 2007 | Bernard Cafarelli[15] |
+|-------------------------------------------------------------------|
+| dev-java/datavision    | 27 kwietnia 2007 | William Thomson[16]   |
+|-------------------------------------------------------------------|
+| dev-util/jcvs          | 28 kwietnia 2007 | Petteri Räty[14]      |
+|-------------------------------------------------------------------|
+| dev-java/j2ssh         | 28 kwietnia 2007 | Petteri Räty[14]      |
+|-------------------------------------------------------------------|
+| dev-java/javatar       | 28 kwietnia 2007 | Petteri Räty[14]      |
+|-------------------------------------------------------------------|
+| dev-haskell/buddha     | 29 kwietnia 2007 | Duncan Coutts[17]     |
+`-------------------------------------------------------------------'
+
+ 13. mcummings@gentoo.org
+ 14. betelgeuse@gentoo.org
+ 15. voyageur@gentoo.org
+ 16. wltjr@gentoo.org
+ 17. dcoutts@gentoo.org
+
+Nowe pakiety:
+^^^^^^^^^^^^^
+
+.----------------------------------------------------------------------------.
+| Pakiet:                    | Data dodania:    | Kontakt:                   |
+|----------------------------------------------------------------------------|
+| dev-python/yolk-portage[18 | 23 kwietnia 2007 | Rob Cakebread[19]          |
+| ]                          |                  |                            |
+|----------------------------------------------------------------------------|
+| dev-python/yolk[20]        | 23 kwietnia 2007 | Rob Cakebread[19]          |
+|----------------------------------------------------------------------------|
+| sci-mathematics/rkward[21] | 23 kwietnia 2007 | Sebastien Fabbro[22]       |
+|----------------------------------------------------------------------------|
+| app-text/wklej[23]         | 23 kwietnia 2007 | Jurek Bartuszek[24]        |
+|----------------------------------------------------------------------------|
+| dev-java/jibx[25]          | 24 kwietnia 2007 | Krzysiek Pawlik[26]        |
+|----------------------------------------------------------------------------|
+| www-apps/gnopaste[27]      | 24 kwietnia 2007 | Jurek Bartuszek[24]        |
+|----------------------------------------------------------------------------|
+| app-text/gnopaster[28]     | 24 kwietnia 2007 | Jurek Bartuszek[24]        |
+|----------------------------------------------------------------------------|
+| net-proxy/ufdbguard[29]    | 24 kwietnia 2007 | Jose Alberto Suarez        |
+|                            |                  | Lopez[30]                  |
+|----------------------------------------------------------------------------|
+| sci-visualization/mayavi[3 | 24 kwietnia 2007 | Sebastien Fabbro[22]       |
+| 1]                         |                  |                            |
+|----------------------------------------------------------------------------|
+| dev-python/twill[32]       | 24 kwietnia 2007 | Rob Cakebread[19]          |
+|----------------------------------------------------------------------------|
+| sci-biology/meme[33]       | 24 kwietnia 2007 | Olivier Fisette[34]        |
+|----------------------------------------------------------------------------|
+| dev-util/deskzilla[35]     | 24 kwietnia 2007 | Vlastimil Babka[36]        |
+|----------------------------------------------------------------------------|
+| dev-java/jempbox[37]       | 24 kwietnia 2007 | Vlastimil Babka[36]        |
+|----------------------------------------------------------------------------|
+| dev-java/pdfbox[38]        | 25 kwietnia 2007 | Vlastimil Babka[36]        |
+|----------------------------------------------------------------------------|
+| net-misc/nxclient-2xtermin | 25 kwietnia 2007 | Bernard Cafarelli[40]      |
+| alserver[39]               |                  |                            |
+|----------------------------------------------------------------------------|
+| app-portage/autounmask[41] | 25 kwietnia 2007 | Christian Hartmann[42]     |
+|----------------------------------------------------------------------------|
+| dev-perl/Passwd-Linux[43]  | 25 kwietnia 2007 | Christian Hartmann[42]     |
+|----------------------------------------------------------------------------|
+| net-misc/nxserver-2xtermin | 25 kwietnia 2007 | Bernard Cafarelli[40]      |
+| alserver[44]               |                  |                            |
+|----------------------------------------------------------------------------|
+| games-simulation/fgrun[45] | 26 kwietnia 2007 | Alfredo Tupone[46]         |
+|----------------------------------------------------------------------------|
+| app-portage/meatoo[47]     | 26 kwietnia 2007 | Rob Cakebread[19]          |
+|----------------------------------------------------------------------------|
+| games-strategy/knights-dem | 27 kwietnia 2007 | Michael Sterrett[49]       |
+| o[48]                      |                  |                            |
+|----------------------------------------------------------------------------|
+| net-im/kopete-otr[50]      | 27 kwietnia 2007 | Timothy Redaelli[51]       |
+|----------------------------------------------------------------------------|
+| dev-java/glassfish-servlet | 27 kwietnia 2007 | William Thomson[53]        |
+| -api[52]                   |                  |                            |
+|----------------------------------------------------------------------------|
+| games-strategy/lightyears[ | 27 kwietnia 2007 | Alfredo Tupone[46]         |
+| 54]                        |                  |                            |
+|----------------------------------------------------------------------------|
+| dev-java/laf-plugin[55]    | 28 kwietnia 2007 | Vlastimil Babka[36]        |
+|----------------------------------------------------------------------------|
+| net-im/pyicq-t[56]         | 28 kwietnia 2007 | Maurice van der Pot[57]    |
+|----------------------------------------------------------------------------|
+| app-text/omegat[58]        | 29 kwietnia 2007 | Matsuu Takuto[59]          |
+|----------------------------------------------------------------------------|
+| dev-embedded/zmac[60]      | 29 kwietnia 2007 | Ulrich Müller[61]          |
+|----------------------------------------------------------------------------|
+| gnome-extra/contacts[62]   | 29 kwietnia 2007 | Tobias Scherbaum[63]       |
+`----------------------------------------------------------------------------'
+
+ 18. http://packages.gentoo.org/packages/?category=dev-python;name=yolk-portag
+     e
+ 19. pythonhead@gentoo.org
+ 20. http://packages.gentoo.org/packages/?category=dev-python;name=yolk
+ 21. http://packages.gentoo.org/packages/?category=sci-mathematics;name=rkward
+ 22. bicatali@gentoo.org
+ 23. http://packages.gentoo.org/packages/?category=app-text;name=wklej
+ 24. jurek@gentoo.org
+ 25. http://packages.gentoo.org/packages/?category=dev-java;name=jibx
+ 26. nelchael@gentoo.org
+ 27. http://packages.gentoo.org/packages/?category=www-apps;name=gnopaste
+ 28. http://packages.gentoo.org/packages/?category=app-text;name=gnopaster
+ 29. http://packages.gentoo.org/packages/?category=net-proxy;name=ufdbguard
+ 30. bass@gentoo.org
+ 31. http://packages.gentoo.org/packages/?category=sci-visualization;name=maya
+     vi
+ 32. http://packages.gentoo.org/packages/?category=dev-python;name=twill
+ 33. http://packages.gentoo.org/packages/?category=sci-biology;name=meme
+ 34. ribosome@gentoo.org
+ 35. http://packages.gentoo.org/packages/?category=dev-util;name=deskzilla
+ 36. caster@gentoo.org
+ 37. http://packages.gentoo.org/packages/?category=dev-java;name=jempbox
+ 38. http://packages.gentoo.org/packages/?category=dev-java;name=pdfbox
+ 39. http://packages.gentoo.org/packages/?category=net-misc;name=nxclient-2xte
+     rminalserver
+ 40. voyageur@gentoo.org
+ 41. http://packages.gentoo.org/packages/?category=app-portage;name=autounmask
+ 42. ian@gentoo.org
+ 43. http://packages.gentoo.org/packages/?category=dev-perl;name=Passwd-Linux
+ 44. http://packages.gentoo.org/packages/?category=net-misc;name=nxserver-2xte
+     rminalserver
+ 45. http://packages.gentoo.org/packages/?category=games-simulation;name=fgrun
+ 46. tupone@gentoo.org
+ 47. http://packages.gentoo.org/packages/?category=app-portage;name=meatoo
+ 48. http://packages.gentoo.org/packages/?category=games-strategy;name=knights
+     -demo
+ 49. mr_bones_@gentoo.org
+ 50. http://packages.gentoo.org/packages/?category=net-im;name=kopete-otr
+ 51. drizzt@gentoo.org
+ 52. http://packages.gentoo.org/packages/?category=dev-java;name=glassfish-ser
+     vlet-api
+ 53. wltjr@gentoo.org
+ 54. http://packages.gentoo.org/packages/?category=games-strategy;name=lightye
+     ars
+ 55. http://packages.gentoo.org/packages/?category=dev-java;name=laf-plugin
+ 56. http://packages.gentoo.org/packages/?category=net-im;name=pyicq-t
+ 57. griffon26@gentoo.org
+ 58. http://packages.gentoo.org/packages/?category=app-text;name=omegat
+ 59. matsuu@gentoo.org
+ 60. http://packages.gentoo.org/packages/?category=dev-embedded;name=zmac
+ 61. ulm@gentoo.org
+ 62. http://packages.gentoo.org/packages/?category=gnome-extra;name=contacts
+ 63. dertobi123@gentoo.org
+
+Ostatnie namaszczenie:
+^^^^^^^^^^^^^^^^^^^^^^
+
+.----------------------------------------------------------------------------.
+| Pakiet:                     | Data usunięcia:  | Kontakt:                  |
+|----------------------------------------------------------------------------|
+| app-emacs/erc-cvs[64]       | 24 maja 2007     | Christian Faulhammer[65]  |
+|----------------------------------------------------------------------------|
+| app-emacs/cdi[66]           | 24 maja 2007     | Christian Faulhammer[65]  |
+|----------------------------------------------------------------------------|
+| dev-java/makeme[67]         | 25 maja 2007     | Alistair Bush[68]         |
+|----------------------------------------------------------------------------|
+| dev-java/puretls[69]        | 25 maja 2007     | Petteri Räty[70]          |
+|----------------------------------------------------------------------------|
+| dev-java/jcs-bin[71]        | 27 maja 2007     | Krzysiek Pawlik[72]       |
+|----------------------------------------------------------------------------|
+| dev-java/nice[73]           | 28 maja 2007     | Krzysiek Pawlik[72]       |
+|----------------------------------------------------------------------------|
+| dev-java/fesi[74]           | 28 maja 2007     | Krzysiek Pawlik[72]       |
+|----------------------------------------------------------------------------|
+| dev-java/joscar[75]         | 28 maja 2007     | Vlastimil Babka[76]       |
+|----------------------------------------------------------------------------|
+| dev-java/jmbus[77]          | 28 maja 2007     | Vlastimil Babka[76]       |
+|----------------------------------------------------------------------------|
+| dev-util/j[78]              | 28 maja 2007     | William L. Thomson Jr[79] |
+|----------------------------------------------------------------------------|
+| dev-java/sun-connector-bin[ | 28 maja 2007     | Vlastimil Babka[76]       |
+| 80]                         |                  |                           |
+|----------------------------------------------------------------------------|
+| dev-java/sun-dsml-bin[81]   | 28 maja 2007     | Vlastimil Babka[76]       |
+|----------------------------------------------------------------------------|
+| dev-java/sun-ejb-spec[82]   | 28 maja 2007     | Vlastimil Babka[76]       |
+|----------------------------------------------------------------------------|
+| dev-java/qat[83]            | 28 maja 2007     | Krzysiek Pawlik[72]       |
+|----------------------------------------------------------------------------|
+| net-libs/jaimlib[84]        | 28 maja 2007     | William L. Thomson Jr[79] |
+|----------------------------------------------------------------------------|
+| media-sound/jsynthlib[85]   | 28 maja 2007     | William L. Thomson Jr[79] |
+|----------------------------------------------------------------------------|
+| dev-ruby/wxruby[86]         | 29 maja 2007     | Ryan Hill[87]             |
+|----------------------------------------------------------------------------|
+| app-pda/plucker[88]         | 29 maja 2007     | Ryan Hill[87]             |
+`----------------------------------------------------------------------------'
+
+ 64. http://packages.gentoo.org/packages/?category=app-emacs;name=erc-cvs
+ 65. opfer@gentoo.org
+ 66. http://packages.gentoo.org/packages/?category=app-emacs;name=cdi
+ 67. http://packages.gentoo.org/packages/?category=dev-java;name=makeme
+ 68. ali_bush@gentoo.org
+ 69. http://packages.gentoo.org/packages/?category=dev-java;name=puretls
+ 70. betelgeuse@gentoo.org
+ 71. http://packages.gentoo.org/packages/?category=dev-java;name=jcs-bin
+ 72. nelchael@gentoo.org
+ 73. http://packages.gentoo.org/packages/?category=dev-java;name=nice
+ 74. http://packages.gentoo.org/packages/?category=dev-java;name=fesi
+ 75. http://packages.gentoo.org/packages/?category=dev-java;name=joscar
+ 76. caster@gentoo.org
+ 77. http://packages.gentoo.org/packages/?category=dev-java;name=jmbus
+ 78. http://packages.gentoo.org/packages/?category=dev-util;name=j
+ 79. wltjr@gentoo.org
+ 80. http://packages.gentoo.org/packages/?category=dev-java;name=sun-connector
+     -bin
+ 81. http://packages.gentoo.org/packages/?category=dev-java;name=sun-dsml-bin
+ 82. http://packages.gentoo.org/packages/?category=dev-java;name=sun-ejb-spec
+ 83. http://packages.gentoo.org/packages/?category=dev-java;name=qat
+ 84. http://packages.gentoo.org/packages/?category=net-libs;name=jaimlib
+ 85. http://packages.gentoo.org/packages/?category=media-sound;name=jsynthlib
+ 86. http://packages.gentoo.org/packages/?category=dev-ruby;name=wxruby
+ 87. dirtyepic@gentoo.org
+ 88. http://packages.gentoo.org/packages/?category=app-pda;name=plucker
+
+7. Bugzilla
+-----------
+
+Podsumowanie
+^^^^^^^^^^^^
+
+ * Statystyki
+ * Zamknięte bugi
+ * Nowe bugi
+
+Statystyki
+^^^^^^^^^^
+
+Społeczność Gentoo używa Bugzilli (bugs.gentoo.org[89]) do zgłaszania i
+śledzenia błędów, ogłoszeń, sugestii oraz innych form kontaktu z deweloperami.
+Pomiędzy 22 kwietnia 2007, a 29 kwietnia 2007 aktywność w serwisie
+przedstawiała się następująco:
+
+ * zgłoszono 610 nowych bugów
+ * zamknięto lub rozwiązano 392 bugi
+ * otwarto ponownie 18 uprzednio zamkniętych bugów
+ * 106 bugów oznaczono jako NEEDINFO/WONTFIX/CANTFIX/INVALID/UPSTREAM
+ * 53 bugi oznaczono jako duplikaty
+
+Spośród 10065 obecnie otwartych bugów: 14 oznaczono jako 'blocker', 105 jako
+'critical', a 369 jako 'major'.
+
+ 89. http://bugs.gentoo.org/
+
+Zamknięte Bugi
+^^^^^^^^^^^^^^
+
+Deweloperzy oraz zespoły, które zamknęły najwięcej bugów w minionym tygodniu,
+to:
+
+ * Gentoo KDE team[90], 33 zamknięte bugi[91]
+ * AMD64 Project[92], 15 zamkniętych bugów[93]
+ * Gentoo Security[94], 14 zamkniętych bugów[95]
+ * Gentoo Games[96], 13 zamkniętych bugów[97]
+ * Java team[98], 12 zamkniętych bugów[99]
+ * TCL/TK Herd Maintainers[100], 10 zamkniętych bugów[101]
+ * Robin Johnson[102], 10 zamkniętych bugów[103]
+ * Gentoo Linux bug wranglers[104], 9 zamkniętych bugów[105]
+
+ 90. kde@gentoo.org
+ 91. http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&bug_status=CLOSED&
+     chfield=bug_status&chfieldfrom=2007-04-22&chfieldto=2007-04-29&resolution
+     =FIXED&assigned_to=kde@gentoo.org
+ 92. amd64@gentoo.org
+ 93. http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&bug_status=CLOSED&
+     chfield=bug_status&chfieldfrom=2007-04-22&chfieldto=2007-04-29&resolution
+     =FIXED&assigned_to=amd64@gentoo.org
+ 94. security@gentoo.org
+ 95. http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&bug_status=CLOSED&
+     chfield=bug_status&chfieldfrom=2007-04-22&chfieldto=2007-04-29&resolution
+     =FIXED&assigned_to=security@gentoo.org
+ 96. games@gentoo.org
+ 97. http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&bug_status=CLOSED&
+     chfield=bug_status&chfieldfrom=2007-04-22&chfieldto=2007-04-29&resolution
+     =FIXED&assigned_to=games@gentoo.org
+ 98. java@gentoo.org
+ 99. http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&bug_status=CLOSED&
+     chfield=bug_status&chfieldfrom=2007-04-22&chfieldto=2007-04-29&resolution
+     =FIXED&assigned_to=java@gentoo.org
+ 100. tcltk@gentoo.org
+ 101. http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&bug_status=CLOSED
+      &chfield=bug_status&chfieldfrom=2007-04-22&chfieldto=2007-04-29&resoluti
+      on=FIXED&assigned_to=tcltk@gentoo.org
+ 102. robbat2@gentoo.org
+ 103. http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&bug_status=CLOSED
+      &chfield=bug_status&chfieldfrom=2007-04-22&chfieldto=2007-04-29&resoluti
+      on=FIXED&assigned_to=robbat2@gentoo.org
+ 104. bug-wranglers@gentoo.org
+ 105. http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&bug_status=CLOSED
+      &chfield=bug_status&chfieldfrom=2007-04-22&chfieldto=2007-04-29&resoluti
+      on=FIXED&assigned_to=bug-wranglers@gentoo.org
+
+Nowe Bugi
+^^^^^^^^^
+
+Deweloperzy oraz zespoły, którym przydzielono najwięcej bugów w minionym
+tygodniu, to:
+
+ * Default Assignee for New Packages[106], 22 nowe bugi[107]
+ * Gentoo Linux High-Availability Clustering Team[108], 18 nowych bugów[109]
+ * media-video herd[110], 10 nowych bugów[111]
+ * Netmon Herd[112], 9 nowych bugów[113]
+ * AMD64 Project[114], 9 nowych bugów[115]
+ * ppc64 architecture team[116], 8 nowych bugów[117]
+ * Mobile Herd[118], 8 nowych bugów[119]
+ * Theology Herd[120], 7 nowych bugów[121]
+
+ 106. maintainer-wanted@gentoo.org
+ 107. http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&bu
+      g_status=REOPENED&chfield=assigned_to&chfieldfrom=2007-04-22&chfieldto=2
+      007-04-29&assigned_to=maintainer-wanted@gentoo.org
+ 108. ha-cluster@gentoo.org
+ 109. http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&bu
+      g_status=REOPENED&chfield=assigned_to&chfieldfrom=2007-04-22&chfieldto=2
+      007-04-29&assigned_to=ha-cluster@gentoo.org
+ 110. media-video@gentoo.org
+ 111. http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&bu
+      g_status=REOPENED&chfield=assigned_to&chfieldfrom=2007-04-22&chfieldto=2
+      007-04-29&assigned_to=media-video@gentoo.org
+ 112. netmon@gentoo.org
+ 113. http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&bu
+      g_status=REOPENED&chfield=assigned_to&chfieldfrom=2007-04-22&chfieldto=2
+      007-04-29&assigned_to=netmon@gentoo.org
+ 114. amd64@gentoo.org
+ 115. http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&bu
+      g_status=REOPENED&chfield=assigned_to&chfieldfrom=2007-04-22&chfieldto=2
+      007-04-29&assigned_to=amd64@gentoo.org
+ 116. ppc64@gentoo.org
+ 117. http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&bu
+      g_status=REOPENED&chfield=assigned_to&chfieldfrom=2007-04-22&chfieldto=2
+      007-04-29&assigned_to=ppc64@gentoo.org
+ 118. mobile@gentoo.org
+ 119. http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&bu
+      g_status=REOPENED&chfield=assigned_to&chfieldfrom=2007-04-22&chfieldto=2
+      007-04-29&assigned_to=mobile@gentoo.org
+ 120. theology@gentoo.org
+ 121. http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&bu
+      g_status=REOPENED&chfield=assigned_to&chfieldfrom=2007-04-22&chfieldto=2
+      007-04-29&assigned_to=theology@gentoo.org
+
+8. Opinie czytelników
+---------------------
+
+Tygodnik Gentoo jest tworzony i tłumaczony przez ochotników i członków
+społeczności, którzy nadsyłają swoje pomysły i gotowe artykuły. Zachęcamy
+wszystkich do pomocy i współpracy przy tworzeniu kolejnych numerów Tygodnika
+Gentoo. Oczekujemy na wasze propozycje artykułów, interesują nas także opinie
+na temat tych już opublikowanych. Wszelkie komentarze prosimy kierować na
+adres Tygodnika Gentoo[122]. Uwagi dotyczące tłumaczenia należy zgłaszać na
+adres koordynatora[123]. Pomóżcie sprawić, by Tygodnik Gentoo był jeszcze
+lepszy.
+
+ 122. gwn-feedback@gentoo.org
+ 123. moloh@gentoo.org
+
+9. Subskrypcja Tygodnika Gentoo
+-------------------------------
+
+Aby zaprenumerować Tygodnik Gentoo, należy wysłać pustego emaila na adres
+gentoo-gwn-pl+subscribe@gentoo.org[124].
+
+Aby zrezygnować z subskrypcji, należy wysłać pustego emaila na adres 
+gentoo-gwn-pl+unsubscribe@gentoo.org[125] z konta, na które jest
+zarejestrowana.
+
+ 124. gentoo-gwn-pl+subscribe@gentoo.org
+ 125. gentoo-gwn-pl+unsubscribe@gentoo.org
+
+10. Inne języki
+---------------
+
+Tygodnik Gentoo jest dostępny w następujących językach:
+
+ * angielskim[126]
+ * chińskim (uproszczony)[127]
+ * francuskim[128]
+ * greckim[129]
+ * hiszpańskim[130]
+ * holenderskim[131]
+ * japońskim[132]
+ * koreańskim[133]
+ * niemieckim[134]
+ * polskim[135]
+ * portugalskim (Brazylia)[136]
+ * portugalskim (Portugalia)[137]
+ * rosyjskim[138]
+ * słowackim[139]
+ * tureckim[140]
+ * włoskim[141]
+
+ 126. http://gentoo.org/news/en/gwn/gwn.xml
+ 127. http://gentoo.org/news/zh_cn/gwn/gwn.xml
+ 128. http://gentoo.org/news/fr/gwn/gwn.xml
+ 129. http://gentoo.org/news/el/gwn/gwn.xml
+ 130. http://gentoo.org/news/es/gwn/gwn.xml
+ 131. http://gentoo.org/news/nl/gwn/gwn.xml
+ 132. http://gentoo.org/news/ja/gwn/gwn.xml
+ 133. http://gentoo.org/news/ko/gwn/gwn.xml
+ 134. http://gentoo.org/news/de/gwn/gwn.xml
+ 135. http://gentoo.org/news/pl/gwn/gwn.xml
+ 136. http://gentoo.org/news/pt_br/gwn/gwn.xml
+ 137. http://gentoo.org/news/pt/gwn/gwn.xml
+ 138. http://gentoo.org/news/ru/gwn/gwn.xml
+ 139. http://gentoo.org/news/sk/gwn/gwn.xml
+ 140. http://gentoo.org/news/tr/gwn/gwn.xml
+ 141. http://gentoo.org/news/it/gwn/gwn.xml
+
+Autorzy:
+Chris Gianelloni <wolf31o2@gentoo.org> - Redaktor naczelny
+Vlastimil Babka <caster@gentoo.org> - Redaktor
+Chrissy Fullam <musikc@gentoo.org> - Redaktor
+Christian Heim <phreak@gentoo.org> - Redaktor
+Dimitry Bradt <diox@gentoo.org> - Redaktor
+Brian S. Stephan <bssteph@incorporeal.org> - Redaktor
+Tobias Scherbaum <dertobi123@gentoo.org> - Redaktor
+Davide Italiano <davide.italiano@gmail.com> - Redaktor
+Donnie Berkholz <dberkholz@gentoo.org> - Redaktor
+Karol Kania <karol.kania@gmail.com> - Tłumacz
+Michał Kurgan <moloh@gentoo.org> - Tłumacz

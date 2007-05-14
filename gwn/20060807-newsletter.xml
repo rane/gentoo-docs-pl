@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<guide type="newsletter" link="20060807-newsletter.xml" lang="pl">
+<title>Tygodnik Gentoo</title>
+<subtitle>7 sierpnia 2006</subtitle>
+
+<author title="Redaktor naczelny">
+  <mail link="plate@gentoo.org">Ulrich Plate</mail>
+</author>
+<author title="Redaktor">
+  <mail link="wolf31o2@gentoo.org">Chris Gianelloni</mail>
+</author>
+<author title="Redaktor">
+  <mail link="dertobi123@gentoo.org">Tobias Scherbaum</mail>
+</author>
+<author title="Redaktor">
+  <mail link="tcort@gentoo.org">Thomas Cort</mail>
+</author>
+<author title="Redaktor">
+  <mail link="pvdabeel@gentoo.org">Pieter Van den Abeele</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="jbozanowski@gmail.com">Kuba Bożanowski</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="shadoww@gentoo.org">Damian Kuras</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="moloh@gentoo.org">Michał Kurgan</mail>
+</author>
+
+<abstract>Wydanie Tygodnika Gentoo z 7 sierpnia 2006.</abstract>
+<summary/>
+
+<version>Wolumin 5, numer 28</version>
+<date>2006-08-07</date>
+
+<!-- Gentoo News -->
+<chapter>
+<title>Wiadomości Gentoo</title>
+
+<section>
+<title>Projekt Adopt a Developer</title>
+<body>
+
+<p>
+Projekt Gentoo <uri link="/proj/en/userrel">User Relations</uri> wyszedł z
+inicjatywą stworzenia kolejnego podprojektu, który ma wspomagać deweloperów w
+ich pracy nad dystrybucją. Do tej pory nie było prostych i czytelnych zasad
+opisujących i koordynujących proces przekazania sprzętu, specjalistycznych
+książek, kont shellowych czy jakiejkolwiek innej darowizny na rzecz danego
+dewelopera. Do tej pory nie istniało także miejsce, w którym można by zgłaszać
+własne potrzeby. Celem nowego projektu <uri
+link="/proj/en/userrel/adopt-a-dev">„Adopt a Developer”</uri> jest właśnie
+zmiana tej sytuacji i dotarcie do osób lub firm, które gotowe są bezinteresownie
+wspierać deweloperów poprzez przekazanie im potrzebnych zasobów. Opis samej
+koncepcji, razem z listą dotychczasowych próśb oraz ofert dostępna jest na
+głównej stronie projektu. Ponieważ jest to całkowicie nowe przedsięwzięcie to
+zapewne można jeszcze znaleźć pewne niedociągnięcia, należy także zauważyć że
+znajduje się ono ciągle we wstępnej fazie. Na razie przyjmowane są jedynie małe
+oferty, których wartość nie przekracza 100 dolarów.
+</p>
+
+</body>
+</section>
+<section>
+<title>Wsparcie Gentoo/PowerPC CELL</title>
+<body>
+
+<p>
+Gentoo jest pierwszą dystrybucją w świecie Linuksa, który aktywnie włączyła się
+w prace nad wsparciem dla nowego procesora CELL opracowanego przez IBM we
+współpracy z Sony i Toshibą. Procesor ten używany jest w konsoli PlayStation 3,
+jak również w wielu innych produktach. Zawiera on główny procesor PowerPC
+pracujący z częstotliwością 3.2GHz, a także 8 wyspecjalizowanych rdzeni, które
+w gruncie rzeczy są oddzielnymi procesorami bez pamięci podręcznej przez co
+idealnie nadają się do pracy równoległej oraz do przetwarzania strumieni. CELL
+określany także mianem „broadband engine” posiada szczytową przepustowość 204.8
+GB/sec przy wewnętrznej wymianie danych (pomiędzy rdzeniami, pamięcią i
+kontrolerami wejścia/wyjścia). Więcej informacji na temat samego procesora
+można znaleźć w serwisie <uri
+link="http://www-128.ibm.com/developerworks/power/library/pa-cellperf">IBM
+DeveloperWorks</uri>.
+</p>
+
+<p>
+<mail link="lu_zero@gentoo.org">Luca Barbato</mail> stworzył ebuilda dla
+symulatora CELL. Ten zestaw narzędzi IBM CELL SDK symuluje dwuprocesorowy system
+CELL (18 rdzeni) na komputerze klasy PowerPC. Udostępnił on również
+zoptymalizowany dla tego procesora toolchain Gentoo oraz obraz systemu. Więcej
+informacji można znaleźć na <uri
+link="http://overlays.gentoo.org/dev/lu_zero">stronie zawierającej
+nakładkę.</uri>
+</p>
+
+<p>
+Gentoo będzie pierwszą tworzoną przez społeczność, powszechnie dostępną
+dystrybucją posiadającą wsparcie dla tego nowego procesora, przez co z pewnością
+przed projektem Gentoo/PowerPC otwiera się świetlana przyszłość. Deweloperzy
+pracując cały czas nad tego typu zadaniami zapewniają, że Gentoo będzie gotowe
+do pracy na procesorach, które pojawią się w przyszłości, a pozycja jako
+dystrybucji na światowym poziomie nie będzie zagrożona.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zespół PDA szuka nowych członków</title>
+<body>
+
+<p>
+Zespół PDA, który w Gentoo opiekuje się pakietami z kategorii <c>app-pda</c>
+szuka chętnych do pomocy. Każdy może pomóc, a zespół chciałby zwerbować w ten
+sposób kilku nowych deweloperów. <mail link="chriswhite@gentoo.org">Chris
+White</mail> czeka na wiadomości od wszystkich zainteresowanych osób.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zespoły KDE i Ruby poszukują chętnych do pomocy</title>
+<body>
+
+<p>
+Zarówno projekt <uri link="/proj/en/desktop/kde">KDE</uri>, jak i zespół
+opiekujący się pakietami Ruby poszukują chętnych do pomocy przy testowaniu i
+opiece nad swoimi pakietami. Chętni, którzy chcieliby zostać deweloperami Gentoo
+i dołączyć do któregoś z tych zespołów powinni skontaktować się z <mail
+link="caleb@gentoo.org">Calebem Tennisem</mail>.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Developer of the Week -->
+<!-- Heard in the community -->
+<chapter>
+<title>Społeczność Gentoo</title>
+<!-- forums -->
+<section>
+<title>Forum</title>
+<body>
+
+<p>
+<b>Co można ulepszyć w Gentoo?</b>
+</p>
+
+<p>
+Kilku użytkowników zasugerowało na forum w jaki sposób można ulepszyć Gentoo.
+Dyskusja nadal trwa i przedstawiono już kilka interesujących pomysłów. Miejmy
+nadzieję, że dzięki temu zostanie zgłoszonych kilka bugów z sugestiami
+usprawnień, ale już teraz widać, że więcej pracy należy poświęcić przekazywaniu
+użytkownikom informacji o nowych funkcjach, ponieważ wiele sugestii dotyczy
+funkcjonalności, które już są dostępne od pewnego czasu.
+</p>
+
+<ul>
+  <li><uri link="http://forums.gentoo.org/viewtopic-t-486273.html">What needs to
+  be improved in Gentoo?</uri></li>
+</ul>
+
+</body>
+</section>
+<!-- planet.gentoo.org -->
+<section>
+<title>Serwis planet.gentoo.org</title>
+<body>
+
+<p>
+<b>Dzień z życia testera architektury</b>
+</p>
+
+<p>
+<mail link="tcort@gentoo.org">Thomas Cort</mail> wspomniał o wpisie, który
+ukazał się blogu testera architektury x86, Christiana Faulhammera. Opisuje on w
+nim na czym polega codzienna praca na tym stanowisku. Christian <uri
+link="http://tinyurl.com/rxrhm">przedstawia</uri> najczęstsze zadania jakie
+należą do obowiązków testera architektury, jaką wiedzę trzeba posiadać oraz w
+jaki sposób można zacząć pomagać przy tworzeniu Gentoo.
+</p>
+
+<ul>
+  <li><uri link="http://mediumbagel.org/nucleus/index.php?itemid=45">Everyday
+  life of an architecture tester</uri></li>
+</ul>
+
+<p>
+<b>Planeta Larry</b>
+</p>
+
+<p>
+Jak można było zaobserwować w ciągu ostatnich kilku tygodni, „Larry the cow” ma
+się dobrze. Co więcej, wygląda na to, że tryska energią. <mail
+link="beandog@gentoo.org">Steve Dibb</mail> stworzył stronę <uri
+link="http://www.larrythecow.org">larrythecow.org</uri>, zwaną także „Planet
+Larry”, która zbiera w jednym miejscu wpisy z blogów użytkowników Gentoo -- w
+tym byłych deweloperów. Można wśród nich wymienić m.in. Jochena Maesa, Marka
+Loesera, oraz byłego głównego architekta Gentoo, Daniela Robbinsa.
+</p>
+
+<ul>
+  <li><uri link="http://wonkabar.org/?p=145">More cowbell: Planet Larry</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo International-->
+<!-- Gentoo in the press -->
+<!-- Tips and Tricks -->
+<!-- Gentoo developer moves -->
+<chapter>
+<title>Zmiana statusu deweloperów Gentoo</title>
+<section>
+<title>Odeszli</title>
+<body>
+
+<p>
+Następujący deweloperzy opuścili projekt Gentoo Linux w minionym tygodniu:
+</p>
+
+<ul>
+  <li>Nick Dimiduk (ndimiduk)</li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Przybyli</title>
+<body>
+
+<p>
+Następujący deweloperzy przyłączyli się do projektu Gentoo Linux w minionym
+tygodniu:
+</p>
+
+<ul>
+  <li>Anrdrew Ross (aross) Xen</li>
+  <li>Elfyn McBratney (beu) Perl/czyszczenie drzewa Portage</li>
+  <li>Mart Raudsepp (leio) pakiety wx*</li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Zmienili status</title>
+<body>
+
+<p>
+Następujący deweloperzy zmienili w minionym tygodniu pełnioną w projekcie Gentoo
+Linux funkcję:
+</p>
+
+<ul>
+  <li><e>Nikt w tym tygodniu</e></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo security -->
+<chapter>
+<title>Bezpieczeństwo Gentoo</title>
+<!-- paste from the script -->
+<section>
+<title>Apache: Usterka Off-by-one w mod_rewrite</title>
+<body>
+
+<p>
+Usterka w mod_rewrite wchodzącego w skład Apache może umożliwić przeprowadzenie
+ataku Denial of Service lub wykonanie niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200608-01.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>Mozilla SeaMonkey: Wiele usterek</title>
+<body>
+
+<p>
+Mozilla Foundation opublikowała raport opisujący wiele usterek bezpieczeństwa
+dotyczących Mozilla SeaMonkey.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200608-02.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>Mozilla Firefox: Wiele usterek</title>
+<body>
+
+<p>
+Mozilla Foundation opublikowała raport opisujący wiele usterek bezpieczeństwa
+dotyczących Mozilla Firefox.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200608-03.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>Mozilla Thunderbird: Wiele usterek</title>
+<body>
+
+<p>
+Mozilla Foundation opublikowała raport opisujący wiele usterek bezpieczeństwa
+dotyczących Mozilla Thunderbird.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200608-04.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>LibVNCServer: Ominięcie autoryzacji</title>
+<body>
+
+<p>
+Serwery VNC utworzone z użyciem LibVNCServer akceptują niebezpieczne protokoły,
+nawet w przypadku gdy sam serwer ich nie udostępnia, co może być powodem
+nieautoryzowanego dostępu do serwera.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200608-05.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>Courier MTA: Usterka Denial of Service</title>
+<body>
+
+<p>
+Courier zawiera usterkę DoS, której powodem jest błędne przetwarzanie nazw
+użytkowników zawierających znak „=”.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200608-06.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>libTIFF: Wiele usterek</title>
+<body>
+
+<p>
+libTIFF zawiera wiele usterek, które mogą zostać wykorzystane do wykonania
+niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200608-07.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>GnuPG: Przekroczenie zakresu liczby całkowitej</title>
+<body>
+
+<p>
+GnuPG zawiera usterkę przekroczenia zakresu liczby całkowitej, która może
+doprowadzić do wykonania niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200608-08.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>MySQL: Usterka Denial of Service</title>
+<body>
+
+<p>
+Użytkownik po poprawnej weryfikacji może doprowadzić do nieoczekiwanego
+zamknięcia serwera MySQL używając spreparowanych parametrów przy wywołaniu
+funkcji date_format.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200608-09.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>pike: Usterka SQL injection</title>
+<body>
+
+<p>
+Usterka w przetwarzaniu wprowadzonych danych może doprowadzić do wykonania
+niepożądanego zapytania SQL w używanym systemie bazodanowym PostgreSQL.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200608-10.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>Webmin, Usermin: Ujawnienie zawartości pliku</title>
+<body>
+
+<p>
+Webmin i Usermin zawierają usterki umożliwiające ujawnienie zawartości pliku w
+przypadku użycia specjalnie spreparowanego URL-a.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200608-11.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+
+</chapter>
+
+<!-- Bugzilla -->
+
+<!-- paste from the script -->
+
+<chapter>
+<title>Bugzilla</title>
+<section>
+<title>Podsumowanie</title>
+<body>
+
+<ul>
+  <li><uri link="#doc_chap1_sect2">Statystyki</uri></li>
+  <li><uri link="#doc_chap1_sect3">Zamknięte bugi</uri></li>
+  <li><uri link="#doc_chap1_sect4">Nowe bugi</uri></li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Statystyki</title>
+<body>
+
+<p>
+Społeczność Gentoo używa Bugzilli (<uri
+link="http://bugs.gentoo.org/">bugs.gentoo.org</uri>) do zgłaszania i śledzenia
+błędów, ogłoszeń, sugestii oraz innych form kontaktu z deweloperami. Pomiędzy 30
+lipca 2006, a 6 sierpnia 2006 aktywność w serwisie przedstawiała się
+następująco:
+</p>
+
+<ul>
+  <li>zgłoszono 798 nowych bugów</li>
+  <li>zamknięto lub rozwiązano 382 bugi</li>
+  <li>41 uprzednio zamkniętych bugów zostało ponownie otwartych</li>
+</ul>
+
+<p>
+Spośród 10791 obecnie otwartych bugów: 51 oznaczono jako 'blocker', 134 jako
+'critical', a 530 jako 'major'.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zamknięte Bugi</title>
+<body>
+
+<p>
+Deweloperzy oraz zespoły, które zamknęły najwięcej bugów w minionym tygodniu,
+to:
+</p>
+
+<ul>
+  <li><mail link="chriswhite@gentoo.org">Chris White</mail>, 31 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-07-30&amp;chfieldto=2006-08-06&amp;resolution=FIXED&amp;assigned_to=chriswhite@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="base-system@gentoo.org">Gentoo's Team for Core System
+  packages</mail>, 21 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-07-30&amp;chfieldto=2006-08-06&amp;resolution=FIXED&amp;assigned_to=base-system@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="security@gentoo.org">Gentoo Security</mail>, 15 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-07-30&amp;chfieldto=2006-08-06&amp;resolution=FIXED&amp;assigned_to=security@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="neysx@gentoo.org">Xavier Neys</mail>, 12 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-07-30&amp;chfieldto=2006-08-06&amp;resolution=FIXED&amp;assigned_to=neysx@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="dev-portage@gentoo.org">Portage team</mail>, 11 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-07-30&amp;chfieldto=2006-08-06&amp;resolution=FIXED&amp;assigned_to=dev-portage@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="kde@gentoo.org">Gentoo KDE team</mail>, 10 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-07-30&amp;chfieldto=2006-08-06&amp;resolution=FIXED&amp;assigned_to=kde@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="java@gentoo.org">Java team</mail>, 10 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-07-30&amp;chfieldto=2006-08-06&amp;resolution=FIXED&amp;assigned_to=java@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="gnome@gentoo.org">Gentoo Linux Gnome Desktop Team</mail>, 10
+  <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-07-30&amp;chfieldto=2006-08-06&amp;resolution=FIXED&amp;assigned_to=gnome@gentoo.org">zamkniętych
+  bugów</uri></li>
+</ul>
+
+</body>
+</section>
+
+<section>
+<title>Nowe Bugi</title>
+<body>
+
+<p>
+Deweloperzy oraz zespoły, którym przydzielono najwięcej bugów w minionym tygodniu,
+to:
+</p>
+
+<ul>
+  <li><mail link="maintainer-wanted@gentoo.org">Default Assignee for New
+  Packages</mail>, 27 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-07-30&amp;chfieldto=2006-08-06&amp;assigned_to=maintainer-wanted@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="amd64@gentoo.org">AMD64 Project</mail>, 25 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-07-30&amp;chfieldto=2006-08-06&amp;assigned_to=amd64@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="sci-mathematics@gentoo.org">Gentoo Science Mathematics related
+  packages</mail>, 19 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-07-30&amp;chfieldto=2006-08-06&amp;assigned_to=sci-mathematics@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="treecleaner@gentoo.org">Gentoo TreeCleaner Project</mail>, 17
+  <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-07-30&amp;chfieldto=2006-08-06&amp;assigned_to=treecleaner@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="kde@gentoo.org">Gentoo KDE team</mail>, 12 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-07-30&amp;chfieldto=2006-08-06&amp;assigned_to=kde@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="maintainer-needed@gentoo.org">Default Assignee for Orphaned
+  Packages</mail>, 11 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-07-30&amp;chfieldto=2006-08-06&amp;assigned_to=maintainer-needed@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="java@gentoo.org">Java team</mail>, 10 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-07-30&amp;chfieldto=2006-08-06&amp;assigned_to=java@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="kernel@gentoo.org">Gentoo Kernel Bug Wranglers and Kernel
+  Maintainers</mail>, 8 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-07-30&amp;chfieldto=2006-08-06&amp;assigned_to=kernel@gentoo.org">nowych
+  bugów</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- GWN feedback information -->
+
+<chapter>
+<title>Opinie czytelników</title>
+<section>
+<body>
+
+<p>
+Jeśli chcesz, aby Tygodnik Gentoo był jeszcze lepszy, podziel się z <mail
+link="gwn-feedback@gentoo.org">nami</mail> swoją opinią na jego temat. Uwagi
+dotyczące tłumaczenia można zgłaszać na adres <mail
+link="moloh@gentoo.org">koordynatora</mail>.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- GWN subscription information -->
+<chapter>
+<title>Subskrypcja Tygodnika Gentoo</title>
+<section>
+<body>
+
+<p>
+Aby zaprenumerować Tygodnik Gentoo, należy wysłać pustego emaila na adres <mail
+link="gentoo-gwn-pl+subscribe@gentoo.org">gentoo-gwn-pl+subscribe@gentoo.org</mail>.
+</p>
+
+<p>
+Aby zrezygnować z subskrypcji, należy wysłać pustego emaila na adres <mail
+link="gentoo-gwn-pl+unsubscribe@gentoo.org">
+gentoo-gwn-pl+unsubscribe@gentoo.org</mail> z konta, na które jest
+zarejestrowana.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Other Languages -->
+<chapter>
+<title>Inne języki</title>
+<section>
+<body>
+
+<p>
+Tygodnik Gentoo jest dostępny w następujących językach:
+</p>
+
+<ul>
+  <li><uri link="/news/en/gwn/gwn.xml">angielskim</uri></li>
+  <li><uri link="/news/zh_cn/gwn/gwn.xml">chińskim (uproszczony)</uri></li>
+  <li><uri link="/news/da/gwn/gwn.xml">duńskim</uri></li>
+  <li><uri link="/news/fr/gwn/gwn.xml">francuskim</uri></li>
+  <li><uri link="/news/es/gwn/gwn.xml">hiszpańskim</uri></li>
+  <li><uri link="/news/nl/gwn/gwn.xml">holenderskim</uri></li>
+  <li><uri link="/news/ja/gwn/gwn.xml">japońskim</uri></li>
+  <li><uri link="/news/ko/gwn/gwn.xml">koreańskim</uri></li>
+  <li><uri link="/news/de/gwn/gwn.xml">niemieckim</uri></li>
+  <li><uri link="/news/pl/gwn/gwn.xml">polskim</uri></li>
+  <li><uri link="/news/pt_br/gwn/gwn.xml">portugalskim (Brazylia)</uri></li>
+  <li><uri link="/news/pt/gwn/gwn.xml">portugalskim (Portugalia)</uri></li>
+  <li><uri link="/news/ru/gwn/gwn.xml">rosyjskim</uri></li>
+  <li><uri link="/news/tr/gwn/gwn.xml">tureckim</uri></li>
+  <li><uri link="/news/it/gwn/gwn.xml">włoskim</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+</guide>
+

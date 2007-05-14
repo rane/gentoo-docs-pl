@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<guide type="newsletter" link="20060911-newsletter.xml" lang="pl">
+<title>Tygodnik Gentoo</title>
+<subtitle>11 września 2006</subtitle>
+
+<author title="Redaktor naczelny">
+  <mail link="plate@gentoo.org">Ulrich Plate</mail>
+</author>
+<author title="Redaktor">
+  <mail link="mark_alec@gentoo.org">Mark Kowarsky</mail>
+</author>
+<author title="Redaktor">
+  <mail link="dragonheart@gentoo.org">Daniel Black</mail>
+</author>
+<author title="Redaktor">
+  <mail link="pva@gentoo.org">Peter Volkov</mail>
+</author>
+<author title="Redaktor">
+  <mail link="musikc@charter.net">Chrissy Fullam</mail>
+</author>
+<author title="Redaktor">
+  <mail link="wolf31o2@gentoo.org">Chris Gianelloni</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="jbozanowski@gmail.com">Kuba Bożanowski</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="shadoww@gentoo.org">Damian Kuras</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="moloh@gentoo.org">Michał Kurgan</mail>
+</author>
+
+
+<abstract>Wydanie Tygodnika Gentoo z 11 września 2006.</abstract>
+<summary/>
+
+<version>Wolumin 5, numer 37</version>
+<date>2006-09-11</date>
+
+<!-- Gentoo News -->
+<chapter>
+<title>Wiadomości Gentoo</title>
+<section>
+<title>Wybory Rady Gentoo zakończone</title>
+<body>
+
+<p>
+<uri link="http://www.gentoo.org/proj/en/council/">Rada Gentoo</uri> jest ciałem
+wybieranym przez deweloperów Gentoo, którego zadaniem są decyzje w wielu różnych
+aspektach związanych z dystrybucją, a także wypracowanie odpowiedniej polityki
+i reguł współpracy dotyczących wielu projektów tworzonych wokół Gentoo.
+Podejmuje ona również kroki dyscyplinarne wobec samych deweloperów. Członkowie
+rady wybierani są na okres jednego roku i do ich obowiązków należy uczestnictwo
+w comiesięcznych spotkaniach.
+</p>
+
+<p>
+Na nadchodzący rok wybrano nowy skład Rady. Głosowanie trwało cały miesiąc, tak
+aby dać szansę wzięcia udziału w głosowaniu wszystkim deweloperom. Następujące
+osoby uzyskały największe poparcie:
+</p>
+
+<ul>
+  <li>Diego Pettenò (Flameeyes)</li>
+  <li>Mike Doty (KingTaco)</li>
+  <li>Danny van Dyk (Kugelfang)</li>
+  <li>Bryan Østergaard (kloeri)</li>
+  <li>Robin H. Johnson (robbat2)</li>
+  <li>Mike Frysinger (vapier)</li>
+  <li>Chris Gianelloni (wolf31o2)</li>
+</ul>
+
+<p>
+W nowym składzie pozostała tylko jedna osoba zasiadająca w Radzie Gentoo w
+poprzedniej kadencji, jest nią Mike Frysinger. Zespół Tygodnika Gentoo pragnie
+pogratulować wygranej wszystkim wybranym osobom. Mamy nadzieje że nadchodzący
+rok będzie produktywny.
+</p>
+
+</body>
+</section>
+<section>
+<title>Donacja z Cloanto: Amiga Forever CD</title>
+<body>
+
+<p>
+W tym tygodniu Cloanto przekazało na rzecz Gentoo <uri
+link="http://amigaforever.com">Amiga Forever CD</uri>. <uri
+link="http://en.wikipedia.org/wiki/Amiga">Amiga</uri> jest rodzinnym osobistym
+komputerem początkowo rozwijanym przez Amiga Corporation, a następnie przez
+Commodore International. Komputery te odniosły wielki sukces, głównie ze względu
+na swoje możliwości audio i video, które znacznie wyprzedzały swój czas. Z tego
+względu Amigę określano jako doskonałą platformę dla gier. Komputery te są już
+jednak przeszłością, ale na szczęście moc dzisiejszego sprzętu pozwala na
+emulację oprogramowania Amigi jak i gier. W Gentoo znajdziemy dwa takie
+emulatory, <c>app-emulation/uae</c> oraz <c>app-emulation/e-uae</c>. Jednak, aby
+w pełni z nich skorzystać należy wpierw uzyskać dostęp do obrazu Amiga Kickstart
+ROM. Z tego powodu opiekunowie wymienionych pakietów potrzebują dostępu do tego
+obrazu, tak by jak najlepiej wypełniać swoje obowiązki.
+</p>
+
+<p>
+Tworzonym przez Cloanto i deweloperów Amigi, Amiga Forever CD jest pakietem
+zapewniającym wsparcie dla tej rodziny komputerów. Cloanto udostępniło tą płytę
+CD wszystkim deweloperom Gentoo, aby wspomóc rozwój programów do emulacji
+Amigi.
+</p>
+
+<p>
+Gentoo chciałoby podziękować Cloanto za ten hojny podarunek.
+</p>
+
+</body>
+</section>
+<section>
+<title>Koniec wsparcia dla monolitycznych X-ów</title>
+<body>
+
+<p>
+Deweloper <mail link="dberkholz@gentoo.org">Donnie Berkholz</mail> ogłosił na
+liście <c>gentoo-dev</c> zakończenie wsparcia dla monolitycznych X-ów. Oznacza
+to koniec prac na błędami w tych pakietach, włączając w to błędy bezpieczeństwa.
+Donnie ma nadzieję przesunąć je do specjalnej nakładki w najbliższym czasie.
+Opiekunowie poszczególnych pakietów usuwają już wpisy określające zależności
+dotyczące monolitycznych X-ów.
+</p>
+
+<p>
+Użytkownicy, którzy ciągle używają monolitycznych X-ów prosimy o dokonanie
+aktualizacji do wersji modularnej. Wszystkie informacje na temat tej procedury
+można znaleźć w dokumencie <uri
+link="http://www.gentoo.org/proj/pl/desktop/x/x11/modular-x-howto.xml">Migracja
+na modularne X</uri>.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Developer of the Week -->
+<chapter>
+<title>Deweloper tygodnia</title>
+<section>
+<title>„Gentoo, tym zajmują się wszyscy fajni goście.” -Joshua Nichols</title>
+<body>
+
+<figure link="/images/gwn/20060911_nichoj.jpg"
+        short="nichoj"
+        caption="Joshua Nichols, aka nichoj"/>
+
+<p>
+Deweloper Joshua Nichols, znany też jako nichoj, mieszka w Bostonie w stanie
+Masachusetts, mieście znanym z prażonej fasoli i masowych imprez herbacianych...
+No dobra, właściwie to tylko jednej. Zeszłej wiosny ukończył studia na uczelni
+Rensselaer Polytechnic Institute jednocześnie na dwóch kierunkach, informatyka i
+psychologia. Josh ma 23 lata i mieszka z 3 znajomymi i jednym niewidocznym
+sublokatorem. Nie mają zwierząt domowych, ale Josh uwielbia psy i planuje mieć
+Owczarka Niemieckiego gdy tylko będzie miał więcej czasu i większe mieszkanie.
+</p>
+
+<p>
+Josh pracuje w Banta Corporation, firmie zarządzającej łańcuchem zaopatrzeniowym
+druku, nie żeby ktokolwiek wiedział co to właściwie znaczy. Jego wydział zajmuje
+się tworzeniem aplikacji internetowych, zarówno wewnętrznych, jak i
+zewnętrznych. Josh pracuje w zespole, który tworzy modularne aplikacje
+internetowe, głównie wykorzystując Javę i technologię J2EE (Eclipse, Tomcat,
+Spring, JDO, usługi sieciowe, itd).
+</p>
+
+<p>
+Nichoj twierdzi, że posiada dość standardowe zainteresowania jak na miłośnika
+komputerów. Lubi czytać, głównie science-fiction i fantasy, a czasem, jako
+lekturę do poduszki, jakąś dokumentację techniczną. Lubi także oglądać Adult
+Swim, ale kto nie lubi? Gdy już uda mu się wyjść z domu, najczęściej idzie
+pojeździć na rolkach lub pograć w zośkę, ale często kończy się to tak jak wiele
+rozrywek w Bostonie... Na wyprawie do jednego z licznych bostońskich barów na
+kilka drinków ze znajomymi.
+</p>
+
+<p>
+Josh zaczął używać Gentoo podczas pierwszego roku na uniwersytecie. Od lat był
+już użytkownikiem Linuksa, ale odkrył, że ręczne konfigurowanie wszystkiego
+szybko kończyło się posiadaniem systemu, którym trudno się zarządza. Odkrył
+jednak, że Gentoo znacznie ułatwia mu zadanie dostosowywania systemu do swoich
+potrzeb. Rok temu postanowił, że chciałby nieco bardziej aktywnie zaangażować
+się w tworzenie oprogramowania Open Source. Zapisał się do kilku LUG-ów, zaczął
+regularnie zgłaszać bugi i pomagać ludziom na IRC-u. Stał się całkiem niezły z
+Javy i został szybko zwerbowany przez dewelopera karltk. Aktualna rola Josha w
+Gentoo bardzo go cieszy, jest bowiem koordynatorem Projektu Java.
+</p>
+
+<p>
+Osiągnięciem, z którego Josh jest chyba najbardziej dumny jest jego wkład w nowy
+system Javy w Gentoo, który został ukończony kilka miesięcy temu. Większość z
+niego została napisana zanim Josh dołączył do zespołu, jednak pozostali
+członkowie szybko zorientowali się, że trzeba będzie uaktualnić ponad 400
+pozostałych pakietów, które znajdują się pod ich opieką. Josh jest dumny z tego,
+iż uczestniczył w planowaniu i wykonaniu tego zadania, a także zmaganiu się z
+nieodłącznymi problemami na drodze do udostępnienia nowego rozwiązania
+użytkownikom z maską ~arch. Warto także wspomnieć, że Josh dostał swojego
+pierwszego „hate maila” podczas pracy nad tym projektem, co oznacza, że coś
+musiał robić dobrze. ;-)
+</p>
+
+<p>
+Jego główny komputer służący do pracy opiera się na architekturze AMD64 i
+posiada procesor X2 4400+, 4 GB RAM-u i kartę graficzną 7800GT podłączoną do 24"
+monitora LCD. Posiada także dwa notebooki Dell x86, serwer plików z procesorem
+Athlon XP i desktop G5 (architektura PPC). Pierwsze programy, jakie uruchamia to
+oczywiście Compiz i CGWD, tuż przed GAIM-em, Firefoksem i Thunderbirdem.
+</p>
+
+<p>
+Na zakończenie Josh powiedział nam kilka mądrych słów: „Być może to oczywiste,
+ale należy robić to, co sprawia nam przyjemność. Dotyczy to zarówno pracy
+zarobkowej, jak i projektów Open Source. Jeśli robimy coś, co nie sprawia nam
+radości, albo jeszcze gorzej, czego nie znosimy, nie wyjdziemy na tym najlepiej.
+Czeka nas wczesna siwizna, a nawet chęć wydłubania sobie oczu. Nie wiem jak wy,
+ale ja wolę posiadać oboje oczu. Mówiąc poważniej, cieszę się, że podoba mi się
+to, co robię, zarówno dla Gentoo, jak i w pracy”.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Heard in the community -->
+<chapter>
+<title>Społeczność Gentoo</title>
+<!-- forums -->
+<section>
+<title>Forum</title>
+<body>
+
+<p>
+<b>Graficzny edytor ebuildów</b>
+</p>
+
+<p>
+Na Forum Gentoo zaproponowano stworzenie graficznego edytora, swoistego IDE,
+którego celem byłoby tworzenie i testowanie ebuildów. Zwolennicy pomysłu
+argumentują, że takie narzędzie z pewnością ułatwi tworzenie nowych ebuildów
+pytając użytkownika o wszelkie wymagane informacje. Przeciwnicy natomiast
+wskazują na skomplikowaną budowę i strukturę ebuildów, która z pewnością bardzo
+utrudni, o ile nie uniemożliwi stworzenie odpowiedniej aplikacji, a ograniczenie
+dostępnych opcji nie jest chyba dobrym rozwiązaniem. Niezależnie od tego, czy
+sama idea jest dobra czy też nie, nie jest to pierwsza próba stworzenie takiego
+edytora. Jednym z istniejących przykładów jest, nie rozwijany już, pakiet Abeni,
+stworzony przez dewelopera Gentoo o pseudonimie Pythonhead.
+</p>
+
+<ul>
+  <li><uri>https://forums.gentoo.org/viewtopic-t-496403.html</uri></li>
+  <li><uri>http://abeni.sourceforge.net/</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- planet.gentoo.org -->
+<!-- gentoo-user -->
+<!-- gentoo-dev -->
+<!-- Gentoo International-->
+<chapter>
+<title>Międzynarodowe Gentoo</title>
+<section>
+<title>Australia: Dzień Wolności Oprogramowania, Canberra</title>
+<body>
+
+<p>
+Canberra gościła 9 września 2006 uczestników <uri
+link="http://www.softwarefreedomday.org/">Dnia Wolności Oprogramowania</uri>. W
+czasie tego wydarzenia można było wiele usłyszeć na temat wolnego
+oprogramowania, zachęcano odwiedzających do spróbowania własnych sił i
+instalacji Linuksa rozdając płyty instalacyjne Gentoo, <uri
+link="http://www.ubuntu.com/">Ubuntu</uri> oraz <uri
+link="http://www.theopencd.org/">TheOpenCD</uri>. Rozdano 48 kopii Gentoo Linux
+2006.1 x86 LiveCD oraz 29 kopii Gentoo Linux 2006.1 amd64 LiveCD.
+</p>
+
+<figure link="/images/gwn/20060911_sfd.jpg"
+        short="Zespół"
+        caption="Zespół Dnia Wolności Oprogramowania" />
+
+<note>
+Od lewej: Rainer Klein, Neill Cox, Daniel Black (dragonheart), Brian Bishop,
+Pascal Klein, David Symons i Evan Leybourn -- brakuje: Steve Walsh, Troy Newell
+</note>
+
+<p>
+Wszyscy uczestnicy spotkania z pewnością doskonale się bawili oglądając
+produkcję filmu <uri link="http://orange.blender.org/">„Elephants Dream”</uri>.
+Duże zainteresowanie budziły alternatywy pozwalające uniknąć oprogramowania
+spyware i wirusów oraz możliwości zamiany starych komputerów PC w sprawne urządzenia
+mogące służyć jako serwery plików mogące także przechowywać kopie zapasowe lub
+ponownie uruchomić zapomniane już stare laptopy.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo in the press -->
+<chapter>
+<title>Gentoo w prasie</title>
+<section>
+<title>LinuxPlanet (7 września)</title>
+<body>
+
+<p>
+W tym tygodniu w serwisie LinuxPlanet można znaleźć artykuł dotyczący <uri
+link="http://www.sectoo.org/">Sectoo</uri>. Jest to dystrybucja LiveCD bazująca
+na Gentoo Linux w której położono szczególny nacisk na sprawy związane z
+bezpieczeństwem. Jej celem jest pomoc we wszelkich zadaniach i testach jakie
+wykonują administratorzy w swojej codziennej pracy. Zawiera także szereg
+narzędzi które mogą być niezwykle pomocne w czasie zabezpieczania i nadzorowania
+pracy sieci.
+</p>
+
+<ul>
+  <li><uri
+  link="http://www.linuxplanet.com/linuxplanet/reviews/6307/1/">Sectoo--A Live
+  Look at Gentoo</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- Tips and Tricks -->
+<!-- Gentoo developer moves -->
+<chapter>
+<title>Zmiana statusu deweloperów Gentoo</title>
+<section>
+<title>Odeszli</title>
+<body>
+
+<p>
+Następujący deweloperzy opuścili projekt Gentoo Linux w minionym tygodniu:
+</p>
+
+<ul>
+  <li><e>Nikt w tym tygodniu</e></li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Przybyli</title>
+<body>
+
+<p>
+Następujący deweloperzy przyłączyli się do projektu Gentoo Linux w minionym
+tygodniu:
+</p>
+
+<ul>
+  <li>Javier Villavicencio (The_Paya) Gentoo/FreeBSD</li>
+  <li>Mike Kelly (pioto) creandus/GLEP27/vim</li>
+  <li>Vlastimil Babka (Caster) Java</li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Zmienili status</title>
+<body>
+
+<p>
+Następujący deweloperzy zmienili w minionym tygodniu pełnioną w projekcie Gentoo
+Linux funkcję:
+</p>
+
+<ul>
+  <li>Krzysiek Pawlik (nelchael) dołączył do zespołu PPC/Java</li>
+  <li>Jorge Manuel B. S. Vicetto (jmbsvicetto) dołączył do projektu UserRel</li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo security -->
+<chapter>
+<title>Bezpieczeństwo Gentoo</title>
+<!-- paste from the script -->
+<section>
+<title>Streamripper: Wiele usterek przepełnienia bufora</title>
+<body>
+
+<p>
+Streamripper zawiera wiele usterek przepełnienia bufora, które mogą zostać
+wykorzystane do wykonanie niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200609-01.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>GTetrinet: Zdalne wykonanie niepożądanego kodu</title>
+<body>
+
+<p>
+GTetrinet zawiera usterki zdalnego przepełnienia bufora, które mogą zostać
+wykorzystane do wykonania niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200609-02.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>OpenTTD: Zdalna usterka Denial of Service</title>
+<body>
+
+<p>
+Serwer OpenTTD jest podatny na zdalny atak Denial of Service.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200609-03.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>LibXfont: Wiele usterek przekroczenia zakresu liczby całkowitej</title>
+<body>
+
+<p>
+Wykryto usterkę przepełnienia bufora w praserze fontów PCF, która potencjalnie
+może zostać wykorzystana do wykonania niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200609-04.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>OpenSSL, biblioteki x86 dla AMD64: Podrobienie podpisu RSA</title>
+<body>
+
+<p>
+OpenSSL zawiera błąd walidacji podpisów PKCS #1 v1.5.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200609-05.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Bugzilla -->
+<!-- paste from the script -->
+<chapter>
+<title>Bugzilla</title>
+<section>
+<title>Podsumowanie</title>
+<body>
+
+<ul>
+  <li><uri link="#doc_chap1_sect2">Statystyki</uri></li>
+  <li><uri link="#doc_chap1_sect3">Zamknięte bugi</uri></li>
+  <li><uri link="#doc_chap1_sect4">Nowe bugi</uri></li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Statystyki</title>
+<body>
+
+<p>
+Społeczność Gentoo używa Bugzilli (<uri
+link="http://bugs.gentoo.org/">bugs.gentoo.org</uri>) do zgłaszania i śledzenia
+błędów, ogłoszeń, sugestii oraz innych form kontaktu z deweloperami. Pomiędzy 3
+września 2006, a 10 września 2006 aktywność w serwisie przedstawiała się
+następująco:
+</p>
+
+<ul>
+  <li>zgłoszono 929 nowych bugów</li>
+  <li>zamknięto lub rozwiązano 565 bugów</li>
+  <li>38 uprzednio zamkniętych bugów zostało ponownie otwartych</li>
+</ul>
+
+<p>
+Spośród 11040 obecnie otwartych bugów: 38 oznaczono jako 'blocker', 124 jako
+'critical', a 530 jako 'major'.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zamknięte Bugi</title>
+<body>
+
+<p>
+Deweloperzy oraz zespoły, które zamknęły najwięcej bugów w minionym tygodniu,
+to:
+</p>
+
+<ul>
+  <li><mail link="base-system@gentoo.org">Gentoo's Team for Core System
+  packages</mail>, 31 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-03&amp;chfieldto=2006-09-10&amp;resolution=FIXED&amp;assigned_to=base-system@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="gnome@gentoo.org">Gentoo Linux Gnome Desktop Team</mail>, 26
+  <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-03&amp;chfieldto=2006-09-10&amp;resolution=FIXED&amp;assigned_to=gnome@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="amd64@gentoo.org">AMD64 Project</mail>, 25 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-03&amp;chfieldto=2006-09-10&amp;resolution=FIXED&amp;assigned_to=amd64@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="games@gentoo.org">Gentoo Games</mail>, 20 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-03&amp;chfieldto=2006-09-10&amp;resolution=FIXED&amp;assigned_to=games@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="security@gentoo.org">Gentoo Security</mail>, 18 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-03&amp;chfieldto=2006-09-10&amp;resolution=FIXED&amp;assigned_to=security@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="mips@gentoo.org">mips team</mail>, 18 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-03&amp;chfieldto=2006-09-10&amp;resolution=FIXED&amp;assigned_to=mips@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="java@gentoo.org">Java team</mail>, 18 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-03&amp;chfieldto=2006-09-10&amp;resolution=FIXED&amp;assigned_to=java@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="x11@gentoo.org">Gentoo X-windows packagers</mail>, 13 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-03&amp;chfieldto=2006-09-10&amp;resolution=FIXED&amp;assigned_to=x11@gentoo.org">zamkniętych
+  bugów</uri></li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Nowe Bugi</title>
+<body>
+
+<p>
+Deweloperzy oraz zespoły, którym przydzielono najwięcej bugów w minionym tygodniu,
+to:
+</p>
+
+<ul>
+  <li><mail link="maintainer-wanted@gentoo.org">Default Assignee for New
+  Packages</mail>, 42 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-03&amp;chfieldto=2006-09-10&amp;assigned_to=maintainer-wanted@gentoo.org">nowe
+  bugi</uri></li>
+  <li><mail link="sound@gentoo.org">Gentoo Sound Team</mail>, 15 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-03&amp;chfieldto=2006-09-10&amp;assigned_to=sound@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="amd64@gentoo.org">AMD64 Project</mail>, 15 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-03&amp;chfieldto=2006-09-10&amp;assigned_to=amd64@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="maintainer-needed@gentoo.org">Default Assignee for Orphaned
+  Packages</mail>, 14 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-03&amp;chfieldto=2006-09-10&amp;assigned_to=maintainer-needed@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="kde@gentoo.org">Gentoo KDE team</mail>, 9 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-03&amp;chfieldto=2006-09-10&amp;assigned_to=kde@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="net-im@gentoo.org">Gentoo net-im Herd</mail>, 8 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-03&amp;chfieldto=2006-09-10&amp;assigned_to=net-im@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="java@gentoo.org">Java team</mail>, 8 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-03&amp;chfieldto=2006-09-10&amp;assigned_to=java@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="robbat2@gentoo.org">Robin Johnson</mail>, 6 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-03&amp;chfieldto=2006-09-10&amp;assigned_to=robbat2@gentoo.org">nowych
+  bugów</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- GWN feedback information -->
+<chapter>
+<title>Opinie czytelników</title>
+<section>
+<body>
+
+<p>
+Jeśli chcesz, aby Tygodnik Gentoo był jeszcze lepszy, podziel się z <mail
+link="gwn-feedback@gentoo.org">nami</mail> swoją opinią na jego temat. Uwagi
+dotyczące tłumaczenia można zgłaszać na adres <mail
+link="moloh@gentoo.org">koordynatora</mail>.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- GWN subscription information -->
+<chapter>
+<title>Subskrypcja Tygodnika Gentoo</title>
+<section>
+<body>
+
+<p>
+Aby zaprenumerować Tygodnik Gentoo, należy wysłać pustego emaila na adres <mail
+link="gentoo-gwn-pl+subscribe@gentoo.org">gentoo-gwn-pl+subscribe@gentoo.org</mail>.
+</p>
+
+<p>
+Aby zrezygnować z subskrypcji, należy wysłać pustego emaila na adres <mail
+link="gentoo-gwn-pl+unsubscribe@gentoo.org">
+gentoo-gwn-pl+unsubscribe@gentoo.org</mail> z konta, na które jest
+zarejestrowana.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Other Languages -->
+<chapter>
+<title>Inne języki</title>
+<section>
+<body>
+
+<p>
+Tygodnik Gentoo jest dostępny w następujących językach:
+</p>
+
+<ul>
+  <li><uri link="/news/en/gwn/gwn.xml">angielskim</uri></li>
+  <li><uri link="/news/zh_cn/gwn/gwn.xml">chińskim (uproszczony)</uri></li>
+  <li><uri link="/news/da/gwn/gwn.xml">duńskim</uri></li>
+  <li><uri link="/news/fr/gwn/gwn.xml">francuskim</uri></li>
+  <li><uri link="/news/el/gwn/gwn.xml">greckim</uri></li>
+  <li><uri link="/news/es/gwn/gwn.xml">hiszpańskim</uri></li>
+  <li><uri link="/news/nl/gwn/gwn.xml">holenderskim</uri></li>
+  <li><uri link="/news/ja/gwn/gwn.xml">japońskim</uri></li>
+  <li><uri link="/news/ko/gwn/gwn.xml">koreańskim</uri></li>
+  <li><uri link="/news/de/gwn/gwn.xml">niemieckim</uri></li>
+  <li><uri link="/news/pl/gwn/gwn.xml">polskim</uri></li>
+  <li><uri link="/news/pt_br/gwn/gwn.xml">portugalskim (Brazylia)</uri></li>
+  <li><uri link="/news/pt/gwn/gwn.xml">portugalskim (Portugalia)</uri></li>
+  <li><uri link="/news/ru/gwn/gwn.xml">rosyjskim</uri></li>
+  <li><uri link="/news/it/gwn/gwn.xml">włoskim</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+</guide>
+

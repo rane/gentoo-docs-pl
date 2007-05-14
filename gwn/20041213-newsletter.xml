@@ -1,0 +1,584 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<guide type="newsletter" link="20041213-newsletter.xml">
+<title>Gentoo Weekly Newsletter</title>
+<subtitle>13 grudnia 2004</subtitle>
+<author title="Redaktor Naczelny"><mail link="plate@gentoo.org">Ulrich Plate</mail></author>
+<author title="Redaktor"><mail link="hansmi@gentoo.org">Michael Hanselmann</mail></author>
+<author title="Redaktor"><mail link="dams@gentoo.org">Damien Krotkine</mail></author>
+<author title="Redaktor"><mail link="patrick@gentoo.org">Patrick Lauer</mail></author>
+<author title="Redaktor"><mail link="pylon@gentoo.org">Lars Weiler</mail></author>
+<author title="Tłumacz"><mail link="jbozanowski@gmail.com">Kuba Bożanowski</mail></author>
+<author title="Tłumacz"><mail link="dziwisz@icslab.agh.edu.pl">Jakub Dziwisz</mail></author>
+<author title="Tłumacz"><mail link="gooroo@gentoo.pl">Karol Góralski</mail></author>
+<author title="Tłumacz"><mail link="lucass@gentoo.pl">Łukasz Strzygowski</mail></author>
+<abstract>Gentoo Weekly Newsletter z 13 grudnia 2004.</abstract>
+<summary></summary>
+<version>Wolumin 3, numer 50</version>
+<date>13 grudnia 2004</date>
+
+
+<chapter>
+<title>Wiadomości Gentoo</title>
+<section>
+<title>Nowe Chińskie Forum Gentoo</title>
+<body>
+
+<p>
+Powtarzane od dawna życzenie wreszcie zostało spełnione: Oficjalne Forum Gentoo, będące według 
+naszych użytkowników najpopularniejszym miejscem, w którym mogą szukać wsparcia, doczekało się 
+<uri link="http://forums.gentoo.org/viewtopic.php?t=265378">sekcji chińskojęzycznej</uri>. 
+Pomimo, że zapotrzebowanie na ten dział zgłaszano już od jakiegoś czasu, prośby nasiliły się
+w ciągu ostatnich kilku tygodni.</p>
+
+<p>
+Wdrożenie chińskiej wersji okazało się trudniejsze niż przypuszczano. Pakiety językowe 
+dla phpBB, czyli oprogramowania, na którym działa forum, standardowo dostępne są w osobnych 
+kodowaniach, co wymagałoby osobnego forum dla języka chińskiego tradycyjnego (Taiwan i Hong Kong) 
+i dla uproszczonego (kontynentalne Chiny). Podziału forum na dwie części nie brano nawet pod 
+uwagę, ale dzięki Christianowi Hartmannowi (<uri
+link="http://forums.gentoo.org/profile.php?mode=viewprofile&amp;u=15031">ian!</uri>),
+który w końcu zdecydował się zaimplementować to, co sugerowali chińscy użytkownicy, poprawiono
+pakiety językowe i nagłówki, a wszystkie pliki przekodowano do UTF-8. ian! najpierw udostępnił
+forum tylko kilku testerom, jako że sam nie zna chińskiego i musiał polegać wyłącznie na uwagach
+zgłaszanych przez użytkowników. Testowanie przypominało cumowanie tankowca posługując się tylko
+słuchem, tym niemniej udało się i nie zaszkodziło reszcie forum, a dwóch moderatorów czeka już
+na napływ chińskich użytkowników, co podda system dodatkowym testom wytrzymałościowym.</p>
+
+<p>
+Użyte kodowanie, UTF-8, umożliwiło używanie w wiadomościach zarówno uproszczonego, jak i tradycyjnego 
+języka chińskiego. <uri link="http://forums.gentoo.org/profile.php?mode=viewprofile&amp;u=54601">EricHsu</uri> 
+oraz <uri link="http://forums.gentoo.org/profile.php?mode=viewprofile&amp;u=82443">akar</uri> 
+zostali pierwszymi moderatorami i to oni będą musieli poradzić sobie z pierwszą falą użytkowników 
+z Chin, którzy zaczną napływać począwszy od dziś. Wielu chińskich Gentooistów odwiedzało 
+forum <uri link="http://www.linuxsir.org/bbs/forumdisplay.php?forumid=59">Linuxsir.org</uri>, 
+lecz można się spodziewać, że zaczną korzystać również z nowego, oficjalnego. Nowi moderatorzy 
+czytają obydwa zestawy znaków, lecz EricHsu używa GB2312 (uproszczony), natomiast akar Big5 
+(chiński tradycyjny), więc odpowiednio podzielą się zakresem odpowiedzialności.</p>
+
+<figure link="/images/gwn/20041213-chinese.png"
+           short="Chińskie Forum" 
+           caption="Okno edycji Chińskiego Forum Gentoo, kodowanie ustawione na UTF-8, a autodetekcja na chiński" />
+
+<note>
+Pomimo, iż treść wiadomości wysyłanych na forum może być zakodowana zarówno w Big5, jak i w GB2312,
+użytkownik  może wybrać dowolny język interfejsu, pozycji menu i komunikatów. W tym także od teraz 
+język chiński tradycyjny i uproszczony.</note>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Rzut okiem w przyszłość</title>
+<section>
+<title>Techniki wirtualizacji w Linuksie</title>
+<body> 
+
+<p>
+W niektórych zastosowaniach (prace deweloperskie, rozdzielanie usług,
+symulowane środowiska) pożądane jest "ukrycie" części sprzętu lub
+systemu operacyjnego za wirtualną maszyną. Najczęściej można to uzyskać
+stosując trzy techniki:</p>
+
+<ul>
+<li><b>Emulatory Sprzętu:</b> Takie programy emulują cały sprzęt krok po kroku. Do tej grupy należą Bochs, PearPC, coLinux i QEMU.</li>
+
+<li><b>Wirtualizacja Sprzętu:</b> Tutaj zaliczamy VMWare, UML, plex86 i XEN. Programy te emulują tylko niektóre przerwania i wywołania systemowe.</li>
+
+<li><b>Ograniczona Wirtualizacja:</b> vServery ukrywają tylko część systemu operacyjnego. Uruchomione jest tylko jedno jądro, lecz w zależności od np. uprawnień dostępu przechwytywane i modyfikowane są wywołania systemowe.</li>
+</ul>
+
+<p>Wszystkie te techniki mają swoje mocne i słabe strony. Na przykład emulatory sprzętu są niezależne od platformy i udają części lub podsystemy, jednakże są dużo wolniejsze od maszyn wirtualnych. Te ostatnie są także często niezależne od systemu operacyjnego, lecz ograniczone do określonego sprzętu (VMWare działa tylko na x86), a ich osiągi również pozostawiają jeszcze trochę do życzenia. Ostatnią technikę wykorzystuje się tam, gdzie potrzebna jest duża szybkość i niski narzut. Rozwiązania takie są zupełnie zintegrowane z systemem operacyjnym, będąc jednak oczywiście całkowicie od niego zależnym. Również nie wszystkie funkcje działają tak, jak możnaby się tego spodziewać.</p>
+
+<p>W dzisiejszym odcinku przyjrzymy się niektórym emulatorom i wirtualnym maszynom, oraz rzucimy trochę światła na ich dostępność i status w Gentoo.</p>
+<p><b><uri link="http://www.cl.cam.ac.uk/Research/SRG/netos/xen/">XEN</uri></b></p>
+
+<p>Program ten został stworzony na uniwersytecie w Cambridge.  Wprawdzie
+uruchamiane systemy operacyjne muszą być dostosowane do współpracy, jednak
+XEN oferuje w zamian bardzo wysoką wydajność w porównaniu z innymi tego typu
+rozwiązaniami.</p> 
+
+<p><e>Dostępność w Gentoo: </e>Eksperymentalne ebuildy dostępne są w <uri
+link="http://bugs.gentoo.org/show_bug.cgi?id=70161">bugzilli
+Gentoo</uri>.</p>
+
+<p><b><uri link="http://user-mode-linux.sourceforge.net/">UML - User Mode
+Linux</uri></b></p>
+
+<p>To rozwiązanie wirtualizacji jest specyficzne dla Linuksa. Uruchamiany
+system operacyjny musi używać zmodyfikownego jądra, potrzebne są też zmiany w
+systemie-hoście w celu zwiększenia wydajności. Niektóre wersje obsługują też
+zagnieżdżone UMLe, czyli możliwość uruchamiania nowego UMLa w już
+uruchomionym. Jest całkowicie odizolowany od hosta i zwykle używa plików
+jako "wirtualne twarde dyski". Z tego powodu charakteryzuje go mniejsza
+wydajność niż XEN, emuluje on jednak całe jądro, więc stosuje się go w
+innych sytuacjach - na przykład do tworzenia honeynets lub testowania sieci
+i rozwiązań rozproszonych.</p>
+
+<p><e>Dostępność w Gentoo: </e>Zmodyfikowany kernel dostępny jest w Portage
+pod nazwą <path>usermode-sources</path>, zaś na <uri
+link="http://www.gentoo.org/doc/en/uml.xml">stronie Gentoo</uri> można
+przeczytać Howto.</p>
+
+<p><b><uri link="http://www.vmware.com/">VMWare</uri></b></p>
+
+<p>Ten komercyjny program pozwala uruchomić dowolny system operacyjny
+działający na platformie x86 "w oknie" pod Linuksem oraz Windowsem. Jest
+dość dojrzały i w miarę szybki. Możliwe jest zagnieżdżanie systemów, na
+przykład Linux w VMWare pod Windowsem, który jest w VMWare pod Linuksem.
+Emulowana karta graficzna to S3, więc niektóre aplikacje, jak choćby gry pod
+Windows w DirectX nie będą działać. Dostępne są różne wersje VMWare, ESX
+Server przeznaczony do instalacji na serwerach i VMWare Workstation do
+użytku desktopowego.</p>
+
+<p><e>Dostępność w Gentoo: </e>
+<path>app-emulation/vmware-workstation</path> to 30-dniowa wersja demo.
+Można ją uaktualnić do pełnej wersji kupując od VMWare klucz.</p>
+
+<p><b><uri link="http://maconlinux.org/">MOL - Mac-on-Linux</uri></b></p>
+
+<p>Program analogiczny do VMWare, lecz działający na platformie PowerPC,
+oraz niekomercyjny i darmowy. Osiągi bliskie natywnemu sprzętowi, da się pod
+nim uruchomić Mac OS > 7.5, Mac OS X oraz Linuksa w okienkach lub trybach
+pełnoekranowych. Jego jedyna wada to nieumiejętność współpracy z nowymi,
+64-bitowymi procesorami Macintosh G5, za to działa na przykład na
+PegasosPPC, nawet z Mac OS X.</p>
+
+<p><e>Dostępność w Gentoo: </e>MOL jest dostępny w Portage.</p>
+
+<p><b><uri link="http://bochs.sourceforge.net/">BOCHS</uri></b></p>
+
+<p>BOCHS to jeden z najstarszych dostępnych emulatorów. Jest on emulatorem
+procesorów x86, napisanym w C++, a więc jest przenośny. W porównaniu z
+rozwiązaniami wirtualizacyjnymi ma bardzo niską wydajność, jednakże nawet on
+ma swoje zastosowania - chyba że znacie inny program, który umożliwia
+uruchomienie FreeDOSa na maszynie UltraSPARC.</p> 
+
+<p><e>Dostępność w Gentoo: </e>BOCHS jest dostępny w Portage. Obrazy
+dyskietek bootowalnych można ściągnąć ze strony BOCHSa</p>
+
+<p><b><uri link="http://pearpc.sourceforge.net/">PearPC</uri></b></p>
+
+<p>Jeden z młodszych emulatorów. Wciąż jest intensywnie rozwijany, jednakże
+już umożliwia uruchomienie wirtualnego Mac OS X na dowolnej obsługiwanej
+platformie (w tym Win32!). Jego prędkość to zaledwie 1/500 prawdziwego
+procesora, lecz trudno znaleźć coś przyjemniejszego niż uruchomienie bochsa
+w pearpc w vmware.</p>
+
+<p><e>Dostępność w Gentoo: </e>PearPC jest dostępny w Portage.</p>
+
+<p><b><uri link="http://savannah.nongnu.org/projects/plex86">Plex86</uri></b></p>
+
+<p>Plex86 stara się być postrzegany jako alternatywa Open Source dla VMWare.
+Działa tylko na platformie x86, lecz jest dość wydajny. Chwilowo projekt nie
+jest zbyt intensywnie rozwijany. Pod <uri
+link="http://plex86.sourceforge.net/">tym adresem</uri> można znaleźć stronę
+nowego projektu, który odłączył się od oryginalnego plex86. Autorzy stawiają
+sobie nieco inne cele, a program działa tylko z Linuksem.</p> 
+
+<p><e>Dostępność w Gentoo: </e> Plex86 jest dostępny w Portage</p>
+
+<p><b><uri link="http://www.colinux.org/">coLinux</uri></b></p>
+
+<p>Cooperative Linux jest pierwszym działającym i darmowym programem, który
+umożliwia uruchamianie Linuksa natywnie w Microsoft Windows. Może
+wystartować z dowolnego Linuksowego systemu plików loopback, a także posiada
+ograniczone wsparcie dla sieci poprzez sterownik TUN/TAP. Nie jest
+zamiennikiem dla Cygwina (który z kolei nie jest wirtualizatorem, tylko
+tłumaczem API), lecz oferuje pełny wybór linuksowych aplikacji pod
+Windows.</p>
+
+<p><e>Dostępność w Gentoo: </e>Obraz startowy Gentoo można ściągnąć ze
+strony domowej projektu.</p>
+
+<p><b><uri link="http://fabrice.bellard.free.fr/qemu/">QEMU</uri></b></p>
+
+<p>Ten program nie jest jednym, lecz wieloma emulatorami. Potrafi emulować
+różne architektury na szerokiej gamie sprzętu, co daje mu ponadprzeciętną
+elastyczność. Powinien być dużo szybszy od innych emulatorów, ale realne
+osiągi ma wciąż dość niskie.</p>
+
+<p><e>Dostępność w Gentoo: </e>QEMU jest dostępny w Portage</p>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Bezpieczeństwo Gentoo</title>
+<section>
+<title>PDFlib: Kilka błędów przepełnienia bufora w załączonej bibliotece TIFF</title>
+<body>
+<p>PDFLib jest podatne w kilku miejscach na
+przepełnienie bufora, co umożliwia potencjalne wykonanie niepożądanego kodu.
+</p>
+
+<p> Więcej informacji można znaleźć w <uri link="http://www.gentoo.org/security/en/glsa/glsa-200412-02.xml">komunikacie GLSA</uri>.
+</p>
+</body>
+</section> <section> <title>imlib:
+Przepełnienia bufora</title> <body> <p> Kilka błędów przepełnienia bufora,
+potencjalnie umożliwiających wykonanie niepożądanego kodu, znaleziono w
+obsłudze plików graficznych biblioteki imlib.  </p> <p> Więcej informacji można
+znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200412-03.xml">komunikacie
+GLSA</uri>.</p> </body> </section> <section> <title>Perl:
+Niebezpieczne tworzenie plików tymczasowych</title> <body> <p> Perl jest
+podatny na ataki za pomocą łącz symbolicznych, umożliwiając lokalnym
+użytkownikom nadpisywanie dowolnych plików.
+  
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="http://www.gentoo.org/security/en/glsa/glsa-200412-04.xml">komunikacie GLSA</uri>.
+</p>
+</body>
+</section>
+<section>
+<title>mirrorselect: Niebezpieczne tworzenie plików tymczasowych</title>
+<body>
+<p>
+
+    mirrorselect jest podatny na ataki za pomocą łącz symbolicznych, umożliwiając
+	lokalnym użytkownikom nadpisywanie dowolnych plików.
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="http://www.gentoo.org/security/en/glsa/glsa-200412-05.xml">komunikacie GLSA</uri>.
+</p>
+</body>
+</section>
+<section>
+<title>PHProjekt: problem z setup.php</title>
+<body>
+<p>
+	PHProjekt zawiera błąd w procedurze konfiguracyjnej, umożliwiający
+	zdalnym użytkownikom bez uprawnień administratora na zmianę ustawień.
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="http://www.gentoo.org/security/en/glsa/glsa-200412-06.xml">komunikacie GLSA</uri>.
+</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Społeczność Gentoo</title>
+<section>
+<title>gentoo-dev</title>
+<body>
+<p><b>Zbyt wiele list dyskusyjnych?</b></p>
+<p>
+Czy istnieje zbyt dużo (niezbyt popularnych) list dyskusyjnych Gentoo?
+Jak być zawsze poinformowanym bez zapisywania się do kilkunastu z nich?
+I wreszcie, czy jest jakieś lepsze rozwiązanie? Sprawdź co na ten
+temat mają do powiedzenia inni użytkownicy.
+</p>
+<ul>
+<li><uri
+link="http://thread.gmane.org/gmane.linux.gentoo.devel/23341">Too many mailing lists</uri></li>
+</ul>
+<p><b>Drobne uwagi dotyczące polityki ebuildów</b></p>
+<p><mail link="vapier@gentoo.org">Mike Frysinger</mail> wysłał
+dwa przypomnienia: 1) Nie aplikuj łatek specyficznych dla architektury
+o ile nie jest to absolutnie konieczne i 2) nie przypisuj wszystkich
+bugów do <path>gcc-porting</path> (lub innych bezbronnych aliasów).
+Dodał, że jeśli każdy zastosuje się do kilku prostych reguł,
+rozwiązywanie problemów i aktualizacje będą prostsze i szybsze. Ponadto,
+jeśli bugi będą przypisane do właściwych ludzi, być może nawet zostaną rozwiązane...
+</p>
+<ul>
+<li><uri link="http://thread.gmane.org/gmane.linux.gentoo.devel/23340">arch-specific
+patches</uri></li>
+<li><uri link="http://thread.gmane.org/gmane.linux.gentoo.devel/23314">a note about gcc-porting team</uri></li>
+</ul>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Międzynarodowe Gentoo</title>
+<section>
+<title>Japonia: Gentoo Bonenkai w Tokio </title>
+<body>
+
+<p>
+Kilkudniowa wizyta w Japonii obecnie mieszkającego w Londynie dewelopera GentooJP, Masatomo Nakano, zaplanowana
+w okolicach sylwestra, stanowi świetną okazję dla japońskich gentooistów do urządzenia Bonenkai, tradycyjnej
+końcoworocznej imprezy. Szczegółowe informacje znajdziesz na <uri link="http://ml.gentoo.gr.jp/users/">japońskiej
+liście dyskusyjnej</uri>, tymczasem spotkanie zaplanowano w tokijskiej dzielnicy Shibuya, na 28 grudnia 2004,
+o godzinie 18:00.</p>
+</body>
+</section>
+<section>
+<title>Niemcy: Zdjęcia z imprezy</title>
+<body>
+
+<p>
+Przedbożonarodzeniowe spotkanie na kręgielni, zorganizowane w piątek 10 grudnia przez i dla najpogodniejszych
+Gentooistów w niemieckim zagłębiu Ruhr, o którym pisaliśmy dwa tygodnie temu, odbyło się zgodnie z planem
+i co można wywnioskować z imponującej <uri link="http://www.gentoo.de/pub/pics/gum/ob/20041210/">galerii
+zdjęć</uri> dostępnej na niemieckiej stronie Gentoo, jego uczestnicy doskonale się bawili. Na zdjęciach
+widać niektórych z najlepszych deweloperów mieszkających w okolicy, choć szczerze mówiąc, w grze w kręgle
+nie są tak samo dobrzy. O wynikach chyba nie warto wiele pisać, na szczęście nikt nie odniósł żadnych obrażeń.
+</p>
+</body>
+</section>
+
+</chapter>
+<chapter> 
+<title>Gentoo w prasie</title> 
+<section>
+<title>Heise online (7 grudnia 2004)</title> 
+<body>
+
+<p>
+Popularny niemiecki magazyn IT pisze w artykule <uri
+link="http://www.heise.de/newsticker/meldung/54008">"More than the usual suspects"</uri> o zbliżającej się
+konferencji 21c3 w Berlinie. W oparciu o wywiad z deweloperem Gentoo i rzecznikiem Chaos Computer Club,
+<mail link="pylon@gentoo.org">Larsem Weilerem</mail>, wspomniano w nim o konferencji deweloperów naszej dystrybucji,
+która odbędzie się na 21c3.</p>
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Bugzilla</title>
+<section>
+<title>Spis treści</title>
+<body>
+	<ul>
+		<li><uri link="#doc_chap1_sect2" >Statystyki</uri></li>
+		<li><uri link="#doc_chap1_sect3" >Zamknięte Bugi</uri></li>
+		<li><uri link="#doc_chap1_sect4" >Nowe Bugi</uri></li>
+   </ul>
+</body>
+</section>
+
+<section>
+<title>Statystyki</title>
+<body>
+     <p>
+     Społeczność Gentoo używa Bugzilli (<uri link="http://bugs.gentoo.org/">bugs.gentoo.org</uri>) do
+     zgłaszania i śledzenia błędów, ogłoszeń, sugestii oraz innych form kontaktu z deweloperami.
+     Pomiędzy 05 a 12 grudnia 2004, aktywność w serwisie przedstawiała się następująco:
+     </p>
+     <ul>
+	     <li>zgłoszono 742 nowe bugi</li>
+		  <li>zamknięto lub rozwiązano 443 bugi</li>
+		  <li>31 uprzednio zamkniętych bugów zostało ponownie otwartych</li>
+     </ul>
+     <p>
+		Spośród 7590 obecnie otwartych bugów: 126 oznaczono jako 'blocker', 237 jako 'critical' a 548 jako 'major'.
+     </p>
+</body>
+</section>
+<section>
+<title>Zamknięte Bugi</title>
+<body>
+     <p>
+     Deweloperzy oraz zespoły, które zamknęły najwięcej bugów w minionym tygodniu to:
+		</p>
+     <ul>
+<li><mail link="games@gentoo.org" >Zespół Gentoo Games</mail>, 36
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2004-12-05&amp;chfieldto=2004-12-12&amp;resolution=FIXED&amp;assigned_to=games@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="tools-portage@gentoo.org" >Zespół Portage Utitilities</mail>, 22
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2004-12-05&amp;chfieldto=2004-12-12&amp;resolution=FIXED&amp;assigned_to=tools-portage@gentoo.org" >bugi</uri>
+            </li>
+<li><mail link="gnome@gentoo.org" >Zespół Gentoo Linux Gnome Desktop</mail>, 19
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2004-12-05&amp;chfieldto=2004-12-12&amp;resolution=FIXED&amp;assigned_to=gnome@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="base-system@gentoo.org" >Opiekunowie Kluczowych Pakietów Systemowych</mail>, 17
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2004-12-05&amp;chfieldto=2004-12-12&amp;resolution=FIXED&amp;assigned_to=base-system@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="amd64@gentoo.org" >Zespół AMD64 Porting</mail>, 16
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2004-12-05&amp;chfieldto=2004-12-12&amp;resolution=FIXED&amp;assigned_to=amd64@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="ppc@gentoo.org" >Zespół PPC Porters</mail>, 14
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2004-12-05&amp;chfieldto=2004-12-12&amp;resolution=FIXED&amp;assigned_to=ppc@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="vapier@gentoo.org" >SpanKY</mail>, 13
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2004-12-05&amp;chfieldto=2004-12-12&amp;resolution=FIXED&amp;assigned_to=vapier@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="kde@gentoo.org" >Zespół Gentoo KDE</mail>, 13
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2004-12-05&amp;chfieldto=2004-12-12&amp;resolution=FIXED&amp;assigned_to=kde@gentoo.org" >bugów</uri>
+            </li>
+</ul>
+</body>
+</section>
+<section>
+<title>Nowe Bugi</title>
+<body>
+     <p>
+     Deweloperzy oraz zespoły, do których przypisano najwięcej nowych bugów w minionym tygodniu to:
+     </p>
+     <ul>
+<li><mail link="amd64@gentoo.org" >Zespół AMD64 Porting</mail>, 23
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2004-12-05&amp;chfieldto=2004-12-12&amp;assigned_to=amd64@gentoo.org" >bugi</uri>
+            </li>
+<li><mail link="perl@gentoo.org" >Opiekunowie Perla</mail>, 15
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2004-12-05&amp;chfieldto=2004-12-12&amp;assigned_to=perl@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="base-system@gentoo.org" >Opiekunowie Kluczowych Pakietów Systemowych</mail>, 11
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2004-12-05&amp;chfieldto=2004-12-12&amp;assigned_to=base-system@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="sound@gentoo.org" >Zespół Gentoo Sound</mail>, 9
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2004-12-05&amp;chfieldto=2004-12-12&amp;assigned_to=sound@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="net-mail@gentoo.org" >Grupa Net-Mail</mail>, 8
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2004-12-05&amp;chfieldto=2004-12-12&amp;assigned_to=net-mail@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="mozilla@gentoo.org" >Zespół Mozilla Gentoo</mail>, 8
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2004-12-05&amp;chfieldto=2004-12-12&amp;assigned_to=mozilla@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="text-markup@gentoo.org" >Zespół Text-Markup</mail>, 7
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2004-12-05&amp;chfieldto=2004-12-12&amp;assigned_to=text-markup@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="php-bugs@gentoo.org" >Opiekunowie PHP</mail>, 7
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2004-12-05&amp;chfieldto=2004-12-12&amp;assigned_to=php-bugs@gentoo.org" >bugów</uri>
+            </li>
+</ul>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Sztuczki i kruczki</title>
+
+<section>
+<title>Nowy edytor profilów oraz flag USE</title>
+<body>
+
+<p><c>ufed</c>, którego zadanie to edycja ustawień oraz podgląd opisów flag USE,
+jest narzędziem dość starym. Jego oparty na ncurses interfejs ma wiele wad. Ponadto,
+przed paroma miesiącami zrezygnowano z dalszych prac nad nim.
+</p>
+
+<p>
+Nadchodzi alternatywa: <mail link="dams@gentoo.org">Damien Krotkine</mail> właśnie dodał
+do Portage nową wersję "Profuse". Narzędzie dobrze radzi sobie z kaskadowymi profilami,
+posiada miły dla oka interfejs GTK+-2, a dzięki emerge jest proste w instalacji.
+</p>
+<pre caption="Emerge profuse">
+# echo "app-portage/profuse ~x86" >> /etc/portage/package.keywords <comment>(o ile domyślnie</comment>
+# echo "dev-util/libconf ~x86" >> /etc/portage/package.keywords    <comment>używasz stabilnych</comment> 
+# echo "dev-perl/gtk2-fu ~x86" >> /etc/portage/package.keywords    <comment>wersji pakietów)</comment>
+# emerge profuse
+</pre>
+<figure link="/images/gwn/20041213-profuse.jpg"
+           short="Profuse" 
+           caption="Profuse autorstwa Damiena Krotkine'a, edytor profilów oraz flag USE" />
+
+<p><c>profuse</c> domyślnie pracuje na profilu wskazywanym przez
+<path>/etc/make.profile</path>, ale może również pracować z profilami
+kaskadowymi. Niestety, GUI służące do edycji profilów wciąż jest w budowie:</p>
+
+<pre caption="Wywołanie Profuse z profilem kaskadowym">
+# profuse --profile-dir=/usr/portage/profiles/default-linux/ppc/2004.3
+</pre>
+
+<p>
+Dla użytkowników Gentoo na Mac OS X <mail link="hansmi@gentoo.org">Michael Hanselmann</mail> stworzył
+<path>app-portage/portage-prefpane</path> działający jako plugin do standardowych Ustawień Systemu
+na Mac OS X. Służy on jako edytor pliku <path>make.conf</path>; może manipulować flagami USE
+oraz zmiennymi FEATURES i MIRRORS, a także posiada wygodny interfejs do manipulacji pozostałymi
+ustawieniami. Oczywiście, działa wyłącznie pod kontrolą Mac OS X.</p>
+
+<figure link="/images/gwn/20041213-prefpane.png"
+           short="portage-prefpane" 
+           caption="Portage-prefpane jest w pełni zintegrowane z Ustawieniami Systemu Mac OS X" />
+
+</body>
+</section>
+
+</chapter>
+
+
+<chapter>
+<title>Odeszli, Przybyli, Zmienili Status</title>
+	<section>
+		<title>Odeszli</title>
+		<body>
+		<p>Następujący deweloperzy opuścili projekt Gentoo Linux w minionym tygodniu:</p>
+		<ul>
+			<li>Michael Boman</li>
+		</ul>
+		</body>
+	</section>
+	<section>
+		<title>Przybyli</title>
+		<body>
+		<p>Następujący deweloperzy przyłączyli się do projektu Gentoo Linux w minionym tygodniu:</p>
+		<ul>
+			<li>Torsten Veller (tove) - net-mail, net-dialup</li>
+			<li>Aaron Kulbe (SuperLag) - net-mail</li>
+		</ul>
+		</body>
+	</section>
+	<section>
+		<title>Zmienili status</title>
+		<body>
+		<p>Następujący deweloperzy zmienili w minionym tygodniu pełnioną w projekcie Gentoo Linux funkcję:</p>
+			<ul>
+				<li><e>nikt w tym tygodniu</e></li>
+			</ul>
+		</body>
+	</section>
+</chapter>
+<chapter>
+	<title>Twój Wkład w GWN</title>
+	<section>
+	<body>
+	<p>
+		Jesteś zainteresowany współpracą w tworzeniu Gentoo Weekly Newsletter? 
+		Wyślij nam <mail link="gwn-feedback@gentoo.org">e-mail</mail>.
+	</p>
+	</body>
+	</section>
+</chapter>
+<chapter>
+	<title>Opinie Czytelników</title>
+	<section>
+	<body>
+	<p>
+		Jeśli chcesz, aby ten magazyn był jeszcze lepszy, podziel się z 
+		<mail link="gwn-feedback@gentoo.org">nami</mail> swoją opinią na jego temat.
+	</p>
+	</body>
+	</section>
+</chapter>
+<chapter>
+	<title>Lista Dyskusyjna GWN</title>
+	<section>
+	<body>
+	<p>
+		Aby zapisać się na listę dyskusyjną Gentoo Weekly Newsletter, wyślij pusty e-mail
+		na adres <mail link="gentoo-gwn-subscribe@gentoo.org">gentoo-gwn-subscribe@gentoo.org</mail>.
+	</p>
+	<p>
+		Aby się z niej wypisać, wyślij pusty e-mail na adres <mail
+		link="gentoo-gwn-unsubscribe@gentoo.org">gentoo-gwn-unsubscribe@gentoo.org</mail>
+		z konta, na które jest zasubskrybowana.
+	</p>
+	</body>
+	</section>
+</chapter>
+<chapter>
+	<title>Inne Języki</title>
+	<section>
+	<body>
+	<p>Gentoo Weekly Newsletter jest dostępny w następujących językach:</p>
+	<ul>
+		<li><uri link="http://www.gentoo.org/news/en/gwn/gwn.xml">angielskim</uri></li>
+		<li><uri link="http://www.gentoo.org/news/da/gwn/gwn.xml">duńskim</uri></li>
+		<li><uri link="http://www.gentoo.org/news/fr/gwn/gwn.xml">francuskim</uri></li>
+		<li><uri link="http://www.gentoo.org/news/es/gwn/gwn.xml">hiszpańskim</uri></li>
+		<li><uri link="http://www.gentoo.org/news/be/gwn/gwn.xml">holenderskim</uri></li>
+		<li><uri link="http://www.gentoo.org/news/ja/gwn/gwn.xml">japońskim</uri></li>
+		<li><uri link="http://www.gentoo.org/news/de/gwn/gwn.xml">niemieckim</uri></li>
+		<li><uri link="http://www.gentoo.org/news/pl/gwn/gwn.xml">polskim</uri></li>
+		<li><uri link="http://www.gentoo.org/news/br/gwn/gwn.xml">portugalskim (Brazylia)</uri></li>
+		<li><uri link="http://www.gentoo.org/news/pt/gwn/gwn.xml">portugalskim (Portugalia)</uri></li>
+		<li><uri link="http://www.gentoo.org/news/ru/gwn/gwn.xml">rosyjskim</uri></li>
+		<li><uri link="http://www.gentoo.org/news/tr/gwn/gwn.xml">tureckim</uri></li>
+		<li><uri link="http://www.gentoo.org/news/it/gwn/gwn.xml">włoskim</uri></li>
+	</ul>
+	</body>
+	</section>
+</chapter>
+</guide>

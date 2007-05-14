@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<guide type="newsletter" link="20050221-newsletter.xml" lang="pl">
+<title>Gentoo Weekly Newsletter</title>
+<subtitle>February 21st, 2005</subtitle>
+<author title="Editor">
+<mail link="plate@gentoo.org">Ulrich Plate</mail>
+</author>
+<author title="Author">
+<mail link="fant@pobox.com">Andrew Fant</mail>
+</author>
+<author title="Author">
+<mail link="degrenier@easyconnect.fr">Thomas de Grenier de Latour</mail>
+</author>
+<author title="Author">
+<mail link="patrick@gentoo.org">Patrick Lauer</mail>
+</author>
+<abstract>This is the Gentoo Weekly Newsletter for the week of 21 February 2005.</abstract>
+<summary/>
+<version>Volume 4, Issue 8</version>
+<date>2005-02-21</date>
+<chapter>
+<title>Gentoo News</title>
+<section>
+<title>Boston Linux World Expo: The Après-Show report</title>
+<body>
+<p>
+The Linux World Conference and Exposition was held last week at the Hynes
+Convention Center in Boston, Massachusetts, USA.  Gentoo Linux had a booth
+in the .org pavilion, nestled between the friendly folks from Fedora and that
+lovable lot from the Linux Terminal Server Project.  On display were an array
+of systems demonstrating the wide array of architectures that Gentoo is
+available for.  The main draw was clearly the diminutive Mac Mini with the big
+cinema screen, brought by <mail link="dostrow@gentoo.org">Daniel Ostrow</mail>.  
+Also present were Daniel's Sparc Ultra 60, several x86 laptops, and an AMD64 
+and several embedded goodies brought by <mail link="vapier@gentoo.org">Mike 
+Frysinger</mail>.
+</p>  
+
+<p>
+A full team of volunteers helped staff the booth. Besides Mike and Daniel, 
+<mail link="seemant@gentoo.org">Seemant Kulleen</mail>, <mail 
+link="wolf31o2@gentoo.org">Chris Gianelloni</mail>, <mail link="absinthe@gentoo.org">Dylan 
+Carlson</mail>, <mail link="jforman@gentoo.org">Jeffrey Forman</mail>, <mail 
+link="latexer@gentoo.org">Peter Johanson</mail>, <mail link="lewk@gentoo.org">Luke 
+Macken</mail> (lewk), <mail link="rajiv@gentoo.org">Rajiv Manglani</mail>, <mail 
+link="fant@pobox.com">Andy Fant</mail>, <mail link="zx@gentoo.org">Chris 
+Aniszczyk</mail> and <mail link="agriffis@gentoo.org">Aaron Griffis</mail> made 
+appearances and helped out in the booth.
+</p>
+<figure link="/images/gwn/20050221_lwe.jpg"
+	short="devs-in-a-row" 
+	caption="Boston LWE Gentoo booth staff" />
+<note>
+Front, left to right: Andrew Fant, Chris Gianelloni, Mike Frysinger, Rajiv Manglani. 
+Chris Aniszcszyk is leaning over the table just under the Gentoo poster, everybody else
+are visitors.
+</note>
+
+<p>
+Besides the perennial requests for CDs (which we had) and T-shirts (which we didn't),
+there was a steady flow of interest in the PPC release, and a gratifying
+number of comments by people who have come to realize that Gentoo has a
+role to play in the enterprise.  Also of note was the forthcoming launch of a
+<uri link="http://genux.org">Gentoo-based startup</uri> that will provide
+custom binary packages to subscribing users through standard Portage mechanisms.  
+A highlight of the week was the anti-bof, where 30-40 users and developers took 
+over the top floor of the Globe Bar and Grill and got the chance to meet and 
+mingle in person.
+</p>
+
+<p>
+This was the first year that the LWE was held in Boston, instead of New York,
+and by all accounts, it was a success.  There was a twenty percent increase in
+vendor exhibits, and attendance was up by a similar amount.  It seems likely
+that LWE will return again next winter, so start making plans for next year.
+Thanks to everyone who helped to make our presence at the show a success.
+For those on the west coast, LWE will be in San Francisco from 8 to 11 August. 
+If you are interested in helping with the Gentoo booth at that meeting, please 
+contact the PR team.
+</p>
+</body>
+</section>
+<section>
+<title>Last call for FOSDEM</title>
+<body>
+<p>
+More than 40 Gentoo developers, activists and power users have confirmed their
+presence at this year's <uri link="http://dev.gentoo.org/~pylon/fosdem-2005.html">FOSDEM</uri> 
+on 26 and 27 February in Brussels at the Université Libre de Bruxelles. The local
+youth hostel has literally been taken over by the participants in the DevRoom
+organised by Gentoo at Europe's largest open-source conference, and the schedule 
+is packed with presentations by developers from all over Europe. Saturday night life
+in Brussels will make it challenging to keep the tight schedule for the Gentoo developer
+meeting on Sunday morning. 
+</p>
+</body>
+</section>
+<section>
+<title>Free entrance to the Gentoo UK conference</title>
+<body>
+<p>
+Thanks to securing sponsorships by the University of Salford and the London Internet 
+Exchange, <uri link="http://www.linx.net">LINX</uri>, the <uri 
+link="http://dev.gentoo.org/~stuart/2005/">Gentoo UK Conference</uri>, scheduled for 
+12 March at Manchester's University of Salford, was able to drop the
+entrance fee. Participants will now be admitted free of charge.
+</p>
+</body>
+</section>
+<section>
+<title>Easy subscription to Gentoo RSS feeds</title>
+<body>
+<p>
+<mail link="citizen428@gentoo.org">Michael Kohl</mail> has made <uri 
+link="http://dev.gentoo.org/~citizen428/files/gentoo.opml">an OPML file</uri> available
+that allows to automatically subscribe to three different RSS feeds from Gentoo at once, 
+i.e. the Gentoo Linux news as published on the Gentoo website, the Gentoo Linux Security 
+Announcements (GLSAs), and the feed for packages for x86. Many RSS-readers support
+importing from an OPML file, making subscriptions easily manageable.
+</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Future Zone</title>
+<section>
+<title>Gentooified Kuro-Box</title>
+<body>
+
+<p>The Kuro-Box is a toaster-sized PowerPC NAS (Network Attached Storage)
+device designed for Linux hackers, owing at least part of its appeal to
+the clever name: much better than its English translation of simply "black" 
+already does, the "kuro" of the Kuro-Box hints at both the colour <e>and</e> 
+the occultness of what may be lurking in the dark. Based 
+on a <uri link="http://www.freescale.com/webapp/sps/site/prod_summary.jsp?code=MPC8241">
+Freescale MPC8241</uri> (a 603e processor), it exists in two versions:</p>
+<ul>
+    <li>the original one, at 200MHz with 64MB RAM, a 100Mb ethernet 
+        controler and one USB plug (around 160 USD without hard-drive)</li>
+    <li>the HG version, at 266MHz with 128MB RAM, a 1Gb ethernet
+        controler and two USB plugs (240 USD without hard-drive)</li>
+</ul>
+<p>
+Obscured by the fact that it was spawned off Buffalo Technology's "LinkStation"
+storage device series, it's probably the most inexpensive Linux/PPC development 
+environment currently in the market.
+</p>
+<figure 
+	link="/images/gwn/20050221_kurobox.jpg"
+	short="Kuro-Box" 
+	caption="Attaching a new meaning to network storage: 
+	Buffalo's Kuro-Box"
+/>
+
+<p><uri link="http://penguinppc.org/embedded/kuro/">The history</uri> of
+the Kuro-Box begins in Japan back in early 2004, when a Buffalo sister
+company, Kurouto Shikou, decided to sell older LinkStation inventory
+on the "power users" market. Thus, the oldest and biggest Kuro-Box hackers
+community is Japanese, and the amount of documentation on
+<uri link="http://linkstation.yi.org/">their Linkstation Wiki</uri> or on
+<uri link="http://www.yamasita.jp/linkstation/">Yasunari Yamashita's
+blog</uri> show how active it is. Since a few months, Kuro-Boxes are also 
+distributed in the US and Europe by <uri link="http://www.revogear.com/">Revogear</uri>, 
+and a new non-Japanese community centering around <uri
+link="http://www.kurobox.com/forums/">a forum</uri> and <uri 
+link="http://www.kurobox.com/online/">a wiki</uri> now has plenty of English
+information available to them.</p>
+
+<p>In both communities, there had been several attempts at replacing
+the stock firmware with more generic Linux distributions ever since
+the first Kuro-Box shipped about a year ago. The original firmware is too 
+much NAS-oriented, i.e. only designed to be a file and printing server, 
+whereas a complete Linux distribution would allow for easy experimentation 
+and unlocking of the platform's full potential. Even setting up Gentoo systems 
+inside the Kuro-Box had been tried before: <uri 
+link="http://www.kurobox.com/forums/profile.php?mode=viewprofile&amp;u=48">jmgdean</uri> 
+released a <uri link="http://www.kurobox.com/forums/viewtopic.php?t=111">Gentoo 
+Total Conversion alpha1</uri>, and much work was done inside the Japanese 
+community. However, all of those earlier attempts were mixed installations of Gentoo Linux on 
+top of the original firmware: the toolchains were still based on gcc-2.95, many 
+files were not managed by Portage, and there was still some non-free code inside. 
+
+My <uri
+link="http://www.kurobox.com/online/tiki-index.php?page=What+is+in+Gentoo+Beta1">beta1
+release</uri>, on the other hand, is entirely built from sources, and exclusively 
+via Portage. It is composed of:
+</p>
+<ul>
+    <li>a stage3 image which can be installed directly on a fresh
+        harddrive, and which completly replaces the original firmware</li>
+    <li>a Portage overlay, with a few new or modified ebuilds</li>
+    <li>a custom Portage profile, based on Gentoo PPC 2004.3</li>
+    <li>many additional binary packages that should
+    cover the most current needs for that kind of system</li>
+</ul>
+<p>
+The installation process is mostly similar to "normal" Gentoo systems, except that
+it begins in the so-called "EM mode" in which the box boots when it's not yet set up. 
+This is a very minimalistic environment which can be accessed by both <c>ftp</c> and <c>telnet</c>. 
+From there, you will be able to prepare your drive, <c>chroot</c>, and install the 
+stage3 image. Then you switch the box to the "Normal mode", and hopefully it will
+reboot using your fresh Gentoo system, which should be accessible by
+<c>ssh</c>. Detailed instructions are available on a <uri 
+link="http://www.kurobox.com/online/tiki-index.php?page=InstallGentooBeta1">
+Wiki page</uri>.</p>
+<p><b>Known limitation and future work</b></p>
+<p>
+The only thing that is not easily hackable is the content of the FlashROM, i.e.
+the EM mode system and the kernel. The format of the flash image is well-known 
+and documented (at least on some Japanese websites), but, as opposed to many other
+Linux-based devices, there is absolutely no fallback in case of mistake once 
+you've touched it -- a flashing error or a badly configured kernel will kill it
+for good. Because of that, most users are still stuck to the original 2.4.17 
+kernel, which is far from perfect. There are currently two directions 
+explored to overcome this limitation:
+</p>
+<ul>
+<li>
+Installing a proper bootloader in the FlashROM: <uri link="http://www.kurobox.com/online/tiki-index.php?page=projectsBootloader">U-Boot</uri> 
+would probably be the best choice, but this project is at too early a stage 
+to give an estimate of its availability.
+</li>
+<li>
+Dynamically replacing the running kernel. This has been made
+possible thanks to <uri
+link="http://www.kurobox.com/forums/viewtopic.php?t=277">jochang's
+work</uri>, through the load of a simple kernel module.
+Integrating that kernel switching in the boot process is the top
+target for Gentoo beta2 (with everything it depends on, like a
+proper packaging of kuro-ified kernel sources, etc.)
+</li>
+</ul>
+<p>
+Some other future work items include:
+</p>
+<ul>
+    <li>improve the distribution system: in particular, use <c>rsync</c> instead
+        of tarballs for overlay/profile</li>
+    <li>by popular demand, add some meta-ebuilds for some common
+        needs like "mail server" or "MacOSX-friendly server". Or
+        release some kinds of customized "stage4"
+</li>
+<li>some minor improvements all around, like better LED status,
+        maybe more precompiled modules for the stock kernel, etc.
+</li>
+    <li>maybe a (semi-)automatic installation process (from a LiveCD?):
+        for some users, installing Gentoo by telnet on a Kuro Box is
+        their first Linux experience, and it seems to be a bit too
+        much at a time...</li>
+</ul>
+
+<note>Author Thomas de Grenier de Latour (TGL) is one of the Gentoo Forums
+moderators, responsible for the French language forum. He will bring a 
+Kuro-Box to FOSDEM in Brussels this coming weekend, if you would like to 
+learn more about this little box or see it in action, make sure to stop by 
+the Gentoo DevRoom.</note>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Gentoo security</title>
+<section>
+<title>PowerDNS: Denial of Service vulnerability</title>
+<body>
+<p>
+
+    A vulnerability in PowerDNS could lead to a temporary Denial of Service.
+  
+</p>
+<p>
+For more information, please see the <uri link="/security/en/glsa/glsa-200502-15.xml">GLSA Announcement</uri>
+</p>
+</body>
+</section>
+<section>
+<title>ht://Dig: Cross-site scripting vulnerability</title>
+<body>
+<p>
+
+    ht://Dig is vulnerable to cross-site scripting attacks.
+  
+</p>
+<p>
+For more information, please see the <uri link="/security/en/glsa/glsa-200502-16.xml">GLSA Announcement</uri>
+</p>
+</body>
+</section>
+<section>
+<title>Opera: Multiple vulnerabilities</title>
+<body>
+<p>
+
+    Opera is vulnerable to several vulnerabilities which could result in
+    information disclosure and facilitate execution of arbitrary code.
+  
+</p>
+<p>
+For more information, please see the <uri link="/security/en/glsa/glsa-200502-17.xml">GLSA Announcement</uri>
+</p>
+</body>
+</section>
+<section>
+<title>VMware Workstation: Untrusted library search path</title>
+<body>
+<p>
+
+    VMware may load shared libraries from an untrusted, world-writable
+    directory, resulting in the execution of arbitrary code.
+  
+</p>
+<p>
+For more information, please see the <uri link="/security/en/glsa/glsa-200502-18.xml">GLSA Announcement</uri>
+</p>
+</body>
+</section>
+<section>
+<title>PostgreSQL: Buffer overflows in PL/PgSQL parser</title>
+<body>
+<p>
+
+    PostgreSQL is vulnerable to several buffer overflows in the PL/PgSQL parser
+    leading to execution of arbitrary code.
+  
+</p>
+<p>
+For more information, please see the <uri link="/security/en/glsa/glsa-200502-19.xml">GLSA Announcement</uri>
+</p>
+</body>
+</section>
+<section>
+<title>Emacs, XEmacs: Format string vulnerabilities in movemail</title>
+<body>
+<p>
+
+    The movemail utility shipped with Emacs and XEmacs contains several format
+    string vulnerabilities, potentially leading to the execution of arbitrary
+    code.
+  
+</p>
+<p>
+For more information, please see the <uri link="/security/en/glsa/glsa-200502-20.xml">GLSA Announcement</uri>
+</p>
+</body>
+</section>
+<section>
+<title>lighttpd: Script source disclosure</title>
+<body>
+<p>
+
+    An attacker can trick lighttpd into revealing the source of scripts that
+    should be executed as CGI or FastCGI applications.
+  
+</p>
+<p>
+For more information, please see the <uri link="/security/en/glsa/glsa-200502-21.xml">GLSA Announcement</uri>
+</p>
+</body>
+</section>
+<section>
+<title>wpa_supplicant: Buffer overflow vulnerability</title>
+<body>
+<p>
+
+    wpa_supplicant contains a buffer overflow that could lead to a Denial of
+    Service.
+  
+</p>
+<p>
+For more information, please see the <uri link="/security/en/glsa/glsa-200502-22.xml">GLSA Announcement</uri>
+</p>
+</body>
+</section>
+<section>
+<title>KStars: Buffer overflow in fliccd</title>
+<body>
+<p>
+
+    KStars is vulnerable to a buffer overflow that could lead to arbitrary code
+    execution with elevated privileges.
+  
+</p>
+<p>
+For more information, please see the <uri link="/security/en/glsa/glsa-200502-23.xml">GLSA Announcement</uri>
+</p>
+</body>
+</section>
+<section>
+<title>Midnight Commander: Multiple vulnerabilities</title>
+<body>
+<p>
+
+    Midnight Commander contains several format string errors, buffer overflows
+    and one buffer underflow leading to execution of arbitrary code.
+  
+</p>
+<p>
+For more information, please see the <uri link="/security/en/glsa/glsa-200502-24.xml">GLSA Announcement</uri>
+</p>
+</body>
+</section>
+<section>
+<title>Squid: Denial of Service through DNS responses</title>
+<body>
+<p>
+
+    Squid contains a bug in the handling of certain DNS responses resulting in
+    a Denial of Service.
+  
+</p>
+<p>
+For more information, please see the <uri link="/security/en/glsa/glsa-200502-25.xml">GLSA Announcement</uri>
+</p>
+</body>
+</section>
+<section>
+<title>GProFTPD: gprostats format string vulnerability</title>
+<body>
+<p>
+
+    gprostats, distributed with GProFTPD, is vulnerable to a format string
+    vulnerability, potentially leading to the execution of arbitrary code.
+  
+</p>
+<p>
+For more information, please see the <uri link="/security/en/glsa/glsa-200502-26.xml">GLSA Announcement</uri>
+</p>
+</body>
+</section>
+<section>
+<title>gFTP: Directory traversal vulnerability</title>
+<body>
+<p>
+
+    gFTP is vulnerable to directory traversal attacks, possibly leading to the
+    creation or overwriting of arbitrary files.
+  
+</p>
+<p>
+For more information, please see the <uri link="/security/en/glsa/glsa-200502-27.xml">GLSA Announcement</uri>
+</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Heard in the community</title>
+<section>
+<title>gentoo-dev</title>
+<body>
+<p><b>Using Gentoo in emulators</b></p>
+<p>
+After a failed install of Gentoo in MS VirtualPC, a user asks what
+experiences others have with Gentoo in emulated environments. Read on
+for a nice (win32-centric) collection of user experiences.
+</p>
+<ul>
+<li><uri
+link="http://thread.gmane.org/gmane.linux.gentoo.devel/25480">Using
+Gentoo in emulators</uri></li>
+</ul>
+
+
+<p><b>Portage performance improvements</b></p>
+<p>
+Another user found a bottleneck in Portage whose removal seems to reduce
+startup times by at least 50%. Although that may be an extreme example,
+it still shows that Portage performance is far from optimal.
+</p>
+<ul>
+<li><uri
+link="http://thread.gmane.org/gmane.linux.gentoo.devel/25458">Portage
+performance improvements</uri></li>
+</ul>
+
+
+<p><b>GLEP33: Eclass restructure</b></p>
+<p>
+After the large flamewars last time someone tried to change the way
+eclasses are used and handled, <mail link="johnm@gentoo.org">John
+Mylchreest</mail> and <mail link="ferringb@gentoo.org">Brian
+Harring</mail> offer a new and quite comprehensive proposal. It can be
+found at <uri>http://dev.gentoo.org/~johnm/files/glep33.txt</uri>
+</p>
+<ul>
+
+<li><uri
+link="http://thread.gmane.org/gmane.linux.gentoo.devel/25427">GLEP
+33: Eclass restructure</uri></li>
+</ul>
+<p><b>Runtime vs. devel packages</b></p>
+<p>
+<mail link="stuart@gentoo.org">Stuart Herbert</mail> offers some
+thoughts on split ebuilds:
+"For years now, RedHat have split a lot of their packages
+into two sets ... a set containing what's needed at runtime to use the
+package, and another 'devel' package containing header files etc which
+are only needed for building software. One thing that it's really nice 
+to do with a server is build it with no compilers etc installed.  The 
+less that's on there, the less there is to maintain, upgrade, be reused 
+by the black hats, etc etc." But, as it seems, there are also good 
+reasons to do things "The Gentoo Way". Read on for a discussion of the 
+pros and cons of both approaches.
+</p>
+<ul>
+<li><uri
+link="http://thread.gmane.org/gmane.linux.gentoo.devel/25412">Runtime
+vs. devel packages</uri></li>
+</ul>
+
+</body></section>
+</chapter>
+<chapter>
+<title>Gentoo in the press</title>
+<section>
+<title>Security Focus (14 February 2005)</title>
+<body>
+<p>
+After being talked about in a Security Focus article the week before, Gentoo 
+developer and operational manager for the Gentoo Linux Security Team <mail 
+link="koon@gentoo.org">Thierry Carrez</mail> now had his own column last
+Monday: <uri link="http://www.securityfocus.com/columnists/299">"More advisories,
+more security"</uri> is the title of his piece on the relationship between
+activities in the security arms of Linux distributions and overall safety
+for users. "Security advisories from a software publisher or packager should not 
+be seen as bad news. There are always vulnerabilities in software, and when an 
+advisory is released it means that one of these flaws has been identified and 
+fixed," explains Thierry. "It also means the good guys have done their homework, 
+and that one less flaw can be used by the bad guys to harm you."
+</p>
+</body>
+</section>
+<section>
+<title>Linux Times (14 and 18 February 2005)</title>
+<body>
+<p>
+A flamboyant installation report from Austria hit the online magazine 
+Linux Times on Monday last week, under the heading "One week with 
+Gentoo Linux." <uri 
+link="http://www.linuxtimes.net/modules.php?name=News&amp;file=article&amp;sid=806">The 
+article</uri> describes in detail an installation of Gentoo Linux
+on slightly dated hardware, and tries to shatter the myth of Gentoo
+being not easily accessible: "If there was a list of biggest GNU/Linux 
+cliches, the statement 'Gentoo is hard to install' would be ranked 
+among the top. Let me tell you a little secret: Gentoo is easy to install,"
+says author Imre Kálomista, a student at Vienna University. And if that
+wasn't enough, Gentoo again figures as a topic on Linux Times four days later
+in a review of the Vidalinux release 1.1 in direct comparison to a "real"
+Gentoo system. The <uri 
+link="http://www.linuxtimes.net/modules.php?name=News&amp;file=article&amp;sid=831">article</uri>
+concludes that the Puerto-Rican binary Gentoo clone strangely lacks binary
+package support, but mentions a club membership for access to a repository
+of precompiled packages.
+</p>
+</body>
+</section>
+<section>
+<title>Cuddletech blog (12 February 2005)</title>
+<body>
+<p>
+<uri link="http://www.cuddletech.com/blog/pivot/entry.php?id=82">Using Xorg 
+6.8.2 &amp; Composite</uri> is the topic for Ben Rockwood's blog entry on
+the new transparency features in Xorg, with a pleasant side note on the 
+ease of installation in his Gentoo environment: "Thanks to Gentoo I simply 
+yanked XFree86 (unmerge) and merged in Xorg 6.8.2." 
+</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Bugzilla</title>
+<section>
+<title>Summary</title>
+<body>
+     <ul>
+          <li><uri link="#doc_chap1_sect2" >Statistics</uri></li>
+          <li><uri link="#doc_chap1_sect3" >Closed bug ranking</uri></li>
+	  <li><uri link="#doc_chap1_sect4" >New bug rankings</uri></li>
+     </ul>
+</body>
+</section>
+
+<section>
+<title>Statistics</title>
+<body>
+     <p>
+     The Gentoo community uses Bugzilla (<uri link="http://bugs.gentoo.org" >bugs.gentoo.org</uri>) to record and track
+     bugs, notifications, suggestions and other interactions with the development team.  Between 13 February 2005 and 20 February 2005, activity
+     on the site has resulted in:
+     </p>
+     <ul>
+          <li>813 new bugs during this period</li>
+	  <li>447 bugs closed or resolved during this period</li>
+	  <li>20 previously closed bugs were reopened this period</li>
+     </ul>
+     <p>
+     Of the 8040 currently open bugs: 101 are labeled 'blocker', 240 are labeled 'critical', and 596 are labeled 'major'.
+     </p>
+</body>
+</section>
+
+<section>
+<title>Closed bug rankings</title>
+<body>
+     <p>
+     The developers and teams who have closed the most bugs during this period are:
+     </p>
+     <ul>
+<li><mail link="kde@gentoo.org" >Gentoo KDE team</mail>, with 25
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-02-13&amp;chfieldto=2005-02-20&amp;resolution=FIXED&amp;assigned_to=kde@gentoo.org" >closed bugs</uri>
+            </li>
+<li><mail link="php-bugs@gentoo.org" >PHP Bugs</mail>, with 24
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-02-13&amp;chfieldto=2005-02-20&amp;resolution=FIXED&amp;assigned_to=php-bugs@gentoo.org" >closed bugs</uri>
+            </li>
+<li><mail link="net-mail@gentoo.org" >Net-Mail Packages</mail>, with 21
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-02-13&amp;chfieldto=2005-02-20&amp;resolution=FIXED&amp;assigned_to=net-mail@gentoo.org" >closed bugs</uri>
+            </li>
+<li><mail link="security@gentoo.org" >Gentoo Security</mail>, with 20
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-02-13&amp;chfieldto=2005-02-20&amp;resolution=FIXED&amp;assigned_to=security@gentoo.org" >closed bugs</uri>
+            </li>
+<li><mail link="netmon@gentoo.org" >Netmon Herd</mail>, with 15
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-02-13&amp;chfieldto=2005-02-20&amp;resolution=FIXED&amp;assigned_to=netmon@gentoo.org" >closed bugs</uri>
+            </li>
+<li><mail link="amd64@gentoo.org" >AMD64 Porting Team</mail>, with 15
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-02-13&amp;chfieldto=2005-02-20&amp;resolution=FIXED&amp;assigned_to=amd64@gentoo.org" >closed bugs</uri>
+            </li>
+<li><mail link="sound@gentoo.org" >Gentoo Sound Team</mail>, with 11
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-02-13&amp;chfieldto=2005-02-20&amp;resolution=FIXED&amp;assigned_to=sound@gentoo.org" >closed bugs</uri>
+            </li>
+<li><mail link="ppc@gentoo.org" >PPC Porters</mail>, with 11
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-02-13&amp;chfieldto=2005-02-20&amp;resolution=FIXED&amp;assigned_to=ppc@gentoo.org" >closed bugs</uri>
+            </li>
+</ul>
+</body>
+</section>
+
+<section>
+<title>New bug rankings</title>
+<body>
+     <p>
+     The developers and teams who have been assigned the most new bugs during this period are:
+     </p>
+     <ul>
+<li><mail link="qmail-bugs@gentoo.org" >Qmail Team</mail>, with 54
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-02-13&amp;chfieldto=2005-02-20&amp;assigned_to=qmail-bugs@gentoo.org" >new bugs</uri>
+            </li>
+<li><mail link="sound@gentoo.org" >Gentoo Sound Team</mail>, with 23
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-02-13&amp;chfieldto=2005-02-20&amp;assigned_to=sound@gentoo.org" >new bugs</uri>
+            </li>
+<li><mail link="amd64@gentoo.org" >AMD64 Porting Team</mail>, with 19
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-02-13&amp;chfieldto=2005-02-20&amp;assigned_to=amd64@gentoo.org" >new bugs</uri>
+            </li>
+<li><mail link="media-video@gentoo.org" >media-video herd</mail>, with 17
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-02-13&amp;chfieldto=2005-02-20&amp;assigned_to=media-video@gentoo.org" >new bugs</uri>
+            </li>
+<li><mail link="kde@gentoo.org" >Gentoo KDE team</mail>, with 16
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-02-13&amp;chfieldto=2005-02-20&amp;assigned_to=kde@gentoo.org" >new bugs</uri>
+            </li>
+<li><mail link="sci@gentoo.org" >Gentoo Science Related Packages</mail>, with 10
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-02-13&amp;chfieldto=2005-02-20&amp;assigned_to=sci@gentoo.org" >new bugs</uri>
+            </li>
+<li><mail link="base-system@gentoo.org" >Gentoo's Team for Core System packages</mail>, with 10
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-02-13&amp;chfieldto=2005-02-20&amp;assigned_to=base-system@gentoo.org" >new bugs</uri>
+            </li>
+<li><mail link="x11@gentoo.org" >Gentoo X-windows packagers</mail>, with 9
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-02-13&amp;chfieldto=2005-02-20&amp;assigned_to=x11@gentoo.org" >new bugs</uri>
+            </li>
+</ul>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Moves, adds, and changes</title>
+<section>
+<title>Moves</title>
+<body>
+<p>
+The following developers recently left the Gentoo team:
+</p>
+<ul>
+<li>
+<e>None this week</e>
+</li>
+</ul>
+</body>
+</section>
+<section>
+<title>Adds</title>
+<body>
+<p>
+The following developers recently joined the Gentoo Linux team:
+</p>
+<ul>
+<li>
+David Gümbel (ganymede) - wine
+</li>
+</ul>
+</body>
+</section>
+<section>
+<title>Changes</title>
+<body>
+<p>The following developers recently changed roles within the
+Gentoo Linux project:</p>
+<ul>
+<li>
+<e>None this week</e>
+</li>
+</ul>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Contribute to GWN</title>
+<section>
+<body>
+<p>
+Interested in contributing to the Gentoo Weekly Newsletter? Send us an <mail 
+link="gwn-feedback@gentoo.org">email</mail>.
+</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>GWN feedback</title>
+<section>
+<body>
+<p>Please send us your <mail link="gwn-feedback@gentoo.org">feedback</mail> and 
+help make the GWN better.</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>GWN subscription information</title>
+<section>
+<body>
+<p>
+To subscribe to the Gentoo Weekly Newsletter, send a blank email to <mail link="gentoo-gwn-subscribe@gentoo.org">gentoo-gwn-subscribe@gentoo.org</mail>.
+</p>
+<p>
+To unsubscribe to the Gentoo Weekly Newsletter, send a blank email to <mail
+link="gentoo-gwn-unsubscribe@gentoo.org">gentoo-gwn-unsubscribe@gentoo.org</mail>
+from the email address you are subscribed under.
+</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Other languages</title>
+<section>
+<body>
+<p>The Gentoo Weekly Newsletter is also available in the
+following languages:</p>
+<ul>
+<li>
+<uri link="/news/da/gwn/gwn.xml">Danish</uri>
+</li>
+<li>
+<uri link="/news/nl/gwn/gwn.xml">Dutch</uri>
+</li>
+<li>
+<uri link="/news/en/gwn/gwn.xml">English</uri>
+</li>
+<li>
+<uri link="/news/de/gwn/gwn.xml">German</uri>
+</li>
+<li>
+<uri link="/news/fr/gwn/gwn.xml">french</uri>
+</li>
+<li>
+<uri link="/news/ja/gwn/gwn.xml">japanese</uri>
+</li>
+<li>
+<uri link="/news/it/gwn/gwn.xml">italian</uri>
+</li>
+<li>
+<uri link="/news/pl/gwn/gwn.xml">polish</uri>
+</li>
+<li>
+<uri link="/news/pt_br/gwn/gwn.xml">portuguese (brazil)</uri>
+</li>
+<li>
+<uri link="/news/pt/gwn/gwn.xml">portuguese (portugal)</uri>
+</li>
+<li>
+<uri link="/news/ru/gwn/gwn.xml">russian</uri>
+</li>
+<li>
+<uri link="/news/es/gwn/gwn.xml">spanish</uri>
+</li>
+<li>
+<uri link="/news/tr/gwn/gwn.xml">turkish</uri>
+</li>
+</ul>
+</body>
+</section>
+</chapter>
+</guide>

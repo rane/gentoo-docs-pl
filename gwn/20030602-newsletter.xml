@@ -1,0 +1,617 @@
+<?xml version='1.0' encoding="UTF-8"?>
+
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<guide  type="newsletter">
+<title>Gentoo Weekly Newsletter</title>
+<subtitle>02 czerwca 2003</subtitle>
+<abstract>Oto Gentoo Weekly Newsletter z 2 czerwca 2003.</abstract>
+<summary>Dwa nowe mirrory w Ameryce Północnej.  Projekt kolekcji CFLAGS/cpuinfo.  Nadchodzą zmiany w infrastrukturze.</summary>
+<version>Volume 2, Issue 22</version>
+<date>2-gi Czerwca 2003</date>
+<author title="Editor">
+	<mail link="klieber@gentoo.org">Kurt Lieber</mail>
+</author>
+<author title="Contributor">
+    <mail link="aja@clanarmstrong.com">AJ Armstrong</mail>
+</author>
+<author title="Contributor">
+    <mail link="nesta@iceburg.net">Brice Burgess</mail>
+</author>
+<author title="Contributor">
+	<mail link="citizen428@gentoo.org">Michael Kohl</mail>
+</author>
+<author title="Contributor">
+    <mail link="carlos@gentoo.org">Yuji Carlos Kosugi</mail>
+</author>
+<author title="Contributor">
+    <mail link="rcm@sasaska.net">Rafael Cordones Marcos</mail>
+</author>
+<author title="Contributor">
+    <mail link="david@phrixus.net">David Narayan</mail>
+</author>
+<author title="Contributor">
+    <mail link="plate@gentoo.org">Ulrich Plate</mail>
+</author>
+<author title="Contributor">
+    <mail link="mail@psharp.uklinux.net">Peter Sharp</mail>
+</author>
+<author title="Contributor">
+    <mail link="kim@thinkit.dk">Kim Tingkaer</mail>
+</author>
+<author title="Dutch Translation">
+        <mail link="matje@lanzone.be">Mathy Vanvoorden</mail>
+</author>
+<author title="Dutch Translation">
+        <mail link="Hendrik.Eeckhaut@UGent.be">Hendrik Eeckhaut</mail>
+</author>
+<author title="Dutch Translation">
+        <mail link="sephiroth@quicknet.nl">Jorn Eilander</mail>
+</author>
+<author title="Dutch Translation">
+        <mail link="bernieke@bernieke.com">Bernard Kerckenaere</mail>
+</author>
+<author title="Dutch Translation">
+        <mail link="peter@daborg.nl">Peter ter Borg</mail>
+</author>
+<author title="Dutch Translation">
+        <mail link="linux@sejo.be">Jochen Maes</mail>
+</author>
+<author title="Dutch Translation">
+        <mail link="rgoessen@home.nl">Roderick Goessen</mail>
+</author>
+<author title="Dutch Translation">
+        <mail link="gerard@steelo.net">Gerard van den Berg</mail>
+</author>
+<author title="French Translation">
+    <mail link="mat@frheaven.com">Matthieu Montaudouin</mail>
+</author>
+<author title="French Translation">
+    <mail link="riverdale@linuxmail.org">Martin Prieto</mail>
+</author>
+<author title="French Translation">
+    <mail link="cabec2@pegase.net">Antoine Raillon</mail>
+</author>
+<author title="French Translation">
+    <mail link="seb@cine7.net">Sebastien Cevey</mail>
+</author>
+<author title="French Translation">
+    <mail link="mabouya@petitefleure.org">Jean-Christophe Choisy</mail>
+</author>
+<author title="German Translation">
+	<mail link="madeagle@gentoo.org">Steffen Lassahn</mail>
+</author>
+<author title="German Translation">
+	<mail link="haim@gentoo.org">Matthias F. Brandstetter</mail>
+</author>
+<author title="German Translation">
+	<mail link="lordvan@gentoo.org">Thomas Raschbacher</mail>
+</author>
+<author title="German Translation">
+	<mail link="yanestra@gentoo.org">Klaus-J. Wolf</mail>
+</author>
+<author title="Italian Translation">
+	<mail link="mush@monrif.net">Marco Mascherpa</mail>
+</author>
+<author title="Italian Translation">
+	<mail link="paper@tiscali.it">Claudio Merloni</mail>
+</author>
+<author title="Italian Translation">
+	<mail link="bsolar@bluewin.ch">Christian Apolloni</mail>
+</author>
+<author title="Japanese Translation">
+	<mail link="kage-chan@gentoo.org">Daniel Ketel</mail>
+</author>
+<author title="Japanese Translation">
+	<mail link="hagi@p1d.com">Yoshiaki Hagihara</mail>
+</author>
+<author title="Japanese Translation">
+	<mail link="andy@billydpro.com">Andy Hunne</mail>
+</author>
+<author title="Japanese Translation">
+	<mail link="carlos@gentoo.org">Yuji Carlos Kosugi</mail>
+</author>
+<author title="Japanese Translation">
+	<mail link="yasunori@mail.portland.co.uk">Yasunori Fukudome</mail>
+</author>
+<author title="Japanese Translation">
+    <mail link="088@t.email.ne.jp">Takashi Ota</mail>
+</author>
+<author title="Portuguese (Brazil) Translation">
+	<mail link="venturasbarbeiro@ig.com.br">Ventura Barbeiro</mail>
+</author>
+<author title="Portuguese (Portugal) Translation">
+	<mail link="blueroom@digitalmente.net">Bruno Ferreira</mail>
+</author>
+<author title="Portuguese (Portugal) Translation">
+	<mail link="gustavo@felisberto.net">Gustavo Felisberto</mail>
+</author>
+<author title="Portuguese (Portugal) Translation">
+	<mail link="rjlouro@rjlouro.org">Ricardo Jorge Louro</mail>
+</author>
+<author title="Portuguese (Brazil) Translation">
+	<mail link="R.Nogueira@records.usyd.edu.au">Ricardo Nogueira</mail>
+</author>
+<author title="Russian Translator">
+       <mail link="svyatogor@gentoo.org">Sergey Kuleshov</mail>
+</author>
+<author title="Russian Translator">
+       <mail link="dimsuz@mail.ru">Dmitry Suzdalev</mail>
+</author>
+<author title="Russian Translator">
+       <mail link="mazurous@mail.ru">Anton Vorovatov</mail>
+</author>
+<author title="Spanish Translation">
+     <mail link="lanark@lanark.com.ar">Lanark</mail>
+</author>
+<author title="Spanish Translation">
+     <mail link="ferdy@ferdyx.org">Fernando J. Pereda</mail>
+</author>
+<author title="Spanish Translation">
+     <mail link="lpeinado@uoc.edu">Lluis Peinado Cifuentes</mail>
+</author>
+<author title="Spanish Translation">
+     <mail link="ZEPHRYNXIRDAL@telefonica.net">Zephryn Xirdal T</mail>
+</author>
+<author title="Spanish Translation">
+     <mail link="katossi@usuarios.retecal.es">Guillermo Juarez</mail>
+</author>
+<author title="Spanish Translation">
+     <mail link="correo@sevein.com">Jes?s Garc?a Crespo</mail>
+</author>
+<author title="Spanish Translation">
+     <mail link="carlos@castillobueno.com">Carlos Castillo</mail>
+</author>
+<author title="Spanish Translation">
+     <mail link="julio@castillobueno.com">Julio Castillo</mail>
+</author>
+<author title="Spanish Translation">
+     <mail link="s3r@fibertel.com.ar">Sergio G&#243;mez</mail>
+</author>
+<author title="Turkish Translation">
+        <mail link="aycan@core.gen.tr">Aycan Irican</mail>
+</author>
+<author title="Turkish Translation">
+        <mail link="bugra@myrealbox.com">Bugra Cakir</mail>
+</author>
+<author title="Turkish Translation">
+        <mail link="cagils@biznet.com.tr">Cagil Seker</mail>
+</author>
+<author title="Turkish Translation">
+        <mail link="emre@core.gen.tr">Emre Kazdagli</mail>
+</author>
+<author title="Turkish Translation">
+        <mail link="evrim@core.gen.tr">Evrim Ulu</mail>
+</author>
+<author title="Turkish Translation">
+        <mail link="gurcell@core.gen.tr">Gursel Kaynak</mail>
+</author>
+
+<author title="Polish Translation">
+	<mail link="messer@7thguard.net">Jaroslaw Swierad</mail>
+</author>
+
+<author title="Polish Translation">
+	<mail link="lucass.home@pf.pl">Lucass</mail>
+</author>
+
+<author title="Polish Translation">
+	<mail link="apo@cyberpunk.net.pulawy.pl"> Adam Lyjak</mail>
+</author>                                           
+
+<chapter>
+	<title>Wiadomości Gentoo</title>
+	<section>
+		<title>Podsumowanie</title>
+		<body>
+			<ul>
+				<li><uri link="#doc_chap1_sect2">Dwa nowe mirrory w Ameryce Północnej</uri></li>
+				<li><uri link="#doc_chap1_sect3">Projekt kolekcji CFLAGS/cpuinfo</uri></li>
+				<li><uri link="#doc_chap1_sect4">Nadchodzą zmiany w infrastrukturze</uri></li>
+			</ul>
+		</body>
+	</section>
+	<section>
+		<title>Dwa nowe mirrory w Ameryce Północnej</title>
+		<body>
+		<p>
+		Jak większość użytkowników Gentoo z Ameryki Północnej wie, mirrory Gentoo były często przeładowane z powodu rosnącej popularności. Na szczęście, obciążenie będzie słabnąć w związku z dodaniem dwóch nowych mirrorów, dostarczonych przez <uri link="http://www.ucsb.edu/">University of California, Santa Barbara</uri> i <uri link="http://promote.pair.com/click.pl">pair Networks</uri>.
+		</p>
+		<p>
+		UCSB, położone w słonecznej Santa Barbara w Kaliforni, zajął niedawno  14-ste miejsce na liście nalepszych powszechnych uniwersytetów w USA. Sławni ze swoich odkryć profesorowie UCSB ostatnio zdobyli trzy nagrody Nobla z dziedzin fizyki i chemii.
+		</p>
+		<p>
+			pair Networks dostarcza światowej klasy usług hostingowych klientom z całego świata. Z ponad 140,000 wyjątkowymi stronami www i klientami z ponad 150 krajów, pair Networks ma stabilną reputację dostawcy profesjonalnych usług w rozsądnych cenach.  
+		</p>
+		<p>
+		Gentoo Linux pragnie podziękować pair Networks i University of California, za ich wspaniałomyślne wsparcie. Bez niego, nawet wraz ze wsparciem pozostałych sponsorów, Gentoo Linux nie byłby tak udaną dystrybucją jaką jest dzisiaj.  Użytkownicy zainteresowani wykorzystywaniem tych serwerów mogą znaleźć więcej informacji na naszej <uri link="http://www.gentoo.org/main/en/mirrors.xml">stronie</uri> z mirrorami.
+		</p>
+		</body>
+	</section>
+	<section>
+		<title>Projekt zbierania CFLAGS/cpuinfo</title>
+		<body>
+		<p>
+Jednym z projektów działających w ramach projektu Gentoo Linux jest aplikacja służąca do generowania zalecanego zestawu CHOST/CFLAGS/CXXFLAGS dla danego systemu. Żeby ten program był użyteczny i precyzyjny jak to tylko jest możliwe potrzebujemy dużo przykładów <tt>/proc/cpuinfo</tt>. Aby ułatwić ich zbieranie powstała  <a href="http://gentoo.slinky.surrey.sfu.ca/cflagcollect/">strona</a> z odpowiednimi formularzami co zachęci użytkowników do nadsyłania ich konfiguracji. Dodatkowo zawarte są na niej informacje o specyficznych systemach, o których szczególnie potrzebujemy danych.
+		</p>
+		</body>
+	</section>
+	<section>
+		<title>Nadchodzą zmiany w infrastrukturze</title>
+		<body>
+		<p>
+		Infrastruktura Gentoo Linux będzie przechodzić w nadchodzących tygodniach pewne zmiany:
+		</p>
+		<ul>
+			<li>Przejście naszego DNS do zewnętrznego dostawcy.</li>
+			<li>Wprowadzenie stabilizujących usług do wielorakich serwerów które hostują <uri link="http://www.gentoo.org">www.gentoo.org</uri>.</li>
+			<li>Przeniesienie <uri link="http://bugs.gentoo.org/">bugs.gentoo.org</uri> na nowy serwer.</li>
+			<li>Przeniesienie <uri link="http://www.gentoo.org/">cvs.gentoo.org</uri> na nowy serwer.</li>
+			<li>Rozpowszechnienie i decentralizacja infrastruktury mailowej, umieszczenie list dyskusyjnych na innym serwer niż konta mail.</li>
+			<li>Znaczące zmiany w infrastrukturze bezpieczeństwa, w tym patche do kerneli środowiska chrootowane dla wielu publicznych serwerów i skrypty iptables.</li>
+			<li>Dużo mniejszych zmian.</li>
+		</ul>
+		<p>
+			Znaczny wysiłek zostanie włożony we wprowadzanie tych zmian łagodnie jak to tylko możliwe z małym, lub wogóle bez bezpośredniego wpływu na społeczność użytkowników. Aczkolwiek nieprzewidziane okoliczności, czy prawo Murphy'ego mogą zajść w najmniej oczekiwanym momencie.  Twoja cierpliwość, kiedy przebrniemy przez te zmiany, zostanie wynagrodzona.
+		</p>
+		</body>
+	</section>
+</chapter>
+<chapter>
+<title>Bezpieczeństwo Gentoo</title>
+<section>
+<title>Podsumowanie</title>
+<body>
+     <ul>
+          <li><uri link="#doc_chap2_sect2" >GLSA: heimdal</uri></li>
+          <li><uri link="#doc_chap2_sect3" >GLSA: nessus</uri></li>
+          <li><uri link="#doc_chap2_sect4" >Nowe raporty na temat bezpieczeństwa</uri></li>
+     </ul>
+</body>
+</section>
+<section>
+<title>GLSA: heimdal</title>
+<body>
+     <p> 
+  		Kryptograficzna słabość Kerberos 4 pozwala włamywaczomi podszyć się pod administratora używając ataku chosen-plaintext. To niedociągnięcie rozciąga się na implementacje mit-krb5 (zobacz GLSA w <uri link="http://www.gentoo.org/news/en/gwn/20030407-newsletter.xml">GWN z 7 kwietnia</uri>) i implementację Heimdal.
+    </p>
+     <ul>
+          <li>Zagrożenie: Krytyczne - Zagrożenie autentyfikacji.</li>
+          <li>Zainfekowane pakiety: app-crypt/heimdal starsze od heimdal-0.6</li>
+          <li>Naprawa: Synchronizacja i emerge heimdal, emerge clean.</li>
+          <li><uri link="http://forums.gentoo.org/viewtopic.php?t=56743" >Komunikat GLSA</uri></li>
+          <li><uri link="http://web.mit.edu/kerberos/www/advisories/MITKRB5-SA-2003-004-krb4.txt" >Porada</uri></li>
+     </ul>
+</body>
+</section>
+<section>
+<title>GLSA: nessus</title>
+<body>
+     <p> 
+     Mechanizm skryptów w skanerze bezpieczeństwa Nessus ma kilka słabości. Wykorzystanie ich do wykonania dowolnego kodu wymaga od włamywacza konta i zmuszenia użytkownika do uruchomienia skryptu.
+     </p>
+     <ul>
+          <li>Zagrożenie: Umiarkowane - Wykonanie przypadkowego kodu łagodzi wymaganie od włamywacza odpowiednich uprawnień.</li>
+          <li>Zarażone pakiety: net-analyzer/nessus starsze od nessus-2.0.6a</li>
+          <li>Naprawa: Synchronizacja i emerge nessus, emerge clean.</li>
+          <li><uri link="http://forums.gentoo.org/viewtopic.php?t=56744" >Komunikat GLSA</uri></li>
+          <li><uri link="http://marc.theaimsgroup.com/?l=bugtraq&amp;m=105369506714849&amp;w=2" >Porada</uri></li>
+     </ul>
+</body>
+</section>
+<section>
+<title>Nowe raporty na temat bezpieczeństwa</title>
+<body>
+     <p>
+     W tym tygodniu zostały zgłoszone następujące luki w bezpieczeństwie:
+     </p>
+     <ul>
+          <li><uri link="http://bugs.gentoo.org/show_bug.cgi?id=21941"></uri>net-print/cups</li>
+          <li><uri link="http://bugs.gentoo.org/show_bug.cgi?id=21943"></uri>sys-devel/gcc</li>
+          <li><uri link="http://bugs.gentoo.org/show_bug.cgi?id=21942"></uri>net-www/apache</li>
+     </ul>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Historie użytkowników</title>
+<body>
+    <p class="secthead">Małe przypomnienie</p>
+    <p>Niestety w ostatnim tygodniu nie otrzymaliśmy od was żadnych historii użytkowników. Jest to więc dobry moment by przypomnieć wam abyście przysyłali do nas swoje doświadczenia z Gentoo na adres <mail link="user-stories@gentoo.org">user-stories@gentoo.org</mail> tak jak zrobili to <uri link="http://www.gentoo.org/news/en/gwn/20030512-newsletter.xml#doc_chap3">Kai</uri>, <uri link="http://www.gentoo.org/news/en/gwn/20030519-newsletter.xml#doc_chap3">Kenneth</uri> i <uri link="http://www.gentoo.org/news/en/gwn/20030526-newsletter.xml#doc_chap3">Mathy</uri></p>
+    <p>Na szczęście mamy już kandydata do następnego wydania. Po prostu nie zdążyliśmy na ten tydzień...</p>
+</body>
+</chapter>
+<chapter>
+<title>Opis dewelopera Gentoo Linuksa</title>
+<body>
+<p class="secthead">Jon Portnoy, aka avenj</p>
+<figure
+link="http://www.gentoo.org/images/gwn/20030602_avenj.jpg" short="Jon Portnoy, aka avenj" caption="Jon Portnoy, aka avenj" />
+<p>
+W tym tygodniu przedstawiamy wam <mail link="avenj@gentoo.org">Jona Portnoya</mail>który jest odpowiedzialny za rekrutację i (we współpracy z <mail link="seemant@gentoo.org">Seemantem Kulleenem</mail>) zarządzaniem deweloperami, a także za koordynację nowych wydań dystrybucji. Zajmuje się on równierz opieką nad repozytorium distfiles oraz utrzymywaniem około trzydziestu ebuild'ów w tym <uri link="http://www.intel.com/software/products/compilers/clin/">ICC</uri> Intel's C++ Compiler. Jako rekruter i zarządzający deweloperami Jon jest osobą do której zgłaszają sie kierownicy projektów gdy chcą dodać kogoś do swojego zespołu oraz nadzorcą treningu nowych rekrutów. Wraz z Seemantem zajmują się tworzeniem polityki deweloperów. Jako koordynator wydań Jon nadzoruje cały proces wydawania, rozdaje zadania takie jak tworzenie etapu, QA, budowanie GRP i pracuje nad tym by wydanie nowej wersji przebiegało płynnie. Wszystko to podczas gdy pracuje nad tym by repozytorium było wolne od błedów i spójne oraz zajmuje sie integracją ICC w środowisko Gentoo które jest zdominowane przez GCC od kiedy dołączył do deweloperów Gentoo. Jon wstąpił na kanał #Gentoo (irc.freenode.net) w poszukiwaniu rozwiązania zawiłego problemu z initrd i został na kanale by pomagać innym w rozwiązywaniu ich problemów. W końcu dostrzeżony został przez Seemanta i dołączył do zespołu jako implementator ICC. Jon jest dumny ze wszystkiego co zrobił dla Gentoo - w szczególności ze swojego wkladu jako koordynator wydań i zarządzający deweloperami.
+</p>
+<p>
+Na swoim komputerze(P3 866mhz z 384MB RAM o nazwie cerberus) Jon używa Enlightenment 0.16.5 wraz z tematem Maw. Korzysta równiesz z X-Chat 2, Mutt'a, Mozilli, XMMS'a, screen'a oraz z slrn'a(często udziela sie na comp.os.linux.advocacy i na alt.os.linux.gentoo). Gra równierz nałogowo w Icebreaker. Używa również trzech innych maszyn: tempest - komputer z procesorem P3 służący do testowania/rozwijania, eris - nameserver/proxy server z K6-2 na pokładzie i lucifer - celeron 1.8ghz służący do kompilacji. Jako student żyjący pośrodku niczego w New Hampshire Jon uwielbia spędzać czas na zewnątrz, zdala od swoich monitorów jeżdżąc na rowerzem, spacerując lub kajakując. Spędza równierz wiele czasu czytając i studiując historię (w szczególności historię Rosji). Miłośnik wielu rodzajów muzyki - od Boba Dylana poprzez Lucindę Williams do Juno Reactor'a i KMFDM (Jon jest wielkim fanem muzyki industrialnej).
+</p>
+</body>
+</chapter>
+<chapter>
+<title>Zasłyszano we wspólnocie</title>
+	<section>
+	<title>Forum</title>
+	<body>
+	<p><b>Spam, Spam, Spam, pieczona fasola i Spam</b></p>
+	<p>Czy wiesz, że to 25 odcinek "Latającego cyrku Monty Pothon'a" był powodem dla którego tak to nazwaliśmy? SPiced hAM (rodzaj szynki) został synonimem niechcianych i nachalnych emaili z reklamami które doprowadzają do wściekłości całą społeczność internautów. Użytkownicy Gentoo również się do nich zaliczają jednakże wykazują dużą pomysłowość, a forum jest świadkiem wielu nowatorskich pomysłów jak sobie poradzić z głównym utrapieniem nękającym dzisiejszy Internet takich jak te poniżej:</p> 	 <ul>
+	<li><uri link="http://forums.gentoo.org/viewtopic.php?t=57073">A co z: Inicjatywa antyspamowa Gentoo?</uri></li>
+	<li><uri link="http://forums.gentoo.org/viewtopic.php?t=56944">Sprawianie bólu spamerom</uri></li>
+	</ul>
+	<p><b>Zmień moje gentoo</b></p>
+	<p>Strona promowana jako "niebo dla wszystkich cvs ebuild'ów które zostały usunięte przez Wielkie oczyszczenie CVS Portage w tym roku". Linki do strony prowadzonej przez guru Forum: <uri link="http://forums.gentoo.org/profile.php?mode=viewprofile&amp;u=2881">karl11</uri> i <uri link="http://forums.gentoo.org/profile.php?mode=viewprofile&amp;u=2799">Lin_Matt</uri> sporadycznie  gdy po ukazaniu się czegoś nowego nie widać odzewu ze strony deweloperów Gentoo. Breakmygentoo.net posiada własną bugzillę ale wszyscy wolą wymieniać się doświadczeniami na forach Gentoo...</p>
+	<ul>
+	<li><uri link="http://forums.gentoo.org/viewtopic.php?t=56667">Breakmygentoo.net</uri></li>
+	<li><uri link="http://forums.gentoo.org/viewtopic.php?t=57248">Breakmygentoo.net - Quick howto</uri></li>
+	<li><uri link="http://forums.gentoo.org/viewtopic.php?t=56093">CVS HEAD rhythmbox ebuild</uri></li>
+	</ul>
+	<p><b>Ankieta OSnews: I zwycięzcą został...</b></p>
+	<p>Jakiekolwiek może być tego znaczenie: Gentoo pokonał wszystkie inne najważniejsze dystrybucje w tegorocznej ankiecie OSnews.com podwajając wynik 11 procent z poprzedniego roku. Ciekawym wydarzeniem było to, że w wątku w którym nawoływaliśmy użytkowników aby poszli i zagłosowali (co przy wytwarzanym ruchu na forum Gentoo przełożyłoby się na pierwsze miejsce w ankiecie) była wizyta <uri link="http://forums.gentoo.org/profile.php?mode=viewprofile&amp;u=548">Eugenii Loli-Queru</uri> - webmasterki popularnej strony oraz użytkowniczki forum Gentoo o jednym z najniższych numerów członkowskich.</p> 
+	<p><ul>
+	<li><uri link="http://www.osnews.com/story.php?news_id=3640">Ankieta: Zagłosuj na swoją ulubioną dystrybucję Linuksa</uri></li>
+	<li><uri link="http://forums.gentoo.org/viewtopic.php?t=56188">Oddaj swój głos na Gentoo w ankiecie na OSNews</uri></li>
+	</ul>
+	</p>
+</body>
+</section>
+  <section>
+    <title>gentoo-user</title>
+	<body>
+       <p><b>Osiągi kart nVidia</b></p>
+       <p>
+       W niezbyt aktywny wątku, Spider wezwal społeczność urzytkowników by zamieszczać wyniki benchmarków glxgear kart graficznych Nvidia. Mogą one dać możliwość porównania twojego sprzętu z innymi oraz rozpoznania błędów w konfiguracji zrzerających cenne FPS (klatki na sekunde). Jestem pewny że wszyscy docenimy Ernie Schroder <uri link="http://article.gmane.org/gmane.linux.gentoo.user/33872">rządzącego</uri> w świecie 3D.
+       </p>
+       <ul>
+         <li><uri link="http://news.gmane.org/onethread.php?group=gmane.linux.gentoo.user&amp;root=%3C20030522013416.7051e917.spider%40gentoo.org%3E">Osiągi kart nVidia</uri></li>
+       </ul>
+       <p><b>** fixpackages **</b></p>
+       <p>
+       W miare jak portage jest rozwijane by stać sie najlepszym menadzerem pakietów dla Linuxa, nowe funkcjonalności sa dodawane w locie. Po tym jak Tom Veldhouse zupdatował portage, szybko napotkał na nieznany komunikat by 'fixpackages'. Inni użytkownicy też to zauważyli. Brett Holcomb <uri link="http://article.gmane.org/gmane.linux.gentoo.user/34727">zauważył</uri> że, jest to nowa funkcjonalność która poprawia rzeczy gdy pakiety są przenoszone z jednej kategorii do innej&quot; i jest umieszczona w /usr/lib/portage/bin/fixpackages. Gentoo-forum również stworzyło <uri link="http://forums.gentoo.org/viewtopic.php?t=55863">wątek</uri> do dyskusji na ten temat.
+       </p>
+       <ul>
+         <li><uri link="http://news.gmane.org/onethread.php?group=gmane.linux.gentoo.user&amp;root=%3C013a01c32606%24a5771550%24d037630a%40dh.com%3E">emerge i 'fixpackages'?</uri></li>
+       </ul>
+	</body>
+</section>
+<section>
+  <title>gentoo-dev</title>
+  <body>
+  <p><b>XFree</b></p> 
+  <p>
+  Seemant Kulleen <uri link="http://article.gmane.org/gmane.linux.gentoo.devel/8905">ogłosił</uri> wersję r3 (masked) XFree v4.3.0.</p>
+  <p>Plan r3 ogejmuje przeniesienie budowania fontów od odzielnego pakietu. Jednakże, pomimo ze wersja ta jest już dostępna wymaga jeszcze troche poprawek. </p>
+  <p><b>System menu dla wszytkich wm-ów</b></p> 
+  <p>Również <uri link="http://news.gmane.org/thread.php?group=gmane.linux.gentoo.devel&amp;first=1&amp;last=50">bardzo ciekawą ideą</uri> było zaimplementowanie niezaleznego od menadzera okien layoutu menu. Systemu do zarządzania zainstalowanymi / odinstalowanym programami w sposób niezależny od wm-a. Coś bardzo przypominającego .ideskotp z freedesktop.org.</p>
+  <p><b>Przydzielanie unikatowego uid/gid dla nowych ebuild-ów</b></p> 
+  <p>Znacza dyskusja ma miejsce odnośnie decyzji <uri link="http://article.gmane.org/gmane.linux.gentoo.devel/8965">jaki uid/gid</uri> powinny mieć nowe pakiety. Obecnie plan zakłąda uczynienie procesu instalacji bardziej elastycznym by dodać możliwość dynamicznej modyfikacji listy udid-ów/gid-ów. Jednakże narazie wszystko jest poprawiane w /etc/passwd, które jest cześcia baselayout-u.</p>
+  </body>
+</section>
+</chapter>
+<chapter>
+	<title>Międzynarodowe Gentoo</title>
+    <body>
+	<p class="secthead">Tłumaczenia Dokumentacji</p>
+<p>Nowości prasowe: Makoto Yamakura poinformował o updejcie Japońskiej wercji Gentoo Installation Guide (x86), dostępnej z głownej strony Gentoo. Gdy Japońscy, Duńscy, Francuscy i Niemieccy tłumac mają całkiem nieźle zsynchronizowaną swoją dokumentację z obecnym stanem rzeczy, dokumentacji po Hiszpańsku, Włosku i Szwedzku pozostaje kilka kroków z tyłu. Jeżeli chcesz sie przyłączyc do wysiłków czynionych przez tlumaczy dokumentacji Gentoo, przez szlifowanie istniejącej wersji językowej albo dodanie nowej, prosimy o kontakt z <uri mail="zhen@gentoo.org">John P. Davis</uri>.</p>
+</body>
+</chapter>
+<chapter>
+<title>Przegląd Portage</title>
+<section>
+<title>Następujące znaczące pakiety zostały zaktualizowane lub dodane w tym tygodniu</title>
+<body>
+<p>
+<ul>
+<li>sys-kernel/aa-sources: <uri link="http://www.kernel.org/">Pełne źródła dla kernela Andrea Arcangeli</uri></li>
+<li>sys-kernel/ac-sources: <uri link="http://www.kernel.org/">Pełne źródła kernela  Alana Coxa</uri></li>
+<li>sys-kernel/development-sources: <uri link="http://www.kernel.org/">Pełne źródła kernela w fazie developerskiej</uri></li>
+</ul>
+</p>
+</body>
+</section>
+<section>
+	<title>Następujące stabilne pakiety zostały dodane lub zaktualizowane w tym tygodniu</title>
+<body>
+<ul>
+<li>app-crypt/heimdal: <uri link="http://www.pdc.kth.se/heimdal/">Kerberos 5 implementacja z KTH</uri></li>
+<li>app-editors/gvim: <uri link="http://www.vim.org/">Graficzny Vim</uri></li>
+<li>app-office/gnucash: <uri link="http://www.gnucash.org/">Zarządca osobistymi finansami</uri></li>
+<li>app-office/openoffice: <uri link="http://www.openoffice.org/">OpenOffice.org, pełny pakiet.</uri></li>
+<li>app-sci/qcad: <uri link="http://www.qcad.org">Pakiet 2D CAD bazujący na bibliotece Qt.</uri></li>
+<li>app-shells/pdksh: <uri link="http://www.cs.mun.ca/~michael/pdksh/">Public Domain Korn Shell</uri></li>
+<li>dev-db/hk_classes: <uri link="http://hk-classes.sourceforge.net/">Biblioteki C++ dla aplikacji bazodanowych</uri></li>
+<li>dev-db/knoda: <uri link="http://hk-classes.sourceforge.net/">KDE frontend dla bazy danych oparty na hk_classes library</uri></li>
+<li>dev-java/ant: <uri link="http://ant.apache.org">Java-based narzędzie podobne do 'make' które używa plików konfiguracyjnych w formacie XML .</uri></li>
+<li>dev-java/blackdown-jre: <uri link="http://www.blackdown.org">Środowisko Blackdown Java Runtime 1.4.1</uri></li>
+<li>dev-lang/R: <uri link="http://www.r-project.org/">R jest to język GNU S - A oraz środowisko dla "statistical computing" i grafiki.</uri></li>
+<li>dev-python/PyOpenGL: <uri link="http://pyopengl.sourceforge.net/">Python OpenGL bindings</uri></li>
+<li>dev-python/docutils: <uri link="http://docutils.sourceforge.net/">Pythonowe narzędzia do translacji dokumentów do formatów HTML, XML itd.</uri></li>
+<li>gnome-base/ORBit2: <uri link="http://www.gnome.org/">ORBit2 to wysokiej jakości CORBA ORB</uri></li>
+<li>gnome-base/bonobo-activation: <uri link="http://www.gnome.org/">Gnome2 zastąpienie dla OAF</uri></li>
+<li>gnome-base/gnome-applets: <uri link="http://www.gnome.org/">Applety dla Gnome2 Desktop i Panel</uri></li>
+<li>gnome-base/libbonoboui: <uri link="http://www.gnome.org/">Interfejs użytkownika dla biblioteki bonobo</uri></li>
+<li>gnome-base/libgnome: <uri link="http://www.gnome.org/">Podstawowe biblioteki Gnome</uri></li>
+<li>gnome-base/libgnomeprint: <uri link="http://www.gnome.org/">Drukowanie pod Gnome</uri></li>
+<li>gnome-extra/gnome-media: <uri link="http://www.prettypeople.org/~iain/gnome-media/">Programy multimedialne dla środowiska Gnome2</uri></li>
+<li>gnome-extra/gnome-system-monitor: <uri link="http://www.gnome.org/">Procman - Gnome System Monitor</uri></li>
+<li>gnome-extra/gnome-utils: <uri link="http://www.gnome.org/">Utilities dla środowiska Gnome2</uri></li>
+<li>media-gfx/blender: <uri link="http://www.blender.org/">System do Tworzenia/Animacji/Publikacji 3D</uri></li>
+<li>media-sound/alsa-driver: <uri link="http://www.alsa-project.org/">Moduły kernela ALSA</uri></li>
+<li>net-firewall/fwbuilder: <uri link="http://www.fwbuilder.org/">Firewall GUI</uri></li>
+<li>net-firewall/kmyfirewall: <uri link="http://kmyfirewall.sourceforge.net/">Graficzne narzędzie do konfiguracji iptables dla KDE</uri></li>
+<li>net-firewall/shorewall: <uri link="http://www.shorewall.net">Pełen zestaw regułek firewalla iptables</uri></li>
+<li>net-fs/autofs: <uri link="http://www.linux-consulting.com/Amd_AutoFS/autofs.html">Automounter kernela</uri></li>
+<li>net-fs/samba: <uri link="http://www.samba.org">SAMBA to piękne połaczenie  SMB i CIFS programów client/server dla UNIX</uri></li>
+<li>net-irc/xchat: <uri link="http://www.xchat.org/">X-Chat to graficzny klient IRC dla systemów UNIX.</uri></li>
+<li>net-libs/libesmtp: <uri link="http://www.stafford.uklinux.net/libesmtp/">libESMTP to biblioteka implementująca "client side" protokołu SMPT</uri></li>
+<li>net-libs/libfwbuilder: <uri link="http://www.fwbuilder.org/">Firewall GUI (funkcje biblioteczne)</uri></li>
+<li>net-libs/nss_ldap: <uri link="http://www.padl.com/OSS/nss_ldap.html">Moduł NSS LDAP</uri></li>
+<li>net-libs/pam_ldap: <uri link="http://www.padl.com/OSS/pam_ldap.html">Moduł PAM LDAP</uri></li>
+<li>net-mail/bogofilter: <uri link="http://bogofilter.sourceforge.net/">Filtr spamowy zaprojektowany według szybkiego altorytmu i nastawionym na szybkość działania</uri></li>
+<li>net-mail/courier-imap: <uri link="http://www.courier-mta.org/">Deamon IMAP przeznaczony dla maildirów</uri></li>
+<li>net-mail/disspam: <uri link="http://www.topfx.com/">Skrypt Perla, który usuwa spam ze skrzynek POP3 oparty na RBLs.</uri></li>
+<li>net-nds/openldap: <uri link="http://www.OpenLDAP.org/">Narzędzia LDAP</uri></li>
+<li>net-nds/yp-tools: <uri link="http://www.linux-nis.org/nis">Narzędzia NIS</uri></li>
+<li>net-nds/ypbind: <uri link="http://www.linux-nis.org/nis/ypbind-mt/index.html">Wielowątkowy serwis NIS</uri></li>
+<li>net-nds/ypserv: <uri link="http://www.linux-nis.org/nis/">NIS SERVER</uri></li>
+<li>net-print/cups: <uri link="http://www.cups.org">Common Unix Printing System (CUPS)</uri></li>
+<li>net-wireless/wireless-tools: <uri link="http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html">Kolekcja narzędzi do konfiguracji kart sieciowyc wireless</uri></li>
+<li>net-www/apache: <uri link="http://www.apache.org/">Web serwer Apache, Wersja 2.0.x</uri></li>
+<li>sys-apps/di: <uri link="http://www.gentoo.com/di/">Narzędzia informujące o dyskach</uri></li>
+<li>sys-cluster/ipvsadm: <uri link="http://linuxvirtualserver.org">ipvsadm to narzędzie do administracji wirytualnymi servicami z IP wspomaganiem dla wirtualnych serwerów.</uri></li>
+<li>sys-devel/binutils: <uri link="http://sources.redhat.com/binutils/">Narzędzia konieczne do kompilacji programów</uri></li>
+<li>sys-devel/distcc: <uri link="http://distcc.samba.org/">Program do dystrybucji kompilacji kodu C na inne maszyny w sieci LAN</uri></li>
+<li>sys-devel/gcc: <uri link="http://www.gnu.org/software/gcc/gcc.html">GNU Compiler Collection. Zawiera kompilatory C/C++ i javy</uri></li>
+<li>sys-libs/db: <uri link="http://www.sleepycat.com">Berkeley DB</uri></li>
+<li>x11-base/xfree: <uri link="http://www.xfree.org">Xfree86: znany i lubiany X serwer</uri></li>
+<li>x11-libs/gtk+: <uri link="http://www.gtk.org/">Gimp ToolKit + - program do pracy z grafiką </uri></li>
+<li>x11-libs/gtkglarea: <uri link="http://www.gnome.org/">Rozszerzenie GL dla gtk+</uri></li>
+</ul>
+<p>Wszystkich kategorii: 82</p>
+<p>Wszystkich pakietów: 4478 (82 pakietów dodanych od ostatniego tygodnia)</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Bugzilla</title>
+<section>
+<title>Podsumowanie</title>
+<body>
+<p>
+	<e>
+	Z powodu kłopotów technicznych z serwerem bugs.gentoo.org w Piątek, statystyki bugów w tym tygodniu będą niedostępne. 
+	W przyszotygodniowym GWN uwzględnimy podsumowanie z dwóch tygodni.
+	</e>
+</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Tips and Tricks</title>
+<body>
+	<p class="secthead">Export Sesji X</p>
+	<p>
+  W tym tygodniu pokażemy jak uruchomić GUI program zdalnie przez eksport sesji X poprzez SSH.
+  Zauważ, że jest to mocno uzależnione od prędkości twojego łącza. Jeśli próbujesz uruchomić Mozillę na drugim końcu państwa
+  na modemie 56K, istnieje prawdopodobnieństwo, że nie będzie to działać najlepiej.
+  Najlepszym zastosowaniem jest uruchamianie aplikacji na maszynach w tej samej sieci LAN lub szybkiej WAN.
+  Prostym przykładem może być zdalne uruchomienie gvim, dzięki temu możesz mieć edytor GUI lokalnie.
+</p>
+<p>
+  Dla tego przykładu przyjmiemy, iżmaszyna lokalna ma adres IP 192.168.1.2 a zdalna 
+  adres IP 192.168.1.3. Na lokalnej maszynie musić dać dostęp zdalnej maszynie do połączenia się
+  z X serwerem. Użyj komendy <c>xhost</c> by to zrobić.
+</p>
+<pre caption="Maszyna lokalna">
+	<codenote>Ta komendy pozwala maszynie o adresie IP 192.168.1.3 połączyć się.</codenote>
+# <i>xhost +192.168.1.3</i>
+</pre>
+<p>
+  On the remote machine, you need to export the <c>$DISPLAY</c> variable to
+  your local machine. After that, you should be ready to run GUI programs
+  remotely.
+
+  Na zdalnej maszynie musisz wyeksportować zmienną $DISPLAY tak, by wskazywała maszynę lokalną.
+  Po tym będziesz gotowy by zdalnie uruchamiać programy GUI.
+</p>
+<pre caption="Maszyna zdalna">
+# <i>export DISPLAY=&quot;192.168.1.2:0.0&quot;</i>
+# <i>gvim /etc/passwd</i>
+<codenote>Powinieneś ujrzeć uruchomionego gvim z otwartym plikiem</codenote>
+<path>/etc/passwd</path> na zdalnej maszynie.
+</pre>
+</body>
+</chapter>
+<chapter>
+<title>Cytat/Sygnatura tygodnia</title>
+<body>
+	<p>Jeśli kiedykolwiek czytałeśm mail-a jednego z deweloperów Gentoo Linux <mail link="spider@gentoo.org">Spider-a</mail> (do czego zachęcam), na pewno zauważyłeś jego .sig:</p>
+<p>
+<pre caption=".sig Spider-a">
+begin  .signature
+This is a .signature virus! Please copy me into your .signature!
+See Microsoft KB Article Q265230 for more information.
+end
+</pre>
+</p>
+<p>
+Jeśli więc jesteś ciekawy, co to oznacza, udaj się pod ten adres i przeczytaj <uri link="http://support.microsoft.com/default.aspx?scid=kb;[LN];265230">Knowledge Base article</uri>.
+</p>
+</body>
+</chapter>
+<chapter>
+	<title>Odeszli, przybyli, zmienili status</title>
+	<section>
+		<title>Odeszli</title>
+		<body>
+			<p>Następujący deweloperzy opuścili drużynę Gentoo Linux:</p>
+			<ul>
+				<li><e>Żaden w tym togodniu</e></li>
+			</ul>
+		</body>
+	</section>
+	<section>
+		<title>Przybyli</title>
+		<body>
+			<p>Następujący deweloperzy dołączyli do drużyny Gentoo Linux:</p>
+			<ul>
+			<li>Rob Holland (robh) -- media-sound</li>
+			<li>Ned Ludd (solar) -- gentoo-hardened, grsecurity</li>
+		</ul>
+		</body>
+	</section>
+	<section>
+		<title>Zmiany statusu</title>
+		<body>
+			<p>Następujący deweloperzy zmienili swoją rolęw projekcie Gentoo Linux.</p>
+			<ul>
+				<li><e>Żaden w tym tygodniu</e></li>
+			</ul>
+		</body>
+	</section>
+</chapter>
+<chapter>
+	<title>Twój wkład w GWN</title>
+	<body>
+		<p>Zainteresowany pomocą w tworzeniu Gentoo Weekly Newsletter?  Wyślij nam <mail link="gwn-feedback@gentoo.org">email</mail>.</p>
+	</body>
+</chapter>
+<chapter>
+	<title>Informacja zwrotna GWN</title>
+	<body>
+		<p>Proszę wyślij nam <mail link="gwn-feedback@gentoo.org">inoformację zwrotną</mail>. i pomóż nam tworzyć jeszcze lepsze GWN.</p>
+	</body>
+</chapter>
+<chapter>
+	<title>Informacje na temat zapisu na listę GWN</title>
+	<body>
+		<p>Aby zapisać się na listę Gentoo Weekly Newsletter, wyślij pusty email na adres <email>gentoo-gwn-subscribe@gentoo.org</email>.</p>
+		<p>Aby wypisać sięz listy Gentoo Weekly Newsletter, wyślij pusty email na adres <email>gentoo-gwn-unsubscribe@gentoo.org</email> z adresu z którego byłeś zapisany </p>
+	</body>
+</chapter>
+<chapter>
+	<title>Inne języki</title>
+	<body>
+		<p>Gentoo Weekly Newsletter jest również dostępne w innych językach:</p>
+	<ul>
+		<li><uri link="http://www.gentoo.org/news/be/gwn/gwn.xml">Duński</uri></li>
+		<li><uri link="http://www.gentoo.org/news/en/gwn/gwn.xml">Angielski</uri></li>
+		<li><uri link="http://www.gentoo.org/news/de/gwn/gwn.xml">Niemiecki</uri></li>
+		<li><uri link="http://www.gentoo.org/news/fr/gwn/gwn.xml">Francuski</uri></li>
+		<li><uri link="http://www.gentoo.org/news/ja/gwn/gwn.xml">Japoński</uri></li>
+		<li><uri link="http://www.gentoo.org/news/it/gwn/gwn.xml">Włoski</uri></li>
+		<li><uri link="http://www.gentoo.org/news/br/gwn/gwn.xml">Portugalski (Brazylia)</uri></li>
+		<li><uri link="http://www.gentoo.org/news/pt/gwn/gwn.xml">Portugalski (Portugalia)</uri></li>
+		<li><uri link="http://www.gentoo.org/news/ru/gwn/gwn.xml">Rosyjski</uri></li>
+		<li><uri link="http://www.gentoo.org/news/es/gwn/gwn.xml">Hiszpański</uri></li>
+		<li><uri link="http://www.gentoo.org/news/tr/gwn/gwn.xml">Turecki</uri></li>
+		<li><uri link="http://www.gentoo.org/news/pl/gwn/gwn.xml">Polski</uri></li>
+	</ul>
+	</body>
+</chapter>
+</guide>

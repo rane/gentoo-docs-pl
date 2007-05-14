@@ -1,0 +1,847 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<guide type="newsletter" link="20050801-newsletter.xml" lang="pl">
+<title>Gentoo Weekly Newsletter</title>
+<subtitle>1 sierpnia 2005</subtitle>
+<author title="Redaktor naczelny">
+  <mail link="plate@gentoo.org">Ulrich Plate</mail>
+</author>
+<author title="Redaktor">
+  <mail link="patrick@gentoo.org">Patrick Lauer</mail>
+</author>
+<author title="Redaktor">
+  <mail link="pylon@gentoo.org">Lars Weiler</mail>
+</author>
+<author title="Redaktor">
+  <mail link="cshields@gentoo.org">Corey Shields</mail>
+</author>
+<author title="Redaktor">
+  <mail link="kloeri@gentoo.org">Bryan Østergaard</mail>
+</author>
+<author title="Redaktor">
+  <mail link="tannewt@gentoo.org">Scott Shawcroft</mail>
+</author>
+<author title="Tłumacz"><mail link="jbozanowski@gmail.com">Kuba Bożanowski</mail></author>
+<author title="Tłumacz"><mail link="rane@gentoo.pl">Łukasz Damentko</mail></author>
+<author title="Tłumacz"><mail link="mikequ@wp.pl">Michał Kulczycki</mail></author>
+<author title="Tłumacz"><mail link="linux_user@o2.pl">Michał Kurgan</mail></author>
+<author title="Tłumacz"><mail link="aleander@gmail.com">Aleksander Kamil Modzelewski</mail></author>
+<author title="Tłumacz"><mail link="lucass@gentoo.org">Łukasz Strzygowski</mail></author>
+<abstract>Gentoo Weekly Newsletter z 1 sierpnia 2005.</abstract>
+<summary/>
+<version>Wolumin 4, numer 30</version>
+<date>2005-08-01</date>
+
+<!-- Gentoo News -->
+<chapter>
+  <title>Wiadomości Gentoo</title>
+  <section>
+    <title>Konferencja Developerów Gentoo w San Francisco</title>
+    <body>
+      <p>
+      W ramach <uri link="http://www.linuxworldexpo.com/live/12/events/12SFO05A">LinuxWorld Expo 2005</uri>,
+      12 sierpnia w San Francisco odbędzie się całodniowa konferencja developerów (oraz użytkowników) Gentoo.
+	Oprócz prezentacji przygotowanych przez developerów, znajdzie się czas na rozwiązywanie
+	bugów, podpisywanie kluczy oraz swobodne rozmowy. Wolne miejsca wciąż są dostępne. Jeśli będziesz
+	w okolicy, możesz się zapisać za opłatą $10. Cena obejmuje lunch oraz okazjonalnego t-shirta.
+	Dla osób, które nie będą mogły zjawić się osobiście, impreza będzie transmitowana w Internecie.
+	</p>
+
+      <p>Więcej informacji można znaleźć na stronie <uri
+          link="http://devconference.gentoo.org/">http://devconference.gentoo.org/</uri>.</p>
+
+      <p>
+      Konferencję sponsoruje firma Global Netoptex Inc., już od dawna wspierająca infrastrukturę
+      Gentoo, oraz Uniwersytet w Indianie, który umożliwi jej transmisję na żywo.</p>
+    </body>
+  </section>
+  <section>
+    <title>Poszukiwani tłumacze niemieckiej dokumentacji</title>
+    <body>
+      <p>
+      	Niemiecki zespół tłumaczy dokumentacji poszukuje nowych członków.
+	Według naszych statystyk, niemiecka dokumentacja jest najczęściej czytana
+	po angielskiej, zatem powinna być często aktualizowana. Niestety,
+	niektóre dokumenty już teraz są bardzo przedawnione. Do pracy potrzeba
+	więc nieco więcej rąk. Jeśli dobrze znasz zarówno język angielski,
+	jak i niemiecki i chciałbyś pomóc, napisz do koordynatora zespołu -
+         <mail
+          link="dertobi123@gentoo.org">Tobiasa Scherbauma</mail>.</p>
+    </body>
+  </section>
+</chapter>
+
+<chapter>
+  <title>Historie Gentoo: Dwa lata sukcesów Bug Day</title>
+  <section>
+    <body>
+      <p>Od developerów Bug Day, <mail link="kloeri@gentoo.org">Bryana Østergaarda</mail> oraz <mail link="tannewt@gentoo.org">Scotta Shawcrofta</mail>, otrzymaliśmy raport zawierający kilka ciekawych liczb dotyczących projektu, udowadniających jak wielkim okazał się on sukcesem.</p>
+    </body>
+  </section>
+  <section>
+    <title>Druga rocznica Bug Day!</title>
+    <body>
+      <p>6 sierpnia 2005 roku osiągnięty zostanie kolejny istotny dla projektu Gentoo Bug Day kamień milowy - projektu udanego, pozwalającego przybliżyć do siebie społeczność.</p>
+    </body>
+  </section>
+  <section>
+    <title>Ścieżką wspomnień...</title>
+    <body>
+      <p>Wszystko zaczęło się od pomysłu developera Gentoo <mail link="iggy@gentoo.org">Briana Jacksona</mail>, trochę
+      ponad dwa lata temu. Pierwsze ślady na listach dyskusyjnych zdają się wskazywać mniej więcej na lipiec 2005. Na
+      liście gentoo-dev Brian poprosił wtedy o komentarze na temat <uri link="http://glep.gentoo.org/glep-0006.html">GLEP-a 6</uri>.
+      Wątek można przeczytać <uri link="http://thread.gmane.org/gmane.linux.gentoo.devel/9880">w archiwum gmane</uri>. Pomysł
+      przypadł wszystkim do gustu i został przyjęty w rekordowym czasie - pełen procec od propozycji do akceptacji zajął
+      niecały miesiąc.</p>
+      <p>Pierwszy Gentoo Bug Day odbył się 2 sierpnia 2003 i pod wieloma względami był bardzo udany. Naprawiono wiele
+      błędów oraz zrekrutowano kilku nowych developerów.</p>
+      <p>Kiedy w maju 2004 Brian Jackson zdecydował się na krótką przerwę w obowiązkach developera, koordynacją Bug Day
+      zajął się Bryan Øtergaard i pozostaje na tym stanowisku aż do dziś.</p>
+      <p>Kolejna wielka okazja nadeszła we wrześniu 2004, wraz z głośnym otwarciem <uri
+      link="http://bugday.gentoo.org/">http://bugday.gentoo.org</uri>. Strona została w większości napisana
+      przez <mail link="gurligebis@gentoo.org">Bjarke Instrup Pedersena</mail> i wyglądała niemal dokładnie tak jak
+      obecnie.</p>
+    </body>
+  </section>
+  <section>
+    <title>Bug Day w liczbach</title>
+    <body>
+      <p>Co prawda określenie dokładnej ilości zamkniętych w trakcie Bug Day bugów jest prawdopodobnie niemożliwe,
+      jednakże w Bugzilli da się odnaleźć kilka interesujących liczb. Zapytanie Bugzilli o ilość zamkniętych błędów,
+      które zmieniły stan w trakcie Bug Day da kilka (niezbyt naukowych) statystyk:</p>
+      <table>
+        <tr>
+          <ti>Największa ilość błędów zamkniętych w trakcie jednego Bug Day:</ti>
+          <ti>344 (luty 2005)</ti>
+        </tr>
+        <tr>
+          <ti>Najmniejsza ilość zamkniętych bugów:</ti>
+          <ti>124 (sierpień 2003)</ti>
+        </tr>
+        <tr>
+          <ti>Średnia ilość bugów zamkniętych w trakcie Bug Day:</ti>
+          <ti>229</ti>
+        </tr>
+        <tr>
+          <ti>Średnia w roku 2003:</ti>
+          <ti>173</ti>
+        </tr>
+        <tr>
+	  <ti>Średnia w roku 2004:</ti>
+          <ti>226</ti>
+        </tr>
+        <tr>
+          <ti>Średnia w roku 2005:</ti>
+          <ti>274</ti>
+        </tr>
+        <tr>
+          <ti>Ilość developerów zrekturowanych w trakcie Bug Day:</ti>
+          <ti>15+</ti>
+        </tr>
+      </table>
+    </body>
+  </section>
+  <section>
+    <title>Rzut okiem w przyszłość</title>
+    <body>
+      <p>Latem 2005 roku, Bryan zaczął uświadamiać sobie, że będzie potrzebował wsparcia, jeżeli chce zapewnić dalszy rozwój Bug Day. Zatrudnił więc <mail link="tannewt@gentoo.org">Scotta Shawcrofta</mail> oraz <mail link="gurligebis@gentoo.org">Bjarke Istrup Pedersena</mail> do pomocy w realizacji niektórych swoich pomysłów. Na szczęście oni również wykazali się inwencją!</p>
+
+      <p>Jednym z celów Bug Day jest budowanie społeczności w trakcie naprawiania błędów. Obecnie udział w Bug Day jest ograniczony. Dzięki pewnym zmianom mamy nadzieję zwiększyć zaangażowanie, zbudować społeczność i wykształcić nowych developerów. Część zmian jakie zamierzamy wprowadzić to przebudowa od zera strony WWW oraz stworzenie do niej interfejsu IRC.</p>
+
+      <p>Celem wprowadzenia nowej strony jest zapewnienie lepszych wskazówek dla uczestników Bug Day oraz zwiększenie zakresu zaangażowania. Jednym ze sposobów osiągnięcia takiego efektu będzie klasyfikacja błędów na podstawie poziomu trudności oraz umiejętności programistycznych wymaganych do ich rozwiązania. Powinno to umożliwić filtrowanie błędów na podstawie umiejętności użytkownika.</p>
+
+      <p>Poza klasyfikacją bugów zamierzamy wprowadzić interfejs głosowań na nie. Umożliwi to użytkownikom głosowanie na ich "ulubione" błędy i tym samym zwiększyć (mamy nadzieję) szansę na to, że ktoś je zauważy i poprawi. Jeśli wszystko się uda, to część z bardziej irytujących problemów zostanie rozwiązanych szybko ponieważ powinno być widoczne, które z nich przyciągają największą uwagę użytkowników. Istotne jest to, że możliwość 'głosowania na błędy' będzie zaimplementowana tylko na <uri link="http://bugday.gentoo.org">stronie Bug Day</uri>.</p>
+
+      <p>Mamy nadzieję, że część z planowanych możliwości strony WWW będzie gotowa już we wrześniu. Chętnie przyjmiemy wszelkie komentarze, sugestie oraz pytania dotyczące aktualnych oraz nadchodzących Bug Day.</p>
+
+      <p>Dołącz do nas na kanale <uri
+          link="irc://irc.freenode.net/gentoo-bugs">#gentoo-bugs na irc.freenode.net</uri> oraz zobacz naszą stronę - <uri
+          link="http://bugday.gentoo.org/">http://bugday.gentoo.org</uri>.</p>
+
+      <p>Pamiętajcie, każdy jest zaproszony do świętowania zarówno drugiej rocznicy jak i początku Bug Day w najbliższą sobotę!</p>
+    </body>
+  </section>
+</chapter>
+
+<chapter>
+<title>Historie użytkowników: wywiad z Georgem K. Thiruvathukalem</title>
+<section>
+<body>
+
+<p>
+Tym razem w dziale "Historie użytkowników" pragniemy przedstawić <e>George'a K.
+Thiruvathukala</e>, profesora informatyki z Uniwersytetu Loyola w Chicago.
+Wywiad został przeprowadzony przez developera Gentoo, <mail
+link="patrick@gentoo.org">Patricka Lauera</mail>, w jego organizacji pomógł
+także <mail link="kingtaco@gentoo.org">Mike Doty</mail>:
+</p>
+
+<p>
+<e>Proszę opowiedzieć kim pan jest i czym zajmuje się w pracy?</e>
+</p>
+
+<p>
+Jestem profesorem informatyki na Uniwersytecie Loyola w Chicago (Stany
+Zjednoczone, stan Illinois).
+</p>
+
+<p>
+<e>Czym się pan zajmuje w pracy? Jakie związane z komputerami zadania pan
+wykonuje?</e>
+</p>
+
+<p>
+Jestem profesorem oraz Prodziekanem ds. Nauczania. Ponadto wraz z Miao Ye
+zarządzam laboratorium, w którym prowadzi się prace nad
+oprogramowaniem OpenSource, a zwłaszcza nad Linuksem. W związku z tym, że moje
+badania związane są głównie z systemami rozproszonymi, mogę powiedzieć, że ponad
+połowę swojego życia przepracowałem jako administrator i haker.
+</p>
+
+<p>
+<e>Kiedy odkrył pan Linuksa? Kiedy poznał Gentoo i co pana przekonało do pracy z
+nim?</e>
+</p>
+
+<p>
+Linuksa odkryłem w 1991 roku. Akurat pracowałem w Chicago i kończyłem studia.
+Wraz z kolegą zainstalowaliśmy jeden z pierwszych kerneli stworzonych przez
+Linusa i tak już zostało. Gentoo zacząłem używać kilka lat temu dzięki upartym
+namowom jednego z moich studentów, Seana McGuire. Wiedziałem już wtedy, że żadna
+z dystrybucji na rynku, chociaż wiele z nich jest naprawdę solidnie
+przygotowanych, nie zapewnia żadnego sensownego systemu zarządzania pakietami
+opartego na kompilowaniu wszystkiego ze źródeł i dbającego o aktualność systemu.
+Ponadto inne rozwiązania proponowane przez pozostałe dystrybucje nie nadawały
+się zbytnio do obliczeń wielkoskalowych, które są jednym z głównych tematów
+mojej pracy i dla których nawet najmniejszy zysk w wydajności okazuje się
+kluczowym. Bardzo spodobała mi się łatwość z jaką Gentoo potrafi skompilować
+cały system, zarówno kernel jak i oprogramowanie, dla danego procesora czy
+architektury.
+</p>
+
+<p>
+Obecnie posiadam dwa małe klastry zajmujące się obliczeniami i oparte całkowicie
+na Gentoo. Mike Doty (KingTaco) pracuje teraz wraz ze mną nad systemem
+uruchamiania za pomocą sieci PXE, który zostanie wdrożony w ciągu kilku
+następnych tygodni.
+</p>
+
+<p>
+<e>Na jakich komputerach zainstalowane jest Gentoo? Jakie ma pan plany na
+przyszłość?</e>
+</p>
+
+<p>
+Wszystko oparte na Linuksie na naszym wydziale działa pod kontrolą Gentoo.
+Nawet komputery laboratoryjne. Mamy transparentną konfigurację, opartą na
+OpenLDAP służącym do uwierzytelniania, oraz kilka dużych serwerów baz danych
+opartych na sprzęcie Dell PowerEdge (tak, na nich również działa Gentoo, chociaż
+nie obyło się bez rozmaitych uciążliwych problemów). Ponadto mamy kilka
+mniejszych serwerów obsługujących pocztę oraz ruch www.
+</p>
+
+<p>
+Moje plany na przyszłość (można powiedzieć, że marzenia) to stworzenie klastra
+ponad tysiąca komputerów opartych na Gentoo. :-) To byłoby coś!
+</p>
+
+<p>
+<e>Jak radzi sobie pan z uaktualnieniami?</e>
+</p>
+
+<p>
+Wiedziałem, że o to zapytacie. Cóż, obecnie aktualizujemy metadane na
+najważniejszych serwerach co najmniej raz w miesiącu. Jeśli chodzi o
+uaktualnienia całego world/system na najważniejszych z naszych komputerów,
+jesteśmy z tym bardzo ostrożni, ograniczamy się do aktualizacji raz na 3 do 6
+miesięcy. Na bardziej eksperymentalnym sprzęcie (jak klastry) aktualizujemy
+oprogramowanie znacznie częściej. Jak tylko skończymy prace nad uruchamianiem z
+sieci będziemy mogli po prostu ponownie uruchomić komputery i w ten sposób
+pozwolić im na korzystanie z aktualnego oprogramowania.
+</p>
+
+<p>
+Oczywiście aktualizacje plików z katalogów <path>/etc</path> są tu głównym
+problemem, jest to również dziedzina, w której w przyszłości chciałbym Gentoo
+pomóc. W związku z moim doświadczeniem w pracy w Pythonie i z XML, chciałbym
+wykorzystać oba języki do stworzenia jakiegoś prostego i odpornego na błędy
+systemu zarządzania katalogiem <path>/etc</path>.
+</p>
+
+
+<p>
+<e>Na jakie problemy pan natrafił? Jakie są zalety Linuksa (zwłaszcza
+Gentoo)?</e>
+</p>
+
+<p>
+Pojawił się szereg różnych problemów. Przed wszystkim cieszę się, że wciąż
+zachowałem formę i że pomimo tego, że jestem już niemal 40-latkiem, mogę nadal
+nadążyć za tymi wszystkimi szalonymi 20-latkami. Cieszę się również, że tak
+zdolni ludzie jak Mike i Sean są tuż obok i pomagają mi z wieloma problemami
+związanym z kernelem i zwykłym oprogramowaniem biurkowym.
+</p>
+
+<p>
+<e>Ale gdzie Linux sobie całkiem nie radzi? Z jakich rozwiązań, hacków, czy
+implementacji jest pan najbardziej zadowolony?</e>
+</p>
+
+<p>
+Najbardziej cieszy mnie implementacja LDAP. Dokumentacja Gentoo zdawała się
+mówić, że niemal nie jest to możliwe, a mi udało się wprowadzić to rozwiązanie
+w bezpieczny i bazawaryjny sposób. Po drodze pojawiły się wprawdzie zepsute
+ACL-e, które musiałem naprawić, ale udało się to wykonać i teraz możemy
+korzystać z tego wygodnego systemu na całym Wydziale.
+</p>
+
+<p>
+Dużo satysfakcji daje mi również system hostingowy jaki stworzyłem wraz z moim
+kolegą, prof. Konstantinem Läuferem. Dzięki temu jesteśmy w stanie hostować
+wiele rozmaitych zarówno społecznych jak i studenckich portali na komputerach
+naszego wydziału, zapewniając użytkownikom e-mail, strony www oraz system
+zarządzania treścią Plone. I wszystko to działa na platformie Gentoo.
+</p>
+
+<p>
+<e>Słyszeliśmy, że udostępnił pan niektóre z komputerów dla developerów
+Gentoo. Co pana do tego przekonało? Jaki to był sprzęt? Czy to się opłaciło?</e>
+</p>
+
+<p>
+Nasz Uniwersytet świadczy bardzo dużo usług dla innych podmiotów. Jesteśmy
+zaszczyceni tym, że nasz sprzęt Sun E250 może przydać się w pracach nad Gentoo.
+Mamy również nadzieję, że między innymi dzięki temu studenci chcący zajmować się
+Otwartym Oprogramowanie uznają w przyszłość nasz Wydział za dobry wybór. Nie
+tylko nauczamy o Otwartym Oprogramowaniu, naprawdę go używamy!
+</p>
+
+<p>
+<e>Jakie są reakcje innych osób, gdy dowiadują się, że korzystacie z Gentoo na
+najważniejszych serwerach? Co sądzi pan o podziale na otwarte i komercyjne
+oprogramowanie? Czy są jakieś problemy z korzystaniem z tego pierwszego?</e>
+</p>
+
+<p>
+Kiedy zaczynałem implementację Gentoo większość ludzi uważało mnie za szaleńca i
+ich zdanie o mnie nie zmieniło się chyba do tej pory. :-) Według mnie system
+zawsze jest zagrożony, nieważne z jakiego oprogramowania się korzysta. Jeśli nie
+pilnuje się aktualizacji, nie czyta informacji o nowych błędach związanych z
+bezpieczeństwem, oraz nie zatrudnia najlepszych specjalistów z tej dziedziny nie
+można uważać się za w jakikolwiek sposób zabezpieczonego.
+</p>
+
+<p>
+Warto zwrócić uwagę również na sprzęt na jakim działają najważniejsze serwery.
+System operacyjny jest tak dobry jak sprzęt na którym działa. Dla wszystkich
+kluczowych komputerów niezbędne są najlepsze procesory, kości pamięci i
+wydajność I/O. Nie widziałem żadnych dowodów na to, że Gentoo jest mniej lub
+bardziej bezpieczne niż inne systemy operacyjne. Wydaje mi się jednak, że twórcy
+Gentoo kładą na bezpieczeństwo szczególny nacisk, co widać już w Tygodniku,
+który informuje użytkowników o wszystkich związanych z bezpieczeństwem
+problemach. Nie wszystkie pozostałe dystrybucje tak dbają, aby ich użytkownicy
+byli równie dobrze poinformowani o potencjalnych zagrożeniach.
+</p>
+
+<p>
+Nie przeszkadza nam istnienie komercyjnego oprogramowania. Jednak w czasach
+kiedy budżety są napięte do granic możliwości, musi być naprawdę ważny powód,
+aby z niego korzystać. Jeśli chodzi jednak o naszą tolerancję dla osób
+preferujących takie rozwiązania, zapewniamy naszym studentom także pełne
+wsparcie techniczne, jeśli tylko chcą korzystać z komercyjnych alternatyw. Nasz
+Wydział jest częścią MSDN Academic Alliance, co umożliwia naszym studentom
+poznawanie komercyjnych technologii na równi z otwartymi. Nie jesteśmy ślepymi
+ideologami, ale uważamy, że studenci przede wszystkim <e>powinni</e> poznawać
+otwarte rozwiązania w ramach swoich studiów informatycznych.
+</p>
+
+<p>
+<e>Jak wygląda wsparcie techniczne? Co sprawia, że Gentoo jest dobre, a co
+utrudnia z nim pracę? Jakie przewagi mają nad Gentoo komercyjne dystrybucje jak
+RedHat czy SuSE?</e>
+</p>
+
+<p>
+Gentoo musi przemyśleć kilka spraw:
+</p>
+
+<p>
+1. Synchronizowanie metadanych zaczyna zajmować coraz więcej czasu. Nie jest to
+wielkim problemem na jednym komputerze, ale kiedy jest ich wiele, stwarza to
+sporo trudności. Powinno pojawić się rozwiązanie umożliwiające zsynchronizowanie
+jednej głównej kopii danych, a następnie jej dystrybucję na pozostałe lokalne
+systemy.
+</p>
+
+<p>
+2. System uaktualniania danych w katalogu <path>/etc</path> stwarza wiele
+problemów w rozwiązaniach serwerowych. Korzystam z różnych sztuczek, ale zwykle
+muszę ręcznie sprawdzać czy kluczowe pliki z katalogu <path>/etc</path> (jak
+<path>conf.d/net</path>, <path>fstab</path>, czy
+<path>modules.autoload.d/kernel-2.6</path>) nie zostały zepsute w procesie
+aktualizacji.
+</p>
+
+<p>
+<e>Dziękujemy za wywiad.</e>
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Developer of the week -->
+
+<!-- Heard in the community: gentoo-dev, gentoo-user, forums -->
+<chapter>
+	<title>Społeczność Gentoo</title>
+	<section>
+		<title>gentoo-dev</title>
+		<body>
+			<p><b>Wstrzymajcie się z kolejnymi propozycjami nowych funkcjonalności portage</b></p>
+			<p>
+				<mail link="jstubbs@gentoo.org">Jason Stubbs</mail> poinformował nas, że zespół developerów portage nie przyjmuje żadnych nowych propozycji dodania nowych funkcjonalności aż do odwołania. W tej chwili na realizację czeka już 300 życzeń, które opóźniają wdrażanie krytycznych poprawek. Każdy nowy developer chcący pomóc przy portage jest mile widziany!
+			</p>
+			<ul>
+				<li><uri
+								link="http://article.gmane.org/gmane.linux.gentoo.devel/30042">Hold on portage feature requests</uri></li>
+			</ul>
+			<p><b>Nowe wieści w sprawie wsparcia dla PHP5 w Gentoo</b></p>
+			<p>
+				<mail link="stuart@gentoo.org">Stuart Herbert</mail>, developer aplikacji webowych oraz PHP podsumował obecną sytuację wparcia PHP przez Gentoo, w tym PHP5. Jeśli jesteś zainteresowany wersją PHP5 i chcesz pomóc w testowaniu powinieneś przeczytać ogłoszenie Stuarta.
+			</p>
+			<ul>
+				<li><uri
+								link="http://article.gmane.org/gmane.linux.gentoo.devel/30050">News on PHP5 support on Gentoo</uri></li>
+			</ul>
+			<p><b>ChangeLog przed instalacją</b></p>
+			<p>
+				Użytkownik Gentoo, Alec Warner zapytał o możliwość użycia informacji z ChangeLoga jako rodzaj wstępnego komunikatu przed rozpoczęciem instalacji, informującego min. o krytycznych zmianach w pakiecie, tak jak można to zrobić dzięki prostej komendzie <c>emerge -l &lt;nazwa pakietu&gt;</c>.
+			</p>
+			<ul>
+				<li><uri
+								link="http://article.gmane.org/gmane.linux.gentoo.devel/30017">Changelogs</uri></li>
+			</ul>
+		</body>
+	</section>
+</chapter>
+
+<!-- Gentoo international -->
+<chapter>
+	<title>Międzynarodowe Gentoo</title>
+	<section>
+		<title>USA: Konferencja i wystawa LinuxWorld Expo w San Francisco</title>
+		<body>
+			<p>
+				Jak co roku w Moscone Center w San Francisco odbędzie się <uri link="http://www.linuxworldexpo.com/live/12/events/12SFO05A">LinuxWorld Expo</uri>. Podobnie jak w latach poprzednich, Gentoo zaprezentuje swoją ekspozycję. Nie będzie ona duże, lecz w sam raz by zmieścić demonstrację wersji x86 i ppc oraz trochę darmowych upominków.
+				<p>
+				</p>
+				Jeśli przypadkiem zamierzasz zarejestrować się w "Exhibit Hall" LinuxWorld Expo w San Francisco, użyj priorytetowego kodu N0339, aby organizatorzy wiedzieli, że masz zamiar wesprzeć organizację stoiska Gentoo!
+			</p>
+		</body>
+	</section>
+	<section>
+		<title>Niemcy: Dwa spotkania użytkowników Gentoo</title>
+		<body>
+			<p>
+				W czwartek, 4 sierpnia, odbędzie się spotkanie <uri link="http://forums.gentoo.org/viewtopic.php?t=40510">społeczności z okolic Kolonii i Bonn</uri>. Impreza nie odbędzie się w żadnym z tych miast ale w chińskiej restauracji w Siegburgu.
+			</p>
+			<p>
+				Następnego dnia, w piątek 5 sierpnia, dobrze znana <uri link="http://forums.gentoo.org/viewtopic.php?t=94915">społeczność z Ruhrpott</uri> spotyka się w Oberhausen. Z dziewięcioma developerami (oraz dziewięcioma użytkownikami) uczestniczącymi w spotkaniu w zeszłym roku, było ono najprawdopodobniej największą tego typu imprezą odbywającą się poza większymi wydarzeniami, czy konferencjami!
+			</p>
+		</body>
+	</section>
+</chapter>
+
+<!-- Gentoo in the press -->
+<chapter>
+	<title>Gentoo w prasie</title>
+	<section>
+		<title>"Jak tworzyć przenośne poprawki"</title>
+		<body>
+			<p>
+				Developer <mail link="flameeyes@gentoo.org">Diego Pettenò</mail> napisał artykuł <uri link="http://programming.newsforge.com/article.pl?sid=05/07/19/1713230">”Best practices for portable patches“</uri>, bazujący na jego doświadczeniach zbieranych jako osoba odpowiedzialna za utrzymywanie pakietów i portu Gentoo/BSD. Znajdziemy tam ciekawe podsumowanie typowych problemów na jakie możemy się natknąć, oraz sposoby ich uniknięcia, co jest szczególnie ważne w Gentoo, które można uruchomić na wielu odmiennych architekturach procesorów.
+			</p>
+		</body>
+	</section>
+	<section>
+		<title>Zespół kontroli bezpieczeństwa w Gentoo odkrył usterkę w MySQL</title>
+		<body>
+			<p>
+				<uri link="http://www.eweek.com/article2/0,1895,1840084,00.asp">Krytyczna usterka w MySQL, wynikająca z błędu w zlib</uri> została odkryta przez członka zespołu kontroli bezpieczeństwa w Gentoo (Gentoo Linux Security Audit Team) <mail link="taviso@gentoo.org">Tavisa Ormandy</mail>.
+			</p>
+		</body>
+	</section>
+</chapter>
+
+
+<!-- Tips and Tricks -->
+<chapter>
+  <title>Sztuczki i kruczki</title>
+  <section>
+    <title>Wyłapywanie komunikatów emerge za pomocą enotice</title>
+    <body>
+      <note>
+      Wszystkie prezentowane w tym dziale porady są dokładnie testowane, przypominamy
+      jednak, że w żaden sposób nie odpowiadamy za jakiekolwiek uszkodzenia systemu
+      powstałe w wyniku ich wykorzystania.
+	</note>
+      <p>
+      	Jedną z rzeczy których Portage brakuje od dłuższego czasu, jest
+	możliwość wyłapywania wszystkich powiadomień i ostrzeżeń wyświetlanych
+	w trakcie instalacji, żebyś mógł się dowiedzieć co się zmieniło
+	w czasie ostatniej nocnej aktualizacji. Spotkałeś
+	się już z sytuacją, gdzie coś przestało działać po aktualizacji,
+	tylko dlatego, że nie przeczytałeś ostrzeżenia, które przewinęło
+	się przez ekran kiedy akurat nie patrzyłeś? Oto rozwiązanie: <c>enotice</c>!</p>
+      <p><c>enotice</c> to niewielki skrypt stworzony przez developera <uri
+          link="http://dev.gentoo.org/~eldad/">Eldada Zacka</uri> i poprawiony
+	  przez Lindsaya Haisleya.  Aby go zainstalować, powinieneś skorzystać
+	  ze <uri
+          link="http://dev.gentoo.org/~eldad/enotice/install-enotice.sh">skryptu instalacyjnego</uri>
+	  stworzonego przez Thomasa Bullingera. Po ściągnięciu uruchom go poleceniem:</p>
+      <pre caption="Instalacja enotice">
+# <i>sh install-enotice.sh</i>
+      </pre>
+      <p>Skrypt pobierze enotice i skopiuje je do katalogu
+        <path>/usr/local/sbin/</path>.  Ponadto doda do twojego <path>/etc/make.conf</path>
+	zmienną <c>PORT_ENOTICE_DIR</c>.</p>
+
+      <p>Po następnej nocnej aktualizacji będziesz mógł uruchomić <c>enotice</c> i
+      korzystając z intuicyjnego menu zapoznać się z listą komunikatów. Zazwyczaj
+      wyświetlone zostaną wyłacznie ostrzeżenia, ale możesz zmienić poziom
+      szczegółowości, aby przeczytać także mniej istotne wiadomości.</p>
+      <p>Na zakończenie warto dodać, iż do zespołu GWN dotarły plotki, mówiące,
+      że coś podobnego do enotice zostanie włączone do kolejnej głównej wersji portage…</p>
+    </body>
+  </section>
+</chapter>
+
+<!-- Moves, adds, and changes -->
+<chapter>
+  <title>Odeszli, przybyli, zmienili status</title>
+  <section>
+    <title>Odeszli</title>
+    <body>
+      <p>
+      Następujący developerzy opuścili projekt Gentoo Linux w minionym tygodniu:
+      </p>
+      <ul>
+        <li><e>Nikt w tym tygodniu</e></li>
+      </ul>
+    </body>
+  </section>
+  <section>
+    <title>Przybyli</title>
+    <body>
+      <p>
+      Następujący developerzy przyłączyli się do projektu Gentoo Linux w minionym tygodniu:
+      </p>
+      <ul>
+        <li>Developer: <e>Petteri Räty</e> (Betelgeuse) (Java)</li>
+        <li>Developer: <e>Fabian Groffen</e> (grobian) (Gentoo/MacOS)</li>
+        <li>Developer: <e>Jeff Walter</e> (JeffW) (jądra x86 Cobalt RAQ)</li>
+        <li>Członek zespołu dokumentacji: <e>Jan Kundrát</e> (jkt) (czeskie tłumaczenie)</li>
+        <li>Członek zespołu forum: <e>Ioannis Aslanidis</e> (deathwing00) (greckie forum)</li>
+      </ul>
+    </body>
+  </section>
+  <section>
+    <title>Zmienili status</title>
+    <body>
+      <p>Następujący developerzy zmienili w minionym tygodniu pełnioną w projekcie Gentoo Linux funkcję:</p>
+      <ul>
+        <li><e>Nikt w tym tygodniu</e></li>
+      </ul>
+    </body>
+  </section>
+</chapter>
+
+<!-- Gentoo security -->
+<chapter>
+  <title>Bezpieczeństwo Gentoo</title>
+<!-- paste from the script -->
+<section>
+<title>fetchmail: Przepełnienie bufora</title>
+<body>
+<p>
+
+	fetchmail jest podatny na przepełnienie bufora, które można
+	wykorzystać do przeprowadzenia ataku Denial of Service lub
+	wykonywania niepożądanego kodu.
+
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="http://www.gentoo.org/security/en/glsa/glsa-200507-21.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>sandbox: Niebezpieczna obsługa plików tymczasowych</title>
+<body>
+<p>
+
+	Program sandbox tworzy pliki tymczasowe w niebezpieczny sposób.
+
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="http://www.gentoo.org/security/en/glsa/glsa-200507-22.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>Kopete: Usterka w bibliotece Gadu</title>
+<body>
+<p>
+
+	Kadu jest podatne na kilka usterek podczas sprawdzania danych wejściowych,
+	które mogą zostać wykorzystane do wykonywania niepożądanego kodu.
+
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="http://www.gentoo.org/security/en/glsa/glsa-200507-23.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>Mozilla Suite: Kilka usterek</title>
+<body>
+<p>
+
+	Kilka usterek w Mozilla Suite może pozwolić na rozmaite ataki: od
+	wykonywania niepożądanego kodu javascript z podwyższonymi uprawnieniami,
+	do wycieku informacji.
+
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="http://www.gentoo.org/security/en/glsa/glsa-200507-24.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>Clam AntiVirus: Błędy nadmiaru liczby całkowitej</title>
+<body>
+<p>
+
+	Clam AntiVirus podczas obsługi kilku formatów plików jest podatny na ataki integer overflow,
+	które można wykorzystać do wykonywania niepożądanego kodu.
+
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="http://www.gentoo.org/security/en/glsa/glsa-200507-25.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>GNU Gadu, CenterICQ, Kadu, EKG, libgadu: Zdalne wykonywanie niepożądanego kodu w bibliotece Gadu</title>
+<body>
+<p>
+
+    GNU Gadu, CenterICQ, Kadu, EKG oraz libgadu są podatne na usterki
+    integer overflow, które można wykorzystać do wykonywania niepożądanego kodu
+    lub ataków Denial of Service.
+
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="http://www.gentoo.org/security/en/glsa/glsa-200507-26.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>Ethereal: Kilka usterek</title>
+<body>
+<p>
+
+	Ethereal jest podatny na liczne usterki, które mogą zostać
+	wykorzystane do wykonywania niepoządanego kodu lub nieoczekiwanego przerwania pracy programu.
+
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="http://www.gentoo.org/security/en/glsa/glsa-200507-27.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>Biblioteki do emulacji x86 dla AMD64: Przepełnienie bufora</title>
+<body>
+<p>
+
+	Biblioteki do emulacji x86 dla AMD64 zawierają dziurawą
+	wersję zlib, przez co mogą zostać wykorzystane do wykonywania niepożądanego kodu.
+
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="http://www.gentoo.org/security/en/glsa/glsa-200507-28.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>pstotext: Zdalne wykonywanie niepożądanego kodu</title>
+<body>
+<p>
+
+	pstotext zawiera usterkę, która może zostać wykorzystana
+	do wykonywania niepożądanego kodu.
+
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="http://www.gentoo.org/security/en/glsa/glsa-200507-29.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+</chapter>
+
+<!-- Bugzilla -->
+<!-- paste from the script -->
+<chapter>
+<title>Bugzilla</title><section><title>Spis treści</title>
+<body>
+     <ul>
+          <li><uri link="#doc_chap1_sect2">Statystyki</uri></li>
+          <li><uri link="#doc_chap1_sect3">Zamknięte bugi</uri></li>
+          <li><uri link="#doc_chap1_sect4">Nowe bugi</uri></li>
+     </ul>
+</body>
+</section>
+
+<section>
+<title>Statystyki</title>
+<body>
+     <p>
+Społeczność Gentoo używa Bugzilli (<uri link="http://bugs.gentoo.org/">bugs.gentoo.org</uri>) do zgłaszania i śledzenia błędów, ogłoszeń, sugestii oraz innych form kontaktu z developerami. Pomiędzy 23 a 30 lipca 2005, aktywność w serwisie przedstawiała się następująco:
+     </p>
+     <ul>
+          <li>zgłoszono 792 nowe bugi</li>
+          <li>zamknięto lub rozwiązano 416 bugów</li>
+          <li>23 uprzednio zamknięte bugi zostały ponownie otwarte</li>
+     </ul>
+     <p>
+     Spośród 8027 obecnie otwartych bugów: 111 oznaczono jako 'blocker', 195 jako 'critical', a 538 jako 'major'.
+     </p>
+</body>
+</section>
+
+<section>
+<title>Zamknięte Bugi</title>
+<body>
+     <p>
+       Developerzy oraz zespoły, które zamknęły najwięcej bugów w minionym tygodniu, to:
+     </p>
+     <ul>
+      <li><mail link="amd64@gentoo.org">AMD64 Porting Team</mail>, 26
+        <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-07-23&amp;chfieldto=2005-07-30&amp;resolution=FIXED&amp;assigned_to=amd64@gentoo.org">bugów</uri>
+      </li>
+      <li><mail link="security@gentoo.org">Gentoo Security</mail>, 20
+        <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-07-23&amp;chfieldto=2005-07-30&amp;resolution=FIXED&amp;assigned_to=security@gentoo.org">bugów</uri>
+      </li>
+      <li><mail link="neysx@gentoo.org">Xavier Neys</mail>, 20
+        <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-07-23&amp;chfieldto=2005-07-30&amp;resolution=FIXED&amp;assigned_to=neysx@gentoo.org">bugów</uri>
+      </li>
+      <li><mail link="mozilla@gentoo.org">Mozilla Gentoo Team</mail>, 16
+        <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-07-23&amp;chfieldto=2005-07-30&amp;resolution=FIXED&amp;assigned_to=mozilla@gentoo.org">bugów</uri>
+      </li>
+      <li><mail link="games@gentoo.org">Gentoo Games</mail>, 16
+        <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-07-23&amp;chfieldto=2005-07-30&amp;resolution=FIXED&amp;assigned_to=games@gentoo.org">bugów</uri>
+      </li>
+      <li><mail link="kde@gentoo.org">Gentoo KDE team</mail>, 15
+        <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-07-23&amp;chfieldto=2005-07-30&amp;resolution=FIXED&amp;assigned_to=kde@gentoo.org">bugów</uri>
+      </li>
+      <li><mail link="svyatogor@gentoo.org">Sergey Kuleshov</mail>, 13
+        <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-07-23&amp;chfieldto=2005-07-30&amp;resolution=FIXED&amp;assigned_to=svyatogor@gentoo.org">bugów</uri>
+      </li>
+      <li><mail link="maintainer-needed@gentoo.org">Default Assignee for Orphaned Packages</mail>, 12
+        <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-07-23&amp;chfieldto=2005-07-30&amp;resolution=FIXED&amp;assigned_to=maintainer-needed@gentoo.org">bugów</uri>
+      </li>
+</ul>
+</body>
+</section>
+
+<section>
+<title>Nowe Bugi</title>
+<body>
+     <p>
+       Developerzy oraz zespoły, które zamknęły najwięcej bugów w minionym tygodniu, to:
+     </p>
+     <ul>
+      <li><mail link="maintainer-wanted@gentoo.org">Default Assignee for New Packages</mail>, 76
+        <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-07-23&amp;chfieldto=2005-07-30&amp;assigned_to=maintainer-wanted@gentoo.org">bugów</uri>
+      </li>
+      <li><mail link="maintainer-needed@gentoo.org">Default Assignee for Orphaned Packages</mail>, 17
+        <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-07-23&amp;chfieldto=2005-07-30&amp;assigned_to=maintainer-needed@gentoo.org">bugów</uri>
+      </li>
+      <li><mail link="stefaan.deroeck@gmail.com">Stefaan De Roeck</mail>, 16
+        <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-07-23&amp;chfieldto=2005-07-30&amp;assigned_to=stefaan.deroeck@gmail.com">bugów</uri>
+      </li>
+      <li><mail link="mozilla@gentoo.org">Mozilla Gentoo Team</mail>, 12
+        <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-07-23&amp;chfieldto=2005-07-30&amp;assigned_to=mozilla@gentoo.org">bugów</uri>
+      </li>
+      <li><mail link="toolchain@gentoo.org">Gentoo Toolchain Maintainers</mail>, 11
+        <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-07-23&amp;chfieldto=2005-07-30&amp;assigned_to=toolchain@gentoo.org">bugów</uri>
+      </li>
+      <li><mail link="sound@gentoo.org">Gentoo Sound Team</mail>, 11
+        <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-07-23&amp;chfieldto=2005-07-30&amp;assigned_to=sound@gentoo.org">bugów</uri>
+      </li>
+      <li><mail link="gnome@gentoo.org">Gentoo Linux Gnome Desktop Team</mail>, 9
+        <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-07-23&amp;chfieldto=2005-07-30&amp;assigned_to=gnome@gentoo.org">bugów</uri>
+      </li>
+      <li><mail link="sci@gentoo.org">Gentoo Science Related Packages</mail>, 8
+        <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-07-23&amp;chfieldto=2005-07-30&amp;assigned_to=sci@gentoo.org">bugów</uri>
+      </li>
+</ul>
+</body>
+</section>
+</chapter>
+
+<!-- GWN feedback -->
+<chapter>
+  <title>Opinie czytelników</title>
+  <section>
+    <body>
+      <p>
+      Jeśli chcesz, aby ten magazyn był jeszcze lepszy, podziel się z <mail link="gwn-feedback@gentoo.org">nami</mail> swoją opinią na jego temat.
+      </p>
+    </body>
+  </section>
+</chapter>
+
+<!-- GWN subscription information -->
+<chapter>
+  <title>Subskrybcja GWN</title>
+  <section>
+    <body>
+      <p>
+Aby zasubskrybować Gentoo Weekly Newsletter, wyślij pustego e-maila na adres <mail link="gentoo-gwn-subscribe@gentoo.org">gentoo-gwn+subscribe@gentoo.org</mail>.
+</p>
+<p>
+Aby zrezygnować z subskrybcji, wyślij pustego e-maila na adres <mail link="gentoo-gwn-unsubscribe@gentoo.org">gentoo-gwn+unsubscribe@gentoo.org</mail> z konta, na które jest zarejestrowana.
+</p>
+    </body>
+  </section>
+</chapter>
+
+<!-- Other Languages -->
+<chapter>
+  <title>Inne języki</title>
+  <section>
+    <body>
+<p>Tygodnik Gentoo Weekly Newsletter jest dostępny w następujących językach:</p>
+      <ul>
+	<li><uri link="http://www.gentoo.org/news/en/gwn/gwn.xml">angielskim</uri></li>
+	<li><uri link="http://www.gentoo.org/news/da/gwn/gwn.xml">duńskim</uri></li>
+	<li><uri link="http://www.gentoo.org/news/fr/gwn/gwn.xml">francuskim</uri></li>
+	<li><uri link="http://www.gentoo.org/news/es/gwn/gwn.xml">hiszpańskim</uri></li>
+	<li><uri link="http://www.gentoo.org/news/nl/gwn/gwn.xml">holenderskim</uri></li>
+	<li><uri link="http://www.gentoo.org/news/ja/gwn/gwn.xml">japońskim</uri></li>
+	<li><uri link="http://www.gentoo.org/news/de/gwn/gwn.xml">niemieckim</uri></li>
+	<li><uri link="http://www.gentoo.org/news/pl/gwn/gwn.xml">polskim</uri></li>
+	<li><uri link="http://www.gentoo.org/news/pt_br/gwn/gwn.xml">portugalskim (Brazylia)</uri></li>
+	<li><uri link="http://www.gentoo.org/news/pt/gwn/gwn.xml">portugalskim (Portugalia)</uri></li>
+	<li><uri link="http://www.gentoo.org/news/ru/gwn/gwn.xml">rosyjskim</uri></li>
+	<li><uri link="http://www.gentoo.org/news/tr/gwn/gwn.xml">tureckim</uri></li>
+	<li><uri link="http://www.gentoo.org/news/it/gwn/gwn.xml">włoskim</uri></li>
+ </ul>
+  </body>
+  </section>
+</chapter>
+</guide>

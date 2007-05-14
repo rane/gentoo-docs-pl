@@ -1,0 +1,780 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<guide type="newsletter" link="20050117-newsletter.xml" lang="en">
+<title>Gentoo Weekly Newsletter</title>
+<subtitle>17 stycznia 2005</subtitle>
+<author title="Redaktor naczelny"><mail link="plate@gentoo.org">Ulrich Plate</mail></author>
+<author title="Redaktor"><mail link="bdowney@briandowney.net">Brian Downey</mail></author>
+<author title="Redaktor"><mail link="ian@gentoo.org">Christian Hartmann</mail></author>
+<author title="Redaktor"><mail link="patrick@gentoo.org">Patrick Lauer</mail></author>
+<author title="Redaktor"><mail link="swift@gentoo.org">Sven Vermeulen</mail></author>
+<author title="Tłumacz"><mail link="jbozanowski@gmail.com">Kuba Bożanowski</mail></author>
+<author title="Tłumacz"><mail link="dziwisz@icslab.agh.edu.pl">Jakub Dziwisz</mail></author>
+<author title="Tłumacz"><mail link="gooroo@gentoo.pl">Karol Góralski</mail></author>
+<author title="Tłumacz"><mail link="lucass@gentoo.pl">Łukasz Strzygowski</mail></author>
+<abstract>Gentoo Weekly Newsletter z 17 stycznia 2005.</abstract>
+<summary></summary>
+<version>Wolumin 4, numer 3</version>
+<date>2005-01-17</date>
+
+<chapter>
+<title>Gentoo News</title>
+<section>
+<title>Gentoo name and logo usage guidelines</title>
+<body>
+
+<p>
+As many might have noticed from last week's front page news item,
+the Gentoo Foundation and Gentoo Technologies have drafted a document
+on <uri link="/news/20050111-namelogo.xml">Gentoo name and logo usage</uri> 
+containing legalese instructions when people and projects are allowed to use the
+Gentoo name and/or logo. To make those as easily understandable as possible, 
+here's a summary of the general ideas behind those guidelines.
+</p>
+
+<p>
+The Gentoo trademark is described as follows:
+</p>
+
+<pre caption="Gentoo Trademark Description">
+Computer software, namely operating system software that automatically
+configures and optimizes performance on the underlying hardware and is adapted
+for a large number of usage scenarios and applications, namely, secure servers,
+development workstations, professional desktops, gaming systems and embedded
+solutions.
+</pre>
+
+<p>
+<uri link="/main/en/name-logo.xml#doc_chap4">Section 4</uri> and <uri
+link="/main/en/name-logo.xml#doc_chap6">Section 6</uri> describe when
+people and projects are allowed to use the Gentoo name in content that falls
+under the description of the Gentoo trademark. These last words are very
+important - when you use Gentoo in any meaning other than the description given
+above, then this document does not apply to you. So you're free to talk about
+the <uri link="http://en.wikipedia.org/wiki/Gentoo_Penguin">Gentoo penguin</uri>
+or start an insurance company called "Gentoo Insurance".
+</p>
+
+<p>
+So, when are you allowed to use "Gentoo" in a project or content that does
+relate to operating system software (including the Gentoo operating system
+specifically)?
+</p>
+
+<p>
+We ask project managers not to call their project "Gentoo" or have "Gentoo" in 
+its name. Otherwise users might get confused where to go for official
+information, support or feedback. We also ask that, if you use "Gentoo" in any
+other way (i.e. not within the name of a project) that still relates to
+operating system software, that you clearly mention that Gentoo is a registered
+trademark and that whatever you use "Gentoo" for is not part of the Gentoo
+project and not directed or managed by the Gentoo project or the Gentoo 
+Foundation. It is common practice to add a &#x2122; symbol behind "Gentoo" and
+mention "Gentoo is a registered trademark of Gentoo Technologies, Inc." at the
+end of your document. 
+</p>
+
+<p>
+<e>Hold it! Does that mean we can't create a site that helps Gentoo users?</e>
+Surely not, that's not our intention. The more Gentoo community sites we see, 
+the happier we are. <uri link="/main/en/name-logo.xml#doc_chap6">Section 6</uri> 
+grants explicit approval <e>to community sites</e> to use the "Gentoo" name in 
+their project name if they acknowledge the "Gentoo" trademark and follow the 
+conditions stated:
+</p>
+
+<ul>
+  <li>
+    Each page must clearly state that the site is not officially part of the
+    Gentoo project. This informs their users that they should not try to get
+    feedback or support from the Gentoo project about that project - chances are
+    very likely that the Gentoo developers don't know how to deal with their
+    requests.
+  </li>
+  <li>
+    The website may not look like an official Gentoo website. The layout used by
+    the Gentoo website (both the current and the upcoming new layout) are only to 
+    be used by official Gentoo websites. Using the same (or a similar) layout might 
+    confuse users about the origin of the website and where to go with feedback or
+    comments.
+  </li>
+</ul>
+
+<p>
+So far about the Gentoo name. What about the "g" logo?
+</p>
+
+<p>
+When you plan on using the Gentoo logo on a software/hardware product for 
+<e>commercial</e> purposes, we ask you not to have the Gentoo logo as the <b>primary</b>, 
+largest logo on the product. People who then use this product will know that the
+product contains or is based on Gentoo, but that support and feedback should be
+directed to you.
+</p>
+
+<p>
+What about other products, such as merchandise? We currently deny any use of 
+the Gentoo logo or artwork on such products <e>for commercial purposes</e>. The
+foundation will grant approval to parties on a case-by-case basis to sell such
+material, most likely to receive some funding from the sales, or to allow
+projects that help Gentoo to fund their actions (such as conferences) with the
+sales of these products.
+</p>
+
+<p>
+You are free to use the Gentoo logo for any <e>non-commercial</e> purpose as long as
+the logo is used to refer to the Gentoo project. For instance, you can use the
+Gentoo logo to accompany an article about Gentoo, or on Gentoo LiveCDs you give 
+away on conferences.
+</p>
+
+</body>
+</section>
+<section>
+<title>Brazilian Portuguese and Spanish translations, mailing list for German GWN installed</title>
+<body>
+<p>The new year started with excellent news for people in some non-English environments
+who would like to read the GWN in their own language: Building on the success of the French,
+Russian and Turkish GWN who re-emerge in the final days of last year, two other language 
+versions were softly woken from their year-long sleep, and put up with fresh material to 
+the Gentoo website:</p> 
+<ul>
+  <li>
+    Marcelo Góes and Fernando Vaz have started the Brazilian Portuguese translation project 
+    again, the first issue (<uri link="http://www.gentoo.org/news/br/gwn/20050110-newsletter.xml">10 
+    January 2005</uri>) has been published just last week. They've requested additional help
+    via <uri link="http://forums.gentoo.org/viewtopic.php?t=277628">a Forum thread</uri>, please join them if you can contribute!
+  </li>
+  <li>
+    After an equally long silence, a team of Spanish translators has begun working on their 
+    version, with the same <uri link="http://www.gentoo.org/news/es/gwn/20050110-newsletter.xml">10 
+    January issue</uri> as their first being fresh out of the blocks, too, signed by five 
+    initial collaborators (Demóstenes, Andrés Pereira, Víctor Argüelles, Miles Lubin and 
+    Alexander Moreno).
+  </li>
+</ul>
+<p>
+A warm welcome to our new translator teams! If you would like to contribute to a GWN version 
+in your own language, please send a short note to <mail link="gwn-feedback@gentoo.org">gwn-feedback@gentoo.org</mail>.
+</p>
+<note>We have received offers to translate the GWN to Esperanto, Basque, Romanian and other
+languages. We'd love to let volunteers start working on those versions, but require a 
+sufficient number of translators to be available in the first place. In order to provide 
+a consistent service, at least three to five translators are recommended for each language.</note>
+
+<p>Meanwhile, a long-standing request by readers of the German GWN has been answered. On top of 
+being available at the official Gentoo website, the German version will be delivered to subscribers 
+of a mailing list set up last week. Distribution will start from the current issue, if you would
+like to subscribe, send a message to <mail link="gentoo-gwn-de-subscribe@gentoo.org">gentoo-gwn-de-subscribe@gentoo.org</mail> and follow instructions.</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Future zone</title>
+<section>
+<title>Project goals for 2005</title>
+<body>
+<p>Continued from <uri link="/news/en/gwn/20050110-newsletter.xml#doc_chap2">last 
+week's GWN</uri>, this section today keeps track of more goals set forth for 
+some Gentoo projects again. After Release Engineering, Kernel, and Gentoo/BSD 
+defined their goals last week, here's what else is on the agenda for the next
+months: 
+</p>
+<p><b>Portage</b></p>
+<ul>
+<li>Stabilize portage-2.0</li>
+<li>Finalize a plan for (CVS-)HEAD portage features</li>
+<li>Roll out a useful API</li>
+<li>Release new versions with extensive changes</li>
+</ul>
+
+<p><b>Web-app</b></p>
+<ul>
+<li>Improve turn-around time on responses to security bugs</li>
+<li>Publish a Gentoo webserver handbook (in progress)</li>
+<li>Release webapp-config v2, and vhost-config v1 (in progress)</li>
+<li>Remove webapp-apache.eclass from Portage</li>
+<li>Find more maintainers for our packages</li>
+</ul>
+
+<p><b>Documentation project</b></p>
+<ul>
+<li>Pull in developers/contributors: contributors for non-x86, contributors for Gentoo projects, maintainers for existing documentation</li>
+<li>Reintroduce status updates for all team members</li>
+<li>Improve documentation on GuideXML</li>
+<li>"Writing Style" documentation</li>
+<li>Audit the existing documentation</li>
+<li>More USE-case documentation (e.g. "Virtual Mailhosting Guide")</li>
+<li>Documentation project update</li>
+</ul>
+
+<p><b>Forensics Herd</b></p>
+<ul>
+<li>Include more packages</li>
+<li>Develop a bootable CD for network and disk forensic tools</li>
+</ul>
+
+<p><b>Embedded</b></p>
+<ul>
+<li>Include more packages</li>
+<li>Solve bugs related to packages</li>
+</ul>
+
+<p><b>Netmon</b></p>
+<ul>
+<li>Catch up on bugs</li>
+<li>Recruit more people</li>
+<li>Integrate gentoo-security announcements and nessus</li>
+</ul>
+
+<p><b>Managers' meetings</b></p>
+<ul>
+<li>Rotate schedules across timezones so that more developers may participate</li>
+<li>Discuss usefulness of these meetings and implement needed changes</li>
+<li>Assign task to get logs put up on the web</li>
+</ul>
+
+<p><b>GLEPs</b></p>
+<ul>
+<li>Possibly recruit another GLEP editor</li>
+<li>Consider allowing plain-text GLEPs</li>
+</ul>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Gentoo security</title>
+<section>
+<title>Dillo: Format string vulnerability</title>
+<body>
+<p>
+
+    Dillo is vulnerable to a format string bug, which may result in the
+    execution of arbitrary code.
+  
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="/security/en/glsa/glsa-200501-11.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>TikiWiki: Arbitrary command execution</title>
+<body>
+<p>
+
+    A bug in TikiWiki allows certain users to upload and execute malicious PHP
+    scripts.
+  
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="/security/en/glsa/glsa-200501-12.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>pdftohtml: Vulnerabilities in included Xpdf</title>
+<body>
+<p>
+
+    pdftohtml includes vulnerable Xpdf code to handle PDF files, making it
+    vulnerable to execution of arbitrary code upon converting a malicious PDF
+    file.
+  
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="/security/en/glsa/glsa-200501-13.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>mpg123: Buffer overflow</title>
+<body>
+<p>
+
+    An attacker may be able to execute arbitrary code by way of specially
+    crafted MP2 or MP3 files.
+  
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="/security/en/glsa/glsa-200501-14.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>UnRTF: Buffer overflow</title>
+<body>
+<p>
+
+    A buffer overflow in UnRTF allows an attacker to execute arbitrary code by
+    way of a specially crafted RTF file.
+  
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="/security/en/glsa/glsa-200501-15.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>Konqueror: Java sandbox vulnerabilities</title>
+<body>
+<p>
+
+    The Java sandbox environment in Konqueror can be bypassed to access
+    arbitrary packages, allowing untrusted Java applets to perform unrestricted
+    actions on the host system.
+  
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="/security/en/glsa/glsa-200501-16.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>KPdf, KOffice: More vulnerabilities in included Xpdf</title>
+<body>
+<p>
+
+    KPdf and KOffice both include vulnerable Xpdf code to handle PDF files,
+    making them vulnerable to the execution of arbitrary code if a user is
+    enticed to view a malicious PDF file.
+  
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="/security/en/glsa/glsa-200501-17.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>KDE FTP KIOslave: Command injection</title>
+<body>
+<p>
+
+    The FTP KIOslave contains a bug allowing users to execute arbitrary FTP
+    commands.
+  
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="/security/en/glsa/glsa-200501-18.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>imlib2: Buffer overflows in image decoding</title>
+<body>
+<p>
+
+    Multiple overflows have been found in the imlib2 library image decoding
+    routines, potentially allowing the execution of arbitrary code.
+  
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="/security/en/glsa/glsa-200501-19.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>o3read: Buffer overflow during file conversion</title>
+<body>
+<p>
+
+    A buffer overflow in o3read allows an attacker to execute arbitrary code by
+    way of a specially crafted XML file.
+  
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="/security/en/glsa/glsa-200501-20.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>HylaFAX: hfaxd unauthorized login vulnerability</title>
+<body>
+<p>
+
+    HylaFAX is subject to a vulnerability in its username matching code,
+    potentially allowing remote users to bypass access control lists.
+  
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="/security/en/glsa/glsa-200501-21.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>poppassd_pam: Unauthorized password changing</title>
+<body>
+<p>
+
+    poppassd_pam allows anyone to change any user's password without
+    authenticating the user first.
+  
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="/security/en/glsa/glsa-200501-22.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>Exim: Two buffer overflows</title>
+<body>
+<p>
+
+    Buffer overflow vulnerabilities, which could lead to arbitrary code
+    execution, have been found in the handling of IPv6 addresses as well as in
+    the SPA authentication mechanism in Exim.
+  
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="/security/en/glsa/glsa-200501-23.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>tnftp: Arbitrary file overwriting</title>
+<body>
+<p>
+
+    tnftp fails to validate filenames when downloading files, making it
+    vulnerable to arbitrary file overwriting.
+  
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="/security/en/glsa/glsa-200501-24.xml">komunikacie GLSA</uri>
+</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Heard in the community</title>
+<section>
+<title>Web forums</title>
+<body>
+<p><b>Flurry of fits over GCC update</b></p>
+<p>
+GCC 3.3.5 was marked stable for <path>keyword="x86"</path> last week, but caused major uproar
+because of highly unpleasant side-effects. The symptoms include errors when compiling some
+libraries like Gtk+-2, which in turn lead to a few dozen duplicate bug reports in Bugzilla, 
+and an equally frenetic activity in the Forums. The fix is simple enough, but people are still 
+puzzled how something like this could have happened in the first place:</p>
+
+<ul>
+	<li><uri link="http://forums.gentoo.org/viewtopic.php?t=278673">Problems after upgrade gcc to 3.3.5 (solution)</uri></li>
+</ul>
+</body>
+</section>
+
+<section>
+<title>gentoo-user</title>
+<body>
+<p><b>Linux and TV tuner cards</b></p>
+<p>
+Linux supports various TV Tuner cards, but no one ever said it was trivial!  
+This massive thread leads up our coverage of the gentoo-user list this week, 
+and it involves a Gentoo user using a WinTV card.  Read this thread for an 
+important lesson learned on using and configuring with <c>make menuconfig</c>!
+</p>
+<ul>
+	<li><uri link="http://thread.gmane.org/gmane.linux.gentoo.user/114954">BT848 driver.</uri></li>
+</ul>
+<p><b>Soliciting initial advice</b></p>
+<p>
+Just about everyone has a few stories regarding their first installation of Gentoo.  
+While Gentoo's install has undoubtedly improved by leaps and bounds over the past 
+few years, Linux users migrating from other mainstream distributions like SuSE and 
+Fedora are often intimidated with the "daunting" task of installing the operating 
+system from source.  One potential Gentoo recruit solicited advice fom the list this 
+week, with a handful of great tips in the tow.
+</p>
+<ul>
+	<li><uri link="http://thread.gmane.org/gmane.linux.gentoo.user/114817">before beginning</uri></li>
+</ul>
+</body>
+</section>
+<section>
+<title>gentoo-dev</title>
+<body>
+<p><b>Encrypted root file system</b></p>
+<p>
+Paranoid? Trying to hide something? This thread gives you lots of good hints on encrypting even your root filesystem to keep your data away from bad people
+</p>
+<ul>
+	<li><uri link="http://thread.gmane.org/gmane.linux.gentoo.devel/24099">Encrypted root file system</uri></li>
+</ul>
+
+
+<p><b>Ideas for desktop TLP goals?</b></p>
+<p><mail link="spyderous@gentoo.org">Donnie Berkholz</mail> asks "Where would you 
+like to see the Gentoo desktop go? What's been done poorly, what's been done well?"
+</p>
+<ul>
+<li><uri link="http://thread.gmane.org/gmane.linux.gentoo.devel/23973">Ideas for desktop TLP goals?</uri></li>
+</ul>
+
+
+<p><b>2005.0 cleanups</b></p>
+<p>
+In preparation for the 2005.0 release, <mail link="vapier@gentoo.org">Mike Frysinger</mail> warns that some of the older profiles (2004.0 mostly) will be removed with the appearance of 2005.0. Please update your profiles!
+</p>
+<ul>
+<li><uri
+link="http://thread.gmane.org/gmane.linux.gentoo.devel/24097">2005.0 spring cleanup</uri></li>
+</ul>
+
+</body></section>
+</chapter>
+<chapter> 
+<title>Gentoo International</title> 
+<section>
+<title>USA: Gentoo booth at the Linux World Expo in Boston, MA (14 to 17 February)</title> 
+<body>
+
+<p>Preparations for Gentoo's presence from 14 to 17 lutego 2005 at the <uri link="http://www.linuxworldexpo.com/live/12/events/12BOS05A">Linux World Expo, Boston 
+edition</uri>, are well under way. Architectures on display will include x86 and others, 
+with a possibility of including a few MacMinis. There's <uri link="http://forums.gentoo.org/viewtopic.php?t=278336">a Forum thread</uri> for people 
+looking for directions to the booth (and possibly to announce their intentions to visit
+the show), and if you need help with accommodation or other tips, Bostonian <uri link="http://article.gmane.org/gmane.linux.gentoo.devel/24064">Andrew Fant</uri> has 
+volunteered to serve as a local coordinator and pivot for informations.
+</p>
+</body>
+</section>
+<section>
+<title>UK: Gentoo UK conference online registration open</title> 
+<body>
+
+<p>Online registration for the second Gentoo UK conference on 12 marca 2005 is now
+possible via <uri link="http://dev.gentoo.org/~stuart/2005/">Stuart Herbert's web space</uri> at dev.gentoo.org. According to Stuart, there are even a few slots for presentations still
+available to interested developers.
+</p>
+</body>
+</section>
+</chapter>
+<chapter> 
+<title>Gentoo in the press</title> 
+<section>
+<title>Linux Format (Issue #62, January 2005)</title> 
+<body>
+
+<p>The UK based magazine's print version has an article on "the
+ultimate distros". Ranking Gentoo 6th among 15 distributions under
+scrutiny, their peculiar judgement of Gentoo including a not entirely 
+satisfactory assessment of its usefulness has already triggered <uri link="http://forums.gentoo.org/viewtopic.php?t=280195">some 
+repercussions in the Gentoo Forums</uri>.
+</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Bugzilla</title>
+<section>
+<title>Spis treści</title>
+<body>
+<ul>
+	<li><uri link="#doc_chap1_sect2" >Statystyki</uri></li>
+	<li><uri link="#doc_chap1_sect3" >Zamknięte Bugi</uri></li>
+	<li><uri link="#doc_chap1_sect4" >Nowe Bugi</uri></li>
+</ul>
+</body>
+</section>
+
+<section>
+<title>Statystyki</title>
+<body>
+<p>
+Społeczność Gentoo używa Bugzilli (<uri link="http://bugs.gentoo.org/">bugs.gentoo.org</uri>) do
+zgłaszania i śledzenia błędów, ogłoszeń, sugestii oraz innych form kontaktu z deweloperami.
+Pomiędzy 09 stycznia 2005 a 16 stycznia 2005, aktywność w serwisie przedstawiała się następująco:
+</p>
+<ul>
+	<li>zgłoszono 968 nowych bugów</li>
+	<li>zamknięto lub rozwiązano 500 bugów</li>
+	<li>31 uprzednio zamkniętych bugów zostało ponownie otwartych</li>
+</ul>
+<p>
+	Spośród 7959 obecnie otwartych bugów: 116 oznaczono jako 'blocker', 229 jako 'critical', a 567 jako 'major'.
+</p>
+</body>
+</section>
+
+<section>
+<title>Zamknięte Bugi</title>
+<body>
+     <p>
+     Deweloperzy oraz zespoły, które zamknęły najwięcej bugów w minionym tygodniu, to:
+     </p>
+     <ul>
+<li><mail link="amd64@gentoo.org" >AMD64 Porting Team</mail>, 40 <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-01-09&amp;chfieldto=2005-01-16&amp;resolution=FIXED&amp;assigned_to=amd64@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="base-system@gentoo.org" >Gentoo's Team for Core System packages</mail>, 32 <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-01-09&amp;chfieldto=2005-01-16&amp;resolution=FIXED&amp;assigned_to=base-system@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="security@gentoo.org" >Gentoo Security</mail>, 31 <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-01-09&amp;chfieldto=2005-01-16&amp;resolution=FIXED&amp;assigned_to=security@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="kde@gentoo.org" >Gentoo KDE team</mail>, 19 <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-01-09&amp;chfieldto=2005-01-16&amp;resolution=FIXED&amp;assigned_to=kde@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="eradicator@gentoo.org" >Jeremy Huddleston</mail>, 18 <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-01-09&amp;chfieldto=2005-01-16&amp;resolution=FIXED&amp;assigned_to=eradicator@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="java@gentoo.org" >Java team</mail>, 16 <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-01-09&amp;chfieldto=2005-01-16&amp;resolution=FIXED&amp;assigned_to=java@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="net-mail@gentoo.org" >Net-Mail Packages</mail>, 13 <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-01-09&amp;chfieldto=2005-01-16&amp;resolution=FIXED&amp;assigned_to=net-mail@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="media-video@gentoo.org" >media-video herd</mail>, 12 <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2005-01-09&amp;chfieldto=2005-01-16&amp;resolution=FIXED&amp;assigned_to=media-video@gentoo.org" >bugów</uri>
+            </li>
+</ul>
+</body>
+</section>
+
+<section>
+<title>Nowe Bugi</title>
+<body>
+     <p>
+     Deweloperzy oraz zespoły, którym przypisano najwięcej nowych bugów w minionym tygodniu, to:
+     </p>
+     <ul>
+<li><mail link="amd64@gentoo.org" >AMD64 Porting Team</mail>, 22 <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-01-09&amp;chfieldto=2005-01-16&amp;assigned_to=amd64@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="sound@gentoo.org" >Gentoo Sound Team</mail>, 18 <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-01-09&amp;chfieldto=2005-01-16&amp;assigned_to=sound@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="x11@gentoo.org" >Gentoo X-windows packagers</mail>, 15 <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-01-09&amp;chfieldto=2005-01-16&amp;assigned_to=x11@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="net-mail@gentoo.org" >Net-Mail Packages</mail>, 15 <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-01-09&amp;chfieldto=2005-01-16&amp;assigned_to=net-mail@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="kernel@gentoo.org" >Gentoo Kernel Bug Wranglers and Kernel Maintainers</mail>, 15 <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-01-09&amp;chfieldto=2005-01-16&amp;assigned_to=kernel@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="gnome@gentoo.org" >Gentoo Linux Gnome Desktop Team</mail>, 14 <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-01-09&amp;chfieldto=2005-01-16&amp;assigned_to=gnome@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="openoffice@gentoo.org" >OpenOffice Team</mail>, 12 <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-01-09&amp;chfieldto=2005-01-16&amp;assigned_to=openoffice@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="kde@gentoo.org" >Gentoo KDE team</mail>, 12 <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2005-01-09&amp;chfieldto=2005-01-16&amp;assigned_to=kde@gentoo.org" >bugów</uri>
+            </li>
+</ul>
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Tips and tricks</title>
+<section>
+<title>Gentoo bugzilla search plugin for Firefox</title>
+<body>
+<p>Are you using the little search input field on the upper right of your Firefox browser
+window? Most people do, and most of most people use it only to google for search terms. A
+little lesser known is the possibility to add plugins for limited searches at specific 
+websites - or the Gentoo bug report system, for that matter. This extremely useful little add-on 
+was concocted by developer <mail link="vapier@gentoo.org">Mike Frysinger</mail>, and hunts 
+for your search terms in the overview of bug reports at Gentoo's central Bugzilla.</p>
+<pre caption="Download two files from the Mozilla searchplugin repository">
+# wget http://mycroft.mozdev.org/plugins/Gentoo-Bugs.{src,png} 
+</pre>
+<p>Next, copy those files to the path where Firefox looks for plugins to use. Be root if you do this,
+or prepend the following command with <c>sudo</c>: 
+</p>
+<pre caption="Install searchplugin in the appropriate directory">
+# cp Gentoo-Bugs.src Gentoo-Bugs.png /usr/lib/MozillaFirefox/searchplugins/<comment>(or sudo if not done as root)</comment>
+</pre> 
+
+<p>
+That's it. Kill any open Firefox windows, restart Firefox, there you go: Gentoo bug hunting 
+at your fingertips. 
+</p> 
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Odeszli, przybyli, zmienili status</title>
+	<section>
+		<title>Odeszli</title>
+		<body>
+		<p>Następujący deweloperzy opuścili projekt Gentoo Linux w minionym tygodniu:</p>
+		<ul>
+			<li><e>nikt w tym tygodniu</e></li>
+		</ul>
+		</body>
+	</section>
+	<section>
+		<title>Przybyli</title>
+		<body>
+		<p>Następujący deweloperzy przyłączyli się do projektu Gentoo Linux w minionym tygodniu:</p>
+		<ul>
+			<li>Kai Zimmermann (kzimmerm) - media-video</li>
+		</ul>
+		</body>
+	</section>
+	<section>
+		<title>Zmienili status</title>
+		<body>
+		<p>Następujący deweloperzy zmienili w minionym tygodniu pełnioną w projekcie Gentoo Linux funkcję:</p>
+		<ul>
+			<li><e>nikt w tym tygodniu</e></li>
+		</ul>
+		</body>
+	</section>
+</chapter><chapter>
+<title>Twój wkład w GWN</title>
+<section>
+<body>
+<p>
+	Jesteś zainteresowany współpracą w tworzeniu Gentoo Weekly Newsletter? 
+	Wyślij nam <mail link="gwn-feedback@gentoo.org">e-mail</mail>.
+</p>
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Opinie czytelników</title>
+<section>
+<body>
+<p>
+	Jeśli chcesz, aby ten magazyn był jeszcze lepszy, podziel się z 
+	<mail link="gwn-feedback@gentoo.org">nami</mail> swoją opinią na jego temat.
+</p>
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Lista dyskusyjna GWN</title>
+<section>
+<body>
+<p>
+	Aby zapisać się na listę dyskusyjną Gentoo Weekly Newsletter, wyślij pusty e-mail
+	na adres <mail link="gentoo-gwn-subscribe@gentoo.org">gentoo-gwn-subscribe@gentoo.org</mail>.
+</p>
+<p>
+	Aby się z niej wypisać, wyślij pusty e-mail na adres <mail
+	link="gentoo-gwn-unsubscribe@gentoo.org">gentoo-gwn-unsubscribe@gentoo.org</mail>
+	z konta, na które jest zasubskrybowana.
+</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Inne języki</title>
+<section>
+<body>
+<p>
+	Gentoo Weekly Newsletter jest dostępny w następujących językach:
+</p>
+
+<ul>
+	<li><uri link="http://www.gentoo.org/news/en/gwn/gwn.xml">angielskim</uri></li>
+	<li><uri link="http://www.gentoo.org/news/da/gwn/gwn.xml">duńskim</uri></li>
+	<li><uri link="http://www.gentoo.org/news/fr/gwn/gwn.xml">francuskim</uri></li>
+	<li><uri link="http://www.gentoo.org/news/es/gwn/gwn.xml">hiszpańskim</uri></li>
+	<li><uri link="http://www.gentoo.org/news/be/gwn/gwn.xml">holenderskim</uri></li>
+	<li><uri link="http://www.gentoo.org/news/ja/gwn/gwn.xml">japońskim</uri></li>
+	<li><uri link="http://www.gentoo.org/news/de/gwn/gwn.xml">niemieckim</uri></li>
+	<li><uri link="http://www.gentoo.org/news/pl/gwn/gwn.xml">polskim</uri></li>
+	<li><uri link="http://www.gentoo.org/news/br/gwn/gwn.xml">portugalskim (Brazylia)</uri></li>
+	<li><uri link="http://www.gentoo.org/news/pt/gwn/gwn.xml">portugalskim (Portugalia)</uri></li>
+	<li><uri link="http://www.gentoo.org/news/ru/gwn/gwn.xml">rosyjskim</uri></li>
+	<li><uri link="http://www.gentoo.org/news/tr/gwn/gwn.xml">tureckim</uri></li>
+	<li><uri link="http://www.gentoo.org/news/it/gwn/gwn.xml">włoskim</uri></li>
+</ul>
+</body>
+</section>
+</chapter>
+</guide>

@@ -1,0 +1,473 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<guide type="newsletter" link="20041122-newsletter.xml">
+<title>Gentoo Weekly Newsletter</title>
+<subtitle>22 listopada 2004</subtitle>
+<author title="Redaktor naczelny"><mail link="plate@gentoo.org">Ulrich Plate</mail></author>
+<author title="Redaktor"><mail link="ferringb@gentoo.org">Brian Herring</mail></author>
+<author title="Redaktor"><mail link="patrick@gentoo.org">Patrick Lauer</mail></author>
+<author title="Redaktor">Tamas Sarga</author>
+<author title="Tłumacz"><mail link="lucass@gentoo.pl">Łukasz Strzygowski</mail></author>
+<author title="Tłumacz"><mail link="gooroo@gentoo.pl">Karol Góralski</mail></author>
+<author title="Tłumacz"><mail link="dziwisz@icslab.agh.edu.pl">Jakub Dziwisz</mail></author>
+<author title="Tłumacz"><mail link="jbozanowski@gmail.com">Kuba Bożanowski</mail></author>
+<abstract>Gentoo Weekly Newsletter z 22 listopada 2004.</abstract>
+<summary>Gentoo 2004.3 dla x86 dostępne na DVD. Uaktualnienia dokumentacji Gentoo.</summary>
+<version>Wolumin 3, numer 47</version>
+<date>22 listopada 2004</date>
+<chapter>
+<title>Wiadomości Gentoo</title>
+<section>
+<title>Gentoo 2004.3 dla x86 dostępne na DVD</title>
+<body>
+<p>Oferta <uri link="store.gentoo.org">Sklepu Gentoo</uri> powiększyła się ostatnio o pełne wydanie 2004.3 dla platformy x86, 
+zawierające wszystkie binarne pakiety dla obsługiwanych podarchitektur (x86, i686, Pentium 3, Pentium 4 i Athlon XP) na jednej uruchamialnej płycie DVD.</p>
+<p>Dostępny jest również zestaw dwóch płyt DVD, zawierający kompletne archiwum plików potrzebnych do skompilowania wszystkich składników systemu z wyjątkiem gier, które pominięto ze względu na brak miejsca. Część zysków ze sprzedaży trafia do Fundacji Gentoo, pomagając w tworzeniu organizacji not-for-profit, infrastruktury serwerów oraz ogólnie wspierając rozwój Gentoo.</p>
+</body>
+</section>
+<section>
+<title>Uaktualnienia dokumentacji Gentoo</title>
+<body>
+
+<p>Wzmożona aktywność dewelopera jądra <mail link="dsd@gentoo.org">Daniela Drake'a</mail> w ciągu ostatniego tygodnia zaowocowała znacznym wzbogaceniem dokumentacji Gentoo. Oprócz uaktualnień do wielu wprowadzeń i przewodników po zagadnieniach związanych z jądrem stworzył także nowy dokument, <uri link="http://www.gentoo.org/doc/en/migration-to-2.6.xml">"Complete Gentoo Linux 2.6 Migration Guide"</uri>, który zawiera odpowiedzi na wszystkie pytania związane z migracją z jąder 2.4 na 2.6.</p>
+<p>Zespół odpowiedzialny za dokumentację był ostatnio zaabsorbowany kilkoma wadami AxKit, czyli preprocesora XML, odpowiedzialnego za konwertowanie do HTML znajdujących się na serwerach <path>www.gentoo.org</path> danych. Mianowicie AxKit działa tylko z Apache v1 i nie jest rozwijany już od dłuższego czasu. <mail link="neysx@gentoo.org">Xavier Neys</mail> i <mail link="swift@gentoo.org">Sven Vermeulen</mail> rozpoczęli więc proces zastępowania go narzędziem <uri link="http://dev.gentoo.org/~neysx/gorg/gorg.html">gorg</uri>, które cechuje się większą funkcjonalnością. O wszystkich powyższych i innych zmianach, a także o ciężkiej pracy nad ułatwieniem życia tłumaczom przeczytać można na <uri link="http://www.gentoo.org/proj/en/gdp/status/status_20041121.xml">stronie aktualności</uri> projektu dokumentacji.</p>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Rzut okiem w przyszłość</title>
+<section>
+<title>Portage CVS</title>
+<body>
+<p>Warto czasem pochwalić się przed użytkownikami sporym nakładem pracy, jaką włożono w system Portage, pomimo dużych odstępów czasu pomiędzy stabilnymi wydaniami. Portage 2.0.51 jest dostępny od mniej niż miesiąca, lecz wersja z CVS - zachowując wciąż się dość stabilnie - posiada następującą nową funkcjonalność:</p>
+<ul><li><c>confcache</c></li>
+<li><c>prelink</c> (automatycznie prelinkowanie binariów gdy są one włączane do systemu)</li>
+<li><c>verify-rdepend</c> (sprawdzenie, czy paczka linkuje tylko do zadeklarowanych zależności koniecznych do uruchomienia)</li>
+<li><c>userpriv_fakeroot</c> (faza instalacji przebiega z pomocą fakeroot, dzięki czemu uprawnienia administratora potrzebne są tylko w fazie setup)</li>
+</ul>
+<p>Oprócz nowej funkcjonalności oraz rozpoczętego już oczyszczania kodu, opcja <c>--regen</c> (sprawdzanie i uaktualnianie ścieżki zależności) jest teraz szybsza o 33%, zaś uaktualnianie <path>metadata</path> (po synchronizacji drzewa Portage) jest szybsze prawie o połowę.</p>
+<p>Trzeba także wspomnieć o ustawieniach środowiska. Ebuildy powinny dać się teraz całkowicie odinstalować, nie wymagając obecności czegokolwiek w drzewie. Potrzebny do tego jest wyłącznie stosowny profil, co w skrócie oznacza, iż deweloperzy mogą znów modyfikować <path>eclassy</path>, nie martwiąc się o wsteczną kompatybilność ciągnącą się latami.</p>
+<p>A także - mała rzecz, a cieszy - stary problem pod tytułem <e>"Uaktualniłem ssl, plik libssl.so zmienił położenie i wget przestał działać, przez co nie mogę ściągać źródeł"</e> został rozwiązany dzięki załączonej implementacji <c>fetch</c> w Pythonie - jeśli wartość zwracana przez wywołanie funkcji <c>fetch</c> wskazuje na brak bibliotek lub binariów, używana jest załączona biblioteka. Rozwiązanie to zdało egzamin w czasie testów przeprowadzonych przez Briana Herringa na systemie pozbawionym <c>openssl'a</c>.</p>
+<p>Trwają także pracę nad ulepszaniem synchronizacji drzewa Portage: Format CVS jest teraz bardziej elastyczny i dodano obsługę migawek, co oznacza iż zanika konieczność używania <c>emerge-webrsync</c>.</p>
+<p>W chwili obecnej rozwój w CVS ma charakter szczątkowy i zostało jeszcze wiele pracy, jednakże powyższe i inne zmiany wkrótce nadejdą - wynik porównania pomiędzy portage-2.0.51 a wersją z CVS za pomocą programu <c>diff</c> zajmuje ponad 400KB.</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Bezpieczeństwo Gentoo</title>
+<section>
+<title>Ruby: Denial of Service</title>
+<body>
+<p>
+Moduł CGI w Ruby może wpaść w nieskończoną pętlę, prowadząc do Denial of Service.
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="http://www.gentoo.org/security/en/glsa/glsa-200411-23.xml">komunikacie GLSA</uri>.
+</p>
+</body>
+</section>
+<section>
+<title>BNC: Przepełnienie bufora</title>
+<body>
+<p>
+W BNC znaleziono usterkę przepełnienia bufora, mogącą doprowadzić do ataku Denial
+of Service i wykonania niepożądanego kodu.
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="http://www.gentoo.org/security/en/glsa/glsa-200411-24.xml">komunikacie GLSA</uri>.
+</p>
+</body>
+</section>
+<section>
+<title>SquirrelMail: Problem z XSS i zakodowanym tekstem</title>
+<body>
+<p>
+Squirrelmail niepoprawnie rozpoznaje dane wejściowe, co można wykorzystać
+do przejęcia kont webmail.
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="http://www.gentoo.org/security/en/glsa/glsa-200411-25.xml">komunikacie GLSA</uri>.
+</p>
+</body>
+</section>
+<section>
+<title>GIMPS, SETI@home, ChessBrain: Niebezpieczna instalacja</title>
+<body>
+<p>
+Nieprawidłowe uprawnienia plików umożliwiają wykonywanie przez
+skrypty startowe plików użytkownika jako root.
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="http://www.gentoo.org/security/en/glsa/glsa-200411-26.xml">komunikacie GLSA</uri>.
+</p>
+</body>
+</section>
+<section>
+<title>Fcron: Kilka usterek</title>
+<body>
+<p>
+Kilka błędów bezpieczeństwa w Fcron może pozwolić lokalnym użytkownikom
+na atak Denial of Service.
+</p>
+<p>
+Więcej informacji można znaleźć w <uri link="http://www.gentoo.org/security/en/glsa/glsa-200411-27.xml">komunikacie GLSA</uri>.
+</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Społeczność Gentoo</title>
+<section>
+<title>Forums</title>
+<body>
+<p><b>Jądro 2.6.9 a nagrywanie płyt</b></p>
+<p>
+Deweloper <mail link="dsd@gentoo.org">Daniel Drake</mail> poszukuje testerów do swojej poprawki w rozwojowym
+kernelu Gentoo (która doczekała się włączenia w oficjalnej gałęzi 2.6.10). Jako że nagrywanie CD i DVD stało
+od czasu 2.6.7 pod znakiem zapytania z powodu problemów z bezpieczeństem symulowanych poleceń SCSI, wysyłanych
+do urządzeń, wcześniejsze poprawki, które niewiele polepszały sytuację musiały zostać zastąpione rozsądniejszym
+rozwiązaniem. Przeczytaj ten wątek i napisz co o nim sądzisz:
+</p>
+<ul>
+<li><uri link="http://forums.gentoo.org/viewtopic.php?t=247459">Request for testing: CD/DVD writing on 2.6.9</uri></li>
+</ul>
+</body>
+</section>
+<section>
+<title>gentoo-dev</title>
+<body>
+<p><b>Pamięciożerne ebuildy?</b></p>
+<p>
+Co można zrobić w sytuacji gdy instalacja pakietu wymaga ogromnej ilości
+pamięci (np. gtk2hs) lub przestrzeni dyskowej (np. OpenOffice.org)? Ponieważ
+proces kompilacji mógłby się nie udać na niektórych systemach, użyteczne
+byłoby sprzwdzanie przez Portage dostępnych zasobów jeszcze przed jej rozpoczęciem.
+Istnieje jakieś rozsądne i przenośne rozwiązanie tego problemu? Nie na wszystkich
+platformach dostępne jest <path>/proc</path>.
+</p>
+<ul>
+<li><uri
+link="http://thread.gmane.org/gmane.linux.gentoo.devel/23017">what to do when an ebuild needs loads of RAM?</uri></li>
+</ul>
+
+
+<p><b>Obsługa ważnych komunikatów podczas aktualizacji</b></p>
+<p>
+Wiele ebuildów zawiera ważne informacje dotyczące zmian w zachowaniu, plikach konfiguracyjnych itd.
+Są one wyświetlane na ekranie w tracie instalacji i wkrótce zasłaniane przez komunikaty z pakietów instalowanych
+w dalszej kolejności. Uniemożliwia to użytkownikom przglądanie ich w wygodny sposób (nie, spędzanie
+ośmiu godzin na oglądaniu przewijających się komunikatów się nie liczy). Wątek ten pokazuje
+różne możliwości zbierania i wyświetlania wszystkich ważnych informacji na raz.
+</p>
+<ul>
+<li><uri
+link="http://thread.gmane.org/gmane.linux.gentoo.devel/22905">Handling important upgrade messages</uri></li>
+</ul>
+
+</body></section>
+</chapter>
+
+<chapter>
+<title>Międzynarodowe Gentoo</title>
+<section>
+<title>UK: Spotkanie Oksfordzkich Użytkowników Gentoo</title>
+<body>
+
+<p>Jeśli się nad tym zastanowić, nie jest to wcale zaskakujące: gdy tylko użytkownicy Gentoo z <uri link="http://forums.gentoo.org/viewtopic.php?t=240032">"tego drugiego miasta"</uri> spotkali się dwa tygodnie temu, na Oxfordzie podniosły się głosy, że oni nie moogą być gorsi. Pierwsze spotkanie tamtejszych użytkowników naszej dystrybucji odbędzie się w niedzielne popołudnie, 28 listopada 2004 o 15.00, w <uri link="http://www.streetmap.co.uk/newmap.srf?x=451182&amp;y=206472&amp;z=0&amp;ar=Y">"Far From The Madding Crowd"</uri> przy 10-12 Friar's Entry. Pół tuzina oksfordzkich Gentooistów, włącznie z tajemniczym twórcą bashowych skryptów w Portage <uri link="http://forums.gentoo.org/profile.php?mode=viewprofile&amp;u=32906">Edwardem Catmurem</uri> i deweloperem <mail link="robmoss@gentoo.org">robmossem</mail>, który specjalnie z tej okazji przejedzie 500 mil, potwierdziło swoją obecność. Swoje przybycie możesz zapowiedzieć w <uri link="http://forums.gentoo.org/viewtopic.php?t=250125">tym wątku na forum</uri>.</p>
+</body>
+</section>
+</chapter>
+<chapter> 
+<title>Gentoo w prasie</title> 
+<section>
+<title>Przegląd ogłoszeń o wydaniu wersji 2004.3</title> 
+<body> 
+
+<p>
+Po wydaniu Gentoo Linux 2004.3 w ubiegłym tygodniu pojawiło się wiele publikacji na temat
+tej dystrybucji. Oto lista części z nich, w tym wielu posiadających możliwość komentowania:</p>
+<ul>
+<li><uri link="http://derstandard.at/?url=/?id=1858405">Austriacki serwis "Der Standard"</uri></li>
+<li><uri link="http://www.golem.de/0411/34691.html">Niemiecki serwis informacyjny o IT, Golem.de</uri></li>
+<li><uri link="http://www.winfuture.de/index.php?page=wfv4/news/news-showspec.php&amp;news_id=17583">German Windows (sic!) Online Magazine </uri></li>
+<li><uri link="http://www.oszine.de/modules.php?op=modload&amp;name=News&amp;file=article&amp;sid=2320&amp;mode=thread&amp;order=0&amp;thold=0">OSzine (niemiecki magazyn o open source)</uri></li>
+<li><uri link="http://pcweb.mycom.co.jp/news/2004/11/15/008.html">Japoński "PC Web" uznał wsparcie dla G5 (ppc64) w 2004.3 za najistotniejsze</uri></li>
+<li><uri link="http://www.pcinpact.com/actu/newsg/17626.htm">Francuski PC INpact (słusznie) przypomina że Gentoo 2004.3
+pojawiło się tylko cztery dni przed Beaujolais Primeur.</uri></li>
+<li><uri link="http://www.presence-pc.com/news/Linux-Gentoo-2004-3-disponible-n5618.html">Francuski magazyn komputerowy</uri></li>
+<li><uri link="http://www.toolinux.com/news/logiciels/gentoo_linux_2004.3_ar5518.html">Kolejny francuski elektroniczny serwis informacyjny.</uri></li>
+<li><uri link="http://www.ratiatum.com/logitheque.php?id_log=216">Źródła pobierania dla sieci kazaa/eDonkey oraz innych systemów wymiany plików</uri></li>
+<li><uri link="http://www.osnews.com/story.php?news_id=8867">Eugenia Loli-Queru z OS News zamieściła oficjalne ogłoszenie wydania.</uri></li>
+<li><uri link="http://www.linuxelectrons.com/article.php/20041115072740347">Linux Electrons - "Linux z punktu widzenia sprzętu"</uri></li>
+</ul></body>
+
+</section>
+<section>
+<title>Business Wire (20 listopada 2004</title> 
+<body> 
+
+<p><uri link="http://home.businesswire.com/portal/site/google/index.jsp?ndmViewId=news_view&amp;newsId=20041118005546&amp;newsLang=en">Business Wire</uri> ogłosił, że lista prelegentów przyszłorocznego sympozjum <uri
+link="http://www.selinux-symposium.org/">Security Enhaced Linux</uri> (SELinux),
+zaplanowanego na 2-4 marca 2005 i Silver Spring, Maryland, została zatwierdzona i wspomina,
+iż Gentoo będzie jedną z obecnych na nim organizacji. W artykule nie napisano jednak,
+że reprezentantem naszej dystrybucji jest jej deweloper <mail link="">Joshua Brindle</mail>.
+</p>
+</body>
+
+</section>
+</chapter>
+<chapter>
+<title>Bugzilla</title>
+<section>
+<title>Spis treści</title>
+<body>
+	<ul>
+		<li><uri link="#doc_chap1_sect2" >Statystyki</uri></li>
+		<li><uri link="#doc_chap1_sect3" >Zamknięte Bugi</uri></li>
+		<li><uri link="#doc_chap1_sect4" >Nowe Bugi</uri></li>
+   </ul>
+</body>
+</section>
+
+<section>
+<title>Statystyki</title>
+<body>
+     <p>
+     Społeczność Gentoo używa Bugzilli (<uri link="http://bugs.gentoo.org/">bugs.gentoo.org</uri>) do
+     zgłaszania i śledzenia błędów, ogłoszeń, sugestii oraz innych form kontaktu z deweloperami.
+     Między 07 a 14 listopada 2004, aktywność w serwisie przedstawiała się następująco:
+     </p>
+     <ul>
+	     <li>zgłoszono 795 nowych bugów</li>
+		  <li>zamknięto lub rozwiązano 548 bugów</li>
+		  <li>29 uprzednio zamkniętych bugów zostało ponownie otwartych</li>
+     </ul>
+     <p>
+		Spośród 7397 obecnie otwartych bugów: 129 oznaczono jako 'blocker', 240 jako 'critical' a 556 jako 'major'.
+     </p>
+</body>
+</section>
+
+<section>
+<title>Zamknięte Bugi</title>
+<body>
+     <p>
+     Deweloperzy oraz zespoły, które zamknęły najwięcej bugów w minionym tygodniu to:
+		</p>
+     <ul>
+<li><mail link="amd64@gentoo.org" >Zespół AMD64</mail>, 40
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2004-11-07&amp;chfieldto=2004-11-14&amp;resolution=FIXED&amp;assigned_to=amd64@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="games@gentoo.org" >Zespół Gentoo Games</mail>, 28
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2004-11-07&amp;chfieldto=2004-11-14&amp;resolution=FIXED&amp;assigned_to=games@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="base-system@gentoo.org" >Opiekunowie Kluczowych Pakietów Systemowych</mail>, 27
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2004-11-07&amp;chfieldto=2004-11-14&amp;resolution=FIXED&amp;assigned_to=base-system@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="mozilla@gentoo.org" >Zespół Mozilla Gentoo</mail>, 26
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2004-11-07&amp;chfieldto=2004-11-14&amp;resolution=FIXED&amp;assigned_to=mozilla@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="media-video@gentoo.org" >Grupa media-video</mail>, 25
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2004-11-07&amp;chfieldto=2004-11-14&amp;resolution=FIXED&amp;assigned_to=media-video@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="pauldv@gentoo.org" >Paul de Vrieze</mail>, 21
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2004-11-07&amp;chfieldto=2004-11-14&amp;resolution=FIXED&amp;assigned_to=pauldv@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="vapier@gentoo.org" >SpanKY</mail>, 20
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2004-11-07&amp;chfieldto=2004-11-14&amp;resolution=FIXED&amp;assigned_to=vapier@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="security@gentoo.org" >Zespół Gentoo Security</mail>, 17
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2004-11-07&amp;chfieldto=2004-11-14&amp;resolution=FIXED&amp;assigned_to=security@gentoo.org" >bugów</uri>
+            </li>
+</ul>
+</body>
+</section>
+
+<section>
+<title>Nowe Bugi</title>
+<body>
+     <p>
+     Deweloperzy oraz zespoły, do których przypisano najwięcej nowych bugów w minionym tygodniu to:
+     </p>
+     <ul>
+<li><mail link="base-system@gentoo.org" >Opiekunowie Kluczowych Pakietów Systemowych</mail>, 23
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2004-11-07&amp;chfieldto=2004-11-14&amp;assigned_to=base-system@gentoo.org" >bugi</uri>
+            </li>
+<li><mail link="x11@gentoo.org" >Opiekunowie pakietów X-windows</mail>, 19
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2004-11-07&amp;chfieldto=2004-11-14&amp;assigned_to=x11@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="java@gentoo.org" >Zespół Java </mail>, 15
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2004-11-07&amp;chfieldto=2004-11-14&amp;assigned_to=java@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="mozilla@gentoo.org" >Zespół Mozilla Gentoo</mail>, 14
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2004-11-07&amp;chfieldto=2004-11-14&amp;assigned_to=mozilla@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="amd64@gentoo.org" >Zespół AMD64</mail>, 14
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2004-11-07&amp;chfieldto=2004-11-14&amp;assigned_to=amd64@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="gnome@gentoo.org" >Zespół Gentoo Linux Gnome Desktop</mail>, 13
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2004-11-07&amp;chfieldto=2004-11-14&amp;assigned_to=gnome@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="chriswhite@gentoo.org" >Chris White</mail>, 10
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2004-11-07&amp;chfieldto=2004-11-14&amp;assigned_to=chriswhite@gentoo.org" >bugów</uri>
+            </li>
+<li><mail link="toolchain@gentoo.org" >Opiekunowie Gentoo Toolchain</mail>, 9
+              <uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2004-11-07&amp;chfieldto=2004-11-14&amp;assigned_to=toolchain@gentoo.org" >bugów</uri>
+            </li>
+</ul>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Sztuczki i Kruczki</title>
+<section>
+<title>Magia Portage</title>
+<body>
+
+<p><path>/var/log/emerge.log</path> jest powszechnie znany jako centralne repozytorium informacji na temat całej
+aktywności emerge w systemie. Mniej popularne są niektóre sztuczki, które możesz zrobić z jego zawartością. Na przykład,
+kiedy uruchamiasz aktualizację systemu, właściwie nie wiesz jak wiele czasu potrwa. <e>Ty</e> prawdopodobnie
+nie pamiętasz ile zajęła ostatnia instalacja <c>mplayer</c>, ale wie to Portage i jeśli potrafisz rozszyfrować
+uniksowe oznaczenia czasu w <path>emerge.log</path>, również możesz się dowiedzieć. Możesz też wykorzystać
+w tym celu <c>app-portage/genlop</c>. Zainstaluj jego niestabilną wersję (<path>~arch</path>) poleceniem:</p>
+
+<pre caption="Instalacja genlop">
+#emerge -av genlop
+</pre>
+
+<p>Następnie przekieruj do niego komunikaty emerge, żeby oszacować czas trwania aktualizacji:</p>
+
+<pre caption="Szacowany czas aktualizacji">
+#emerge -pu world | genlop --pretend
+These are the pretended packages: (this may take a while; wait...)
+
+ * media-libs/tiff
+ * x11-base/xorg-x11
+ * app-sci/stellarium
+ * app-arch/gzip
+ * dev-libs/libIDL
+ * net-www/mozilla-firefox
+ * sys-boot/lilo
+ * app-doc/abs-guide
+ * app-arch/unarj
+ * app-emulation/wine
+ * app-admin/sudo
+
+Estimated update time: 4 hours, 38 minutes.
+</pre>
+
+<p>
+Rzut oka na mechanizm wyjaśnia w jaki sposób Portage może pełnić rolę wyroczni. Sprawdza w tym celu statystyki
+zapisane w pliku emerge.log, oblicza średni czas trwania kompilacji danych pakietów i sumuje wyniki. Oczywiście
+zachodzą pewne nieścisłości, na przykład jeśli używasz <c>ccache</c>, czas trwania niektórych aktualizacji
+może być znacznie krótszy niż za pierwszym razem. Z drugiej strony, jeśli do aplikacji dodano wiele nowych
+funkcji, średni czas kompilacji poprzednich wersji będzie krótszy niż obecnej.</p>
+
+<p>Kolejną ciekawą funkcją genlopa jest opcja <c>--current</c>, doskonały dodatek do wyżej opisanej:</p>
+
+<pre caption="Ile czasu minęło od uruchomienia emerge">
+# genlop --current
+
+ * app-portage/splat-0.07 
+
+       current merge time: 12 seconds.
+</pre>
+
+<p>Możesz dzięki niej dowiedzieć się jak długo będziesz musiał jeszcze czekać.</p>
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Odeszli, Przybyli, Zmienili Status</title>
+	<section>
+		<title>Odeszli</title>
+		<body>
+		<p>Następujący deweloperzy opuścili projekt Gentoo Linux w minionym tygodniu:</p>
+		<ul>
+			<li><e>nikt w tym tygodniu</e></li>
+		</ul>
+		</body>
+	</section>
+	<section>
+		<title>Przybyli</title>
+		<body>
+		<p>Następujący deweloperzy przyłączyli się do projektu Gentoo Linux w minionym tygodniu:</p>
+		<ul>
+				<li><e>nikt w tym tygodniu</e></li>
+		</ul>
+		</body>
+	</section>
+	<section>
+		<title>Zmienili status</title>
+		<body>
+		<p>Następujący deweloperzy zmienili w minionym tygodniu pełnioną w projekcie Gentoo Linux funkcję:</p>
+			<ul>
+				<li><e>nikt w tym tygodniu</e></li>
+			</ul>
+		</body>
+	</section>
+</chapter>
+<chapter>
+	<title>Twój Wkład w GWN</title>
+	<section>
+	<body>
+	<p>
+		Jesteś zainteresowany współpracą w tworzeniu Gentoo Weekly Newsletter? 
+		Wyślij nam <mail link="gwn-feedback@gentoo.org">e-mail</mail>.
+	</p>
+	</body>
+	</section>
+</chapter>
+<chapter>
+	<title>Opinie Czytelników</title>
+	<section>
+	<body>
+	<p>
+		Jeśli chcesz, aby ten magazyn był jeszcze lepszy, podziel się z 
+		<mail link="gwn-feedback@gentoo.org">nami</mail> swoją opinią na jego temat.
+	</p>
+	</body>
+	</section>
+</chapter>
+<chapter>
+	<title>Lista Dyskusyjna GWN</title>
+	<section>
+	<body>
+	<p>
+		Aby zapisać się na listę dyskusyjną Gentoo Weekly Newsletter, wyślij pusty e-mail
+		na adres <mail link="gentoo-gwn-subscribe@gentoo.org">gentoo-gwn-subscribe@gentoo.org</mail>.
+	</p>
+	<p>
+		Aby się z niej wypisać, wyślij pusty e-mail na adres <mail
+		link="gentoo-gwn-unsubscribe@gentoo.org">gentoo-gwn-unsubscribe@gentoo.org</mail>
+		z konta, na które jest zasubskrybowana.
+	</p>
+	</body>
+	</section>
+</chapter>
+<chapter>
+	<title>Inne Języki</title>
+	<section>
+	<body>
+	<p>Gentoo Weekly Newsletter jest dostępny w następujących językach:</p>
+	<ul>
+		<li><uri link="http://www.gentoo.org/news/en/gwn/gwn.xml">angielskim</uri></li>
+		<li><uri link="http://www.gentoo.org/news/da/gwn/gwn.xml">duńskim</uri></li>
+		<li><uri link="http://www.gentoo.org/news/fr/gwn/gwn.xml">francuskim</uri></li>
+		<li><uri link="http://www.gentoo.org/news/es/gwn/gwn.xml">hiszpańskim</uri></li>
+		<li><uri link="http://www.gentoo.org/news/be/gwn/gwn.xml">holenderskim</uri></li>
+		<li><uri link="http://www.gentoo.org/news/ja/gwn/gwn.xml">japońskim</uri></li>
+		<li><uri link="http://www.gentoo.org/news/de/gwn/gwn.xml">niemieckim</uri></li>
+		<li><uri link="http://www.gentoo.org/news/pl/gwn/gwn.xml">polskim</uri></li>
+		<li><uri link="http://www.gentoo.org/news/br/gwn/gwn.xml">portugalskim (Brazylia)</uri></li>
+		<li><uri link="http://www.gentoo.org/news/pt/gwn/gwn.xml">portugalskim (Portugalia)</uri></li>
+		<li><uri link="http://www.gentoo.org/news/ru/gwn/gwn.xml">rosyjskim</uri></li>
+		<li><uri link="http://www.gentoo.org/news/tr/gwn/gwn.xml">tureckim</uri></li>
+		<li><uri link="http://www.gentoo.org/news/it/gwn/gwn.xml">włoskim</uri></li>
+	</ul>
+	</body>
+	</section>
+</chapter>
+</guide>
