@@ -11,7 +11,7 @@
 
 <abstract>
 This is a testfile with some guidexml content. The main purpose is to test our
-DTD checker on the CVS server.         a
+DTD checker on the CVS server.         a 
 </abstract>
 
 <license />
