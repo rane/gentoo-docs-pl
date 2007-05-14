@@ -1,0 +1,1112 @@
+
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/handbook-alpha.xml">
+handbook-alpha</uri></ti>
+<ti>1.115</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/handbook-alpha.xml?r1=1.114&amp;r2=1.115&amp;root=doc">1.114</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="sekretarz@dukato.net">sekretarz</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/handbook-amd64.xml">
+handbook-amd64</uri></ti>
+<ti>1.123</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/handbook-amd64.xml?r1=1.123&amp;r2=1.123&amp;root=doc">1.123</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="sekretarz@dukato.net">sekretarz</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/handbook-hppa.xml">
+handbook-hppa</uri></ti>
+<ti>1.112</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/handbook-hppa.xml?r1=1.112&amp;r2=1.112&amp;root=doc">1.112</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="sekretarz@gentoo.org">sekretarz</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/handbook-mips.xml">
+handbook-mips</uri></ti>
+<ti>1.102</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/handbook-mips.xml?r1=1.102&amp;r2=1.102&amp;root=doc">1.102</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="sekretarz@dukato.net">sekretarz</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/handbook-ppc64.xml">
+handbook-ppc64</uri></ti>
+<ti>1.54</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/handbook-ppc64.xml?r1=1.54&amp;r2=1.54&amp;root=doc">1.54</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="sekretarz@dukato.net">sekretarz</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/handbook-ppc.xml">
+handbook-ppc</uri></ti>
+<ti>1.132</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/handbook-ppc.xml?r1=1.132&amp;r2=1.132&amp;root=doc">1.132</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="sekretarz@dukato.net">sekretarz</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/handbook-sparc.xml">
+handbook-sparc</uri></ti>
+<ti>1.115</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/handbook-sparc.xml?r1=1.115&amp;r2=1.115&amp;root=doc">1.115</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="sekretarz@dukato.net">sekretarz</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/handbook-x86.xml">
+handbook-x86</uri></ti>
+<ti>1.142</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/handbook-x86.xml?r1=1.142&amp;r2=1.142&amp;root=doc">1.142</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="sekretarz@dukato.net">sekretarz</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/handbook.xml">
+handbook</uri></ti>
+<ti>1.141</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/handbook.xml?r1=1.141&amp;r2=1.141&amp;root=doc">1.141</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="lucass@gentoo.pl">lucass</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-about.xml">
+hb-install-about</uri></ti>
+<ti>1.35</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-about.xml?r1=1.35&amp;r2=1.35&amp;root=doc">1.35</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="lucass@gentoo.pl">lucass</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-alpha-bootloader.xml">
+hb-install-alpha-bootloader</uri></ti>
+<ti>1.14</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-alpha-bootloader.xml?r1=1.14&amp;r2=1.14&amp;root=doc">1.14</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="sekretarz@gentoo.org">sekretarz</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-alpha-disk.xml">
+hb-install-alpha-disk</uri></ti>
+<ti>1.18</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-alpha-disk.xml?r1=1.18&amp;r2=1.18&amp;root=doc">1.18</uri></ti>
+<ti>2005-06-17</ti>
+<ti><mail link="sekretarz@gentoo.org">sekretarz</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-alpha-kernel.xml">
+hb-install-alpha-kernel</uri></ti>
+<ti>1.26</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-alpha-kernel.xml?r1=1.26&amp;r2=1.26&amp;root=doc">1.26</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-alpha-medium.xml">
+hb-install-alpha-medium</uri></ti>
+<ti>1.32</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-alpha-medium.xml?r1=1.23&amp;r2=1.32&amp;root=doc">1.23</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="sekretarz@gentoo.org">sekretarz</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-amd64-bootloader.xml">
+hb-install-amd64-bootloader</uri></ti>
+<ti>1.30</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-amd64-bootloader.xml?r1=1.30&amp;r2=1.30&amp;root=doc">1.30</uri></ti>
+<ti>2005-06-17</ti>
+<ti><mail link="sekretarz@gentoo.org">sekretarz</mail></ti>
+<ti>Release </ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-amd64-disk.xml">
+hb-install-amd64-disk</uri></ti>
+<ti>1.20</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-amd64-disk.xml?r1=1.20&amp;r2=1.20&amp;root=doc">1.20</uri></ti>
+<ti>2005-06-17</ti>
+<ti><mail link="sekretarz@gentoo.org">sekretarz</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-amd64-kernel.xml">
+hb-install-amd64-kernel</uri></ti>
+<ti>1.26</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-amd64-kernel.xml?r1=1.26&amp;r2=1.26&amp;root=doc">1.26</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-amd64-medium.xml">
+hb-install-amd64-medium</uri></ti>
+<ti>1.34</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-amd64-medium.xml?r1=1.25&amp;r2=1.34&amp;root=doc">1.25</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="sekretarz@gentoo.org">sekretarz</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-config.xml">
+hb-install-config</uri></ti>
+<ti>1.66</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-config.xml?r1=1.65&amp;r2=1.66&amp;root=doc">1.65</uri></ti>
+<ti>2005-06-17</ti>
+<ti><mail link="sekretarz@gentoo.pl">sekretarz</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-finalise.xml">
+hb-install-finalise</uri></ti>
+<ti>1.41</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-finalise.xml?r1=1.41&amp;r2=1.41&amp;root=doc">1.41</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="lucass@gentoo.pl">lucass</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-hppa-bootloader.xml">
+hb-install-hppa-bootloader</uri></ti>
+<ti>1.10</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-hppa-bootloader.xml?r1=1.10&amp;r2=1.10&amp;root=doc">1.10</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="sekretarz@gentoo.org">sekretarz</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-hppa-disk.xml">
+hb-install-hppa-disk</uri></ti>
+<ti>1.16</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-hppa-disk.xml?r1=1.16&amp;r2=1.16&amp;root=doc">1.16</uri></ti>
+<ti>2005-06-17</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-hppa-kernel.xml">
+hb-install-hppa-kernel</uri></ti>
+<ti>1.22</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-hppa-kernel.xml?r1=1.22&amp;r2=1.22&amp;root=doc">1.22</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-hppa-medium.xml">
+hb-install-hppa-medium</uri></ti>
+<ti>1.30</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-hppa-medium.xml?r1=1.25&amp;r2=1.30&amp;root=doc">1.25</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-mips-bootloader.xml">
+hb-install-mips-bootloader</uri></ti>
+<ti>1.11</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-mips-bootloader.xml?r1=1.9&amp;r2=1.11&amp;root=doc">1.9</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-mips-disk.xml">
+hb-install-mips-disk</uri></ti>
+<ti>1.14</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-mips-disk.xml?r1=1.14&amp;r2=1.14&amp;root=doc">1.14</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-mips-kernel.xml">
+hb-install-mips-kernel</uri></ti>
+<ti>1.15</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-mips-kernel.xml?r1=1.15&amp;r2=1.15&amp;root=doc">1.15</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-mips-medium.xml">
+hb-install-mips-medium</uri></ti>
+<ti>1.13</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-mips-medium.xml?r1=1.13&amp;r2=1.13&amp;root=doc">1.13</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-network.xml">
+hb-install-network</uri></ti>
+<ti>1.43</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-network.xml?r1=1.43&amp;r2=1.43&amp;root=doc">1.43</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="lucass@gentoo.pl">lucass</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-next.xml">
+hb-install-next</uri></ti>
+<ti>1.21</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-next.xml?r1=1.21&amp;r2=1.21&amp;root=doc">1.21</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="lucass@gentoo.pl">lucass</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-ppc64-bootloader.xml">
+hb-install-ppc64-bootloader</uri></ti>
+<ti>1.15</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-ppc64-bootloader.xml?r1=1.14&amp;r2=1.15&amp;root=doc">1.14</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="sekretarz@dukato.net">sekretarz</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-ppc64-disk.xml">
+hb-install-ppc64-disk</uri></ti>
+<ti>1.19</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-ppc64-disk.xml?r1=1.18&amp;r2=1.19&amp;root=doc">1.18</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-ppc64-kernel.xml">
+hb-install-ppc64-kernel</uri></ti>
+<ti>1.15</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-ppc64-kernel.xml?r1=1.15&amp;r2=1.15&amp;root=doc">1.15</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-ppc64-medium.xml">
+hb-install-ppc64-medium</uri></ti>
+<ti>1.20</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-ppc64-medium.xml?r1=1.13&amp;r2=1.20&amp;root=doc">1.13</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-ppc-bootloader.xml">
+hb-install-ppc-bootloader</uri></ti>
+<ti>1.27</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-ppc-bootloader.xml?r1=1.26&amp;r2=1.27&amp;root=doc">1.26</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-ppc-disk.xml">
+hb-install-ppc-disk</uri></ti>
+<ti>1.29</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-ppc-disk.xml?r1=1.29&amp;r2=1.29&amp;root=doc">1.29</uri></ti>
+<ti>2005-06-20</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-ppc-kernel.xml">
+hb-install-ppc-kernel</uri></ti>
+<ti>1.28</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-ppc-kernel.xml?r1=1.28&amp;r2=1.28&amp;root=doc">1.28</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-ppc-medium.xml">
+hb-install-ppc-medium</uri></ti>
+<ti>1.44</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-ppc-medium.xml?r1=1.34&amp;r2=1.44&amp;root=doc">1.34</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-sparc-bootloader.xml">
+hb-install-sparc-bootloader</uri></ti>
+<ti>1.13</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-sparc-bootloader.xml?r1=1.13&amp;r2=1.13&amp;root=doc">1.13</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-sparc-disk.xml">
+hb-install-sparc-disk</uri></ti>
+<ti>1.20</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-sparc-disk.xml?r1=1.20&amp;r2=1.20&amp;root=doc">1.20</uri></ti>
+<ti>2005-06-20</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-sparc-kernel.xml">
+hb-install-sparc-kernel</uri></ti>
+<ti>1.17</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-sparc-kernel.xml?r1=1.17&amp;r2=1.17&amp;root=doc">1.17</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-sparc-medium.xml">
+hb-install-sparc-medium</uri></ti>
+<ti>1.32</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-sparc-medium.xml?r1=1.32&amp;r2=1.32&amp;root=doc">1.32</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-stage.xml">
+hb-install-stage</uri></ti>
+<ti>1.84</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-stage.xml?r1=1.84&amp;r2=1.84&amp;root=doc">1.84</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="veng@gentoo.pl">veng</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-system.xml">
+hb-install-system</uri></ti>
+<ti>1.80</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-system.xml?r1=1.71&amp;r2=1.80&amp;root=doc">1.71</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="veng@gentoo.pl">veng</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-tools.xml">
+hb-install-tools</uri></ti>
+<ti>1.34</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-tools.xml?r1=1.33&amp;r2=1.34&amp;root=doc">1.33</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="aye@gentoo.pl">aye</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-x86-bootloader.xml">
+hb-install-x86-bootloader</uri></ti>
+<ti>1.33</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-x86-bootloader.xml?r1=1.33&amp;r2=1.33&amp;root=doc">1.33</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-x86-disk.xml">
+hb-install-x86-disk</uri></ti>
+<ti>1.22</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-x86-disk.xml?r1=1.22&amp;r2=1.22&amp;root=doc">1.22</uri></ti>
+<ti>2005-06-17</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-x86-kernel.xml">
+hb-install-x86-kernel</uri></ti>
+<ti>1.50</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-x86-kernel.xml?r1=1.50&amp;r2=1.50&amp;root=doc">1.50</uri></ti>
+<ti>2005-06-22</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-install-x86-medium.xml">
+hb-install-x86-medium</uri></ti>
+<ti>1.37</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-install-x86-medium.xml?r1=1.37&amp;r2=1.37&amp;root=doc">1.37</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-portage-branches.xml">
+hb-portage-branches</uri></ti>
+<ti>1.11</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-portage-branches.xml?r1=1.11&amp;r2=1.11&amp;root=doc">1.11</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-portage-configuration.xml">
+hb-portage-configuration</uri></ti>
+<ti>1.9</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-portage-configuration.xml?r1=1.7&amp;r2=1.9&amp;root=doc">1.7</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-portage-diverttree.xml">
+hb-portage-diverttree</uri></ti>
+<ti>1.6</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-portage-diverttree.xml?r1=1.6&amp;r2=1.6&amp;root=doc">1.6</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="arachnist@gmail.pl">arachnist</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-portage-ebuild.xml">
+hb-portage-ebuild</uri></ti>
+<ti>1.6</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-portage-ebuild.xml?r1=1.6&amp;r2=1.6&amp;root=doc">1.6</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-portage-files.xml">
+hb-portage-files</uri></ti>
+<ti>1.8</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-portage-files.xml?r1=1.8&amp;r2=1.8&amp;root=doc">1.8</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="sekretarz@dukato.net">sekretarz</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-portage-tools.xml">
+hb-portage-tools</uri></ti>
+<ti>1.6</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-portage-tools.xml?r1=1.6&amp;r2=1.6&amp;root=doc">1.6</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-working-features.xml">
+hb-working-features</uri></ti>
+<ti>1.28</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-working-features.xml?r1=1.28&amp;r2=1.28&amp;root=doc">1.28</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="spock@o2.pl">Spock</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-working-portage.xml">
+hb-working-portage</uri></ti>
+<ti>1.54</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-working-portage.xml?r1=1.54&amp;r2=1.54&amp;root=doc">1.54</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-working-rcscripts.xml">
+hb-working-rcscripts</uri></ti>
+<ti>1.24</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-working-rcscripts.xml?r1=1.24&amp;r2=1.24&amp;root=doc">1.24</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="gooroo@gentoo.pl">gooroo</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-working-use.xml">
+hb-working-use</uri></ti>
+<ti>1.32</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-working-use.xml?r1=1.32&amp;r2=1.32&amp;root=doc">1.32</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="sharak@rybnet.pl">Sharak</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/hb-working-variables.xml">
+hb-working-variables</uri></ti>
+<ti>1.14</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en/handbook/hb-working-variables.xml?r1=1.12&amp;r2=1.14&amp;root=doc">1.12</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="gooroo@gentoo.pl">gooroo</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/handbook/index.xml">
+index</uri></ti>
+<ti>1.93</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//index.xml?r1=1.52&amp;r2=1.93&amp;root=doc">1.52</uri></ti>
+<ti>2005-06-23</ti>
+<ti><mail link="aye@gentoo.pl">aye</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/altinstall.xml">
+altinstall</uri></ti>
+<ti>1.57</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//altinstall.xml?r1=1.42&amp;r2=1.57&amp;root=doc">1.42</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="sekretarz@dukato.net">sekretarz</mail></ti>
+<ti>Ukończono</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/ati-faq.xml">
+ati-faq</uri></ti>
+<ti>1.26</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//ati-faq.xml?r1=1.22&amp;r2=1.26&amp;root=doc">1.22</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="arachnist@gmail.com">arachnist</mail></ti>
+<ti>Ukończono</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/devfs-guide.xml">
+devfs-guide</uri></ti>
+<ti>1.10</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//devfs-guide.xml?r1=1.8&amp;r2=1.10&amp;root=doc">1.8</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="niegdysiejszy.blondyn@interia.pl">Jerzy Pawelec</mail></ti>
+<ti>Ukończono</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/diskless-howto.xml">
+diskless-howto</uri></ti>
+<ti>1.17</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//diskless-howto.xml?r1=1.17&amp;r2=1.17&amp;root=doc">1.17</uri></ti>
+<ti>2005-06-19</ti>
+<ti><mail link="yarel@o2.pl">yarel</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/dri-howto.xml">
+dri-howto</uri></ti>
+<ti>1.21</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//dri-howto.xml?r1=1.21&amp;r2=1.21&amp;root=doc">1.21</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="smirnow@data.pl">flamenco108</mail></ti>
+<ti>Ukończono</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/ebuild-submit.xml">
+ebuild-submit</uri></ti>
+<ti>1.10</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//ebuild-submit.xml?r1=1.10&amp;r2=1.10&amp;root=doc">1.10</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="grzesieq@post.pl">grzesieq</mail></ti>
+<ti>Ukończone</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/fluxbox-config.xml">
+fluxbox-config</uri></ti>
+<ti>1.11</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//fluxbox-config.xml?r1=1.10&amp;r2=1.11&amp;root=doc">1.10</uri></ti>
+<ti>2005-06-18</ti>
+<ti><mail link="maniek@none">Mariusz Wołos</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/gentoolkit.xml">
+gentoolkit</uri></ti>
+<ti>1.21</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//gentoolkit.xml?r1=1.18&amp;r2=1.21&amp;root=doc">1.18</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="marek.wiecek@gmail.com">szczech</mail></ti>
+<ti>Ukończono</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/gentoo-ppc-install.xml">
+gentoo-ppc-install</uri></ti>
+<ti>1.28</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//gentoo-ppc-install.xml?r1=1.9&amp;r2=1.28&amp;root=doc">1.9</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="gentoo@julek.pl">heimat</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/gentoo-security.xml">
+gentoo-security</uri></ti>
+<ti>1.82</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//gentoo-security.xml?r1=1.82&amp;r2=1.82&amp;root=doc">1.82</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Finished</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/gentoo-sparc-faq.xml">
+gentoo-sparc-faq</uri></ti>
+<ti>1.4</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//gentoo-sparc-faq.xml?r1=1.4&amp;r2=1.4&amp;root=doc">1.4</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="lukasz@czyzyk.net">czyzyk</mail></ti>
+<ti>Do korekty</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/gentoo-sparc-obpreference.xml">
+gentoo-sparc-obpreference</uri></ti>
+<ti>1.4</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//gentoo-sparc-obpreference.xml?r1=1.4&amp;r2=1.4&amp;root=doc">1.4</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="edi15ta@gazeta.pl">edi15ta</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/gentoo-upgrading.xml">
+gentoo-upgrading</uri></ti>
+<ti>1.22</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//gentoo-upgrading.xml?r1=1.22&amp;r2=1.22&amp;root=doc">1.22</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="krissn@op.pl">krissn</mail></ti>
+<ti>Ukończono</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/gentoo-x86-install.xml">
+gentoo-x86-install</uri></ti>
+<ti>1.198</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//gentoo-x86-install.xml?r1=1.198&amp;r2=1.198&amp;root=doc">1.198</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="cheester@skysquad.net">Cheester</mail></ti>
+<ti>Do korekty</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/gentoo-x86-quickinstall.xml">
+gentoo-x86-quickinstall</uri></ti>
+<ti>1.36</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//gentoo-x86-quickinstall.xml?r1=1.29&amp;r2=1.36&amp;root=doc">1.29</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="ftpd@rpg.pl">Bartek Stalewski</mail></ti>
+<ti>Ukończono</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/gentoo-x86-tipsntricks.xml">
+gentoo-x86-tipsntricks</uri></ti>
+<ti>1.12</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//gentoo-x86-tipsntricks.xml?r1=1.12&amp;r2=1.12&amp;root=doc">1.12</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="krissn@op.pl">krissn</mail></ti>
+<ti>Do korekty</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/gnome-config.xml">
+gnome-config</uri></ti>
+<ti>1.5</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//gnome-config.xml?r1=1.1&amp;r2=1.5&amp;root=doc">1.1</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="xjey@o2.pl">Michał Czajkowski</mail></ti>
+<ti>Do korekty</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/guide-localization.xml">
+guide-localization</uri></ti>
+<ti>1.27</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//guide-localization.xml?r1=1.19&amp;r2=1.27&amp;root=doc">1.19</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="portman@en0x.net">en0x</mail></ti>
+<ti>Do korekty</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/guide-to-mutt.xml">
+guide-to-mutt</uri></ti>
+<ti>1.13</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//guide-to-mutt.xml?r1=1.12&amp;r2=1.13&amp;root=doc">1.12</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="niegdysiejszy.blondyn@interia.pl">Jerzy Pawelec</mail></ti>
+<ti>Do korekty</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/home-router-howto.xml">
+home-router-howto</uri></ti>
+<ti>1.27</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//home-router-howto.xml?r1=1.21&amp;r2=1.27&amp;root=doc">1.21</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="volt3r@pf.pl">volt3r</mail></ti>
+<ti>Do korekty</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/hpc-howto.xml">
+hpc-howto</uri></ti>
+<ti>1.4</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//hpc-howto.xml?r1=1.4&amp;r2=1.4&amp;root=doc">1.4</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="edi15ta@gazeta.pl">edi15ta</mail></ti>
+<ti>Do korekty</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/index.xml">
+index</uri></ti>
+<ti>1.93</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//index.xml?r1=1.91&amp;r2=1.93&amp;root=doc">1.91</uri></ti>
+<ti>2005-06-19</ti>
+<ti><mail link="cpuks@o2.pl">cpu</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/ipv6.xml">
+ipv6</uri></ti>
+<ti>1.17</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//ipv6.xml?r1=1.15&amp;r2=1.17&amp;root=doc">1.15</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="sir_emak@go2.pl">Sir_emak</mail></ti>
+<ti>Ukończono</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/kde-split-ebuilds.xml">
+kde-split-ebuilds</uri></ti>
+<ti>1.4</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//kde-split-ebuilds.xml?r1=1.3&amp;r2=1.4&amp;root=doc">1.3</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="volt3r@gmail.com">volt3r</mail></ti>
+<ti>Do korekty</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/kernel-upgrade.xml">
+kernel-upgrade</uri></ti>
+<ti>1.8</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//kernel-upgrade.xml?r1=1.2&amp;r2=1.8&amp;root=doc">1.2</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="damian@lezajsk.info">ShadoWW</mail></ti>
+<ti>Ukończono</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/keychain-guide.xml">
+keychain-guide</uri></ti>
+<ti>1.1</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//keychain-guide.xml?r1=1.1&amp;r2=1.1&amp;root=doc">1.1</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="tomek@paradox.pl">tomcio</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/ldap-howto.xml">
+ldap-howto</uri></ti>
+<ti>1.27</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//ldap-howto.xml?r1=1.17&amp;r2=1.27&amp;root=doc">1.17</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="damian@lezajsk.info">ShadoWW</mail></ti>
+<ti>Ukończono</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/list.xml">
+list</uri></ti>
+<ti>1.1</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//list.xml?r1=&amp;r2=1.1&amp;root=doc"></uri></ti>
+<ti>2005-06-19</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Done</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/ltsp.xml">
+ltsp</uri></ti>
+<ti>1.13</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//ltsp.xml?r1=1.13&amp;r2=1.13&amp;root=doc">1.13</uri></ti>
+<ti>2005-06-19</ti>
+<ti><mail link="squeeze@tvk.wroc.pl">Squeeze</mail></ti>
+<ti>Ukończono</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/lvm2.xml">
+lvm2</uri></ti>
+<ti>1.12</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//lvm2.xml?r1=1.9&amp;r2=1.12&amp;root=doc">1.9</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="volt3r@pf.pl">volt3r</mail></ti>
+<ti>Do korekty</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/metadoc.xml">
+metadoc</uri></ti>
+<ti>1.68</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//metadoc.xml?r1=&amp;r2=1.68&amp;root=doc"></uri></ti>
+<ti>2005-06-19</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/mips-requirements.xml">
+mips-requirements</uri></ti>
+<ti>1.8</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//mips-requirements.xml?r1=1.8&amp;r2=1.8&amp;root=doc">1.8</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="yanoushek@emil.teleton.pl">YANOUSHek</mail></ti>
+<ti>Do korekty</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/nano-basics-guide.xml">
+nano-basics-guide</uri></ti>
+<ti>1.12</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//nano-basics-guide.xml?r1=1.10&amp;r2=1.12&amp;root=doc">1.10</uri></ti>
+<ti>2005-05-21</ti>
+<ti><mail link="cyberfreak@o2.pl">flexx</mail></ti>
+<ti>Ukończono</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/new-upgrade-to-gentoo-1.4.xml">
+new-upgrade-to-gentoo-1.4</uri></ti>
+<ti>1.13</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//new-upgrade-to-gentoo-1.4.xml?r1=1.12&amp;r2=1.13&amp;root=doc">1.12</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="lukasz@czyzyk.net">czyzyk</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/nvidia-guide.xml">
+nvidia-guide</uri></ti>
+<ti>1.14</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//nvidia-guide.xml?r1=1.10&amp;r2=1.14&amp;root=doc">1.10</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="arachnist@gmail.com">arachnist</mail></ti>
+<ti>Ukończono</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/nx-guide.xml">
+nx-guide</uri></ti>
+<ti>1.1</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//nx-guide.xml?r1=1.1&amp;r2=1.1&amp;root=doc">1.1</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="damian@lezajsk.info">ShadoWW</mail></ti>
+<ti>Do korekty</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/openmosix-howto.xml">
+openmosix-howto</uri></ti>
+<ti>1.6</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//openmosix-howto.xml?r1=1.6&amp;r2=1.6&amp;root=doc">1.6</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="aleander@gmail.com">aleander</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/prelink-howto.xml">
+prelink-howto</uri></ti>
+<ti>1.36</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//prelink-howto.xml?r1=1.36&amp;r2=1.36&amp;root=doc">1.36</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="krissn@op.pl">krissn</mail></ti>
+<ti>Finished</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/printing-howto.xml">
+printing-howto</uri></ti>
+<ti>1.48</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//printing-howto.xml?r1=1.48&amp;r2=1.48&amp;root=doc">1.48</uri></ti>
+<ti>2005-06-15</ti>
+<ti><mail link="rofro@none.none">rofro</mail></ti>
+<ti>Ukończono</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/qmail-howto.xml">
+qmail-howto</uri></ti>
+<ti>1.34</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//qmail-howto.xml?r1=1.31&amp;r2=1.34&amp;root=doc">1.31</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="marek.wiecek@gmail.com">szczech</mail></ti>
+<ti>Ukończono</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/su-x.xml">
+su-x</uri></ti>
+<ti>1.3</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//su-x.xml?r1=1.3&amp;r2=1.3&amp;root=doc">1.3</uri></ti>
+<ti>2005-05-21</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Ukończono</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/udev-guide.xml">
+udev-guide</uri></ti>
+<ti>1.25</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//udev-guide.xml?r1=1.24&amp;r2=1.25&amp;root=doc">1.24</uri></ti>
+<ti>2005-05-21</ti>
+<ti><mail link="?@gentoo.pl">rofro</mail></ti>
+<ti>Ukończono</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/uml.xml">
+uml</uri></ti>
+<ti>1.22</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//uml.xml?r1=1.22&amp;r2=1.22&amp;root=doc">1.22</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="">Paweł Drobek</mail></ti>
+<ti>Do korekty</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/virt-mail-howto.xml">
+virt-mail-howto</uri></ti>
+<ti>1.45</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//virt-mail-howto.xml?r1=1.44&amp;r2=1.45&amp;root=doc">1.44</uri></ti>
+<ti>2005-06-12</ti>
+<ti><mail link="aleander@gmail.com">aleander</mail></ti>
+<ti>Finished</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/xml-guide.xml">
+xml-guide</uri></ti>
+<ti>1.46</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//xml-guide.xml?r1=1.36&amp;r2=1.46&amp;root=doc">1.36</uri></ti>
+<ti>2005-06-21</ti>
+<ti><mail link="niegdysiejszy.blondyn@interia.pl">Jerzy Pawelec</mail></ti>
+<ti>Ukończono</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/other/xorg-config.xml">
+xorg-config</uri></ti>
+<ti>1.14</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//xorg-config.xml?r1=1.8&amp;r2=1.14&amp;root=doc">1.8</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="volt3r@pf.pl">volt3r</mail></ti>
+<ti>Do korekty</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/security/index.xml">
+index</uri></ti>
+<ti>1.93</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//index.xml?r1=1.1&amp;r2=1.93&amp;root=doc">1.1</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Finished</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/security/security-handbook.xml">
+security-handbook</uri></ti>
+<ti>0.00</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//security-handbook.xml?r1=1.1&amp;r2=0.00&amp;root=doc">1.1</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Finished</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/security/shb-chroot.xml">
+shb-chroot</uri></ti>
+<ti>0.00</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//shb-chroot.xml?r1=1.1&amp;r2=0.00&amp;root=doc">1.1</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Finished</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/security/shb-firewalls.xml">
+shb-firewalls</uri></ti>
+<ti>0.00</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//shb-firewalls.xml?r1=1.1&amp;r2=0.00&amp;root=doc">1.1</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/security/shb-intrusion.xml">
+shb-intrusion</uri></ti>
+<ti>0.00</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//shb-intrusion.xml?r1=1.1&amp;r2=0.00&amp;root=doc">1.1</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Finished</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/security/shb-kernel.xml">
+shb-kernel</uri></ti>
+<ti>0.00</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//shb-kernel.xml?r1=1.1&amp;r2=0.00&amp;root=doc">1.1</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Finished</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/security/shb-limits.xml">
+shb-limits</uri></ti>
+<ti>0.00</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//shb-limits.xml?r1=1.2&amp;r2=0.00&amp;root=doc">1.2</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Finished</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/security/shb-logging.xml">
+shb-logging</uri></ti>
+<ti>0.00</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//shb-logging.xml?r1=1.2&amp;r2=0.00&amp;root=doc">1.2</uri></ti>
+<ti>2005-06-11</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Finished</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/security/shb-mounting.xml">
+shb-mounting</uri></ti>
+<ti>0.00</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//shb-mounting.xml?r1=1.2&amp;r2=0.00&amp;root=doc">1.2</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/security/shb-pam.xml">
+shb-pam</uri></ti>
+<ti>0.00</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//shb-pam.xml?r1=1.2&amp;r2=0.00&amp;root=doc">1.2</uri></ti>
+<ti>2005-06-10</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Release</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/security/shb-perms.xml">
+shb-perms</uri></ti>
+<ti>0.00</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//shb-perms.xml?r1=1.1&amp;r2=0.00&amp;root=doc">1.1</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Finished</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/security/shb-pre.xml">
+shb-pre</uri></ti>
+<ti>0.00</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//shb-pre.xml?r1=1.1&amp;r2=0.00&amp;root=doc">1.1</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Finished</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/security/shb-services.xml">
+shb-services</uri></ti>
+<ti>0.00</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//shb-services.xml?r1=1.1&amp;r2=0.00&amp;root=doc">1.1</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Finished</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/security/shb-tcp.xml">
+shb-tcp</uri></ti>
+<ti>0.00</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//shb-tcp.xml?r1=1.1&amp;r2=0.00&amp;root=doc">1.1</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Finished</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/security/shb-tight.xml">
+shb-tight</uri></ti>
+<ti>0.00</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//shb-tight.xml?r1=1.1&amp;r2=0.00&amp;root=doc">1.1</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Ukończono</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/security/shb-uptodate.xml">
+shb-uptodate</uri></ti>
+<ti>0.00</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//shb-uptodate.xml?r1=1.1&amp;r2=0.00&amp;root=doc">1.1</uri></ti>
+<ti>2005-06-09</ti>
+<ti><mail link="rane@gentoo.pl">rane</mail></ti>
+<ti>Finished</ti>
+</tr>
+<tr>
+<ti><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/translated/../translated/TODO.xml">
+TODO</uri></ti>
+<ti>0.00</ti>
+<ti><uri link="http://www.gentoo.org/cgi-bin/viewcvs.cgi/en//TODO.xml?r1=&amp;r2=0.00&amp;root=doc"></uri></ti>
+</tr>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE guide SYSTEM "guide.dtd">
+
+<guide>
+
+<title>DAWNA strona polskiego projektu tłumaczenia dokumentacji Gentoo</title>
+
+<author title="Autor">
+  <mail link="rane@gentoo.pl">Łukasz Damentko</mail>
+</author>
+
+<author title="Autor">
+  <mail link="lucass@gentoo.pl">Łukasz Strzygowski</mail>
+</author>
+
+<version>1.3</version>
+<date>2005-06-29</date>
+
+<abstract>
+DAWNA oficjalna strona polskiego projektu tłumaczenia dokumentacji Gentoo.
+</abstract>
+
+<chapter>
+<title>Uwaga</title>
+<section>
+<body>
+
+<impo>
+<brite>Jest to dawna strona projektu</brite>, aktualne informacje znajdują się
+teraz pod adresem <uri>http://dev.gentoo.org/~rane</uri> i prosimy o korzystanie
+z <b>nowej strony</b>.
+</impo>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Wstęp</title>
+<body>
+
+<p>
+Głównym celem polskiego projektu tłumaczenia dokumentacji Gentoo jest
+przetłumaczenie jak największej części dokumentacji Gentoo Linux. Umożliwi to
+korzystanie z naszej dystrybucji także użytkownikom nie znającym języka
+angielskiego lub znającym go słabo. Na tej stronie przedstawimy status
+tłumaczeń oraz wszelkie niezbędne informacje dla ludzi chętnych do współpracy.
+</p>
+
+</body>
+</chapter>
+<chapter>
+<title>Informacje dla tłumaczy</title>
+<body>
+
+<p>
+Wszystkie informacje z jakimi powinni zapoznać się tłumacze spisaliśmy w osobnym
+<uri link="jak-tlumaczyc.html">dokumencie</uri>. Jest on obowiązkową lekturą dla
+każdego, kto zamierza dołączyć do naszego projektu.
+</p>
+
+<p>
+Po zapoznaniu się z powyższym tekstem wystarczy wysłać zgłoszenie pod adres
+<mail>tlumaczenia@gentoo.pl</mail>. Na adres ten
+można również wysyłać wszelkie pytania i sugestie dotyczące projektu oraz już
+przetłumaczonej dokumentacji.
+</p>
+
+</body>
+</chapter>
+<chapter>
+<title>Aktualny status</title>
+<body>
+
+
+<p>
+Większość wymienionych poniżej dokumentów opublikowano już na stronie <uri
+link="http://gentoo.org">gentoo.org</uri>. Pełną ich listę można uzyskać pod
+adresem <uri
+link="http://www.gentoo.org/doc/pl/index.xml">http://www.gentoo.org/doc/pl/index.xml</uri>.
+Początkujących użytkowników Gentoo szczególnie gorąco zachęcamy do przeczytania
+<uri link="http://www.gentoo.org/doc/pl/handbook/handbook-x86.xml">Podręcznika
+Gentoo</uri>.
+</p>
+
+<p>
+Poniższa tabela ma charakter informacyjny, jest narzędziem dla uczestników
+projektu i pokazuje, które dokumenty już zostały przetłumaczone oraz które
+wymagają uaktualnienia. W celu przyglądania polskiej dokumentacji Gentoo należy
+udać się pod jeden z powyższych adresów. 
+</p>
+
+<table>
+  <tr>
+    <th>Dokument</th>
+    <th>Wersja EN</th>
+    <th>Wersja PL</th>
+    <th>Data modyfikacji</th>
+    <th>Autor tłumaczenia</th>
+    <th>Status</th>
+  </tr>
+&doctable;
+</table>
+
+</body>
+</chapter>
+</guide>
