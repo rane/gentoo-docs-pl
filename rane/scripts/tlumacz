@@ -1,0 +1,35 @@
+#!/bin/sh
+#####################################################################
+#                                                                   #
+#      Prosciutki skrypt do tlumaczenia wyrazow na rozne jezyki     #
+#      z wykorzystaniem slownika onet.pl i sexownym outputem.       #
+#                                                                   #
+#      Feel free to modify, redistribute i takie tam                #
+#                                                                   #
+#      uwaga: do odpalenia wymagany program lynx                    #
+#                                                                   #
+#                              autor: Marcin 'aye' Kryczek          #
+#                                     aye%gentoo.pl                 #
+#                                                                   #
+#####################################################################
+
+
+t=`echo $1 |tr ±æê³ñó¶¿¼ acelnoszz`;
+
+lynx --width=500 --dump "http://portalwiedzy.onet.pl/tlumacz.html?qs=${t}" \
+|grep -A 1000 -E 'angielsko-polski|polsko-angielski' \
+|grep -B 1000 "liniasep.gif"  \
+|grep -v liniasep.gif \
+|sed 's:l/:l:g' \
+|grep -vE "(Dostep platny|\[0\]|Pokaz slowniki:)" \
+|while read line; do
+	line=`echo "$line" \
+		|sed "s:^:      :g"; `;
+	line=`echo "$line" \
+		|sed -r "s:^ {6}(.*)( \[[0-9]+):   \\\\\\\\e[1;38m\1\\\\\\\\e[0;39m\2:g;"`;
+ 	line=`echo "$line" \
+		|sed -r "s:(.*\[.*)(\[.*$):\1\\\\\\\\e[1;30m\2\\\\\\\\e[0;39m:g;"`;
+	line=`echo "$line" \
+		|sed -r "s:^ {6}(angielsko-polski|polsko-angielski).*:\\\\\\\\e[1;31m\1\\\\\\\\e[0;39m:g;"`;
+	echo -e "$line" 
+done
