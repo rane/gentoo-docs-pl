@@ -3,6 +3,8 @@
 <?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
 <!DOCTYPE project SYSTEM "/dtd/project.dtd">
 
+<!-- $Header: $ -->
+
 <project>
 <name>artwork</name>
 <longname>Projekt Gentoo Artwork</longname>
@@ -26,11 +28,12 @@ loga, tematy, zestawy ikon i tym podobne treści.
 <longdescription>
 
 <p>
-As the community using Gentoo as a desktop operating system continues to grow,
-one of the main areas which the users tend to concentrate on are the themes and
-artwork of their desktop. We created this project precisely for these users!
-The Gentoo Artwork Project (GAP) is a desktop subproject and is responsible for
-creation and maintenance of all the artwork-related stuff within Gentoo.
+Jako że ilość osób, które wykorzystują Gentoo jako system operacyjny na
+komputerach biurkowych wciąż rośnie, musiał w końcu powstać projekt, którego
+głównym celem jest tworzenie grafiki system ten upiększającej. To właśnie dla
+tych osób stworzyliśmy projekt Gentoo Artwork. Jest to podprojekt projektu
+Desktop, którego głównym polem działalności jest tworzenie i zarządzanie szeroko
+pojętą grafiką związaną z systemem Gentoo.
 </p>
 
 </longdescription>
