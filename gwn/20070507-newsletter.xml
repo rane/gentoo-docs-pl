@@ -211,7 +211,7 @@ link="http://www.movidis.com">Movidis</uri>.
 </p>
 
 <p>
-Jesse Adelman zapytał na liści dyskusyjnej <c>gentoo-user</c> w jaki sposób
+Jesse Adelman zapytał na liście dyskusyjnej <c>gentoo-user</c> w jaki sposób
 można wykonać polecenie <c>emerge -uDN world</c> tak, by został pominięty jeden
 pakiet. Wszystko z powodu programu MythTV, który został już usunięty z drzewa
 Portage, a autor wątku chciałby pozostawić go w systemie. Problem jest spowodowany
