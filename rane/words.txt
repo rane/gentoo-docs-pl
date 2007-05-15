@@ -49,5 +49,57 @@ mbyte międzynarodowo Modzelewski Mozilli Multilangual Mutta nadmiarowość
 nadmiarowości nadmiarowością NetBIOS niedrukowalne altGr AltGr ascii Bitstream
 BMP charset CIFS CJK codepage CTYPE defutf drukowalne dziesiątkowo ECMA elinks
 elinksa Emacsa EUC Filesystems Firefoksem fontset FontSpec FreeBSD gtkrc IEC
-Irssi jednobajtowych JIS jisx Joliet KEYMAP Konqueror
+Irssi jednobajtowych JIS jisx Joliet KEYMAP Konqueror nroff NROFF NTFS basha
+cronie dsa eval Jankowski keychain Keychain keychaina keychainem manualach PID
+sshd vvv autoindent developerWorks elvis emacs gvima seda tabstop th vicheat
+vihighlight vima vishot Westtech usbcore USBdisk xc ACM Coolpix EHCD EHCI
+ethernet filesystem Filesystem hcd HCD HCI hdwr iMacs JetFlash JMTek kernelach
+kernelem kerneli kernelu Kwiatkowski LiveUSB LLC Logitech lsusb Mbps MJF
+newkernelconfig OHCI oldkernelconfig OPTi PIIX prog PTP RTL scsi sg shm UHCD
+uhci UHCI netlink OWNer Pawelec przekompilowanie przemigrować pts pty
+RMOLDCOMPAT rw scsi sg shm sr sy tapedrives Unixo vcc DeveloperWorks devfsd
+devname devpath driverowi hardwarem ide IDE LOOKUP lr luns madia MKOLDCOMPAT
+MODe MODLOAD brw cdrom cdroms CFUNCTION CHange cpu jN LiveCD localhost Makefile
+MAKEOPTS SPARC Athlona Automake bashrc bootstrapu ccache CHOST distccd Webbera
+wkompilowany XF src startx agpart AGPFastWrite AGPMode agppart ArqSz lla CPAN
+ebuildami GEDCOM Christophera drm DRM EnablePageFlip ForcePCIMode FW GART GX
+HTrans ITACoh LX podsekcji rekompilacji RQ Smirnow Sourceforge buga Bugzilla
+CPAN ebuildami GEDCOM gramps ReportLab tod bg commonbox conky Conky doinstalować
+ebuildowi eterm Eterm ExecCommand fbrun fbsetbg fg fluxboksa Fluxboksa
+Fluxboksem Fluxboksie fluxbox Fluxbox fluxmod fn fp Gkrellm idesk iDesk IDesk
+jpg Metacity oowriter Rox rxvt Rxvt sb sk sl startup submenu superużytkownika
+thunderbird xlock xset XTerm ABI binutils libstdc libtool przeskanujemy
+toolchain toolchaina przekompilowana przekompilowane Przekompilowane
+przekompilujemy Ayodele bootsplasha configfile debuglevel DMRAID etherboot
+Etherboot evms EVMS genkernela genkernelowi genkernelu gensplash gensplasha
+gensplashowi gz img ing initrd ip Jimi kerneldir linuxrc lvm LVM Mbit mdash
+mkelf mountboot mrproper netboot netbootableMachine netbooted netbooting
+Netbooting nfs NFS params Pegasos PXE pxelinux Seiler SquashFS VM xfs xl RISC
+SableVM SDK SRM Stephena Tru OpenVMS orum patche jdk jfs JIT linkowania
+mailingowych Javę Javy gp IEEE buga bugzilla Dcache denormalized DotGNU endian
+ABI aboot aboota AlphaBIOS Alphę Alphie Alphy ARCBIOS Bennetta binarek Binarki
+Athlon chroocie cpufreq CPUFREQ flasha Flasha Macromedia multilib multiliba
+odmaskować Opteron PowerNow Reiser sysfs versa netmask nis NIS noauto nologin
+overlaya PAE podprojektem prefixlen ro scopeid Sucessfully sw tcsh torrenta ufs
+UFS Unikso VLAN xa xffffff zsh acdX adduser adXsYa adXsYb adXsYd adXsYe
+autoselect baseTX Bittorrent bootloaderem bsd bss cd CET chroot cleandepend csh
+cvsignore DHCPACK DHCPDISCOVER DHCPOFFER DHCPREQUEST esh EtherExpress fbsd febc
+fred FreeSBIE FS Fstype fxp homenetwork HOSTNAME ia inet ksh libdl loadaddr lst
+Mountpoint mtu MTU MULTICAST Cona Grega grsecurity Kolivasa Kroah Linusa LKML
+LSM MMU Mortona OpenVZ PaX podprojektów podprojektu RSBAC Tarreau Torvaldsa
+Tosattiemu wirtualizacji ADB AlBooków alsaconf atyfb baselayout bcm BCM BootX
+Broadcom bugzille Bugzillę CCMP cpudyn DACA DMA dmesgu Dodatkoe ekeyword ESCC
+essid ESSID Findera fkeyslast fstab fsx Fx Genesi Getnoo hamradio HFS iBookach
+iBooki iBooków iMac iMacu InstallCD iwconfig Javowe KBDMode Keywest Linuxant
+Lucent MacOS Miscellanous NewWorld niezakomentowane notap offb ofonly OldWorld
+Onboard OSX pbbuttonsd penguinppc PenguinPPC Plesmid pluginu PMACZILOG PMU
+PowerBook PowerBooks PowerMac PowerPC ppp przeedytować pSeries qemu radeonfb
+radeonów RageII rtc scalling SoftMAC TiBookach TKIP Toonie TPMode UniNorth VBIOS
+vmlinux WEP Wirless wkompilować wkompilujemy Xautoconfig Xorgowi Xorgu yaboot
+yabootconfig ybin xinetd Xinetd yourdomain udp usbmouse WfM ws subnet swapfiles
+sysklogd SYSLOGD tftp TFTP tftpboot tftpd args bootowalną bootowanie bootp decl
+dgram DHCPD filename inetd Intelowskiego INTFTPD KDM KLOGD konfig loggera ltsp
+LTSP xfsm superużytkownik superużytkownikowi timestamp useralias webrsync
+wylistowanie antoni Cmnd cmndalias danny env hostalias libexec NOPASSWD pkill
+rane runaspw sudo sudoers
 
