@@ -1,0 +1,37 @@
+mta alsa sed emerge portage unix linux hardened cron logger uri dmesg kernel
+bash ebuild eclass runlevel gentoo cvs damentko xml Gentoo xmllint svn procmail
+url smtp tls postfix muttrc fetchmail egrep grep awk ldap pam webmin uid umask
+slapd root openldap freenode ssl skel qmail proftpd openssl cracklib auth
+windows wikipedia wikipedii www iptables distfiles ddns dns dsl dport dnat ebay
+howto faq xorg gpm mousedev debian glsa gwn bugzilli glep mysql sql sandbox
+distcc setgid setuid aterm bootsplash png xmms tcpd truetype php kde avi
+depclean http Xorga XSESSION XkbRules XkbModel XFree wacom vmware vmmouse virge
+vga vesa ur twm tseng TouchPad tga tdfx synaptics SubSection spaceorb sisusb
+siliconmotion radeon pv ProSavage penmount pc palmax Nvidii nVidia nvidia nv nsc
+neomagic mutouch Multi microtouch mga manuala magictouch magellan InputDevice
+jamstudio InputDevice imstt hyperpen Housera fpit fglrx fbdev evdev
+EndSubSection EndSection elographics elo ebuildów dynapro dmc digitaledge dfx
+dev cyrix Ctrl CorePointer CoreKeyboard catid calcomp ATI apm aiptek acecad pre
+podstronę podstronie ACPI airwolf ALi alsamixer AlsaMixer alsasound amd AMD APC
+APS Arcady asound Audigy Chuang CRC ctl dokompilowaniu ebuildu genkernel Genkin
+GSI hda Huddleston irq IRQ ISAPNPTOOLS IST kbps kernela kernelowi Kieft
+LinuxJournal lt MBGMSFX menuconfig mixermuted mixerunmuted MPU ogg Ogg oss OSS
+PCI pcm PCM PDIF PnP podstronę podstronie pre rc SBLive SigmaTel SiS SMP snd SND
+Soundcard soundfont SoundFont soundfontów STAC synth Synth Tiemo Transcoded UART
+udev UltraSound unregister uruchomieniowego username UTC Verleye Vermeulen
+Vorbis vsynth WaveTable wkompilowanej xb ymfpci zion AGP agpgart DDR dri drwxr
+ebuildy Ebuildy Framebuffer GeForce Gerus glx GLX GTS ie IOMMU lrwxrwxrwx MTRR
+MX NVidię podsekcjach Quadro tng uncachable Vanta vesafb VideoRam wkompilowane
+wyedytować xr XvMCNVIDIA autokonfiguracji GATOS konfiguratora OEM OpenGL ppc PPC
+Vivo AbiWord bootowania DISPLAYMANAGER gdm GDM modularnie modularność OpenOffice
+pluginów pluginy Pluginy pvtuD revdep Screensaver Thunarze xdm xfce Xfce ps
+pthreads py pygtk pym qpkg quicktime readline sbin sdl selinux snmp sse svga sys
+sysvinit tcltk usb usr util virtuale Więcek wireshark xine xosd xvid zlib dia
+ebuilda ebuilds ECDG equery esd etcat euse fbcon firefox foomaticdb gd gdbm
+gentoolkit Gentoolkit gimpprint glibc globals gphoto gstreamer gtk gtkhtml
+imagemagick imlib init innodb ipv javascript jpeg kerberos KiB LD libarts libc
+libg libkpresenterpart libwww lua luac lyx mbox md mikmod miscfiles mmx mpeg
+ncurses nls nodeps odbc oneshot overlayu passepartout pdflib plugins portaudio
+pprinter pptout proj aalib adns ao avidemux berkdb bonobo cdr cdrtools conf
+crossplatform cscope
+
