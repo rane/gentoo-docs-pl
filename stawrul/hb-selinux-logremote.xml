@@ -1,0 +1,298 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<!DOCTYPE sections SYSTEM "/dtd/book.dtd">
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/1.0 -->
+
+<!-- $Header: /var/www/viewcvs.gentoo.org/raw_cvs/gentoo/xml/htdocs/proj/pl/hardened/selinux/hb-selinux-logremote.xml,v 1.3 2006/09/07 11:58:11 rane Exp $ -->
+
+<sections>
+<version>1.4</version>
+<date>2004-11-16</date>
+
+<section>
+<title>Zaczynamy</title>
+<subsection>
+<body>
+
+<p>
+Konieczne jest posiadanie statusu <c>sysadm_r</c>, aby wykonać poniższe
+czynności.
+</p>
+
+<p>
+Wykonujemy komendę <c>sestatus -v</c>, a następnie wybieramy z poniższej listy
+na pierwszym kontekst, który się nie zgadza:
+</p>
+
+<table>
+<tr>
+  <th>Proces</th>
+  <th>Kontekst</th>
+</tr>
+<tr>
+  <ti>Init context</ti>
+  <ti><uri link="#doc_chap2">system_u:system_r:init_t</uri></ti>
+</tr>
+<tr>
+  <ti>/usr/sbin/sshd</ti>
+  <ti><uri link="#doc_chap3">system_u:system_r:sshd_t</uri></ti>
+</tr>
+<tr>
+  <th>Plik</th>
+  <th>Kontekst</th>
+</tr>
+<tr>
+  <ti>/sbin/unix_chkpwd</ti>
+  <ti><uri link="#doc_chap4">system_u:object_r:chkpwd_exec_t</uri></ti>
+</tr>
+<tr>
+  <ti>/etc/passwd</ti>
+  <ti><uri link="#doc_chap5">system_u:object_r:etc_t</uri></ti>
+</tr>
+<tr>
+  <ti>/etc/shadow</ti>
+  <ti><uri link="#doc_chap5">system_u:object_r:shadow_t</uri></ti>
+</tr>
+<tr>
+  <ti>/bin/bash</ti>
+  <ti><uri link="#doc_chap6">system_u:object_r:shell_exec_t</uri></ti>
+</tr>
+</table>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Nieprawidłowy kontekst init</title>
+<subsection>
+<title>Sprawdzenie znacznika init</title>
+<body>
+
+<p>
+Istnieje wiele sytuacji, w których init może posiadać niewłaściwy kontekst. Po
+pierwsze, należy sprawdzić czy init jest właściwie oznakowany. Aby tego dokonać
+wystarczy sprawdzić wynik polecenia <c>sestatus</c> dla
+<path>/sbin/init</path>. Jeśli nie jest to <c>system_u:object_r:init_exec_t</c>,
+należy dokonać ponownego oznakowania sysvinit.
+</p>
+
+<pre caption="Ponowne znakowanie sysvinit">
+# <i>rlpkg sysvinit</i>
+</pre>
+
+</body>
+</subsection>
+<subsection>
+<title>Weryfikacja dostępnej polityki (profil 2006.1 i nowsze)</title>
+<body>
+
+<p>
+Aby wykonać opisane w tym podrozdziale czynności mysimy posiadać status
+<c>sysadm_r</c>.
+</p>
+
+<p>
+Zawierający politykę plik binarny musi znajdować się w położeniu:
+<path>/etc/selinux/{strict,targeted}/policy</path>. Jeśli go brakuje, należy
+zainstalować politykę.
+</p>
+
+<pre caption="Instalacja polityki">
+# <i>semodule -n -B</i>
+</pre>
+
+</body>
+</subsection>
+<subsection>
+<title>Weryfikacja dostępnej polityki (profile starsze niż 2006.1)</title>
+<body>
+
+<p>
+Odpowiedni plik binarny polityki musi znajdować się w
+<path>/etc/security/selinux</path>. Przykładowo dla polityki w wersji 17, musi
+istnieć plik <path>/etc/security/selinux/policy.17</path>. Jeśli go brakuje,
+należy dostosować plik <uri
+link="?part=4&amp;chap=1#doc_chap6_sect3">Makefile</uri>, a następnie
+skompilować i zainstalować politykę.
+</p>
+
+<pre caption="Kompilacja i instalacja polityki">
+# <i>cd /etc/security/selinux/src/policy</i>
+# <i>make clean</i>
+# <i>make install</i>
+</pre>
+
+</body>
+</subsection>
+<subsection>
+<title>Sprawdzenie czy init może załadować daną politykę</title>
+<body>
+
+<p>
+Ostatecznym sprawdzianem jest upewnienie się, że init może załadować politykę.
+Wystarczy uruchomić polecenie <c>ldd</c> na pliku init i sprawdzić czy
+libselinux znajduje się w wynikach. Jeśli nie, należy przeinstalować sysvinit.
+</p>
+
+<pre caption="Testowanie, czy init może załadować wybraną politykę">
+# <i>ldd /sbin/init</i>
+  linux-gate.so.1 =>  (0xffffe000)
+  <comment>libselinux.so.1 => /lib/libselinux.so.1 (0x40025000)</comment>
+  libc.so.6 => /lib/libc.so.6 (0x40035000)
+  /lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+</pre>
+
+<p>
+Teraz należy ponownie uruchomić komputer, aby init otrzymał prawidłowy
+kontekst i załadował politykę.
+</p>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Nieprawidłowy kontekst sshd</title>
+<subsection>
+<body>
+
+<p>
+Możliwe jest, że <c>sshd</c> nie został odpowiednio oznakowany. W efekcie,
+będzie on uruchamiany w niewłaściwym kontekście. Należy dokonać ponownego
+oznakowania <c>sshd</c>, a następnie zrestartować go.
+</p>
+
+<pre caption="Ponowne znakowanie i restartowanie sshd">
+# <i>rlpkg openssh</i>
+# <i>/etc/init.d/sshd restart</i>
+</pre>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Nieprawidłowy kontekst PAM</title>
+<subsection>
+<body>
+
+<p>
+<c>sshd</c> powinien mieć możliwość użycia PAM do autoryzacji
+użytkownika. Program do sprawdzania hasła PAM (<c>/sbin/unix_chkpwd</c>) musi
+być odpowiednio oznakowany, aby <c>sshd</c> mogło sprawdzić hasło. Wystarczy
+dokonać ponownego oznakowania PAM.
+</p>
+
+<pre caption="Ponowne znakowanie PAM">
+# <i>rlpkg pam</i>
+</pre>
+
+<p>
+Program do sprawdzania haseł powinien teraz posiadać kontekst
+<c>system_u:object_r:chkpwd_exec_t</c>. Możemy spróbować ponownie się zalogować.
+</p>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Nieprawidłowy kontekst plików związanych z hasłami</title>
+<subsection>
+<body>
+
+<p>
+Pliki z hasłami (<path>/etc/passwd</path> oraz <path>/etc/shadow</path>) powinny
+być odpowiednio oznakowane. W innym przypadku PAM nie będzie w stanie poprawnie
+autoryzować użytkowników. Należy dokonać ponownego oznakowania tych plików.
+</p>
+
+<pre caption="Ponowne znakowanie plików związanych z hasłami">
+# <i>restorecon /etc/passwd /etc/shadow</i>
+</pre>
+
+<p>
+Pliki <path>/etc/passwd</path> oraz <path>/etc/shadow</path> powinny posiadać
+teraz kontekst odpowiednio <c>system_u:object_r:etc_t</c> i
+<c>system_u:object_r:shadow_t</c>. Możemy spróbować ponownie się zalogować.
+</p>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Nieprawidłowy kontekst basha</title>
+<subsection>
+<body>
+
+<p>
+Bash musi być prawidłowo oznakowany, aby użytkownik mógł zalogować się do
+odpowiedniej domeny. Należy dokonać ponownego oznakowania basha.
+</p>
+
+<pre caption="Ponowne znakowanie basha">
+# <i>rlpkg bash</i>
+</pre>
+
+<p>
+Bash (<c>/bin/bash</c>) powinien posiadać teraz kontekst
+<c>system_u:object_r:shell_exec_t</c>. Możemy spróbować ponownie się zalogować.
+</p>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Inne problemy związane z sshd</title>
+<subsection>
+<title>Powłoka</title>
+<body>
+
+<p>
+Najpierw należy upewnić się, że użytkownik posiada prawidłową powłokę.
+</p>
+
+<pre caption="Sprawdzanie powłoki użytkownika">
+# <i>grep</i> <comment>nazwa_użytkownika</comment> <i>/etc/passwd | cut -d: -f7</i>
+/bin/bash <comment>(wybrana powłoka)</comment>
+</pre>
+
+<p>
+Jeśli powyższe polecenie nie zwróci niczego lub powłoka użytkownika jest
+niewłaściwa, należy ustawić prawidłową powłokę.
+</p>
+
+<pre caption="Ustawianie powłoki użytkownika">
+# <i>usermod -s /bin/bash</i> <comment>nazwa_użytkownika</comment>
+</pre>
+
+</body>
+</subsection>
+<subsection>
+<title>PAM</title>
+<body>
+
+<p>
+PAM musi być włączone w <c>sshd</c>. Wystarczy upewnić się, że następująca linia
+w pliku <path>/etc/ssh/sshd_config</path> jest odkomentowana:
+</p>
+
+<pre caption="Ustawienie PAM dla sshd w /etc/ssh/sshd_config">
+UsePAM yes
+</pre>
+
+<p>
+SELinux obecnie pozwala jedynie kilku programom - w tym programowi PAM - na
+bezpośredni dostęp do pliku <path>/etc/shadow</path>. Wobec tego openssh musi
+mieć włączoną identyfikację użytkowników przy pomocy autoryzacji (klucze
+publiczne nadal działają).
+</p>
+
+</body>
+</subsection>
+</section>
+</sections>

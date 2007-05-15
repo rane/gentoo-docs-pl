@@ -1,0 +1,394 @@
+<?xml version='1.0' encoding="utf-8"?>
+<!DOCTYPE sections SYSTEM "/dtd/book.dtd">
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/1.0 -->
+
+<!-- $Header: /var/www/viewcvs.gentoo.org/raw_cvs/gentoo/xml/htdocs/proj/pl/hardened/selinux/hb-selinux-howto.xml,v 1.3 2006/09/07 11:58:11 rane Exp $ -->
+
+<sections>
+<version>2.0</version>
+<date>2006-10-14</date>
+
+<section>
+<title>Załadowanie polityki do działającego jądra SELinux</title>
+<subsection>
+<title>Polityki w systemach z infrastrukturą zarządzania SELinux (profil 2006.1 i nowsze)</title>
+<body>
+
+<p>
+Aby załadować politykę do jądra SELinux, należy posiadać status <c>sysadm_r</c>.
+</p>
+
+<pre caption="Narzędzie semodule">
+# <i>semodule -B</i>
+</pre>
+
+</body>
+</subsection>
+<subsection>
+<title>Polityki w systemach pozbawionych infrastruktury zarządzania (profile starsze niż 2006.1+)</title>
+<body>
+
+<p>
+Aby załadować politykę do jądra SELinux, należy posiadać status <c>sysadm_r</c>.
+</p>
+
+<pre caption="Ładowanie polityki do jądra SELinux">
+# <i>cd /etc/security/selinux/src/policy</i>
+# <i>make load</i>
+</pre>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Zmiana statusu</title>
+<subsection>
+<body>
+
+<p>
+Zmiana statusu użytkownika jest możliwa tylko wtedy, gdy użytkownik ten posiada
+dostęp do docelowego statusu. Poniższy przykład pokazuje jak zmienić bieżący
+status na <c>sysadm_r</c>.
+</p>
+
+<pre caption="Zmiana statusu na sysadm_r">
+# <i>newrole -r sysadm_r</i>
+</pre>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Udostępnianie statusów użytkownikom</title>
+<subsection>
+<title>Polityki w systemach z infrastrukturą zarządzania SELinux (profil 2006.1 i nowsze)</title>
+<body>
+
+<p>
+Istnieje odwzorowanie użytkowników znanych ze standardowych systemów oparty na
+jądrze Linux na tożsamości SELinux. Polityka zawiera typowe tożsamości SELinux z
+istotnymi konfiguracjami statusów. Przykładowo, aby przypisać użytkownikowi
+<c>pebenito</c> tożsamość <c>staff_u</c>, należy użyć polecenia:
+</p>
+
+<pre caption="Przypisanie użytkownikowi pebenito tożsamości staff_u">
+# <i>semanage login -a -s staff_u pebenito</i>
+</pre>
+
+<p>
+Nie jest konieczne przeładowanie polityki. Jeśli użytkownik jest aktualnie
+zalogowany, musi się przelogować, aby zmiana dała efekt.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Polityki w systemach pozbawionych infrastruktury zarządzania (profile starsze niż 2006.1+)</title>
+<body>
+
+<p>
+Dostępne dla danego użytkownika statusy są określone za pomocą tożsamości
+SELinux. Można zmienić dostępne statusy w pliku
+<path>/etc/security/selinux/src/policy/users</path>. Dla przykładu, aby
+udostępnić użytkownikowi <c>pebenito</c> możliwość posiadania statusów
+<c>staff_r</c> oraz <c>sysadm_r</c>, należy dodać do powyższego pliku linię:
+</p>
+
+<pre caption="Udostępnianie statusów użytkownikowi">
+user pebenito roles { staff_r sysadm_r };
+</pre>
+
+<p>
+Następnie należy <uri link="#doc_chap1">załadować</uri> politykę. W Przeglądzie
+SELinux można znaleźć więcej informacji na temat dostępnych tożsamości SELinux.
+</p>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Znakowanie plików</title>
+<subsection>
+<title>Polityki w systemach z infrastrukturą zarządzania SELinux (profil 2006.1 i nowsze)</title>
+<body>
+
+<p>
+Aby przeprowadzić znakowanie plików konieczny jest status <c>sysadm_r</c>.
+</p>
+
+<pre caption="Znakowanie plików">
+# <i>rlpkg -a</i>
+</pre>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Polityki w systemach pozbawionych infrastruktury zarządzania (profile starsze niż 2006.1+)</title>
+<body>
+
+<p>
+Aby przeprowadzić znakowanie plików konieczny jest status <c>sysadm_r</c>.
+</p>
+
+<pre caption="Znakowanie plików">
+# <i>cd /etc/security/selinux/src/policy</i>
+# <i>make relabel</i>
+</pre>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Znakowanie pojedynczego pakietu</title>
+<subsection>
+<body>
+
+<p>
+Oprócz znakowania całego systemu plików, możliwe jest również znakowanie
+pojedynczego pakietu oprogramowania. Aby tego dokonać konieczne jest posiadanie
+statusu <c>sysadm_r</c>.
+</p>
+
+<pre caption="Znakowanie pojedynczych pakietów przy użyciu rlpkg">
+# <i>rlpkg shadow sash</i>
+</pre>
+
+<p>
+Dowolna liczba pakietów może zostać podana w wierszu poleceń jako argumenty dla
+rlpkg.
+</p>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Skanowanie w poszukiwaniu bibliotek z relokacjami (profil 2006.1 i nowsze)</title>
+<subsection>
+<body>
+
+<p>
+SELinux posiada udoskonalone mechanizmy ochrony pamięci. Jedną z obsługiwanych
+funkcji jest zezwolenie na relokacje (textrel) w bibliotekach zgodnych z
+formatem ELF. Biblioteki zawierające relokacje posiadają specjalną
+etykietę. Program <c>rlpkg</c> zawiera opcję skanowania systemu w poszukiwaniu
+takich bibliotek.
+</p>
+
+<pre caption="Skanowanie w poszukiwaniu relokacji">
+# <i>rlpkg -t</i>
+</pre>
+
+<p>
+Polecenie to jest również wywoływane automatycznie po każdym pełnym znakowaniu
+plików.
+</p>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Uruchamianie demonów w odpowiedniej domenie</title>
+<subsection>
+<body>
+
+<p>
+Kontrola nad demonami, które posiadają skrypty inicjujące w /etc/init.d różni
+się nieco w SELinux w stosunku do standardowego systemu. Do uruchamiania
+skryptów należy używać polecenia <c>run_init</c>, Dzięki temu będziemy mieć
+pewność, że działają one w odpowiedniej domenie. Polecenie uruchamiające demony
+różni się od standardowego tym, że jest poprzedzone frazą
+<c>run_init</c>. Uruchamianie demonów wymaga posiadania statusu <c>sysadm_r</c>.
+</p>
+
+<pre caption="Przykład użycia run_init">
+# <i>run_init /etc/init.d/ntpd start</i>
+# <i>run_init /etc/init.d/apache2 restart</i>
+# <i>run_init /etc/init.d/named stop</i>
+</pre>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Integracja run_init w Gentoo</title>
+<body>
+
+<p>
+<c>run_init</c> zostało zintegrowane z systemem skryptów inicjujących w
+Gentoo. Gdy zainstalujemy SELinux, usługi mogą być uruchamiane i zatrzymywane
+tak jak zwykle, jednakże działanie to będzie wymagało autoryzacji użytkownika
+przy pomocy hasła.
+</p>
+
+<pre caption="Przykład użycia zintegrowanego run_init">
+# <i>/etc/init.d/sshd restart</i>
+Authenticating root.
+Password:
+ * Stopping sshd...                       [ ok ]
+ * Starting sshd...                       [ ok ]
+</pre>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Przełączanie pomiędzy trybem egzekutywnym (enforcing) i pobłażliwym (permissive)</title>
+<subsection>
+<body>
+
+<p>
+Przełączanie pomiędzy trybami w SELinux jest bardzo proste. Wystarczy zapisać
+<c>1</c> dla trybu egzekutywnego lub <c>0</c> dla pobłażliwego w pliku
+<path>/selinux/enforce</path>, aby ustawić odpowiedni tryb. Obecny tryb może być
+sprawdzony poprzez odczytanie <path>/selinux/enforce</path>. Jeśli opcja "NSA
+SELinux Development Support" w jądrze jest wyłączona, system zawsze będzie
+pracował w trybie egzekutywnym i nie będzie można przełączyć się do trybu
+pobłażliwego.
+</p>
+
+<pre caption="Tryby SELinux">
+<comment>Sprawdzenie bieżącego trybu</comment>
+# <i>cat /selinux/enforce</i>
+<comment>Zmiana do trybu egzekutywnego</comment>
+# <i>echo 1 > /selinux/enforce</i>
+<comment>Zmiana do trybu pobłażliwego</comment>
+# <i>echo 0 > /selinux/enforce</i>
+</pre>
+
+<p>
+System z włączonym trybem deweloperskim może zostać uruchomiony w trybie
+egzekutywnym poprzez dodanie <c>enforcing=1</c> do linii poleceń jądra w
+programie rozruchowym (GRUB, lilo, etc).
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Polityki w systemach z infrastrukturą zarządzania SELinux (profil 2006.1 i nowsze)</title>
+<body>
+
+<p>
+Poza powyższymi opcjami, tryb w czasie uruchamiania systemu może być wybrany
+również na podstawie ustawień w pliku <c>/etc/selinux/config</c>.
+</p>
+
+<pre caption="/etc/selinux/config">
+# SELINUX can take one of these three values:
+#       enforcing - SELinux security policy is enforced.
+#       permissive - SELinux prints warnings instead of enforcing.
+#       disabled - No SELinux policy is loaded.
+SELINUX=<comment>permissive</comment>
+</pre>
+
+<p>
+Należy pamiętać, że ustawienia z tego pliku zostaną nadpisane przez parametry
+przekazane do jądra, które zostały opisane powyżej.
+</p>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Analizowanie wyników polecenia sestatus</title>
+<subsection>
+<body>
+
+<p>
+Narzędzie <c>sestatus</c> może być używane aby pozyskać szczegółowe - związane z
+SELinux - informacje o systemie. Opcja <c>-v</c> pozwala otrzymać więcej
+szczegółów o obecnym kontekście procesów lub plików. Wynik będzie podzielony na
+cztery sekcje. Sestatus udostępnia te informacje tylko użytkownikowi
+zalogowanemu jako root i posiadającemu status <c>sysadm_r</c>.
+</p>
+
+<pre caption="Przykładowy status - pierwsza sekcja">
+SELinux status:         enabled
+SELinuxfs mount:        /selinux
+Current mode:           enforcing
+Policy version:         18
+</pre>
+
+<p>
+Główne informacje na temat systemu znajdują się w pierwszej sekcji (powyższy
+listing). Pierwsza linijka pokazuje, czy funkcje SELinux są w jądrze i czy są
+włączone. Jeśli status jest wyłączony, oznacza to że albo jądro nie posiada
+wsparcia dla SELinux albo polityka nie jest załadowana. Druga linijka pokazuje
+miejsce zamontowania dla systemu plików SELinux. Podczas normalnego użytkowania
+powinniśmy zobaczyć tu domyślną lokalizację, czyli <c>/selinux</c>. Trzecia
+linijka pokazuje bieżący tryb SELinux, który może być albo trybem egzekutywnym
+(enforcing) albo pobłażliwym (permissive). Czwarta linijka pokazuje wersję
+polityki, którą udostępnia bieżące jądro.
+</p>
+
+<pre caption="Przykładowe zmienne polityki SELinux - druga sekcja">
+Policy booleans:
+secure_mode             inactive
+ssh_sysadm_login        inactive
+user_ping               inactive
+</pre>
+
+<p>
+Druga sekcja udostępnia informacje na temat włączonych zmiennych polityki. Lewa
+kolumna przedstawia zmienną. Prawa kolumna pokazuje status danej zmiennej -
+aktywna (active), albo nieaktywna (inactive). Ta sekcja nie będzie pokazana
+w wersji 15 polityki, ponieważ nie wspiera ona polityki zmiennych.
+</p>
+
+<pre caption="Przykładowe konteksty procesów - trzecia sekcja">
+Process contexts:
+Current context:        pebenito:sysadm_r:sysadm_t
+Init context:           system_u:system_r:init_t
+/sbin/agetty            system_u:system_r:getty_t
+/usr/sbin/sshd          system_u:system_r:sshd_t
+</pre>
+
+<p>
+Trzecia sekcja pokazuje aktualny kontekst oraz konteksty wielu ważnych procesów.
+Jeśli proces będzie uruchomiony w złym kontekście, nie będzie prawidłowo
+działał.
+</p>
+
+<pre caption="Przykładowe konteksty plików - czwarta sekcja">
+File contexts:
+Controlling term:       pebenito:object_r:sysadm_devpts_t
+/sbin/init              system_u:object_r:init_exec_t
+/sbin/agetty            system_u:object_r:getty_exec_t
+/bin/login              system_u:object_r:login_exec_t
+/sbin/rc                system_u:object_r:initrc_exec_t
+/sbin/runscript.sh      system_u:object_r:initrc_exec_t
+/usr/sbin/sshd          system_u:object_r:sshd_exec_t
+/sbin/unix_chkpwd       system_u:object_r:chkpwd_exec_t
+/etc/passwd             system_u:object_r:etc_t
+/etc/shadow             system_u:object_r:shadow_t
+/bin/sh                 system_u:object_r:bin_t -> system_u:object_r:shell_exec_t
+/bin/bash               system_u:object_r:shell_exec_t
+/bin/sash               system_u:object_r:shell_exec_t
+/usr/bin/newrole        system_u:object_r:newrole_exec_t
+/lib/libc.so.6          system_u:object_r:lib_t -> system_u:object_r:shlib_t
+/lib/ld-linux.so.2      system_u:object_r:lib_t -> system_u:object_r:shlib_t
+</pre>
+
+<p>
+Czwarta sekcja przedstawia konteksty terminala bieżącego procesu oraz wielu
+ważnych plików. Dla dowiązań symbolicznych pokazany jest kontekst dowiązania, a
+potem kontekst docelowego pliku. Jeśli plik posiada niewłaściwy kontekst, może
+być niedostępny lub może spowodować uruchomienie procesu w niewłaściwym
+kontekście.
+</p>
+
+</body>
+</subsection>
+</section>
+</sections>

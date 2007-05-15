@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<!DOCTYPE sections SYSTEM "/dtd/book.dtd">
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/1.0 -->
+
+<!-- $Header: /var/www/viewcvs.gentoo.org/raw_cvs/gentoo/xml/htdocs/proj/pl/hardened/selinux/hb-selinux-initpol.xml,v 1.3 2006/09/07 11:58:11 rane Exp $ -->
+
+<sections>
+<version>1.3</version>
+<date>2004-11-16</date>
+
+<section>
+<title>Weryfikacja dostępnych polityk</title>
+<subsection>
+<title>Polityki w systemach z infrastrukturą zarządzania SELinux (profil 2006.1 i nowsze)</title>
+<body>
+
+<p>
+Aby wykonać poniższe czynności, konieczne jest posiadanie statusu
+<c>sysadm_r</c>.
+</p>
+
+<p>
+Zawierający politykę plik binarny musi znajdować się w położeniu:
+<path>/etc/selinux/{strict,targeted}/policy</path>. Jeśli go brakuje, należy
+zainstalować politykę.
+</p>
+
+<pre caption="Instalacja polityki">
+# <i>semodule -n -B</i>
+</pre>
+
+</body>
+</subsection>
+<subsection>
+<title>Polityki w systemach pozbawionych infrastruktury zarządzania (profile starsze niż 2006.1+)</title>
+<body>
+
+<p>
+Konieczne jest posiadanie statusu <c>sysadm_r</c>, aby wykonać opisane poniżej
+czynności.
+</p>
+
+<p>
+Odpowiednia polityka w wersji binarnej powinna być dostępna w katalogu
+<path>/etc/security/selinux</path>. Przykładowo dla polityki w wersji 17 musi
+istnieć plik <path>/etc/security/selinux/policy.17</path>. Jeśli go nie ma,
+należy dostosować odpowiednio politykę w pliku <uri
+link="?part=4&amp;chap=1#doc_chap6_sect3">Makefile</uri>. Potem należy
+skompilować i zainstalować politykę.
+</p>
+
+<pre caption="Kompilacja i instalowanie polityki">
+# <i>cd /etc/security/selinux/src/policy</i>
+# <i>make clean</i>
+# <i>make install</i>
+</pre>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Sprawdzenie czy init potrafi uruchomić daną politykę</title>
+<subsection>
+<body>
+
+<p>
+Ostatecznym sprawdzianem jest upewnienie się czy init potrafi uruchomić wybraną
+politykę. Wystarczy wykonać polecenie <c>ldd</c> z argumentem <c>/sbin/init</c>.
+Jeśli libselinux nie znajdzie się w wynikach, konieczne jest przeinstalowanie
+sysvinit.
+</p>
+
+<pre caption="Sprawdzanie czy konieczne jest przeinstalowanie sysvinit">
+# <i>ldd /sbin/init</i>
+  linux-gate.so.1 =>  (0xffffe000)
+  <comment>libselinux.so.1 => /lib/libselinux.so.1 (0x40025000)</comment>
+  libc.so.6 => /lib/libc.so.6 (0x40035000)
+  /lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+</pre>
+
+<p>
+Teraz wystarczy ponownie uruchomić komputer, aby init otrzymał odpowiedni
+kontekst i załadował wybraną politykę.
+</p>
+
+</body>
+</subsection>
+</section>
+</sections>

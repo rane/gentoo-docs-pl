@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE book SYSTEM "/dtd/book.dtd">
+
+<!-- $Header: /var/www/viewcvs.gentoo.org/raw_cvs/gentoo/xml/htdocs/proj/pl/hardened/selinux/selinux-handbook.xml,v 1.4 2006/09/07 11:58:11 rane Exp $ -->
+
+<book link="/proj/pl/hardened/selinux/selinux-handbook.xml">
+<title>Gentoo SELinux Handbook</title>
+
+<author title="Autor">
+  <mail link="pebenito@gentoo.org">Chris PeBenito</mail>
+</author>
+<author title="Tłumaczenie">
+  <mail link="muchar@gentoo.org">Robert Muchacki</mail>
+</author>
+<author title="Tłumaczenie">
+  <mail link="stawrul@gmail.pl">Waldemar Korłub</mail>
+</author>
+
+<abstract>
+Podręcznik Gentoo x86 z SELinux.
+</abstract>
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/1.0 -->
+<license/>
+
+<version>2.00</version>
+<date>2006-10-15</date>
+
+<part>
+<title>Instalowanie Gentoo SELinux</title>
+<abstract>
+W tej części można dowiedzieć się, jak zainstalować Gentoo SELinux.
+</abstract>
+
+<chapter>
+<title>O instalacji Gentoo SELinux</title>
+<abstract>
+Opis instalacji Gentoo SELinux.
+</abstract>
+  <include href="hb-install.xml"/>
+</chapter>
+</part>
+
+<part>
+<title>Konwersja do Gentoo SELinux</title>
+<abstract>
+Alternatywnie, SELinux może zostać zainstalowany na zbudowanym już
+systemie. Ten rozdział dokładnie opisuje co należy zrobić aby przekonwertować
+system.
+</abstract>
+<chapter>
+<title>Wstępne przygotowania</title>
+<abstract>
+Należy przygotować się odpowiednio przed instalacją pakietów SELinux.
+</abstract>
+  <include href="hb-selinux-conv-profile.xml"/>
+</chapter>
+<chapter>
+<title>Uruchomienie jądra SELinuxa</title>
+<abstract>
+Instalacja i uruchomienie jądra SELinux.
+</abstract>
+  <include href="hb-selinux-conv-reboot1.xml"/>
+</chapter>
+<chapter>
+<title>Instalacja oprogramowania dla SELinux</title>
+<abstract>
+Instalacja pakietów SELinux oraz polityk, jak również znakowanie systemu
+plików.
+</abstract>
+  <include href="hb-selinux-conv-reboot2.xml"/>
+</chapter>
+</part>
+
+<part>
+<title>Praca z SELinux</title>
+<abstract>
+Naucz się jak pracować z SELinux.
+</abstract>
+<chapter>
+<title>Przegląd SELinux</title>
+<abstract>
+Selinux posiada wiele aspektów, które powinniśmy poznać. Ten rozdział opisuje
+najważniejsze koncepcje SELinux oraz jego polityki.
+</abstract>
+  <include href="hb-selinux-overview.xml"/>
+</chapter>
+<chapter>
+<title>SELinux HOWTO</title>
+<abstract>
+Ten rozdział opisuje jak radzić sobie z częstymi operacjami w SELinux.
+</abstract>
+  <include href="hb-selinux-howto.xml"/>
+</chapter>
+<chapter>
+<title>SELinux FAQ</title>
+<abstract>
+Ten rozdział odpowiada na najczęściej zadawane pytania dotyczące SELinux.
+</abstract>
+  <include href="hb-selinux-faq.xml"/>
+</chapter>
+<chapter>
+<title>Infrastruktura zarządzania SELinux</title>
+<abstract>
+Rozdział opisuje zarządzanie systemem SELinux przy użyciu stosownej
+infrastruktury.
+</abstract>
+  <include href="hb-selinux-libsemanage.xml"/>
+</chapter>
+<chapter>
+<title>Moduły localnej polityki bezpieczeństwa</title>
+<abstract>
+Dokument przedstawia dodawanie nowych reguł i modułów do wykorzystywanej
+polityki bezpieczeństwa.
+</abstract>
+  <include href="hb-selinux-localmod.xml"/>
+</chapter>
+<chapter>
+<title>Materiały referencyjne SELinux</title>
+<abstract>
+Dokument ten zawiera listę zewnętrznych materiałów referencyjnych dotyczących
+SELinux.
+</abstract>
+<include href="hb-selinux-references.xml"/>
+</chapter>
+</part>
+
+<part>
+<title>Rozwiązywanie problemów z SELinux</title>
+<abstract>
+Gdy napotyka się na problemy w systemie, SELinux może je tylko spotęgować. Ten
+rozdział pokazuje jak radzić sobie z najczęstszymi problemami.
+</abstract>
+<chapter>
+<title>Polityka nie ładuje się przy uruchomieniu</title>
+<abstract>
+Ten rozdział opisuje problemy przy ładowaniu polityki podczas uruchamiania
+systemu.
+</abstract>
+  <include href="hb-selinux-initpol.xml"/>
+</chapter>
+<chapter>
+<title>Kłopoty z lokalnym logowaniem się</title>
+<abstract>
+Ten rozdział opisuje problem z lokalnym logowaniem się w konsoli.
+</abstract>
+  <include href="hb-selinux-loglocal.xml"/>
+</chapter>
+<chapter>
+<title>Kłopoty ze zdalnym logowaniem się</title>
+<abstract>
+Ten rozdział opisuje problemy ze zdalnym logowaniem się przy pomocy SSH.
+</abstract>
+  <include href="hb-selinux-logremote.xml"/>
+</chapter>
+</part>
+
+</book>

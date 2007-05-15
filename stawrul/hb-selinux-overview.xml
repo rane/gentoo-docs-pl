@@ -1,0 +1,1107 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<!DOCTYPE sections SYSTEM "/dtd/book.dtd">
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/1.0 -->
+
+<!-- $Header: /var/www/viewcvs.gentoo.org/raw_cvs/gentoo/xml/htdocs/proj/pl/hardened/selinux/hb-selinux-overview.xml,v 1.3 2006/09/07 11:58:11 rane Exp $ -->
+
+<sections>
+<version>1.5</version>
+<date>2006-09-01</date>
+
+<!--
+<section>
+<title>Mandatory Access Control</title>
+<subsection>
+<body>
+
+<p>
+Security Enhanced Linux is an implementation of mandatory access control
+(MAC) using type enforcement.  In Linux, the regular security permissions
+are a discretionary access control system (DAC).  In DAC, the permissions
+for a particular object, such as a file, are set at the discrection of the
+owner and can be changed at any time by the owner.  In MAC, the access a
+process or user has to an object is defined by the operating system
+security policy, and cannot be bypassed.
+!!! still need to update other links in the handbook
+</p>
+
+</body>
+</subsection>
+</section>
+-->
+
+<section>
+<title>Typy SELinux</title>
+<subsection>
+<body>
+
+<p>
+<e>Typ</e> (nazywany też <e>domeną</e>) jest atrybutem bezpieczeństwa,
+przekazywanym obiektom takim jak pliki, porty internetowe itp. Typ procesu
+odwołuje się zazwyczaj do zakresu jego zastosowania. Polityka SELinux jast w
+głównej mierze zbudowana z reguł egzekucji typów, które opisują, jak mogą one
+współdziałać z obiektami oraz z innymi typami. Typ jest zazwyczaj zakończony
+przyrostkiem &#39;_t&#39;, na przykład <c>sysadm_t</c>. Jest to najważniejszy
+atrybut procesu czy też obiektu, ponieważ większość reguł polityki
+bezpieczeństwa opiera się na typach obiektów wywołujących zdarzenia i tych,
+które są wywoływane.
+</p>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Statusy SELinux</title>
+<subsection>
+<body>
+
+<p>
+SELinux opiera się w głównej mierze na egzekucji typów, więc statusy (nazywane
+też rolami) są tutaj traktowane inaczej niż w systemach kontroli dostępu
+opartych wyłącznie na statusach. Uprawnienia nie są przyznawane poszczególnym
+statusom. Status opisuje zbiór typów, jakich użytkownik, posiadający ten status,
+może użyć. Przykładowo, administrator, który wykorzystuje system do
+standardowych czynności użytkowych, powinien posiadać status
+<c>staff_r</c>. Jeśli zajdzie potrzeba wykonania czynności administracyjnych
+status powinien zostać zmieniony na
+<c>sysadm_r</c>. W SELinux domeny, w których może znajdować się użytkownik, są
+determinowane posiadanym przez niego statusem. Jeśli dany status nie pozwala na
+posiadanie pewnego typu, to przejście do niego nie będzie możliwe, nawet jeśli
+zasady egzekucji typów na to pozwalają. Generalnie rzecz biorąc statusy
+posiadają przyrostek &#39;_r&#39;, np. <c>system_r</c>.
+</p>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Tożsamości SELinux</title>
+<subsection>
+<title>Czym są tożsamości SELinux?</title>
+<body>
+
+<p>
+Tożsamość SELinux jest podobna do linuksowej nazwy użytkownika. Zmiany
+tożsamości powinny być ograniczone do minimum, ponieważ system kontroli dostępu
+oparty na statusach jest zależny od tożsamości SELinux. Dlatego, ogólnie rzecz
+ujmując, tożsamość użytkownika nie zmienia się w czasie trwania sesji. ID
+użytkownika w Linuksie może zostać zmienione poleceniem set(e)uid, czyniąc je
+tym samym niewłaściwym z punktu widzenia tożsamości SELinux. Jeśli użytkownik
+otrzymuje tożsamość SELinux, musi ona być zgodna z jego linuksową nazwą
+użytkownika. Każda tożsamość SELinux może korzystać z określonej grupy statusów.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Konfigurowanie odwzorowania tożsamości SELinux (profil 2006.1 i nowsze)</title>
+<body>
+
+<p>
+Polityki SELinux posiadają kilka standardowych tożsamości SELinux, które powinny
+być wystarczające dla wszystkich użytkowników. Konfiguracja odwzorowania
+tożsamości jest konieczna jedynie dla ścisłej (ang. strict) polityki. W
+przypadku polityki pobłażliwej (ang. targeted) nie jest to wymagane, ponieważ
+domyślna tożsamość (user_u) jest wystarczająca we wszystkich przypadkach.
+</p>
+
+<p>
+Gdy użytkownik loguje się to systemu jego tożsamość SELinux jest określana
+zgodnie z przedstawionym poniżej odwzorowaniem.
+</p>
+
+<table>
+<tr>
+  <th>Tożsamość SELinux</th>
+  <th>Status (rola)</th>
+  <th>Opis</th>
+</tr>
+<tr>
+  <ti>system_u</ti>
+  <ti>system_r</ti>
+  <ti>
+    Nieinteraktywne procesy systemowe. Tożsamość nie powinna odnosić się do
+    użytkowników.
+  </ti>
+</tr>
+<tr>
+  <ti>user_u</ti>
+  <ti>user_r</ti>
+  <ti>
+    Standardowi nieuprzywilejowani użytkownicy. Jest to domyśle odwzorowanie
+    tożsamości.
+  </ti>
+</tr>
+<tr>
+  <ti>staff_u</ti>
+  <ti>staff_r, sysadm_r</ti>
+  <ti>
+    Administratorzy systemu, którzy logują się rówież w celu wykonywania
+    czynności zwykłych użytkowników.
+  </ti>
+</tr>
+<tr>
+  <ti>sysadm_u</ti>
+  <ti>sysadm_r</ti>
+  <ti>
+    Administratorzy systemu, którzy logują się jedynie w celu wykonania
+    czynności administracyjnych. Przeważnie nie należy stosować tej tożsamości.
+  </ti>
+</tr>
+<tr>
+  <ti>root</ti>
+  <ti>staff_r, sysadm_r</ti>
+  <ti>
+    Specjalna tożsamość dla użytkownika root. Inni użytkownicy powinny w zamian
+    korzystać ze staff_u.
+  </ti>
+</tr>
+</table>
+
+<p>
+Opis składni konfigurowania odwzorować tożsamości SELinux znajduje się w <uri
+link="selinux-handbook.xml?part=3&amp;chap=2#doc_chap3">SELinux HOWTO</uri>.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Konfigurowanie tożsamości SELinux (profile starsze niż 2006.1)</title>
+<body>
+
+<p>
+Tożsamości utrzymywane są w pliku użytkowników w katalogu z polityką
+SELinux. Składnia pliku jest prosta. Przykładowo, aby zezwolić użytkownikowi
+<c>pebenito</c> na korzystanie ze statusów <c>staff_r</c> i <c>sysadm_r</c>,
+należy dodać na końcu tego pliku poniższą linię:
+</p>
+
+<pre caption="Konfigurowanie tożsamości SELinux">
+user pebenito roles { staff_r sysadm_r };
+</pre>
+
+<p>
+Następnie należy załadować politykę. Aby zmiany odniosły skutek musi istnieć
+konto, którego linuksowa nazwa użytkownika to <c>pebenito</c>. Jeśli użytkownik
+nie posiada linii <c>user</c> w opisywanym pliku, to jego tożsamością będzie
+<c>user_u</c>, a jedyny status, do jakiego będzie miał dostęp, to <c>user_r</c>.
+</p>
+
+<impo>
+Zwykli użytkownicy, którzy posiadają tożsamości, powinni posiadać dostęp do
+statusu <c>user_r</c>, ale nie do <c>staff_r</c>. Administratorzy powinni mieć
+dostęp do statusów <c>staff_r</c> i <c>sysadm_r</c>. Każdy użytkownik musi
+posiadać dostęp do statusu <c>user_r</c> lub <c>staff_r</c>. W innym przypadku
+użytkownik ten nie będzie mógł zalogować się zdalnie.
+</impo>
+
+<p>
+Gdy nadajemy użytkownikowi tożsamość, jego katalog domowy (oraz zawartość tego
+katalogu) powinien zostać prawidłowo oznakowany. Znakowanie zostanie wykonane na
+podstawie pierwszego statusu jaki podano dla danego konta w pliku
+użytkowników. Przykładowo, katalog domowy, zaprezentowanego wyżej użytkownika
+pebenito, zostanie oznakowany jako <c>staff_home_dir_t</c>.
+</p>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Konteksty SELinux</title>
+<subsection>
+<body>
+
+<p>
+Opisane powyżej trzy modele bezpieczeństwa razem nazywane są kontekstami
+SELinux. Kontekst posiada składnię:
+<c>tożsamość</c>:<c>status</c>:<c>typ</c>. Kontekst jest najważniejszą wartością
+podczas determinowania dostępu.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Konteksty obiektów</title>
+<body>
+
+<p>
+Przykładowy wynik polecenia <c>ls -Z</c> może wyglądać następująco:
+</p>
+
+<pre caption="Przykładowy wynik polecenia ls -Z">
+drwxr-xr-x  root  root     system_u:object_r:bin_t          bin
+drwxr-xr-x  root  root     system_u:object_r:boot_t         boot
+drwxr-xr-x  root  root     system_u:object_r:device_t       dev
+drwxr-xr-x  root  root     system_u:object_r:etc_t          etc
+</pre>
+
+<p>
+Pierwsze trzy kolumny wyniku to standardowe w Linuksie informacje o prawach
+dostępu, właścicielach i grupach katalogów. Czwarta kolumna to kontekst
+katalogu. Obiekty posiadają standardowy status <c>object_r</c>. Z pozostałych
+pól kontekstu można odczytać, że katalogi posiadają tożsamość <c>system_u</c>, a
+każdy z nich posiada inny typ - odpowiednio: <c>bin_t</c>, <c>boot_t</c>,
+<c>device_t</c> i <c>etc_t</c>.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Konteksty procesów</title>
+<body>
+
+<p>
+Przykładowy wynik polecenia <c>ps ax -Z</c> może wyglądać następująco:
+</p>
+
+<pre caption="Przykładowy wynik polecenia ps ax -Z">
+  PID CONTEXT                               COMMAND
+    1 system_u:system_r:init_t              [init]
+    2 system_u:system_r:kernel_t            [keventd]
+    3 system_u:system_r:kernel_t            [ksoftirqd_CPU0]
+    4 system_u:system_r:kernel_t            [kswapd]
+    5 system_u:system_r:kernel_t            [bdflush]
+    6 system_u:system_r:kernel_t            [kupdated]
+  706 system_u:system_r:syslogd_t           [syslog-ng]
+  712 system_u:system_r:httpd_t             [apache]
+  791 system_u:system_r:sshd_t              [sshd]
+  814 system_u:system_r:crond_t             [cron]
+  826 system_u:system_r:getty_t             [agetty]
+  827 system_u:system_r:getty_t             [agetty]
+  828 system_u:system_r:getty_t             [agetty]
+  829 system_u:system_r:getty_t             [agetty]
+  830 system_u:system_r:getty_t             [agetty]
+  831 system_u:system_r:httpd_t             [apache]
+  832 system_u:system_r:httpd_t             [apache]
+  833 system_u:system_r:httpd_t             [apache]
+23093 system_u:system_r:sshd_t              [sshd]
+23095 user_u:user_r:user_t                  [bash]
+23124 system_u:system_r:sshd_t              [sshd]
+23126 user_u:user_r:user_t                  [bash]
+23198 system_u:system_r:sshd_t              [sshd]
+23204 user_u:user_r:user_t                  [bash]
+23274 system_u:system_r:sshd_t              [sshd]
+23275 pebenito:staff_r:staff_t              [bash]
+23290 pebenito:staff_r:staff_t              ps ax -Z
+</pre>
+
+<p>
+W powyższym przykładzie pokazane są typowe informacje o procesach, uzupełnione o
+ich konteksty. Bliższe przyjrzenie się tym wynikom pozwala stwierdzić, że
+wszystkie procesy jądra systemu oraz wszystkie demony posiadają tożsamość
+<c>system_u</c> i status <c>system_r</c>. Poszczególne typy zależą od
+programów. Kilku użytkowników jest zalogowanych przez ssh ze standardową
+tożsamością <c>user_c</c>. Jest także użytkownik z tożsamością <c>pebenito</c>
+zalogowany ze statusem <c>staff_r</c>, pracujący w domenie <c>staff_t</c>.
+</p>
+
+</body>
+</subsection>
+
+</section>
+
+<section>
+<title>Pliki polityki SELinux (profile starsze niż 2006.1)</title>
+<subsection>
+<body>
+
+<p>
+Polityka SELinux zazwyczaj rezyduje w katalogu
+<path>/etc/security/selinux/src/policy</path>. Składa się ona z kilku plików i
+katalogów potrzebnych do jej wygenerowania. Dla ułatwienia tworzenia polityki,
+zastosowane zostały makra edytora m4 do wielokrotnego wykorzystywania
+powszechnie stosowanych zasad. Pliki polityki zostają przetworzone przez
+m4. Następnie kompilator polityk - <c>checkpolicy</c> - weryfikuje ich
+poprawność składniową i tworzy binarny plik polityki, który może zostać
+załadowany do działającego jądra SELinux.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Pliki Make</title>
+<body>
+
+<p>
+Plik Make polityki odpowiedzialny jest za jej kompilację i instalację w
+systemie. Posiada on jedną konfigurowalną opcję, przeznaczoną do kontrolowania
+<uri link="#doc_chap6">wersji polityki</uri> oraz cztery formuły, powodujące
+różne działania:
+</p>
+
+<table>
+<tr>
+  <th>Komenda</th>
+  <th>Opis</th>
+</tr>
+<tr>
+  <ti>make policy</ti>
+  <ti>Kompiluje obecną politykę do binarnego pliku.</ti>
+</tr>
+<tr>
+  <ti>make install</ti>
+  <ti>
+    Kompiluje i instaluje obecną politykę do katalogu
+    <path>/security/selinux/src</path>.
+  </ti>
+</tr>
+<tr>
+  <ti>make load</ti>
+  <ti>
+    Kompiluje, instaluje i ładuje obecną politykę do działającego jądra
+    SELinux.
+  </ti>
+</tr>
+<tr>
+  <ti>make relabel</ti>
+  <ti>
+    Dokonuje oznaczenia systemu plików przy użyciu kontekstów plików z
+    polityki.
+  </ti>
+</tr>
+</table>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Plik assert.te</title>
+<body>
+
+<p>
+Asercje z pliku <path>assert.te</path> zostaną sprawdzone podczas końcowego
+etapu kompilacji polityki. Jeśli jakieś uprawnienia zapewniane przez politykę
+będą zgodne z asercjami z tego pliku, to kompilator odrzuci politykę. Może to
+pomóc w upewnieniu się, że określone uprawnienia nigdy nie zostaną dopuszczone.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Plik attrib.te</title>
+<body>
+
+<p>
+Atrybuty danego typu mogą zostać wykorzystane do zidentyfikowania grupy typów o
+podobnych właściwościach. Każdy typ może posiadać dowolną ilość atrybutów, a
+każdy atrybut może wiązać się z dowolną ilością typów. Atrybuty są jawnie
+zadeklarowane w pliku <path>attrib.te</path> i mogą zostać połączone z
+poszczególnymi typami w czasie deklarowania tychże typów. Nazwy atrybutów mogą
+następnie zostać wykorzystane w konfiguracji, aby określić grupę typów z nimi
+powiązanych.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Plik constraints</title>
+<body>
+
+<p>
+Plik <path>constraints</path> definiuje dodatkowe ograniczenia dostępu w formie
+wyrażeń, które muszą zostać spełnione, aby określone prawa dostępu zostały
+nadane. Te ograniczenia są następnie wykorzystywane do uściślenia tabel
+egzekucji typów i praw dostępu opartych na statusach. Zazwyczaj reguły te
+stosuje się w celu ograniczenia zmian w tożsamości użytkownika lub jego
+statusie do określonego zakresu.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Katalog domains/</title>
+<body>
+
+<p>
+Katalog <path>domains/</path> zawiera zasady egzekucji typów. Znajdują się tu
+pliki <c>admin.te</c>, <c>staff.te</c> i <c>user.te</c>, opisujące prawa dostępu
+dla statusów <c>sysadm_r</c>, <c>staff_r</c> i <c>user_r</c>. Katalog
+<path>program/</path> zawiera wszystkie pliki aktywnej polityki odwołujące się
+do programów i demonów. W katalogu <path>misc/</path> znajdują się wszystkie
+pozostałe pliki polityki.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Katalog file_contexts/</title>
+<body>
+
+<p>
+Katalog <path>file_contexts/</path> zawiera pliki, opisujące konteksty
+bezpieczeństwa wszystkich plików na niewymiennych napędach. Znajduje się tu plik
+<c>types.fc</c>, który zawiera wszystkie konteksty dla systemu
+podstawowego. W katalogu <path>program/</path> znajdziemy konteksty
+bezpieczeństwa dla demonów znajdujących się w katalogu
+<path>domains/program/</path>. Każdemu plikowi z <path>domains/program/</path>
+odpowiada plik w katalogu <path>file_contexts/program/</path>, przykładowo
+plikowi polityki <path>domains/program/syslogd.te</path> odpowiada plik z
+kontekstami bezpieczeństwa <path>file_contexts/program/syslogd.fc</path>.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Katalog flask/</title>
+<body>
+
+<p>
+Katalog <path>flask/</path> zawiera pliki konfiguracyjne niezależne od
+polityki. Pliki te przechowują definicje odwołujące się do nagłówków
+jądra. <e>Nie należy</e> wprowadzać zmian w tym katalogu.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Plik fs_use</title>
+<body>
+
+<p>
+<path>fs_use</path> opisuje sposób oznaczania plików na różnych systemach
+plików. Przykładowo, dla systemu plików ext3 używane jest trwałe znakowanie,
+podczas gdy dla tmpfs wykorzystuje się pośrednie numery ID. Generalnie <e>nie
+należy</e> wprowadzać zmian w tym pliku.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Plik genfs_contexts</title>
+<body>
+
+<p>
+Plik <path>genfs_contexts</path> zawiera konteksty bezpieczeństwa dla plików,
+dla których nie są obsługiwane pośrednie oznaczenia, np. <c>/proc</c>.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Plik initial_sid_contexts</title>
+<body>
+
+<p>
+Plik <path>initial_sid_contexts</path> zawiera początkowe konteksty dla każdego
+numeru ID. Generalnie <e>nie należy</e> modyfikować tego pliku.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Katalog macros/</title>
+<body>
+
+<p>
+Katalog <path>macros/</path> zawiera makra m4, używane do łatwego tworzenia i
+zarządzania politykami. Znajduje się tu plik <path>admin_macros.te</path>,
+służący do określenia typów administracyjnych, takich jak
+<c>sysadm_t</c>. Plik <path>user_macros.te</path> zawiera makra wykorzystywane w
+domenach użytkowników, np. <c>user_t</c> i <c>staff_t</c>. W pliku
+<path>global_macros.te</path> znajdują się makra wykorzystywane w całej
+polityce.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Plik mls</title>
+<body>
+
+<p>
+Plik <path>mls</path> zawiera konfigurację bezpieczeństwa wielopoziomowego
+(Multi-level Security) SELinux. Bezpieczeństwo wielopoziomowe jest funkcją
+eksperymentalną i nie jest obsługiwane w Gentoo.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Plik net_contexts</title>
+<body>
+
+<p>
+Plik <path>net_contexts</path> definiuje konteksty bezpieczeństwa dla obiektów
+sieciowych, takich jak porty, interfejsy, węzły. Jeśli demony działają na
+niestandardowych portach, konieczne będzie zmodyfikowanie tego pliku.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Plik rbac</title>
+<body>
+
+<p>
+W przeszłości ten plik to było główne miejsce deklaracji ról. Od tej pory
+jednak deklaracje ról zostały rozdzielone na poszczególne pliki TE. Teraz plik
+ten służy tylko do zmiany ról sysadm_r i system_r role.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Katalog tmp/</title>
+<body>
+
+<p>
+Katalog <path>tmp/</path> jest wykorzystywany do przechowywania tymczasowych
+plików w czasie kompilowania polityki. Jeśli jest to konieczne, katalog ten
+można bezpiecznie usunąć.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Plik tunable.te</title>
+<body>
+
+<p>
+Plik <path>tunable.te</path> jest głównym plikiem konfiguracyjnym polityki.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Katalog types/</title>
+<body>
+
+<p>
+Katalog <path>types/</path> zawiera pliki przeznaczone do deklarowania ogólnych
+typów, które nie pojawiają się w indywidualnych politykach programów.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Plik users</title>
+<body>
+
+<p>
+Plik <path>users</path> opisuje tożsamości SELinux oraz statusy jakie mogą one
+przyjmować.
+</p>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Pliki polityki SELinux (profil 2006.1 i nowsze)</title>
+<subsection>
+<body>
+
+<p>
+Pliki źródłowe polityki SELinux nie są już instalowane w systemie. W katalogu
+<c>/usr/share/selinux/{strict,targeted}</c> znajdują się pakiety polityki i
+nagłówki, służące do budowania lokalnych modułów. Pliki polityki są przetwarzane
+przez program m4, po czym kompilator polityk - <c>checkmodule</c> - sprawdza
+ich poprawność składniową i tworzy moduł. Następnie przy pomocy programu
+<c>semodule_package</c> tworzony jest pakiet zawierający moduł polityki i jego
+konteksty. Tak przygotowany pakiet może zostać załadowany do działającego jądra
+SELinux poprzez umieszczenie go w przestrzeni pamięci modułów.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>*.pp</title>
+<body>
+
+<p>
+Pakiet dla danej polityki. Musi on być umieszczony w przestrzeni pamięci
+modułów, aby możliwe było jego załadowanie do polityki. W pakiecie znajduje się
+przeznaczony do załadowania moduł i opcjonalnie plik opisujący jego kontekst.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>include/</title>
+<body>
+
+<p>
+Nagłówki przeznaczone dla danej polityki.
+</p>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Wersje polityk</title>
+<subsection>
+<body>
+
+<p>
+Po skompilowaniu polityki, wynikowy plik binarny posiada oznaczenie
+wersji. Pierwsza wersja, jaka została zintegrowana w jądrach serii 2.6,
+posiadała numer 15. Numer polityki jest zwiększany tylko w sytuacji, gdy dodano
+nowe funkcje wymagające zmian w strukturze skompilowanej polityki. Przykładowo,
+w wersji jądra 2.6.5 dodano warunkowe rozszerzenia polityk. Spowodowało to
+konieczność zwiększenia numeru wersji polityki do 16.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Jakiej wersji polityki używa nasze jądro?</title>
+<body>
+
+<p>
+Wersję polityki działającego jądra można uzyskać przy użyciu polecenia
+<c>sestatus</c> lub <c>policyvers</c>. Obecne wersje jąder mogą korzystać z
+wcześniejszych wersji polityk dla zachowania kompatybilności
+wstecz. Przykładowo, jądro używające polityki w wersji 17 może również załadować
+politykę w wersji 16. Niemniej jednak ta kompatybilność wstecz może zostać
+usunięta w przyszłości.
+</p>
+
+<note>
+Jeśli korzystamy z profilu 2006.1 lub nowszego, to infrastruktura zarządzania
+politykami (libsemanage) automatycznie utworzy i zastosuje polityki w
+odpowiedniej wersji. Nie są wymagane żadne dodatkowe czynności.
+</note>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Kompilowanie właściwej wersji polityki (profile starsze niż 2006.1)</title>
+<body>
+
+<p>
+Jedyna zmiana, jakiej musimy dokonać, kompilujac nową wersję polityki, zawiera
+się w pliku Makefile polityki. W początkowej części tego pliku znajduje się
+linia podobna do poniższej.
+</p>
+
+<pre caption="Edycja pliku Makefile polityki">
+POLICYCOMPAT = -c 15
+</pre>
+
+<p>
+Standardowo, <c>checkpolicy</c> wygeneruje politykę dla obecnej wersji. Aby
+sprawdzić wersję polityki, jaką <c>checkpolicy</c> może utworzyć, należy wykonać
+polecenie <c>checkpolicy -V</c>. Po odkomentowaniu powyższej linii może zostać
+utworzona kompatybilna polityka. Powyższe ustawienie sprawi, że utworzona
+zostanie polityka w wersji 15 (można to zmienić na wersję 16).
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Wersje polityk</title>
+<body>
+
+<p>
+Poniższa tabela przedstawia wersje polityk dla jąder serii 2.6.
+</p>
+
+<table>
+<tr>
+  <th>Wersja</th>
+  <th>Opis</th>
+  <th>Wersja jądra</th>
+</tr>
+<tr>
+  <ti>12</ti>
+  <ti>"Old API" SELinux (zdeprecjonowany).</ti>
+</tr>
+<tr>
+  <ti>15</ti>
+  <ti>"New API" SELinux zintegrowany w 2.6.</ti>
+  <ti>2.6.0 - 2.6.4</ti>
+</tr>
+<tr>
+  <ti>16</ti>
+  <ti>Dodane warunkowe rozszerzenia polityk.</ti>
+  <ti>2.6.5</ti>
+</tr>
+<tr>
+  <ti>17</ti>
+  <ti>Dodana obsługa IPv6.</ti>
+  <ti>2.6.6 - 2.6.7</ti>
+</tr>
+<tr>
+  <ti>18</ti>
+  <ti>Dodana precyzyjna obsługa gniazd netlink.</ti>
+  <ti>2.6.8 - 2.6.11</ti>
+</tr>
+<tr>
+  <ti>19</ti>
+  <ti>Polepszone bezpieczeństwo wielopoziomowe</ti>
+  <ti>2.6.12 - 2.6.13</ti>
+</tr>
+<tr>
+  <ti>20</ti>
+  <ti>Optymalizacja wielkości wektorowej tablicy dostępu</ti>
+  <ti>2.6.14 - 2.6.18</ti>
+</tr>
+<tr>
+  <ti>21</ti>
+  <ti>Klasy obiektów w zakresach przejściowych</ti>
+  <ti>2.6.19 - current</ti>
+</tr>
+</table>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Warunkowe rozszerzenia polityk.</title>
+<subsection>
+<body>
+
+<p>
+Koncepcja warunkowych rozszerzeń polityk pozwala na włączanie i wyłączanie zasad
+polityki w czasie jej działania, bez konieczności przeładowywania zmodyfikowanej
+polityki. Reguły polityki mogą być warunkowo uruchamiane, przy użyciu zmiennych
+i wyrażeń.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Uzyskiwanie infromacji o wartościach zmiennych</title>
+<body>
+
+<p>
+Wartości zmiennych obecnie wykorzystywanej polityki można uzyskać na dwa
+sposoby. Pierwszym jest użycie polecenia <c>sestatus</c>.
+</p>
+
+<pre caption="Użycie sestatus">
+# <i>sestatus</i>
+SELinux status:      enabled
+SELinuxfs mount:     /selinux
+Current mode:        enforcing
+Policy version:      17
+
+Policy booleans:
+user_ping            inactive
+</pre>
+
+<p>
+Drugim sposobem jest wykorzystanie narzędzia <c>getsebool</c>, które wyświetla
+status zmiennych polityki oraz informację o tym, czy zmiana statusu oczekuje na
+wykonanie.
+</p>
+
+<pre caption="Użycie getsebool">
+# <i>getsebool -a</i>
+user_ping --> active: 0 pending: 0
+</pre>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Zmienianie wartości zmiennych</title>
+<body>
+
+<p>
+Status zmiennych może być przełączany przy użyciu polecenia
+<c>togglesebool</c>. W roli argumentów można podać kilka zmiennych. Nowa wartość
+zmiennych zostanie wyświetlona.
+</p>
+
+<pre caption="Przełączanie wartości zmiennej">
+# <i>togglesebool user_ping</i>
+user_ping: active
+</pre>
+
+<p>
+Wartość zmiennej można również określić używając polecenia <c>setsebool</c>.
+</p>
+
+<pre caption="Ustawianie wartości zmiennej">
+# <i>setsebool user_ping 0</i>
+</pre>
+
+<p>
+Aby przypisać nową wartość i uczynić ją domyślną dla danej zmiennej, należy użyć
+parametru <c>-P</c>. Jest to możliwe jedynie w przypadku profilu 2006.1 i
+nowszych.
+</p>
+
+<pre caption="Zmienianie domyślnej wartości zmiennej (2006.1+)">
+# setsebool -P user_ping 1
+</pre>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Komunikaty jądra związane z SELinux</title>
+<subsection>
+<body>
+
+<p>
+W czasie działania systemu program lub użytkownik może spróbować zrobić coś, co
+pogwałciłoby prawa dostępu. Jeśli system egzekwuje założenia polityki, nastąpi
+odmowa dostępu, a w logach jądra pojawi się informacja na ten temat. Jeśli
+system nie egzekwuje założeń polityki (działa w trybie pobłażliwym), to dopuści
+wykonanie operacji, jednak mimo wszystko w logach jądra pojawi sie komunikat.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Komunikaty AVC</title>
+<body>
+
+<p>
+Większość komunikatów jądra SELinux pochodzi z AVC (Access Vector
+Cache). Zrozumienie komunikatu odmowy dostępu jest ważne, gdyż może on świadczyć
+o ataku na system lub o tym, że jakiś program wymaga nieoczekiwanych praw
+dostępu. Przykładowy komunikat może wyglądać następująco:
+</p>
+
+<pre caption="Przykładowy komunikat odmowy dostępu z AVC">
+avc:  denied  { read write } for  pid=3392 exe=/bin/mount dev=03:03 ino=65554
+scontext=pebenito:sysadm_r:mount_t tcontext=system_u:object_r:tmp_t tclass=file
+</pre>
+
+<p>
+Większość komunikatów AVC związana jest z odmową dostępu, jednak czasami są to
+też kontrolne informacje, mówiące, że dostęp został przyznany:
+</p>
+
+<pre caption="Inny przykład komunikatu z AVC">
+avc:  granted  { load_policy } for  pid=3385 exe=/usr/sbin/load_policy
+scontext=pebenito:sysadm_r:load_policy_t tcontext=system_u:object_r:security_t tclass=security
+</pre>
+
+<p>
+Powyższy komunikat mówi, że system zezwolił na załadowanie polityki
+bezpieczeństwa. Jest to czynność krytyczna dla bezpieczeństwa, której wykonanie
+jest zawsze dozwolone. Inną czynnością, którą system zawsze dopuszcza, jest
+przełączanie pomiędzy trybem egzekutywnym i pobłażliwym.
+</p>
+
+<p>
+SELinux może ograniczyć ilość logowanych komunikatów odmowy dostępu, jeśli wiele
+prób pogwałcenia polityki bezpieczeństwa zostanie wykonanych w krótkim
+czasie. Nie zawsze oznacza to, że ma miejsce atak na system. Program może
+próbować wykonać w krótkim czasie wiele niedozwolonych operacji, na przykład
+wywołując funkcję stat() na węzłach urządzeń w katalogu <path>/dev</path>. Aby
+nie dopuścić do zalania logów systemowych komunikatami bezpieczeństwa, SELinux
+zamiast wyświetlać każdy komunikat z osobna, wyświetla pojedynczą informację o
+ilości komunikatów jakie zostały wygenerowane przez AVC:
+</p>
+
+<pre caption="Kolejny przykład komunikatu z AVC">
+AVC: 12 messages suppressed.
+</pre>
+
+<p>
+Należy zmodyfikować politykę tak, aby nie kontrolowała czynności powodujących
+błędy, jeśli są one normalnym działaniem programu.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Inne komunikaty</title>
+<body>
+
+<pre caption="inode_doinit_with_dentry">
+inode_doinit_with_dentry:  context_to_sid(system_u:object_r:bar_t) returned 22 for dev=hda3 ino=517610
+</pre>
+
+<p>
+Komunikat oznacza, że plik o i-węźle 517610, znajdujący się na partycji
+/dev/hda3, posiada niewłaściwy kontekst system_u:object_r:bar_t. Obiekty o
+niewłaściwym kontekście traktowane są tak, jak gdyby miały kontekst
+system_u:object_r:unlabeled_t.
+</p>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Analizowanie komunikatów odmowy dostępu</title>
+<subsection>
+<body>
+
+<p>
+Komunikaty odmowy dostępu zawierają zmienną ilość informacji, w zależności od
+tego jakiego typu dostępu dotyczą.
+</p>
+
+<pre caption="Przykładowe komunikaty">
+avc:  denied  { lock } for  pid=28341 exe=/sbin/agetty path=/var/log/wtmp dev=03:03 ino=475406
+scontext=system_u:system_r:getty_t tcontext=system_u:object_r:var_log_t tclass=file
+
+avc:  denied  { create } for  pid=20909 exe=/bin/ls scontext=pebenito:sysadm_r:mkinitrd_t
+tcontext=pebenito:sysadm_r:mkinitrd_t tclass=unix_stream_socket
+
+avc:  denied  { setuid } for  pid=3170 exe=/usr/bin/ntpd capability=7
+scontext=system_u:system_r:ntpd_t tcontext=system_u:system_r:ntpd_t tclass=capability
+</pre>
+
+<p>
+Odmowy dostępu najczęściej dotyczą dostępu do plików. Przeanalizujemy teraz krok
+po kroku pierwszy z powyższych komunikatów:
+</p>
+
+<table>
+<tr>
+  <th>Fraza</th>
+  <th>Opis</th>
+</tr>
+<tr>
+  <ti>avc:  denied</ti>
+  <ti>SELinux odmówił dostępu.</ti>
+</tr>
+<tr>
+  <ti>{ lock }</ti>
+  <ti>Dostęp, jakiego odmówiono, to blokada.</ti>
+</tr>
+<tr>
+  <ti>pid=28341</ti>
+  <ti>Numer ID procesu, który chciał wykonał operację to 28341.</ti>
+</tr>
+<tr>
+  <ti>exec=/sbin/agetty</ti>
+  <ti>
+    Pełna ścieżka do wykonywalnego pliku procesu to <path>/sbin/agetty</path>.
+  </ti>
+</tr>
+<tr>
+  <ti>path=/var/log/wtmp</ti>
+  <ti>
+    Ścieżka do obiektu docelowego to <path>/var/log/wtmp</path>. Należy
+    pamiętać, że pełna ścieżka nie zawsze jest dostępna.
+  </ti>
+</tr>
+<tr>
+  <ti>dev=03:03</ti>
+  <ti>
+    Obiekt docelowy rezyduje na urządzeniu 03:03 (liczba główna:liczba
+    poboczna). W jądrach serii 2.6 oznaczenie może zostać rozwinięte do postaci
+    nazwy, w tym przypadku hda3.
+  </ti>
+</tr>
+<tr>
+  <ti>ino=475406</ti>
+  <ti>Numer i-węzła obiektu docelowego to 475406.</ti>
+</tr>
+<tr>
+  <ti>scontext=system_u:system_r:getty_t</ti>
+  <ti>Kontekst programu to system_u:system_r:getty_t.</ti>
+</tr>
+<tr>
+  <ti>tcontext=system_u:object_r:var_log_t</ti>
+  <ti>Kontekst obiektu docelowego to system_u:object_r:var_log_t.</ti>
+</tr>
+<tr>
+  <ti>tclass=file</ti>
+  <ti>Obiekt docelowy jest normalnym plikiem.</ti>
+</tr>
+</table>
+
+
+<p>
+Nie wszystkie komunikaty AVC będą posiadały wszystkie powyższe pola (pokazują to
+pozostałe przykłady). Obecność poszczególnych pól zależy od klasy obiektu
+docelowego. Niemniej jednak najważniejsze pola (typ odmówionego dostępu,
+konteksty obiektu źródłowego i docelowego oraz klasa obiektu docelowego) zawsze
+będą występowały w komunikacie AVC.
+</p>
+
+</body>
+</subsection>
+
+<subsection>
+<title>Rozumienie odmowy dostępu</title>
+<body>
+
+<p>
+Komunikaty odmowy dostępu mogą być niezrozumiałe, ponieważ mogą wystąpić z wielu
+powodów. Kluczem do zrozumienia co dokładnie się dzieje jest poznanie zachowania
+programu i prawidłowa interpretacja komunikatu odmowy dostępu. Obiektem
+dolecowym odmowy dostępu nie zawsze są pliki. Równie dobrze może to być gniazdo
+sieciowe, komunikacja międzyprocesorowa lub cokolwiek innego.
+</p>
+
+<p>
+W powyższym przykładzie programowi <c>agetty</c> system odmówił dostępu do
+ustanowienia blokady pliku. Typ pliku to <c>var_log_t</c>, co implikuje, że
+docelowy plik znajduje się w katalogu <path>/var/log</path>. Z informacji
+zawartych w komunikacie AVC wynika, że jest to plik
+<path>/var/log/wtmp</path>. Gdyby informacja o ścieżce do obiektu docelowego nie
+była dostępna, potwierdzenie, że plik znajduje się w katalogu
+<path>/var/log</path> byłoby możliwe przy użyciu numeru i-węzła. Plik
+<path>wtmp</path> utrzymuje informacje o aktualnie zalogowanych użytkownikach. Z
+kolei program <c>agetty</c> odpowiada za logowanie na interfejsach tty. Można
+wywnioskować, że dostęp do pliku <path>wtmp</path> przez program <c>agetty</c>
+jest pożądany. Dlaczego więc system odmówił wykonania tej operacji? Okazuje się,
+że plik <path>wtmp</path> ma nieprawidłowy kontekst. Prawidłowy kontekst
+powinien mieć formę <c>system_u:object_r:wtmp_t</c>, a nie
+<c>system_u:object_r:var_log_t</c>.
+</p>
+
+<p>
+Gdyby ten komunikat odmowy dostępu nie został prawidłowo przeanalizowany,
+administrator mógłby błędnie pozwolić wszystkim obiektom posiadającym typ
+<c>getty_t</c> na zapis i odczyt plików o typie <c>var_log_t</c>. Byłoby to
+nieprawidłowe, ponieważ program <c>agetty</c> potrzebuje dostępu wyłącznie do
+pliku <path>/var/log/wtmp</path>. Przykład ten demonstruje, jak duże znaczenie
+ma utrzymywanie prawidłowych kontekstów plików.
+</p>
+
+</body>
+</subsection>
+</section>
+
+<section>
+<title>Inne źródła informacji</title>
+<subsection>
+<body>
+
+<p>
+<uri link="http://www.nsa.gov/selinux">Narodowa Agencja Ochrony USA (U.S. NSA) -
+polityka SELinux</uri>
+</p>
+
+</body>
+</subsection>
+</section>
+</sections>
