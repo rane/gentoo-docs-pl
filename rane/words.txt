@@ -33,5 +33,21 @@ imagemagick imlib init innodb ipv javascript jpeg kerberos KiB LD libarts libc
 libg libkpresenterpart libwww lua luac lyx mbox md mikmod miscfiles mmx mpeg
 ncurses nls nodeps odbc oneshot overlayu passepartout pdflib plugins portaudio
 pprinter pptout proj aalib adns ao avidemux berkdb bonobo cdr cdrtools conf
-crossplatform cscope
+crossplatform cscope binfilter cairo devel eklasami eview evim fontconfig
+gtkglarea gview gvim gvimdiff kbd lang mtime PDEPEND pkgconfig pyopengl RDEPEND
+rgvim utils bootdir bootloader bootloadera brix cdroot cfg dobladecenter
+filenames filetype initramfs iso Loopback MBR memtest mkdosfs mnt nano
+nightmorph october odmontować odmontowane opraciu partycjonowania prekompilowany
+robbat sda syslinux TODO vfat LeftArrow manuali manX POSIX RightArrow
+stronicującego TBZ ynq bc ESC vc WindowsXP wlan Xauthority XAUTHORITY XP norsync
+numlock passwd Redhat ReiserFS reiserfsck rootnoverify rsync RSYNC setterm
+tarballe tmp EasyCD eth ffast fomit gcc Google GRP hd hdb irc Islas devfs devrel
+DHCP Boostraping bootrescue cdrecord CFLAGS chainloader crontab Xaw Xemacs
+Xemacsa Xft XkbLayout Xlib Wiki Unikod Unikodem Unikodu Unikodzie usenetowej utf
+UTF Vimie scharfes siedmiobitowym SMB Tascii tet txt UCS un mailingowej mandoc
+mbyte międzynarodowo Modzelewski Mozilli Multilangual Mutta nadmiarowość
+nadmiarowości nadmiarowością NetBIOS niedrukowalne altGr AltGr ascii Bitstream
+BMP charset CIFS CJK codepage CTYPE defutf drukowalne dziesiątkowo ECMA elinks
+elinksa Emacsa EUC Filesystems Firefoksem fontset FontSpec FreeBSD gtkrc IEC
+Irssi jednobajtowych JIS jisx Joliet KEYMAP Konqueror
 
