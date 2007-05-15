@@ -5,13 +5,13 @@
 
 <project>
 <name>artwork</name>
-<longname>Gentoo Artwork Project</longname>
+<longname>Projekt Gentoo Artwork</longname>
 <date>2007-05-14</date>
 
-<author title="Author">
+<author title="Autor">
   <mail link="cla@gentoo.org">Dawid Węgliński</mail>
 </author>
-<author title="Editor">
+<author title="Redaktor">
   <mail link="welp@gentoo.org">Peter Weller</mail>
 </author>
 
