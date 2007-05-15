@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/xsl/project.xsl" type="text/xsl"?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
+<!DOCTYPE project SYSTEM "/dtd/project.dtd">
+
+<project>
+<name>artwork</name>
+<longname>Gentoo Artwork Project</longname>
+<date>2007-05-14</date>
+
+<author title="Author">
+  <mail link="cla@gentoo.org">Dawid Węgliński</mail>
+</author>
+<author title="Editor">
+  <mail link="welp@gentoo.org">Peter Weller</mail>
+</author>
+
+<description>
+The Gentoo Artwork Project manages Gentoo artwork stuff. This includes
+wallpapers, logos, themes, icons sets, etc.
+</description>
+
+<longdescription>
+
+<p>
+As the community using Gentoo as a desktop operating system continues to grow,
+one of the main areas which the users tend to concentrate on are the themes and
+artwork of their desktop. We created this project precisely for these users!
+The Gentoo Artwork Project (GAP) is a desktop subproject and is responsible for
+creation and maintenance of all the artwork-related stuff within Gentoo.
+</p>
+
+</longdescription>
+
+<dev role="lead">cla</dev>
+<dev role="Member">welp</dev>
+<dev role="Member">ian</dev>
+
+<extrachapter>
+<title>Getting involved</title>
+<section>
+<body>
+
+<p>
+The Gentoo Artwork Project is open to all contributions. If you would like to
+get involved in the project, feel free to ask members of the project, in
+#gentoo-desktop on irc.freenode.net, of course, you can still contact all of us
+via e-mail. All artwork sent to us will be greatly appreciated.
+</p>
+
+</body>
+</section>
+</extrachapter>
+
+<extrachapter>
+<title>Our work</title>
+<section>
+<body>
+
+<table>
+<tr>
+  <th>What</th>
+  <th>Where</th>
+</tr>
+<tr>
+  <ti>Gentoo/OpenBSD logo</ti>
+  <ti><uri link="http://dev.gentoo.org/~cla/artwork/gobsd.png">Gentoo/OpenBSD
+  project</uri></ti>
+</tr>
+</table>
+
+</body>
+</section>
+</extrachapter>
+
+<extrachapter>
+<title>Requests</title>
+<section>
+<body>
+
+<p>
+Below you can see what we are currently working on.
+</p>
+
+<table>
+<tr>
+ <th>Requested</th>
+ <th>Requested by</th>
+</tr>
+<tr>
+ <ti>PS3 LiveCD Wallpaper</ti>
+ <ti>ranger@gentoo.org</ti>
+</tr>
+</table>
+
+</body>
+</section>
+</extrachapter>
+</project>
