@@ -49,10 +49,10 @@
 
 <p>
 Projekt <uri link="/proj/en/releng">Release Engineering</uri> z przyjemnością
-informuje o znacznie opóźnionym wydaniu Gentoo Linux 2007.0, nazwanym „Secret
-Sauce”. Opóźnienia wynikają z powodu znacznej ilości usterek i błędów
-bezpieczeństwa występujących w dużych pakietach, które wymagały przebudowania i
-zastąpienia nowszymi, poprawionymi wersjami. Poza tym, mniej więcej w połowie
+informuje, że właśnie, ze znacznym opóźnieniem, wydano Gentoo Linux 2007.0,
+nazwane „Secret Sauce”. Opóźnienia są spowodowane znaczną ilością usterek i
+błędów bezpieczeństwa odkrytych w dużych pakietach, które wymagały przebudowania
+i zastąpienia nowszymi, poprawionymi wersjami. Poza tym, mniej więcej w połowie
 całego procesu tworzenia wydania, postanowiono o ponownym stworzeniu bazowego
 obrazu, dlatego też wszystko trwało tak długo.
 </p>
@@ -119,24 +119,24 @@ PATH=${PATH}:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
 <p>
 Oczywiście, być może potrzebne będą także ścieżki dostępu do plików binarnych w
-bardziej egzotycznych katalogach. Dla przykładu VMWare Server instaluje swoje
+bardziej egzotycznych lokalizacjach. Dla przykładu VMWare Server instaluje swoje
 pliki w katalogu <path>/opt/vmware/server/bin</path>. Kolejnym rozwiązaniem
 jakie zaproponowano, jest użycie metody <c>command -p program</c>. Zgodnie ze
 stroną man command, użycie takiej składni spowoduje „wykonanie polecenia z
-użyciem domyślnej wartości dla zmiennej PATH, która zagwarantuje dostęp do
+użyciem domyślnej wartości zmiennej PATH, która zagwarantuje dostęp do
 wszystkich standardowych narzędzi”. Jest to jedna z bezpieczniejszych metod,
 okupiona jednak wysiłkiem ponoszonym na wciśnięcie kilku dodatkowych klawiszy.
 Dodatkowo, ponieważ to polecenie jest wbudowane w bash, nie istnieje w systemie
-plików, to jest odporne na zmiany wywołane przez coreutils. Zakładamy tutaj
-oczywiście użycie powłoki bash, jako bezpiecznego rozwiązania dla większości
-użytkowników Linuksa.
+plików, to nie grożą nam w tym przypadku zmiany wywołane przez coreutils.
+Zakładamy tutaj oczywiście użycie powłoki bash, jako bezpiecznego rozwiązania
+dla większości użytkowników Linuksa.
 </p>
 
 <p>
 Podobnie do polecenia opisanego powyżej, polecenie env uruchamia program w
 zmodyfikowanym środowisku. Proste wywołanie polecenia <c>env program</c>
-uruchomi nasze narzędzie używając znacznie uproszczonego PATH. Zgodnie z
-wymienionym wątkiem, będzie to <c>/bin:/usr/bin</c>. W przeciwieństwie do
+uruchomi nasze narzędzie z użyciem znacznie uproszczonego PATH. Jak opisano to w
+przytoczonym wątku, będzie to <c>/bin:/usr/bin</c>. W przeciwieństwie do
 poprzedniej metody, env jest narzędziem, które znajduje się w lokalnym systemie
 plików jako dowiązanie symboliczne, zarówno w katalogu <path>/bin</path> jak i
 <path>/usr/bin</path>.
@@ -166,6 +166,10 @@ oraz sprawdzić zawartość plików <path>/etc/conf.d/local.start</path> oraz
 <path>/etc/conf.d/local.stop</path>. Jeżeli wszystko będzie wyglądało dobrze i
 działało poprawnie, potwierdzi to tylko nasze umiejętności!
 </p>
+
+</body>
+</section>
+</chapter>
 
 <!-- Developer of the Week -->
 <!-- Heard in the community -->
@@ -203,20 +207,20 @@ link="http://www.movidis.com">Movidis</uri>.
 <body>
 
 <p>
-<b>Do it all, minus one</b>
+<b>Zrób wszytko, pomiń jeden</b>
 </p>
 
 <p>
 Jesse Adelman zapytał na liści dyskusyjnej <c>gentoo-user</c> w jaki sposób
 można wykonać polecenie <c>emerge -uDN world</c> tak, by został pominięty jeden
-pakiet. Wszystko z powodu pakietu MythTV, który został już usunięty z drzewa
-Portage, a autor wątku chciałby pozostawić w systemie. Problem jest spowodowany
+pakiet. Wszystko z powodu programu MythTV, który został już usunięty z drzewa
+Portage, a autor wątku chciałby pozostawić go w systemie. Problem jest spowodowany
 tym, że dostępne są zarówno nowsze, jak i starsze wersje MythTV, więc po dodaniu
 odpowiedniego wpisu dla nowego wydania w <c>package.mask</c> Portage chce
 zainstalować starszą wersję. Vikas Kumar zasugerował, aby w tym przypadku
 skorzystać z często pomijanego pliku
 <c>/etc/portage/profile/package.provided</c>. Pakiet, który zostanie tam dodany
-nie będzie pomijany w czasie dokonywania aktualizacji, chyba że wymagana będzie
+będzie pomijany w czasie dokonywania aktualizacji, chyba że wymagana będzie
 jego nowsza wersja. Więcej informacji na temat <c>package.provided</c> można
 znaleźć na stronie man portage. Deweloper Zac Medico poradził, by zamaskować
 zarówno nowsze jak i starsze wersje pakietu, który chcemy zachować w systemie.
@@ -265,30 +269,30 @@ IRC-u.
 <body>
 
 <p>
-HSM to ciesząca się szacunkiem duża firma, zajmująca się dostarczaniem dostępu
-do internetu. Jej kwatera główna mieści się w Paderborn w Niemczech. Mocnym
-punktem HSM jest tworzenie interfejsów i dodatków do standardowych programów i
-baz danych, rozwój oprogramowania dla klientów oraz dostarczaniem standardowego
+HSM to ciesząca się szacunkiem duża firma, zajmująca się zapewnianiem dostępu do
+internetu. Jej kwatera główna mieści się w Paderborn w Niemczech. Mocnym punktem
+HSM jest tworzenie interfejsów oraz dodatków do standardowych programów i baz
+danych, rozwój oprogramowania dla klientów oraz dostarczaniem standardowego
 oprogramowania w dziedzinach bezpieczeństwa, ERP i emulacji.
 </p>
 
 <p>
-HSM poszukuje ekspertów od Linuksa, którzy specjalizują się w Gentoo, w celu
-dalszego rozwijania i wsparcia ich opartego na Linuksie firewalla o nowej i
-niespotykanej dotąd koncepcji produktu. Pożądani kandydaci powinni mieć bogate
+HSM poszukuje ekspertów znających Linuksa, którzy specjalizują się w Gentoo, w
+celu dalszego rozwijania i wsparcia ich opartego na Linuksie firewalla o nowej i
+niespotykanej dotąd koncepcji. Pożądani kandydaci powinni mieć bogate
 doświadczenie z Linuksem, w szczególności w takich dziedzinach jak protokół
-TCP/IP i routing, Perl, skrypty PHP i BASH, Apache, Bind, DNS, SQUID, Postfix i
+TCP/IP i ruting, Perl, skrypty PHP i BASH, Apache, Bind, DNS, SQUID, Postfix i
 MySQL. Umiejętność komunikacji, organizowania sobie pracy i zorientowanie na
 klienta to kolejne cechy, których oczekuje się od kandydatów.
 </p>
 
 <p>
-Zatrudnieni specjaliści o odpowiednio dużym doświadczeniu będą mieli możliwość
-awansu na stanowisko menadżerskie. Kandydaci dopiero zaczynający profesjonalną
-karierę będą mogli brać udział w szkoleniach, a także w inny sposób podnosić
-swoje kwalifikacje. Więcej informacji można uzyskać kontaktując się z
-Konsultantem HR w HSM, <mail link="geldmacher@juvo-personal.de">Panem Wolfem
-Geldmacherem</mail>.
+Zatrudnieni specjaliści posiadający wystarczające doświadczenie będą mieli
+możliwość awansu na stanowisko menadżerskie. Kandydaci dopiero zaczynający
+profesjonalną karierę będą mogli brać udział w szkoleniach, a także w inny
+sposób podnosić swoje kwalifikacje. Więcej informacji można uzyskać kontaktując
+się z Konsultantem HR w HSM, <mail link="geldmacher@juvo-personal.de">Panem
+Wolfem Geldmacherem</mail>.
 </p>
 
 </body>
@@ -304,8 +308,9 @@ Geldmacherem</mail>.
 
 <p>
 W Linux Magazine ukazał się artykuł na temat systemu Gentoo Linux i Portage.
-Jest on w całości poświęcony Gentoo i jest dostępny tylko dla prenumeratorów.
-Zachęcamy posiadaczy prenumeraty do zapoznania się z artykułem.
+Jest on w całości poświęcony Gentoo, niestety jest on dostępny tylko dla
+prenumeratorów. Zachęcamy posiadaczy prenumeraty do zapoznania się z
+artykułem.
 </p>
 
 <ul>
