@@ -14,6 +14,9 @@
 <author title="Redaktor">
   <mail link="welp@gentoo.org">Peter Weller</mail>
 </author>
+<author title="Tłumaczenie">
+  <mail link="rane@gentoo.org">Łukasz Damentko</mail>
+</author>
 
 <description>
 The Gentoo Artwork Project manages Gentoo artwork stuff. This includes
