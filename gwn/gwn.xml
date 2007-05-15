@@ -96,6 +96,12 @@ czytelników.
 </tr>
 -->
 <tr>
+  <ti><uri link="/news/pl/gwn/20070507-newsletter.xml">7 maja 2007</uri></ti>
+  <ti>Wydano Gentoo 2007.0 „Secret Sauce”. Ostatnia aktualizacja coreutils i
+  kwestie skryptów. Status Gentoo MIPS. Aktualizacja Gentoo z małym wyjątkiem.
+  Gentoo w Linux Magazine.</ti>
+</tr>
+<tr>
   <ti><uri link="/news/pl/gwn/20070430-newsletter.xml">30 kwietnia
   2007</uri></ti>
   <ti>Ant 1.7.0 stabilny. Usunięcie Apache 1.x z drzewa Portage. Zespół
