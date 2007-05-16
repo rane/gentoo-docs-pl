@@ -101,5 +101,29 @@ sysklogd SYSLOGD tftp TFTP tftpboot tftpd args bootowalną bootowanie bootp decl
 dgram DHCPD filename inetd Intelowskiego INTFTPD KDM KLOGD konfig loggera ltsp
 LTSP xfsm superużytkownik superużytkownikowi timestamp useralias webrsync
 wylistowanie antoni Cmnd cmndalias danny env hostalias libexec NOPASSWD pkill
-rane runaspw sudo sudoers
+rane runaspw sudo sudoers Griffis HPPA PALO elilo arcboota arcloada SGI Knoppix
+netmount prekompilowanych Pythonie uruchamialną bootdef bootloadery bootować
+cdimage odmontowujemy osflags zabootować bsize chmod cpg disklabel fdisk fsize
+IBMa noexec nosuid SATA sizeK sizeM bootdef bootloadery bootować cdimage
+odmontowujemy osflags zabootować bsize chmod cpg disklabel fdisk fsize noexec
+nosuid SATA sizeK sizeM AceNIC Alteon async automounter chrootowanego DECchip
+DEFEA DEFPA eepro EISA EtherExpressPro EtherWORKS FDDI ISP journalling keyval
+NFSv OSF pcilib pciutils pluggable PPPoE procfs Qlogic SYM symlink sysctl Tigon
+tty uac ARCSBIOS DKB GnuPG hdc Podarchitektura poeksperymentować prekompilowane
+taviso uruchamialna agetty benny brd dokonfigurowania hvc hvsi keycode noatime
+nodev nodns nonis nontp odkomentować openprom openpromfs PCMCIA respawn sendings
+tmpfs pel commandline odmontuj recoverykernel rdered HIL iname MLC STI ipl IPL
+odmontowanie Parisc pgp ramdisk SCSCI uruchomieniowych XM EFI ttyS vmlinuz EFI
+gpt GPT GUID Itanium partycjonowanie partycjonujący partycjonujących
+HyperThreading MFM RLL tm wieloprocesorowy ttyS Uruchamialne uruchomieniowy
+hotplug hwsetup isoburning layoucie nics noapic nodetect nodhcp nodma noevms
+nofirewire nohotplug nokeymap noload nolvm nousb dir docache dopcmcia doscsi EFI
+firewire cdromów cdromu apic rcload binariów bootowalnej BOOTPROM chrootowane
+CoLo ctrlaltdel goto lcd LOader odkomentowania podmontować tts vt YY
+zakomentowanie rcboot Bootfile Bootinfo BOOTROM Cobaltów IRIX kernele
+ośmioznakowej partycjonowaniu Suna unrecoverably volhdr endiany kgcc Makefiles
+mips donly seyon SiByte telnetd Torito totalpages VFS xdmcp BogoMIPS bootpc
+BOOTROM Busybox BusyBox Cobalta Cobaltowi diskless endiana endianie endianness
+Endianness endiany FPU HyperTerminal IRIX ISC linesize Microserver Minicom
+MiniDIN mips nfsroot OTP Qube
 
