@@ -126,4 +126,19 @@ mips donly seyon SiByte telnetd Torito totalpages VFS xdmcp BogoMIPS bootpc
 BOOTROM Busybox BusyBox Cobalta Cobaltowi diskless endiana endianie endianness
 Endianness endiany FPU HyperTerminal IRIX ISC linesize Microserver Minicom
 MiniDIN mips nfsroot OTP Qube gajim Iconsets imcom Licq tcl tk tkabber
+framebuffera LInuxLOader makeactive ywrap ATAPI bb ATAPI CardBus Databook MCA
+MCE Opteronów PCCard PCCARD TCIC wieloprocesorowych wielordzeniowych yenta hdx
+NUMA superużytkownikiem BINHOST prekompilowanego prekompilowanymi userfetch
+ebuildach ebuildzie gnumeric html loggerów loggery mplayer odinstalowywać
+odmaskowany pdf PDF przekompilowania snapshotów ssmtp unmerge virtualem vp
+zbanowany zlinkowane alsalisp Bashu ChangeLog checksums acpid bashem bashu
+bootmisc bootwait COLDPLUG domainname ebegin eend inita initdefault localmount
+metalogd ng pidfile Portmap pythona restartdelay runscript sysinit syslog
+mozcalendar mozdevelop moznocompose moznoirc moznomail moznopango moznoroaming
+nostrip oggvorbis ogólnosystemowe postgres seamonkey wyedytowania xinerama
+xprint XX gconf INFODIR INFOPATH KDEDIRS konsolidator LDPATH MANPATH platex
+przelogowanie ROOTPATH tex texmf xkb hotwayd Odmaskowanie XXFLAGS DISTDIR
+FETCHCOMMAND manualem NOCOLOR nt podzestawów RESUMECOMMAND PORTDIR backend bbc
+ee qmerge elog ELOG LOGDIR LOGFILE logowane MAILFROM MAILSUBJECT MAILURI manualu
+PKGDIR RPMDIR TMPDIR virtualach eb mv
 
