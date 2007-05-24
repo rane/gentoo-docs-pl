@@ -125,5 +125,5 @@ ośmioznakowej partycjonowaniu Suna unrecoverably volhdr endiany kgcc Makefiles
 mips donly seyon SiByte telnetd Torito totalpages VFS xdmcp BogoMIPS bootpc
 BOOTROM Busybox BusyBox Cobalta Cobaltowi diskless endiana endianie endianness
 Endianness endiany FPU HyperTerminal IRIX ISC linesize Microserver Minicom
-MiniDIN mips nfsroot OTP Qube
+MiniDIN mips nfsroot OTP Qube gajim Iconsets imcom Licq tcl tk tkabber
 
