@@ -76,15 +76,17 @@ CVS</uri> projektu Gentoo.
 </p>
 
 <p>
-Projekt dysponuje także nieoficjalnym (roboczym) <uri
-link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/">repozytorium
-SVN</uri>. Dostęp do niego można uzyskać kontaktując się z <mail
+Dzięki uprzejmości osób administrujących projektem <uri
+link="http://www.gentoo.org/proj/en/overlays/">Gentoo Overlays</uri> projekt
+dysponuje także nieoficjalnym (roboczym) <uri
+link="http://overlays.gentoo.org/proj/docs-pl/browser">repozytorium SVN</uri>.
+Dostęp do niego można uzyskać kontaktując się z <mail
 link="rane@gentoo.org">koordynatorem</mail> projektu. Mogą z niego korzystać
 wszystkie osoby pomagające w pracy nad polską dokumentacją Gentoo.
 </p>
 
 <p>
-Ze stałymi członkami projektu można porozmawiać na naszym oficjalnym kanale
+Z uczestnikami projektu można porozmawiać na naszym oficjalnym kanale
 <c>#gentoo-docs-pl</c> w sieci <uri link="http://freenode.net/">freenode</uri>.
 Zapraszamy również tam.
 </p>
@@ -94,7 +96,7 @@ Zapraszamy również tam.
 </chapter>
 
 <chapter>
-<title>Podstrony</title>
+<title>Strony</title>
 <section>
 <body>
 
@@ -114,7 +116,7 @@ Zapraszamy również tam.
   <li><uri link="jak-aktualizowac.xml">Opis aktualizowania dokumentów</uri></li>
   <li><uri link="tlumaczenie-manuali.xml">Projekt tłumaczenia manuali Gentoo</uri></li>
   <li><uri link="http://sources.gentoo.org/viewcvs.py/gentoo/xml/htdocs/doc/pl/">Katalog z polską dokumentacją w CVS Gentoo</uri></li>
-  <li><uri link="http://svn.berlios.de/viewcvs/gentoo-doc-pl/trunk/trans/">Robocze repozytorium SVN projektu</uri></li>
+  <li><uri link="http://overlays.gentoo.org/proj/docs-pl/browser">Robocze repozytorium SVN projektu</uri></li>
   <li><uri link="http://gentoo.org/news/pl/gwn/gwn.xml">Bratni projekt tłumaczenia Tygodnika Gentoo</uri></li>
 </ul>
 
@@ -129,6 +131,24 @@ Zapraszamy również tam.
     <uri link="http://dev.gentoo.org/~rane/slownik.gz">Słownik</uri>
   </li>
 </ul>
+
+<ul>
+  <li>
+    <uri link="http://gentoo.org/proj/en/gdp/tests/topdocs.xml">Statystyki</uri>
+    poczytności poszczególnych dokumentów na stronach Gentoo
+  </li>
+  <li>
+    <uri link="http://dev.gentoo.org/~rane/other/status.html">Statystyki</uri>
+    dotyczące ilości przetłumaczonych dokumentów
+  </li>
+</ul>
+
+<pre caption="Pobieranie repozytoriów ze źródłami polskiej dokumentacji">
+<comment>(Nieoficjalne robocze repozytorium na overlays.gentoo.org)</comment>
+$ <i>svn co http://overlays.gentoo.org/svn/proj/docs-pl/</i>
+<comment>(Dokumentacja z gentoo.org)</comment>
+$ <i>cvs -d :pserver:anonymous@anoncvs.gentoo.org/var/cvsroot co gentoo/xml/htdocs/doc/pl</i>
+</pre>
 
 </body>
 </section>
