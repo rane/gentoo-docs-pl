@@ -140,5 +140,8 @@ xprint XX gconf INFODIR INFOPATH KDEDIRS konsolidator LDPATH MANPATH platex
 przelogowanie ROOTPATH tex texmf xkb hotwayd Odmaskowanie XXFLAGS DISTDIR
 FETCHCOMMAND manualem NOCOLOR nt podzestawów RESUMECOMMAND PORTDIR backend bbc
 ee qmerge elog ELOG LOGDIR LOGFILE logowane MAILFROM MAILSUBJECT MAILURI manualu
-PKGDIR RPMDIR TMPDIR virtualach eb mv
+PKGDIR RPMDIR TMPDIR virtualach eb mv nameserver NAMESERVER NOARP nwid
+pingowania pingując pptp PPTP RTS thr Tx txqueuelen xe adsl ADSL dBm encap
+GentooNode HWaddr ifconfig addr crona chrootowanym dvd podprofile svgalib
+snapshota tarballa wyedytowanie CXXFLAGS hb LiveDVD MMDDggmmRRRR
 
