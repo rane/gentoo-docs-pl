@@ -7,3 +7,5 @@ xfce-config.xml -> v1.5
 gentoo-sparc-quickinstall.xml -> v1.10
 gentoo-x86-quickinstall.xml -> v1.20
 gentoo-x86+raid+lvm2-quickinstall.xml -> v1.9
+gnome-2.16-upgrade.xml -> v1.2
+diskless-howto.xml -> v1.13
