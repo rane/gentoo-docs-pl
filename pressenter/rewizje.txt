@@ -1,0 +1,9 @@
+gentoo-freebsd.xml -> v1.18
+gentoo-ppc-faq.xml -> v1.22
+bluetooth-guide.xml -> v1.13
+liveusb.xml -> v1.11
+power-management-guide.xml -> v1.6
+xfce-config.xml -> v1.5
+gentoo-sparc-quickinstall.xml -> v1.10
+gentoo-x86-quickinstall.xml -> v1.20
+gentoo-x86+raid+lvm2-quickinstall.xml -> v1.9
