@@ -1,0 +1,1402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/diskless-howto.xml,v 1.13 2007/05/24 20:24:17 rane Exp $ -->
+
+<guide link="/doc/pl/diskless-howto.xml" lang="pl">
+<title>Bezdyskowa stacja robocza na bazie Gentoo</title>
+
+<author title="Autor">
+  <mail link="ma53@drexel.edu">Michael Andrews</mail>
+</author>
+<author title="Redaktor">
+  <mail link="unsolo@sysrq.no">Kristian Jerpetjoen</mail>
+</author>
+<author title="Korekta">
+  <mail link="swift@gentoo.org">Sven Vermeulen</mail>
+</author>
+<author title="Korekta">
+  <mail link="neysx@gentoo.org">Xavier Neys</mail>
+</author>
+<author title="Tłumaczenie">
+  Paweł Kwiatkowski
+</author>
+<author title="Tłumaczenie">
+  <mail link="stawrul@gmail.com">Waldemar Korłub</mail>
+</author>
+
+<abstract>
+Niniejszy przewodnik pomaga stworzyć bezdyskową stację roboczą opartą o Gentoo
+Linux.
+</abstract>
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
+<license/>
+
+<version>1.26</version>
+<date>2007-03-05</date>
+
+<chapter>
+<title>Wprowadzenie</title>
+
+<section>
+<title>O przewodniku</title>
+<body>
+
+<p>
+Przewodnik pomaga skonfigurować <e>bezdyskową</e> stację roboczą opartą o
+dystrybucję Gentoo Linux. W zamierzeniach ma być tak przyjazny dla
+początkującego użytkownika Linuksa, jak tylko możliwe. W końcu każdy z nas
+kiedyś był początkujący :) Zaawansowani użytkownicy mogliby z łatwością powiązać
+różnorodne przewodniki o bezdyskowych stacjach oraz konfiguracji sieci i zrobić
+to samodzielnie. Mamy jednak nadzieję, że niniejszy dokument ułatwi instalację
+wszystkim zainteresowanym użytkownikom, zarówno początkującym jak i
+zaawansowanym.
+</p>
+
+</body>
+</section>
+<section>
+<title>Czym jest bezdyskowa stacja?</title>
+<body>
+
+<p>
+Bezdyskowa stacja to przeważnie PC bez typowych urządzeń uruchomieniowych
+takich jak twarde dyski, stacje dyskietek lub napędy CD. Bezdyskowe stacje
+uruchamiają się z sieci i dlatego potrzebują serwera, który dostarcza
+przestrzeni na składowanie danych, analogicznie do twardego dysku. Od tego
+momentu taki serwer będziemy określali mianem <e>master</e>, natomiast
+bezdyskową stację nazywali <e>slave</e>. Bezdyskowy komputer musi posiadać
+kartę sieciową, która wspiera uruchamianie z PXE lub Etherboot; pod adresem
+<uri link="http://www.etherboot.org">Etherboot.org</uri> znajduje się lista
+wspieranych urządzeń. Większość nowych kart sieciowych wspiera PXE, podobnie
+karty zintegrowane z płytami głównymi.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zanim zaczniemy</title>
+<body>
+
+<p>
+Zakładamy, że na komputerze master jest zainstalowane Gentoo oraz jest tam
+wystarczającą ilość wolnego miejsca na składowanie systemu plików dla maszyn
+slave. Musimy upewnić się że posiadamy jeden interfejs sieciowy, z połączeniem
+do internetu, który jest oddzielony od połączenia z siecią lokalną.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Konfiguracja maszyn: master i slave</title>
+<section>
+<title>O kernelach</title>
+<body>
+
+<p>
+Kernel to program, który pośredniczy między sprzętem a innymi programami, które
+mamy na naszym komputerze. W skrócie: kernel stanowi centrum nowoczesnego
+systemu operacyjnego. Kiedy uruchamiamy komputer, BIOS wykonuje instrukcje
+znajdujące się w zarezerwowanym obszarze twardego dysku. Te instrukcje są
+przeważnie boot loaderem, który ładuje kernel. Po tym jak kernel zostanie
+załadowany, wszystkie procesy są przez niego obsługiwane.
+</p>
+
+<p>
+Więcej informacji o kernelach i ich konfiguracji można znaleźć w <uri
+link="http://www.tldp.org/HOWTO/Kernel-HOWTO.html">przewodniku po kernelu</uri>.
+</p>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja kernela na komputerze master</title>
+<body>
+
+<p>
+Kernel na maszynie master może być tak duży i dostosowany do potrzeb jak tylko
+to potrzebne. Jednakże trzeba zaznaczyć kilka niezbędnych opcji. Przejdźmy do
+menu konfiguracyjnego kernela wpisując:
+</p>
+
+<pre caption="Edycja konfiguracji kernela na komputerze master">
+# <i>cd /usr/src/linux</i>
+# <i>make menuconfig</i>
+</pre>
+
+<p>
+Naszym oczom powinno się ukazać szaroniebieskie menu stanowiące alternatywę
+dla ręcznej edycji pliku <path>/usr/src/linux/.config</path>. Jeśli kernel
+działa prawidłowo, to można zachować bieżący plik konfiguracyjny. Wystarczy
+wyjść z menu i napisać:
+</p>
+
+<pre caption="Tworzenie kopii zapasowej konfiguracji kernela na komputerze master">
+# <i>cp .config .config_working</i>
+</pre>
+
+<p>
+Wejdźmy do następujących elementów menu i upewnijmy się, że wymienione niżej
+opcje są zaznaczone do wkompilowania (lecz <e>NIE</e> jako moduły). Poniższa
+lista wzorowana jest na kernelu w wersji 2.6.10. W innej wersji tekst oraz
+kolejność mogą się różnic. Należy zaznaczyć przynajmniej opcje pokazane poniżej.
+</p>
+
+<pre caption="Opcje kernela na komputerze master">
+Code maturity level options  ---&gt;
+  [*] Prompt for development and/or incomplete code/drivers
+
+Device Drivers ---&gt;
+  Networking options ---&gt;
+    &lt;*&gt; Packet socket
+    &lt;*&gt; Unix domain sockets
+    [*] TCP/IP networking
+    [*]   IP: multicasting
+    [ ] Network packet filtering (replaces ipchains)
+
+File systems ---&gt;
+  Network File Systems  ---&gt;
+    &lt;*&gt; NFS server support
+    [*]   Provide NFSv3 server support
+
+<comment>
+Jeśli zamierzamy korzystać z internetu poprzez maszynę master i/lub posiadamy
+firewall, to w kernelu powinno być włączone wsparcie dla iptables.
+</comment>
+  [*] Network packet filtering (replaces ipchains)
+  IP: Netfilter Configuration  ---&gt;
+    &lt;*&gt; Connection tracking (required for masq/NAT)
+    &lt;*&gt; IP tables support (required for filtering/masq/NAT)
+</pre>
+
+<p>
+Możliwość filtrowania pakietów możemy zapewnić poprzez dodanie modułów. Zalecamy
+przeczytanie <uri
+link="/doc/pl/security/security-handbook.xml?part=1&amp;chap=12">rozdziału o
+firewallach, z przewodnika Gentoo Security</uri> i o tym jak je prawidłowo
+skonfigurować.
+</p>
+
+<note>
+Wymienione opcje powinny być jedynie dodane do konfiguracji kernela naszego
+systemu. Nie należy traktować tego jako całkowitego zastąpienia bieżącej
+konfiguracji.
+</note>
+
+<p>
+Po skonfigurowaniu kernela na komputerze master, należy go zbudować:
+</p>
+
+<pre caption="Rekompilacja kernela i modułów na komputerze master">
+# <i>make &amp;&amp; make modules_install</i>
+<comment>(Przed kopiowaniem należ upewnić się że /boot jest zamontowany)</comment>
+# <i>cp arch/i386/boot/bzImage /boot/bzImage-master</i>
+</pre>
+
+<p>
+Następnie dodajemy wpis dla nowego kernela w pliku <path>lilo.conf</path> lub
+<path>grub.conf</path>, w zależności od tego jaki boot loader posiadamy.
+Ustawiamy nowy kernel jako standardowy. Po tym jak bzImage został skopiowany
+do katalogu startowego, wszystko co pozostaje zrobić to ponownie uruchomić
+maszynę, tak by nowe ustawienia zostały załadowane.
+</p>
+
+</body>
+</section>
+<section>
+<title>O kernelu dla maszyny slave</title>
+<body>
+
+<p>
+Zaleca się skompilowanie kernela dla maszyny slave bez jakichkolwiek modułów,
+gdyż ładowanie i ich zdalna konfiguracja jest trudnym i zbędnym procesem. Co
+więcej, kernel dla maszyny slave powinien być tak mały i spójny jak to tylko
+możliwe, by mógł być efektywnie ładowany z sieci. Skompilujemy kernel dla
+maszyny slave w tej samej lokalizacji, w której kernel dla maszyny master był
+konfigurowany.
+</p>
+
+<p>
+Dobrym pomysłem jest utworzenie kopii zapasowej pliku konfiguracyjnego kernela
+dla maszyny master. Dzięki temu unikniemy zamieszania i straty czasu. Kopię
+wykonujemy wpisując:
+</p>
+
+<pre caption="Tworzenie kopii zapasowej konfiguracji dla kernela maszyny master">
+# <i>cp /usr/src/linux/.config /usr/src/linux/.config_master</i>
+</pre>
+
+<p>
+Chcemy skonfigurować kernel dla maszyny slave, w ten sam sposób, w który
+konfigurowaliśmy kernel dla maszyny master. Mamy możliwość rozpoczęcia
+prac ze 'świeżym' plikiem konfiguracyjnym, wystarczy, że przywrócimy
+<path>/usr/src/linux/.config</path> wpisując:
+</p>
+
+<pre caption="Przywracanie pliku konfiguracyjnego kernela">
+# <i>cd /usr/src/linux</i>
+# <i>cp .config_master .config</i>
+</pre>
+
+<p>
+Teraz przechodzimy do menu konfiguracyjnego przez wpisanie:
+</p>
+
+<pre caption="Edycja konfiguracji kernela dla maszyny slave">
+# <i>cd /usr/src/linux</i>
+# <i>make menuconfig</i>
+</pre>
+
+<p>
+Upewnijmy się że zaznaczone są następujące opcje jako mające być wbudowane
+w kernel, lecz <e>NIE</e> jako moduły:
+</p>
+
+<pre caption="opcje kernela slave">
+Code maturity level options  ---&gt;
+  [*] Prompt for development and/or incomplete code/drivers
+
+Device Drivers ---&gt;
+  [*] Networking support
+  Networking options ---&gt;
+    &lt;*&gt; Packet socket
+    &lt;*&gt; Unix domain sockets
+    [*] TCP/IP networking
+    [*]   IP: multicasting
+    [*]   IP: kernel level autoconfiguration
+    [*]     IP: DHCP support (NEW)
+
+File systems ---&gt;
+  Network File Systems  ---&gt;
+    &lt;*&gt; file system support
+    [*]   Provide NFSv3 client support
+    [*]   Root file system on NFS
+</pre>
+
+<note>
+Można zrezygnować z serwera DHCP na rzecz serwera BOOTP.
+</note>
+
+<impo>
+Istotne jest by na stacjach roboczych obsługę karty sieciowej wkompilować w
+kernel (a nie budować jako moduł). W ogólności używanie modułów nie stanowi
+problemu dla stacji bezdyskowych.
+</impo>
+
+<p>
+Teraz nadszedł czas by skompilować kernel dla maszyny slave. W tym miejscu
+należy wykazać się ostrożnością i nie zepsuć modułów (jeśli jakieś są), które
+zostały zbudowane dla maszyny master.
+</p>
+
+<pre caption="Kompilacja kernela slave">
+# <i>cd /usr/src/linux</i>
+# <i>make</i>
+</pre>
+
+<p>
+Na komputerze master tworzymy katalog, który będzie zawierał niezbędne pliki
+systemowe oraz dane stacji bezdyskowych. W przewodniku używamy katalogu
+<path>/diskless</path>, ale można wybrać dowolną lokalizację. Skopiujmy
+obraz kernela, dla maszyny slave, do katalogu <path>/diskless</path>:
+</p>
+
+<note>
+Jeśli używamy różnych architektur możemy zapisać każdy plik konfiguracyjny w
+pliku <path>.config_arch</path>. To samo robimy z obrazami kerneli: zapisujemy
+je w katalogu <path>/diskless</path> jako <path>bzImage_arch</path>.
+</note>
+
+<pre caption="Kopiowanie kernela dla maszyny slave">
+# <i>mkdir /diskless</i>
+# <i>cp /usr/src/linux/arch/i386/boot/bzImage /diskless</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja wstępnego systemu plików dla maszyny slave</title>
+<body>
+
+<p>
+Systemy plików dla maszyn master i slave mogą być często modyfikowane.
+Obecnie interesuje nas tylko stworzenie wstępnego systemu plików,
+złożonego z plików konfiguracyjnych i punktów montowań. Na początek musimy
+utworzyć katalog, dla pierwszej maszyny slave, w obrębie <path>/diskless</path>.
+Każdy komputer slave musi mieć własny system plików, gdyż współdzielenie pewnych
+plików systemowych, może spowodować problemy z uprawnieniami i prowadzić do
+ciężkich awarii. Chociaż katalogom można nadawać dowolne nazwy, to jednak
+zalecamy używać adresów IP maszyn slave, gdyż adresy te są unikalne i nie
+wprowadzają zamieszania. Załóżmy, że statyczny adres IP naszej pierwszej maszyny
+slave to np. <c>192.168.1.21</c>:
+</p>
+
+<pre caption="Tworzenie zdalnego katalogu głównego">
+# <i>mkdir /diskless/192.168.1.21</i>
+</pre>
+
+<p>
+Różne pliki konfiguracyjne, z katalogu <path>/etc</path>, muszą zostać
+zmienione by prawidłowo działać na komputerze slave. Z maszyny master
+kopiujemy katalog <path>/etc</path> do katalogu głównego maszyny slave,
+wpisując:
+</p>
+
+<pre caption="Tworzenie /etc na komputerze slave">
+# <i>cp -r /etc /diskless/192.168.1.21/etc</i>
+</pre>
+
+<p>
+System plików nadal nie jest gotowy, gdyż potrzebne są różne katalogi i punkty
+montowania. By je utworzyć wpisujemy:
+</p>
+
+<pre caption="Tworzenie punktów montowań i katalogów w systemie plików na komputerze slave">
+# <i>mkdir /diskless/192.168.1.21/home</i>
+# <i>mkdir /diskless/192.168.1.21/dev</i>
+# <i>mkdir /diskless/192.168.1.21/proc</i>
+# <i>mkdir /diskless/192.168.1.21/tmp</i>
+# <i>mkdir /diskless/192.168.1.21/mnt</i>
+# <i>chmod a+w /diskless/192.168.1.21/tmp</i>
+# <i>mkdir /diskless/192.168.1.21/mnt/.initd</i>
+# <i>mkdir /diskless/192.168.1.21/root</i>
+# <i>mkdir /diskless/192.168.1.21/sys</i>
+# <i>mkdir /diskless/192.168.1.21/var</i>
+# <i>mkdir /diskless/192.168.1.21/var/empty</i>
+# <i>mkdir /diskless/192.168.1.21/var/lock</i>
+# <i>mkdir /diskless/192.168.1.21/var/log</i>
+# <i>mkdir /diskless/192.168.1.21/var/run</i>
+# <i>mkdir /diskless/192.168.1.21/var/spool</i>
+# <i>mkdir /diskless/192.168.1.21/usr</i>
+# <i>mkdir /diskless/192.168.1.21/opt</i>
+</pre>
+
+<p>
+Większość katalogów "szkieletowych" powinna wyglądać znajomo; Katalogi typu
+<path>/dev</path>, czy <path>/proc</path> zostają wypełnione podczas startu
+maszyny slave, inne będą podmontowane później. Należy także zmienić plik
+<path>/diskless/192.168.1.21/etc/conf.d/hostname</path>, by odzwierciedlić
+nazwę maszyny slave. Binaria, biblioteki i inne pliki zostaną dodane w dalszej
+części tego przewodnika, tuż przed próbą uruchomienia maszyny slave.
+</p>
+
+<p>
+Mimo tego, że <path>/dev</path> jest wypełniany przez <c>udev</c>, należy
+utworzyć wpis <path>console</path>. Jeśli tego nie zrobimy, to będzie pojawiał
+się błąd "unable to open initial console".
+</p>
+
+<pre caption="Tworzenie wpisu console w /dev">
+# <i>mknod /diskless/192.168.1.21/dev/console c 5 1</i>
+</pre>
+
+</body>
+</section>
+</chapter>
+
+
+<chapter>
+<title>Konfiguracja serwera DHCP</title>
+<section>
+<title>O serwerze DHCP</title>
+<body>
+
+<p>
+DHCP jest skrótem dla Dynamic Host Configuration Protocol.  Serwer DHCP jest
+pierwszą maszyną, z którą komputer slave komunikuje się podczas uruchamiania
+z PXE. Podstawowym zadaniem serwera DHCP jest przydzielenie adresu IP. Serwer
+DHCP jest w stanie przypisać adres IP na podstawie adresów MAC kart sieciowych
+klientów. Jak tylko komputer slave uzyska adres IP, serwer DHCP przekazujej jej
+informację skąd wziąć bazowy system plików oraz kernel.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zanim zaczniemy</title>
+<body>
+
+<p>
+Zanim zaczniemy należy sprawdzić czy wymagane komponenty działają
+poprawnie. Na początek sprawdzamy połączenie sieciowe:
+</p>
+
+<pre caption="Sprawdzanie konfiguracji sieciowej">
+# <i>ifconfig eth0 multicast</i>
+# <i>ifconfig -a</i>
+</pre>
+
+<p>
+Trzeba upewnić się że interfejs <e>eth0</e> funkcjonuje prawidłowo.  Powinno
+to wyglądać mniej więcej tak:
+</p>
+
+<pre caption="Prawidłowo działający interfejs eth0">
+eth0      Link encap:Ethernet  HWaddr 00:E0:83:16:2F:D6
+          inet addr:192.168.1.1  Bcast:192.168.1.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:26460491 errors:0 dropped:0 overruns:2 frame:0
+          TX packets:32903198 errors:0 dropped:0 overruns:0 carrier:1
+          collisions:0 txqueuelen:100
+          RX bytes:2483502568 (2368.4 Mb)  TX bytes:1411984950 (1346.5 Mb)
+          Interrupt:18 Base address:0x1800
+</pre>
+
+<p>
+Musi być napisane <e>MULTICAST</e>. Jeśli tak nie jest, to trzeba przebudować
+kernel tak by zawierał wsparcie dla multicast.
+</p>
+
+</body>
+</section>
+<section>
+<title>Instalacja serwera DHCP</title>
+<body>
+
+<p>
+Jeśli w naszej sieci nie ma jeszcze serwera DHCP, to go instalujemy:
+</p>
+
+<pre caption="Instalacja serwera dhcp">
+# <i>emerge dhcp</i>
+</pre>
+
+<p>
+Jeśli w sieci już jest zainstalowany serwer DHCP pozostaje wyedytować plik
+konfiguracyjny, by uruchamianie z PXE funkcjonowało prawidłowo.
+</p>
+
+</body>
+</section>
+<section>
+<title>Konfigurowanie serwera DHCP</title>
+<body>
+
+<p>
+Jest tylko jeden plik konfiguracyjny, który należy wyedytować przed
+uruchomieniem serwera DHCP: <path>/etc/dhcp/dhcpd.conf</path>.  Kopiujemy
+i edytujemy dostarczony plik przykładowy:
+</p>
+
+<pre caption="Edycja pliku konfiguracyjnego serwera dhcp">
+# <i>cp /etc/dhcp/dhcpd.conf.sample /etc/dhcp/dhcpd.conf</i>
+# <i>nano -w /etc/dhcp/dhcpd.conf</i>
+</pre>
+
+<p>
+Ogólny układ pliku to sformatowana struktura, która wygląda tak:
+</p>
+
+<pre caption="Przykładowy plik dhcpd.conf">
+<comment># opcje globalne</comment>
+ddns-update-style none;
+shared-network LOCAL-NET {
+<comment># współdzielone opcje sieciowe</comment>
+subnet 192.168.1.0 netmask 255.255.255.0 {
+<comment>    # opcje dla podsieci</comment>
+    host slave{
+<comment>        # opcje charakterystyczne dla hosta</comment>
+    }
+    group {
+<comment>        # opcje charakterystyczne dla grupy</comment>
+    }
+}
+}
+</pre>
+
+<p>
+Blok <c>shared-network</c> jest opcjonalny i powinien być używany dla
+tych IP, które chcemy przypisać, a które należą do tej samej topologii sieci.
+W pliku musi zostać zadeklarowana przynajmniej jedna sekcja <c>subnet</c>.
+Niewymagany blok <c>group</c> pozwala zebrać opcje charakterystyczne dla grupy
+wpisów. Dobry przykład pliku <path>dhcpd.conf</path> wygląda tak:
+</p>
+
+<pre caption="Przykładowy plik dhcpd.conf">
+#
+# Przykładowy plik dhcpd.conf dla klientów bezdyskowych
+#
+
+# Wyłączanie dynamicznych DNS
+ddns-update-style none;
+
+# Zakładamy jedną domyślną bramkę wyjściową dla IP
+option routers 192.168.1.1;
+
+# Zapewniamy informację o DNS dla klientów 
+option domain-name-servers 192.168.1.1;
+option domain-name "mydomain.com";
+
+# Wyszczególniamy, który serwer TFTP ma zostać użyty
+next-server 192.168.1.1;
+
+# Deklarujemy opcje bufora zapewniającego dla klientów PXE:
+# Code 1: adres Multicast IP startowego serwera plików
+# Code 2: port UDP, na którym klient powinien sprawdzać odpowiedzi MTFTP
+# Code 3: port UDP, którego używa serwer MTFTP do nasłuchiwania zapytań
+# Code 4: liczba sekund, przez które klient musi monitorować aktywność, zanim
+#         spróbuje rozpocząć nowy transfer MTFTP
+# Code 5: Liczba sekund przez które klient musi nasłuchiwać, zanim ponownie
+#         uruchomi transferMTFTP
+
+option space PXE;
+option PXE.mtftp-ip               code 1 = ip-address;
+option PXE.mtftp-cport            code 2 = unsigned integer 16;
+option PXE.mtftp-sport            code 3 = unsigned integer 16;
+option PXE.mtftp-tmout            code 4 = unsigned integer 8;
+option PXE.mtftp-delay            code 5 = unsigned integer 8;
+option PXE.discovery-control      code 6 = unsigned integer 8;
+option PXE.discovery-mcast-addr   code 7 = ip-address;
+
+# Należy zdeklarować subnet, gdzie będą się znajdowały nasze bezdyskowe węzły
+subnet 192.168.1.0 netmask 255.255.255.0 {
+
+
+  class "pxeclients" {
+    match if substring (option vendor-class-identifier, 0, 9) = "PXEClient";
+    vendor-option-space PXE;
+
+    # Przynajmniej jedna z opcji PXE, charakterystycznych dla dostawcy, musi
+    # być ustawiona, by boot ROMy klienta wiedziały, że jesteśmy serwerem
+    # zdolnym obsłużyć PXE. Ustawiamy adres MCAST IP na 0.0.0.0, aby boot ROMy
+    # wiedziały, że nie jesteśmy w stanie dostarczyć multicat TFTP (adres
+    # 0.0.0.0 oznacza brak adresu).
+
+    option PXE.mtftp-ip 0.0.0.0;
+
+    # Nazwa pliku, który boot ROMy powinny ściągnąć.
+    filename "pxelinux.0";
+  }
+
+  # Należy zapewnić klientom etherboot odpowqednie informacje
+  class "etherboot" {
+        match if substring(option vendor-class-identifier, 0, 9) = "Etherboot";
+        filename "vmlinuz_arch";
+  }
+
+  # Dodajemy jedną deklarację hosta dla każdego bezdyskowego hosta
+  host slave21 {
+       <comment># Używamy adresu MAC karty sieciowej w komputerze slave</comment>
+       hardware ethernet                00:40:63:C2:CA:C9;
+       <comment># Nadajemy komputerowi slave statyczny adres IP</comment>
+       fixed-address                    192.168.1.21;
+  }
+}
+</pre>
+
+<note>
+Nie ma żadnych przeciwskazań do jednoczesnego używania PXE i Etherboot.
+Powyższa konfiguracja jest zaledwie przykładem. W razie wątpliwości należy
+zapoznać się z dokumentacją DHCPd.
+</note>
+
+<p>
+Maszyna z adresem IP po wpisie <c>next-server</c>, będzie odpytana o wskazany
+plik <c>filename</c>. Wartość ta powinna odpowiadać adresowi IP serwera tftp,
+przeważnie jest taka sama jak adres IP maszyny master. Nazwa <c>filename</c>
+jest podana względem katalogu <path>/diskless</path> (jest to spowodowane
+opcjami serwera tftp i zostanie omówione w dalszej części). Wewnątrz bloku
+<c>host</c>, opcja <c>hardware ethernet</c> określa adres MAC,
+<c>fixed-address</c> przypisuje stały adres IP do konkretnego adresu MAC.
+Strona manuala <path>dhcpd.conf</path> może okazać się bardzo pomocna, ponieważ
+zawiera opisy opcji nie znajdujących się w tym HOWTO. Można ją przeczytać
+wpisując:
+</p>
+
+<pre caption="Przeglądanie stron podręcznika dla pliku dhcpd.conf">
+# <i>man dhcpd.conf</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Uruchamianie serwera DHCP</title>
+<body>
+
+<p>
+Przed uruchomieniem skryptu startowego dhcp, edytujemy plik
+<path>/etc/conf.d/dhcp</path>, tak by wyglądał mniej więcej tak:
+</p>
+
+<pre caption="Przykładowy plik /etc/conf.d/dhcp">
+IFACE="eth0"
+<comment># dodatkowe opcje</comment>
+</pre>
+
+<p>
+Zmienna <c>IFACE</c> określa interfejs sieciowy na którym dostępny jest serwer
+DHCP. W tym przypadku jest to <c>eth0</c>. Dodawanie kolejnych argumentów do
+zmiennej <c>IFACE</c> może być użyteczne w przypadku złożonych sieci, gdy mamy
+wiele kart sieciowych. Serwer dhcp uruchamiamy wpisując:
+</p>
+
+<pre caption="Uruchamianie serwera dhcp na komputerze master">
+# <i>/etc/init.d/dhcp start</i>
+</pre>
+
+<p>
+W celu dodania serwera dhcp do skryptów startowych należy wpisać:
+</p>
+
+<pre caption="Dodawanie serwera dhcp do standardowego poziomu uruchamiania na
+komputerze master">
+# <i>rc-update add dhcp default</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Kłopoty z serwerem DHCP</title>
+<body>
+
+<p>
+Chcąc zobaczyć czy stacja startuje poprawnie, można obejrzeć plik
+<path>/var/log/messages</path>.  Jeśli stacja uruchomi się poprawie, to plik
+<path>messages</path> powinien na końcu zawierać linie wyglądające tak:
+</p>
+
+<pre caption="Przykładowe wpisy z logów utworzonych przez dhcp">
+DHCPDISCOVER from 00:00:00:00:00:00 via eth0
+DHCPOFFER on 192.168.1.21 to 00:00:00:00:00:00 via eth0
+DHCPREQUEST for 192.168.1.21 from 00:00:00:00:00:00 via eth0
+DHCPACK on 192.168.1.21 to 00:00:00:00:00:00 via eth0
+</pre>
+
+<note>
+Plik z logiem może okazać się pomocny przy ustalaniu adresów MAC maszyn slave.
+</note>
+
+<p>
+Jeśli otrzymujemy następujący komunikat, oznacza to, że prawdopodobnie z plikiem
+konfiguracyjnym jest coś nie tak, ale serwer DHCP działa prawidłowo.
+</p>
+
+<pre caption="Przykładowy błąd serwera dhcp">
+no free leases on subnet LOCAL-NET
+</pre>
+
+<p>
+Każdorazowa zmiana konfiguracji wymaga ponownego uruchomienia serwera DHCP.
+Serwer uruchamiamy komendą:
+</p>
+
+<pre caption="Ponowne uruchamianie serwera dhcp na mszyanie master">
+# <i>/etc/init.d/dhcpd restart</i>
+</pre>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>
+Konfiguracja serwera TFTP oraz PXE Linux Bootloadera i/lub Etherboot
+</title>
+<section>
+<title>O serwerze TFTP</title>
+<body>
+
+<p>
+TFTP jest skrótem od Trivial File Transfer Protocol. Zadaniem serwera TFTP jest
+dostarczanie, maszynom slave, bazowego sytemu plików oraz kernela. Wszystkie
+kernele i bazowe systemy plików będą składowane na serwerze TFTP, więc
+prawdopodobnie to dobry pomysł, by maszynę master uczynić serwerem TFTP.
+</p>
+
+
+
+</body>
+</section>
+<section>
+<title>Instalacja serwera TFTP</title>
+<body>
+
+<p>
+Wysoce zalecany serwer tftp jest dostępny w portage jako pakiet tft-hpa.
+Tak się składa, że serwer tftp jest napisany przez autora SYSLINUX i działa
+bardzo dobrze z pxelinux. Instalujemy wpisując:
+</p>
+
+<pre caption="Instalacja serwera tfp">
+# <i>emerge tftp-hpa</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja serwera TFTP</title>
+<body>
+
+<p>
+Edytujemy plik <path>/etc/conf.d/in.tftpd</path>.  Należy w nim określić
+katalog domowy serwera tftp poprzez zmienną <c>INTFTPD_PATH</c>, a
+wszelkie opcje przekazywane w linii poleceń, umieścić w zmiennej
+<c>INTFTPD_OPTS</c>. Powinno to wyglądać mniej więcej tak:
+</p>
+
+<pre caption="Przykładowy plik /etc/conf.d/in.tftpd">
+INTFTPD_PATH="/diskless"
+INTFTPD_OPTS="-l -v -s ${INTFTPD_PATH}"
+</pre>
+
+<p>
+Opcja <c>-l</c> oznacza, że serwer nasłuchuje w trybie STAND ALONE, więc nie
+trzeba uruchamiać intetd. Opcja <c>-v</c> powoduje zwiększenie poziomu
+logowania/raportowania błędów. Opcja <c>-s /diskless</c> określa katalog główny
+serwera tftp.
+</p>
+
+</body>
+</section>
+<section>
+<title>Uruchamianie serwera TFTP</title>
+<body>
+
+<p>
+Serwer uruchamiamy przez wpisanie:
+</p>
+
+<pre caption="Uruchamianie serwera tftp na komputerze master">
+# <i>/etc/init.d/in.tftpd start</i>
+</pre>
+
+<p>
+Serwer tftp powinien zostać uruchomiony z opcjami, które zostały określone
+w pliku <path>/etc/conf.d/in.tftpd</path>. Serwer może być uruchamiany podczas
+startu systemu, wystarczy wpisać:
+</p>
+
+<pre caption="Dodawanie serwera tftp do standardowego poziomu uruchamiania na
+komputerze master">
+# <i>rc-update add in.tftpd default</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>O PXELINUX</title>
+<body>
+
+<p>
+Tę sekcję możemy pominąć, jeśli używamy tylko Etherboot.
+PXELINUX jest sieciowym odpowiednikiem LILO lub GRUBa i jest obsługiwany przez
+TFTP.  Właściwie jest to niewielki zbiór instrukcji, które informują klienta,
+gdzie należy szukać kernela i bazowego systemu plików oraz pozwalają na
+przekazywanie różnych opcji do kernela.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zanim zaczniemy</title>
+<body>
+
+<p>
+Będzie nam potrzebny plik pxelinux.0, który znajduje się w pakiecie SYSLINUX
+autorstwa H. Peter Anvina. Pakiet można zainstalować wpisując:
+</p>
+
+<pre caption="Instalowanie syslinux">
+# <i>emerge syslinux</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Ustawianie PXELINUX</title>
+<body>
+
+<note>
+Nie jest to potrzebne dla Etherboot.
+</note>
+
+<p>
+Przed uruchomieniem serwera tftp trzeba ustawić pxelinux. Na początku kopiujemy
+binarkę pxelinux do katalogu <path>/diskless</path>:
+</p>
+
+<pre caption="Ustawianie zdalnego bootloadera">
+# <i>cp /usr/lib/syslinux/pxelinux.0 /diskless</i>
+# <i>mkdir /diskless/pxelinux.cfg</i>
+# <i>touch /diskless/pxelinux.cfg/default</i>
+</pre>
+
+<p>
+Spowoduje to utworzenie standardowego pliku konfiguracyjnego bootloadera.
+Binarka <path>pxelinux.0</path> będzie szukać w katalogu
+<path>pxelinux.cfg</path>, pliku którego nazwa jest adresem IP klienta. Adresem
+zapisanym szesnastkowo. Jeśli nie znajdzie takiego pliku, usunie skrajnie prawą
+cyfrę z nazwy pliku i spróbuje ponownie, aż skończą się cyfry. Wersje syslinux'a
+2.05 i późniejsze, najpierw szukają pliku o nazwie będącej postacią adresu MAC.
+Jeśli nie ma takiego pliku, to wykonywana jest - opisana wcześniej - procedura
+wyszukująca. Jeśli żaden plik nie został znaleziony, to używany jest plik
+<path>default</path>.
+</p>
+
+<pre caption="Kolejne pliki, które poszukiwane są przez PXE w pxelinux.cfg/">
+<comment>(Początkowe 01 oznacza Ethernet, kolejne bajty odpowiadają adresowi MAC
+maszyny slave)</comment>
+01-00-40-63-c2-ca-c9
+
+<comment>(Przypisane adresy IP w formie szesnastkowej)</comment>
+C0A80115
+C0A8011
+C0A801
+C0A80
+C0A8
+C0A
+C0
+C
+
+default
+</pre>
+
+<note>
+Wszystkie wpisy małymi literami.
+</note>
+
+<p>
+Zacznijmy od pliku <path>default</path>:
+</p>
+
+<pre caption="Przykładowy plik pxelinux.cfg/default">
+DEFAULT /bzImage
+APPEND ip=dhcp root=/dev/nfs nfsroot=192.168.1.1:/diskless/192.168.1.21
+</pre>
+
+<p>
+Znacznik <c>DEFAULT</c> wskazuje pxelinux'owi obraz bzImage, wcześniej
+przygotowanego kernela. Znacznik <c>APPEND</c> dodaje opcje inicjalizujące
+kernel. Z uwagi na to, że skompilowaliśmy kernel dla maszyny slave z
+<c>NFS_ROOT_SUPPORT</c>, to będziemy musieli określić tutaj katalog nfsroot.
+Pierwsze z adresów IP to IP maszyny master, zaś drugie IP to nazwa katalogu,
+który został stworzony w <path>/diskless</path> z myślą o składowaniu bazowego
+systemu plików maszyn slave.
+</p>
+
+</body>
+</section>
+
+<section>
+<title>O Etherboot</title>
+<body>
+
+<note>
+Można to pominąć w przypadku, gdy nie korzystamy z uruchamiania PXE.
+</note>
+
+<p>
+Etherboot uruchamia sieciowe obrazy startowe z serwera TFTP. Podobnie jak PXE,
+Etherboot jest równoważny z LILO lub GRUBem. Narzędzie <c>mknbi</c> umożliwia
+tworzenie różnych obrazów z różnymi opcjami.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zanim zaczniemy</title>
+<body>
+
+<p>
+Potrzebujemy programu <c>mknbi</c> (narzędzie do tworzenia bootowalnych obrazów
+kernela stosowanych przy uruchamianiu z sieci), by tworzyć obrazy Etherboot. To
+narzędzie stworzy skonfigurowany obraz kernela na podstawie oryginalnego
+kernela. Obraz będzie zawierał opcje, takie jak wymieniono w dalszej części.
+</p>
+
+<pre caption="Instalacja mknbi">
+# <i>emerge mknbi</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Tworzenie Etherboot</title>
+<body>
+
+<p>
+W tym rozdziale stworzymy prosty obraz etherboot. Jako, że serwer dhcp wskazuje
+klientom ścieżkę do katalogu głównego w opcji "option root-path" pliku
+dhcpd.conf, to nie musimy jej tutaj załączać. Więcej informacji można znaleźć w
+podręczniku dla mknbi.
+</p>
+
+<pre caption="podręcznik dla mknbi">
+# <i>man mknbi</i>
+</pre>
+
+<p>
+Tworzenie obrazu startowego. Zostanie utworzony bootowalny obraz ELF będący w
+stanie przekazać do kernela parametry dhcp i ścieżkę do katalogu głównego.
+Ponadto kernel zostanie zmuszony do znalezienia serwera dhcp w sieci.
+</p>
+
+<pre caption="tworzenie obrazów netboot">
+# <i>mkelf-linux -ip=dhcp /diskless/bzImage &gt; /diskless/vmlinuz </i>
+</pre>
+
+<note>
+Przy obrazach specyficznych dla architektury należy wpisać <c>bzImage_arch</c> i
+<c>vmlinuz_arch</c>.
+</note>
+
+</body>
+</section>
+<section>
+<title>Problemy z procesem uruchamiania z sieci</title>
+<body>
+
+<p>
+Jest kilka sposobów na testowanie procesu uruchamiania z sieci.  Podstawowy
+to wykorzystanie narzędzia o nazwie <c>tcpdump</c>.  Jeśli chcemy zainstalować
+<c>tcpdump'a</c> wpisujemy po prostu:
+</p>
+
+<pre caption="Instalacja programu tcpdump">
+# <i>emerge tcpdump</i>
+</pre>
+
+<p>
+Teraz możemy analizować ruch sieciowy i upewnić się, że komunikacja
+klient/serwer funkcjonuje prawidłowo. Jeśli coś nie działa, to należy
+wykluczyć kilka przyczyn. Na początek sprawdzamy czy klient/serwer są fizycznie
+połączone, a kable sieciowe nie są uszkodzone. Jeśli klient/serwer nie otrzymują
+zapytań na określonym porcie sprawdźmy czy nie jest to winą firewalla. Ruch
+sieciowy między dwoma komputerami można zacząć analizować wpisując:
+</p>
+
+<pre caption="Podsłuchiwanie komunikacji klient-serwer, przez tcpdump">
+# <i>tcpdump host </i><comment>client_ip</comment><i> i </i><comment>server_ip</comment>
+</pre>
+
+<p>
+Można także wykorzystać <c>tcpdump</c> do słuchania na określonym porcie, takim
+jak port tftp, wpisując:
+</p>
+
+<pre caption="Słuchanie serwera tftp">
+# <i>tcpdump port 69</i>
+</pre>
+
+<p>
+Częsty błąd jaki może się pojawić to: "PXE-E32: TFTP open time-out".
+Jest to prawdopodobnie spowodowane kwestiami konfiguracji firewalla.
+Jeśli korzystamy z <c>TCPwrappers</c>, to warto sprawdzić pliki
+<path>/etc/hosts.allow</path> oraz <path>etc/hosts.deny</path> i upewnić
+się, że są skonfigurowane poprawnie.
+Klient powinien mieć możliwośc podłączenia się do serwera.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Konfiguracja serwera NFS</title>
+<section>
+<title>O serwerze NFS</title>
+<body>
+
+<p>
+NFS to skrót od Network File System. Serwer NFS jest używany do udostępniania
+katalogów dla maszyn slave. Ta część może zostać później zmodyfikowana, ale
+póki co, chcemy by komputer slave był uruchamiany bez dysku.
+</p>
+
+</body>
+</section>
+<section>
+<title>O portmapperze</title>
+<body>
+
+<p>
+Różnorodne usługi klient/serwer nie nasłuchują na określonym porcie, lecz
+polegają na RPC (Remote Procedure Calls - zdalnych wywołaniach procedur). Kiedy
+usługa jest uruchamiana, zaczyna nasłuchiwać na losowym porcie, a następnie
+rejestruje ten port w Portmapperze. NFS polega na RPC i dlatego, zanim zostanie
+uruchomiony, wymaga działającego Portmappera.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zanim zaczniemy</title>
+<body>
+
+<p>
+Serwer NFS potrzebuje wsparcia na poziomie kernela, więc jeśli tego brakuje, to
+należy przebudować kernel na komputerze master. Na wszelki wypadek warto
+sprawdzić konfigurację wpisując:
+</p>
+
+<pre caption="Sprawdzanie opcji charakterystycznych dla NFS">
+# <i>grep NFS /usr/src/linux/.config_master</i>
+</pre>
+
+<p>
+Jeśli kernel został prawidłowo skonfigurowany, to powinno pojawić się coś
+w stylu:
+</p>
+
+<pre caption="Prawidłowe opcje, w pliku konfiguracyjnym kernela na komputerze
+master, charakterystyczne dla NFS">
+CONFIG_PACKET=y
+# CONFIG_PACKET_MMAP is not set
+# CONFIG_NETFILTER is not set
+CONFIG_NFS_FS=y
+CONFIG_NFS_V3=y
+# CONFIG_NFS_V4 is not set
+# CONFIG_NFS_DIRECTIO is not set
+CONFIG_NFSD=y
+CONFIG_NFSD_V3=y
+# CONFIG_NFSD_V4 is not set
+# CONFIG_NFSD_TCP is not set
+</pre>
+
+</body>
+</section>
+<section>
+<title>Instalacja serwera NFS</title>
+<body>
+
+<p>
+Pakiet z NFS można uzyskać poprzez portage pisząc:
+</p>
+
+<pre caption="Instalacja pakietu nfs-utils">
+# <i>emerge nfs-utils</i>
+</pre>
+
+<p>
+Pakiet zostanie zainstalowany wraz z narzędziem do mapowania portów
+(portmapper), serwerem i klientem nfs. Automatycznie zostaną obsłużone
+zależności inicjalizacyjne.
+</p>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja serwera NFS</title>
+<body>
+
+<p>
+Istnieją trzy główne pliki konfiguracyjne, które należy wyedytować:
+</p>
+
+<pre caption="Pliki konfiguracyjne Nfs">
+/etc/exports
+/diskless/192.168.1.21/etc/fstab
+/etc/conf.d/nfs
+</pre>
+
+<p>
+Plik <path>/etc/exports</path> określa jak, do kogo i co eksportować poprzez
+NFS.  Plik fstab na komputerze slave zostanie zmodyfikowany tak, by było możliwe
+zamontowanie systemu plików NFS, wyeksportowanego przez maszynę master.
+</p>
+
+<p>
+Typowy plik <path>/etc/exports</path> dla maszyny  master powinien wyglądać
+mniej więcej tak:
+</p>
+
+<pre caption="Przykładowy plik /etc/exports dla maszyny master">
+<comment># dla każdej maszyny slave należy dodać jedną linię podobną do tej</comment>
+/diskless/192.168.1.21   192.168.1.21(sync,rw,no_root_squash,no_all_squash)
+<comment># wspólne dla wszystkich maszyn slave</comment>
+/opt   192.168.1.0/24(sync,ro,no_root_squash,no_all_squash)
+/usr   192.168.1.0/24(sync,ro,no_root_squash,no_all_squash)
+/home  192.168.1.0/24(sync,rw,no_root_squash,no_all_squash)
+<comment># jeśli chcesz mieć współdzielony log</comment>
+/var/log   192.168.1.21(sync,rw,no_root_squash,no_all_squash)
+</pre>
+
+<p>
+Pierwsze pole określa katalog, który ma być wyeksportowany. Kolejne z pól
+wskazuje do kogo eksportować i w jaki sposób. To pole można podzielić na dwie
+części: kto może montować wskazany katalog oraz co montujący klient może zrobić
+w systemie plików: <c>ro</c> tylko odczytywać, <c>rw</c> odczytywać/zapisywać;
+<c>no_root_squash</c> i <c>no_all_squash</c> są ważne dla stacji bezdyskowych,
+które zapisują na dysku, by żądania I/O nie zostały przerwane przez system
+operacyjny. Plik fstab, <path>/diskless/192.168.1.21</path>, dla maszyny slave
+powinien wyglądać tak:
+</p>
+
+<pre caption="Przykładowy plik fstab dla maszyny slave">
+<comment># te wpisy są istotne</comment>
+master:/diskless/192.168.1.21   /         nfs     sync,hard,intr,rw,nolock,rsize=8192,wsize=8192    0 0
+master:/opt                     /opt      nfs     sync,hard,intr,ro,nolock,rsize=8192,wsize=8192    0 0
+master:/usr                     /usr      nfs     sync,hard,intr,ro,nolock,rsize=8192,wsize=8192    0 0
+master:/home                    /home     nfs     sync,hard,intr,rw,nolock,rsize=8192,wsize=8192    0 0
+none                            /proc     proc    defaults                                     0 0
+<comment># użyteczne, ale zbyteczne</comment>
+master:/var/log                 /var/log  nfs     hard,intr,rw                                 0 0
+</pre>
+
+<p>
+W tym przykładzie, <e>master</e> jest nazwą maszyny master, ale równie dobrze
+może to być adres IP maszyny master. Pierwsze pole określa katalog, który ma być
+podmontowany, a drugie wskazuje, gdzie ma być zamontowany. Trzecie pole opisuje
+system plików i powinno zawierać NFS dla każdego katalogu zamontowanego przez
+NFS. Czwarte pole dotyczy różnych opcji, które będą wykorzystywane w procesie
+montowania (więcej informacji w podręczniku mount(1), man mount ). Niektórzy
+mają problemy z punktami montowania z opcją soft, więc zrobiliśmy wszystko
+z opcją hard. Warto zerknąć na różne opcje w <path>/etc/fstab</path>, by klaster
+był bardziej wydajny.
+</p>
+
+<p>
+Ostatni plik jaki należy wyedytować, to <path>/etc/conf.d/nfs</path>. Określa
+kilka opcji uwzględnianych przy uruchamianiu nfs i wygląda tak:
+</p>
+
+<pre caption="Przykładowy plik /etc/conf.d/nfs na komputerze master">
+# Plik konfiguracyjny dla /etc/init.d/nfs
+
+# Liczba serwerów, które standardowo mają być uruchomione
+RPCNFSDCOUNT=8
+
+# Opcje do przekazania do rpc.mountd
+RPCMOUNTDOPTS=""
+</pre>
+
+<p>
+Zmiennej <c>RPCNFSDCOUNT</c> należy przypisać ilość bezdyskowych stacji w sieci.
+</p>
+
+</body>
+</section>
+<section>
+<title>Uruchamianie serwera NFS</title>
+<body>
+
+<p>
+Serwer nfs powinien zostać uruchomiony za pomocą skryptu znajdującego się w
+<path>/etc/init.d</path>, należy wpisać:
+</p>
+
+<pre caption="Uruchamianie serwera nfs na komputerze master">
+# <i>/etc/init.d/nfs start</i>
+</pre>
+
+<p>
+Jeśli chcemy, by skrypt był wykonywany podczas uruchamiania systemu, to
+wpisujemy:
+</p>
+
+<pre caption="Dodawanie serwera nfs do standardowego poziomu uruchamiania na
+komputerze master">
+# <i>rc-update add nfs default</i>
+</pre>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Ukończenie prac nad systemem plików dla maszyny slave</title>
+<section>
+<title>Kopiowanie brakujących plików</title>
+<body>
+
+<p>
+Teraz zajmiemy się synchronizacją systemu plików pomiędzy komputerami slave i
+master. Dostarczymy wymagane binaria, jednocześnie zachowując pliki
+charakterystyczne dla maszyny slave.
+</p>
+
+<pre caption="Tworzenie systemu plików na komputerze slave">
+# <i>rsync -avz /bin /diskless/192.168.1.21</i>
+# <i>rsync -avz /sbin /diskless/192.168.1.21</i>
+# <i>rsync -avz /lib /diskless/192.168.1.21</i>
+</pre>
+
+<note>
+Stosujemy rsync -avz zamiast cp ze względu na chęć zachowania dowiązań
+symbolicznych i uprawnień.
+</note>
+
+</body>
+</section>
+<section>
+<title>Konfigurowanie sieci w instalacji bezdyskowej</title>
+<body>
+
+<p>
+Aby zapobiec zatrzymaniu połączenia z naszym serwerem NFS przez skrypt startowy
+sieci, musimy dodać opcję do <path>/etc/conf.d/net</path> na naszym kliencie
+bezdyskowym.
+</p>
+<pre caption="Edycja /etc/conf.d/net">
+<comment>(Dodajmy ten wpis do już istniejących opcji naszego klienta bezdyskowego)</comment>
+config_eth0=( "noop" )
+</pre>
+
+<note>
+W celu zasięgniecia dalszych informacji prosimy przeczytać
+<path>/etc/conf.d/net.example</path>.
+</note>
+
+</body>
+</section>
+<section>
+<title>Skrypty startowe</title>
+<body>
+
+<p>
+Potrzebne jest tyle skryptów startowych w katalogu
+<path>/diskless/192.168.1.21/etc/runlevels</path>, co usług na bezdyskowej
+stacji roboczej. Wszystko zależy od przeznaczenia maszyny slave.
+</p>
+
+<warn>
+Nie należy używać programu <c>rc-update</c> w celu dodania, bądź usuwania
+skryptów w poziomach uruchamiania na komputerach slave, podczas gdy jesteśmy
+zalogowani na komputerze master. Może to prowadzić do zmian w poziomach
+uruchamiania na maszynie master. Linki należy tworzyć ręcznie lub zalogować
+się na maszynę slave za pomocą ssh lub podłączyć monitor i klawiaturę do
+bezdyskowej stacji.
+</warn>
+
+<pre caption="Typowe poziomy uruchamiania dla maszyny slave">
+/diskless/192.168.1.21/etc/runlevels/:
+total 16
+drwxr-xr-x    2 root     root         4096 2003-11-09 15:27 boot
+drwxr-xr-x    2 root     root         4096 2003-10-01 21:10 default
+drwxr-xr-x    2 root     root         4096 2003-03-13 19:05 nonetwork
+drwxr-xr-x    2 root     root         4096 2003-02-23 12:26 single
+
+/diskless/192.168.1.21/etc/runlevels/boot:
+total 0
+lrwxrwxrwx    1 root     root           20 2003-10-18 17:28 bootmisc -> /etc/init.d/bootmisc
+lrwxrwxrwx    1 root     root           19 2003-10-18 17:28 checkfs -> /etc/init.d/checkfs
+lrwxrwxrwx    1 root     root           17 2003-10-18 17:28 clock -> /etc/init.d/clock
+lrwxrwxrwx    1 root     root           22 2003-10-18 17:28 domainname -> /etc/init.d/domainname
+lrwxrwxrwx    1 root     root           20 2003-10-18 17:28 hostname -> /etc/init.d/hostname
+lrwxrwxrwx    1 root     root           22 2003-10-18 17:28 localmount -> /etc/init.d/localmount
+lrwxrwxrwx    1 root     root           18 2003-10-18 17:28 net.lo -> /etc/init.d/net.lo
+lrwxrwxrwx    1 root     root           20 2003-10-18 17:28 netmount -> /etc/init.d/netmount
+lrwxrwxrwx    1 root     root           21 2003-10-18 17:28 rmnologin -> /etc/init.d/rmnologin
+lrwxrwxrwx    1 root     root           19 2003-10-18 17:28 urandom -> /etc/init.d/urandom
+
+/diskless/192.168.1.21/etc/runlevels/default:
+total 0
+lrwxrwxrwx    1 root     root           23 2003-10-18 17:28 consolefont -> /etc/init.d/consolefont
+lrwxrwxrwx    1 root     root           19 2003-10-18 17:28 distccd -> /etc/init.d/distccd
+lrwxrwxrwx    1 root     root           19 2003-10-18 17:28 keymaps -> /etc/init.d/keymaps
+lrwxrwxrwx    1 root     root           17 2003-10-18 17:28 local -> /etc/init.d/local
+lrwxrwxrwx    1 root     root           16 2003-10-18 17:28 sshd -> /etc/init.d/sshd
+lrwxrwxrwx    1 root     root           21 2003-10-18 17:28 syslog-ng -> /etc/init.d/syslog-ng
+lrwxrwxrwx    1 root     root           17 2003-10-18 17:28 vixie-cron -> /etc/init.d/vixie-cron
+
+/diskless/192.168.1.21/etc/runlevels/nonetwork:
+total 0
+lrwxrwxrwx    1 root     root           17 2003-10-18 17:28 local -> /etc/init.d/local
+
+/diskless/192.168.1.21/etc/runlevels/single:
+total 0
+</pre>
+
+<p>
+Nadszedł czas, by zacisnąć kciuki i uruchomić maszynę slave. Działa?
+Możemy sobie pogratulować, jesteśmy dumnymi posiadaczami bezdyskowych
+stacji roboczych :)
+</p>
+
+</body>
+</section>
+
+<!--
+
+<section>
+<title>Alternatywa: ClusterNFS</title>
+<body>
+
+<warn>
+This is mentioned only because a reviewer of this document is using this
+solution. Be aware that Gentoo <e>does not</e> support ClusterNFS. It is not in
+portage and requires changes to a baselayout init script. <b>Use at your own
+risks</b>.
+</warn>
+
+<p>
+If you don't fancy having a distinct root for each slave because it needs some
+maintenance when upgrading files from the master directories, you could share
+the same root across all nodes, master and slaves included. This means all your
+machines need to be compatible because you will have only one set of binaries.
+You also need to be aware that this might have security issues because all of
+your master root will be exported through NFS.
+</p>
+
+<p>
+If you still want to try out this alternative, visit the ClusterNFS <uri
+link="http://clusternfs.sourceforge.net/">home page</uri>, download the
+software and read the doc.
+</p>
+
+<p>
+To make it short, all files are shared and the files that need to be different
+between master and all slaves are copied to <path>file$$CLIENT$$</path>. When a
+slave requests <path>file</path>, ClusterNFS will notice the existence of
+<path>file$$CLIENT$$</path> and send it instead. Files that need to be
+different on each node are copied to <path>file$$IP=192.168.1.21$$</path>.
+The same applies to directories.
+</p>
+
+<p>
+Very shortly, this is what differs from the installation procedure described
+above:
+</p>
+
+<ul>
+  <li>You do not need NFS server support in your master kernel</li>
+  <li>Install ClusterNFS <e>after</e> you emerge nfs-utils</li>
+  <li>Make slave copies of files and directories as described below</li>
+  <li>Do not create a root dir for each node</li>
+  <li>Export only / in your <path>/etc/exports</path> file</li>
+  <li>
+    Only mount / via NFS in the slave <path>/etc/fstab$$CLIENT$$</path> file
+  </li>
+  <li>Edit <path>/etc/init.d/nfs</path> as described below</li>
+  <li>
+    Edit <path>/etc/conf.d/local.start$$CLIENT$$</path> as described below
+  </li>
+</ul>
+
+<pre caption="Files that need to be different between master and slaves">
+/etc/conf.d/local.start$$CLIENT$$
+/etc/conf.d/local.stop$$CLIENT$$<comment> (Probably empty)</comment>
+/etc/crontab$$CLIENT$$<comment> (Probably empty, master takes care of chores)</comment>
+/etc/exports$$CLIENT$$<comment> (Empty, slaves do not export NFS mounts)</comment>
+/etc/fstab$$CLIENT$$
+/etc/hostname$$IP=192.168.1.21$$<comment> (Name your slaves)</comment>
+/etc/mtab$$IP=192.168.1.21$$
+/etc/runlevels$$CLIENT$$<comment> (Clean separation between master and slave boot scripts)</comment>
+/tmp$$IP=192.168.1.21$$
+/var$$IP=192.168.1.21$$<comment> (Create subdirs as in /var)</comment>
+</pre>
+
+<pre caption="Edycja /etc/init.d/nfs">
+        ebegin "Starting NFS daemon"
+        start-stop-daemon - -start - -quiet - -exec \
+<comment># Add - -translate-names option</comment>
+                $nfsd - - - -translate-names
+        eend $? "Error starting NFS daemon"
+         # Check if we support NFSv3
+        ebegin "Starting NFS mountd"
+<comment># zakomentujemy następujące dwie linie (ClusterNFS działa tylko z NFS wer. 2)</comment>
+#       rpcinfo -u localhost nfs 3 &amp;&gt;/dev/null || \
+#               RPCMOUNTDOPTS="$RPCMOUNTDOPTS - -no-nfs-version 3"
+        start-stop-daemon - -start - -quiet - -exec \
+                $mountd - - $RPCMOUNTDOPTS 1&gt;&amp;2
+        eend $? "Error starting NFS mountd"
+</pre>
+
+</body>
+</section>
+-->
+
+</guide>
