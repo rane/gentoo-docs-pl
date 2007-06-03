@@ -1,0 +1,1790 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/power-management-guide.xml,v 1.6 2006/12/19 14:58:31 shadoww Exp $ -->
+
+<guide link="/doc/pl/power-management-guide.xml" lang="pl">
+<title>Zarządzanie zasilaniem</title>
+
+<author title="Autor">
+  <mail link="earthwings@gentoo.org">Dennis Nienhüser</mail>
+</author>
+<author title="Redaktor">
+  <mail link="chriswhite@gentoo.org">Chris White</mail>
+</author>
+<author title="Redaktor">
+  <mail link="nightmorph@gentoo.org">Joshua Saddler</mail>
+</author>
+<author title="Tłumaczenie">
+  <mail link="edi15ta@gazeta.pl">Mateusz Kotyrba</mail>
+</author>
+
+<abstract>
+Zarządzanie zasilaniem jest kluczem do przedłużenia żywotności baterii w
+komputerach przenośnych takich jak laptopy. Ten przewodnik pomaga je
+skonfigurować.
+</abstract>
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
+<license/>
+
+<version>1.33</version>
+<date>2007-05-30</date>
+
+<chapter>
+<title>Wprowadzenie</title>
+<section>
+
+<body>
+
+<p>
+Pojemność i żywotność baterii w laptopach w ostatnich latach znacznie się
+poprawiła. Niemniej jednak nowoczesne procesory pożerają znacznie więcej
+energii niż te starsze, zaś każde pokolenie laptopów wprowadza coraz więcej
+urządzeń głodnych energii. To dlatego zarządzanie zasilaniem jest teraz
+bardziej istotne niż kiedykolwiek wcześniej. Zwiększanie żywotności baterii
+niekoniecznie jest równoznaczne z kupnem nowych. Wiele można osiągnąć stosując
+inteligentną politykę zarządzania zasilaniem.
+</p>
+
+</body>
+</section>
+<section>
+<title>Szybki przegląd</title>
+<body>
+
+<p>
+Ten przewodnik opisuje zarządzanie zasilaniem dla <e>laptopów</e>. Chociaż
+niektóre części mogą się przydać również <e>serwerom</e>, posiadacze innych
+komputerów <e>nie powinni</e> kierować się tym przewodnikiem, gdyż niektóre
+polecenia w nim zawarte mogą wyrządzić szkody. Proszę nie stosować niczego z
+tego przewodnika do serwera, jeśli nie jest się pewnym, że jest to nieszkodliwe
+działanie.
+</p>
+
+<p>
+Ponieważ przewodnik ten stał się nieco długi, poniżej znajduje się krótki
+przegląd jego zawartości, który pomoże się w nim szybko zorientować.
+</p>
+
+<p>
+Rozdział <uri link="#doc_chap2">Warunki wstępne</uri> mówi o pewnych
+wymaganiach, które muszą być spełnione, aby dowolne z poniższych urządzeń
+działało. Są nimi ustawienia BIOS-u, konfiguracja jądra oraz pewne ułatwienia w
+środowisku użytkownika.  Następne 3 rozdziały skupiają się na urządzeniach,
+które zwykle pożerają najwięcej energii - procesor, ekran oraz dysk twardy.
+Każde z nich może być oddzielnie skonfigurowane. <uri
+link="#doc_chap3">Zarządzanie zasilaniem procesora</uri> pokazuje jak ustawić
+częstotliwość procesora, aby zachować maksymalnie dużo energii bez straty
+wydajności. Kilka różnych sztuczek zapobiega działaniu dysku twardego, kiedy
+nie jest to konieczne w <uri link="#doc_chap5">Zarządzaniu zasilaniem dla dysku
+twardego</uri> (zmniejszanie poziomu hałasu jako miły skutek uboczny). Parę
+uwag o bezprzewodowych kartach sieciowych oraz USB kończą część o urządzeniach
+w <uri link="#doc_chap6">Zarządzaniu zasilaniem dla innych urządzeń</uri>
+podczas, gdy inny rozdział jest poświęcony (raczej eksperymentalnie) <uri
+link="#doc_chap7">stanom uśpienia</uri> (ang. sleep states). Ostatni rozdział,
+<uri link="#doc_chap8">Rozwiązywanie problemów</uri>, pokazuje najczęstsze
+pułapki.
+</p>
+
+</body>
+</section>
+<section>
+<title>Budżet energii dla każdego składnika</title>
+<body>
+
+<figure link="/images/energy-budget.png" short="Który składnik pożera ile
+energii?" caption="Budżet energii dla każdego składnika"/>
+
+<p>
+Niemal każda część może działać w różnych stanach - chociażby wyłączonym,
+uśpionym, bezczynnym, czynnym - pochłaniając różne ilości energii. Najwięcej
+pożerają ekran LCD, procesor, chipset i dyski twarde. Często możemy uaktywnić
+niezależne od systemu operacyjnego zarządzanie zasilaniem w BIOS-ie, jednak
+poprzez inteligentne ustawienie tego w systemie operacyjnym, dostosowujące się
+do różnych, sytuacji możemy osiągnąć znacznie więcej.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Warunki wstępne</title>
+<section>
+
+<body>
+
+<p>
+Przed wejściem w szczegóły zarządzania zasilaniem poszczególnych urządzeń
+należy się upewnić, że spełnione są pewne wymagania. Po sprawdzeniu ustawień w
+BIOS-ie, niektóre opcje w jądrze mogą być uaktywnione - w skrócie są nimi ACPI,
+stany uśpienia oraz skalowanie częstotliwości procesora. Ponieważ oszczędzanie
+energii wiąże się ze stratą wydajności lub zwiększonym opóźnieniem, więc
+powinno to być załączone tylko podczas pracy na bateriach. Tu przychodzi z
+pomocą nowy poziom uruchamiania o nazwie <e>battery</e>.
+</p>
+
+</body>
+</section>
+<section>
+<title>BIOS</title>
+<body>
+
+<p>
+Najpierw przypatrzmy się ustawieniom zarządzania zasilania w BIOS-ie.
+Najlepszym rozwiązaniem jest, aby połączyć polityki BIOS-u oraz systemu
+operacyjnego, lecz na dzień dzisiejszy lepiej wyłączyć większość ustawień w
+BIOS-ie. To zapewnia, że BIOS nie będzie wtrącał do naszej polityki zasilania.
+Nie należy zapomnieć, aby ponownie sprawdzić ustawienia BIOS-u po
+skonfigurowaniu czegokolwiek.
+</p>
+
+</body>
+</section>
+<section>
+<title>Ustawianie flag USE</title>
+<body>
+
+<p>
+Po pierwsze należy sprawdzić czy flaga <c>acpi</c> jest ustawiona w
+<path>/etc/make.conf</path>. Innymi flagami, które mogą mieć dla nas znaczenie
+są <c>apm</c>, <c>lm_sensors</c>, <c>nforce2</c>, <c>nvidia</c>, <c>pmu</c>.
+Więcej informacji na ich temat można znaleźć w
+<path>/usr/portage/profiles/use*.desc</path>. Jeżeli zapomnimy ustawić którejś
+z nich, możemy przekompilować pakiety jej używające przy użciu opcji
+<c>--newuse</c> dla <c>emerge</c> (Zobacz <c>man 1 emerge </c>).
+</p>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja jądra</title>
+<body>
+
+<p>
+Wsparcie dla ACPI (Advanced Configuration and Power Interface - dosłownie
+zaawansowana konfiguracja i interfejs zasilania) w jądrze jest nadal w fazie
+rozwoju. Użycie świeżych źródeł jądra zapewnia najnowszą stabilną wersję.
+</p>
+
+<p>
+W Portage znajduje się wiele różnych rodzajów źródeł jądra. Osobiście polecamy
+używanie <c>gentoo-sources</c> lub <c>suspend2-sources</c>. Te ostatnie
+zawierają patche dla Software Suspend 2 (więcej w rozdziale na temat <uri
+link="#doc_chap7">stanów uśpienia</uri>). Podczas konfiguracji jądra należy
+zaznaczyć przynajmniej poniższe opcje:
+</p>
+
+<pre caption="Minimalne ustawienia jądra dla zarządzania zasilaniem (jądro 2.6)">
+Power Management Options ---&gt;
+  [*] Power Management Support
+  [ ] Software Suspend
+
+  ACPI( Advanced Configuration and Power Interface ) Support ---&gt;
+    [*] ACPI Support
+    [ ]   Sleep States
+    [ ]   /proc/acpi/sleep (deprecated)
+    [*]   zasilacz sieciowy Adapter
+    [*]   Battery
+    &lt;M&gt;   Button
+    &lt;M&gt;   Video
+    [ ]  Generic Hotkey
+    &lt;M&gt;   Fan
+    &lt;M&gt;   Processor
+    &lt;M&gt;     Thermal Zone
+    &lt; &gt;   ASUS/Medion Laptop Extras
+    &lt; &gt;   IBM ThinkPad Laptop Extras
+    &lt; &gt;   Toshiba Laptop Extras
+    (0)  Disable ACPI for systems before Jan 1st this year
+    [ ]   Debug Statements
+    [*]   Power Management Timer Support
+    &lt; &gt; ACPI0004, PNP0A05 and PNP0A06 Container Driver (EXPERIMENTAL)
+
+  CPU Frequency Scaling ---&gt;
+    [*] CPU Frequency scaling
+    [ ] Enable CPUfreq debugging
+    &lt; &gt; CPU frequency translation statistics
+    [ ] CPU frequency translation statistics details
+          Default CPUFreq governor (userspace)
+    &lt;*&gt;   'performance' governor
+    &lt;*&gt;   'powersave' governor
+    &lt;*&gt;   'ondemand' cpufreq policy governor
+    &lt;*&gt;   'conservative' cpufreq governor
+    &lt;*&gt;   CPU frequency table helpers
+    &lt;M&gt; ACPI Processor P-States driver
+    &lt;*&gt; <i>CPUFreq driver for your processor</i>
+</pre>
+
+<p>
+Samemu należy zdecydować czy chcemy włączyć Software Suspend czy Stanów uśpienia
+(patrz poniżej). Jeśli posiadamy laptop firmy ASUS, Medion lub
+Toshiba, włączamy odpowiednią opcję.
+</p>
+
+<p>
+Jądro musi wiedzieć w jaki sposób ma włączyć skalowanie częstotliwości
+procesora. Ponieważ każdy typ procesora ma różny interfejs, więc musimy wybrać
+odpowiedni sterownik dla naszego procesora. Należy tu uważać - włączenie
+<c>Intel Pentium 4 clock modulation</c> w systemie z Pentium M prowadzi do
+dziwnych rezultatów. Należy zapoznać się z dokumentacją jądra, jeśli nie
+jesteśmy pewni którą opcję wybrać.
+</p>
+
+<p>
+Kompilujemy jądro i upewniamy się, że podczas startu systemu ładują się
+odpowiednie moduły i uruchamiają jądro z włączonym ACPI. Następnie wykonujemy
+<c>emerge sys-power/acpid</c>, aby uzyskać demon acpi. Informuje on o
+zdarzeniach takich jak przełączanie z zasilacza sieciowego do baterii lub
+zamykaniu ekranu. Należy się upewnić, że moduły zostały załadowane, jeśli nie
+wkompilowaliśmy ich w jądro, po czym uruchamiamy acpid za pomocą polecenia
+<c>/etc/init.d/acpid start</c>. Wykonujemy <c>rc-update add acpid default</c>,
+aby ładować ten moduł podczas startu systemu. Wkrótce nauczymy się go używać.
+</p>
+
+<pre caption="Instalowanie acpid">
+# <i>emerge sys-power/acpid</i>
+# <i>/etc/init.d/acpid start</i>
+# <i>rc-update add acpid default</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Tworzenie poziomu uruchamiania o nazwie "bateria"</title>
+<body>
+
+<p>
+Domyślnnie zarządzanie zasilaniem włączy się tylko kiedy to będzie
+potrzebne - podczas pracy na bateriach. Aby wykonać przełączenie pomiędzy
+zasilaczem sieciowym a wygodną baterią, stworzymy poziom uruchamiania o nazwie
+<e>bateria</e>, który będzie zawierał wszystkie skrypty uruchamiające i
+wyłączające zarządzanie zasilaniem.
+</p>
+
+<note>
+Możemy bezpiecznie ominąć tę część, jeśli nie chcemy mieć dodatkowego poziomu
+uruchamiania. Jednakże przeskoczenie tej części spowoduje, że ustawiając resztę
+trzeba będzie się posłużyć kilkoma sztuczkami, gdyż następne rozdziały
+przewodnika zakładają, że poziom uruchamiania o nazwie <e>bateria</e>
+istnieje.
+</note>
+
+<pre caption="Tworzenie poziomu uruchamiania o nazwie bateria">
+# <i>cd /etc/runlevels</i>
+# <i>cp -a default bateria</i>
+</pre>
+
+<p>
+Skończone. Nowy poziom uruchamiania o nazwie <e>bateria</e> zawiera wszystko
+co poziom <e>default</e>, ale nie mamy jeszcze automatycznego przełącznika
+pomiędzy nimi dwoma. Czas to zmienić.
+</p>
+
+</body>
+</section>
+<section>
+<title>Reagowanie na zdarzenia ACPI</title>
+<body>
+
+<p>
+Typowymi zdarzeniami ACPI są zamykanie ekranu, zmiana źródła zasilania lub
+wciśnięcie przycisku uśpienia. Ważnym zdarzeniem jest zmiana źródła zasilania,
+który powinien spowodować przełączenie poziomów uruchamiania. Zajmie się tym
+poniższy skrtypt:
+</p>
+
+<p>
+Najpierw potrzebujemy skryptu, który przełącza poziom uruchamiania na
+<c>default</c> lub <c>bateria</c> zależnie od źródła zasilania. Skrypt używa
+programu <c>on_ac_power</c> z pakietu <c>sys-power/powermgmt-base</c>, należy
+się zatem upewnić, czy jest on zainstalowany w naszym systemie.
+</p>
+
+<pre caption="Instalacja powermgt-base">
+# <i>emerge powermgmt-base</i>
+</pre>
+
+<p>
+Teraz jesteśmy gotowi do rozpoznania źródła zasilania, poprzez wykonanie
+<c>on_ac_power &amp;&amp; echo Podłączone do prądu || echo Działa z baterii </c>
+w powłoce. Poniższy skrypt jest odpowiedzialny za zmianę poziomów uruchamiania.
+Należy zapisać go jako <path>/etc/acpi/actions/pmg_switch_runlevel.sh</path>
+</p>
+
+<pre caption="/etc/acpi/actions/pmg_switch_runlevel.sh">
+#!/bin/bash
+
+<comment># POCZĄTEK konfiguracji</comment>
+RUNLEVEL_AC="default"
+RUNLEVEL_BATTERY="battery"
+<comment># KONIEC konfiguracji</comment>
+
+
+if [ ! -d "/etc/runlevels/${RUNLEVEL_AC}" ]
+then
+        logger "${0}: Poziom uruchomienia ${RUNLEVEL_AC} nie istnieje. Przerwano."
+        exit 1
+fi
+
+if [ ! -d "/etc/runlevels/${RUNLEVEL_BATTERY}" ]
+then
+        logger "${0}: Poziom uruchomienia ${RUNLEVEL_BATTERY} nie istnieje. Przerwano."
+        exit 1
+fi
+
+if on_ac_power
+then
+        if [[ "$(&lt;/var/lib/init.d/softlevel)" != "${RUNLEVEL_AC}" ]]
+  then
+            logger "Przełączanie do poziomu ${RUNLEVEL_AC}"
+            /sbin/rc ${RUNLEVEL_AC}
+        fi
+elif [[ "$(&lt;/var/lib/init.d/softlevel)" != "${RUNLEVEL_BATTERY}" ]]
+then
+        logger "Przełączanie do poziomu ${RUNLEVEL_BATTERY}"
+        /sbin/rc ${RUNLEVEL_BATTERY}
+fi
+</pre>
+
+<p>
+Nie zapomnijmy o ustawieniu, aby plik był wykonywalny (<c>chmod +x
+/etc/acpi/actions/pmg_switch_runlevel.sh</c>). Ostanią rzeczą jaką musimy
+jeszcze zrobić, jest wywołanie skryptu zawsze, gdy zmieni się źródło zasilania.
+Możemy tego dokonać poprzez przechwytywanie zdarzeń ACPI, używając
+<c>acpid</c>.  Po pierwsze trzeba sprawdzić, jakie zdarzenia są wywoływane, gdy
+zmienia się źródło zasilania. Na większości laptopów są to kolejno
+<c>ac_adapter</c> oraz <c>battery</c>, jednak należy pamiętać, iż na naszym
+mogą się one nazywać inaczej.
+</p>
+
+<pre caption="Sprawdzanie zdarzeń wywoływanych przy zmianie źródła zasilania">
+# <i>tail -f /var/log/acpid | grep "received event"</i>
+</pre>
+
+<p>
+Uruchamiamy zatem powyższe polecenie, a następnie wyciągamy kabel zasilający.
+Naszym oczom powinno ukazać się coś takiego:
+</p>
+
+<pre caption="Przykładowe wyjście przy zmianie źródła zasilania">
+[Tue Sep 20 17:39:06 2005] received event "ac_adapter AC 00000080 00000000"
+[Tue Sep 20 17:39:06 2005] received event "battery BAT0 00000080 00000001"
+</pre>
+
+<p>
+Część, która nas interesuje znajduje się w cudzysłowiu zaraz za <c>recived
+event</c>. Będą one zawarte w plikach, które stworzymy poniżej. Nie musimy się
+martwić, jeżeli nasz system tworzy wiele zdarzeń, lub zawsze takie same. Tak
+długo jak jakiekolwiek zdarzenie jest generowane, zmiana poziomu uruchamiania
+będzie działać.
+</p>
+
+
+<pre caption="/etc/acpi/events/pmg_ac_adapter">
+<comment># poniżej zastępujemy "ac_adapter" zdarzeniem stworzonym przez laptop</comment>
+<comment># Na przykład: ac_adapter.* will match ac_adapter AC 00000080 00000000</comment>
+event=ac_adapter.*
+action=/etc/acpi/actions/pmg_switch_runlevel.sh %e
+</pre>
+
+<pre caption="/etc/acpi/events/pmg_battery">
+<comment># poniżej zastępujemy "battery" zdarzeniem stworzonym przez laptop</comment>
+<comment># Na przykład: battery.* will match battery BAT0 00000080 00000001</comment>
+event=battery.*
+action=/etc/acpi/actions/pmg_switch_runlevel.sh %e
+</pre>
+
+<p>
+Na koniec acpid musi zostać ponownie uruchomione w celu zastosowania zmian.
+</p>
+
+<pre caption="Kończenie przełączania poziomów uruchamiania z acpid">
+# <i>/etc/init.d/acpid restart</i>
+</pre>
+
+<p>
+Próbujemy: wkładamy i wyciągamy wtyczkę zasilacza sieciowego i obserwujemy
+syslog w poszukiwaniu komunikatów "Switching to AC mode" lub "Switching to
+battery mode". Należy spojrzeć do części <uri link="#doc_chap8">Rozwiązywanie
+problemów</uri>, jeśli skrypt nie będzie w stanie wykryć poprawnie źródła.
+</p>
+
+<p>
+Dzięki naturze mechanizmu zdarzeń, nasz laptop załaduje się w poziom
+uruchamiania <c>default</c> bez względu na to czy pobieramy energię z zasilacza
+sieciowego czy z baterii. Jest to dobre rozwiązanie, jeżeli laptop jest zasilany
+z gniazda sieciowego, jednak w przeciwnym razie chcielibyśmy, aby system był
+ładowany do poziomu battery. Możemy dodać dodatkowy wpis do bootloadera
+<c>softlevel=battery</c>, ale możemy zapomnieć go wybrać, gdy będziemy pracowali
+na baterii. Lepszym rozwiązaniem jest sfałszować zdarzenie ACPI pod koniec
+procesu uruchamiania systemu i niech skrypt <path>/etc/acpi/default.sh</path>
+zdecyduje czy zmiana poziomu uruchamiania jest konieczna. Otwieramy
+<path>/etc/conf.d/local.start</path> w ulubionym edytorze i dodajemy następujące
+linie:
+</p>
+
+<pre caption="Dostrajanie poziomów uruchamiania podczas ładowania systemu, poprzez edycję local.start">
+<comment># Fałszywe zdarzenie acpi, aby przełączyć poziom uruchamiania, jeśli pracujemy na bateriach</comment>
+/etc/acpi/actions/pmg_switch_runlevel.sh "battery/battery"
+</pre>
+
+<p>
+W ten sposób przygotowani, możemy włączyć polityki zarządzania zasilaniem dla
+konkretnych urządzeń.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Zarządzanie zasilaniem dla procesora</title>
+<section>
+<body>
+
+<p>
+Procesory dla komputerów przenośnych mogą operować na różnych częstotliwościach.
+Niektóre pozwalają również na zmianę napięcia zasilającego. Przez większość
+czasu procesor nie musi pracować na pełnych obrotach a zmniejszenie
+częstotliwości może zachować dużo energi - często bez straty wydajności.
+</p>
+
+</body>
+</section>
+
+<section>
+<title>Pewne terminy techniczne</title>
+<body>
+
+<p>
+Podczas skalowania częstotliwości procesora możemy natknąć się na pewne
+nieznane nam terminy techniczne. Poniżej znajduje się krótki wstęp.
+</p>
+
+<p>
+Po pierwsze jądro musi być w stanie zmienić częstotliwość procesora.
+<b>Sterownik procesora CPUFreq</b> zna te polecenia. Stąd jest ważne, aby wybrać
+właściwy procesor w jądrze. Powinniśmy już to mieć za sobą. Kiedy jądro wie jak
+zmieniać częstotliwości, powinno również wiedzieć jaką częstotliwość obecnie
+ustawić. To jest wykonywane według <b>polityki</b>, która składa się z
+<b>polityki CPUFreq</b> oraz <b>regulatora</b>. Polityką CPUfreq są tylko 2
+liczby, które definiują zakres częstotliwości - minimalną i maksymalną
+częstotliwość. Regulator teraz decyduje, którą z dostępnych częstotliwości użyć.
+Na przykład, <b>regulator powersave</b> zawsze wybiera najniższą dostępną
+częstotliwość, <b>regulator performance</b> najwyższą. <b>Regulator
+userspace</b> nie podejmuje żadnej decyzji, ale wybiera to co chce użytkownik
+(lub program w przestrzeni użytkownika) chce - co oznacza, że czyta on
+częstotliwość z
+<path>/sys/devices/system/cpu/cpu0/cpufreq/scaling_setspeed</path>.
+</p>
+
+<p>
+Nie brzmi to jak dynamiczne skalowanie częstotliwości i wcale tym nie jest.
+Jednakże dynamika może być osiągnięta, za pomocą różnych podejść. Na przykład,
+<b>regulator ondemand</b> wykonuje swoje decyzje zależnie od obciążenia
+procesora. To samo jest wykonane za pomocą narzędzi takich jak <c>cpudyn</c>,
+<c>cpufreqd</c>, <c>powernowd</c> i wielu innych. Zdarzenia ACPI mogą również
+być użyte do włączenia lub wyłączenia dynamicznych zmian częstotliwości zależnie
+od źródła zasilania.
+</p>
+
+</body>
+</section>
+<section>
+<title>Ręczne ustawianie częstotliwości</title>
+<body>
+
+<p>
+Obniżanie prędkości oraz napięcia CPU ma dwie zalety: z jednej strony mniej
+energii jest zużywane, z drugiej zmniejsza się ilość wydzielanego ciepła, gdyż
+system nie działa na pełnych obrotach. Główną wadą tego rozwiązania jest
+oczywiście utrata wydajności. Zmniejszenie prędkość procesora jest wyborem
+pomiędzy utratą wydajności, a zaoszczędzeniem energii.
+</p>
+
+<note>
+Nie każdy laptop wspiera skalowanie częstotliwości. Jeśli nie jesteśmy pewni,
+powinniśmy spojrzeć na listę wspieranych procesorów w części <e>Rozwiązywanie
+problemów</e>, aby sprawdzić czy nasz procesor jest na tej liście.
+</note>
+
+<p>
+Nadszedł czas, aby sprawdzić czy zmienianie częstotliwości CPU działa.
+Zainstalujmy dodatkowe narzędzie, które jest bardzo użyteczne w celach
+diagnostycznych: <c>sys-power/cpufrequtils</c>.
+</p>
+
+<pre caption="Sprawdzanie częstotliwości procesora">
+# <i>emerge cpufrequtils</i>
+# <i>cpufreq-info</i>
+</pre>
+
+<p>
+Poniżej znajduje się przykładowe wyjście:
+</p>
+
+<pre caption="Przykładowe wyjście cpufreq-info">
+cpufrequtils 0.3: cpufreq-info (C) Dominik Brodowski 2004
+Report errors and bugs to linux@brodo.de, please.
+analyzing CPU 0:
+  driver: centrino
+  CPUs which need to switch frequency at the same time: 0
+  hardware limits: 600 MHz - 1.40 GHz
+  available frequency steps: 600 MHz, 800 MHz, 1000 MHz, 1.20 GHz, 1.40 GHz
+  available cpufreq governors: conservative, ondemand, powersave, userspace, performance
+  current policy: frequency should be within 924 MHz and 1.40 GHz.
+    The governor "performance" may decide which speed to use
+    within this range.
+  current CPU frequency is 1.40 GHz
+</pre>
+
+<p>
+Następnie należy pobawić się <c>cpufreq-set</c>, aby się upewnić, że
+przełączanie częstotliwości działa. Na przykład uruchamiamy <c>cpufreq-set -g
+ondemand</c>, aby uruchomić regulatora ondemand i sprawdzić zmianę za pomocą
+<c>cpufreq-info</c>. Jeśli nie zadziała jak oczekiwaliśmy, wtedy możemy znaleźć
+pomoc w części <uri link="#doc_chap8">Rozwiązywanie problemów</uri> na końcu
+tego przewodnika.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zautomatyzowana zmiana częstotliwości</title>
+<body>
+
+<p>
+Powyższe rozwiązanie jest dosyć dobre, ale nie do codziennego użytku. Lepiej,
+aby system ustawił automatycznie odpowiednią częstotliwość. W tym celu istnieją
+różne podejścia. Poniższa tabela pokazuje szybki przegląd wszystkich możliwości,
+aby pomóc wybrać jeden z nich. Jest ona z grubsza podzielona na 3 kategorie
+<b>jądro</b> dla podejść, które wymagają tylko wsparcia jądra, <b>demon</b> dla
+programów, które są uruchomione w tle oraz <b>graficzne</b> dla programów, które
+dostarczają graficzny interfejs użytkownika dla łatwej konfiguracji i zmian.
+</p>
+
+<table>
+<tr>
+  <th>Nazwa</th>
+  <th>Kategoria</th>
+  <th>Decyzja o przełączeniu</th>
+  <th>Regulatory jądra</th>
+  <th>Dalsze regulatory</th>
+  <th>Komentarze</th>
+</tr>
+<tr>
+  <ti>Regulator "ondemand"</ti>
+  <ti>Jądro</ti>
+  <ti>Obciążenie procesora</ti>
+  <ti>Niedostępne</ti>
+  <ti>Niedostępne</ti>
+  <ti>
+    Wybiera maksymalną częstotliwość, gdy procesor jest obciążony i stopniowo ją
+    obniża, gdy ten jest bezczynny. Dalsze dostrajanie poprzez pliki w
+    <path>/sys/devices/system/cpu/cpu0/cpufreq/ondemand/</path>. Ciągle wymaga
+    narzędzi użytkownika (programów, skryptów), jeżeli przełączenie regulatora
+    lub coś podobnego jest naszym celem.
+  </ti>
+</tr>
+<tr>
+   <ti>'conservative' governor</ti>
+   <ti>Kernel</ti>
+   <ti>CPU load</ti>
+   <ti>N.A.</ti>
+   <ti>N.A.</ti>
+   <ti>
+   W przeciwieństwie do regulatora ondemand, conversative nie przeskakuje do
+   najwyższej częstotliwości, gdy procesor jest bardzo obciążony, ale podnosi ją
+   krok po kroku. Dalsze dostrajanie poprzez pliki
+   <path>/sys/devices/system/cpu/cpu0/cpufreq/ondemand/</path>. Ciągle wymaga
+   narzędzi użytkownika (programów, skryptów), jeśli przełączanie regulatora
+   lub coś podobnego jest naszym celem.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="http://mnm.uib.es/~gallir/cpudyn/">cpudyn</uri></ti>
+  <ti>Demon</ti>
+  <ti>Obciążenie procesora</ti>
+  <ti>performance, powersave</ti>
+  <ti>Dynamic</ti>
+  <ti>
+    Również wspiera stan oczekiwania dysku - jednakże należy zauważyć, że
+    <e>laptop-mode</e> w większości przypadków, wykona lepszą robotę.
+  </ti>
+</tr>
+<tr>
+  <ti><uri
+link="http://sourceforge.net/projects/cpufreqd/">cpufreqd</uri></ti>
+  <ti>Demon</ti>
+  <ti>Stan baterii, obciążenie procesora, uruchomione programy i inne</ti>
+  <ti>Wszystko dostępne</ti>
+  <ti>Żaden</ti>
+  <ti>
+    Wyszukane (ale skomplikowane) ustawienie. Możliwy do rozszerzenia poprzez
+    wtyczki takie jak monitorowanie czujników (lm_sensors) lub koordynowanie
+    pamięci i rdzeni na układach graficznych firmy NVidia. Cpufreqd wspiera SMP
+    i może opcjonalnie być ręcznie kontrolowany w momencie uruchomienia.
+  </ti>
+</tr>
+<tr>
+  <ti>
+    <uri link="http://www.deater.net/john/powernowd.html">powernowd</uri>
+  </ti>
+  <ti>Demon</ti>
+  <ti>Obciążenie procesora</ti>
+  <ti>Żaden</ti>
+  <ti>Passive, sine, aggresive</ti>
+  <ti>
+    Wspiera SMP.
+  </ti>
+</tr>
+<tr>
+ <ti>
+  <uri
+  link="http://fatcat.ftj.agh.edu.pl/~nelchael/index.php?cat=projs&amp;subcat=ncpufreqd&amp;language=en">ncpufreqd</uri>
+  </ti>
+  <ti>Demon</ti>
+  <ti>Temperaturę</ti>
+  <ti>Żaden</ti>
+  <ti>Powersave, performance</ti>
+  <ti>
+   Zmienia używany regulator pomiędzy performance i powersave zależnie od
+   temperatury. Bardzo użyteczny na notorycznie przegrzewających się laptopach.
+  </ti>
+  </tr>
+<tr>
+  <ti><uri link="http://www.goop.org/~jeremy/speedfreq/">speedfreq</uri></ti>
+  <ti>Demon</ti>
+  <ti>Obciążenie procesora</ti>
+  <ti>Żaden</ti>
+  <ti>Dynamic, powersave, performance, fixed speed</ti>
+  <ti>
+    Mały, ale o dużych możliwościach z użytecznym interfejsem klient-serwer.
+    Wymaga jądra 2.6. Jego rozwój został porzucony, a on sam usunięty z Portage.
+    Jeżeli go jeszcze używamy, powinniśmy zmienić go na cpufreqd.
+  </ti>
+</tr>
+<tr>
+  <ti><uri link="http://cpuspeedy.sourceforge.net/">gtk-cpuspeedy</uri></ti>
+  <ti>Graficzny</ti>
+  <ti>Żaden</ti>
+  <ti>Żaden</ti>
+  <ti>Żaden</ti>
+  <ti>
+    Aplikacja Gnome, narzędzie graficzne, do ręcznego ustawiania częstotliwości
+    procesora. Nie oferuje żadnej automatyzacji.
+  </ti>
+</tr>
+<tr>
+  <ti>klaptopdaemon</ti>
+  <ti>Graficzny</ti>
+  <ti>Stan baterii</ti>
+  <ti>Wszystko dostępne</ti>
+  <ti>Żaden</ti>
+  <ti>
+    Tylko KDE, regulator 'ondemand' wymagany dla dynamicznego skalowania
+    częstotliwości.
+  </ti>
+</tr>
+</table>
+
+<p>
+Dopasowywanie częstotliwości do obecnego obciążenia procesora jest z pozoru
+łatwym zadaniem, ale nie jest to takie trywialne. Zły algorytm może spowodować
+ciągłe przełączanie pomiędzy 2 częstotliwościami lub marnowanie energii poprzez
+ustawienie częstotliwości nieodpowiedniej do obciążenia procesora.
+</p>
+
+<p>
+Który wybrać? Jeśli nie wiemy, to wybieramy <c>cpufreqd</c>:
+</p>
+
+<pre caption="Instalowanie cpufreqd">
+# <i>emerge cpufreqd</i>
+</pre>
+
+<p>
+<c>cpufreqd</c> może być skonfigurowany poprzez edycję
+<path>/etc/cpufreqd.conf</path>. Domyślna konfiguracja może wyglądać trochę
+nieładnie. Ja polecam zastąpienie jej konfiguracją napisaną przez jednego z
+deweloperów Gentoo - Henrika Brixa Andersena (znajduje się poniżej). Należy
+zauważyć, że potrzebujemy cpufreqd-2.0.0 lub późniejszego. Wcześniejsze wersje
+mają rożny format pliku konfiguracyjnego.
+</p>
+
+<pre caption="/etc/cpufreqd.conf (cpufreqd-2.0.0 i późniejsze)">
+[General]
+pidfile=/var/run/cpufreqd.pid
+poll_interval=3
+enable_plugins=acpi_ac, acpi_battery
+enable_remote=1
+remote_group=wheel
+verbosity=5
+[/General]
+
+[Profile]
+name=ondemand
+minfreq=0%
+maxfreq=100%
+policy=ondemand
+[/Profile]
+
+[Profile]
+name=conservative
+minfreq=0%
+maxfreq=100%
+policy=conservative
+[/Profile]
+
+[Profile]
+name=powersave
+minfreq=0%
+maxfreq=100%
+policy=powersave
+[/Profile]
+
+[Profile]
+name=performance
+minfreq=0%
+maxfreq=100%
+policy=performance
+[/Profile]
+
+[Rule]
+name=battery
+ac=off
+profile=conservative
+[/Rule]
+
+[Rule]
+name=battery_low
+ac=off
+battery_interval=0-10
+profile=powersave
+[/Rule]
+
+[Rule]
+name=ac
+ac=on
+profile=ondemand
+[/Rule]
+</pre>
+
+<p>
+Uruchamiamy demon oraz dodajemy go do poziomów <c>default</c> oraz
+<c>battery</c>.
+</p>
+
+<pre caption="Uruchamianie cpufreqd">
+# <i>rc-update add cpufreqd default battery</i>
+# <i>rc</i>
+</pre>
+
+<p>
+Niekiedy wskazane jest użycie innej polityki niż wybiera demon. Np. kiedy poziom
+baterii jest niski, ale wiemy, iż niedługo będziemy mogli podłączyć go do prądu.
+W tym przypadku możemy przełączyć się na tryb ręcznego sterowania cpufreqd, przy
+użyciu <c>cpufreqd-set manual</c> oraz wybrać jedno ze skonfigurowanych zachowań
+(ich listę możemy uzyskać poprzez <c>cpufreqd-get</c>). Możemy opuścić tryb
+ręcznego sterowania poprzez wpisanie <c>cpufreqd-set dynamic</c>.
+</p>
+
+<warn>
+Nie należy włączać więcej niż jednego z powyższych programów równocześnie.
+Może to spowodować nieład, np. ciągłe przełączanie pomiędzy dwoma
+częstotliwościami.
+</warn>
+
+</body>
+</section>
+<section>
+<title>Weryfikowanie rezultatu</title>
+<body>
+
+<p>
+Ostatnią rzeczą jest sprawdzenie czy nasza polityka wykonuje dobrą robotę.
+Łatwym sposobem, aby to sprawdzić jest monitorowanie CPU:
+</p>
+
+<pre caption="Monitorowanie prędkości procesora">
+# <i>watch grep \"cpu MHz\" /proc/cpuinfo</i>
+</pre>
+
+<p>
+Jeśli <path>/proc/cpuinfo</path> nie jest aktualizowane (patrz <uri
+link="#doc_chap8">Rozwiązywanie problemów</uri>), to monitorujemy częstotliwość
+za pomocą:
+</p>
+
+<pre caption="Alternatywne monitorowanie prędkości procesora">
+# <i>watch x86info -mhz</i>
+</pre>
+
+<p>
+Zależnie od ustawień, prędkość CPU powinna wzrastać pod dużym obciążeniem,
+maleć podczas bezczynności lub pozostać na tym samym poziomie. Używając
+<c>cpufreqd</c>, jeśli mamy ustawioną rozwlekłość (ang. verbosity) na 5 lub
+więcej w <path>cpufreqd.conf</path> otrzymamy dodatkowe informacje o tym co się
+dzieje, za pomocą programu logującego (<c>syslog</c>).
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Zarządzanie zasilaniem dla ekranu LCD</title>
+<section>
+<body>
+
+<p>
+Jak możemy zauważyć na <uri link="#doc_chap1_fig1">rysunku 1.1</uri>, ekran LCD
+pożera największą część energii (nie dotyczy to komputerów stacjonarnych).  Stąd
+jest to dosyć ważne nie tylko, aby wyłączać ekran kiedy nie jest używany, ale
+również aby zmniejszyć podświetlenie matrycy jeśli to będzie możliwe.  Większość
+laptopów oferuje kontrolowanie przyciemniania ekranu.
+</p>
+
+</body>
+</section>
+<section>
+<title>Ustawienia stanu gotowości</title>
+<body>
+
+
+<p>
+Po pierwsze należy sprawdzić czasy oczekiwania, zawieszenia i wyłączenia ekranu.
+Ponieważ to zależy silnie od naszego menedżera okien, Wystarczy sprawdzić 2
+popularne miejsca: zaczernienie terminala może być ustawione za pomocą
+<c>setterm -blank &lt;liczba_minutM&gt;</c>, <c>setterm -powersave on</c> oraz
+<c>setterm -powerdown &lt;liczba_minutM&gt;</c>. Dla Xorg, modyfikujemy
+<path>/etc/X11/xorg.conf</path> w następujący sposób:
+</p>
+
+<pre caption="Ustawienia zawieszenia dla LCD w X.org i XFree86">
+Section "ServerLayout"
+  Identifier  [...]
+  [...]
+  Option  "BlankTime"  "5"  <comment># Zaczernienie obrazu po 5 minutach
+(udawane)</comment>
+  Option  "StandbyTime"  "10"  <comment># Wyłączenie obrazu po 10 minutach
+(DPMS)</comment>
+  Option  "SuspendTime"  "20"  <comment># Całkowite zawieszenie po 20
+minutach</comment>
+  Option  "OffTime"  "30"  <comment># Wyłączenie po pół godzinie</comment>
+  [...]
+EndSection
+
+[...]
+
+Section "Monitor"
+  Identifier  [...]
+  Option  "DPMS"  "true"
+  [...]
+EndSection
+</pre>
+
+<p>
+To samo tyczy się XFree86 i <path>/etc/X11/XF86Config</path>.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zmniejszanie podświetlenia</title>
+<body>
+
+<p>
+Prawdopodobnie bardziej istotną sprawą jest zmniejszenie podświetlenia. Jeśli
+mamy dostęp do ustawień przyciemniania poprzez jakieś narzędzie, napiszemy mały
+skrypt, który będzie zmniejszał podświetlenie w trybie pracy na baterii oraz
+osadzimy go w poziomie uruchamiania o nazwie <c>battery</c>. Następujący skrypt
+powinien działać na większości Thinkpadów IBM-a, oraz laptopach firmy Toshiba. W
+pierwszym przypadku należy uaktywnić odpowiednie opcje w jądrze, natomiast przy
+laptopach Toshiby zainstalować <c>sys-power/acpitool</c> i nie stosować
+poniższej konfiguracji ibm_acpi.
+</p>
+
+<warn>
+Wsparcie ustawiania jasności w ibm-acpi jest oznaczone jako eksperymentalne.
+Posiada ono bezpośredni dostęp do sprzętu i może spowodować uszkodzenie
+komputera. Proszę przeczytać uwagi na <uri
+link="http://ibm-acpi.sourceforge.net/">stronie domowej ibm-acpi</uri>
+</warn>
+
+<p>
+Aby móc ustawić poziom jasności, moduł ibm_acpi musi być załadowany z parametrem
+eksperymentalnym.
+</p>
+
+<pre caption="Automatyczne ładowanie modułu ibm_acpi">
+<comment>(Przed przystąpieniem, proszę przeczytać powyższe ostrzeżenia!)</comment>
+# <i>echo "options ibm_acpi experimental=1" >> /etc/modules.d/ibm_acpi</i>
+# <i>/sbin/update-modules</i>
+# <i>echo ibm_acpi >> /etc/modules.autoload.d/kernel-2.6</i>
+# <i>modprobe ibm_acpi</i>
+</pre>
+
+<p>
+To powinno działać bez komunikatów o błędach, plik
+<path>/proc/acpi/ibm/brightness</path> powinien być stworzony po załadowaniu
+modułu. Skrypt startowy zajmie się wybieraniem jasności w zależności od źródła
+zasilania.
+</p>
+
+<pre caption="/etc/conf.d/lcd-brightness">
+<comment># Należy zajrzeć do /proc/acpi/ibm/brightness, aby uzyskać dostępne wartości</comment>
+<comment># Proszę przeczytać /usr/src/linux/Documentation/ibm-acpi.txt</comment>
+
+<comment># poziom jasności w trybie ac. Domyślnie 7.</comment>
+BRIGHTNESS_AC=7
+
+<comment># poziom jasności w trybie battery. Domyślnie 4.</comment>
+BRIGHTNESS_BATTERY=4
+</pre>
+
+<pre caption="/etc/init.d/lcd-brightness">
+#!/sbin/runscript
+
+set_brightness() {
+    if on_ac_power
+    then
+        LEVEL=${BRIGHTNESS_AC:-7}
+    else
+        LEVEL=${BRIGHTNESS_BATTERY:-4}
+    fi
+
+    if [ -f /proc/acpi/ibm/brightness ]
+    then
+        ebegin "Ustawianie jasności LCD"
+        echo "level ${LEVEL}" > /proc/acpi/ibm/brightness
+        eend $?
+    elif [[ -e /usr/bin/acpitool &amp;&amp; -n $(acpitool -T | grep "LCD brightness") ]]
+    then
+        ebegin "Ustawianie jasności LCD"
+        acpitool -l $LEVEL >/dev/null || ewarn "Ustawienie jasności niemożliwe"
+        eend $?
+    else
+        ewarn "Regulacja jasności LCD nie jest wspierana."
+        ewarn "Dla Thinkpadów IBM, czy ibm_acpi jest załadowane"
+        ewarn "Dla laptopów Toshiba, należy zainstalować sys-power/acpitool"
+    fi
+}
+
+start() {
+    set_brightness
+}
+
+stop () {
+    set_brightness
+}
+</pre>
+
+<p>
+Kiedy skończymy, należy się upewnić, że jasność jest dobierana automatycznie
+poprzez dodanie tego skryptu do poziomu uruchamiania o nazwie "bateria".
+</p>
+
+<pre caption="Włączanie automatycznego sterowania jasnością">
+# <i>chmod +x /etc/init.d/lcd-brightness</i>
+# <i>rc-update add lcd-brightness "bateria"</i>
+# <i>rc</i>
+</pre>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Zarządzanie zasilaniem dla dysku twardego</title>
+<section>
+<body>
+
+<p>
+Dyski twarde zużywają mniej energi w trybie uśpienia. Zatem nabiera sensu
+uaktywnienie udogodnień związanych z zachowywaniem energi, gdy dysk nie jest
+używany przez dłuższy czas. Poniżej opisane zostały dwa sposoby dokonania tego.
+Po pierwsze <c>laptop-mode</c> zachowuje dużo energii spowodowanych kilkoma
+sposobami, które powstrzymją nas lub opóźniają dostęp do zapisu na dysku. Wadą
+takiego rozwiązania jest to, że przy opóźnionym dostępie do zapisu kernel może
+spowodować krytyczne błędy, które mogą być znacznie bardziej niebezpieczne dla
+naszych danych. Musimy się zatem najpierw upewnić czy nie mamy uruchomionych
+procesów, które regularnie zapisują coś na dysk twardy, a dopiero następnie
+możemy uaktywnić udogodnienia związane z zachowaniem energi używajać hdparam
+jak drugiej alternatywy.
+</p>
+
+</body>
+</section>
+
+<section>
+<title>Zwiększanie czasu bezczynności - laptop-mode</title>
+<body>
+
+<p>
+Kernele 2.6 zawierają tzw. <c>laptop-mode</c>. Kiedy jest on aktywny, brudne
+bufory (ang. Dirty Buffers) są zapisywane na dysk przy odczytywaniu oraz
+po każdych 10 lub więcej minutach (a nie 30 sekundach). Minimalizuje to ilośc
+razy, w których dysk twardy musi być się rozkręcać.
+</p>
+
+<pre caption="Automatyczny start laptop-mode">
+# <i>emerge laptop-mode-tools</i>
+</pre>
+
+<p>
+<c>laptop-mode-tools</c> ma swój plik konfiguracyjny w
+<path>/etc/laptop-mode/laptop-mode.conf</path>. Należy go dopasować do własnych
+upodobań (jest dobrze skomentowany), a następnie wykonać <c>rc-update add
+laptop_mode bateria</c> aby uruchamiał się zawsze przy starcie systemu.
+</p>
+
+<p>
+Ostatnie wersje laptop-mode (1.11 i nowsze) zawierają nowe narzędzie o nazwie
+<c>lm-profiler</c>. Monitoruje on użycie dysku oraz działające usługi sieciowe,
+oraz sugeruje, które z nich wyłączyć gdy są nie używane. Możemy je wyłączyć
+poprzez wbudowane w laptop-mode-tools wsparcie dla poziomów uruchamiania (który
+będzie "reverted" przez <c>/sbin/rc/</c> w Gentoo) lub używając poziomów
+<c>default</c>/<c>bateria</c> (polecane rozwiązanie).
+</p>
+
+<pre caption="Przykładowe wyjście działającego lm-profiler">
+# lm-profiler
+Profiling session started.
+Time remaining: 600 seconds
+[4296896.602000] amarokapp
+Time remaining: 599 seconds
+[4296897.714000] sort
+[4296897.970000] mv
+Time remaining: 598 seconds
+Time remaining: 597 seconds
+[4296900.482000] reiserfs/0
+</pre>
+
+<p>
+Po 10-cio minutowym "testowaniu" naszego systemu, <c>lm-profiler</c> pokaże
+listę usług, które w tym czasie wykonywały jakieś operacje na dysku.
+</p>
+
+<pre caption="lm-profiler sugerujący wyłączenie pewnych usług">
+Program:     "atd"
+Reason:      standard recommendation (program may not be running)
+Init script: /etc/init.d/atd (GUESSED)
+
+Do you want to disable this service in battery mode? [y/N]: <i>n</i>
+</pre>
+
+<p>
+Aby zablokować atd, jak zostało to pokazane w powyższym przykładzie, powinniśmy
+uruchomić <c>rc-update del atd bateria</c>. Należy być ostrożnym aby przypadkiem
+nie wyłączyć usług, które są potrzebne do poprawnego działania systemy -
+lm-profiler może czasem wytworzyć złe informacje. Nie należy zatem wyłączać
+usług jeżeli nie jesteśmy pewni czy są one potrzebne.
+</p>
+
+</body>
+</section>
+
+<section>
+<title>Limitowanie dostępu do zapisu</title>
+<body>
+
+<p>
+Jeżeli z jakiegoś powodu nie chcemy używać laptop-mode, musimy trochę się
+natrudzić aby zablokować usługi, które zapisują dane na nasz dysk.
+<c>syslogd</c> jest dobrym kandydatem aby nam w tym pomóc, Prawdopodobnie nie
+chcemy całkowicie go wyłączyć, ale możliwe jest zmodyfikowanie pliku
+konfiguracyjnego tak, aby "niepotrzebne" rzeczy nie były logowane a co za tym
+idzie nie tworzyły transferu na dysku. Dla przykładu <c>Cups</c> zapisuje co
+jakiś czas dane na dysk, więc jedynym rozwiązaniem jest wyłączenie go i ręczne
+włączanie jedynie gdy będzie nam potrzebny.
+</p>
+
+<pre caption="Wyłączenie cupsa gdy uruchamiamy z baterii">
+# <i>rc-update del cupsd bateria</i>
+</pre>
+
+<p>
+Możemy również użyć <c>lm-profiler</c> z pakietu laptop-mode-tools (patrz wyżej)
+w celu znalezienia usług do wyłączenia. Kiedy tylko pozbędziemy się ich
+wszystkich, możemy zająć się konfiguracją <c>hdparm</c>.
+</p>
+
+</body>
+</section>
+<section>
+<title>hdparm</title>
+<body>
+
+<p>
+Drugą możliwością jest użycie małego skryptu wraz z <c>hdparm</c>. Tworzymy
+plik <path>/etc/init.d/pmg_hda</path>, wpisując:
+</p>
+
+<pre caption="Używanie hdparm do przejścia stan oczekiwania dysku">
+#!/sbin/runscript
+
+depend() {
+  after hdparm
+}
+
+start() {
+  ebegin "Aktywacja zarządzania zasilaniem dla dysków twardych"
+  hdparm -q -S12 /dev/hda
+  eend $?
+}
+
+stop () {
+  ebegin "Dezaktywacja zarządzania zasilaniem dla dysków twardych"
+  hdparm -q -S253 /dev/hda
+  eend $?
+}
+</pre>
+
+<p>
+Aby dowiedzieć się o dostępnych opcjach należy spojrzeć do <c>man hdparm</c>.
+Jeśli nasz skrypt jest gotowy, należy dodać go do poziomu uruchamiania o
+nazwie "bateria".
+</p>
+
+<pre caption="Zautomatyzowanie ustawień stanu oczekiwania dysku">
+# <i>chmod +x /etc/init.d/pmg_hda</i>
+# <i>/sbin/depscan.sh</i>
+# <i>rc-update add pmg_hda bateria</i>
+</pre>
+
+<impo>
+Należy być ostrożnym z ustawieniami uśpienia lub zmniejszenia obrotów dysków
+twardych. Ustawienie tych opcji na zbyt małe wartości może zniszczyć dysk twardy
+co spowoduje utratę gwarancji.
+</impo>
+
+</body>
+</section>
+<section>
+<title>Inne sztuczki</title>
+<body>
+
+<p>
+Inną możliwością jest wyłączenie swapa podczas pracy na bateriach. Przed
+napisaniem przełącznika swapa, należy się upewnić, że mamy dostatecznie dużo
+pamięci RAM i swap nie jest używany zbyt często, w przeciwnym wypadku możemy
+mieć duże problemy.
+</p>
+
+<p>
+Jeśli nie chcemy używać laptop-mode, nadal możemy zmniejszyć dostęp do dysku
+poprzez zamontowanie pewnych katalogów jako <c>tmpfs</c> - próby zapisu nie są
+zachowywane na dysku, ale w głównej pamięci i zostają utracone przy
+odmontowywaniu. Często jest użyteczne, aby zamontować w ten sposób
+<path>/tmp</path> - nie musimy zwracać szczególnej uwagi, ponieważ zostaje on
+skasowany po każdym ponownym uruchomieniu komputera niezależnie czy zamontujemy
+go na dysku czy do RAM-u. Należy się jedynie upewnić, że mamy wystarczającą
+ilość pamięci oraz, że żaden program (jak klient ściągający lub narzędzie
+pakujące) nie potrzebuje dodatkowej przestrzeni w <path>/tmp</path>. Aby to
+włączyć, włączamy wsparcie dla tmpfs w jądrze i dodajemy następującą linię do
+<path>/etc/fstab</path>:
+</p>
+
+<pre caption="Edytowanie /etc/fstab, aby uczynić /tmp nawet bardziej lotnym">
+none  /tmp  tmpfs  size=32m  0 0
+</pre>
+
+<warn>
+Należy zwrócić uwagę na parametr i zmienić go tak, aby pasował do naszego
+systemu. Jeśli nie jesteśmy pewni, wtedy należy w ogóle się za to nie brać, gdyż
+może to łatwo stać się wąskim gardłem w wydajności naszego systemu. W przypadku
+jeśli chcemy zamontować w ten sposób <path>/var/log</path>, należy się upewnić,
+że pliki dziennika są na dysku przed odmontowaniem. Są one niezbędne. Nie należy
+montować <path>/var/tmp</path> w ten sposób, gdyż Portage używa tego katalogu
+do kompilacji...
+</warn>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Zarządzanie zasilaniem dla innych urządzeń</title>
+<section>
+<title>Zarządzanie zasilaniem dla kart graficznych</title>
+<body>
+
+<p>
+W przypadku gdy posiadamy kartę graficzną ATI wspierającą PowerPlay (dynamiczne
+skalowanie zegara procesora graficznego), możemy uaktywnić je w naszym X.org.
+Otwórzmy zatem plik <path>/etc/X11/xorg.conf</path> a następnie dodajmy (lub
+uaktywnijmy) opcję <c>DynamicClocks</c> w sekcji "Device". Należy jednak
+pamiętać, że to udogodnienie może powodować zawieszanie się niektórych
+komputerów.
+</p>
+
+<pre caption="Uaktywnianie wsparcia X.org dla ATI PowerPlay ">
+Section "Device"
+[...]
+Option  "Dynamic Clocks" "on"
+EndSection
+</pre>
+
+</body>
+</section>
+<section>
+<title>Zarządzanie zasilaniem dla kart sieci bezprzewodowych</title>
+<body>
+
+<p>
+Karty sieci bezprzewodowych również pochłaniają sporo energii. Należy dodać je
+do trybu zarządzania zasilaniem w analogii do skryptu <c>pmg_hda</c>.
+</p>
+
+<note>
+W poniższym skrypcie zakładamy, że interfejs sieci bezprzewodowej nazywa się
+<c>wlan0</c>; jeżeli w naszym przypadku jest inaczej, należy odpowiednio
+zmienić to w treści skryptu.
+</note>
+
+<pre caption="Zautomatyzowane zarządzanie zasilaniem dla WLAN">
+#!/sbin/runscript
+start() {
+  ebegin "Aktywacja zarządzania zasilaniem dla sieci bezprzewodowych"
+  iwconfig wlan0 power on
+  eend $?
+}
+
+stop () {
+  ebegin "Dezaktywacja zarządzania zasilaniem dla sieci bezprzewodowych"
+  iwconfig wlan0 power off
+  eend $?
+}
+</pre>
+
+<p>
+Uruchomienie tego skryptu aktywuje tryb oszczędzania energii dla wlan0.
+Zachowujemy ten skrypt jako <path>/etc/init.d/pmg_wlan0</path> i
+dodajemy go do poziomu uruchamiania o nazwie <c>battery</c> tak jak powyżej. Po
+więcej szczegółów i opcji należy spojrzeć do <c>man iwconfig</c>. Jeśli nasz
+sterownik oraz punkt dostępu wspierają zmienianie czasu sygnału nawigacyjnego,
+wtedy jest to dobrym punktem wyjścia do zachowania nawet większej ilości
+energii.
+</p>
+
+<pre caption="Zarządzanie zasilaniem dla WLAN">
+# <i>chmod +x /etc/init.d/pmg_wlan0</i>
+# <i>/sbin/depscan.sh</i>
+# <i>rc-update add pmg_wlan0 bateria</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Zarządzanie zasilaniem dla USB</title>
+<body>
+
+<p>
+Istnieją dwa główne problemy z urządzeniami USB odnoszące się do pochłaniania
+energii: pierwszy, urządzenia jak mysz USB, aparat cyfrowy lub USB sticks
+pożerają energię, gdy są podpięte. Nie możemy tego ominąć (nie mniej jednak
+należy je odłączyć jeśli nie są potrzebne). Po drugie, kiedy urządzenia USB są
+podpięte, wtedy sterownik hosta USB okresowo uzyskuje dostęp do magistrali,
+która po kolei zapobiega, aby procesor nie przeszedł stan uśpienia. Jądro
+oferuje eksperymentalną opcję do uśpienia urządzeń podłączonych do USB, poprzez
+wywołania sterowników z plików <path>power/state</path> znajdujących się w
+<path>/sys</path>.
+</p>
+
+<pre caption="Enabling USB suspend support in the kernel">
+Device Drivers
+ USB support
+   [*]   Support for Host-side USB
+   [*]   USB suspend/resume (EXPERIMENTAL)
+</pre>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Stany uśpienia: uśpienie, oczekiwanie, suspend to disk</title>
+<section>
+<body>
+
+<p>
+ACPI definiuje różne stany uśpienia. Najważniejszymi są
+</p>
+
+<ul>
+  <li>S1 alias Oczekiwanie,</li>
+  <li>S3 alias Zawieszenie do RAM-u alias Uśpienie,</li>
+  <li>S4 alias Zawieszenie na dysk twardy (ang. Suspend-to-Disk) alias
+Hibernacja.</li>
+</ul>
+
+<p>
+Mogą one być wezwane kiedykolwiek system jest bezczynny, ale zamknięcie systemu
+nie jest wskazane z powodu długiego czasu ładowania systemu.
+</p>
+
+</body>
+</section>
+<section>
+<title>Uśpienie (S3)</title>
+<body>
+
+<p>
+Wsparcie ACPI dla tych stanów uśpienia jest oznaczone jako eksperymentalne z
+prostego powodu. Stany uśpienia APM są bardziej stabilne, jednakże nie możemy
+używać APM i ACPI jednocześnie.
+</p>
+
+<pre caption="Konfiguracja jądra dla różnych metod uśpienia">
+  Power Management Options ---&gt;
+    [*]  Power Management support
+      ACPI (Advanced Configuration and Power Interface) Support ---&gt;
+       [*]  ACPI Support
+         [*]   Sleep States
+</pre>
+
+<p>
+Gdy nasz kernel jest poprawnie skonfigurowany, możemy użyć
+<c>hibernate-script</c> aby aktywować hibernację lub tryb uśpienia. Najpierw
+jednak musimy go zainstalować
+</p>
+
+<pre caption="Instalacja hibernate-script">
+# <i>emerge hibernate-script</i>
+</pre>
+
+<p>
+Musimy jeszcze skonfigurować kilka plików w katalogu
+<path>/etc/hibernate</path>> Domyślnie pakiet wstawia tam kilka plików odpowiednio
+dla każdego stanu uśpienia. Opcje, które są popularne dla wszystkich metod wstrzymania
+zostały umieszczone w <path>common.conf</path>; upewnijcie się, że plik ten jest
+właściwie ustawiony dla waszego systemu.
+</p>
+
+<p>
+Do skonfigurowania uśpienia, edytujemy <path>sysfs-ram.conf</path> w katalogu
+<path>/etc/hibernate</path>. <c>UseSysfsPowerState mem</c> jest już dobrze
+ustawiona, ale jeżeli chcecie dokonac dalszych zmian do tego konkretnego stanu
+uśpienia (lub jakiegokolwiek innego) powinien on zostać dodany do
+<path>/etc/hibernate/hibernate.conf</path>. W tej drodze poprowadzą nas
+komentarze oraz nazwy odpowiednich opcji. Jeżeli ponadto używamy nfs lub
+samby do dzielenia się plikami w sieci, powinniśmy się upewnić aby wyłączyć
+niepotrzebne skrypty uruchomieniowe, aby uniknąć opóźnień.
+</p>
+
+<note>
+Aby uzyskać więcej informacji na temat stanów uśpienia przeczytaj <c>man
+hibernate.conf</c>.
+</note>
+
+<p>
+Gotowi? Teraz mamy ostatnią szansę zrobić kopię bezpieczeństwa danych, które
+chcemy trzymać po wykonaniu następnej komendy. W celu późniejszego "wybudzenia"
+należy wcisnąć jakiś specjalny klawisz (np. <c>Fn</c>).
+</p>
+
+<pre caption="Uśpienie">
+# <i>hibernate-ram</i>
+</pre>
+
+<p>
+Jeżeli dalej czytamy ten tekst, wygląda na to, że uśpienie działa poprawnie.
+Możemy również ustawić oczekiwanie (S1) w podobny sposób, edytując
+<path>sysfs-ram.conf</path> oraz zmieniając "UseSysfsPowerState mem" na
+"UseSysfsPowerState standby". S3 oraz S4 są bardziej intersującymi stanami
+uspienia prowadzącymi jednakże do większego oszczędzania energii.
+</p>
+
+</body>
+</section>
+<section>
+<title>Hibernate (S4)</title>
+<body>
+
+<p>
+Ten rozdział pokaże nam czym jest hibernacja, czyli obraz działającego systemu
+skopiowany na dysk przez wyłączeniem. Podczas wznawiania, obraz jest ładowany i
+możemy zaczać działać dokładnie od tego samego punktu, w którym poprzednio
+wywołaliśmy hibernację.
+</p>
+
+<warn>
+Nie należy zmieniać sprzętu, który nie jest "hot-pluggable" podczas hibernacji.
+Nie należy też ładować obrazu z innym jądrem niż to, które zostało użyte do
+hibernowania. Trzeba również wyłączyć klient/serwer NFS lub Samby przed
+hibernacją.
+</warn>
+
+
+<p>
+Obecnie istnieją dwie różne implementacje dla S4. Oryginalnym jest swsusp, potem
+jest swsusp2, który ma najładniejszy interfejs (zwierając wsparcie dla
+fbsplasha). <uri link="http://suspend2.net/features.html#compare">Porównanie
+udogodnień</uri> jest dostępne na <uri link="http://suspend2.net">stronie
+domowej projektu suspend2</uri>. Dodatkowo istniało również zawieszenie na
+dysk (Suspend-to-Disk, pmdisk) - rozwidlenie swsusp, ale jego rozwój został
+wstrzymany.
+</p>
+
+
+
+<p>
+Suspend2 nie jest jeszcze oficjalnie włączone do głównych źródeł jądra, trzeba
+nałożyć na nie odpowiednie łatki, które możemy znaleźć na <uri
+link="http://suspend2.net">suspend2.net</uri>, lub użyć
+<c>sys-kernel/suspend2-sources</c>
+</p>
+
+
+<p>
+Jądro dla swsusp i suspend2 należy ustawić następująco:
+</p>
+
+<pre caption="Konfiguracja jądra dla różnych typów zawieszeń">
+Power Management Options ---&gt;
+
+  <comment>(hibernacja z swsusp)</comment>
+  [*] Software Suspend (EXPERIMENTAL)
+    <comment>(należy zamienić /dev/SWAP z odpowiednią partycją swap)</comment>
+    (/dev/SWAP)  Default resume partition
+
+  <comment>(hibernacja z suspend2)</comment>
+  Software Suspend 2
+    --- Image Storage (you need at least one writer)
+    [*]    File Writer
+    [*]    Swap Writer
+    --- General Options
+    [*]    LZF image compression
+    <comment>(należy zamienić /dev/SWAP z odpowiednią partycją swap)</comment>
+    (/dev/SWAP)    Domyślna nazwa urządzenia wznowienia
+    [ ]    Allow Keep Image Mode
+</pre>
+
+<p>
+Konfiguracja sla swsusp jest raczej prosta. Jeżeli nie ustawiliśmy lokalizacji
+partycji swap w konfiguracji jądra, możemy ją dodać jako parametr jądra podczas
+uruchomienia (<c>resume=/dev/SWAP</c>). Jeżeli uruchomienie nie jest możliwe,
+ponieważ obraz jest zepsuty, należy użyć parametru <c>noresume</c>. Skrypt
+uruchomieniowy <c>hibernate-cleanup</c> unieważnia obrazy swsusp podczas
+uruchamiania.
+</p>
+
+<pre caption="Unieważnienie obrazów podczas uruchomienia">
+# <i>rc-update add hibernate-cleanup boot</i>
+</pre>
+
+<p>
+Aby uaktywnić hibernację z swsusp, trzeba użyć skryptu hibernate oraz ustawić
+<c>UseSysfsPowerState disk</c> w <path>/etc/hibernate/sysfs-disk</path>
+</p>
+
+<warn>
+Należy zrobić kopię zapasową danych przed wykonaniem tych poleceń. Wykonujemy
+<c>sync</c> przed uruchomieniem jednego z poleceń, aby dane zostały zapisane na
+dysku. Najpierw próbujemy tego na zewnątrz środowiska X, dopiero potem wewnątrz
+X, ale jako niezalogowani.
+</warn>
+
+<p>
+Jeśli wyświetli nam się komunikat o spanikowaniu jądra z powodu uhci lub
+czegoś podobnego, wtedy należy skompilować wsparcie dla USB jako moduł i
+usunąć go z pamięci przed uśpieniem laptopa. Opcje konfiguracyjne możemy znaleźć
+w <path>common.conf</path>
+</p>
+
+<pre caption="Hibernacja z swsusp">
+# <i>nano -w /etc/hibernate/common.conf</i>
+<comment>(Ostatnia szansa na zrobienie kopii zapasowej)</comment>
+# <i>hibernate</i>
+</pre>
+
+<p>
+Poniższy nagłówek opisuje ustawienie suspend2 włączając w to wsparcie dla
+fbsplash, dla ładnego, graficznego pasku postępu hibernacji i wznawiania.
+</p>
+
+<p>
+Pierwsza część konfiguracji jest podobna do konfiguracji swsusp. Podobnie jak
+tam, jeżeli nie podamy lokacji partycji swap w konfiguracji jądra, możemy ją
+dodać jako parametr jądra (<c>resume2=swap:/dev/SWAP</c>) Jeżeli z powodu
+uszkodzonego obrazu nie możemy załadować systemu należy dodać parametr
+<c>noresume2</c>. Dodatkowo skrypt <c>hibernate-cleanup</c> unieważnia obrazy
+suspend2 podczas uruchamiania.
+</p>
+
+<pre caption="Unieważnianie obrazów suspend2 podczas procesu uruchamiania">
+# <i>rc-update add hiberante-cleanup boot</i>
+</pre>
+
+<p>
+Teraz należy odpowiednio wyedytować <path>/etc/hiberante/suspend2.conf</path>,
+uaktywniajać opcje <c>suspend2</c>, które są nam potrzebne. Na razie jednak nie
+uaktualniajmy części o <c>fbsplash</c> w <c>common.conf</c>.
+</p>
+
+<pre caption="Hibernacja z suspend2">
+# <i>nano -w /etc/hibernate/suspend2.conf</i>
+<comment>(Ostatnia szansa na zrobienie kopii zapasowej danych)</comment>
+# <i>hibernate</i>
+</pre>
+
+<p>
+Należy skonfigurować <c>fbsplash</c> teraz, jeżeli jeszcze tego nie zrobiliśmy.
+Aby uaktywnić wsparcie dla fbsplash podczas hibernacji, potrzebujemy pakietu
+<c>sys-apps/suspend2-userui</c>. Dodatkowo, musimy odblokować flagę USE
+<c>fbsplash</c>.
+</p>
+
+<pre caption="Instalacja suspend2-userui">
+# <i>echo sys-apps/suspend2-userui fbsplash >> /etc/portage/package.use</i>
+<comment>(Pakiet może być oznaczy jako niestabilny, więc najpierw trzeba będzie 
+go odmaskować)</comment>
+# <i>echo "sys-apps/suspend2-userui" >> /etc/portage/package.keywords</i>
+# <i>emerge suspend2-userui</i>
+</pre>
+
+<p>
+Po instalacji dostajemy informację o konieczności zrobienia dowiązania
+symbolicznego to motywu, którego chcemy użyć. Np, aby użyć motywu
+<c>livecd-2005.1</c>, powinniśmy wykonać poniższe komendy:
+</p>
+
+<pre caption="Używanie motywu livecd-2005.1 podczas hibernacji">
+# <i>ln -sfn /etc/splash/livecd-2005-1 /etc/splash/suspend2</i>
+</pre>
+
+<p>
+Jeżeli chcemy czarnego ekranu w pierwszej części procesu wznawiania, powinniśmy
+dodać narzędzie <c>suspend2ui_fbsplash</c> do naszego obrazu initrd. Zakładając,
+że stworzyliśmy obraz wykorzystując <c>splash_geninitramfs</c> i zapisaliśmy
+jako <path>/boot/fbsplash-emergence-1024x768</path>, znajdziemy poniżej
+informacje jak tego dokonać.
+</p>
+
+<pre caption="Adding suspend2ui_fbsplash to an initrd image">
+# <i> mount /boot</i>
+# <i> mkdir ~/initrd.d</i>
+# <i> cp /boot/fbsplash-emergence-1024x768 ~/initrd.d/</i>
+# <i> cd ~/initrd.d</i>
+# <i> gunzip -c fbsplash-emergence-1024x768 | cpio -idm --quiet -H newc</i>
+# <i> rm fbsplash-emergence-1024x768</i>
+# <i> cp /usr/sbin/suspend2ui_fbsplash sbin/</i>
+# <i> find . | cpio --quiet --dereference -o -H newc | gzip -9 > /boot/fbsplash-suspend2-emergence-1024x768</i>
+</pre>
+
+<p>
+Pozostaje nam jeszcze tylko przekonfigurowanie <path>grub.conf</path> (lub
+<path>lilo.conf</path>) aby nasz kernel używał
+<path>/boot/fbsplash-suspend2-emergence-1024x768</path> jako obrazu initrd.
+Teraz możemy na sucho przetestować czy wszystko zostało ustawione poprawnie
+</p>
+
+<pre caption="Test hibernacji z fbsplash">
+# <i>suspend2ui_fbsplash -t</i>
+</pre>
+
+<p>
+Jeżeli wszystko działa dobrze, możemy ponownie otworzyć
+<path>/etc/hibernate/common.conf</path> i uaktywnić wszystkie opcje związane
+z fbsplash. Po tym możemy już uruchomić <c>hibernate</c> i podziwiać hibernacje
+z użyciem fbsplash
+</p>
+
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Rozwiązywanie problemów</title>
+<section>
+<body>
+
+<p>
+<e>P:</e>Próbując zmienić częstotliwość CPU, wyświetlany jest komunikat, że
+<path>/sys/devices/system/cpu/cpu0/cpufreq/scaling_regulator</path> nie
+istnieje.
+</p>
+
+<p>
+<e>O:</e> Należy się upewnić, że nasz procesor wspiera skalowanie częstotliwości
+oraz, że wybraliśmy odpowiedni sterownik CPUFreq dla naszego procesora. Poniżej
+znajduje się lista procesorów wspieranych przez CPUFreq (jądro 2.6.7): ARM
+Integrator, ARM-SA1100, ARM-SA1110, AMD Elan - SC400, SC410, AMD mobile K6-2+,
+AMD mobile K6-3+, AMD mobile Duron, AMD mobile Athlon, AMD Opteron, AMD Athlon
+64, Cyrix Media GXm, Intel mobile PIII i Intel mobile PIII-M na pewnych
+chipsetach, Intel Pentium 4, Intel Xeon, Intel Pentium M (Centrino), National
+Semiconductors Geode GX, Transmeta Crusoe, VIA Cyrix 3 / C3, UltraSPARC-III,
+SuperH SH-3, SH-4, kilka "PowerBook" i "iBook2" oraz różne procesory zgodne z
+systemami ACPI 2.0 (tylko jeśli "ACPI Processor Performance States" są dostępne
+w interfejsie ACPI/BIOS).
+</p>
+
+<p>
+<e>P:</e> Laptop wspiera skalowanie częstotliwości, ale
+<path>/sys/devices/system/cpu/cpu0/cpufreq/</path> jest pusty.
+</p>
+
+<p>
+<e>O:</e> Należy poszukać komunikatów o błędach ACPI za pomocą <c>dmesg | grep
+ACPI</c>. Należy uaktualnić BIOS, szczególnie jeśli jest raportowany zepsuty
+DSDT. Możemy również naprawić to samemu (co wykracza poza ten przewodnik).
+</p>
+
+<p>
+<e>P:</e> Laptop wspiera skalowanie częstotliwości, ale według /proc/cpuinfo
+prędkość nigdy się nie zmienia.
+</p>
+
+<p>
+<e>O:</e> Prawdopodobnie włączyliśmy wsparcie dla symmetric multiprocessing
+support (CONFIG_SMP) w jądrze. Należy to wyłączyć i wszystko powinno działać.
+Niektóre starsze jądra posiadały powodujący to błąd. W takim przypadku
+wykonujemy <c>emerge x86info</c>, aktualizujemy jądro gdy zostaniemy o to
+zapytani i sprawdzamy częstotliwość za pomocą <c>x86info -mhz</c>.
+</p>
+
+<p>
+<e>P:</e> Częstotliwość CPU może być zmieniana, ale jej zakres nie jest tak
+szeroki jak w innym systemie operacyjnym.
+</p>
+
+<p>
+<e>O:</e> Możemy połączyć skalowanie częstotliwości z przepustnicą ACPI, aby
+otrzymać niższą minimalną częstotliwość. Zauważmy, że przepustnica nie
+zachowuje wiele energii i głównie jest używana do zarządzania temperaturą
+(utrzymując laptop cichym i chłodnym). Możemy uzyskać obecny stan przepustnicy
+za pomocą <c>cat /proc/acpi/processor/CPU/throttling</c> i zmienić go
+wykonując <c>echo -n "0:x" > /proc/acpi/processor/CPU/limit</c>, gdzie x jest
+jednym ze stanów Tx wyszczególnionych w
+<path>/proc/acpi/processor/CPU/throttling</path>.
+</p>
+
+<p>
+<e>P:</e> Konfigurując jądro regulatory powersave, performance i userspace
+pojawiają się, ale brakuje ondemand. Gdzie go można znaleźć?
+</p>
+
+<p>
+<e>O:</e> Regulator ondemand jest tylko dołączony do ostatnich źródeł jąder.
+Należy uaktualnić jądro.
+</p>
+
+<p>
+<e>P:</e> Żywotność baterii się pogorszyła.
+</p>
+
+<p>
+<e>O:</e> Sprawdzamy ustawienia w BIOS-ie. Może zapomnieliśmy, ponownie
+włączyć niektóre opcje.
+</p>
+
+<p>
+<e>P:</e> Bateria jest w pełni naładowana, ale KDE wyświetla, że pozostało 0%
+i natychmiastowo zamyka system.
+</p>
+
+<p>
+<e>O:</e> Sprawdzamy wsparcie baterii wkompilowane w jądro. Jeśli używamy go
+jako modułu, należy się upewnić, że jest on załadowany.
+</p>
+
+<p>
+<e>P:</e> Program logujący pokazuje komunikaty tj. "logger: ACPI group batter /
+action battery is not defined".
+</p>
+
+<p>
+<e>O:</e> Ten komunikat jest generowany przez skrypt
+<path>/etc/acpi/default.sh</path>, który jest dostarczany z acpid. Możemy bez
+żadnych konsekwencji je zignorować.  Jeżeli jednak chcemy się ich pozbyć,
+możemy to zrobić poprzez zakomentowanie odpowiedniej linii w pliku
+<path>/etc/acpi/default.sh</path>:
+</p>
+
+<pre caption="Wyłączenie ostrzerzeń o nieznanych zdarzeniach acpi">
+   *)  # logger "ACPI action $action is not defined"
+</pre>
+
+
+<p>
+<e>P:</e> Posiadacze laptopów Dell Inspiron 51XX. Nie występują zdarzenia
+ACPI.
+</p>
+
+<p>
+<e>O:</e> Wygląda na błąd w jądrze. Przeczytajmy o tym <uri
+link="http://bugme.osdl.org/show_bug.cgi?id=1752">tutaj</uri>.
+</p>
+
+<p>
+<e>P:</e> Uaktywniłem opcję <c>DynamicClocks</c> w <path>xorg.conf</path> i
+teraz X.org pada / Ekran jest cały czarny / mój laptop nie wyłącza się
+poprawnie.
+</p>
+
+<p>
+<e>O:</e> Dzieje się tak na niektórych systemach. Rozwiązaniem jest wyłączenie
+<c>DynamicClocks</c>.
+</p>
+
+<p>
+<e>P:</e> Chcę użyć suspend2, ale dostaję komunikat, że moja partycja swap jest
+za mała. Rozszerzenie nie wchodzi w grę.
+</p>
+
+<p>
+<e>O:</e> Jeżeli mamy wystarczająco dużo wolnego miejsca na dysku, możemy użyć
+zapisu do pliku, zamiast do partycji swap. <c>hibernate-script</c> radzi sobie z
+tym całkiem dobrze. Więcej informacji na ten temat możemy znaleźć w
+<path>/usr/src/linux/Documentation/power/suspend2.txt</path>.
+</p>
+
+<p>
+<e>P:</e> Nowo zakupiona bateria starcza ledwo na kilka minut! Co jest nie
+tak?
+</p>
+
+<p>
+<e>O:</e> Najpierw należy podążyć za wskazówkami producenta o tym jak
+poprawnie naładować baterię.
+</p>
+
+<p>
+<e>P:</e> Powyższe nie pomogło. Co wtedy?
+</p>
+
+<p>
+<e>O:</e> Niektóre baterie sprzedawane jako "nowe" są w rzeczywistości stare.
+Proszę spróbować:
+</p>
+
+<pre caption="Zapytanie o stan baterii">
+$ <i>grep capacity /proc/acpi/battery/BAT0/info</i>
+design capacity:     47520 mWh
+last full capacity:  41830 mWh
+</pre>
+
+<p>
+Jeśli "last full capacity" różni się znacznie od "design capacity", wtedy
+bateria prawdopodobnie jest zepsuta. Proszę spróbować wymiany gwarancyjnej.
+</p>
+
+<p>
+<e>P:</e> Naszego problemu nie ma powyżej. Co dalej?
+</p>
+
+<p>
+<e>O:</e> Po pierwsze nie bać się kontaktu ze mną, <mail
+link="earthwings@gentoo.org">Dennis Nienhüser</mail>. <uri
+link="http://forums.gentoo.org">Fora Gentoo</uri> są również bardzo dobrym
+miejscem na uzyskanie pomocy. Jeżeli wolimy konatkować się przez IRC, pomoc
+możemy uzyskać na kanale <c>#gentoo-laptop</c> w sieci <c>irc.freenode.net</c>.
+</p>
+
+</body>
+</section>
+</chapter>
+</guide>

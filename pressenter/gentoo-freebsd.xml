@@ -1,0 +1,870 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/gentoo-freebsd.xml,v 1.18 2007/06/03 14:33:50 rane Exp $ -->
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+
+<guide link="/doc/pl/gentoo-freebsd.xml" lang="pl">
+<title>Krótkie wprowadzenie do Gentoo/FreeBSD</title>
+
+<author title="Autor">
+  <mail link="ignacio.arquelatour@gmail.com">Ignacio Arque-Latour</mail>
+</author>
+<author title="Autor">
+  <mail link="citizen428@gentoo.org">Michael Kohl</mail>
+</author>
+<author title="Autor">
+  <mail link="angusyoung@gentoo.org">Otavio R. Piske</mail>
+</author>
+<author title="Autor">
+  <mail link="ka0ttic@gentoo.org">Aaron Walker</mail>
+</author>
+<author title="Autor">
+  <mail link="chriswhite@gentoo.org">Chris White</mail>
+</author>
+<author title="Contributor">
+  <mail link="flameeyes@gentoo.org">Diego Pettenò</mail>
+</author>
+<author title="Redaktor">
+  <mail link="nightmorph@gentoo.org">Joshua Saddler</mail>
+</author>
+<author title="Redaktor">
+  <mail link="cam@gentoo.org">Camille Huot</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="aleander@dark.freak.pl">Aleksander Kamil Modzelewski</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="dawid.weglinski@gmail.com">Dawid Węgliński</mail>
+</author>
+
+<abstract>
+Podstawowe informacje o FreeBSD oraz instrukcje instalacji Gentoo/FreeBSD, a
+także wskazówki dla osób zainteresowanych pomocą w rozwoju tego projektu.
+</abstract>
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
+<license/>
+
+<version>2.11</version>
+<date>2007-05-17</date>
+
+<chapter>
+<title>Wprowadzenie do FreeBSD</title>
+<section>
+<title>Czym jest FreeBSD?</title>
+<body>
+
+<p>
+<uri link="http://www.freebsd.org/">FreeBSD</uri> jest systemem Unikso-podobnym
+opartym na wolnej <uri
+link="http://www.freebsd.org/copyright/freebsd-license.html">licencji</uri>.  W
+roku 1993, gdy wstrzymano rozwój <uri link="http://www.386bsd.org">386BSD</uri>,
+powstały dwa nowe projekty: <uri link="http://www.netbsd.org/">NetBSD</uri>,
+powszechnie rozpoznawany ze względu na ogromną ilość wspieranych architektur
+sprzętowych oraz FreeBSD, który wspiera x86, amd64, ia64, sparc64 oraz alpha.
+FreeBSD jest cenione za stabilność, wydajność oraz bezpieczeństwo, dzięki czemu
+znalazło zastosowanie w zarówno w małych, jak i wielkich firmach na całym
+świecie.
+</p>
+
+<p>
+Aktualną stabilną wersją FreeBSD jest 6.2 - na niej właśnie jest oparty projekt
+Gentoo/FreeBSD. Poprzednie wersje FreeBSD nie są przez nas wspierane.
+</p>
+
+</body>
+</section>
+<section>
+<title>Czym jest Gentoo/FreeBSD?</title>
+<body>
+
+<p>
+<uri link="/proj/en/gentoo-alt/bsd/fbsd/">Gentoo/FreeBSD</uri> jest podprojektem
+<uri link="/proj/en/gentoo-alt/">Gentoo/Alt project</uri>, który skupia się na
+stworzeniu w pełni funkcjonalnego systemu FreeBSD z założeniami projektowymi
+Gentoo, takimi jak init oraz menadżer zarządzania pakietami Portage.
+</p>
+
+</body>
+</section>
+<section>
+<title>FreeBSD a Linux</title>
+<body>
+
+<p>
+Użytkownicy przenoszący się z Linuksa na FreeBSD z reguły uważają te systemy za
+"prawie takie same". Faktycznie, jest pomiędzy nimi wiele podobieństw. Istnieje
+jednak kilka kluczowych różnic:
+</p>
+
+<ul>
+  <li>
+    W przeciwieństwie do Linuksa, który w zasadzie jest samym jądrem, FreeBSD
+    jest kompletnym systemem operacyjnym, składającym się z biblioteki
+    podstawowej C, narzędzi przestrzeni użytkownika i wielu innych elementów. To
+    założenie konstrukcyjne czyni całość bardzo spójną.
+  </li>
+  <li>
+    W przeciwieństwie do jądra Linuksa, rozwój FreeBSD nie jest prowadzony przez
+    jedną osobę, tylko przez niewielką grupę zwaną <uri
+    link="http://www.freebsd.org/doc/en_US.ISO8859-1/articles/contributors/staff-core.html">Grupą
+    Zarządzającą</uri>.
+  </li>
+</ul>
+
+<p>
+Ponadto istnieją też różnice techniczne oddzielające FreeBSD od Linuksa.
+Niektóre z nich warto znać nawet, jeżeli nie zamierza się przyłączyć do rozwoju
+Gentoo/FreeBSD:
+</p>
+
+<ul>
+  <li>
+    Funkcje dynamicznego łączenia, takie jak <c>dlopen()</c>, działają bez
+    połączenia programu z biblioteką libdl (co jest wymagane na GNU/Linux).
+    Zamiast tego po prostu łączy się je z libc.
+  </li>
+  <li>
+    FreeBSD nie posiada oficjalnego narzędzia kompilacji jądra, więc zależności
+    pomiędzy różnymi cechami muszą zostać rozstrzygnięte przez użytkownika.
+  </li>
+  <li>
+    FreeBSD stosuje systemy plików UFS/UFS-2 i nie zawiera oficjalnego wsparcia
+    dla ReiserFS ani XFS. Mimo to istnieją projekty dodania możliwości odczytu
+    danych zapisanych przy ich użyciu. Dostęp do partycji ext2/ext3 jest już
+    możliwy, jednak nie da się na nich zainstalować systemu.
+  </li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Instalacja Gentoo/FreeBSD</title>
+<section>
+<title>Rozruch z płyty CD</title>
+<body>
+
+<p>
+Po wprowadzeniu, czas na zainstalowanie Gentoo/FreeBSD. Niestety projekt nie
+dysponuje jeszcze własnym medium instalacyjnym, więc konieczny jest wybór
+pomiędzy dwoma opcja. Pierwszą z nich jest wykorzystanie istniejącej instalacji
+FreeBSD do podzielenia dysku twardego na partycje i zainstalowania
+Gentoo/FreeBSD. Drugą z nich jest użycie <uri
+link="http://www.freesbie.org">FreeSBIE LiveCD</uri> jako medium instalacyjnego.
+</p>
+
+<note>
+Jeśli zamierzamy skorzystać z FreeSBIE do instalowania Gentoo/FreeBSD musimy się
+upewnić, że używamy wersji opartej na FreeBSD 6.x! Czyli na przykład FreeSBIE
+2.0 lub jedną z jej wydań kandydujących. FreeSBIE można pobrać z torrenta <uri
+link="http://torrent.freesbie.org/">FreeSBIE's Bittorrent tracker </uri>.
+</note>
+
+<p>
+Najpierw należy zatem uruchomić system z płyty CD, po czym zalogować się jako
+użytkownik <c>freesbie</c>. Hasło nie będzie wymagane. Następnie trzeba użyć
+polecenia <c>sudo su</c>, aby uzyskać uprawnienia administratora i opcjonalnie
+ustawić hasło. Dla miłego i wygodnego spędzenia czasu podczas instalacji można
+również użyć polecenia <c>startx</c>, przez co zostanie uruchomione środowisko
+Xfce odpowiednie do przeglądania stron www, prowadzenia rozmów poprzez
+komunikatory oraz wielu innych czynności. W FreeBSD istnieją inne nazwy
+interfejsów niż te, do których przywykliśmy w Linuksie. Dla przykładu sterownik
+Intel EtherExpress (fxp) pojawia się jako fxp0 (sterownik fxp, pierwsza karta
+sieciowa). Aby dowiedzieć się, jakiego interfejsu się używa, należy użyć
+<c>ifconfig</c>:
+</p>
+
+<pre caption="Odnajdywanie nazwy interfejsu sieciowego przy pomocy ifconfig">
+# <i>ifconfig</i>
+fxp0: flags=8843&lt;UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST&gt; mtu 1500
+    options=8&lt;VLAN_MTU&gt;
+    inet6 fe80::2d0::b7ff:febc:4fe3%fxp0 prefixlen 64 scopeid 0x1
+    inet 192.168.0.106 netmask 0xffffff00 broadcast 192.168.0.255
+    ether 00:d0:b7:bc:4f:e3
+    media: Ethernet autoselect (100baseTX &lt;full-duplex&gt;)
+    status: active
+lo0: flags=8007&lt;LOOPBACK,MULTICAST&gt; mtu 16384
+</pre>
+
+<p>
+Jeśli żądanie DHCP podczas ładowania CD zawiedzie należy użyć komendy
+<c>dhclient</c> aby uzyskać adres IP:
+</p>
+
+<pre caption="Uzyskiwanie adresu IP przy pomocy dhclient">
+# <i>dhclient fxp0</i>
+DHCPDISCOVER on fxp0 to 255.255.255.255 port 67 interval 9
+DHCPOFFER from 192.168.0.1
+DHCPREQUEST on fxp0 to 255.255.255.255 port 67
+DHCPACK from 192.168.0.1
+bound to 192.168.0.106 -- renewal in 302400 seconds
+</pre>
+
+<note>
+Wyjście polecenia będzie się różniło od przykładowego, to zależy od sieci.
+</note>
+
+</body>
+</section>
+<section>
+<title>Podział dysku</title>
+<body>
+
+<p>
+Skoro punkt montowania już istnieje, czas najwyższy odpowiednio przygotować
+dysk. W tym celu należy posłużyć się poleceniem <c>sysinstall</c>:
+</p>
+
+<pre caption="Przygotowywanie dysku">
+# <i>sysinstall diskPartitionEditor diskPartitionWrite</i>
+</pre>
+
+<p>
+Zaleca się użycie standardowego układu. Aby go zaakceptować należy nacisnąć
+enter, a następnie <b>a</b> i <b>q</b>. Następny obraz przedstawi opcje
+bootloadera. Opuścimy tę opcję wybierając "None", ponieważ instalacja
+bootloadera zostanie przeprowadzona w późniejszym etapie. Powinien pojawić się
+teraz aktualny rozkład partycji i punktów montowań.
+</p>
+
+<p>
+Następnym krokiem jest ponowne użycie <c>sysinstall</c> lecz już z innymi
+argumentami:
+</p>
+
+<pre caption="Użycie sysinstall do konfiguracji wielkości partycji i punktów ich montowań">
+# <i>sysinstall diskLabelEditor diskLabelCommit</i>
+</pre>
+
+<p>
+W tym miejscu należy się powstrzymać od użycia automatycznego układu i stworzyć
+jedną, dużą partycję oraz partycję wymiany. W tym celu użyjmy klawisza <b>c</b>.
+Ukaże się okno dialogowe, w którym należy podać wielkość partycji. Wartość można
+podać w MB (megabajtach), (GB) gigabajtach lub C (cylindrach). Dla głównej
+partycji należy wybrać typ FS, a punkt montowania ustawić na <path>/mnt/</path>.
+<e>W przypadku niepodania tego punktu, zostanie nadpisane środowisko
+FreeSBIE!</e> Ponieważ <path>/boot</path> nie jest oddzielną partycją, wymagane
+jest wyłączyć Soft Updates. W przeciwnym razie system nie załaduje się! W tym
+celu przy pomocy strzałek należy nakierować na nowo stworzoną partycję, naciskać
+klawisz <b>s</b> aż do momentu, w którym "Newfs" nie będzie zawierał <b>+S</b>.
+Następnie wybrać linię "Disk" i ponownie nacisnąć <b>c</b> w celu stworzenia
+partycji wymiany, która powinna być dwa razy większa niż posiadana pamięć RAM.
+Teraz wystarczy wybrać typ partycji SWAP i wyjść z programu używając klawisza
+<b>q</b>.
+</p>
+
+<p>
+Podczas wybierania innych punktów montowań partycji niż <path>/</path>,
+<c>sysinstall</c> stworzy partycję slice 'd', z której proces ładowania nie
+będzie możliwy. Aby to naprawić należy wykonać następujące polecenie:
+</p>
+
+<pre caption="Poprawa głównej partycji">
+# <i>disklabel ad0s1 | sed 's/^  d:/  a:/' | disklabel -R ad0s1 /dev/stdin</i>
+</pre>
+
+<p>
+W ten sposób zostaje zakończony proces podziału dysku i formatowania do systemu
+plików UFS. Partycja zotała również zamontowana w punkcie wskazanym wcześniej
+(<path>/mnt/</path>). Poprawność można zweryfikować poleceniem <c>mount</c>;
+</p>
+
+<pre caption="Weryfikacja poprawności montażu partycji">
+# <i>mount</i>
+...
+/dev/ad0s1a on /mnt (ufs, local)
+</pre>
+
+<p>
+Skoro partycje są już odpowiednio przygotowane i prawidłowo zamontowane, można
+przejść do procesu instalacji.
+</p>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja</title>
+<body>
+
+<p>
+Po pierwsze należy pobrać stage3, a następnie rozpakować do chroot. Archiwa
+dostępne są pod adresem
+<uri>http://gentoo.osuosl.org/experimental/x86/freebsd/stages/</uri>, gdzie
+należy się udać, wybrać najnowszy snapshot i rozpakować go do punktu montowania.
+</p>
+
+<pre caption="Pobranie i rozpakowanie archiwa stage3">
+# <i>cd /mnt/</i>
+<comment>(Każdy inny mirror zawierający katalog experimental również będzie dobry.)</comment>
+# <i>wget http://gentoo.osuosl.org/experimental/x86/freebsd/stages/stage3-x86-freebsd-6.2.tar.bz2</i>
+# <i>tar -jxvpf stage3-x86-freebsd-6.2.tar.bz2</i>
+<comment>(Po rozpakowaniu można spokojnie usunąć archiwum.)</comment>
+# <i>rm stage3-x86-freebsd-6.2.tar.bz2</i>
+</pre>
+
+<note>
+Nieco bardziej gorliwi użytkownicy mogą użyć overlaya, który zawiera
+pół-eksperymentalne ebuildy z poprawkami niedostępnymi jeszcze w drzewie
+Portage. Dokumentacja dostępna jest pod adresem <uri
+link="/proj/en/gentoo-alt/contribute/index.xml?part=1&amp;chap=3">dokumentacji
+overlaya Gentoo/ALT</uri>. Należy mieć jednak na uwadze, że overlay nie jest
+konieczny i można łatwo zainstalować Gentoo/FreeBSD bez niego.
+</note>
+
+<p>
+Przed chroot konieczne jest jeszcze zamontowanie katalogu <path>/dev</path> z
+aktualnego systemu do odpowiedniego miejsca w strukturze Gentoo/FreeBSD.
+</p>
+
+<pre caption="Montowanie /dev oraz zmiana korzenia drzewa katalogów">
+# <i>mount -t devfs none /mnt/dev/</i>
+# <i>cp /etc/resolv.conf /mnt/etc/</i>
+# <i>chroot /mnt/ /bin/bash</i>
+# <i>env-update &amp;&amp; source /etc/profile</i>
+</pre>
+
+<p>
+Po uzyskaniu nakładki Gentoo/FreeBSD nadchodzi czas na dowiązanie
+<path>/etc/make.profile</path> do właściwego profilu i przygotowanie
+<path>/etc/make.conf</path>.
+</p>
+
+<p>
+Teraz pora na zdobycie własnej kopii drzewa Portage. Może to potrwać dłuższą
+chwilę, w zależności od tego jak szybkie jest nasze połączenie z internetem.
+</p>
+
+<pre caption="Ściąganie drzewa Portage">
+# <i>emerge --sync</i>
+<comment>(Możliwe jest również zdobycie drzewa w inny sposób:)</comment>
+# <i>cd /</i>
+# <i>wget http://gentoo.osuosl.org/snapshots/portage-latest.tar.bz2</i>
+# <i>tar -xjf portage-latest.tar.bz2 -C /usr/</i>
+# <i>emerge --metadata</i>
+</pre>
+
+<pre caption="Konfiguracja profilu oraz /etc/make.conf">
+# <i>ln -sf /usr/portage/profiles/default-bsd/fbsd/6.2/x86/ /etc/make.profile</i>
+# <i>nano /etc/make.conf</i>
+<comment>(Należy upewnić się, że dodano co najmniej następujące wpisy)</comment>
+CHOST="i686-gentoo-freebsd6.2"
+FEATURES="collision-protect"
+</pre>
+
+<note>
+Słowo kluczowe <c>~x86-fbsd</c> nie pokrywa drzewa Portage tak samo jak
+<c>~x86</c>. Zespół prosi jednak o <e>nieużywanie</e> słowa kluczowego w
+zmiennej ACCEPT_KEYWORDS lecz o dodawanie poszczególnych pakietów do
+<path>/etc/portage/package.keywords</path>. W razie zaistniałych problemów,
+błędy można zgłaszać na <uri
+link="http://bugs.gentoo.org/enter_bug.cgi?product=Gentoo%2FAlt">Bugzilli</uri>.
+</note>
+
+<p>
+W razie potrzeby można również przebudować podstawowe pakiety systemowe:
+</p>
+
+<pre caption="Opcjonalne przebudowanie podstawowych pakietów FreeBSD">
+# <i>emerge -e system</i>
+</pre>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Ustawienia procesu ładowania systemu</title>
+<section>
+<title>Strefa czasowa</title>
+<body>
+
+<p>
+Najpierw ustawiamy, że data jest poprawnie ustawiana za pomocą polecenia
+<c>date yyyymmddHHMM</c>. Należy użyć czasu UTC.
+</p>
+
+<pre caption="Ustawianie godziny">
+<comment>(Sprawdzamy zegar)</comment>
+# <i>date</i>
+Mon Mar  6 00:14:13 UTC 2006
+
+<comment>(Ustawiamy datę i godzinę)</comment>
+# <i>date 200603060016</i> <comment>(Format to yyyymmddHHMM)</comment>
+Mon Mar  6 00:16:00 UTC 2006
+</pre>
+
+<p>
+Następnie wybieramy odpowiednią strefę czasową z
+<path>/usr/share/zoneinfo</path>.
+</p>
+
+<pre caption="Konfiguracja strefy czasowej">
+# <i>ls /usr/share/zoneinfo</i>
+<comment>(Przykład dla Warszawy)</comment>
+# <i>cp /usr/share/zoneinfo/Europe/Warsaw /etc/localtime</i>
+
+# <i>date</i>
+ Wed Mar  8 00:46:05 CET 2006
+</pre>
+
+<p>
+Następnie wpisujemy tę samą strefę czasową do pliku
+<path>/etc/conf.d/clock</path>.
+</p>
+
+<pre caption="Edycja /etc/conf.d/clock">
+# <i>nano -w /etc/conf.d/clock</i>
+TIMEZONE="Europe/Warsaw"
+</pre>
+
+</body>
+</section>
+<section>
+<title>Instalacja jądra</title>
+<body>
+
+<p>
+Po wykonaniu <c>emerge -e system</c>, źródła jądra FreeBSD zostały zainstalowane
+do <path>/usr/src/sys</path>. Jeżeli krok ten został pominięty, można je
+pozyskać w następujący sposób:
+</p>
+
+<pre caption="Pozyskiwanie źródeł jądra FreeBSD">
+# <i>emerge freebsd-sources</i>
+</pre>
+
+<p>
+Konfiguracja i kompilacja własnego jądra jest zdecydowanie odmienna od swojego
+linuksowego odpowiednika, więc w razie wątpliwości należy skonsultować się z
+<uri
+link="http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/kernelconfig.html">
+rozdziałem ósmym</uri> podręcznika FreeBSD. Można również dokonać instalacji
+standardowego jądra, który działa na większości systemów. Aby zacząć należy
+wejść do katalogu ze źródłami jądra:
+</p>
+
+<impo>
+Należy również zwrócić uwagę na to, że jedynie "tradycyjny" sposób kompilacji
+jest aktualnie wspierany przez Gentoo/FreeBSD!
+</impo>
+
+<pre caption="Wejście do katalogu ze źródłami jądra">
+# <i>cd /usr/src/sys/</i>
+</pre>
+
+<p>
+Przeglądając układ, da się dostrzec różne architektury i podkatalogi dla różnych
+części jądra. Aby dokonać instalacji należy się skierować do katalogu
+<path>i386/conf/</path>:
+</p>
+
+<pre caption="The kernel configuration directory">
+# <i>cd i386/conf/</i>
+# <i>ls</i>
+.cvsignore      GENERIC         Makefile        PAE
+DEFAULTS        GENERIC.hints   NOTES           SMP
+</pre>
+
+<p>
+Główne pliki, które należy zanotować to <path>GENERIC</path> oraz
+<path>GENERIC.hints</path>. Proces instalacji jądra wymaga skopiowania
+<path>GENERIC.hints</path> do <path>/boot/device.hints</path>:
+</p>
+
+<pre caption="Kopiowanie pliku GENERIC.hints">
+# <i>cp GENERIC.hints /boot/device.hints</i>
+</pre>
+
+<p>
+Plik ten jest używany przez sterowniki jądra dla podstawowej konfiguracji takich
+jak ustawienia IRQ. Nadszedł czas aby skonfigurować jądro. FreeBSD używa komendy
+<c>config</c> do tego celu. <c>config</c> używa natomiast pliku GENERIC, aby
+skopiować niezbędne pliki do katalogu <path>compile</path>. Plik
+<path>GENERIC</path> jest podobny do pliku <path>.config</path> który jest znany
+z Linuksa. Należy zatem wykonać polecenie <c>config</c>:
+</p>
+
+<pre caption="Konfiguracja jądra">
+# <i>config GENERIC</i>
+Kernel build directory is ../compile/GENERIC
+Don't forget to ''make cleandepend; make depend''
+</pre>
+
+<p>
+<c>config</c> stworzył standardowy katalog budowy w głównym katalogu źródeł.
+Należy wejść doń, a następnie użyć kolejnych poleceń aby wykonać kompletną
+budowę:
+</p>
+
+<pre caption="Budowa i instalacja jądra">
+# <i>cd ../compile/GENERIC</i>
+# <i>make cleandepend &amp;&amp; make depend &amp;&amp; make &amp;&amp; make install</i>
+</pre>
+
+<p>
+Powyższe polecenie stworzy kompletne, działające jądro. Pora teraz skonfigurować
+bootloader. W następnym rozdziale zostaną omówione dwie metody: <c>boot0</c>
+oraz <c>grub</c>.
+</p>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja i instalacja bootloadera</title>
+<body>
+
+<impo>
+<c>boot0</c> jest bootloaderem pochodzącym z systemu FreeBSD. Wcześniej był
+jedynym wspieranym bootloaderem, aż do momentu, w którym <c>grub</c> został
+wprowadzony do systemu portów ze wsparciem dla partycji UFS. Aby zainstalować i
+skonfigurować <c>boot0</c> należy wykonać następujące czynności:
+(Trzeba pamiętać o zastąpieniu <c>adXsY</c> prawidłowymi numerami partycji)
+</impo>
+
+<pre caption="Instalacja i konfiguracja boot0">
+# <i>emerge boot0</i>
+<comment>(Opuszczamy środowisko chroot)</comment>
+# <i>exit</i>
+<comment>(Wykonane poza środowiskiem chroot)</comment>
+# <i>fdisk -B -b /mnt/boot/boot0 /dev/adX</i>
+# <i>chroot /mnt/ /bin/bash</i>
+# <i>disklabel -B adXsY</i>
+</pre>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/boot.html">dwunastym
+rozdziale</uri> podręcznika FreeBSD. Nadszedł czas do podstawowej konfiguracji
+systemu.
+</p>
+
+<p>
+W następnej sekcji omówimy użycie alternatywnego bootloadera, jakim jest
+<c>grub</c>.
+</p>
+
+</body>
+</section>
+<section>
+<title>Instalacja i konfiguracja bootloadera grub</title>
+<body>
+
+<p>
+Od wersji 0.97-r1 <c>grub</c> prawidłowo odczytuje partycje UFS. Pozwala nam to
+na jego użycie, jako że jest on preferowanym bootloaderem w systemach Linuks.
+Zaczynamy od jego instalacji poprzez <c>emerge</c>, a następnie konfiguracji
+etykiety. Należy pamiętać o zamianie <c>adXsY</c> na prawidłowe wartości i
+numery partycji.
+</p>
+
+<pre caption="Instalacja GRUB-a">
+# <i>emerge grub</i>
+# <i>disklabel -B adXsY</i>
+</pre>
+
+<p>
+Następnie uruchamiamy polecenie <c>grub</c> żeby wyświetlić wiersz poleceń tego
+programu:
+</p>
+
+<pre caption="Instalacja i konfiguracja bootloadera grub">
+<comment>(Poniższe polecenie należy wykonać, aby zapobiec przed błędem dysku
+29)</comment>
+# <i>sysctl kern.geom.debugflags=16</i>
+# <i>grub</i>
+<comment>(Przykładowe użycie ad0s1d)</comment>
+grub&gt; <i>root (hd0,0,d)</i>
+Filesystem type is ufs2, partition type 0xa5
+
+grub&gt; <i>setup (hd0)</i>
+ Checking if "/boot/grub/stage1" exists... yes
+ Checking if "/boot/grub/stage2" exists... yes
+ Checking if "/boot/grub/ufs2_stage1_5" exists... yes
+ Running "embed /boot/grub/ufs2_stage1_5 (hd0)"... 14 sectors are embedded.
+succeeded
+ Running "install /boot/grub/stage1 (hd0) (hd0)1+14 p (hd0,0,d)/boot/grub/stage
+2 /boot/grub/menu.lst"... succeeded
+Done.
+
+grub&gt; quit
+</pre>
+
+<p>
+Linia <c>vfs.root.mountfrom</c> w pliku <path>/boot/loader.conf</path> pozwoli
+programowi ładującemu na znalezienie jądra na odpowiedniej partycji.
+</p>
+
+<pre caption="Wpis pozwalający na odnalezienie jądra">
+# <i>echo 'vfs.root.mountfrom="ufs:ad0s1d"' >> /boot/loader.conf</i>
+</pre>
+
+<p>
+Podczas pierwszego startu systemu może się nie pojawić menu grub. Jeśli tak się
+stanie należy wykonać następujące polecenia:
+</p>
+
+<pre caption="Ładowanie jądra podczas braku menu">
+grub&gt; <i>find /boot/grub/stage1</i>
+<comment>(Wyjściem tego polecenia jest to, co zostanie wyświetlone po użyciu
+następnej komendy)</comment>
+(hd0,0,d)
+
+grub&gt; <i>kernel (hd0,0,d)/boot/loader</i>
+ [FreeBSD-a.out, loadaddr=0x200000, text=0x1000, data=0x3a000, bss=0x0,
+ entry=0x200000]
+
+grub&gt; <i>boot</i>
+</pre>
+
+<note>
+Aby uzyskać więcej informacji o tym jak konfigurować gruba, należy odwiedzić
+<uri
+link="/doc/pl/handbook/handbook-x86.xml?part=1&amp;chap=10#doc_chap2">Podręcznik
+Gentoo</uri>
+</note>
+
+<warn>
+GRUB nie obsługuje dowiązań na partycjach UFS, więc należy skasować dowiązania
+<path>/boot/grub/menu.lst</path> i podczas konfiguracji korzystać z
+<path>menu.lst</path> (<path>grub.conf</path> nie jest wykorzystywany).
+</warn>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja systemu</title>
+<body>
+
+<p>
+Przede wszystkim należy ustawić punkty montowań w <path>/etc/fstab</path>.
+</p>
+
+<pre caption="Edycja /etc/fstab">
+# <i>nano /etc/fstab</i>
+<comment>(To jest tylko przykład - X oraz Y należy zastąpić liczbami
+właściwymi dla danej konfiguracji.)</comment>
+#Device         Mountpoint      Fstype          Options         Dump    Pass
+/dev/adXsYb     none            swap            sw              0       0
+/dev/adXsYa     /               ufs             rw              1       1
+/dev/adXsYe     /usr/home       ufs             rw              2       2
+/dev/adXsYd     /tmp            ufs             rw              2       2
+/dev/acdX       /cdrom          cd9660          ro,noauto       0       0
+</pre>
+
+<p>
+Teraz jest też właściwy czas by skonfigurować połączenia sieciowe przed
+ostatecznym przeładowaniem systemu. Wszystkie niezbędne informacje o tym jak
+skonfigurować sieć można znaleźć <uri
+link="/doc/pl/handbook/handbook-x86.xml?part=4&amp;chap=1">Podręczniku
+Gentoo</uri>. Połączenie sieciowe może być automatycznie aktywowane w czasie
+uruchamiania komputera. Wystarczy dodać odpowiedni skrypt do odpowiedniego
+poziomu uruchomieniowego.
+</p>
+
+<pre caption="Dodawanie aktywacji sieci na domyślny poziom uruchomieniowy">
+# <i>rc-update add net.fxp0 default</i>
+</pre>
+
+<p>
+Należy również dostosować wpis nazwy hosta w pliku
+<path>/etc/conf.d/hostname</path>.
+</p>
+
+<pre caption="Zmiana nazwy komputera">
+# <i>nano /etc/conf.d/hostname</i>
+<comment>(Nazwę komputera podstawiamy do zmiennej HOSTNAME)</comment>
+HOSTNAME="tux"
+</pre>
+
+<p>
+Powinniśmy skonfigurować również nazwę domenową, poprzez plik
+<path>/etc/conf.d/domainname</path>:
+</p>
+
+<pre caption="Ustawianie nazwy domenowej">
+# <i>nano /etc/conf.d/domainname</i>
+<comment>(Zmienną dns_domain należy ustawić jako nazwę domeny, oraz zmienną lo
+na lokalny interfejs sieciowy)</comment>
+dns_domain_lo="homenetwork"
+</pre>
+
+<p>
+Jeżeli posiadamy domenę NIS ustawimy ją za pomocą pliku
+<path>/etc/conf.d/domainname</path>:
+</p>
+
+<pre caption="Ustawianie domeny NIS">
+# <i>nano /etc/conf.d/domainname</i>
+<comment>(Zmienną nis_domain należy ustawić na nazwę domeny NIS, oraz lo na
+lokalny interfejs sieciowy)</comment>
+nis_domain_lo="moja-domena-nis
+</pre>
+
+<note>
+Więcej informacji o nazwach domen i sieci można znaleźć w <uri
+link="/doc/pl/handbook/handbook-x86.xml?part=1&amp;chap=8#doc_chap2">Podręczniku
+Gentoo Linuks</uri> oraz w pliku <path>/etc/conf.d/net.example</path>.
+</note>
+
+<p>
+W przypadku, gdy użytkownicy maszyny będą wykorzystywać układów
+klawiatury innych niż standardowy, należy ustawić właściwą wartość w
+<path>/etc/conf.d/syscons</path>. Następujący przykład pokazuje
+konfigurację dla układu hiszpańskiego, należy więc go zmodyfikować w
+celu dostosowania do konkretnej instalacji.
+</p>
+
+<pre caption="Zmiana układu klawiatury (opcjonalnie)">
+# <i>nano /etc/conf.d/syscons</i>
+KEYMAP="spanish.iso.acc"
+<comment>(Dostępne układy można znaleźć w katalogu /usr/share/syscons/keymaps)</comment>
+</pre>
+
+<p>
+Należy też zmienić hasło użytkownika <c>root</c> oraz dodać konto zwykłego
+użytkownika przeznaczone do codziennej pracy.
+</p>
+
+<pre caption="Zmiana hasła użytkownika root oraz dodawanie nowego
+użytkownika">
+# <i>passwd</i>
+# <i>adduser</i>
+Username: <i>fred</i>
+Full Name: <i>Fred Smith</i>
+<comment>(Aby zaakceptować domyślne ustawienia wystarczy nacisnąć
+enter.)</comment>
+Uid (Leave empty for default):
+<comment>(Aby zaakceptować domyślne ustawienia, tutaj również naciskamy
+enter.)</comment>
+Login group [fred]:
+<comment>(Tu należy podać grupy, do których zostanie dodany użytkownik,
+oddzielone od siebie znakiem spacji. Grupy muszą istnieć.)</comment>
+Login group is fred. Invite fred into other groups? []: wheel portage
+<comment>(Aby zaakceptować domyślne ustawienia, naciskamy enter</comment>
+Login class [default]:
+<comment>(Ustawienia personalne. Należy mieć pewność, że powłoka jest wymieniona
+w /etc/shells)</comment>
+Shell (sh bash tcsh csh esh ksh zsh sash nologin) [sh] <i>bash</i>
+<comment>(Tutaj można zaakceptować domyślne ustawienia naciskając
+enter.)</comment>
+User password-based authentication [yes]
+Use an empty password (yes/no) [no]:
+Use a random password? (yes/no) [no]:
+Enter password: <i>tutaj należy podać hasło</i>
+Enter password again: <i>a następnie je powtórzyć</i>
+<comment>(Naciśnij enter, aby zaakceptować ustawienia domyślne)</comment>
+Lock out the account after creation? [no]:
+Username    : fred
+Password    : *****
+Full Name   : Fred Smith
+<comment>(To będzie inne)</comment>
+Uid         : 1002
+Class       :
+Groups      : fred wheel portage
+Home        : /home/fred
+Shell       : /bin/bash
+Locked      : no
+<comment>(Należy potwierdzić poprawność informacji)</comment>
+OK? (yes/no): <i>yes</i>
+adduser: INFO: Sucessfully added (fred) to the user database
+Add another user? (yes/no): <i>no</i>
+Goodbye!
+#
+</pre>
+
+<p>
+Gratulacje, instalacja Gentoo/FreeBSD jest już gotowa i można rozpocząć
+odkrywanie jej możliwości zaraz po restarcie systemu. Powodzenia!
+</p>
+
+<pre caption="Restart systemu">
+# <i>exit</i>
+# <i>reboot</i>
+</pre>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Rozwijanie Gentoo/FreeBSD</title>
+<section>
+<title>Jak pomóc</title>
+<body>
+
+<p>
+Pomoc jest potrzebna w wielu dziedzinach, zależnie od ilości dostępnego
+czasu oraz poziomu umiejętności:
+</p>
+
+<ul>
+  <li>
+    Praca nad aktualnymi ebuildami: oznacza to ścisłą współpracę z
+    osobami odpowiedzialnymi za ebuildy w celu przygotowania łatek oraz
+    modyfikacji ebuildów tak, aby zostały one zaakceptowane w głównym
+    drzewie.
+  </li>
+  <li>
+    Bezpieczeństwo: osoby zainteresowane zabezpieczeniami są bardzo
+    potrzebne! Wprawdzie doniesienia o zagrożeniach od projektu FreeBSD
+    są śledzone i uwzględniane, dodatkowa pomoc jest zawsze potrzebna.
+  </li>
+  <li>
+    Kontakty: potrzebni są nam ludzie dysponujący znajomościami wśród
+    deweloperów FreeBSD w celu utrzymywania kontaktu między nami a oryginalnym
+    projektem dla wymiany łatek oraz dyskusji rozmaitych problemów i ich
+    rozwiązań. Uwaga: taka działalność nigdy nie powinna mieć żadnej formy
+    spamowania na listach dyskusyjnych ani kanałach IRC.
+  </li>
+  <li>
+    Testowanie: im więcej ludzi wykorzystuje Gentoo/FreeBSD tym więcej błędów
+    będzie rozpoznawanych, co pomaga nam w poprawianiu jakości produktu. Osoby
+    potrafiące umiejętnie opisać błędy oraz problemy będą bardzo przydatne.
+  </li>
+  <li>
+    Inne dziedziny również wymagają wsparcia, w tym: ebuildy systemowe,
+    tworzenie płyt instalacyjnych, dokumentacja, modyfikacje jądra.
+  </li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Znane problemy</title>
+<body>
+
+<p>
+Nadal występuje wiele już rozpoznanych problemów. Poniżej wymienione są
+najważniejsze z nich:
+</p>
+
+<ul>
+  <li>
+    Niektóre skrypty startowe wymagają usługi zegara której w tej chwili nie
+    wspieramy. Można zwyczajnie usunąć ją z zależności skryptu i napisać o tym
+    na <uri link="http://bugs.gentoo.org/">Bugzilli</uri>. Prosimy pamiętać o
+    skorzystaniu z produktu "Gentoo/Alt" w trakcie zgłoszenia.
+  </li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Kontakt</title>
+<section>
+<body>
+
+<p>
+Lista deweloperów Gentoo/FreeBSD jest dostępna na <uri
+link="/proj/en/gentoo-alt/bsd/fbsd/">stronie projektu</uri>. Dalsze możliwości
+kontaktu z jego członkami to kanał IRC <c>#gentoo-bsd</c> na Freenode oraz <uri
+link="/main/pl/lists.xml">lista dyskusyjna gentoo-bsd</uri>.
+</p>
+
+</body>
+</section>
+</chapter>
+</guide>

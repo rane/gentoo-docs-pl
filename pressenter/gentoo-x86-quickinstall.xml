@@ -1,0 +1,916 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/gentoo-x86-quickinstall.xml,v 1.20 2007/06/03 14:33:50 rane Exp $ -->
+
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+
+<guide link="/doc/pl/gentoo-x86-quickinstall.xml" lang="pl">
+<title>Szybka instalacja Gentoo</title>
+
+<author title="Autor">
+  <mail link="neysx@gentoo.org">Xavier Neys</mail>
+</author>
+<author title="Autor">
+  <mail link="swift@gentoo.org">Sven Vermeulen</mail>
+</author>
+<author title="Autor">Steven Wagner</author>
+<author title="Tłumaczenie">
+  <mail link="rane@gentoo.org">Łukasz Damentko</mail>
+</author>
+
+<abstract>
+Skrócony opis instalacji Gentoo. Pozwala na szybką instalację systemu ze stage3
+i jest przeznaczony dla zaawansowanych użytkowników.
+</abstract>
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
+<license/>
+
+<version>19</version>
+<date>2007-06-02</date>
+
+<chapter>
+<title>Wprowadzenie</title>
+<section>
+<body>
+
+<p>
+Ten dokument zawiera wszystkie polecenia, których wydanie jest konieczne dla
+zainstalowania Gentoo za pomocą archiwum stage3. Do pobrania archiwum stage3 i
+drzewa Portage konieczne będzie działające połączenie z Internetem.
+</p>
+
+<p>
+Czas podany w opisie został zmierzony na komputerze PC z procesorem AMD 2000
+1.66 Ghz, 512 MB pamięci RAM i dwoma dyskami SATA podłączonymi do sprzętowego
+kontrolera.
+</p>
+
+<pre caption="Sprawdzanie komputera">
+<comment>(Poniższe polecenia umożliwią obliczenie czasu jaki zajmie instalacja
+Gentoo na komputerze o innych parametrach technicznych)</comment>
+
+# <i>grep bogo /proc/cpuinfo</i>
+bogomips      : 3337.81
+
+# <i>hdparm -tT /dev/sda</i>
+/dev/sda:
+ Timing cached reads:   1100 MB in  2.00 seconds = 549.97 MB/sec
+ Timing buffered disk reads:  224 MB in  3.01 seconds =  74.36 MB/sec
+
+# <i>grep MemTotal /proc/meminfo</i>
+MemTotal:       509248 kB
+</pre>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Szybka instalacja</title>
+<section>
+<title>Płyty instalacyjne</title>
+<body>
+
+<p>
+Pobieramy płytę z jednego z <uri link="/main/en/mirrors.xml">serwerów
+lustrzanych</uri>. Minimalne pliki ISO są w katalogu
+<path>releases/x86/&lt;release&gt;/installcd</path>, pełne płyty instalacyjne w
+<path>releases/x86/&lt;release&gt;/livecd</path>. Płyta minimalna przydaje się
+tylko wtedy, gdy komputer jest podłączony do Internetu. Płyta pełna służy do
+instalowania Gentoo bez dostępu do sieci, w takim przypadku należy skorzystać z
+<uri link="/doc/pl/handbook/2007.0/handbook-x86.xml">Podręcznika Gentoo
+2007.0</uri>. Jeśli chodzi o ten opis, należy pobrać płytę minimalną.
+</p>
+
+<p>
+<uri link="/doc/pl/faq.xml#isoburning">Nagrywamy</uri> i uruchamiamy płytę
+instalacyjną.
+</p>
+
+</body>
+</section>
+<section>
+<title>Uruchamianie systemu płyty instalacyjnej</title>
+<body>
+
+<p>
+Wciskamy <c>F2</c> na ekranie uruchamiania, aby poznać możliwe do wybrania
+opcje. Można uruchomić <c>gentoo</c> lub <c>gentoo-nofb</c>, to drugie wyłącza
+framebuffer. Dodajemy opcję <c>nox</c>, aby nie ładowało się środowisko
+graficzne. Inne opcje pozwalają na włączenie lub wyłączenie rozmaitych
+dodatkowych funkcji. Jeśli wszystko pójdzie dobrze, sprzęt zostanie poprawnie
+wykryty, a odpowiednie sterowniki załadowane. Jeśli jądro się nie uruchomi lub
+komputer się zawiesi, należy poeksperymentować z różnymi ustawieniami.
+Najbezpieczniejsza jest opcja <c>nodetect</c> - po wydaniu której sami ręcznie
+możemy załadować potrzebne moduły.
+</p>
+
+<pre caption="Uruchamianie systemu płyty instalacyjnej">
+Gentoo Linux Installation LiveCD                     http://www.gentoo.org
+Enter to Boot; F1 for kernels  F2 for options.
+boot: <i>gentoo-nofb</i>
+  <comment>(w razie problemów)</comment>
+boot: <i>gentoo-nofb nodetect</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Opcjonalnie: ładowanie modułów</title>
+<body>
+
+<p>
+Jeśli skorzystamy z opcji <c>nodetect</c>, po uruchomieniu będzie konieczne
+ręczne załadowanie niezbędnych do obsługi sprzętu modułów. Konieczne jest
+zapewnienie połączenia z Internetem i obsługi dysków. Program <c>lspci</c>
+umożliwia wykrycie używanego sprzętu.
+</p>
+
+<pre caption="Ładowanie potrzebnych modułów">
+livecd root # <i>lspci</i>
+<comment>(Korzystamy z wyniku tego polecenia w celu określenia, które moduły są potrzebne)</comment>
+
+<comment>(A następnie je ładujemy)</comment>
+livecd root # <i>modprobe 3w-9xxx</i>
+livecd root # <i>modprobe r8169</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja sieci</title>
+<body>
+
+<p>
+Jeśli połączenie sieciowe jeszcze nie działa, należy skorzystać z programu
+<c>net-setup</c> w celu jego konfiguracji. Możliwe też, że przed przystąpieniem
+do konfiguracji konieczne będzie załadowanie dodatkowych modułów za pomocą
+polecenia <c>modprobe</c>. Posiadacze ADSL powinni skorzystać z
+<c>pppoe-setup</c> i <c>pppoe-start</c>. Aby zadziałało PPTP, należy edytować
+<path>/etc/ppp/chap-secrets</path> i <path>/etc/ppp/options.pptp</path>, a
+następnie użyć <c>pptp &lt;numer&nbsp;ip&nbsp;serwera&gt;</c>.
+</p>
+
+<p>
+Połączenia bezprzewodowe konfiguruje się za pomocą <c>iwconfig</c>, a dopiero
+potem uruchamia <c>net-setup</c>, <c>ifconfig</c>, <c>dhcpcd</c> oraz, jeśli to
+jest konieczne, <c>route</c>.
+</p>
+
+<p>
+Jeśli komputer znajduje się za serwerem proxy, należy za pomocą polecenia
+export ustawić odpowiednio zmienne <c>http_proxy</c>, <c>ftp_proxy</c> i
+<c>RSYNC_PROXY</c>.
+</p>
+
+<pre caption="Konfiguracja sieci za pomocą kreatora">
+livecd root # <i>net-setup eth0</i>
+</pre>
+
+<p>
+Można również skonfigurować sieć ręcznie. W poniższym przykładzie przypisujemy
+komputerowi adres 192.168.1.10 oraz ustawiamy 192.168.1.1 jako router i serwer
+nazw.
+</p>
+
+<pre caption="Ręczna konfiguracja sieci">
+livecd root # <i>ifconfig eth0 192.168.1.10/24</i>
+livecd root # <i>route add default gw 192.168.1.1</i>
+livecd root # <i>echo nameserver 192.168.1.1 &gt; /etc/resolv.conf</i>
+</pre>
+
+<p>
+Płyta instalacyjna umożliwia uruchomienie serwera <c>sshd</c>. Możemy również
+dodać konta użytkowników i uruchomić <c>irssi</c> (tekstowy klient IRC) oraz
+przeglądać sieć za pomocą <c>lynx</c> i <c>links</c>.
+</p>
+
+</body>
+</section>
+<section>
+<title>Opcjonalnie: konfiguracja serwera SSH</title>
+<body>
+
+<p>
+Serwer <c>sshd</c> umożliwia łączenie się z komputerem, na którym instalujemy
+Gentoo z innych maszyn oraz zdalną instalację.
+</p>
+
+<pre caption="Uruchamianie sshd">
+livecd root # <i>time /etc/init.d/sshd start</i>
+ * Generating hostkey ...
+<comment>(sshd tworzy klucze, wyświetla dalsze informacje)</comment>
+ * starting sshd ...                            [ok]
+
+real   0m13.688s
+user   0m9.420s
+sys    0m0.090s
+</pre>
+
+<p>
+Następnie ustawiamy hasło roota na płycie instalacyjnej, co umożliwi łączenie
+się z innego komputera. Ostrzegamy, że umożliwianie takich połączeń w
+normalnych warunkach jest bardzo niebezpieczne. Jeśli sieć nie jest bezpieczna,
+należy ustawić długie i mocne hasło oraz nie korzystać z takich opcji w
+przyszłości. Serwer SSH zostanie wyłączony po ponownym uruchomieniu komputera.
+</p>
+
+<pre caption="Ustawianie hasła roota">
+livecd root # <i>passwd</i>
+New UNIX password: <comment>wpisz_hasło</comment>
+Retype new UNIX password: <comment>wpisz_hasło</comment>
+passwd: password updated successfully
+</pre>
+
+<p>
+Teraz można uruchomić terminal na drugim komputerze, połączyć się z nową
+maszyną i kontynuować instalację zdalnie, przeklejając polecenia z tego opisu.
+</p>
+
+<pre caption="Łączenie z innego komputera">
+<comment>(Wpisujemy adres IP komputera, na którym instalujemy Gentoo)</comment>
+$ <i>ssh root@192.168.1.10</i>
+The authenticity of host '192.168.1.10 (192.168.1.10)' can't be established.
+RSA key fingerprint is 96:e7:2d:12:ac:9c:b0:94:90:9f:40:89:b0:45:26:8f.
+Are you sure you want to continue connecting (yes/no)? <i>yes</i>
+Warning: Permanently added '192.168.1.10' (RSA) to the list of known hosts.
+Password: <comment>wpisz_hasło</comment>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Przygotowywanie dysków</title>
+<body>
+
+<p>
+Dzielimy dysk na partycje za pomocą programu <c>fdisk</c> lub <c>cfdisk</c>.
+Potrzebna będzie co najmniej jedna partycja wymiany (typ 82) i jedna partycja
+linuksowa (typ 83). W poniższym przykładzie stworzymy trzy partycje, partycję
+główną, partycję wymiany oraz partycję <path>/boot</path>. Nazwa urządzenia
+twardego dysku to <path>/dev/sda</path> dla dysków SATA i SCSI lub
+<path>/dev/hda</path> dla dysków IDE.
+</p>
+
+<pre caption="Tworzenie partycji">
+livecd ~ # <i>fdisk /dev/sda</i>
+
+<comment>(W dalszej częsci opisu będziemy posługiwać się następującym podziałem:)</comment>
+livecd ~ # <i>fdisk -l /dev/sda</i>
+
+Disk /dev/sda: 599.9 GB, 599978409984 bytes
+255 heads, 63 sectors/track, 72943 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1               1          12       96358+  83  Linux
+/dev/sda2              13         110      787185   82  Linux swap / Solaris
+/dev/sda3             111       72943   585031072+  83  Linux
+</pre>
+
+<p>
+Następnie za pomocą <c>mke2fs</c>, <c>mke2fs -j</c>, <c>mkreiserfs</c>,
+<c>mkfs.xfs</c> lub <c>mkfs.jfs</c> tworzymy systemy plików na partycjach.
+Aktywujemy też partycję wymiany za pomocą poleceń <c>mkswap</c> i
+<c>swapon</c>.
+</p>
+
+<pre caption="Tworzenie systemów plików i aktywowanie partycji wymiany">
+<comment>(ext2 wystarczy dla partycji /boot)</comment>
+livecd ~ # <i>mke2fs /dev/sda1</i>
+
+<comment>(Główna partycja będzie na ext3)</comment>
+livecd ~ # <i>mke2fs -j /dev/sda3</i>
+
+<comment>(Tworzymy i aktywujemy partycję wymiany)</comment>
+livecd ~ # <i>mkswap /dev/sda2 &amp;&amp; swapon /dev/sda2</i>
+</pre>
+
+<p>
+Montujemy główną partycję w katalogu <path>/mnt/gentoo</path>. W razie potrzeby
+tworzymy katalogi dla dodatkowych partycji (np. <path>/mnt/gentoo/boot</path>).
+</p>
+
+<pre caption="Montowanie systemów plików">
+livecd ~ # <i>mount /dev/sda3 /mnt/gentoo</i>
+livecd ~ # <i>mkdir /mnt/gentoo/boot</i>
+livecd ~ # <i>mount /dev/sda1 /mnt/gentoo/boot</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Rozpakowywanie archiwum stage</title>
+<body>
+
+<p>
+Po pierwsze ustawiamy datę za pomocą polecenia <c>date MMDDRRRR</c>. W
+przykładzie używamy czasu UTC.
+</p>
+
+<pre caption="Ustawianie daty i czasu UTC">
+<comment>(Sprawdzamy godzinę)</comment>
+livecd ~ # <i>date</i>
+Mon Mar  6 00:14:13 UTC 2006
+
+<comment>(Ustawiamy datę i godzinę jeśli jest to konieczne)</comment>
+livecd ~ # <i>date 030600162006</i> <comment>(Format to MMDDggmmRRRR)</comment>
+Mon Mar  6 00:16:00 UTC 2006
+</pre>
+
+<p>
+Następnie pobieramy archiwum stage z jednego z <uri
+link="/main/en/mirrors.xml">serwerów lustrzanych</uri>. Przechodzimy do
+<path>/mnt/gentoo</path> i rozpakowujemy je poleceniem <c>tar xjpf &lt;plik
+stage3&gt;</c>.
+</p>
+
+<pre caption="Pobieranie archiwum stage3">
+livecd ~ # <i>cd /mnt/gentoo</i>
+livecd gentoo # <i>links http://www.gentoo.org/main/en/mirrors.xml</i>
+<comment>(Wybieramy serwer i przechodzimy do katalogu releases/x86/current/stages,
+wybierając z niego odpowiedni plik. Prawdopodobnie jest to stage3 dla
+architektury i686. Następnie rozpoczynamy pobieranie naciskając
+klawiszD)</comment>
+
+<comment>(<b>Lub</b> pobieramy plik bezpośrednio, nie szukając znajdującego się najbliżej serwera)</comment>
+livecd ~ # <i>cd /mnt/gentoo</i>
+livecd gentoo # <i>wget ftp://gentoo.osuosl.org/pub/gentoo/releases/x86/current/stages/stage3-i686*tar.bz2</i>
+</pre>
+
+<pre caption="Rozpakowujemy archiwum">
+livecd gentoo # <i>time tar xjpf stage3*</i>
+
+real  1m13.157s
+user  1m2.920s
+sys   0m7.230s
+</pre>
+
+<p>
+Następnie instalujemy drzewo Portage. Postępujemy z nim tak jak ze stage3.
+Wybieramy <uri link="/main/en/mirrors.xml">serwer lustrzany</uri>, pobieramy
+plik i rozpakowujemy.
+</p>
+
+<pre caption="Pobieranie drzewa Portage">
+livecd gentoo # <i>cd /mnt/gentoo/usr</i>
+livecd usr # <i>links http://www.gentoo.org/main/en/mirrors.xml</i>
+<comment>(Wybieramy serwer, przechodzimy do katalogu snapshots/, podświetlamy
+<b>portage-latest.tar.bz2</b> i wciskamy D żeby go pobrać)</comment>
+
+<comment>(<b>Lub</b> pobieramy go bezpośrednio, nie szukając znajdującego się najbliżej serwera)</comment>
+livecd gentoo # <i>cd /mnt/gentoo/usr</i>
+livecd usr # <i>wget http://gentoo.osuosl.org/snapshots/portage-latest.tar.bz2</i>
+</pre>
+
+<pre caption="Rozpakowujemy archiwum z drzewem Portage">
+livecd usr # <i>time tar xjf portage*</i>
+
+real  0m51.523s
+user  0m28.680s
+sys   0m12.840s
+</pre>
+
+</body>
+</section>
+<section>
+<title>Chrootowanie</title>
+<body>
+
+<p>
+Montujemy system plików <path>/proc</path>, kopiujemy do nowego systemu plik
+<path>/etc/resolv.conf</path> i chrootujemy się do instalowanego systemu.
+</p>
+
+<pre caption="Chrootowanie">
+livecd usr # <i>cd /</i>
+livecd / # <i>mount -t proc proc /mnt/gentoo/proc</i>
+livecd / # <i>cp -L /etc/resolv.conf /mnt/gentoo/etc/</i>
+livecd / # <i>chroot /mnt/gentoo /bin/bash</i>
+livecd / # <i>env-update &amp;&amp; source /etc/profile</i>
+>>> Regenerating /etc/ld.so.cache...
+</pre>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja strefy czasowej</title>
+<body>
+
+<p>
+Ustawiamy informację o swojej strefie czasowej używając właściwej ścieżki z
+katalogu <path>/usr/share/zoneinfo</path>.
+</p>
+
+<pre caption="Ustawienie strefy czasowej">
+livecd / # <i>ls /usr/share/zoneinfo</i>
+<comment>(Przykład dla Warszawy)</comment>
+livecd / # <i>cp /usr/share/zoneinfo/Europe/Warsaw /etc/localtime</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja nazw hosta i domeny</title>
+<body>
+
+<p>
+Ustawiamy nazwę hosta w plikach <path>/etc/conf.d/hostname</path> i
+<path>/etc/hosts</path>. W poniższym przykładzie skorzystamy z <c>mybox</c>
+jako nazwy hosta oraz z <c>at.myplace</c> jako domeny. Można edytować pliki w
+nano lub skorzystać z poniższych poleceń:
+</p>
+
+<pre caption="Ustawianie nazwy hosta i domeny">
+livecd / # <i>cd /etc</i>
+livecd etc # <i>echo "127.0.0.1 mybox.at.myplace mybox localhost" > hosts</i>
+livecd etc # <i>sed -i -e 's/HOSTNAME.*/HOSTNAME="mybox"/' conf.d/hostname</i>
+<comment>(Korzystamy ze zdefiniowanej nazwy hosta i sprawdzamy)</comment>
+livecd etc # <i>hostname mybox</i>
+livecd etc # <i>hostname -f</i>
+mybox.at.myplace
+</pre>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja jądra</title>
+<body>
+
+<p>
+Instalujemy źródła jądra (zwykle <c>gentoo-sources</c>), kompilujemy i kopiujemy
+plik <path>arch/i386/boot/bzImage</path> do katalogu <path>/boot</path>.
+</p>
+
+<pre caption="Instalacja jądra">
+livecd etc # <i>time emerge gentoo-sources</i>
+
+real  2m51.435s
+user  0m58.220s
+sys   0m29.890s
+livecd etc # <i>cd /usr/src/linux</i>
+livecd linux # <i>make menuconfig</i>
+<comment>(Konfiguracja jądra)</comment>
+livecd linux # <i>time make -j2</i>
+
+<comment>(Czas trwania zależy od wybranych opcji)</comment>
+real  3m51.962s
+user  3m27.060s
+sys   0m24.310s
+
+livecd linux # <i>make modules_install</i>
+livecd linux # <i>cp arch/i386/boot/bzImage /boot/kernel</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja systemu</title>
+<body>
+
+<p>
+Edytujemy plik <path>/etc/fstab</path> i zamieniamy wpisy <c>BOOT</c>,
+<c>ROOT</c> i <c>SWAP</c> nazwami konkretnych partycji. Należy dwa razy
+sprawdzić czy wpisy odpowiadają założonym przed chwilą partycjom i systemom
+plików.
+</p>
+
+<pre caption="Przykładowy plik fstab">
+livecd linux # <i>cd /etc</i>
+livecd etc # <i>nano -w fstab</i>
+/dev/<i>sda1</i>   /boot     ext2    noauto,noatime     1 2
+/dev/<i>sda3</i>   /         ext3    noatime            0 1
+/dev/<i>sda2</i>   none      swap    sw                 0 0
+</pre>
+
+<p>
+Następnie konfigurujemy połączenie sieciowe w pliku
+<path>/etc/conf.d/net</path>. Dodajemy skrypt startowy <c>net.eth0</c> na
+domyślny (default) poziom uruchomieniowy. Jeśli mamy kilka kart sieciowych,
+podlinkowujemy je do skryptu <c>net.eth0</c> i dodajemy na domyślny poziom
+uruchomieniowy. Następnie edytujemy plik <path>/etc/conf.d/net</path> za pomocą
+<c>nano</c> lub wpisujemy następujące polecenia:
+</p>
+
+<pre caption="Konfiguracja sieci">
+livecd etc # <i>cd conf.d</i>
+livecd conf.d # <i>echo 'config_eth0=( "192.168.1.10/24" )' >> net</i>
+livecd conf.d # <i>echo 'routes_eth0=( "default via 192.168.1.1" )' >> net</i>
+livecd conf.d # <i>rc-update add net.eth0 default</i>
+<comment>(Jeśli sterownik do karty sieciowej został zbudowany jako moduł, należy dopisać go do pliku /etc/modules.autoload.d/kernel-2.6)</comment>
+livecd conf.d # <i>echo r8169 >> /etc/modules.autoload.d/kernel-2.6</i>
+<comment>(Aby umożliwić łączenie się przez SSH do komputera po jego ponownym uruchomieniu)</comment>
+livecd conf.d # <i>rc-update add sshd default</i>
+</pre>
+
+<note>
+Jeśli jest konieczne wsparcie dla PCMCIA, należy zainstalować
+<c>pcmciautils</c>.
+</note>
+
+<p>
+Ustawiamy hasło roota za pomocą polecenia <c>passwd</c>.
+</p>
+
+<pre caption="Ustawianie hasła roota">
+livecd conf.d # <i>passwd</i>
+New UNIX password: <comment>wpisz_hasło</comment>
+Retype new UNIX password: <comment>wpisz_hasło</comment>
+passwd: password updated successfully
+</pre>
+
+<p>
+Następnie ustawiamy odpowiednią strefę czasową w pliku
+<path>/etc/conf.d/clock</path>.
+</p>
+
+<pre caption="Edycja /etc/conf.d/clock">
+livecd conf.d # <i>nano -w /etc/conf.d/clock</i>
+TIMEZONE="Europe/Warsaw"
+</pre>
+
+<p>
+Sprawdzamy konfigurację systemu w <path>/etc/rc.conf</path>,
+<path>/etc/conf.d/rc</path>, <path>/etc/conf.d/keymaps</path> i zmieniamy
+wpisy tak, aby odpowiadały żądanym ustawieniom.
+</p>
+
+<pre caption="Opcjonalnie: konfiguracja systemu">
+livecd conf.d # <i>nano -w /etc/rc.conf</i>
+livecd conf.d # <i>nano -w /etc/conf.d/rc</i>
+livecd conf.d # <i>nano -w /etc/conf.d/keymaps</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Instalowanie narzędzi systemowych</title>
+<body>
+
+<p>
+Zaczynamy od instalacji programu logującego, np. <c>syslog-ng</c> oraz demona
+cron, np. <c>vixie-cron</c>. Oba dodajemy do poziomu uruchomieniowego.
+</p>
+
+<note>
+Demony cron są zależne od MTA. W związku z tym jako zależność zostanie
+zainstalowane <c>mail-mta/ssmtp</c>. Można użyć bardziej zaawansowanego MTA
+instalując go przed instalacją demona cron. Jeśli nie jest potrzebny, zostajemy
+przy domyślnym wyborze.
+</note>
+
+<pre caption="Instalacja loggera i demona cron">
+livecd conf.d # <i>time emerge syslog-ng vixie-cron</i>
+
+real  1m52.699s
+user  1m1.630s
+sys   0m35.220s
+livecd conf.d # <i>rc-update add syslog-ng default</i>
+livecd conf.d # <i>rc-update add vixie-cron default</i>
+</pre>
+
+<p>
+Następnie instalujemy niezbędne narzędzia systemowe (<c>xfsprogs</c>,
+<c>reiserfsprogs</c> lub <c>jfsutils</c>) oraz programy do obsługi sieci
+(<c>dhcpcd</c> lub <c>ppp</c>).
+</p>
+
+<pre caption="Instalowanie dodatkowych narzędzi systemowych">
+livecd conf.d # <i>emerge xfsprogs</i>           <comment>(Jeśli używamy systemu plików XFS)</comment>
+livecd conf.d # <i>emerge jfsutils</i>           <comment>(Jeśli używamy systemu plików JFS)</comment>
+livecd conf.d # <i>emerge reiserfsprogs</i>      <comment>(Jeśli używamy systemu plików Reiser)</comment>
+livecd conf.d # <i>emerge dhcpcd</i>             <comment>(Jeśli potrzebny jest klient DHCP)</comment>
+livecd conf.d # <i>emerge ppp</i>                <comment>(Dla połączeń PPPoE ADSL)</comment>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja programu ładującego</title>
+<body>
+
+<p>
+Instalujemy <c>grub</c> lub <c>lilo</c>. Następnie otwieramy plik
+<path>/boot/grub/grub.conf</path> lub <path>/etc/lilo.conf</path> i
+konfigurujemy program.
+</p>
+
+<p>
+<b>1. Użycie grub</b>
+</p>
+
+<pre caption="Instalacja i konfiguracja GRUB">
+livecd conf.d # <i>time emerge grub</i>
+
+real  1m8.634s
+user  0m39.460s
+sys   0m15.280s
+livecd conf.d # <i>nano -w /boot/grub/grub.conf</i>
+</pre>
+
+<pre caption="Przykładowy plik grub.conf">
+default 0
+timeout 10
+
+title=Gentoo
+root (hd0,0)
+kernel /boot/kernel root=/dev/sda3
+</pre>
+
+<pre caption="Wgrywanie GRUB-a">
+livecd conf.d # <i>grub</i>
+Probing devices to guess BIOS drives. This may take a long time.
+
+grub> <i>root (hd0,0)</i>
+ Filesystem type is ext2fs, partition type 0x83
+
+grub> <i>setup (hd0)</i>
+ Checking if "/boot/grub/stage1" exists... yes
+ Checking if "/boot/grub/stage2" exists... yes
+ Checking if "/boot/grub/e2fs_stage1_5" exists... yes
+ Running "embed /boot/grub/e2fs_stage1_5 (hd0)"...  16 sectors are embedded.
+succeeded
+ Running "install /boot/grub/stage1 (hd0) (hd0)1+16 p (hd0,0)/boot/grub/stage2 /boot/
+grub/menu.lst"... succeeded
+Done.
+
+grub> <i>quit</i>
+</pre>
+
+<p>
+Następnie <uri link="#reboot">ponownie uruchamiamy</uri> komputer.
+</p>
+
+<p>
+<b>2. Użycie lilo</b>
+</p>
+
+<pre caption="Instalacja i konfiguracja lilo">
+livecd conf.d # <i>time emerge lilo</i>
+
+real  0m47.016s
+user  0m22.770s
+sys   0m5.980s
+livecd conf.d # <i>nano -w /etc/lilo.conf</i>
+</pre>
+
+<pre caption="Przykładowy plik lilo.conf">
+boot=/dev/sda
+prompt
+timeout=50
+default=gentoo
+
+image=/boot/kernel
+  label=Gentoo
+  read-only
+  root=/dev/sda3
+</pre>
+
+<pre caption="Wgrywanie lilo">
+livecd conf.d # <i>lilo</i>
+Added Gentoo *
+</pre>
+
+</body>
+</section>
+<section id="reboot">
+<title>Ponowne uruchamianie</title>
+<body>
+
+<p>
+Wychodzimy z chroota, odmontowujemy partycje i ponownie uruchamiamy komputer:
+</p>
+
+<pre caption="Ponowne uruchomienie komputera">
+livecd conf.d # <i>exit</i>
+livecd / # <i>umount /mnt/gentoo/proc /mnt/gentoo/boot /mnt/gentoo</i>
+livecd / # <i>reboot</i>
+<comment>(Wyjmujemy płytę instalacyjną z napędu)</comment>
+</pre>
+
+</body>
+</section>
+<section id="after-reboot">
+<title>Finalizowanie instalacji</title>
+<body>
+
+<note>
+<b>Całkowity</b> czas pomiędzy wyświetleniem znaku zachęty po raz pierwszy a
+uruchomieniem nowego systemu wyniósł <b>00:42:31</b> czyli mniej niż godzinę. A
+przecież ten czas został wydłużony przez pobieranie wielu dużych plików jak
+stage3, drzewo Portage i kilka dużych pakietów. Poza tym w czas instalacji
+wliczona była również konfiguracja jądra.
+</note>
+
+<p>
+Logujemy się jako <c>root</c>, a następnie dodajemy jednego lub kilku
+użytkowników do codziennej pracy za pomocą polecenia <c>useradd</c>.
+</p>
+
+<pre caption="Łączenie się do komputera, na którym zostało zainstalowane Gentoo">
+<comment>(Czyścimy plik known_hosts)</comment>
+$ <i>nano -w ~/.ssh/known_hosts</i>
+<comment>(Szukamy IP nowego komputera i kasujemy tę linię, następnie zapisujemy plik i wychodzimy z nano)</comment>
+
+<comment>(Łączymy się z tym komputerem)</comment>
+$ <i>ssh root@192.168.1.10</i>
+The authenticity of host '192.168.1.10 (192.168.1.10)' can't be established.
+RSA key fingerprint is 96:e7:2d:12:ac:9c:b0:94:90:9f:40:89:b0:45:26:8f.
+Are you sure you want to continue connecting (yes/no)? <i>yes</i>
+Warning: Permanently added '192.168.1.10' (RSA) to the list of known hosts.
+Password: <comment>wpisz_hasło</comment>
+</pre>
+
+<pre caption="Dodawanie konta użytkownika">
+mybox ~ # <i>adduser -g users -G lp,wheel,audio,cdrom,portage,cron -m mkay</i>
+mybox ~ # <i>passwd mkay</i>
+New UNIX password: <comment>wpisz_hasło</comment>
+Retype new UNIX password: <comment>wpisz_hasło</comment>
+passwd: password updated successfully
+</pre>
+
+</body>
+</section>
+<section>
+<title>Ostatnie poprawki w konfiguracji</title>
+<body>
+
+<p>
+Wybieramy najlepsze serwery lustrzane i dodajemy odpowiednio do zmiennych
+<c>SYNC</c> i <c>GENTOO_MIRRORS</c> w pliku <path>/etc/make.conf</path> - lub
+korzystamy z programu <c>mirrorselect</c>, który zrobi to za nas. Można też
+ustawić ilość równoległych procesów kompilacji.
+</p>
+
+<pre caption="Praca z mirrorselect i ustawianie MAKEOPTS">
+mybox ~ # <i>emerge mirrorselect</i>
+mybox ~ # <i>mirrorselect -i -o >> /etc/make.conf</i>
+mybox ~ # <i>mirrorselect -i -r -o >> /etc/make.conf</i>
+<comment>(Ilość procesów powiększona o jeden zwykle jest tu najlepszą wartością)</comment>
+mybox ~ # <i>echo 'MAKEOPTS="-j2"' >> /etc/make.conf</i>
+</pre>
+
+<p>
+Następnie ustawiamy flagi USE. W tym celu uruchamiamy <c>emerge -vpe world</c>,
+aby przejrzeć listę zainstalowanych pakietów oraz używanych przez nich flag
+USE. Następnie dopisujemy wybrane flagi w pliku <path>/etc/make.conf</path>
+lub wpisujemy poniższe polecenia:
+</p>
+
+<pre caption="Podgląd flag USE oraz ich ustawianie">
+mybox ~ # <i>emerge -vpe world</i>
+<comment>(Portage wyświetli listę pakietów i ich flag USE. W przykładzie
+wyłączymy flagi ipv6 i fortran oraz włączymy  unicode</comment>
+mybox ~ # <i>echo 'USE="nptl nptlonly -ipv6 -fortran unicode"' >> /etc/make.conf</i>
+</pre>
+
+<p>
+Najnowsze wersje glibc do zdefiniowania lokalizacji używają pliku
+<path>/etc/locale.gen</path>.
+</p>
+
+<pre caption="Definiowanie lokalizacji">
+mybox ~ # <i>cd /etc</i>
+mybox etc # <i>nano -w locale.gen</i>
+</pre>
+
+<p>
+Na koniec warto jeszcze zmienić <c>CFLAGS</c> w pliku
+<path>/etc/make.conf</path> w celu zoptymalizowania kompilacji pakietów. Zbytni
+zapał w dostrajaniu tej zmiennej i dodawanie zbyt wielu flag zwykle kończy się
+zepsuciem systemu, dlatego zalecamy rozwagę. Dobrym rozwiązaniem jest zwykle
+wpisanie typu procesora do opcji <c>march</c> i dopisanie flag <c>-O2
+-pipe</c>.
+</p>
+
+<p>
+W tym momencie można też przełączyć system do wersji niestabilnej -
+<b>~x86</b>. Jest to zdecydowanie opcja dla bardzo doświadczonych użytkowników
+Gentoo, którzy potrafią sobie poradzić z naprawą zepsutego ebuildu czy pakietu.
+Jeśli system ma pozostać w wersji stabilnej, nie należy dodawać zmiennej
+<c>ACCEPT_KEYWORDS</c>. Dobrym pomysłem jest dodanie wpisu
+<c>FEATURES="parallel-fetch ccache"</c>.
+</p>
+
+<pre caption="Ostatnie zmiany w make.conf">
+mybox etc # <i>nano -w make.conf</i>
+<comment>(Ustawiamy -march na odpowiedni typ procesora)</comment>
+CFLAGS="-O2 -march=<i>athlon-xp</i> -pipe"
+<comment>(Dodajemy linię)</comment>
+FEATURES="parallel-fetch ccache"
+<comment>(Tę linię dodają tylko bardzo doświadczeni użytkownicy)</comment>
+ACCEPT_KEYWORDS="~x86"
+</pre>
+
+<p>
+W tym momencie można dwukrotnie przebudować cały system, aby w pełni skorzystać
+ze wszelkich dokonanych w konfiguracji zmian. Zajmie to bardzo dużo czasu i da
+niewiele korzyści. W związku z tym wiele osób decyduje się na zignorowanie tego
+kroku i pozwolonie systemowi na stopniową przebudowę w miarę codziennych
+aktualizacji. Ponowna kompilacja na tym etapie uczyniłaby jednak system
+bardziej spójnym. Plusy przebudowy całego systemu zostały dokładnie omówione w
+tekście <uri link="/doc/pl/gcc-upgrading.xml">Aktualizacja GCC w Gentoo</uri>.
+</p>
+
+<p>
+Przebudowa pakietów, których nowsze wersje pojawiły się od czasu wydania Gentoo
+oraz tych, którym zmieniły się flagi USE zajmie mnóstwo czasu. Czasami może
+pojawić się informacja o blokadzie, która uniemożliwia aktualizację pakietów.
+Należy poszukać wtedy wpisów "[blocks <brite>B</brite>     ]" w wyjściu
+polecenia <c>emerge -vpuD --newuse world</c> i usunąć blokujące pakiety.
+</p>
+
+<pre caption="Aktualizacja systemu">
+<comment>(Instalacja ccache)</comment>
+mybox etc # <i>emerge ccache</i>
+
+<comment>(Przełączenie systemu na ~x86 znacznie zwiększy ilość pakietów do zaktualizowania)</comment>
+mybox etc # <i>emerge -vpuD --newuse world</i>
+<comment>(Należy dokładnie przyjrzeć się liście pakietów i ich flagom USE,
+usunąć te, które blokują instalację, jeśli takie się pojawią, a następnie
+przystąpić do długiego procesu aktualizacji)</comment>
+mybox etc # <i>time emerge -vuD --newuse world</i>
+<comment>(79 packages have been (re)compiled)</comment>
+
+real  180m13.276s
+user  121m22.905s
+sys   36m31.472s
+
+<comment>(Należy również przeinstalować libtool co pozwoli na uniknięcie problemów w przyszłości)</comment>
+mybox etc # <i>emerge libtool</i>
+
+<comment>(Aktualizujemy pliki konfiguracyjne <b>uważając</b>, aby etc-update nie nadpisało naszych ustawień)</comment>
+mybox etc # <i>etc-update</i>
+
+<comment>(Po aktualizacji perla należy uruchomić skrypt perl-cleaner)</comment>
+mybox etc # <i>time perl-cleaner all</i>
+real  1m6.495s
+user  0m42.699s
+sys   0m10.641s
+
+<comment>(W przypadku aktualizacji pythona należy uruchomić skrypt python-updater</comment>
+mybox etc # <i>python-updater</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Co dalej?</title>
+<body>
+
+<p>
+W zależności od przeznaczenia komputera, na którym zainstalowaliśmy właśnie
+Gentoo możemy teraz przystąpić do instalacji oprogramowania serwerowego lub
+biurkowego. W przykładzie zmierzymy czasy <c>emerge gnome</c> i <c>emerge
+kde</c> na tym samym komputerze, na którym instalowaliśmy system.
+</p>
+
+<p>
+Warto przejrzeć <uri link="/doc/pl/">dokumentację Gentoo</uri>, gdzie znajdują
+się informacje o instalacji i konfiguracji wielu różnych pakietów.
+</p>
+
+<impo>
+Poniższe polecenia to tylko przykład, nie jest to już część zalecanej
+konfiguracji.
+</impo>
+
+<pre caption="Instalacja GNOME">
+mybox etc # <i>emerge -vp gnome</i>
+<comment>(Przeglądamy listę pakietów i ich flag USE, jeśli to konieczne, dopisujemy je w make.conf</comment>
+mybox etc # <i>nano -w /etc/make.conf</i>
+
+<comment>(Dodajemy następujący wpis do flag USE)</comment>
+USE="nptl nptlonly -ipv6 -fortran unicode svg hal dbus \
+     -kde -qt3 -qt4 -arts -eds -esd gnome gstreamer gtk firefox"
+
+mybox etc # <i>time emerge gnome</i>
+<comment>(Zainstalowano 326 pakietów)</comment>
+
+real  520m44.532s
+user  339m21.144s
+sys   146m22.337s
+</pre>
+
+<pre caption="Instalacja KDE">
+mybox etc # <i>emerge -vp kde-meta</i>
+<comment>(Przeglądamy listę pakietów i ich flag USE, jeśli to konieczne, dopisujemy je w make.conf</comment>
+mybox etc # <i>nano -w /etc/make.conf</i>
+
+<comment>(Dodajemy następujący wpis do flag USE)</comment>
+USE="nptl nptlonly -ipv6 -fortran unicode svg hal dbus \
+     kde qt3 qt4 -arts -eds -esd -gnome -gstreamer -gtk -firefox"
+
+mybox etc # <i>time emerge kde-meta</i>
+<comment>(Zainstalowano 391 pakietów)</comment>
+
+real  1171m25.318s
+user  851m26.393s
+sys   281m45.629s
+</pre>
+
+</body>
+</section>
+</chapter>
+</guide>
