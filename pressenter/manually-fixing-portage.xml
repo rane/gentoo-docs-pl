@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/proj/pl/portage/doc/manually-fixing-portage.xml,v 1.2 2007/05/10 14:20:13 rane Exp $ -->
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+
+<guide link="/proj/pl/portage/doc/manually-fixing-portage.xml" lang="pl">
+
+<title>Ręczna naprawa zepsutego portage</title>
+
+<author title="Autor">
+  <mail link="genone@gentoo.org">Marius Mauch</mail>
+</author>
+<author title="Tłumaczenie">
+  <mail link="rane@gentoo.org">Łukasz Damentko</mail>
+</author>
+
+<abstract>
+Dokument ten służy pomocą ludziom, którzy muszą ręcznie naprawić zepsutą
+instalację sys-apps/portage.
+</abstract>
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
+<license/>
+
+<version>0.3</version>
+<date>2007-05-31</date>
+
+<chapter>
+<title>Ręczna naprawa portage</title>
+<section>
+<title>Wprowadzenie</title>
+<body>
+
+<p>
+Ten tekst wyjaśnia jak należy postępować, aby naprawić lub zaktualizować zepsutą
+instalację portage w przypadku gdy niemożliwe jest uruchomienie komendy
+<c>emerge sys-apps/portage</c>. Nie jest to trudny proces, ale wymaga dużo
+uwagi, dlatego radzimy dokładnie zapoznać się ze wszystkimi etapami naprawy.
+</p>
+
+</body>
+</section>
+<section>
+<title>Ściąganie paczki z portage</title>
+<body>
+
+<p>
+Po pierwsze musimy pobrać na dysk spakowane źródła aktualnej wersji Portage. W
+przykładach posłużymy się wersją <e>portage-2.1.1</e> (ponieważ jest ona
+stabilna w momencie pisania tego tekstu). Należy oczywiście zastąpić ją w
+poleceniach tą której się używa.
+</p>
+
+<p>
+Czasem możliwe jest wykorzystanie portage do pobrania źródeł. Należy spróbować
+czy zadziała polecenie <c>emerge --fetchonly sys-apps/portage</c>. Jeśli nie
+działa, trzeba pobrać źródła ręcznie.
+</p>
+
+<pre caption="Pobieranie źródeł programem wget">
+# <i>wget -P /usr/portage/distfiles http://distfiles.gentoo.org/distfiles/portage-2.1.1.tar.bz2</i>
+</pre>
+
+<p>
+Po wykonaniu tego polecenia paczka ze źródłami zostanie zapisana jako
+<path>/usr/portage/distfiles/portage-2.1.1.tar.bz2</path>.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zastępowanie zainstalowanej wersji</title>
+<body>
+
+<p>
+Następny krok to rozpakowanie paczki do tymczasowego katalogu, w przykładach tym
+katalogiem będzie <path>/root/portage-recover</path>.
+</p>
+
+<pre caption="Rozpakowywanie paczki">
+# <i>cd /root</i>
+# <i>mkdir portage-recover</i>
+# <i>cd portage-recover</i>
+# <i>tar xfj /usr/portage/distfiles/portage-2.1.1.tar.bz2</i>
+</pre>
+
+<p>
+Następnie należy zastąpić pliki basha i pythona z zepsutej zainstalowanej w
+systemie wersji tymi z paczki. W tym celu należy wpisać:
+</p>
+
+<pre caption="Zastępowanie plików">
+# <i>cd /root/portage-recover/portage-2.1.1</i>
+# <i>cp -R pym bin /usr/lib/portage/</i>
+</pre>
+
+<note>
+Jeżeli przypadkowo odinstalowaliśmy wcześniej portage lub zgubiliśmy
+<path>/etc/make.globals</path> z innego powodu, należy w takim wypadku
+skopiować również <path>cnf/make.globals</path> z powrotem do <path>/etc</path>,
+jeżeli nie zostanie to wykonane nasze portage może dziwnie się zachowywać.
+</note>
+
+<p>
+Po wykonaniu tego polecenia portage powinno znów działać. Ostatnią czynnością
+jest wykonanie <c>emerge sys-apps/portage</c>.
+</p>
+
+<p>
+Jeśli pojawi się błąd <e>command not found</e> po uruchomieniu <c>emerge</c>
+należy poprawić dowiązanie symboliczne:
+</p>
+
+<pre caption="Poprawiania dowiązania do emerge">
+# <i>ln -s ../lib/portage/bin/emerge /usr/bin/emerge</i>
+</pre>
+
+<p>
+Jeśli powyższy proces nie rozwiązał problemu to najprawdopodobniej to nie
+portage jest zepsute tylko coś innego. Niestety nie należy to już do tematyki
+tego dokumentu. W takim wypadku radzimy zapoznać się z <uri
+link="/proj/pl/portage/doc/common-problems.xml">listą najczęstszych
+problemów</uri> lub poszukać pomocy na <uri
+link="http://bugs.gentoo.org">Bugzilli</uri>.
+</p>
+
+</body>
+</section>
+</chapter>
+</guide>
