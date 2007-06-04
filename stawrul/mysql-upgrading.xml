@@ -85,7 +85,7 @@ mysql&gt; <i>quit</i>
 # <i>unset DATADIR</i>
 # <i>unalias MYSQL</i>
 </pre>
-  	 
+
 </body>
 </section>
 </chapter>
@@ -307,12 +307,12 @@ Jeśli MySQL 4.1 nie spełnia oczekiwań, zawsze można wrócić do MySQL 4.0.
 # <i>/etc/init.d/mysql start</i>
 </pre>
 
-<note>
+<impo>
 Jeśli, postępując zgodnie z tym przewodnikiem, zainstalowaliśmy inne pakiety niż
 <c>dev-db/mysql</c>, konieczne może być skorzystanie z programu
 <c>revdep-rebuild</c>. Uzyskamy w ten sposób pewność, że wszystkie programy
 korzystają z właściwych bibliotek współdzielonych mysqlclient.
-</note>
+</impo>
 
 </body>
 </section>
@@ -410,7 +410,7 @@ Records: 0  Duplicates: 0  Warnings: 0
 System musi być tak skonfigurowany, aby obsługiwał lokalizację UTF-8. Więcej
 informacji na ten temat można uzykać w dokumentach <uri
 link="/doc/pl/utf-8.xml">Kodowanie UTF-8 w Gentoo</uri> i <uri
-link="/doc/en/guide-localization.xml">Lokalizacja Gentoo Linux</uri>.
+link="/doc/pl/guide-localization.xml">Lokalizacja Gentoo Linux</uri>.
 </p>
 
 <p>
