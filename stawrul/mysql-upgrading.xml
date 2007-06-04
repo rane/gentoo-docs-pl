@@ -1,0 +1,485 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/mysql-upgrading.xml,v 1.10 2006/09/07 11:09:26 rane Exp $ -->
+
+<guide link="/doc/pl/mysql-upgrading.xml" lang="pl">
+<title>Opis aktualizacji MySQL do wersji 4.* lub 5.0.*</title>
+
+<author title="Autor">
+  <mail link="citizen428@gentoo.org">Michael Kohl</mail>
+</author>
+<author title="Autor">
+  <mail link="vivo@gentoo.org">Francesco Riosa</mail>
+</author>
+<author title="Tłumaczenie">
+  <mail link="claudiush@gmail.com">Dawid Węgliński</mail>
+</author>
+<author title="Tłumaczenie">
+  <mail link="stawrul@gmail.com">Waldemar Korłub</mail>
+</author>
+
+<abstract>
+Zespół MySQL Gentoo z dumą ogłasza, że MySQL 5.0 będzie wkrótce dostępne w
+stabilnej gałęzi drzewa portage. Ten dokument opisuje jak dokonać aktualizacji
+do wersji 4.* oraz 5.0.*
+</abstract>
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
+<license/>
+
+<version>1.16</version>
+<date>2007-01-06</date>
+
+<chapter>
+<title>Bezpośrednia aktualizacja, sugerowana dla migracji 4.1 =&gt; 5.0</title>
+<section>
+<body>
+
+<p>
+Silnik magazynujący myisam w wersji 4.1 był już na tyle rozbudowany,
+że pozwalał na bezpieczną aktualizację do kolejnej większej wersji MySQL.
+</p>
+
+<note>
+Nie jest to jednak prawdą dla tablic typu MERGE. Najprawdopodobniej wynikną
+problemy w trakcie próby aktualizacji dla tego (rzadko używanego) typu tablic.
+Najlepiej wtedy pozbyć się i odtworzyć taką tablicę oraz odtworzyć
+jej zawartość w procesie aktualizacji. W razie wątpliwości prosimy przeczytać
+<uri link="#doc_chap2">Aktualizację ze starszych wersji MySQL</uri>.
+</note>
+
+<p>
+Dla tego kroku wymagane są dwie sesje powłoki ponieważ blokady należą
+do sesji mysql.
+</p>
+
+<pre caption="Bezpośrednia aktualizacja z 4.1 do 5.0.*">
+# <i>quickpkg dev-db/mysql</i>
+# <i>alias MYSQL="mysql --user=root --password=</i><comment>'nasze_hasło'</comment><i>"</i>
+# <i>DATADIR=$(MYSQL --batch --raw --silent --skip-column-names \</i>
+<i>--execute='SHOW variables LIKE "datadir";' \</i>
+<i>| sed -e 's|datadir[ \t]||')</i>
+
+<comment>(Ten krok powinien zostać wykonany na drugiej powłoce)</comment>
+# <i>mysql --user=root --password=</i><comment>'nasze_hasło'</comment>
+mysql&gt; <i>FLUSH TABLES WITH READ LOCK;</i>
+
+<comment>(Wracamy do pierwszej powłoki aby wykonać poniższą komendę)</comment>
+# <i>tar -cjpvf ~/mysql.$(date +%F"T"%H-%M).tar.bz2 \</i>
+<i>/etc/conf.d/mysql /etc/mysql/my.cnf "${DATADIR}"</i>
+
+<comment>(Następujące komendy nalezy wykonać w drugiej powłoce)</comment>
+mysql&gt; <i>UNLOCK TABLES;</i>
+mysql&gt; <i>quit</i>
+
+<comment>(Powracamy do pierwszej powłoki aby wykonać pozostałe operacje)</comment>
+# <i>tar -tjvf ~/mysql.*.tar.bz2</i>
+# <i>emerge -av "&gt;dev-db/mysql-5.0"</i>
+# <i>dispatch-conf</i>
+# <i>revdep-rebuild</i>
+# <i>/etc/init.d/mysql restart</i>
+# <i>mysql_upgrade_shell --user=root --password=</i><comment>'your_password'</comment><i> \</i>
+      <i>--protocol=tcp --datadir="${DATADIR}"</i>
+# <i>/etc/init.d/mysql restart</i>
+# <i>unset DATADIR</i>
+# <i>unalias MYSQL</i>
+</pre>
+  	 
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Rozbudowa starej wersji MySQL</title>
+<section>
+<body>
+
+<p>
+Użytkownicy rozbudowujący starszą wersję (&lt;4.0.24) MySQL najpierw muszą
+zainstalować MySQL 4.0.25. Jeśli działamy już na nowszej wersji możemy ominąć
+ten krok i przejść do <uri link="#backup">następnego</uri>.
+</p>
+
+<pre caption="Rozbudowa">
+# <i>emerge -av --buildpkg "&lt;mysql-4.1"</i>
+</pre>
+
+</body>
+</section>
+</chapter>
+
+<chapter id="backup">
+<title>Robimy kopię zapasową danych</title>
+<section>
+<body>
+
+<impo>
+Wartości wewnątrz głównych kluczy są inaczej obsługiwane w różnych wersjach
+MySQL, w celu uzyskania bliższych informacji należy zapoznać się
+z <uri link="http://bugs.gentoo.org/108502">raportem błędu #108502</uri>, zaleca
+się również przeszukanie tablic w celu znalezienia wartości "0" (zero) oraz
+mniejszych oraz ich aktualizacji do wartości większych bądź równych "1".
+</impo>
+
+<p>
+Jednym z podstawowych zadań każdego administratora bazy danych jest robienie
+kopii zapasowych. Zaczynamy:
+</p>
+
+<pre caption="Kopia awaryjna wszystkich danych">
+# <i>mysqldump \</i>
+  <i>-uroot \</i>
+  <i>-p$PASSWORD \</i>
+  <i>-hlocalhost \</i>
+  <i>--all-databases \</i>
+  <i>--opt \</i>
+  <i>--allow-keywords \</i>
+  <i>--flush-logs \</i>
+  <i>--hex-blob \</i>
+  <i>--master-data \</i>
+  <i>--max_allowed_packet=16M \</i>
+  <i>--quote-names \</i>
+  <i>--result-file=BACKUP_MYSQL_4.0.SQL</i>
+</pre>
+
+<p>
+Teraz powinien zostać stworzony plik o nazwie
+<path>BACKUP_MYSQL_4.0.SQL</path>, który będzie nam dalej potrzebny do
+odtworzenia danych. Dane zawarte w MySQL są napisane językiem SQL - Structured
+Query Language.
+</p>
+
+<p>
+Warto sprawdzić czy kopia zapasowa działa.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Rozszerzanie z ostatniej wersji MySQL</title>
+<section>
+<body>
+
+<p>
+Teraz stworzymy kopię pakietu (bazy danych, nie samych danych) obecnie
+zainstalowanej wersji:
+</p>
+
+<pre caption="Kopia pakietu binarnego">
+# <i>quickpkg dev-db/mysql</i>
+</pre>
+
+<p>
+Nadszedł czas, aby pozbyć się obecnej wersji oraz wszystkich jej danych:
+</p>
+
+<pre caption="Deinstalacja MySQL-a">
+# <i>/etc/init.d/mysql stop</i>
+# <i>emerge -C mysql</i>
+# <i>tar cjpvf ~/mysql.$(date +%F"T"%H-%M).tar.bz2 /etc/mysql/my.cnf /var/lib/mysql/</i>
+# <i>ls -l ~/mysql.*</i>
+# <i>rm -rf /var/lib/mysql/ /var/log/mysql</i>
+</pre>
+
+<note>
+Powinniśmy mieć dwie, różne kopie zapasowe: jedna SQL, przenośna, pomiędzy
+różnymi wersjami MySQL, oraz druga, która pozwoli szybko odzyskać bazę
+danych. Więcej szczegółów na ten temat w dalszej części tego dokumentu.
+</note>
+
+<p>
+Po usunięciu starszej instalacji MySQL, możemy zainstalować nową wersję.
+Warto zauważyć, że <c>revdep-rebuild</c> jest niezbędny do odbudowy pakietów
+łączonych z MySQL.
+</p>
+
+<pre caption="Kompilowanie nowych wersji plików binarnych">
+# <i>emerge -av "&gt;mysql-4.1"</i>
+<comment>(Należy zaktualizować pliki konfiguracyjne, można również użyć dispatch-conf)</comment>
+# <i>etc-update</i>
+# <i>revdep-rebuild</i>
+</pre>
+
+<p>
+Teraz konfigurujemy nowo zainstalowaną wersję MySQL i restartujemy demona:
+</p>
+
+<pre caption="Konfiguracja MySQL-a 4.1">
+# <i>emerge --config =mysql-4.1.<comment>&lt;micro_version&gt;</comment></i>
+# <i>/etc/init.d/mysql start</i>
+</pre>
+
+<p>
+Teraz można przejść do importowania kopii zapasowej, utworzonej w punkcie 2.
+</p>
+
+<impo>
+Plik <path>/etc/mysql/my.cnf</path> ustawia logowanie binarne (<c>log-bin</c>)
+jako standardowe. Zaowocuje to tym, że każde polecenie ingerujące w zawartość
+lub nazwę pliku będzie logowane. Jeśli zostanie uruchomione na dużej bazie
+danych (np. 1 GB lub większej), spowoduje to utworzenie niesamowicie wielkiego
+pliku, który szybko rozrośnie się do rozmiarów całej partycji - zabierając cenne
+miejsce.  Jeśli nie dysponujemy wystarczającą przestrzenią dyskową, warto
+zastanowić się nad wyłączeniem opcji logowania binarnego.
+</impo>
+
+<impo>
+Domyślnym kodowaniem znaków dla wersji 4.1 MySQL oraz nowszych jest
+<c>utf8</c>. Jeśli dane zawierają znaki spoza tablicy ASCII, być może będziemy
+chcieli zachować oryginalne kodowanie bazy danych. Jest to możliwe, poprzez
+zastąpienie wszystkich wystąpień <c>utf8</c> frazą <c>latin1</c> w pliku
+konfiguracyjnym <path>/etc/mysql/my.cnf</path>. Więcej informacji znajduje się w
+części poświęconej <uri link="#On_charset_conversion">konwersji strony
+kodowej</uri>.
+</impo>
+
+<impo>
+Administracyjna baza danych <c>mysql</c>, zawierająca nazwy użytkowników, hasła
+i inne dane, <b>musi</b> posiadać kodowanie utf8.
+</impo>
+
+<p>
+Starsze wersje narzędzia mysqldump mogą wyeksportować tabele w nieprawidłowej
+kolejności, jeśli pojawiają się zewnętrzne klucze. Aby obejść ten problem,
+należy otoczyć SQL poniższym kodem:
+</p>
+
+<pre caption="Obejście problemu zewnętrznych kluczy">
+SET FOREIGN_KEY_CHECKS=0
+SET FOREIGN_KEY_CHECKS=1
+</pre>
+
+<p>
+Kolejnym krokiem jest import kopii zapasowej.
+</p>
+
+<pre caption="Import kopii zapasowej SQL-a">
+# <i>cat BACKUP_MYSQL_4.0.SQL \</i>
+     <i>| mysql \</i>
+     <i>-uroot \</i>
+     <i>--password=</i><comment>'hasło'</comment><i> \</i>
+     <i>-hlocalhost \</i>
+     <i>--max_allowed_packet=16M</i>
+
+# <i>mysql_fix_privilege_tables \</i>
+     <i>--defaults-file=/etc/mysql/my.cnf \</i>
+     <i>--user=root \</i>
+     <i>--password=</i><comment>'hasło'</comment><i></i>
+</pre>
+
+<p>
+Jeśli zrestartujemy demona MySQL i wszystko pójdzie zgodnie z planem, będziemy
+mieli sprawnie działającą wersję 4.1.x.
+</p>
+
+<pre caption="Restart MySQL-a">
+# <i>/etc/init.d/mysql restart</i>
+</pre>
+
+<p>
+Jeśli podczas procesu rozbudowy pojawią się jakiekolwiek problemy, prosimy
+zgłosić je na naszej <uri link="http://bugs.gentoo.org">Bugzilli</uri>.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Odzyskiwanie starej instalacji MySQL 4.0</title>
+<section>
+<body>
+
+<p>
+Jeśli MySQL 4.1 nie spełnia oczekiwań, zawsze można wrócić do MySQL 4.0.
+</p>
+
+<pre caption="Powrót do przeszłości ;-)">
+# <i>/etc/init.d/mysql stop</i>
+# <i>emerge -C mysql</i>
+# <i>rm -rf /var/lib/mysql/ /var/log/mysql</i>
+# <i>emerge --usepkgonly "&lt;mysql-4.1"</i>
+<comment>(Należy zamienić &lt;timestamp&gt; na wartość, która została użyta podczas tworzenia kopii zapasowe.)</comment>
+# <i>tar -xjpvf mysql.&lt;timestamp&gt;.tar.bz2 -C /</i>
+# <i>/etc/init.d/mysql start</i>
+</pre>
+
+<note>
+Jeśli, postępując zgodnie z tym przewodnikiem, zainstalowaliśmy inne pakiety niż
+<c>dev-db/mysql</c>, konieczne może być skorzystanie z programu
+<c>revdep-rebuild</c>. Uzyskamy w ten sposób pewność, że wszystkie programy
+korzystają z właściwych bibliotek współdzielonych mysqlclient.
+</note>
+
+</body>
+</section>
+</chapter>
+
+<chapter id="On_charset_conversion">
+<title>Konwersja strony kodowej</title>
+<section>
+<title>Wprowadzenie</title>
+<body>
+
+<p>
+Ten rozdział nie jest wyczerpującym przewodnikiem zmiany strony kodowej. Jest to
+raczej krótka lista uwag, o które należy pamiętać.
+</p>
+
+<p>
+Konwersja bazy danych może być złożonym zadaniem, a jego trudność wzrasta wraz
+ze wzrostem różnorodności przechowywanych danych. Obiekty uszeregowane i obiekty
+typu blob to przykłady utrudniające przeprowadzenie konwersji.
+</p>
+
+</body>
+</section>
+<section>
+<title>Indeksy</title>
+<body>
+
+<p>
+W indeksach każdy znak utf-8 składa się z 3 bajtów. Same indeksy w MySQL mogą
+mieć długość do 1000 bajtów (767 bajtów w tabelach InnoDB). Należy pamiętać, że
+limity określone są w bajtach, podczas gdy długość kolumny jest interpretowana
+jako ilość znaków.
+</p>
+
+<p>
+MySQL może również tworzyć indeksy z części kolumny. Może to być
+pomocne. Poniżej znajduje się kilka przykładów:
+</p>
+
+<pre caption="Indeksowanie przy użyciu prefiksów">
+$ <i>mysql -uroot -p'<comment>nasze_hasło</comment>' test</i>
+
+mysql> <i>SHOW variables LIKE "version" \G</i>
+*************************** 1. row ***************************
+Variable_name: version
+    Value: <comment>5.0.24-log</comment>
+1 row in set (0.00 sec)
+
+mysql> <i>CREATE TABLE t1 (</i>
+  ->   <i>c1 varchar(255) NOT NULL default '',</i>
+  ->   <i>c2 varchar(255) NOT NULL default ''</i>
+  ->   <i>) ENGINE=MyISAM DEFAULT CHARSET=utf8;</i>
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> <i>ALTER TABLE t1</i>
+  ->   <i>ADD INDEX idx1 ( c1 , c2 );</i>
+<comment>ERROR 1071 (42000): Specified key was too long; max key length is 1000 bytes</comment>
+
+mysql> <i>ALTER TABLE t1</i>
+  ->   <i>ADD INDEX idx1 ( c1(165) , c2(165) );</i>
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> <i>CREATE TABLE t2 (</i>
+  ->   <i>c1 varchar(255) NOT NULL default '',</i>
+  ->   <i>c2 varchar(255) NOT NULL default ''</i>
+  ->   <i>) ENGINE=MyISAM DEFAULT CHARSET=sjis;</i>
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> <i>ALTER TABLE t2</i>
+  ->   <i>ADD INDEX idx1 ( c1(250) , c2(250) );</i>
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> <i>CREATE TABLE t3 (</i>
+  ->   <i>c1 varchar(255) NOT NULL default '',</i>
+  ->   <i>c2 varchar(255) NOT NULL default ''</i>
+  ->   <i>) ENGINE=MyISAM DEFAULT CHARSET=latin1;</i>
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> <i>ALTER TABLE t3</i>
+  ->   <i>ADD INDEX idx1 ( c1 , c2 );</i>
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+</pre>
+
+</body>
+</section>
+<section>
+<title>Środowisko</title>
+<body>
+
+<p>
+System musi być tak skonfigurowany, aby obsługiwał lokalizację UTF-8. Więcej
+informacji na ten temat można uzykać w dokumentach <uri
+link="/doc/pl/utf-8.xml">Kodowanie UTF-8 w Gentoo</uri> i <uri
+link="/doc/en/guide-localization.xml">Lokalizacja Gentoo Linux</uri>.
+</p>
+
+<p>
+W poniższym przykładzie ustawimy zmienne środowiskowe, które pozwolą na
+korzystanie z lokalizacji UTF-8 dla języka polskiego. Poniższe linie należy
+dodać do pliku <path>/etc/env.d/02locale</path>:
+</p>
+
+<pre caption="/etc/env.d/02locale">
+LC_ALL=pl_PL.UTF-8
+LANG=pl_PL.UTF-8
+</pre>
+
+<p>
+Aby zmiany odniosły skutek w systemie, należy wykonać polecenie <c>env-update
+&amp;&amp; source /etc/profile</c>.
+</p>
+
+</body>
+</section>
+<section>
+<title>Program iconv</title>
+<body>
+
+<p>
+Program <c>iconv</c>, będący częścią pakietu <c>sys-libs/glibc</c>, jest
+wykorzystywany do konwersji plików tekstowych pomiędzy różnymi stronami
+kodowymi. Można skorzystać również z pakietu <c>app-text/recode</c>.
+</p>
+
+<pre caption="Używanie programu iconv">
+<comment>(Z kodowania latin1 na utf8)</comment>
+$ <i>iconv -f ISO-8859-15 -t UTF-8 file1.sql &gt; file2.sql</i>
+
+<comment>(Z kodowania dla języka japońskiego na utf8)</comment>
+$ <i>iconv -f ISO2022JP -t UTF-8 file1.sql &gt; file2.sql</i>
+</pre>
+
+<p>
+Program <c>iconv</c> może zostać wykorzystany do zmiany strony kodowej kopii
+bazy sql nawet jeżeli środowisko nie jest ustawione do pracy z utf8.
+</p>
+
+</body>
+</section>
+<section>
+<title>Konwersja w skryptach SQL</title>
+<body>
+
+<p>
+Można wykorzystać funkcje MySQL <c>CONVERT()</c> i <c>CAST()</c>, aby dokonać
+konwersji danych w naszych skryptach SQL.
+</p>
+
+</body>
+</section>
+<section>
+<title>Apache (serwer WWW)</title>
+<body>
+
+<p>
+Aby wykorzystać kodowanie utf-8 w serwerze Apache, nalezy dodać następujące
+zmienne do pliku <path>httpd.conf</path>: AddDefaultCharset, CharsetDefault,
+CharsetSourceEnc. Jeśli pliki ze źródłami html nie są zakodowane w utf-8,
+<b>konieczna</b> jest ich konwersja przy pomocy programu <c>iconv</c> lub
+<c>recode</c>.
+</p>
+
+</body>
+</section>
+</chapter>
+</guide>
