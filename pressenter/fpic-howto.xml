@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sections SYSTEM "/dtd/book.dtd">
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
+
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/proj/en/base/amd64/howtos/fpic-howto.xml,v 1.3 2006/07/23 09:51:09 blubb Exp $ -->
+
+<sections>
+
+<version>1.2</version>
+<date>2006-07-23</date>
+
+<section>
+<title>The Problem</title>
+<body>
+
+<p>
+Sometimes it occurs that gcc bails out with an error message like the
+following:
+</p>
+
+<pre caption="A typical gcc error message">
+.libs/assert.o: relocation R_X86_64_32 against `a local symbol' can not be used
+when making a shared object; recompile with -fPIC .libs/assert.o: could not
+read symbols: Bad value
+</pre>
+
+<p>
+There are several different types of causes for such an error. This HOWTO will
+explain all of them and show how to fix them.
+</p>
+
+</body>
+</section>
+<section>
+<title>What is PIC?</title>
+<body>
+
+<p>
+PIC is an abbreviation for <e>Position-Independent Code</e>. The following is
+an exempt of the <uri link="http://en.wikipedia.org/wiki/Position-independent_code">Wikipedia article</uri>
+about position-independent code:
+</p>
+
+<p by="Wikipedia Encyclopaedia">
+"In computing, position-independent code (PIC) or position-independent
+executable (PIE) is object code that can execute at different locations in
+memory. PIC is commonly used for shared libraries, so that the same library
+code can be mapped to a location in each application (using the virtual memory
+system) where it won't overlap the application or other shared libraries. PIC
+was also used on older computer systems lacking an MMU, so that the operating
+system could keep applications away from each other.<br/><br/>
+Position-independent code can be copied to any memory location without
+modification and executed, unlike relocatable code, which requires special
+processing by a link editor or program loader to make it suitable for execution
+at a given location. Code must generally be written or compiled in a special
+fashion in order to be position independent. Instructions that refer to
+specific memory addresses, such as absolute branches, must be replaced with
+equivalent program counter relative instructions. The extra indirection may
+cause PIC code to be less efficient, although modern processors are designed to
+ameliorate this."
+</p>
+
+<p>
+On certain architectures (AMD64 amongst them), shared libraries <e>must</e> be
+"PIC-enabled". 
+<!-- [TODO: reasons would be awesome]. -->
+</p>
+
+</body>
+</section>
+<section>
+<title>What are "relocations"?</title>
+<body>
+
+<p>
+Again, an exempt of the Wikipedia article, because it is just the best I could
+find:
+</p>
+
+<p by="Wikipedia Encyclopaedia">
+"In computer science, relocation refers to the process of replacing symbolic
+references or names of libraries with actual usable addresses in memory before
+running a program. It is typically done by the linker during compilation,
+although it can be done at run-time by a loader. Compilers or assemblers
+typically generate the executable with zero as the lower-most, starting
+address. Before the execution of object code, these addresses should be
+adjusted so that they denote the correct runtime addresses."
+</p>
+
+<p>
+With these terms defined, we can finally have a look at the different scenarios
+where breakage occurs:
+</p>
+
+</body>
+</section>
+<section>
+<title>Case 1: Broken compiler</title>
+<body>
+
+<p>
+At least GCC 3.4 is known to have a broken implementation of the
+<c>-fvisibility-inlines-hidden</c> flag. The use of this flag is therefore
+highly discouraged, reported bugs are usually marked as RESOLVED INVALID. See
+<uri link="http://bugs.gentoo.org/108872">bug 108872</uri> for an example of a
+typical error message caused by this flag.
+</p>
+
+</body>
+</section>
+<section>
+<title>Case 2: Broken `-fPIC' support checks in configure</title>
+<body>
+
+<p>
+Many <c>configure</c> tools check whether the compiler supports the <c>-fPIC</c>
+flag or not. They do so by compiling a minimalistic program with the
+<c>-fPIC</c> flag and checking <c>stderr</c>. If the compiler prints *any*
+warnings, it is assumed that the <c>-fPIC</c> flag is not supported by the
+compiler and is therefore abandoned. Unfortunately, if the user specifies a
+non-existing flag (i.e. C++-only flags in <c>CFLAGS</c> or flags introduced by
+newer versions of GCC but unknown to older ones), GCC prints a warning too,
+resulting in borkage.
+</p>
+
+<p>
+To prevent this kind of breakage, the AMD64 profiles use a bashrc that filters
+out invalid flags in <c>C[XX]FLAGS</c>.
+</p>
+
+<p>
+See bug <uri link="http://bugs.gentoo.org/122208">bug 122208</uri> for an
+example.
+</p>
+
+</body>
+</section>
+<section>
+<title>Case 3: Lack of `-fPIC' flag in the software to be built</title>
+<body>
+
+<p>
+This is the most common case. It is a real bug in the build system and should
+be fixed in the ebuild, preferably with a patch that is sent upstream.
+Assuming the error message looks like this:
+</p>
+
+<pre caption="A sample error message">
+.libs/assert.o: relocation R_X86_64_32 against `a local symbol' can not be used
+when making a shared object; recompile with -fPIC .libs/assert.o: could not
+read symbols: Bad value
+</pre>
+
+<p>
+This means that the file <path>assert.o</path> was not compiled with the
+<c>-fPIC</c> flag, which it should. When you fix this kind of error, make sure
+only objects that are used in shared libraries are compiled with <c>-fPIC</c>.
+<!-- [TODO: Again, reasons would be lovely] -->
+</p>
+
+<p>
+In this case, globally adding <c>-fPIC</c> to <c>C[XX]FLAGS</c> resolves the
+issue, although this practice is discouraged because the executables end up
+being PIC-enabled, too.
+</p>
+
+<note>
+Adding the <c>-fPIC</c> flag to the linking command or <c>LDFLAGS</c> won't
+help.
+</note>
+
+</body>
+</section>
+<section>
+<title>Case 4: Linking dynamically against static archives</title>
+<body>
+
+<p>
+Sometimes a package tries to build shared libraries using statically built
+archives which are not PIC-enabled. There are two main reasons why this
+happens:
+</p>
+
+<p>
+Often it is the result of mixing <c>USE=static</c> and <c>USE=-static</c>. If a
+library package can be built statically by setting <c>USE=static</c>, it
+usually doesn't create a <path>.so</path> file but only a <path>.a</path>
+archive. However, when GCC is given the <c>-l</c> flag to link to said (dynamic
+or static) library, it falls back to the static archive when it can't find a
+shared lib. In this case, the preferred solution is to build the static library
+using the <c>-fPIC</c> flag too.
+</p>
+
+<warn>
+Only build the static archive with <c>-fPIC</c> on AMD64. On other
+architectures this is unneeded and will have a performance impact at execution
+time.
+</warn>
+
+<p>
+See <uri link="http://bugs.gentoo.org/88360">bug 88360</uri> and <uri
+link="http://bugs.mysql.com/bug.php?id=8796">mysql bug 8796</uri> for an example.
+</p>
+
+<p>
+Sometimes it is also the case that a library isn't intended to be a shared
+library at all, e.g. because it makes heavy usage of global variables. In this
+case the solution is to turn the to-be-built shared library into a static one.
+</p>
+
+<p>
+See <uri link="http://bugs.gentoo.org/131460">bug 131460</uri> for an example.
+</p>
+
+<pre caption="A sample error message">
+gcc   -fPIC -DSHARED_OBJECT -c lex.yy.c
+gcc  -shared -o html2txt.so lex.yy.o -lfl
+usr/lib/gcc/x86_64-pc-linux-gnu/4.1.1/../../../../x86_64-pc-linux-gnu/bin/ld:
+/usr/lib/gcc/x86_64-pc-linux-gnu/4.1.1/../../../../lib64/libfl.a(libyywrap.o):
+relocation R_X86_64_32 against `a local symbol' can not be used when making a
+shared object; recompile with -fPIC
+/usr/lib/gcc/x86_64-pc-linux-gnu/4.1.1/../../../../lib64/libfl.a: could not
+read symbols: Bad value
+</pre>
+
+</body>
+</section>
+</sections>
