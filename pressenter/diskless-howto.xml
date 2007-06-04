@@ -551,7 +551,7 @@ option PXE.mtftp-delay            code 5 = unsigned integer 8;
 option PXE.discovery-control      code 6 = unsigned integer 8;
 option PXE.discovery-mcast-addr   code 7 = ip-address;
 
-# Należy zdeklarować subnet, gdzie będą się znajdowały nasze bezdyskowe węzły
+# Należy zdeklarować podsieć, gdzie będą się znajdowały nasze bezdyskowe węzły
 subnet 192.168.1.0 netmask 255.255.255.0 {
 
 
