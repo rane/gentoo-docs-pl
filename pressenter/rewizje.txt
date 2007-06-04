@@ -13,3 +13,4 @@ ipv6.xml -> v1.10
 qmail-howto.xml -> v1.10
 mysql-upgrade-slotted.xml -> v1.1
 manually-fixing-portage.xml -> 1.7
+kde-config.xml -> 1.30
