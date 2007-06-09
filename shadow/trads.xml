@@ -4,22 +4,22 @@
  <doc ID=' metadoc'>
    <files name='metadoc.xml' path='doc'/>
    <info nick='rane' prior='C'/>
-   <rev sync='1.182' target=''/>
+   <rev sync='1.183' target=''/>
  </doc>
  <doc ID=' Index'>
   <files name='index.xml' path='doc'/>
   <info nick='rane' prior='C'/>
-  <rev sync='1.105' target=''/>
+  <rev sync='1.106' target=''/>
  </doc>
  <doc ID='x86 Quick Install'>
   <files name='gentoo-x86-quickinstall.xml' path='doc'/>
   <info nick='' prior='C' group='Install'/>
-  <rev sync='1.75' target=''/>
+  <rev sync='1.78' target=''/>
  </doc>
  <doc ID='x86 raid+lvm Quick Install'>
   <files name='gentoo-x86+raid+lvm2-quickinstall.xml' path='doc'/>
   <info nick='' prior='C' group='Install'/>
-  <rev sync='1.15' target=''/>
+  <rev sync='1.17' target=''/>
  </doc>
  <doc ID='x86 Tips&apos;n&apos; Tricks'>
   <files name='gentoo-x86-tipsntricks.xml' path='doc'/>
@@ -59,12 +59,12 @@
  <doc ID='Bluetooth'>
   <files name='bluetooth-guide.xml' path='doc'/>
   <info nick='shadow' prior='N' group='Desktop'/>
-  <rev sync='1.12' target=''/>
+  <rev sync='1.13' target=''/>
  </doc>
  <doc ID='LiveUSB'>
   <files name='liveusb.xml' path='doc'/>
   <info nick='' prior='N' group='Desktop'/>
-  <rev sync='1.12' target=''/>
+  <rev sync='1.13' target=''/>
  </doc>
  <doc ID='NVidia Guide'>
   <files name='nvidia-guide.xml' path='doc'/>
@@ -89,7 +89,7 @@
  <doc ID='Sparc Quick Install'>
   <files name='gentoo-sparc-quickinstall.xml' path='doc'/>
   <info nick='stawrul' prior='I' group='Install'/>
-  <rev sync='1.19' target=''/>
+  <rev sync='1.22' target=''/>
  </doc>
  <doc ID='Bugzilla Howto'>
   <files name='bugzilla-howto.xml' path='doc'/>
@@ -124,12 +124,12 @@
  <doc ID='PPC FAQ'>
   <files name='gentoo-ppc-faq.xml' path='doc'/>
   <info nick='' prior='I'/>
-  <rev sync='1.60' target=''/>
+  <rev sync='1.61' target=''/>
  </doc>
  <doc ID='FreeBSD'>
   <files name='gentoo-freebsd.xml' path='doc'/>
   <info nick='' prior='I'/>
-  <rev sync='1.28' target=''/>
+  <rev sync='1.29' target=''/>
  </doc>
  <doc ID='SPARC FAQ'>
   <files name='gentoo-sparc-faq.xml' path='doc'/>
@@ -174,7 +174,7 @@
  <doc ID='Printing howto'>
   <files name='printing-howto.xml' path='doc'/>
   <info nick='rane' prior='C' lock='' group='System'/>
-  <rev sync='1.66' target=''/>
+  <rev sync='1.67' target=''/>
  </doc>
  <doc ID='Localization guide'>
   <files name='guide-localization.xml' path='doc'/>
@@ -224,7 +224,7 @@
  <doc ID='Diskless'>
   <files name='diskless-howto.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
-  <rev sync='1.26' target=''/>
+  <rev sync='1.34' target=''/>
  </doc>
  <doc ID='devfs'>
   <files name='devfs-guide.xml' path='doc'/>
@@ -234,7 +234,7 @@
  <doc ID='alsa config'>
   <files name='alsa-guide.xml' path='doc'/>
   <info nick='rane' prior='I' group='Desktop'/>
-  <rev sync='1.79' target=''/>
+  <rev sync='1.80' target=''/>
  </doc>
  <doc ID='nano'>
   <files name='nano-basics-guide.xml' path='doc'/>
@@ -259,12 +259,12 @@
  <doc ID='Genkernel'>
   <files name='genkernel.xml' path='doc'/>
   <info nick='' prior='I' group='System'/>
-  <rev sync='1.27' target=''/>
+  <rev sync='1.28' target=''/>
  </doc>
  <doc ID='Gentoolkit'>
   <files name='gentoolkit.xml' path='doc'/>
   <info nick='' prior='I' group='System'/>
-  <rev sync='1.27' target=''/>
+  <rev sync='1.28' target=''/>
  </doc>
  <doc ID="Portage-utils">
    <files name='portage-utils.xml' path='doc'/>
@@ -274,7 +274,7 @@
  <doc ID='Manually Fixing Portage'>
    <files name='manually-fixing-portage.xml' subdir='portage/doc' path='proj'/>
    <info nick='rane' prior='I' group='Projekty'/>
-   <rev sync='1.6' target=''/>
+   <rev sync='1.7' target=''/>
  </doc>
  <doc ID='Common Portage Problems'>
    <files name='common-problems.xml' subdir='portage/doc' path='proj'/>
@@ -299,7 +299,7 @@
  <doc ID='qmail howto'>
   <files name='qmail-howto.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
-  <rev sync='1.37' target=''/>
+  <rev sync='1.38' target=''/>
  </doc>
  <doc ID='Mail filter'>
   <files name='mailfilter-guide.xml' path='doc'/>
@@ -319,7 +319,7 @@
  <doc ID='udev'>
   <files name='udev-guide.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
-  <rev sync='1.40' target=''/>
+  <rev sync='1.41' target=''/>
  </doc>
  <doc ID='User-Mode Linux'>
   <files name='uml.xml' path='doc'/>
@@ -329,7 +329,7 @@
  <doc ID='ipv6'>
   <files name='ipv6.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
-  <rev sync='1.24' target=''/>
+  <rev sync='1.27' target=''/>
  </doc>
  <doc ID='sudo'>
   <files name='sudo-guide.xml' path='doc'/>
@@ -354,12 +354,12 @@
  <doc ID='MySQL 4.1 Upgrade'>
   <files name='mysql-upgrading.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
-  <rev sync='1.9' target=''/>
+  <rev sync='1.21' target=''/>
  </doc>
  <doc ID='Unslotting MySQL'>
   <files name='mysql-upgrade-slotted.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
-  <rev sync='1.10' target=''/>
+  <rev sync='1.11' target=''/>
  </doc>
  <doc ID='Jffnms'>
   <files name='jffnms.xml' path='doc'/>
@@ -379,7 +379,7 @@
  <doc ID='gnome-2.16-upgrade'>
   <files name='gnome-2.16-upgrade.xml' subdir='desktop/gnome/howtos' path='proj'/>
   <info nick='cla' prior='I' group='Projekty'/>
-  <rev sync='1.9' target=''/>
+  <rev sync='1.10' target=''/>
  </doc>
  <doc ID='xml guide'>
   <files name='xml-guide.xml' path='doc'/>
@@ -414,7 +414,7 @@
  <doc ID='Power Management'>
   <files name='power-management-guide.xml' path='doc'/>
   <info nick='' prior='I' group='Desktop'/>
-  <rev sync='1.26' target=''/>
+  <rev sync='1.27' target=''/>
  </doc>
  <doc ID='About Gentoo'>
   <files name='about.xml' path='main'/>
@@ -484,7 +484,7 @@
  <doc ID='Samba quick howto'>
   <files name='quick-samba-howto.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
-  <rev sync='1.26' target=''/>
+  <rev sync='1.27' target=''/>
  </doc>
  <doc ID='HPC howto'>
   <files name='hpc-howto.xml' path='doc'/>
@@ -524,7 +524,7 @@
  <doc ID='KDE Config'>
   <files name='kde-config.xml' path='doc'/>
   <info nick='' prior='I' group='Desktop'/>
-  <rev sync='1.29' target=''/>
+  <rev sync='1.31' target=''/>
  </doc>
  <doc ID='KDE Ebuilds'>
   <files name='kde-split-ebuilds.xml' path='doc'/>
@@ -539,7 +539,7 @@
  <doc ID='Xfce Config'>
   <files name='xfce-config.xml' path='doc/'/>
   <info nick='cla' prior='I' group='Desktop'/>
-  <rev sync='1.6' target=''/>
+  <rev sync='1.7' target=''/>
  </doc>
  <doc ID='GNOME Config'>
   <files name='gnome-config.xml' path='doc'/>
@@ -933,7 +933,7 @@
  </hbdoc>
  <hbdoc part='1' ID='1.j Bootloader IA64' filename='hb-install-ia64-bootloader.xml' chap='10'>
   <info nick='' lock=''/>
-  <rev sync='1.2' target=''/>
+  <rev sync='1.3' target=''/>
  </hbdoc>
  <hbdoc part='1' ID='1.j Bootloader MIPS' filename='hb-install-mips-bootloader.xml' chap='10'>
   <info nick='' lock=''/>
@@ -1064,7 +1064,7 @@
  </hbdoc>
  <hbdoc part='0' ID='hb-install-about' filename='hb-install-about.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.6' target=''/>
+  <rev sync='1.8' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='hb-install-config' filename='hb-install-config.xml' chap='0'>
   <info nick=''/>
@@ -1084,7 +1084,7 @@
  </hbdoc>
  <hbdoc part='0' ID='hb-install-gtkfe' filename='hb-install-gtkfe.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.6' target=''/>
+  <rev sync='1.7' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='hb-install-hppa-bootloader' filename='hb-install-hppa-bootloader.xml' chap='0'>
   <info nick=''/>
@@ -1311,15 +1311,11 @@
  </hbdoc>
  <hbdoc part='2' ID='Chroot' filename='chroot-old.xml' chap='5'>
   <info nick='' lock=''/>
-  <rev sync='1.7' target=''/>
+  <rev sync='1.1' target=''/>
  </hbdoc>
  <hbdoc part='2' ID='Index' filename='index.xml' chap='5'>
   <info nick='' lock=''/>
   <rev sync='1.8' target=''/>
- </hbdoc>
- <hbdoc part='2' ID='fpic' filename='fpic-howto.xml' chap='5'>
-   <info nick='' lock=''/>
-   <rev sync='' target=''/>
  </hbdoc>
 </handbook>
 
