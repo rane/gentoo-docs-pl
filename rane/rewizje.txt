@@ -6,3 +6,4 @@ doc/pl/handbook/2007.0/handbook-amd64.xml -> 1.8
 doc/pl/handbook/2007.0/handbook-ppc.xml -> 1.12
 doc/pl/handbook/2007.0/handbook-ppc64.xml -> 1.13
 doc/pl/handbook/2007.0/handbook-x86.xml -> 1.8
+quick-samba-howto.xml -> 1.28
