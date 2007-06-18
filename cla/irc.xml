@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mainpage SYSTEM "/dtd/guide.dtd">
+
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/main/pl/irc.xml,v 1.21 2007/05/15 16:46:50 shadoww Exp $ -->
+
+<mainpage lang="pl">
+<title>Zasoby Gentoo w sieci IRC</title>
+
+<author title="Redaktor">
+  Colin Morey
+</author>
+<author title="Redaktor">
+  <mail link="klieber@gentoo.org">Kurt Lieber</mail>
+</author>
+<author title="Redaktor">
+  <mail link="klasikahl@gentoo.org">Zack Gilburd</mail>
+</author>
+<author title="Redaktor">
+  <mail link="avenj@gentoo.org">Jon Portnoy</mail>
+</author>
+<author title="Redaktor">
+  <mail link="curtis119@gentoo.org">Curtis Napier</mail>
+</author>
+<author title="Redaktor">
+  <mail link="fox2mike@gentoo.org">Shyam Mani</mail>
+</author>
+<author title="Redaktor">
+<mail link="astinus@gentoo.org">Alex Howells</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="stemer@icpnet.pl">Krzysztof Stemerowicz</mail>
+</author>
+
+<abstract>
+Oficjalne kanały IRC-owe Gentoo.
+</abstract>
+
+<license/>
+
+<version>1.23</version>
+<date>2007-06-16</date>
+
+<chapter>
+<title>Sieć Internet Relay Chat</title>
+<section>
+<body>
+
+<p>
+<b>Wszystkie kanały irc można znaleźć w sieci <uri
+link="http://www.freenode.org/">freenode</uri>:</b>.
+</p>
+
+<p>
+Wszystkimi naszymi kanałami zarządzają deweloperzy Gentoo dla wzajemnych
+korzyści tak użytkowników jak i osób wspierających projekt i uważamy, że irc
+jest otwarty dla każdego.  Wpadnijcie na jeden z kanałów i przedstawcie
+się,uważajcie również irc jako źródło rozwiązań dla waszych ewentualnych
+problemów z Gentoo Linux.
+</p>
+
+<p>
+Wymagamy bardzo niewiele od użytkowników odwiedzających nasze kanały wsparcia na
+freenode:
+</p>
+
+<ul>
+  <li>
+    Należy zachowywać się rozważnie i dojrzale, zgodnie z zasadami <uri
+    link="/proj/en/council/coc.xml">Kodeksu Zachowania</uri>.
+  </li>
+  <li>
+    Nalegamy na przeczytanie tematu po wejściu na kanał, zawiera on cenne
+    informacje!
+  </li>
+  <li>
+    Boty oraz skrypty, które się wypowiadają, nie są mile widziane na większości
+    kanałów. W razie wątpliwości należy pytać.
+  </li>
+  <li>
+    Nie wolno używać <c>CTCP VERSION</c> względem użytkowników ani kanałów bez
+    ich zgody.
+  </li>
+  <li>
+    Należy zwrócić uwagę, że używamy polityki czystego języka na #gentoo więc
+    przekleństwa nie są dozwolone.
+  </li>
+</ul>
+
+<p>
+Zwracamy również uwagę, że <b>nie</b> zapewniamy wsparcia dla dystrybucji
+opartych na Gentoo Linux.
+</p>
+
+<table>
+<tr>
+  <th><b>Kanały ogólne i deweloperskie</b></th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo">#gentoo</uri></ti>
+  <th>Pomoc użytkownikom.</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-ops">#gentoo-ops</uri></ti>
+  <th>Dyskusja na temat problemów z kanałem #gentoo</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-dv">#gentoo-db</uri></ti>
+  <th>Kanał dotyczący pakietów związanych z bazami danych.</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-dev">#gentoo-dev</uri></ti>
+  <th>Służbowy kanał dla deweleporów Gentoo.</th>
+</tr>
+<tr>
+  <ti>
+    <uri
+    link="irc://irc.freenode.net/gentoo-dev-help">#gentoo-dev-help</uri>
+  </ti>
+  <th>Kanał twórców ebuildów.</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-doc">#gentoo-doc</uri></ti>
+  <th>Kanał dla osób pracujących nad dokumentacją Gentoo.</th>
+</tr>
+<tr>
+  <ti>
+  <uri link="irc://irc.freenode.net/gentoo-desktop">#gentoo-desktop</uri>
+  </ti>
+  <th>Dyskusje związane z pulpitem.</th>
+</tr>
+<tr>
+  <ti>
+    <uri
+    link="irc://irc.freenode.net/gentoo-security">#gentoo-security</uri>
+  </ti>
+  <th>Dyskusje na temat bezpieczeństwa systemu Gentoo.</th>
+</tr>
+<tr>
+  <ti>
+    <uri
+    link="irc://irc.freenode.net/gentoo-cluster">#gentoo-cluster</uri>
+  </ti>
+  <th>Klastry oparte na Gentoo.</th>
+</tr>
+<tr>
+  <ti>
+    <uri
+    link="irc://irc.freenode.net/gentoo-embedded">#gentoo-embedded</uri>
+  </ti>
+  <th>Rozmowy o Gentoo na urządzeniach przenośnych.</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-games">#gentoo-games</uri></ti>
+  <th>
+    Rozmowy oraz wsparcie dla linuksowych gier w Gentoo (bez Wine i Cedega).
+  </th>
+</tr>
+<tr>
+  <ti>
+    <uri
+    link="irc://irc.freenode.net/gentoo-haskell">#gentoo-haskell</uri>
+  </ti>
+  <th>Pakiety w języku programowania Haskell.</th>
+</tr>
+<tr>
+  <ti>
+    <uri
+    link="irc://irc.freenode.net/gentoo-hardened">#gentoo-hardened</uri>
+  </ti>
+  <th>Dyskusje dotyczące Hardened Gentoo.</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-java">#gentoo-java</uri></ti>
+  <th>Rozmowy związanie z platformą Java.</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-kde">#gentoo-kde</uri></ti>
+  <th>Utrzymanie pakietów KDE</th>
+</tr>
+<tr>
+  <ti>
+    <uri
+    link="irc://irc.freenode.net/gentoo-laptop">#gentoo-laptop</uri>
+  </ti>
+  <th>Gentoo na laptopach.</th>
+</tr>
+<tr>
+  <ti>
+    <uri
+    link="irc://irc.freenode.net/gentoo-netmail">#gentoo-netmail</uri>
+  </ti>
+  <th>Pakiety związane z obsługą poczty.</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-netmon">#gentoo-netmon</uri></ti>
+  <th>Pakiety związane z monitoringiem sieci.</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-php">#gentoo-php</uri></ti>
+  <th>PHP w Gentoo.</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-perl">#gentoo-perl</uri></ti>
+  <th>Perl w Gentoo.</th>
+</tr>
+<tr>
+  <ti>
+    <uri
+    link="irc://irc.freenode.net/gentoo-portage">#gentoo-portage</uri>
+  </ti>
+  <th>Rozwój Portage.</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-ruby">#gentoo-ruby</uri></ti>
+  <th>Ruby w Gentoo</th>
+</tr>
+<tr>
+  <ti>
+    <uri
+    link="irc://irc.freenode.net/gentoo-science">#gentoo-science</uri>
+  </ti>
+  <th>Gentoo w zastosowaniach naukowych.</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-server">#gentoo-server</uri></ti>
+  <th>Rozmowy dotyczące serwerów.</th>
+</tr>
+<tr>
+  <ti><uri
+  link="irc://irc.freenode.net/gentoo-userreps">#gentoo-userreps</uri></ti>
+  <th>Miejsce do rozmów z reprezentatami Gentoo.</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-web">#gentoo-web</uri></ti>
+  <th>
+    Wszystko, co jest związane z siecią i aplikacjami sieciowymi (oczywiście na
+    Gentoo).
+  </th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-voip">#gentoo-voip</uri></ti>
+  <th>Dyskusje związane z technologią Voice over IP.</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-vbox">#gentoo-vbox</uri></ti>
+  <th>Wsparcie i kanał deweloperski dla virtualbox na Gentoo.</th>
+</tr>
+</table>
+
+<table>
+<tr>
+  <th>Kanały specyficzne dla danych platform oraz wsparcie dla nich</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-alpha">#gentoo-alpha</uri></ti>
+  <th>Gentoo Linux/Alpha</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-amd64">#gentoo-amd64</uri></ti>
+  <th>Gentoo Linux/AMD64</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-arm">#gentoo-arm</uri></ti>
+  <th>Gentoo Linux/ARM</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-bsd">#gentoo-bsd</uri></ti>
+  <th>Gentoo *BSD</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-hppa">#gentoo-hppa</uri></ti>
+  <th>Gentoo Linux/HPPA</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-hurd">#gentoo-hurd</uri></ti>
+  <th>Gentoo Hurd</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-ia64">#gentoo-ia64</uri></ti>
+  <th>Gentoo Linux/IA-64</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-mips">#gentoo-mips</uri></ti>
+  <th>Gentoo Linux/MIPS</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-osx">#gentoo-osx</uri></ti>
+  <th>Gentoo Linux/OSX</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-ppc">#gentoo-ppc</uri></ti>
+  <th>Gentoo Linux/PPC</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-ppc64">#gentoo-ppc64</uri></ti>
+  <th>Gentoo Linux/PPC64</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-sparc">#gentoo-sparc</uri></ti>
+  <th>Gentoo Linux/Sparc</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-x86">#gentoo-x86</uri></ti>
+  <th>Rozwój Gentoo Linux/x86</th>
+</tr>
+</table>
+
+<table>
+<tr>
+ <th>Kanały innych projektów</th>
+</tr>
+<tr>
+ <ti><uri link="irc://irc.freenode.net/gentoo-apache">#gentoo-apache</uri></ti>
+ <th>Rozmowy związane z rozwojem serwera Apache.</th>
+</tr>
+<tr>
+ <ti><uri link="irc://irc.freenode.net/gentoo-bugs">#gentoo-bugs</uri></ti>
+ <th>
+   Wydarzenia związane z Gentoo BugDay, naprawa błędów w Gentoo.
+ </th>
+</tr>
+<tr>
+ <ti><uri
+   link="irc://irc.freenode.net/gentoo-commits">#gentoo-commits</uri>
+ </ti>
+ <th>Informacje z CVS/SVN podawane na żywo.</th>
+</tr>
+<tr>
+  <ti>
+    <uri
+    link="irc://irc.freenode.net/gentoo-eselect">#gentoo-eselect</uri>
+  </ti>
+  <th>Szkieletowe aplikacje służące do aministracji i konfiguracji systemu.</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-events">#gentoo-events</uri></ti>
+  <th>Planowanie i rozmowy podczas wydarzeń publicznych dotyczących Gentoo.</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-forums">#gentoo-forums</uri></ti>
+  <th>Kanał moderatorów forum Gentoo.</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-gwn">#gentoo-gwn</uri></ti>
+  <th>Tygodnik Gentoo</th>
+</tr>
+<tr>
+ <ti>
+   <uri
+   link="irc://irc.freenode.net/gentoo-installer">#gentoo-installer</uri>
+ </ti>
+ <th>Rozmowy o instalatorze Gentoo Linux.</th>
+</tr>
+<tr>
+ <ti><uri link="irc://irc.freenode.net/gentoo-kernel">#gentoo-kernel</uri></ti>
+ <th>Rozwój jądra Gentoo.</th>
+</tr>
+<tr>
+ <ti><uri link="irc://irc.freenode.net/gentoo-lisp">#gentoo-lisp</uri></ti>
+  <th>Rozmowy na temat lisp w Gentoo.</th>
+</tr>
+<tr>
+ <ti>
+   <uri
+   link="irc://irc.freenode.net/gentoo-mirrors">#gentoo-mirrors</uri>
+ </ti>
+ <th>Dyskusje o administracji i serwerach lustrzanych Gentoo.</th>
+</tr>
+<tr>
+ <ti><uri link="irc://irc.freenode.net/gentoo-releng">#gentoo-releng</uri></ti>
+ <th>Wewnętrzne dyskusje Gentoo Release Engineering</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-vdr">#gentoo-vdr</uri></ti>
+  <th>Rozmowy na temat projektów VDR oraz DVB</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-vps">#gentoo-vps</uri></ti>
+  <th>Czat związany z Prywatnym Serwerem Gentoo</th>
+</tr>
+</table>
+
+<table>
+<tr>
+  <th>Kanały w językach innych niż angielski</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-be">#gentoo-be</uri></ti>
+  <th>In het Nederlands</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-au">#gentoo-au</uri></ti>
+  <th>Australia</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-br">#gentoo-br</uri></ti>
+  <th>Português do Brasil</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo.cs">#gentoo.cs</uri></ti>
+  <th>česky a slovensky</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-cn">#gentoo-cn</uri></ti>
+  <th></th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo.de">#gentoo.de</uri></ti>
+  <th>Auf Deutsch</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-dk">#gentoo-dk</uri></ti>
+  <th>P&#229; Dansk</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-el">#gentoo-el</uri></ti>
+  <th>Στα Ελληνικά</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-es">#gentoo-es</uri></ti>
+  <th>En español</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-fi">#gentoo-fi</uri></ti>
+  <th>Suomeksi</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoofr">#gentoofr</uri></ti>
+  <th>En français</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-id">#gentoo-id</uri></ti>
+  <th>Komunitas Pengguna Gentoo Indonesia</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-in">#gentoo-in</uri></ti>
+  <th>Wsparcie dla użytkowników Gentoo z Indii</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-it">#gentoo-it</uri></ti>
+  <th>In Italiano</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-ja">#gentoo-ja</uri></ti>
+  <th>日本語で</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-nl">#gentoo-nl</uri></ti>
+  <th>In het Nederlands</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-no">#gentoo-no</uri></ti>
+  <th>På norsk</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo.pl">#gentoo.pl</uri></ti>
+  <th>Po polsku</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-pt">#gentoo-pt</uri></ti>
+  <th>Em Português</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-ro">#gentoo-ro</uri></ti>
+  <th>Discuţii în limba română</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-se">#gentoo-ru</uri></ti>
+  <th>на русском языке</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-se">#gentoo-se</uri></ti>
+  <th>På svenska</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-tw">#gentoo-tw</uri></ti>
+  <th>使用繁體中文(台灣)</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-ua">#gentoo-ua</uri></ti>
+  <th>Українською</th>
+</tr>
+<tr>
+  <ti><uri link="irc://irc.freenode.net/gentoo-uk">#gentoo-uk</uri></ti>
+  <th>United Kingdom</th>
+</tr>
+</table>
+</body>
+</section>
+</chapter>
+</mainpage>
