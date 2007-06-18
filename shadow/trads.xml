@@ -9,7 +9,7 @@
  <doc ID=' Index'>
   <files name='index.xml' path='doc'/>
   <info nick='rane' prior='C'/>
-  <rev sync='1.106' target=''/>
+  <rev sync='1.109' target=''/>
  </doc>
  <doc ID='x86 Quick Install'>
   <files name='gentoo-x86-quickinstall.xml' path='doc'/>
@@ -214,7 +214,7 @@
  <doc ID='ati FAQ'>
   <files name='ati-faq.xml' path='doc'/>
   <info nick='' prior='N' group='Desktop'/>
-  <rev sync='1.41' target=''/>
+  <rev sync='1.42' target=''/>
  </doc>
  <doc ID='openmosix'>
   <files name='openmosix-howto.xml' path='doc'/>
@@ -434,7 +434,7 @@
  <doc ID='IRC channels'>
   <files name='irc.xml' path='main'/>
   <info nick='' prior='I'/>
-  <rev sync='1.104' target=''/>
+  <rev sync='1.105' target=''/>
  </doc>
  <doc ID='Where'>
   <files name='where.xml' path='main'/>
@@ -484,7 +484,7 @@
  <doc ID='Samba quick howto'>
   <files name='quick-samba-howto.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
-  <rev sync='1.27' target=''/>
+  <rev sync='1.29' target=''/>
  </doc>
  <doc ID='HPC howto'>
   <files name='hpc-howto.xml' path='doc'/>
@@ -504,7 +504,7 @@
  <doc ID='X.org howto'>
   <files name='xorg-config.xml' path='doc'/>
   <info nick='rane' prior='I' group='Desktop'/>
-  <rev sync='1.21' target=''/>
+  <rev sync='1.22' target=''/>
  </doc>
   <doc ID='Conky'>
   <files name='conky-howto.xml' path='doc'/>
@@ -757,7 +757,7 @@
 <handbook subdir='handbook' prior='C' index='handbook-ARCH.xml' path='doc' archlist='x86 ppc mips amd64 hppa alpha sparc ppc64 arm' label='Podręcznik Gentoo'>
  <hbdoc part='-1' ID='Index' filename='index.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.70' target=''/>
+  <rev sync='1.71' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='Handbook Alpha' filename='handbook-alpha.xml' chap='0'>
   <info nick='' lock=''/>
@@ -869,7 +869,7 @@
  </hbdoc>
  <hbdoc part='1' ID='1.e Stage' filename='hb-install-stage.xml' chap='5'>
   <info nick='' lock=''/>
-  <rev sync='1.107' target=''/>
+  <rev sync='1.109' target=''/>
  </hbdoc>
  <hbdoc part='1' ID='1.e Stage MIPS' filename='hb-install-mips-stage.xml' chap='5'>
   <info nick='stawrul' lock=''/>
@@ -985,7 +985,7 @@
  </hbdoc>
  <hbdoc part='3' ID='3.a Portage Files' filename='hb-portage-files.xml' chap='1'>
   <info nick=''/>
-  <rev sync='1.16' target=''/>
+  <rev sync='1.18' target=''/>
  </hbdoc>
  <hbdoc part='3' ID='3.b Portage Conf' filename='hb-portage-configuration.xml' chap='2'>
   <info nick='' lock=''/>
@@ -1040,27 +1040,27 @@
  </hbdoc>
  <hbdoc part='0' ID='handbook-amd64' filename='handbook-amd64.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.7' target=''/>
+  <rev sync='1.8' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='handbook-hppa' filename='handbook-hppa.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.9' target=''/>
+  <rev sync='1.10' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='handbook-ppc' filename='handbook-ppc.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.11' target=''/>
+  <rev sync='1.12' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='handbook-ppc64' filename='handbook-ppc64.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.12' target=''/>
+  <rev sync='1.13' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='handbook-sparc' filename='handbook-sparc.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.10' target=''/>
+  <rev sync='1.11' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='handbook-x86' filename='handbook-x86.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.7' target=''/>
+  <rev sync='1.8' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='hb-install-about' filename='hb-install-about.xml' chap='0'>
   <info nick=''/>
@@ -1172,7 +1172,7 @@
  </hbdoc>
  <hbdoc part='0' ID='Index' filename='index.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.11' target=''/>
+  <rev sync='1.12' target=''/>
  </hbdoc>
 </handbook>
 
