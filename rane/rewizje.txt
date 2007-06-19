@@ -4,3 +4,4 @@ quick-samba-howto.xml -> 1.29
 doc/pl/handbook/2007.0/handbook-sparc.xml -> 1.11
 doc/pl/handbook/hb-install-stage.xml -> 1.109
 doc/pl/handbook/hb-portage-files.xml -> 1.18
+doc/pl/handbook/hb-install-stage.xml -> 1.110
