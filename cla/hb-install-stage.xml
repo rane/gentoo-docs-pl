@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE sections SYSTEM "/dtd/book.dtd">
 
-<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/handbook/hb-install-stage.xml,v 1.26 2007/05/07 22:34:29 rane Exp $ -->
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/handbook/hb-install-stage.xml,v 1.27 2007/06/18 12:22:08 rane Exp $ -->
 
 <!-- The content of this document is licensed under the CC-BY-SA license -->
 <!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
@@ -13,8 +13,8 @@ Gentoo instaluje się rozpakowując archiwum o nazwie stage3. W tym rozdziale
 opisujemy wypakowywanie tego pliku i wstępną konfigurację Portage.
 </abstract>
 
-<version>8.1</version>
-<date>2007-06-13</date>
+<version>8.2</version>
+<date>2007-06-19</date>
 
 <section>
 <title>Instalowanie tarballa stage</title>
@@ -58,13 +58,13 @@ ustawić datę 29 marca 2005 roku, 16:21:
 <p>
 W następnym kroku należy wykonać instalację wybranego tarballa <e>stage3</e>.
 Można go pobrać z Internetu lub, jeśli działamy z którejś płytki Gentoo
-Universal CD, przekopiować z CD. Jeżeli mamy Universal CD i na
-płycie znajduje się stage którego chcemy używać ściąganie go z Internetu jest
-tylko niepotrzebną stratą czasu, gdyż pliki stage są takie same.
+Universal CD lub LiveDVD, przekopiować z CD. Jeżeli mamy Universal CD lub
+LiveDVD i na płycie znajduje się stage którego chcemy używać ściąganie go z
+Internetu jest tylko niepotrzebną stratą czasu, gdyż pliki stage są takie same.
 </p>
 
 <p>
-Płyty Minimal CD, LiveCD i LiveDVD nie zawierają żadnych plików stage3.
+Płyty Minimal CD i LiveCD nie zawierają żadnych plików stage3, lecz LiveDVD tak.
 </p>
 
 <ul test="not(contains('AMD64 x86', func:keyval('arch')))">
@@ -128,7 +128,7 @@ id="stage3"/></b>. Wszystkie współczesne komputery bazują na architekturze
 i686. Jeżeli używamy starszego komputera, musimy najpierw sprawdzić <uri
 link="http://en.wikipedia.org/wiki/I686">listę</uri> procesorów kompatybilnych
 z i686. Stare procesory takie jak Pentium, K5, K6 czy VIA C3 i podobne,
-wymagają użycia stage3 <c>x86</c>.
+wymagają użycia stage3 <c>i586</c>.
 </p>
 
 <pre caption="Przeglądanie listy serwerów lustrzanych za pomocą links">
