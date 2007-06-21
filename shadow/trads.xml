@@ -869,7 +869,7 @@
  </hbdoc>
  <hbdoc part='1' ID='1.e Stage' filename='hb-install-stage.xml' chap='5'>
   <info nick='' lock=''/>
-  <rev sync='1.109' target=''/>
+  <rev sync='1.110' target=''/>
  </hbdoc>
  <hbdoc part='1' ID='1.e Stage MIPS' filename='hb-install-mips-stage.xml' chap='5'>
   <info nick='stawrul' lock=''/>
