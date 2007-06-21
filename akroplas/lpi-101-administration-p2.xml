@@ -1,0 +1,2192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/articles/lpi-101-administration-p2.xml,v 1.3 2007/05/18 14:37:49 rane Exp $ -->
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+
+<guide link="/doc/pl/articles/lpi-101-administration-p2.xml" disclaimer="articles" lang="pl">
+<title>Przygotowanie do egzaminu LPI 101 (wydanie 2), część 2</title>
+
+<author title="Autor">
+  <mail link="drobbins@gentoo.org">Daniel Robbins</mail>
+</author>
+<author title="Autor">
+  <mail link="chouser@gentoo.org">Chris Houser</mail>
+</author>
+<author title="Autor">
+  Aron Griffis
+</author>
+<author title="Tłumacz">
+  <mail link="cast3r.wme@gmail.com">Łukasz Rysiak</mail>
+</author>
+
+<abstract>
+W tym artykule nauczymy się, jak używać wyrażeń regularnych do znajdowania
+ciągów znaków w plikach, jak znaleźć dany plik w systemie, a także jak sprawować
+pełną kontrolę nad procesami Linuksa. Przejdziemy również przyspieszony kurs
+dotyczący potoków, ich przekierowywania oraz przetwarzania tekstu. Po 
+przeczytaniu tego artykułu będziemy mieli solidne podstawy w administrowaniu 
+Linuksem i tym samym będziemy gotowi do nauki rzeczy bardziej zaawansowanych, 
+o których jest mowa w kolejnym artykule z tej serii.
+</abstract>
+
+<!-- Oryginalna wersja tego artykułu była pierwotnie opublikowana na stronach 
+IBM developerWorks i jest własnością Westtech Information Services. Ten 
+dokument jest zaktualizowaną wersją oryginału, zawierającą liczne poprawki 
+wprowadzone przez zespół GDP -->
+
+<version>1.3</version>
+<date>2007-06-20</date>
+
+<chapter>
+<title>Zanim zaczniemy</title>
+<section>
+<title>O tym artykule</title>
+<body>
+
+<p>
+Witajcie w "podstawach administracji" - drugim z serii czterech artykułów,
+napisanych, aby przygotować was do egzaminu LPI 101. W tej części dowiemy się
+jak znajdować ciągi znaków w plikach posługując się wyrażeniami regularnymi,
+następnie poznamy standardową hierarchię systemu plików (FHS) oraz nauczymy się
+jak znajdować pliki w naszym systemie. Potem zajmiemy się kontrolowaniem 
+procesów w Linuksie - m.in. nauczymy się uruchamiać procesy w tle, wyświetlać 
+ich listę oraz odłączać je od terminala. Następnie przejdziemy przyspieszony
+kurs obsługi wątków, przekierowywania oraz zapoznamy się z polecieniami
+służącymi do przetwarzania tekstu. Na koniec dowiemy się co nieco na temat
+modułów jądra Linuksa.
+</p>
+
+<p>
+Ta część naszego kursu jest skierowana do ludzi mających już ugruntowane
+podstawy basha, którzy chcą otrzymać solidną dawkę informacji dotyczących
+podstaw administrowania systemem Linux. Jeżeli nie mieliśmy jeszcze okazji
+zapoznać się z Linuksem, dobrze by było, gdybyśmy najpierw przeczytali pierwszą
+część tego kursu, zanim przejdziemy do dalszej lektury. Dla niektórych z nas
+spora część zawartych w tym artykule informacji będzie nowa, natomiast ci,
+którzy są już bardziej doświadczonymi użytkownikami Linuksa, mogą potraktować
+ten artykuł jako dobry sposób na szlifowanie swoich umiejętności.
+</p>
+
+<p>
+Ci z nas, którzy przeczytali pierwszą wersję tego artykułu z powodów innych niż
+przygotowywanie się do egzaminu LPI, raczej nie muszą jej czytać powtórnie.
+Aczkolwiek jeżeli planujemy podejść do tego egzaminu, przeczytanie tej
+poprawionej wersji artykułu jest wskazane.
+</p>
+
+</body>
+</section>
+<section>
+<title>O autorze</title>
+<body>
+
+<p>
+Daniel Robins zamieszkujący w Albuquerque, w stanie Nowy Meksyk, jest głównym
+architektem dystrybucji Gentoo Linuks. Zajmuje się także pisaniem artykułów dla
+strefy Linuksa na IBM Developer Works oraz dla Intel Developer Services. Jest
+także współautorem kilku książek, wliczając w to Samba Unleashed, Suse Unleashed
+oraz Linux Unleashed. Daniel lubi spędzać czas ze swoją żoną Mary, oraz ze swoją
+małą córeczką Hadassah. Możemy się z nim skontaktować pisząc na adres poczty
+elektronicznej <mail>drobbins@gentoo.org</mail>.
+</p>
+
+<p>
+Chris Houser, wśród przyjaciół znany jako "Chouser", głosi idee UNIX-a już od
+1994 roku, kiedy to przyłączył się do zespołu administratorów sieci naukowej na
+uniwersytecie Taylora w stanie Indiana, gdzie zrobił licencjat z informatyki i 
+matematyki. Od tamtej pory pracował jako programista aplikacji internetowych,
+projektant interfejsów użytkownika oraz serwisant profesjonalnych programów do
+obróbki video. Obecnie zajmuje się programowianiem sterowników urządzeń dla
+wersji Tru64 systemu UNIX w firmie Compaq. Był także uczestnikiem wielu
+projektów programistycznych (ostatnio projektu Gentoo Linux). Mieszka w New
+Hampshire razem ze swoją żoną i dwoma kotami. Możemy się z nim skontaktować
+pisząc na adres poczty elektronicznej <mail>chouser@gentoo.org</mail>
+</p>
+
+<p>
+Aron Griffis ukończył uniwersytet Taylora ze stopniem naukowym z informatyki.
+Otrzymał też nagrodę której nazwa brzmi "Przyszły założyciel utopijnej UNIX-owej
+komuny". Pracując w duchu tej nagrody Aron zajmuje się programowaniem
+sterowników sieciowych dla wersji Tru64 systemu UNIX w firmie Compaq, w wolnym 
+czasie brzdąkając na pianinie oraz rozwijając projekt Gentoo. Mieszka w
+Nashua, w New Hampshire, razem ze swoją żoną Amy (która także jest programistą 
+UNIX-owym).
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Wyrażenia regularne</title>
+<section>
+<title>Czym są wyrażenia regularne?</title>
+<body>
+
+<p>
+Wyrażenie regularne (nazywane także "regex" lub "regexp") jest specjalną
+składnią, służącą do opisu wzorców tekstowych. Na systemach linuksowych,
+wyrażenia regularne są powszechnie używane zarówno do znajdowania określonych
+fragmentów tekstu pasujących do wzorca, jak również aby wykonywać operacje typu
+"znajdź i zamień" na strumieniach tekstowych.
+</p>
+
+</body>
+</section>
+<section>
+<title>Porównanie ze znakami zastępczymi ("globami")</title>
+<body>
+
+<p>
+Przyglądając się wyrażeniom regularnym, spostrzeżemy za pewne, że ich składnia
+jest bardzo podobna do tej, której używaliśmy w pierwszej części tego kursu, do 
+"globowania" w nazwach plików. Nie dajmy się jednak zmylić - ich podobieństwo
+jest powierzchowne. Podczas gdy zarówno wyrażenia regularne jak i znaki
+zastępcze mogą wydawać się identyczne, w rzeczywistości zasadniczo się od 
+siebie różnią.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zwyczajny fragment ciągu znaków</title>
+<body>
+
+<p>
+Mając to na uwadze przyjrzyjmy się najprostszemu z wyrażeń regularnych -
+zwykłemu wycinkowi ciągu znaków. Pomoże nam w tym <c>grep</c> - polecenie z
+którego pomocą możemy przeszukiwać zawartość plików tekstowych w poszukiwaniu
+fragmentów tekstu, pasujących do danych wyrażeń regularnych. <c>grep</c> 
+wydrukuje każdą linijkę która będzie pasowała do szukanego wyrażenia 
+regularnego, zignoruje natomiast wszystkie pozostałe:
+</p>
+
+<pre caption="grep w akcji">
+$ <i>grep bash /etc/passwd</i>
+operator:x:11:0:operator:/root:/bin/bash
+root:x:0:0::/root:/bin/bash
+ftp:x:40:1::/home/ftp:/bin/bash
+</pre>
+
+<p>
+Powyżej pierwszym parametrem przekazanym do polecenia <c>grep</c> jest
+wyrażenie regularne, drugim jest nazwa pliku. <c>grep</c> odczyta każdą linijkę
+z pliku <path>/etc/passwd</path> i sprawdzi czy występuje w niej szukany
+fragment tekstu. Jeżeli powyższy fragment zostanie odnaleziony, <c>grep</c> 
+wydrukuje całą, zawierającą go linie; w innym wypadku linia zostanie 
+zignorowana.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zasada działania zwykłego fragmentu tekstu</title>
+<body>
+
+<p>
+W gruncie rzeczy jeżeli szukamy fragmentu tekstu, możemy po prostu podać go bez
+żadnych "specjalnych" znaków. Dodatkowe zabiegi będą potrzebne jedynie wtedy,
+gdy którymś z szukanych przez nas znaków będzie +, ., *, [, ], lub \. W
+przypadku tych znaków będziemy musieli poprzedzić je lewym ukośnikiem, a całe
+wyrażenie umieścić w cudzysłowach. Oto kolejne przykłady prostych wyrażeń
+regularnych:
+</p>
+
+<ul>
+  <li>/tmp (szuka ciągu /tmp)</li>
+  <li>"\[box\]" (szuka ciągu [box])</li>
+  <li>"\*funny\*" (szuka ciągu *funny*)</li>
+  <li>"ld\.so" (szuka ciągu ld.so)</li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Metaznaki</title>
+<body>
+
+<p>
+Używając wyrażeń regularnych możemy wykonywać znacznie bardziej skomplikowane
+przeszukiwania od tych które widzieliśmy do tej pory. Umożliwiają to metaznaki.
+Jednym z nich jest . (kropka) która jest odpowiednikiem dowolnego pojedyńczego 
+znaku:
+</p>
+
+<pre caption="Metaznak: kropka">
+$ <i>grep dev.hda /etc/fstab</i>
+/dev/hda3       /               reiserfs        noatime,ro 1 1
+/dev/hda1       /boot           reiserfs        noauto,noatime,notail 1 2
+/dev/hda2       swap            swap            sw 0 0
+#/dev/hda4      /mnt/extra      reiserfs        noatime,rw 1 1
+</pre>
+
+<p>
+W powyższym przykładzie dokładny tekst dev.hda nie pojawił się w żadnej linii w
+pliku /etc/fstab. Jednakże grep nie przeszukiwał ich w poszukiwaniu ciągu
+identycznego z dev.hda, a w poszukiwaniu szablonu dev.hda. Musimy pamiętać, że .
+zostanie z powodzeniem przyrównana do dowolnego, pojedyńczego znaku. Jak widać
+metaznak . w sferze funkcjonalności jest porównywalny do metaznaku ? znanego 
+nam z rozwinięć w znakach zastępczych.
+</p>
+
+</body>
+</section>
+<section>
+<title>Używanie []</title>
+<body>
+
+<p>
+Jeżeli chcemy zdefiniować szukany znak trochę bardziej precyzyjnie niż pozwala
+na to kropka, możemy użyć [ oraz ] (nawiasów kwadratowych), aby określić zbiór
+znaków które powinny zostać znalezione:
+</p>
+
+<pre caption="Nawiasy kwadratowe w akcji">
+$ <i>grep dev.hda[12] /etc/fstab</i>
+/dev/hda1       /boot           reiserfs        noauto,noatime,notail 1 2
+/dev/hda2       swap            swap            sw 0 0
+</pre>
+
+<p>
+Jak widać ta konstrukcja syntaktyczna działa identycznie do poznanej przez nas
+podczas omawiania znaków zastępczych sekwencji []. To jest właśnie jedną z
+trudności jakie napotykamy podczas nauki wyrażeń regularnych - składnia jest
+podobna ale nie identyczna do składni znaków zastępczych, co często sprawia
+trudności podczas nauki.
+</p>
+
+</body>
+</section>
+<section>
+<title>Używanie [^]</title>
+<body>
+
+<p>
+Możemy zanegować znaczenie nawiasów kwadratowych poprzez umieszczenie ^ jako
+pierwszego znaku po [. W tym wypadku nawiasy będą odpowiadały każdemu znakowi,
+który <e>nie jest</e> wypisany między nimi. Ponownie warto odnotować, że
+sekwencji [^] używamy jako wyrażenia regularnego, której odpowiednikiem dla
+znaków zastępczych jest [!]:
+</p>
+
+<pre caption="Zanegowane nawiasy">
+$ <i>grep dev.hda[^12] /etc/fstab</i>
+/dev/hda3       /               reiserfs        noatime,ro 1 1
+#/dev/hda4      /mnt/extra      reiserfs        noatime,rw 1 1
+</pre>
+
+</body>
+</section>
+<section>
+<title>Różnice składniowe</title>
+<body>
+
+<p>
+Bardzo ważne jest to, że składnia wewnątrz nawiasów kwadratowych różni się w
+sposób zasadniczy od tej, używanej w innych częściach wyrażenia regularnego. Na
+przykład, jeżeli umieścimy . wewnątrz nawiasów kwadratowych, sekwencja ta będzie
+odpowiadała znakowi kropki, tak samo jak cyfry 1 i 2 w powyższym przykładzie.
+Dla porównania . umieszczona na zewnątrz nawiasów kwadratowych zostanie
+zinterpretowana jako metaznak, chyba że poprzedzimy ją znakiem "\". Możemy to
+wykorzystać do wypisania wszystkich linii z <path>/etc/fstab</path>, które
+zawierają dokładny ciąg dev.hda, wykonując następujące polecenie:
+</p>
+
+<pre caption="Szukanie konkretnych znaków za pomocą nawiasów">
+$ <i>grep dev[.]hda /etc/fstab</i>
+</pre>
+
+<p>
+Moglibyśmy to także zrobić w ten sposób:
+</p>
+
+<pre caption="Szukanie konkretnych znaków za pomocą sekwencji ucieczki">
+$ <i>grep "dev\.hda" /etc/fstab</i>
+</pre>
+
+<p>
+Żadne z powyższych wyrażeń regularnych nie będzie pasowało do którejkolwiek
+linii w pliku <path>/etc/fstab</path>
+</p>
+
+</body>
+</section>
+<section>
+<title>Metaznak "*"</title>
+<body>
+
+<p>
+Niektóre metaznaki jako takie, nie mają konkretnego znaczenia, natomiast 
+wpływają one na znaczenie znaków poprzednich. Jednym z takich metaznaków jest 
+* (gwiazdka), której używamy aby zdefiniować zero lub więcej wystąpień 
+poprzedzającego ją znaku. Warto odnotować, że * ma inme znaczenie w wyrażeniach
+regularnych od tego w znakach zastępczych. Oto kilka przykładów demonstrujących
+te różnice:
+</p>
+
+<ul>
+  <li>
+    ab*c odpowiada abbbbc ale nie abqc  (jeżeli byłby to znak zastępczy, oba
+    ciągi zostałyby dopasowane - czy wiemy dlaczego?)
+  </li>
+  <li>
+    ab*c odpowiada abc ale nie abbqbbc (ponownie, gdyby to był znak zastępczy
+    oba wyrażenia zostałyby dopasowane)
+  </li>
+  <li>
+    ab*c odpowiada ac ale nie cba (w przypadku znaków zastępczych, żaden z
+    ciągów nie odpowiadał by wzorcowi)
+  </li>
+  <li>
+    b[cq]*e odpowiada bqe oraz be (w przypadku znaków zastępczych, wzorzec
+    pasował by do bqe ale nie do be)
+  </li>
+  <li>
+    b[cq]*e odpowiada bccqqe ale nie bccc (w przypadku znaków zastępczych będzie
+    podobnie - pierwszy ciąg będzie pasował do wzorca, drugi nie)
+  </li>
+  <li>
+    b[cq]*e odpowiada bqqcce ale nie cqe (podobnie jak poprzednio, w przypadku
+    znaków zastępczych wzorzec będzie pasował do pierwszego ciągu, natomiast do
+    drugiego już nie)
+  </li>
+  <li>
+    b[cq]*e odpowiada bbbeee (nie jest to prawdą w przypadku znaków zastępczych)
+  </li>
+  <li>
+    .* odpowiada dowolnemu ciągowi (w przypadku znaków zastępczych odpowiada to
+    dowolnemu ciągowi, rozpoczynającemu się od .)
+  </li>
+  <li>
+    foo.* odpowiada dowolnemu ciągowi rozpoczynającemu się od foo (w przypadku
+    znaków zastępczych odpowiada to dowolnemu ciągowi rozpoczynającemu się od
+    czteroznakowego ciągu foo. )
+  </li>
+</ul>
+
+<p>
+Teraz szybkie powtórzenie: linia ac odpowiada wyrażeniu regularnemu ab*c
+ponieważ gwiazdka pozwala na to, aby poprzedzający ją znak (b) występował
+<e>zero</e> razy. Jest to fundamentalna różnica między * w wyrażeniach
+regularnych, a * w znakach zastępczych. Musimy to zapamiętać.
+</p>
+
+</body>
+</section>
+<section>
+<title>Początek i koniec linii</title>
+<body>
+
+<p>
+Ostatnimi z metaznaków które poznamy, są ^ i $, używane do oznaczenia
+odpowiednio początku i końca linii. Używając ^ na początku naszego wyrażenia
+regularnego sprawimy, że nasze wyrażenie będzie "zakotwiczone" na początku
+linii. W przykładzie poniżej użyjemy ^#, aby znaleźć linie rozpoczynające się
+od znaku # (hash):
+</p>
+
+<pre caption="Linie">
+$ <i>grep ^# /etc/fstab</i>
+# /etc/fstab: static file system information.
+#
+</pre>
+
+</body>
+</section>
+<section>
+<title>Wyrażenia regularne obejmujące całe linie</title>
+<body>
+
+<p>
+Znaki ^ oraz $ mogą być łączone aby dopasowywać się do całej linii. Jako
+przykład, poniższe wyrażenie odnajdzie linie rozpoczynające się od znaku # i
+kończące sie znakiem . z dowolną ilością znaków pomiedzy nimi.
+</p>
+
+<pre caption="Dopasowywanie całej linii">
+$ <i>grep '^#.*\.$' /etc/fstab</i>
+# /etc/fstab: static file system information.
+</pre>
+
+<p>
+W powyższym przykładzie otoczyliśmy nasze wyrażenie pojedyńczymi cudzysłowami 
+aby zapobiec interpretowaniu znaku $ przez powłokę. Jeżeli byśmy tego nie
+zrobili, znak $ zniknął by z naszego wyrażenia i grep nigdy by go nie zobaczył.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>FHS i znajdowanie plików</title>
+<section>
+<title>Standard hierarchii systemu plików (FHS)</title>
+<body>
+
+<p>
+Standard hierarchii systemu plików (Filesystem Hierarchy Standard) jest 
+dokumentem który opisuje strukturę katalogów w systemach linuksowych. FHS 
+został stworzony po to, by dostarczać standardowy układ katalogów, aby 
+uprościć rozwijanie oprogramowania - wszystko powinno być tam gdzie się tego 
+spodziewamy, niezależnie od dystrybucji Linuksa. FHS definiuje następującą 
+strukturę drzewa katalogów (zaczerpnięto bezpośrednio ze specyfikacji FHS):
+</p>
+
+<ul>
+  <li>/ (katalog główny)</li>
+  <li>/boot (pliki statyczne boot loadera)</li>
+  <li>/dev (pliki urządzeń)</li>
+  <li>/etc (konfiguracja systemu)</li>
+  <li>/lib (podstawowe biblioteki współdzielone oraz moduły jądra)</li>
+  <li>/mnt (punkt montowania tymczasowych systemów plików)</li>
+  <li>/opt (dodatkowe pakiety aplikacji)</li>
+  <li>/sbin (podstawowe biblioteki systemowe)</li>
+  <li>/tmp (pliki tymczasowe)</li>
+  <li>/usr (drugorzędna hierarchia)</li>
+  <li>/var (zmienne dane)</li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Dwie niezależne kategorie FHS</title>
+<body>
+
+<p>
+U podstaw FHS stoi zasada, że są dwie niezależne kategorie plików: te które
+możemy współdzielić między hostami kontra te dla których nie jest to możliwe
+(dane specyficzne dla danego hosta, np. pliki konfiguracyjne), oraz zmienne dane
+(które podlegają modyfikacjom) kontra dane statyczne (które nie są modyfikowane,
+pomijając instalację i konserwację systemu). 
+</p>
+
+<p>
+Poniższa tabela pokazuje wszystkie cztery kombinacje, z przykładowymi katalogami
+które podpadają pod dane kategorie. Tabela, podobnie jak drzewo katalogów, jest
+żywcem wzięta ze specyfikacji FHS.
+</p>
+
+<pre caption="FHS">
++---------+-----------------+------------------+
+|         | współdzielone   | niewspółdzielone |
++---------+-----------------+------------------+
+|statyczne| /usr            | /etc             |
+|         | /opt            | /boot            |
++---------+-----------------+------------------+
+|zmienne  | /var/mail       | /var/run         |
+|         | /var/spool/news | /var/lock        |
++---------+-----------------+------------------+
+</pre>
+
+</body>
+</section>
+<section>
+<title>Drugorzędna hierarchia w /usr</title>
+<body>
+
+<p>
+Wchodząc do katalogu <path>/usr</path> zobaczymy hierarchię bardzo podobną do
+tej w katalogu głównym. Istnienie <path>/usr</path> nie jest wymagane podczas
+startu systemu, dlatego też możemy współdzielic ten katalog poprzez sieć
+(współdzielony), bądź montować go z płyty CD (statyczny). Większość instalatorów
+Linuksa nie kożysta ze współdzielenia <path>/usr</path>, ale jest dla nas ważne
+aby rozróżniać pierwszorzędną hierarchię w katalogu głównym od drugorzędnej
+znajdującej się w <path>/usr</path>.
+</p>
+
+<p>
+To już wszystkie informacje o FHS w tym artykule. Sam dokument jest dosyć
+czytelny i warto było by do niego zajrzeć. Jego lektura pozwoli nam dużo lepiej
+poznać system plików Linuksa. Dokument można znaleźć tutaj: 
+<uri>http://www.pathname.com/fhs/</uri>.
+</p>
+
+</body>
+</section>
+<section>
+<title>Znajdowanie plików</title>
+<body>
+
+<p>
+Linuksowy system plików zawiera zwykle setki tysięcy plików. Być może niektórzy
+z nas pamiętają co gdzie wrzucili, natomiast reszta śmiertelników od czasu do
+czasu będzie potrzebowała drobnej pomocy żeby coś znaleźć. Na Linuksie jest 
+kilka różnych narzędzi które służą do szukania plików. To wprowadzenie pomoże 
+nam wybrać odpowiednie z nich do danego zadania.
+</p>
+
+</body>
+</section>
+<section>
+<title>Ścieżka (PATH)</title>
+<body>
+
+<p>
+Kiedy uruchamiamy program z linii poleceń, tak na prawdę bash przegląda kolejne
+katalogi w poszukiwaniu programu który chcemy uruchomić. Na przykład kiedy
+napiszemy <c>ls</c>, <c>bash</c> nie wie o tym instynktownie, że program ls
+znajduje się w <path>/usr/bin</path>. Pobiera on natomiast listę ze zmiennej
+środowiskowej PATH, zawierającą oddzielone od siebie dwukropkiem nazwy 
+katalogów. Możemy przeanalizować zawartość zmiennej PATH:
+</p>
+
+<pre caption="Wyświetlanie zmiennej PATH">
+$ <i>echo $PATH</i>
+/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11R6/bin
+</pre>
+
+<p>
+Przy takiej zawartości zmiennej PATH (nasza może się różnić), bash sprawdzi
+najpierw <path>/usr/local/bin</path>, a potem <path>/usr/bin</path> w
+poszukiwaniu programu <c>ls</c>. Zazwyczaj <c>ls</c> znajduje się w
+<path>/usr/bin</path>, więc bash nie będzie szukał dalej.
+</p>
+
+</body>
+</section>
+<section>
+<title>Modyfikacja zmiennej PATH</title>
+<body>
+
+<p>
+Możemy powiększyć zawartość zmiennej PATH za pomocą przypisania w linii poleceń:
+</p>
+
+<pre caption="Edycja zmiennej PATH">
+$ <i>PATH=$PATH:~/bin</i>
+$ <i>echo $PATH</i>
+/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11R6/bin:/home/agriffis/bin
+</pre>
+
+<p>
+Możemy także usuwać poszczególne elementy ze zmiennej PATH, ale nie jest to już
+takie proste, ponieważ nie możemy używać aktualnej wartości tej zmiennej.
+Najprościej jest po prostu wpisać nową wartość PATH:
+</p>
+
+<pre caption="Usuwanie wpisów z PATH">
+$ <i>PATH=/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:~/bin</i>
+$ <i>echo $PATH</i>
+/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/home/agriffis/bin
+</pre>
+
+<p>
+Aby nasze zmiany były widoczne dla każdego programu odpalonego później z tej
+konsoli, musimy wyeksportować wartość zmiennej PATH:
+</p>
+
+<pre caption="Eksportowanie PATH (lub jakiejkolwiek innej zmiennej)">
+$ <i>export PATH</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Wszystko o "which"</title>
+<body>
+
+<p>
+Możemy sprawdzić czy dany program znajduje się w którymś z katalogów wpisanych
+do PATH, za pomocą polecenia <c>which</c>. Na przykład żeby odkryć, że nasz
+system nie ma sensu, wystarczy napisać:
+</p>
+
+<pre caption="Poszukiwania sensu">
+$ which <i>sense</i>
+which: no sense in (/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11R6/bin)
+</pre>
+
+<p>
+W tym przykładzie z powodzeniem zlokalizujemy <c>ls</c>:
+</p>
+
+<pre caption="Szuknie ls">
+$ <i>which ls</i>
+/usr/bin/ls
+</pre>
+
+</body>
+</section>
+<section>
+<title>"which -a"</title>
+<body>
+
+<p>
+Na koniec powinniśmy zwrócić uwagę na opcję <c>-a</c> która powoduje, że
+<c>which</c> pokaże wszystkie znalezione kopie danego programu w katalogach z
+PATH:
+</p>
+
+<pre caption="Znajdowanie wszystkich kopii programu w PATH-u">
+$ <i>which -a ls</i>
+/usr/bin/ls
+/bin/ls
+</pre>
+
+</body>
+</section>
+<section>
+<title>whereis</title>
+<body>
+
+<p>
+Jeżeli chcemy dowiedzieć się czegoś więcej o programie, poza jego lokacją,
+możemy użyć polecenia <c>whereis</c>:
+</p>
+
+<pre caption="Użycie whereis">
+$ <i>whereis ls</i>
+ls: /bin/ls /usr/bin/ls /usr/share/man/man1/ls.1.gz
+</pre>
+
+<p>
+Widzimy, że <c>ls</c> występuje w katalogach <path>/bin</path> oraz
+<path>/usr/bin</path> które są standardową lokacją dla plików binarnych.
+Polecenie <c>whereis</c> informuje nas także o istnieniu strony podręcznika
+systemowego, zlokalizowanej w <path>/usr/share/man</path>, której zawartość 
+zobaczymy po wpisaniu <c>man ls</c>.
+</p>
+
+<p>
+Program <c>whereis</c> potrafi także szukać źródeł, można zdefiniować dla niego
+alternatywne ścieżki do przeszukania, można też z jego pomocą szukać nietypowych
+pozycji. Jeżeli chcemy dowiedzieć się więcej na temat tego polecenia, najlepiej
+skorzystac z <c>man whereis</c>.
+</p>
+
+</body>
+</section>
+<section>
+<title>find</title>
+<body>
+
+<p>
+Polecenie <c>find</c> jest kolejnym przydatnym narzędziem, które jako pierwsze
+nie ogranicza się do szukania programów - możemy szukać dowolnego pliku,
+używając najróżniejszych kryteriów przeszukiwania. Możemy na przykład szukać
+pliku o nazwie README rozpoczynając w <path>/usr/share/doc</path>:
+</p>
+
+<pre caption="Używanie find">
+$ <i>find /usr/share/doc -name README</i>
+/usr/share/doc/ion-20010523/README
+/usr/share/doc/bind-9.1.3-r6/dhcp-dynamic-dns-examples/README
+/usr/share/doc/sane-1.0.5/README
+</pre>
+
+</body>
+</section>
+<section>
+<title>find i znaki zastępcze (globy)</title>
+<body>
+
+<p>
+Możemy używać globów jako argumentu razem z -name, pod warunkiem, że ujmiemy je 
+w cudzysłowy, bądź użyjemy sekwencji ucieczki, dzieki czemu nie zostaną
+zinterpretowane przez basha. W poniższym przykładzie szukamy plików README z
+dowolnym rozszerzeniem:
+</p>
+
+<pre caption="Użycie find z globami">
+$ <i>find /usr/share/doc -name README\*</i>
+/usr/share/doc/iproute2-2.4.7/README.gz
+/usr/share/doc/iproute2-2.4.7/README.iproute2+tc.gz
+/usr/share/doc/iproute2-2.4.7/README.decnet.gz
+/usr/share/doc/iproute2-2.4.7/examples/diffserv/README.gz
+/usr/share/doc/pilot-link-0.9.6-r2/README.gz
+/usr/share/doc/gnome-pilot-conduits-0.8/README.gz
+/usr/share/doc/gimp-1.2.2/README.i18n.gz
+/usr/share/doc/gimp-1.2.2/README.win32.gz
+/usr/share/doc/gimp-1.2.2/README.gz
+/usr/share/doc/gimp-1.2.2/README.perl.gz
+[obcięto 578 pozostałych linii]
+</pre>
+
+</body>
+</section>
+<section>
+<title>Ignorowanie wielkości liter podczas szukania</title>
+<body>
+
+<p>
+Oczywiście możemy zażądać, aby find nie zwracał uwagi na wielkość liter:
+</p>
+
+<pre caption="Ignorowanie wielkości liter w find">
+$ <i>find /usr/share/doc -name '[Rr][Ee][Aa][Dd][Mm][Ee]*'</i>
+</pre>
+
+<p>
+Jest też na to dużo prostszy sposób:
+</p>
+
+<pre caption="Inny sposób">
+$ <i>find /usr/share/doc -iname readme\*</i>
+</pre>
+
+<p>
+Jak widać możemy użyć argumentu <c>-iname</c> aby find ignorował wielkość liter.
+</p>
+
+</body>
+</section>
+<section>
+<title>find i wyrażenia regularne</title>
+<body>
+
+<p>
+Jeżeli czujemy się pewnie korzystając wyrażeń regularnych, możemy ich używać z
+<c>find</c> - pozwala nam na to argument <c>-regex</c>. Wynik działania find
+zostanie przefiltrowany w poszukiwaniu danego wyrażenia regularnego. Podobnie
+jak w przypadku zwykłej nazwy, możemy przekazać do programu <c>find</c> 
+polecenie, aby ignorował wielkość znaków w wyrażeniu regularnym, za pomocą 
+opcji <c>-iregex</c>. Oto przykład:
+</p>
+
+<pre caption="Wyrażenia regularne i find">
+$ <i>find /etc -iregex '.*xt.*'</i>
+/etc/X11/xkb/types/extra
+/etc/X11/xkb/semantics/xtest
+/etc/X11/xkb/compat/xtest
+/etc/X11/app-defaults/XTerm
+/etc/X11/app-defaults/XTerm-color
+</pre>
+
+<p>
+Ważne jest by zapamiętać, że w przypadku polecenia <c>find</c> nasze wyrażenie
+regularne musi pasować do całej linii, a nie tylko do małego jej fragmentu.
+Dlatego właśnie konieczne jest używanie .* na początku i na końcu naszego
+wyrażenia. Użycie samego xt jako regexpa nie dało by oczekiwanych rezultatów.
+</p>
+
+</body>
+</section>
+<section>
+<title>find i typy obiektów</title>
+<body>
+
+<p>
+Opcja <c>-type</c> pozwala nam szukać danego typu obiektu w systemie plików.
+Mamy do dyspozycji następujące typy: <c>b</c> (urządzenie blokowe), <c>c</c>
+(urządzenie znakowe), <c>d</c> (katalog), <c>p</c> (nazwany potok), <c>f</c>
+(zwykły plik), <c>l</c> (dowiązanie symboliczne), oraz <c>s</c> 
+(gniazdo/socket). Jeżeli chcielibyśmy na przykład znaleźć dowiązania 
+symboliczne w <path>/usr/bin</path> które zawierają ciąg "vim":
+</p>
+
+<pre caption="Ograniczanie find do danego typu">
+$ <i>find /usr/bin -name '*vim*' -type l</i>
+/usr/bin/rvim
+/usr/bin/vimdiff
+/usr/bin/gvimdiff
+</pre>
+
+</body>
+</section>
+<section>
+<title>find i mtimes</title>
+<body>
+
+<p>
+Opcja <c>-mtime</c> pozwala znajdować pliki na podstawie czasu ich ostatniej 
+modyfikacji. Jako argument podajemy przedział czasu (jednostką jest doba) który
+najlepiej poprzedzić znakiem plus, oznaczającym "później", lub znakiem minus
+oznaczającym oczywiście "wcześniej". Rozważmy następujący scenariusz:
+</p>
+
+<pre caption="Scenariusz">
+$ <i>ls -l ?</i>
+-rw-------    1 root     root            0 Jan  7 18:00 a
+-rw-------    1 root     root            0 Jan  6 18:00 b
+-rw-------    1 root     root            0 Jan  5 18:00 c
+-rw-------    1 root     root            0 Jan  4 18:00 d
+$ <i>date</i>
+Mon May  7 18:14:52 EST 2003
+</pre>
+
+<p>
+Możemy np. szukać plików utworzonych w ciągu ostatniej doby:
+</p>
+
+<pre caption="Pliki stworzone w ciągu ostatniej doby">
+$ <i>find . -name \? -mtime -1</i>
+./a
+</pre>
+
+<p>
+Możemy też znaleźć te, utworzone ponad 24 godziny temu:
+</p>
+
+<pre caption="Pliki stworzone wcześniej niż 24 godziny temu">
+$ <i>find . -name \? -mtime +0</i>
+./b
+./c
+./d
+</pre>
+
+</body>
+</section>
+<section>
+<title>Opcja -daystart</title>
+<body>
+
+<p>
+Jeżeli dodatkowo podamy opcję <c>-daystart</c>, okresy czasu będą się zaczynać
+od początku dzisiejszego dnia, a nie tak jak do tej pory od chwili obecnej.
+Jako przykład - kilka plików stworzonych wczoraj i przedwczoraj:
+</p>
+
+<pre caption="Używamy -daystart">
+$ <i>find . -name \? -daystart -mtime +0 -mtime -3</i>
+./b
+./c
+$ ls -l b c
+-rw-------    1 root     root            0 May  6 18:00 b
+-rw-------    1 root     root            0 May  5 18:00 c
+</pre>
+
+</body>
+</section>
+<section>
+<title>Opcja -size </title>
+<body>
+
+<p>
+Opcja <c>-size</c> pozwala nam lokalizować pliki na podstawie ich rozmiaru.
+Standardowo jako argument podaje się liczbę 512-sto bajtowych bloków, ale możemy
+to zmienić dodając przyrostek: <c>b</c> (512-sto bajtowe bloki), <c>c</c>
+(bajty), <c>k</c> (kilobajty), oraz <c>w</c> (2-bajtowe słowa). Tu także możemy
+dopisać znak plus ("większy niż") lub minus ("mniejszy niż").
+</p>
+
+<p>
+W tym przykładzie szukamy zwykłych plików w <path>/usr/bin</path>, mniejszych
+niż 50 bajtów:
+</p>
+
+<pre caption="Opcja -size w akcji">
+$ <i>find /usr/bin -type f -size -50c</i>
+/usr/bin/krdb
+/usr/bin/run-nautilus
+/usr/bin/sgmlwhich
+/usr/bin/muttbug
+</pre>
+
+</body>
+</section>
+<section>
+<title>Przetwarzanie znalezionych plików</title>
+<body>
+
+<p>
+Polecenie <c>find</c> daje nam także możliwość przetwarzania znalezionych plików
+- służy do tego opcja <c>-exec</c>. Możemy jej przekazać jako argument dowolne 
+polecenie zakończone średnikiem, a każde wystąpienie {} zostanie zastąpione 
+nazwą kolejnych znalezionych plików. Najprościej to zrozumieć patrząc na 
+poniższy przykład:
+</p>
+
+<pre caption="Używamy -exec">
+$ <i>find /usr/bin -type f -size -50c -exec ls -l '{}' ';'</i>
+-rwxr-xr-x    1 root     root           27 Oct 28 07:13 /usr/bin/krdb
+-rwxr-xr-x    1 root     root           35 Nov 28 18:26 /usr/bin/run-nautilus
+-rwxr-xr-x    1 root     root           25 Oct 21 17:51 /usr/bin/sgmlwhich
+-rwxr-xr-x    1 root     root           26 Sep 26 08:00 /usr/bin/muttbug
+</pre>
+
+<p>
+Jak widać <c>find</c> jest potężną komendą. Rozwijała się przez lata, razem z
+UNIX-em i Linuksem. Posiada jeszcze wiele użytecznych opcji o których możemy
+poczytać na stronach podręcznika systemowego.
+</p>
+
+</body>
+</section>
+<section>
+<title>locate</title>
+<body>
+
+<p>
+Mówiliśmy już o <c>which</c>, <c>whereis</c> i <c>find</c>. Mogliśmy zauważyć, 
+że wykonanie się polecenia <c>find</c> może zająć trochę czasu, ponieważ musi 
+ono odczytać zawartość każdego katalogu podczas jego przeszukiwania. Okazuje 
+się, że polecenie <c>locate</c> może przyspieszyć proces szukania, ponieważ 
+korzysta ono z zewnętrznej bazy danych wygenerowanej przez polecenie 
+<c>updatedb</c> (którym zajmiemy się w następnym akapicie).
+</p>
+
+<p>
+Polecenie <c>locate</c> dopasowuje szukaną frazę do dowolnej części ścieżki
+prowadzącej do pliku, nie zaś do samej jego nazwy:
+</p>
+
+<pre caption="locate w akcji">
+$ <i>locate bin/ls</i>
+/var/ftp/bin/ls
+/bin/ls
+/sbin/lsmod
+/sbin/lspci
+/usr/bin/lsattr
+/usr/bin/lspgpot
+/usr/sbin/lsof
+</pre>
+
+</body>
+</section>
+<section>
+<title>Używamy updatedb</title>
+<body>
+
+<p>
+Większość systemów linuksowych ma dopisane do crontaba polecenie aktualizujące
+baze danych co pewien czas. Jeżeli <c>locate</c> zwraca nam błąd taki jak
+poniżej, będziemy musieli uruchomić <c>updatedb</c> jako root aby wygenerować
+tę bazę:
+</p>
+
+<pre caption="aktualizowanie lokalnej bazy danych">
+$ <i>locate bin/ls</i>
+locate: /var/spool/locate/locatedb: No such file or directory
+$ <i>su -</i>
+Password:
+# <i>updatedb</i>
+</pre>
+
+<p>
+Generowanie tej bazy może zając sporo czasu. Jeżeli masz głośny dysk twardy, 
+na pewno trochę pochałasuje podczas indeksowania całego systemu plików ;]
+</p>
+
+
+</body>
+</section>
+<section>
+<title>slocate</title>
+<body>
+
+<p>
+Na wielu dystrybucjach polecenie <c>locate</c> zostało zastąpione przez
+<c>slocate</c>. Zazwyczaj istnieje dowiązanie symboliczne do <c>locate</c>, więc
+nie musimy pamiętać które z tych poleceń mamy u siebie. <c>slocate</c> oznacza
+bezpieczną ("secure") wersję <c>locate</c>. Przechowuje ono w bazie także 
+informacje dotyczące uprawnień do danych plików, więc użytkownicy nie będą 
+mogli szperać po katalogach, do których normalnie nie mają dostępu. 
+<c>slocate</c> używa się w identyczny sposób jak <c>locate</c>, aczkolwiek 
+wyniki działania mogą się różnić w zależności od użytkownika który je uruchomił.
+</p>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Kontrolowanie procesów</title>
+<section>
+<title>Uruchamiamy xeyes</title>
+<body>
+
+<p>
+Aby nauczyć się czegoś o kontroli procesów, musimy mieć jakiś obiekt
+eksperymentów. Posłuży nam do tego zabawka, którą uruchamiamy z poziomu
+X-Window.
+</p>
+
+<pre caption="Uruchamiamy proces">
+$ <i>xeyes -center red</i>
+</pre>
+
+<p>
+Zauważyliśmy już pewnie parę czerwonych oczu wpatrujących się w kursor naszej
+myszki. Widzimy też, że w oknie terminala nie pojawił się nowy znak zachęty.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zatrzymywanie procesu</title>
+<body>
+
+<p>
+Aby odzyskać możliwość wpisywania poleceń, możemy nacisnąć kombinacje klawiszy
+Ctrl-C (^C).
+</p>
+
+<p>
+Pojawi się znak zachęty w konsoli, ale okienko xeyes zniknie. Prawde mówiąc,
+właśnie zabiliśmy proces. Zamiast Ctrl-C mogliśmy użyć delikatniejszego "środka
+perswazji" jakim jest Ctrl-Z, które tylko zatrzyma proces:
+</p>
+
+<pre caption="Zatrzymywanie procesu">
+$ <i>xeyes -center red</i>
+<i>Control-Z</i>
+[1]+  Stopped                 xeyes -center red
+$
+</pre>
+
+<p>
+Tym razem wyświetli się nowy znak zachęty, a także okienko xeyes. Nie trudno
+zauważyć, że oczy się nie ruszają. Jeżeli zakryjemy je jakimś innym oknem, a
+następnie odsuniemy to okno zauważymy, że oczy w ogóle nie są odświeżane.
+Proces nie robi nic, jest "zatrzymany".
+</p>
+
+</body>
+</section>
+<section>
+<title>fg i bg</title>
+<body>
+
+<p>
+Żeby "odstopować" proces możemy przywrócić go na pierwszy plan za pomocą
+wbudowanej komendy basha <c>fg</c>:
+</p>
+
+<pre caption="Używamy fg">
+$ <i>fg</i>
+<comment>(Przetestujmy to, a następnie zatrzymajmy ponownie proces)</comment>
+<i>Control-Z</i>
+[1]+  Stopped                 xeyes -center red
+$
+</pre>
+
+<p>
+Teraz, za pomocą <c>bg</c> pozwolimy procesowi wykonywać się w tle:
+</p>
+
+<pre caption="Używamy bg">
+$ <i>bg</i>
+[1]+ xeyes -center red &amp;
+$
+</pre>
+
+<p>
+Świetnie! Mamy proces działający w tle oraz nowy znak zachęty.
+</p>
+
+</body>
+</section>
+<section>
+<title>Używanie "&amp;"</title>
+<body>
+
+<p>
+Jeżeli chcielibyśmy uruchomić xeyes tak aby od razu wykonywały się w tle (nie
+dopiero po użyciu Ctrl-Z i bg), moglibyśmy po prostu dodać "&amp;" do polecenia
+xeyes:
+</p>
+
+<pre caption="Używamy &amp; aby uruchamiać procesy w tle">
+$ <i>xeyes -center blue &amp;</i>
+[2] 16224
+</pre>
+
+</body>
+</section>
+<section>
+<title>Kilka działających w tle procesów</title>
+<body>
+
+<p>
+Mamy teraz uruchomione w tle zarówno czerwone jak i niebieskie xeyes. Możemy
+wypisać listę tych procesów za pomocą polecenia <c>jobs</c>:
+</p>
+
+<pre caption="Używamy jobs">
+$ <i>jobs -l</i>
+[1]- 16217 Running                 xeyes -center red &amp;
+[2]+ 16224 Running                 xeyes -center blue &amp;
+</pre>
+
+<p>
+Liczby w lewej kolumnie są numerami procesów które zostały im przypisane przez
+powłokę bash, w momencie ich uruchomienia. Proces 2 jest oznaczony + (plusem)
+aby zaznaczyć, że jest to "aktualny proces", czyli ten który zostanie
+przywrócony kiedy wpiszemy <c>fg</c>. Możemy przekazać do <c>fg</c> numer
+procesu który chcemy przywrócić - np. <c>fg 1</c> przywróci czerwone xeyes.
+W następnej kolumnie widzimy id procesu, nazywany skrótowo pid, który został tu
+wyświetlony dzięki podaniu opcji -l do jobs. Przedostatnia kolumna informuje 
+nas, że oba procesy są uruchomione ("Running"), a ostatnia - jakie polecenie 
+uruchomiło dany proces.
+</p>
+
+</body>
+</section>
+<section>
+<title>Wprowadzenie do sygnałów</title>
+<body>
+
+<p>
+Aby zakończyć, zatrzymać, lub przywrócić proces, Linux używa specjalnego typu
+komunikacji, zwanej "sygnałami". Wysyłając dany sygnał do procesu, możemy go
+zakończyć, zatrzymać, itd. To właśnie robimy naciskając kombinacje Ctrl-C, 
+Ctrl-Z, lub używając poleceń <c>bg</c> albo <c>fg</c> - każemy powłoce bash
+wysłać określony sygnał do danego procesu. Możemy je także wysyłać używając
+polecenia <c>kill</c> razem z danym numerem pid:
+</p>
+
+<pre caption="Używamy kill">
+$ <i>kill -s SIGSTOP 16224</i>
+$ <i>jobs -l</i>
+[1]- 16217 Running                 xeyes -center red &amp;
+[2]+ 16224 Stopped (signal)        xeyes -center blue
+</pre>
+
+<p>
+Jak widać kill niekoniecznie musi zabić proces (ang. "kill" = zabij), aczkolwiek
+może to zrobić. Za pomocą opcji "-s" możemy wysłać do procesu dowolny sygnał.
+Linux zabije proces, zatrzyma go, lub będzie kontynuował jego wykonywanie,
+odpowiednio dla sygnałów SIGINT, SIGSTOP, SIGCONT. Sygnałów które możemy wysyłać
+jest oczywiście więcej. Niektóre z nich mogą być interpretowane od strony samej
+aplikacji która jest ich adresatem. Więcej informacji na temat tego, jakie
+sygnały rozpoznaje dany proces, znajduje się na jego stronie w podręczniku
+systemowym w sekcji SYGNAŁY ("SIGNALS").
+</p>
+
+</body>
+</section>
+<section>
+<title>SIGTERM i SIGINT</title>
+<body>
+
+<p>
+Jeżeli chcemy zakończyć proces, mamy kilka możliwości. Standardowo, kill wysyła
+sygnał SIGTERM, który nie jest tym samym co SIGINT wysyłany przez Ctrl-C, ale
+zazwyczaj ma ten sam rezultat:
+</p>
+
+<pre caption="Używamy kill aby zakończyć proces">
+$ <i>kill 16217</i>
+$ <i>jobs -l</i>
+[1]- 16217 Terminated              xeyes -center red
+[2]+ 16224 Stopped (signal)        xeyes -center blue
+</pre>
+
+</body>
+</section>
+<section>
+<title>Duży kill</title>
+<body>
+
+<p>
+Proces może zignorować zarówno SIGTERM jak i SIGINT. Może to być jego "świadomy"
+wybór, a może po prostu się zaciął. W takim wypadku musimy mieć możliwość użycia
+czegoś potężniejszego - sygnału SIGKILL. Proces nie może go zignorować:
+</p>
+
+<pre caption="Unicestwiamy proces używając SIGKILL">
+$ <i>kill 16224</i>
+$ <i>jobs -l</i>
+[2]+ 16224 Stopped (signal)        xeyes -center blue
+$ <i>kill -s SIGKILL</i>
+$ <i>jobs -l</i>
+[2]+ 16224 Interrupt               xeyes -center blue
+</pre>
+
+</body>
+</section>
+<section>
+<title>nohup</title>
+<body>
+
+<p>
+Terminal w którym uruchamiamy dany proces, jest jego "terminalem kontrolnym".
+Niektóre powłoki (nie bash), wyślą do kontrolowanych przez siebie procesów
+sygnał SIGHUP, w momencie naszego wylogowania się, zmuszając je do zakończenia
+działania. Aby je przed tym uchronić możemy użyć nohup podczas ich uruchamiania:
+</p>
+
+<pre caption="nohup w akcji">
+$ <i>nohup make &amp;</i>
+[1] 15632
+$ <i>exit</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Listujemy procesy używając ps</title>
+<body>
+
+<p>
+Poprzednio używaliśmy <c>jobs</c> aby wyświetlić procesy uruchomione z poziomu
+danej sesji basha. Aby zobaczyć wszystkie procesy działające w systemie używamy
+<c>ps</c> z opcjami <c>a</c> i <c>x</c>:
+</p>
+
+<pre caption="ps z opcjami ax">
+$ <i>ps ax</i>
+  PID TTY      STAT   TIME COMMAND
+    1 ?        S      0:04 init [3]
+    2 ?        SW     0:11 [keventd]
+    3 ?        SWN    0:13 [ksoftirqd_CPU0]
+    4 ?        SW     2:33 [kswapd]
+    5 ?        SW     0:00 [bdflush]
+</pre>
+
+<p>
+Przykład zawiera tylko kilka pierwszych linii ponieważ cała lista jest zwykle
+bardzo długa. Mimo iż jest ona obrazem systemu z chwili kiedy zostało wykonane
+polecenie <c>ls</c>, dostarcza nam wielu użytecznych informacji. Jeżeli nie
+dodamy opcji <c>ax</c>, zobaczymy tylko te procesy których jesteśmy
+właścicielami i które mają kontrolujący je terminal. Polecenie <c>ps x</c>
+pokaże wszystkie nasze procesy, nawet te które nie posiadają terminala. Jeżeli
+użyjemy <c>ps a</c> dostaniemy listę procesów wszystkich użytkowników które są
+podłączone do jakiegokolwiek terminala.
+</p>
+
+</body>
+</section>
+<section>
+<title>Oglądamy las i drzewa</title>
+<body>
+
+<p>
+Możemy też wyświetlić różne informacje dla każdego procesu. Opcja
+<c>--forest</c> ("las") pozwala nam obejrzeć hierarchię procesów, która pozwoli
+nam zrozumieć zależności między poszczególnymi procesami w systemie. Kiedy jeden
+proces uruchamia kolejny, ten kolejny proces jest nazywany procesem potomnym 
+("child"). W wydruku <c>ps --forest</c> procesy macierzyste znajdują się po
+lewej stronie, a procesy potomne po prawej:
+</p>
+
+<pre caption="Używamy forest">
+$ <i>ps x --forest</i>
+  PID TTY      STAT   TIME COMMAND
+  927 pts/1    S      0:00 bash
+ 6690 pts/1    S      0:00  \_ bash
+26909 pts/1    R      0:00      \_ ps x --forest
+19930 pts/4    S      0:01 bash
+25740 pts/4    S      0:04  \_ vi processes.txt
+</pre>
+
+</body>
+</section>
+<section>
+<title>Opcje "u" oraz "l"</title>
+<body>
+
+<p>
+Aby otrzymać szczegółowe informacje dotyczące każdego procesu, możemy połączyć
+opcje <c>u</c> i <c>l</c> z dowolną kombinacją <c>a</c> oraz <c>x</c>:
+</p>
+
+<pre caption="Opcja au">
+$ <i>ps au</i>
+USER       PID %CPU %MEM   VSZ  RSS TTY      STAT START   TIME COMMAND
+agriffis   403  0.0  0.0  2484   72 tty1     S     2001   0:00 -bash
+chouser    404  0.0  0.0  2508   92 tty2     S     2001   0:00 -bash
+root       408  0.0  0.0  1308  248 tty6     S     2001   0:00 /sbin/agetty 3
+agriffis   434  0.0  0.0  1008    4 tty1     S     2001   0:00 /bin/sh /usr/X
+chouser    927  0.0  0.0  2540   96 pts/1    S     2001   0:00 bash
+</pre>
+
+<pre caption="Opcja al">
+$ <i>ps al</i>
+  F   UID   PID  PPID PRI  NI   VSZ  RSS WCHAN  STAT TTY        TIME COMMAND
+100  1001   403     1   9   0  2484   72 wait4  S    tty1       0:00 -bash
+100  1000   404     1   9   0  2508   92 wait4  S    tty2       0:00 -bash
+000     0   408     1   9   0  1308  248 read_c S    tty6       0:00 /sbin/ag
+000  1001   434   403   9   0  1008    4 wait4  S    tty1       0:00 /bin/sh
+000  1000   927   652   9   0  2540   96 wait4  S    pts/1      0:00 bash
+</pre>
+
+</body>
+</section>
+<section>
+<title>Używamy top</title>
+<body>
+
+<p>
+Jeżeli dosyć często uruchamiamy ps aby obserwować zmiany wśród procesów,
+jesteśmy gotowi aby poznać polecenie <c>top</c>, które wyświetla bez przerwy
+aktualizowaną listę procesów, zawierającą dużo użytecznych, ogólnych informacji
+o samym systemie:
+</p>
+
+<pre caption="top">
+$ <i>top</i>
+ 10:02pm  up 19 days,  6:24,  8 users,  load average: 0.04, 0.05, 0.00
+75 processes: 74 sleeping, 1 running, 0 zombie, 0 stopped
+CPU states:  1.3% user,  2.5% system,  0.0% nice, 96.0% idle
+Mem:   256020K av,  226580K used,   29440K free,       0K shrd,    3804K buff
+Swap:  136544K av,   80256K used,   56288K free                  101760K cached
+
+  PID USER     PRI  NI  SIZE  RSS SHARE STAT  LIB %CPU %MEM   TIME COMMAND
+  628 root      16   0  213M  31M  2304 S       0  1.9 12.5  91:43 X
+26934 chouser   17   0  1272 1272  1076 R       0  1.1  0.4   0:00 top
+  652 chouser   11   0 12016 8840  1604 S       0  0.5  3.4   3:52 gnome-termin
+  641 chouser    9   0  2936 2808  1416 S       0  0.1  1.0   2:13 sawfish
+</pre>
+
+</body>
+</section>
+<section>
+<title>nice</title>
+<body>
+
+<p>
+Każdy proces ma swój priorytet, który pozwala systemowi Linux przydzielać mu
+dopowiednią część czasu procesora. Możemy ustawiać ten priorytet dla danego
+procesu uruchamiając go razem z poleceniem <c>nice</c>:
+</p>
+
+<pre caption="Ustawiamy priorytet procesu przy jego uruchamianiu">
+$ <i>nice -n 10 oggenc /tmp/song.wav</i>
+</pre>
+
+<p>
+Ponieważ ustawienie to nazywa się <c>nice</c> (ang. "miły", "delikatny"), łatwo
+nam będzie zapamiętać, że im wyższa wartość, tym proces jest "milszy" dla
+pozostałych procesów, pozwalając im na priorytetowy dostęp do procesora.
+Standardowo, proces zostaje uruchomiony z priorytetem 0, więc zmiana na 10
+oznacza, że oggenc chętnie podzieli się czasem procesora z innymi procesami.
+Ogólnie rzecz biorąc oznacza to, że oggenc pozwoli innym programom wykonywać się
+z ich normalną prędkością, bez względu na to jak oggenc potrafi być zasobożerny.
+Poziom nice jest wyświetlany w kolumnie NI wydruku poleceń ps i top.
+</p>
+
+</body>
+</section>
+<section>
+<title>renice</title>
+<body>
+
+<p>
+Polecenia <c>nice</c> możemy używać jedynie podczas startowania procesu. Jeżeli
+chcemy zmienić poziom nice dla procesu który jest juz uruchomiony, musimy użyć
+polecenia <c>renice</c>:
+</p>
+
+<pre caption="Używamy renice">
+$ <i>ps l 641</i>
+  F   UID   PID  PPID PRI  NI   VSZ  RSS WCHAN  STAT TTY        TIME COMMAND
+000  1000   641     1   9   0  5876 2808 do_sel S    ?          2:14 sawfish
+$ <i>renice 10 641</i>
+641: old priority 0, new priority 10
+$ <i>ps l 641</i>
+  F   UID   PID  PPID PRI  NI   VSZ  RSS WCHAN  STAT TTY        TIME COMMAND
+000  1000   641     1   9  10  5876 2808 do_sel S    ?          2:14 sawfish
+</pre>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Przetwarzanie tekstu</title>
+<section>
+<title>Jeszcze raz o przekierowywaniu</title>
+<body>
+
+<p>
+Opisywaliśmy już wcześniej jak używać operatora <c>></c> do przekierowywania
+danych wyjściowych programu do pliku. Przypomnijmy ten przykład:
+</p>
+
+<pre caption="Używamy operatora >">
+$ <i>echo "pierwszy plik" > skopiujmnie</i>
+</pre>
+
+<p>
+Oprócz przekierowywania danych wyjściowych do pliku, możemy także wykorzystać
+potężne narzędzie dostarczane przez powłokę systemową - potoki. Używając
+potoków, możemy przekierować dane wyjściowe jednego programu na wejście innego. 
+Rozważmy następujący przykład:
+</p>
+
+<pre caption="Wprowadzenie do potoków">
+$ <i>echo "hej tam!" | wc</i>
+      1       2       9
+</pre>
+
+<p>
+Znak <c>|</c> używamy, aby połączyć wyjście "lewego" polecenia, z wejściem
+polecenia "prawego". W powyższym przykładzie, polecenie <c>echo</c> drukuje ciąg
+"hej tam!" razem ze znakiem przejścia do następnego wiersza, i to normalnie
+zobaczylibyśmy na ekranie, ale potok przekierowuje te dane, na wejście polecenia
+<c>wc</c>, które pokazuje ilość linii, słów oraz znaków w ciągu wejściowym.
+</p>
+
+</body>
+</section>
+<section>
+<title>Przykład potoku</title>
+<body>
+
+<p>
+Oto kolejny prosty przykład:
+</p>
+
+<pre caption="potoki w akcji">
+$ <i>ls -s | sort -n</i>
+</pre>
+
+<p>
+W tym wypadku, <c>ls -s</c> normalnie wydrukowało by listę plików znajdujących
+się w bieżącym katalogu, poprzedzając nazwę każdego pliku, jego rozmiarem. 
+Zamiast tego, przekierowaliśmy wyjście do polecenia <c>sort -n</c>, które
+posortuje dane numerycznie. Jest to bardzo użyteczny sposób na znajdowanie
+dużych plików w naszych katalogach domowych!
+</p>
+
+<p>
+Następne przykłady będą bardziej skomplikowane, ale demonstrują one potęge
+którą możemy ujarzmić używając potoków. Użyjemy paru poleceń które nie zostały
+jeszcze omówione, ale nie powinno nam to przeszkadzać. Skoncentrujmy się lepiej
+na zasadzie działania potoków, aby być w stanie je wykorzystywać w codziennej
+pracy z Linuksem.
+</p>
+
+</body>
+</section>
+<section>
+<title>Potok dekompresji</title>
+<body>
+
+<p>
+Normalnie aby zdekompresować i rozpakować plik, użylibyśmy następujących
+poleceń:
+</p>
+
+<pre caption="Dekompresja i rozpakowywanie pliku">
+$ <i>bzip2 -d linux-2.4.16.tar.bz2</i>
+$ <i>tar xvf linux-2.4.16.tar</i>
+</pre>
+
+<p>
+To rozwiązanie ma swoją złą stronę - wymaga utworzenia na dysku
+zdekompresowanego pliku pośredniego. Ponieważ <c>tar</c> ma możliwość odczytu
+danych wejściowych (zamiast z pliku), możemy otrzymać taki sam wynik używając
+potoków:
+</p>
+
+<pre caption="Dekompresja i rozpakowywanie przy użyciu potoków">
+$ <i>bzip2 -dc linux-2.4.16.tar.bz2 | tar xvf -</i>
+</pre>
+
+<p>
+Świetnie! Nasz plik został zdekompresowany i rozpakowany, bez konieczności 
+tworzenia pliku tymczasowego na dysku.
+</p>
+
+</body>
+</section>
+<section>
+<title>"Dłuższy" potok</title>
+<body>
+
+<p>
+Oto kolejny przykład:
+</p>
+
+<pre caption="Dłuższy potok">
+$ <i>cat mojplik.txt | sort | uniq | wc -l</i>
+</pre>
+
+<p>
+Używamy <c>cat</c> aby przekazać zwartość pliku <path>mojplik.txt</path> do
+polecenia <c>sort</c>, które sortuje dane wejściowe w porządku alfabetycznym, a
+następnie wysyła je do polecenia <c>uniq</c>. <c>uniq</c> usuwa wszystkie
+powtarzające się linie (dane wejściowe muszą być posortowane), a następnie 
+wysyła pozostałe, unikalne linie do polecenia <c>wc -l</c>. Spotkaliśmy się już 
+z <c>wc</c>, ale bez żadnych opcji. Podając <c>-l</c> jako opcję, <c>wc</c> 
+pokaże jedynie ilość linii podanych na wejściu, nie zobaczymy liczb 
+określających ilość znaków i słów. Efektem tego potoku, będzie ilość unikalnych
+linii zawartych w podanym pliku tekstowym.
+</p>
+
+<p>
+Stwórzmy teraz jakiś plik z dowolną zawartością i sprawdźmy jaki będzie 
+rezultat wykonania naszego potoku.
+</p>
+
+</body>
+</section>
+<section>
+<title>Rozpoczynamy przygodę z przetwarzaniem tekstu</title>
+<body>
+
+<p>
+Teraz skupimy się na standardowych poleceniach Linuksa, służących do
+przetwarzania tekstu. Nie zostaną przytoczone przykłady dla wszystkich użytych
+poleceń. Aby uzyskać więcej informacji powinniśmy zajrzeć na strony podręcznika 
+systemowego dla każdego z tych poleceń (pisząc np. <c>man echo</c>) i
+poeksperymentować z poszczególnymi opcjami. Główną zasadą działania tych
+programów, jest przetwarzanie tekstu i drukowanie wyników na ekran konsoli - nie
+modyfikują one plików z których pobierają dane. Po tym krótkim opisie poleceń
+przetwarzających tekst, zajmiemy się przekierowywaniem wejścia/wyjścia. 
+</p>
+
+<p>
+<c>echo</c> drukuje na konsolę, przekazane mu argumenty.  Jeżeli
+użyjemy opcji <c>-e</c> bash będzie interpretował specjalne sekwencje znaków
+które poznaliśmy wcześniej. Na przykład <c>echo -e "foo\nfoo"</c> wypisze na
+konsoli foo, następnie przejdzie do nowej linii gdzie wydrukuje kolejne foo.
+Opcja <c>-n</c> spowoduje, że echo nie będzie kończyło swojego działania
+przechodząc do nowej linii.
+</p>
+
+<p>
+<c>cat</c> wydrukuje zawartość podanego jako argument pliku, na ekran. Jest
+użyteczne jako pierwsze polecenie w potoku, np. <c>cat foo.txt | blah</c>.
+</p>
+
+<p>
+<c>sort</c> wyświetli w porządku alfabetycznym zawartość pliku podanego jako
+argument. Oczywiście akceptuje także na wejściu, przekierowane dane wyjściowe
+innego polecenia. Szczegółowe informacje znajdują sie w manie.
+</p>
+
+<p>
+<c>uniq</c> pobiera <e>posortowaną wcześniej</e> zawartość pliku bądź ciąg
+danych (poprzez potok), i usuwa z nich powtarzające się linie.
+</p>
+
+<p>
+<c>wc</c> podaje ilość linii, słów oraz bajtów, dla danego pliku lub strumienia
+wejściowego (z potoku). <c>man wc</c> dostarczy nam wszystkich potrzebnych
+informacji dot. wyświetlania tych danych.
+</p>
+
+<p>
+<c>head</c> drukuje pierwsze 10 linii pliku bądź strumienia. Możemy sprecyzować
+ilość drukowanych linii podając odpowiednią liczbę po opcji <c>-n</c>.
+</p>
+
+<p>
+<c>tail</c> drukuje 10 ostatnich linii w pliku bądź strumieniu. Tak jak dla
+<c>head</c> możemy określić ilość linii za pomocą opcji <c>-n</c>.
+</p>
+
+<p>
+<c>tac</c> działa jak <c>cat</c>, ale drukuje linie w odwrotnej kolejności -
+ostatnia linia jest drukowana jako pierwsza itd.
+</p>
+
+<p>
+<c>expand</c> zamienia znaki tabulacji na spacje.
+</p>
+
+<p>
+<c>unexpand</c> zamienia spacje na znaki tabulacji.
+</p>
+
+<p>
+<c>cut</c> służy do wycinania z każdej linii, z pliku bądź strumienia 
+wejściowego, pól ograniczonych przez dane znaki.
+</p>
+
+<p>
+<c>nl</c> dodaje numer linii do każdej linii wejściowej. Użyteczne do wydruków.
+</p>
+
+<p>
+<c>pr</c> używamy aby dzielić pliki na strony - użyteczne przy drukowaniu.
+</p>
+
+<p>
+<c>tr</c> jest narzędziem służącym do tłumaczenia. Zastępujemy nim konkretne
+znaki ze strumienia wejściowego, na inne które pojawią się na wyjściu.
+</p>
+
+<p>
+<c>sed</c> jest potężnym edytorem zorientowanym strumieniowo. Możemy dowiedzieć
+się o nim więcej z następujących artykułów IBM developerWorks:
+</p>
+
+<ul>
+  <li><uri link="/doc/pl/articles/l-sed1.xml">
+  Sed w przykładach, część 1</uri></li>
+  <li><uri link="/doc/pl/articles/l-sed2.xml">
+  Sed w przykładach, część 2</uri></li>
+  <li><uri link="/doc/pl/articles/l-sed3.xml">Sed by example, Part 3</uri></li>
+</ul>
+
+<p>
+Jeżeli planujemy podejść do egzaminu LPI, powinniśmy przeczytać przynajmniej
+dwie pierwsze części tej serii.
+</p>
+
+<p>
+<c>awk</c> jest bardzo użytecznym, zorientowanym liniowo językiem, służącym do
+przetwearzania tekstu. Aby dowiedzieć się więcej na jego temat powinniśmy
+przeczytać następujące artykuły IBM developerWorks:
+</p>
+
+<ul>
+  <li><uri link="/doc/pl/articles/l-awk1.xml">
+  Awk w przykładach, część 1</uri></li>
+  <li><uri link="/doc/pl/articles/l-awk2.xml">
+  Awk w przykładach, część 2</uri></li>
+  <li><uri link="/doc/pl/articles/l-awk3.xml">
+  Awk w przykładach, część 3</uri>
+  </li>
+</ul>
+
+<p>
+<c>od</c> zostało stworzone, aby przekształcać dane wejściowe na format
+ósemkowego lub szesnastkowego "zrzutu".
+</p>
+
+<p>
+<c>split</c> jest poleceniem, używanym do dzielenia dużych plików, na kilka
+mniejszych, wygodniejszych kawałków.
+</p>
+
+<p>
+<c>fmt</c> zawinie wiersze które wykraczają poza margines. Ponieważ opcja ta
+jest już wbudowana w większość edytorów, polecenie jest mało użyteczne,
+aczkolwiek warto je znać.
+</p>
+
+<p>
+<c>paste</c> pobiera dane z dwóch lub więcej plików i drukuje ich zawartość
+umieszczając obok siebie kolejne linie. Może się przydać do drukowania tabel lub
+kolumn tekstu.
+</p>
+
+<p>
+<c>join</c> używa pól (zazwyczaj pierwszego) do porównywania plików, i drukuje 
+obok siebie te linie, w których pola się zgadzają.
+</p>
+
+<p>
+<c>tee</c> drukuje dane wejściowe zarówno na ekran jak i do pliku. Jest ono
+bardzo użyteczne gdy chcemy coś zalogować, jednocześnie śledząc wyniki 
+działaniana programu na ekranie.
+</p>
+
+</body>
+</section>
+<section>
+<title>Koniec wprowadzenia! Przekierowywanie</title>
+<body>
+
+<p>
+Podobnie jak <c>&gt;</c> w linii poleceń basha, możemy użyć <c>&lt;</c> aby
+przekierować plik do danego polecenia. Dla wielu poleceń możemy po prostu
+sprecyzować nazwę pliku w linii poleceń, aczkolwiek niektóre polecenia działają
+pobierając dane tylko ze standardowego wejścia.
+</p>
+
+<p>
+Bash i inne powłoki wspierają koncepcję "herefile". Pozwala to nam podać dane
+do polecenia, w liniach następujących po wywaołaniu polecenia, zakończonych
+określoną sentencją. Najprościej pokazać to na przykładzie:
+</p>
+
+<pre caption="Przekierowywanie w akcji">
+$ <i>sort &lt;&lt;KONIEC</i>
+jablko
+zurawina
+banan
+KONIEC
+banan
+jablko
+zurawina
+</pre>
+
+<p>
+W powyższym przykładzie, wpisaliśmy słowa jabłko, żurawina i banan, oraz
+"KONIEC" aby zaznaczyć koniec danych wejściowych. Program <c>sort</c> zwrócił
+dane posortowane alfabetycznie.
+</p>
+
+</body>
+</section>
+<section>
+<title>Używamy &gt;&gt;</title>
+<body>
+
+<p>
+Moglibyśmy się spodziewać, że <c>&gt;&gt;</c> będzie działało analogicznie do 
+<c>&lt;&lt;</c>, ale tak nie jest. Znaczy to po prostu aby dopisać dane
+wyjściowe do pliku, w odróżnieniu od <c>&gt;</c> które nadpisze ten plik:
+</p>
+
+<pre caption="Przekierowywanie do pliku">
+$ <i>echo Hej &gt; mojplik</i>
+$ <i>echo tam. &gt; mojplik</i>
+$ <i>cat mojplik</i>
+tam.
+</pre>
+
+<p>
+Ups! Gdzie nasze "Hej"? Mieliśmy na myśli raczej coś takiego:
+</p>
+
+<pre caption="Dopisywanie do pliku">
+$ <i>echo Hej &gt; mojplik</i>
+$ <i>echo tam. &gt;&gt; mojplik</i>
+$ <i>cat mojplik</i>
+Hej
+tam.
+</pre>
+
+<p>
+Dużo lepiej!
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Moduły jądra</title>
+<section>
+<title>Poznajemy "uname"</title>
+<body>
+
+<p>
+Polecenie <c>uname</c> dostarcza nam wielu interesujących informacji o systemie.
+Oto co wyświetla autorowi tego artykułu polecenie <c>uname -a</c>, które każe
+<c>uname</c> pokazać wszystkie informacje na raz:
+</p>
+
+<pre caption="uname -a">
+$ <i>uname -a</i>
+Linux inventor 2.4.20-gaming-r1 #1 Fri Apr 11 18:33:35 MDT 2003 i686 AMD Athlon(tm) XP 2100+ AuthenticAMD GNU/Linux
+</pre>
+
+</body>
+</section>
+<section>
+<title>Wiecej o uname</title>
+<body>
+
+<p>
+Teraz przyjrzyjmy się informacjom dostarczanym przez <c>uname</c>
+</p>
+
+<pre caption="informacje uname">
+opcja                           arg     przykład
+nazwa jądra                     -s      "Linux"
+nazwa hosta                     -n      "inventor"
+numer wydania jądra             -r      "2.4.20-gaming-r1"
+wersja jądra                    -v      "#1 Fri Apr 11 18:33:35 MDT 2003"
+maszyna                         -m      "i686"
+procesor                        -p      "AMD Athlon(tm) XP 2100+"
+platforma sprzętowa             -i      "AuthenticAMD"
+system operacyjny              -o      "GNU/Linux"
+</pre>
+
+<p>
+Interesujące! A co pokaże nasze <c>uname -a</c> ?
+</p>
+
+</body>
+</section>
+<section>
+<title>Numer wydania jądra</title>
+<body>
+
+<p>
+Oto magiczna sztuczka. Najpierw, napiszmy <c>uname -r</c> aby polecenie uname
+wypisało numer wydania jądra Linuksa, którego aktualnie używamy.
+</p>
+
+<p>
+Teraz, zajrzyjmy do katalogu <path>/lib/modules</path> i Uwaga! Oto jest katalog
+o identycznej nazwie! No dobra, może nie była to jakaś super sztuczka, za to
+chwila jest odpowiednia aby dowiedzieć się o znaczeniu katalogów w 
+<path>/lib/modules</path> oraz wyjaśnić czym są moduły jądra.
+</p>
+
+</body>
+</section>
+<section>
+<title>Jądro</title>
+<body>
+
+<p>
+Jądro Linuksa jest sercem tego, co powszechnie określane jest mianem "Linux".
+Jest to kod, który ma bezpośredni dostęp do sprzętu, dostarczając warstwę 
+abstrakcji pozwalającej na działanie starych programów. Dzięki jądru, nasz 
+edytor tekstowy nie musi się martwić o to, czy dane są zapisywane na dysk SCSI 
+czy IDE, lub nawet na RAM-disk. On po prostu zapisuje do systemu plików, a 
+jądro zajmuje się resztą.
+</p>
+
+</body>
+</section>
+<section>
+<title>Wprowadzenie do modułów jądra</title>
+<body>
+
+<p>
+Czym są właściwie moduły jądra? Cóż, są one częściami jądra, przechowywanymi na
+dysku w specjalnym formacie. Na nasze życzenie, mogą zostać załadowane do
+działającego jądra, umożliwiając mu dostarczanie dodatkowych opcji.
+</p>
+
+<p>
+Ponieważ moduły jądra są ładowane na żądanie, możemy zwiększyć funkcjonalność
+naszego jądra o opcje których nie chcemy mieć włączonych standardowo, a które
+przydadzą się od czasu do czasu aby obsłużyć jakiś dziwny system plików, lub
+kawałek sprzętu którego rzadko używamy.
+</p>
+
+</body>
+</section>
+<section>
+<title>Moduły jądra "w pigułce"</title>
+<body>
+
+<p>
+Moduły jądra pozwalają na żądanie powiększać możliwości działającego jądra. Bez
+modułów, musielibyśmy skompilować nowe jądro i zrestartować komputer, aby był 
+on w stanie obsłużyć coś nowego.
+</p>
+
+</body>
+</section>
+<section>
+<title>lsmod</title>
+<body>
+
+<p>
+Aby zobaczyć które moduły są obecnie załadowane w naszym systemie, używamy
+polecenia <c>lsmod</c>:
+</p>
+
+<pre caption="Używamy lsmod">
+# <i>lsmod</i>
+Module                  Size  Used by    Tainted: PF
+vmnet                  20520   5
+vmmon                  22484  11
+nvidia               1547648  10
+mousedev                3860   2
+hid                    16772   0  (unused)
+usbmouse                1848   0  (unused)
+input                   3136   0  [mousedev hid usbmouse]
+usb-ohci               15976   0  (unused)
+ehci-hcd               13288   0  (unused)
+emu10k1                64264   2
+ac97_codec              9000   0  [emu10k1]
+sound                  51508   0  [emu10k1]
+usbcore                55168   1  [hid usbmouse usb-ohci ehci-hcd]
+</pre>
+
+</body>
+</section>
+<section>
+<title>Lista modułów</title>
+<body>
+
+<p>
+Jak widać, ten system ma załadowanych kilka modułów. vmnet i vmmon zapewniają
+funkcjonalność dla programu <uri link="http://www.vmware.com/">VMWare</uri>, 
+który pozwala na uruchomienie wirtualnego komputera na pulpicie. Moduł "nvidia" 
+pochodzi od korporacji <uri link="http://www.nvidia.com/">NVIDIA</uri> i
+umożliwia używanie wydajnego akceleratora graficznego pod Linuksem, kożystając z
+jego wielu ciekawych możliwości.
+</p>
+
+<p>
+Następnie widzimy kilka modułów które są używane do obsługi urządzeń USB: 
+"mousedev", "hid", "usbmouse", "input", "usb-ohci", "ehci-hcd" i "usbcore".
+Konfiguracja jądra z obsługą USB w postaci modułów jest dobrym rozwiązaniem,
+ponieważ urządzenia USB są typu "plug and play" - możemy pójść do sklepu, kupić
+nowe urządzenie USB, podłączyć je do komputera, i pozwolć aby system sam
+załadował wymagane moduły aby dane urządzenie działało. Jest to bardzo wygodne
+rozwiązanie.
+</p>
+
+</body>
+</section>
+<section>
+<title>moduły z zewnętrznych źródeł</title>
+<body>
+
+<p>
+Moduły "emu10k1", "ac97_codec", i "sound", zapewniają obsługę karty muzycznej 
+SoundBlaster Audigy.
+</p>
+
+<p>
+Musimy wiedzieć, że niektóre modułów jądra pochodzi właśnie z samych jego
+źródeł - np. wszystkie związane z USB moduły, są kompilowane ze źródeł jądra
+Linuksa. Są także moduły, takie jak nvidia, emu10k1 i VMWare, które pochodzą z
+innych źródeł. Pozwala nam to dostrzec kolejną zaletę modułów jądra - możliwe
+jest dostarczanie zewnętrznym firmom własnych modułów obsługujących ich sprzęt,
+które możemy załadować do jądra bez konieczności restartowania komputera.
+</p>
+
+</body>
+</section>
+<section>
+<title>depmod i przyjaciele</title>
+<body>
+
+<p>
+w katalogu <path>/lib/modules/2.4.20-gaming-r1/</path> naszego przykładowego
+systemu, znajduje się kilka plików których nazwa zaczyna się od "modules.":
+</p>
+
+<pre caption="inne moduły">
+$ <i>ls /lib/modules/2.4.20-gaming-r1/modules.*</i>
+/lib/modules/2.4.20-gaming-r1/modules.dep
+/lib/modules/2.4.20-gaming-r1/modules.generic_string
+/lib/modules/2.4.20-gaming-r1/modules.ieee1394map
+/lib/modules/2.4.20-gaming-r1/modules.isapnpmap
+/lib/modules/2.4.20-gaming-r1/modules.parportmap
+/lib/modules/2.4.20-gaming-r1/modules.pcimap
+/lib/modules/2.4.20-gaming-r1/modules.pnpbiosmap
+/lib/modules/2.4.20-gaming-r1/modules.usbmap
+</pre>
+
+<p>
+Pliki te przechowują wiele informacji o zależnościach. Na przykład, są w nich
+zapisane informacje o zależnościach między modułami - niektóre moduły wymagają
+wcześniejszego załadowania innych modułów, zanim same będą mogły znaleźć się w
+jądrze.
+</p>
+
+</body>
+</section>
+<section>
+<title>Skąd się biorą moduły</title>
+<body>
+
+<p>
+Niektóre moduły jądra są zaprojektowane tak, aby działać z określonym sprzętem.
+Przykładem jest "emu10k1" który obsługuje kartę muzyczną SoundBlaster Audigy. 
+Dla tego typu modułów, pliki te przechowują informacje, takie jak PCI ID itp. 
+identyfikatory sprzętu który dany moduł potrafi obsługiwać. Te informacje mogą 
+być użyte np. przez skrypty "hotplug" (którym przyjrzymy się później) do 
+automatycznego wykrywania sprzętu i ładowania odpowiednich modułów do jądra.
+</p>
+
+</body>
+</section>
+<section>
+<title>Używamy depmod</title>
+<body>
+
+<p>
+Jeżeli kiedykolwiek zdarzyło się nam instalować nowy moduł, informacje o 
+zależnościach mogą być nieaktualne. Aby je zaktualizować wystarczy użyć
+polecenia <c>depmod -a</c>. W efekcie program <c>depmod</c> przejrzy moduły
+znajdujące się w <path>/lib/modules</path> i odświerzy informacje o
+zależnościach. Program czerpie te informacje z poszczególnych modułów szukając w
+nich tzw. "symboli".
+</p>
+
+</body>
+</section>
+<section>
+<title>Wyszukiwanie modułów jądra</title>
+<body>
+
+<p>
+Jak wyglądają moduły jądra? dla jąder z serii 2.4, są one zazwyczaj każdym
+plikiem znajdującym się w <path>/lib/modules</path> zakończonym ".o". Aby
+zobaczyć wszystkie moduły w <path>/lib/modules</path>, wpisujemy następujące
+polecenie:
+</p>
+
+<pre caption="moduły jądra w /lib/modules">
+# <i>find /lib/modules -name '*.o'</i>
+/lib/modules/2.4.20-gaming-r1/misc/vmmon.o
+/lib/modules/2.4.20-gaming-r1/misc/vmnet.o
+/lib/modules/2.4.20-gaming-r1/video/nvidia.o
+/lib/modules/2.4.20-gaming-r1/kernel/fs/fat/fat.o
+/lib/modules/2.4.20-gaming-r1/kernel/fs/vfat/vfat.o
+/lib/modules/2.4.20-gaming-r1/kernel/fs/minix/minix.o
+[ucięte aby zachować przejrzystość]
+</pre>
+
+</body>
+</section>
+<section>
+<title>insmod kontra modprobe</title>
+<body>
+
+<p>
+W jaki sposób są ładowane moduły do jądra? Można to zrobić za pomocą polecenia 
+<c>insmod</c> podając pełną scieżkę do modułu który chcemy załadować:
+</p>
+
+<pre caption="Używamy insmod">
+# <i>insmod /lib/modules/2.4.20-gaming-r1/kernel/fs/fat/fat.o</i>
+# <i>lsmod | grep fat</i>
+fat                    29272   0  (unused)
+</pre>
+
+<p>
+Zazwyczaj jednak, wygodniej jest używać polecenia <c>modprobe</c>, ponieważ nie
+musimy się troszczyć o zależności, a także zwalnia nas ono z obowiązku podawania
+dokładnej ścieżki do modułu oraz końcówki ".o".
+</p>
+
+</body>
+</section>
+<section>
+<title>rmmod oraz modprobe w akcji</title>
+<body>
+
+<p>
+Spróbujmy usunąć moduł "fat.o" za pomocą <c>rmmod</c>, a następnie załadować go,
+używając <c>modprobe</c>:
+</p>
+
+<pre caption="rmmod oraz modprobe w akcji">
+# <i>rmmod fat</i>
+# <i>lsmod | grep fat</i>
+# <i>modprobe fat</i>
+# <i>lsmod | grep fat</i>
+fat                    29272   0  (unused)
+</pre>
+
+<p>
+Jak widzimy, polecenie <c>rmmod</c> działa podobnie do modprobe, ale ma
+przeciwny skutek - usuwa z jądra żądany moduł.
+</p>
+
+</body>
+</section>
+<section>
+<title>Nasz przyjaciel modinfo i modules.conf</title>
+<body>
+
+<p>
+Używając polecenia <c>modinfo</c> możemy uzyskać ciekawe informacje na temat
+naszych ulubionych modułów:
+</p>
+
+<pre caption="Używamy modinfo">
+# <i>modinfo fat</i>
+filename:    /lib/modules/2.4.20-gaming-r1/kernel/fs/fat/fat.o
+description: &lt;none&gt;
+author:      &lt;none&gt;
+license:     "GPL"
+</pre>
+
+<p>
+Powinniśmy także pamiętać o pliku <path>/etc/modules.conf</path>, który zawiera
+informacje konfiguracyjne <c>modprobe</c>. Pozwala on nam, zwiększyć
+funkcjonalność <c>modprobe</c> przekazując mu informacje aby załadował jedne
+moduły przed/po drugich, uruchamiał skrypty przed/po załadowaniu modułów, itd.
+</p>
+
+</body>
+</section>
+<section>
+<title>pułapki w modules.conf</title>
+<body>
+
+<p>
+Składnia i funkcje <path>modules.conf</path> są dosyć skomplikowane i nie
+będziemy się nimi zajmować (mnóstwo informacji znajdziemy w 
+<c>man modules.conf</c>), ale jest pare rzeczy dot. tego pliku, o których 
+powinniśmy wiedzieć.
+</p>
+
+<p>
+Po pierwsze, wiele dystrybucji generuje ten plik automatycznie ze sporej ilości
+plików z innego katalogu - np. <path>/etc/modules.d/</path>. Dla przykładu, 
+dystrybucja Gentoo Linux posiada katalog <path>/etc/modules.d/</path>, i
+uruchomienie polecenia <c>update-modules</c> stworzy nowy plik
+<path>/etc/modules.conf</path> na podstawie plików zawartych w 
+<path>/etc/modules.d/</path>. Tak więc jeżeli używamy Gentoo, zróbmy co trzeba z
+plikami w <path>/etc/modules.d/</path> aby następnie wydać polecenie 
+update-modules. Jeżeli używamy Debiana, procedura jest podobna, przy czym
+katalog nazywa się <path>/etc/modutils/</path>.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Podsumowanie i zasoby informacji</title>
+<section>
+<title>Podsumowanie</title>
+<body>
+
+<p>
+Gratulacje! Dotarliście do końca artykułu dotyczącego podstaw administracji
+systemem Linux! Mamy nadzieję, że pomógł on wam uporządkować podstawową wiedzę
+na temat Linuksa. Zachęcamy do przeczytania kolejnego artykułu z tej serii,
+poruszającego tematykę bardziej zaawansowanej administracji systemem. Zajmiemy
+się w nim prawami dostępu oraz modelem dostępu, zarządzaniem kontami
+użytkowników, tworzeniem i montowaniem systemów plików, oraz wieloma innymi
+zagadnieniami. Nie zapominajmy o tym, że kontynuując lekturę tej serii
+artykułów, będziemy niedługo gotowi do zdobycia certyfikatu LPIC pierwszego
+poziomu, Linuksowego Instytutu Profesjonalistów (LPI).
+</p>
+
+</body>
+</section>
+<section>
+<title>Zasoby informacji</title>
+<body>
+
+<p>
+Skoro mówimy już o certyfikacie LPIC, i jeżeli jesteśmy nim zainteresowani,
+powinniśmy przejrzeć informacje zawarte w poniższych źródłach, starannie 
+dobranych aby umożliwić poszerzenie informacji dot. tematów poruszanych w tym
+artykule:
+</p>
+
+<p>
+Jest wiele dobrych zasobów informacji dotyczących wyrażeń regularnych. Oto kilka
+z tych, które znaleźliśmy:
+</p>
+
+<ul>
+  <li>
+    <uri link="http://www.zvon.org/other/reReference/Output/">Regular Expressions Reference</uri>
+  </li>
+  <li>
+    <uri link="http://zez.org/article/articleview/11/">Regular Expressions Explained</uri>
+  </li>
+</ul>
+
+<p>
+Powinniśmy też przeczytać dokument o standardzie hierarchii systemu plików na
+<uri>http://www.pathname.com/fhs/</uri>.
+</p>
+
+<p>
+W <uri link="/doc/pl/articles/bash-by-example-p1.xml">serii artykułów "Bash w
+przykładach"</uri>, Dowiemy się jak używać konstrukcji programistycznych basha
+do pisania własnych skryptów. Seria ta (a dokładniej jej pierwsza i druga część)
+przygotuje nas do pierwszego poziomu egzaminu LPIC.
+</p>
+
+<p>
+Więcej na temat edytora <c>sed</c> dowiemy się z <uri
+link="http://www-106.ibm.com/developerworks/linux/library/l-sed1.html?dwzone=linux">pozostałych 
+artykułów IBM developerWorks</uri>. Jeżeli planujemy podejść do
+egzaminu LPI, powinniśmy przeczytać przynajmniej dwa pierwsze artykuły z tej
+serii.
+</p>
+
+<p>
+Aby dowiedzieć się więcej o <c>awk</c>, powinniśmy przeczytać <uri
+link="http://www-106.ibm.com/developerworks/linux/library/l-awk1.html?dwzone=linux">artykuły
+IBM developerWorks dotyczące tego tematu</uri>.
+</p>
+
+<p>
+Polecamy także lekturę <uri
+link="http://www-106.ibm.com/developerworks/linux/library/l-faq/index.html">Technical
+FAQ for Linux users</uri> - 50-stronicowej listy najczęściej zadawanych
+pytań dotyczących Linuksa, wraz z obszernymi odpowiedziami. FAQ jset w formacie
+PDF (Acrobat). Jeżeli jesteśmy początkującymi, bądź średnio zaawansowanymi
+użytkownikami Linuksa, powinniśmy poświęcić trochę czasu na lekturę tego FAQ.
+</p>
+
+<p>
+Jeżeli nie przywykliśmy jeszcze do edytora <c>vi</c>, powinniśmy przeczytać 
+artykuł <uri link="http://www.gentoo.org/doc/pl/vi-guide.xml">
+Nauka vi metodą "ściągawki"</uri>. Jest on szybkim wprowadzeniem do tego 
+potężnego edytora. Powinniśmy poważnie się zastanowić nad lekturą tego 
+artykułu jeżeli nie wiemy jak używać <c>vi</c>.
+</p>
+
+</body>
+</section>
+</chapter>
+</guide>
