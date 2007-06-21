@@ -1,5 +1,5 @@
 xorg-config.xml -> 1.23
 lpi-101-administration-p2.xml -> 1.5
 genkernel.xml -> 1.29
-shb-services -> 1.7
-
+shb-services.xml -> 1.7
+distcc.xml -> 1.40
