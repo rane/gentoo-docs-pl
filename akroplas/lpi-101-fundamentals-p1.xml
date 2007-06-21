@@ -330,7 +330,7 @@ Teraz wykonajmy te polecenia i sprawdźmy czy dobrze odgadliśmy. :)
 <body>
 
 <p>
-Przed zakończeniem opisywania polecenia cd należy jeszcze wspomnieć o kilku
+Przed zakończeniem omawiania polecenia cd należy jeszcze wspomnieć o kilku
 rzeczach. Po pierwsze istnieje jeszcze jeden katalog specjalny o nazwie ., co
 oznacza "katalog bieżący". Katalog ten raczej nie jest używany z poleceniem cd,
 niemniej jednak często jest używany do uruchamiania programów znajdujących się
@@ -443,12 +443,11 @@ X11R6  doc        i686-pc-linux-gnu  lib      man      sbin         ssl
 <body>
 
 <p>
-Do polecenia <c>ls</c> można wskazać jeden lub więcej plik lub katalog. Jeżeli
-zostanie wskazany plik, wtedy polecenie <c>ls</c> wyświetli tylko ten plik.
-Jeżeli zostanie wskazany katalog, <c>ls</c> wyświetli zawartość tego katalogu.
-Opcja <c>-l</c> jest bardzo przydatna gdy dodatkowo chcemy zobaczyć informacje
-o prawach dostępu, własności, dacie modyfikacji, czy też o rozmiarze
-wyświetlonych elementów.
+Przy pomocy polecenia <c>ls</c> można wskazać na jeden lub więcej plików bądź
+katalogów. Jeżeli zostanie wskazany plik, wtedy polecenie <c>ls</c> wyświetli
+tylko ten plik. Jeżeli zostanie wskazany katalog, <c>ls</c> wyświetli zawartość tego katalogu. Opcja <c>-l</c> jest bardzo przydatna gdy dodatkowo chcemy
+zobaczyć informacje o prawach dostępu, własności, dacie modyfikacji, czy też
+o rozmiarze wyświetlonych elementów.
 </p>
 
 <p>
@@ -795,11 +794,11 @@ $ <i>mv /var/tmp/myfile.txt /home/drobbins</i>
 
 <p>
 Po wpisaniu tego polecenia plik myfile.txt zostanie przeniesiony do
-<path>/home/drobbins/myfile.txt</path>. Jeżeli <path>/home/dorbbns</path> jest
+<path>/home/drobbins/myfile.txt</path>. Jeżeli <path>/home/drobbins</path> jest
 w obrębie innego systemu plików niż <path>/var/tmp</path>, wtedy polecenie mv
 zadba o skopiowanie pliku myfile.txt na nowy system plików oraz skasowanie go z
 poprzedniego systemu plików. Jak można się domyślać, po skopiowaniu pliku
-myfile.txt na innys system plików plik myfile.txt w nowej lokalizacji będzie
+myfile.txt na inny system plików plik myfile.txt w nowej lokalizacji będzie
 posiadał nowy numer i-węzła. Dzieje się tak dlatego, ze każdy system plików
 posiada własny, niezależny zakres numerów i-węzłów.
 </p>
