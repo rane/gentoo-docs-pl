@@ -1218,7 +1218,7 @@ au BufRead,BufNewFile *.e{build,class} set ts=4 sw=4 noexpandtab
 </pre>
 
 <p>
-Jeśli używamy edytora Emacs możemy zainstalować app-emacs/gentoo-syntax 
+Jeśli używamy edytora Emacs możemy zainstalować app-emacs/gentoo-syntax
 (w GNU Emacs) lub app-xemacs/gentoo-syntax (w XEmacs). Pakiety te dostarczają
 główne formy nagłówków oraz kolorowanie skłani ebuildów oraz innych
 specyficznych dla Gentoo plików.
