@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<!-- $Header: /var/www/viewcvs.gentoo.org/raw_cvs/gentoo/xml/htdocs/proj/pl/base/amd64/howtos/index.xml,v 1.4 2006/11/08 22:51:49 shadoww Exp $ -->
+<!DOCTYPE book SYSTEM "/dtd/book.dtd">
+
+<book link="index.xml">
+<title>Poradniki dla Gentoo/AMD64</title>
+
+<author title="Opiekun">
+  <mail link="slarti@gentoo.org">Tom Martin</mail>
+</author>
+<author title="Opiekun">
+  <mail link="blubb@gentoo.org">Simon Stelling</mail>
+</author>
+<author title="Tłumaczenie">
+  <mail link="rafaeru@o2.pl">Rafał Stolarski</mail>
+</author>
+
+<abstract>
+Poradniki dla Gentoo/AMD64.
+</abstract>
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/license/by-sa/1.0 -->
+<license/>
+
+<version>2005.1</version>
+<date>2006-02-01</date>
+
+<part>
+
+<title>Poradniki do Gentoo/AMD64</title>
+
+<abstract>
+Udostępnia poradniki dla użytkowników Gentoo/AMD64.
+</abstract>
+
+
+<chapter>
+  <title>Jak zgłaszać błędy?</title>
+<abstract>
+  Dostarcza informacji o raportowaniu błędów związanych z platformą Gentoo/AMD64.
+</abstract>
+  <include href="bugs.xml"/>
+</chapter>
+<chapter>
+  <title>Opis 32-bitowego chrootowania na Gentoo/AMD64</title>
+<abstract>
+  Pomaga utworzyć 32-bitowy chroot na systemie Gentoo/AMD64.
+</abstract>
+  <include href="chroot-old.xml"/>
+</chapter>
+
+<chapter>
+  <title>Naprawa błędów -fPIC</title>
+</chapter>
+<abstract>
+  Dokument jest skierowany do deweloperów i użytkowników zainteresowanych
+  naprawą błędów -fPIC
+</abstract>
+  <include href="fpic-howto.xml"/>
+</chapter>
+
+</part>
+</book>
+
