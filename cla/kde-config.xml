@@ -1,0 +1,878 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/kde-config.xml,v 1.19 2007/06/04 15:04:59 rane Exp $ -->
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+
+<guide link="/doc/pl/kde-config.xml" lang="pl">
+<title>Konfiguracja KDE</title>
+
+<author title="Autor">
+  <mail link="swift@gentoo.org">Sven Vermeulen</mail>
+</author>
+<author title="Redaktor">
+  <mail link="greg_g@gentoo.org">Gregorio Guidi</mail>
+</author>
+<author title="Tłumaczenie">
+  <mail link="muchar@gentoo.org">Robert Muchacki</mail>
+</author>
+<author title="Tłumaczenie">
+  <mail link="stawrul@gmail.com">Waldemar Korłub</mail>
+</author>
+
+<abstract>
+KDE to jedno z najpopularniejszych środowisk graficznych. Ten przewodnik
+opisuje prawie wszystkie aspekty KDE, włączając instalację, konfigurację i
+pracę w tym środowisku.
+</abstract>
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
+<license/>
+
+<version>1.22</version>
+<date>2007-06-23</date>
+
+<chapter>
+<title>Co to jest K Desktop Environment?</title>
+<section>
+<title>Projekt</title>
+<body>
+
+<p>
+<uri link="http://www.kde.org">Projekt KDE</uri> to projekt, który ma na celu
+tworzenie darmowego oprogramowania dedykowanego dla środowiska KDE - graficznego
+środowiska o otwartym kodzie, przeznaczonego dla stacji roboczych Linux oraz
+UNIX. Rozwijaniem projektu zajmuje się kilkuset inżynierów oprogramowania z
+całego świata, którzy zgodzili się za darmo pracować dla
+projektu. Więcej informacji o KDE można uzyskać na <uri
+link="http://www.kde.org/whatiskde/project.php">stronach tego projektu</uri>.
+</p>
+
+</body>
+</section>
+<section>
+<title>Oprogramowanie</title>
+<body>
+
+<p>
+K Desktop Environment to proste w użyciu środowisko graficzne zbudowane na
+dobrze przemyślanym szkielecie programowym. Pozwala on na współdziałanie
+między aplikacjami, wykonywanie operacji na zasadzie "przeciągnij i upuść", itp.
+Oprócz obowiązkowych komponentów wymaganych przez środowisko, KDE zapewnia
+również odpowiednie aplikacje do setek zastosowań: zarządzania plikami,
+przeglądania stron WWW, prac biurowych, czy obsługi poczty
+elektronicznej. Wszystko to wchodzi w skład projektu KDE.
+</p>
+
+<p>
+Środowisko KDE jest dostępne w ponad 70 językach i jest używane przez ogromne
+rzesze użytkowników. Dla zainteresowanych, dostępnych jest wiele <uri
+link="http://www.kde.org/screenshots/">zrzutów ekranów</uri>. Aby uzyskać więcej
+informacji na temat KDE, można przeczytać artykuł <uri
+link="http://www.kde.org/whatiskde/">Co to jest KDE?</uri> (w języku angielskim)
+na <uri link="http://www.kde.org">stronie domowej KDE</uri>.
+</p>
+
+</body>
+</section>
+<section>
+<title>Społeczność</title>
+<body>
+<p>
+Istnieje wiele stron społeczności KDE. Na stronie <uri
+link="http://www.kdenews.org">KDEnews.org</uri> można znaleźć najnowsze ogólne
+informacje na temat KDE. <uri
+link="http://www.kdedevelopers.org">KDEdevelopers.org</uri> z kolei przeznaczone
+jest dla osób rozwijających KDE, zaś <uri
+link="http://www.kde-forum.org">KDE-forum</uri> jest przeznaczone do komunikacji
+pomiędzy użytkownikami. Więcej odnośników można znaleźć na stronie <uri
+link="http://www.kde.org/family/">rodziny KDE</uri>.
+</p>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Instalowanie KDE</title>
+<section>
+<title>Co jest potrzebne?</title>
+<body>
+
+<p>
+Jeśli jesteśmy zainteresowani zainstalowaniem KDE (lub wsparciem projektu KDE),
+musimy upewnić się, że we flagach USE mamy ustawioną flagę <c>kde</c> oraz
+<c>qt3</c> lub <c>qt4</c> (lub obie naraz). Zainteresowani powinni wiedzieć, że
+Qt jest biblioteką graficzną potrzebną dla poprawnego działania KDE. <c>qt3</c>
+odpowiada za wsparcie wersji 3.x, natomiast <c>qt4</c> odpowiada za wsparcie
+dla nowszej wersji 4.x. Żadna z tych flag nie jest wymagana do instalacji KDE.
+Należy natomiast pamiętać, że niektóre pakiety poprzez te flagi pozwalają na
+wybór wsparcia dla <c>qt3</c> lub <c>qt4</c>.
+</p>
+
+<p>
+KDE potrafi również samodzielnie montować urządzenia. Należy dodać <c>hal</c> do
+flag USE, jeśli chcemy zapewnić obsługę automatycznego montowania urządzeń, tak
+jak to opisano w części <uri link="#kde_device_mounting">Montowanie urządzeń w
+KDE</uri>.
+</p>
+
+<p>
+Jeśli nie będzie używane <uri link="http://www.arts-project.org/">aRts</uri> do
+obsługi multimediów, należy wyłączyć flagę USE <c>arts</c> (jest ona
+domyślnie włączona).
+</p>
+
+<note>
+W wydaniu Gentoo 2006.1 pojawił się szereg nowych profili, w tym podprofil o
+nazwie <c>desktop</c>. Użytkownicy KDE mogą chcieć się na niego przełączyć,
+jeśli jest dostępny dla ich architektury, ponieważ włącza on domyślnie serię
+flag USE, które w innym wypadku musieliby włączać ręcznie. Opis zmiany profilu
+znajduje się w tekście <uri link="/doc/pl/gentoo-upgrading.xml">Aktualizowanie
+Gentoo</uri>.
+</note>
+
+</body>
+</section>
+<section>
+<title>Instalacja KDE przy użyciu rozdzielonych pakietów</title>
+<body>
+
+<note>
+Deweloperzy zalecają użycie rozdzielonych pakietów KDE bardziej niż
+monolitycznych (chociaż obie metody instalacji zostaną przedstawione).
+</note>
+
+<p>
+Jeśli chcemy mieć jeszcze większą kontrolę, nad tym jakie elementy KDE zostaną
+zainstalować, mamy możliwość wyboru pojedynczych programów, które będziemy
+wykorzystywać. Więcej informacji na temat ebuildów poszczególnych programów KDE
+można uzyskać w dokumencie  <uri
+link="/doc/pl/kde-split-ebuilds.xml">Rozdzielone ebuildy KDE</uri>.
+</p>
+
+<p>
+Wybór co zainstalować, a co nie, w przypadku rozdzielonych ebuildów jest
+znacznie trudniejszy niż gdy korzystamy z monolitycznych pakietów. Dlatego też
+Gentoo dostarcza meta pakiety, które zawierają pewną ilość programów KDE:
+</p>
+
+<ul>
+  <li>
+    W przypadku zapotrzebowania na pełną instalację KDE, należy zainstalować
+    <c>kde-meta</c>. Ten pakiet zainstaluje wszystkie aplikacje KDE jako
+    zależności.
+  </li>
+  <li>
+    Podstawową instalację KDE można osiągnąć instalując <c>kdebase-startkde</c>.
+    W dowolnym momencie można instalować kolejne aplikacje KDE.
+  </li>
+  <li>
+    Jeśli zamierza się zainstalować coś pomiędzy <c>kde-meta</c> i
+    <c>kdebase-startkde</c>, należy wybrać pakiet <c>kdebase-meta</c>.
+    Zainstaluje on kilka dodatkowych aplikacji takich jak <c>konsole</c> czy
+    <c>kdm</c>.
+  </li>
+</ul>
+
+<p>
+Powyższe trzy opcje to skrajne możliwości. Najlepszym rozwiązaniem byłoby
+zastosowanie bezpiecznej mieszanki obu. Aby ułatwić proces podejmowania decyzji,
+poniższa tabela przedstawia krótki, niekompletny przegląd niektórych dostępnych
+pakietów KDE.
+</p>
+
+<p>
+Te pakiety <e>nie są</e> częścią instalacji <c>kdebase-startkde</c>.
+</p>
+
+<table>
+<tr>
+  <th>Nazwa pakietu</th>
+  <th>Opis</th>
+</tr>
+<tr>
+  <ti><c>akregator</c></ti>
+  <ti>
+    Aplikacja to łatwego zarządzania i przeglądania kanałów RSS.
+  </ti>
+</tr>
+<tr>
+  <ti><c>juk</c></ti>
+  <ti>
+    Obsługujący playlisty odtwarzacz multimedialny, inspirowany iTunes firmy
+    Apple.
+  </ti>
+</tr>
+<tr>
+  <ti><c>kate</c></ti>
+  <ti>
+    <uri link="http://kate.kde.org/">KDE Advanced Text Editor (KATE)</uri> to
+  edytor pozwalający na edytowanie wielu dokumentów równocześnie z kolorowaniem
+  składni, zwijaniem kodu oraz wieloma innymi możliwościami.
+  </ti>
+</tr>
+<tr>
+  <ti><c>kmail</c></ti>
+  <ti>
+    Pocztę można efektywnie zorganizować dzięki <uri
+    link="http://kmail.kde.org/">KMail</uri>.
+  </ti>
+</tr>
+<tr>
+  <ti><c>knetattach</c></ti>
+  <ti>
+    Dzięki KNetAttach (również znane jako <e>Network Folder Wizard</e>), można
+    w prosty sposób dodać zasób sieciowy do pulpitu KDE.
+  </ti>
+</tr>
+<tr>
+  <ti><c>knode</c></ti>
+  <ti>
+    KNode to posiadająca wiele możliwości przeglądarka newsów.
+  </ti>
+</tr>
+<tr>
+  <ti><c>konsole</c></ti>
+  <ti>
+    <uri link="http://konsole.kde.org/">Konsole</uri> to emulator terminala
+    przeznaczony dla KDE.
+  </ti>
+</tr>
+<tr>
+  <ti><c>kontact</c></ti>
+  <ti>
+    <uri link="http://kontact.kde.org/">Kontact</uri> to menedżer informacji
+    osobistych przeznaczony dla KDE, pozwalający zarządzać łatwiej kontaktami,
+    oraz zorganizować wspólną pracę aby przebiegała szybciej i sprawniej.  </ti>
+</tr>
+<tr>
+  <ti><c>kopete</c></ti>
+  <ti>
+    <uri link="http://kopete.kde.org/index.php">Kopete</uri> to komunikator
+    przeznaczony dla KDE wspierający wszystkie znane protokoły różnych
+    komunikatorów.
+  </ti>
+</tr>
+<tr>
+  <ti><c>korganizer</c></ti>
+  <ti>
+    <uri link="http://korganizer.kde.org/">Korganizer</uri> to kalendarz i
+    aplikacja zarządzająca czasem dla KDE.
+  </ti>
+</tr>
+<tr>
+  <ti><c>kpdf</c></ti>
+  <ti>
+    Przy pomocy <uri link="http://kpdf.kde.org/">KPDF</uri> można przeglądać i
+    pracować z plikami PDF. Program posiada unikalne cechy, które
+    znacznie ułatwiają przeglądania plików.
+  </ti>
+</tr>
+<tr>
+  <ti><c>kscd</c></ti>
+  <ti>
+    kscd to graficzny odtwarzacz płyt CD dla KDE.
+  </ti>
+</tr>
+<tr>
+  <ti><c>ksnapshot</c></ti>
+  <ti>
+    Przy pomocy ksnapshot można robić zrzuty ekranu.
+  </ti>
+</tr>
+<tr>
+  <ti><c>kuickshow</c></ti>
+  <ti>
+    kuickshow umożliwia wyświetlanie wielu rodzajów plików graficznych.
+  </ti>
+</tr>
+</table>
+
+<p>
+Jest to dopiero wierzchołek góry lodowej. Aby uzyskać informacje o wszystkich
+aplikacjach KDE, wystarczy zajrzeć do <uri
+link="http://packages.gentoo.org/packages/?category=kde-base">kategorii kde-base
+</uri>. Przeznaczenie poszczególnych programów powinno być dostępne w opisie.
+</p>
+
+<p>
+Aby podejrzeć co zainstaluje emerge, należy użyć <c>emerge -p</c> z pomocą
+<c>less</c>, w innym przypadku może być kłopot z zobaczeniem wszystkich paczek.
+</p>
+
+<pre caption="Podglądanie instalacji kde">
+<comment>(Należy wstawić wybrane pakiety)</comment>
+# <i>emerge -p kdebase-startkde | less</i>
+</pre>
+
+<p>
+Jeśli rezultat jest poprawny, wystarczy usunąć <c>-p</c>. Kompilacja zapewne
+troszeczkę potrwa. KDE jest olbrzymim środowiskiem, więc nie ma się co
+dziwić, że nie zostanie skompilowane w ciągu kilku minut.
+</p>
+
+</body>
+</section>
+<section>
+<title>Instalowanie KDE przy pomocy monolitycznych pakietów</title>
+<body>
+
+<p>
+Projekt KDE opublikował nową wersję środowiska, składającą się z 16 dużych
+pakietów. Każdy z nich zawiera wiele aplikacji (dlatego nazywane są
+monolitycznymi). Musimy zdecydować, które pakiety zainstalujemy.
+</p>
+
+
+<p>
+Możemy przejrzeć listę wszystkich pakietów jakie mogą być zainstalowane:
+</p>
+
+<pre caption="Przedstawienie wszystkich pakietów które zostaną zainstalowane z
+KDE">
+# <i>emerge --pretend kde | less</i>
+</pre>
+
+<p>
+Jeśli nie muszą być instalowane wszystkie pakiety, można zainstalować
+poszczególne osobno. Na pewno należy zainstalować pakiet <c>kdebase</c>,
+ponieważ zawiera on trzon KDE oraz wszystkie składniki potrzebne do uruchomienia
+czegokolwiek z KDE. Poniżej znajduje się tabela z dostępnymi pakietami które
+można zainstalować.
+</p>
+
+<table>
+<tr>
+  <th>Pakiet</th>
+  <th>Opis</th>
+</tr>
+<tr>
+  <ti>kdeaccessibility</ti>
+  <ti>
+    Programy przeznaczone dla osób niepełnosprawnych, tworzone w ramach projektu
+    <uri link="http://accessibility.kde.org">KDE Accessibility Project</uri>
+  </ti>
+</tr>
+<tr>
+  <ti>kdeadmin</ti>
+  <ti>
+    Programy administracyjne KDE, takie jak <c>KCron</c> <!--(Task
+    Scheduling)-->, <c>KUser</c> (zarządzanie użytkownikami) oraz <c>KDat</c>
+    (zarządzanie kopiami bezpieczeństwa)
+  </ti>
+</tr>
+<tr>
+  <ti>kdeartwork</ti>
+  <ti>
+    Różne aplikacje związane ze sztuką komputerową, takie jak wygaszacze ekranu
+    czy tematy pulpitu. Na stronie <uri
+    link="http://www.artist.kde.org">artist.kde.org</uri> można znaleźć więcej
+    informacji na ich temat.
+  </ti>
+</tr>
+<tr>
+  <ti>kdeedu</ti>
+  <ti>
+    Aplikacje edukacyjne KDE przeznaczone dla osób w wieku od 3 do 18 lat. Na
+    stronie <uri link="http://edu.kde.org">KDE Edu Project</uri> można znaleźć
+    więcej informacji.
+  </ti>
+</tr>
+<tr>
+  <ti>kdegames</ti>
+  <ti>
+    Różne gry stworzone dla KDE. Więcej informacji można znaleźć pod adresem
+    <uri link="http://games.kde.org">KDE Games Center</uri>.
+  </ti>
+</tr>
+<tr>
+  <ti>kdegraphics</ti>
+  <ti>
+    Oprogramowanie związane z grafiką, przeznaczone dla KDE, w tym
+    <c>KSnapshot</c> (oprogramowanie do tworzenia zrzutów ekranu),
+    <c>KolourPaint</c> (prosty edytor grafiki), <c>Kpdf</c> (przeglądarka plików
+    PDF), <c>KIconEdit</c> (edytor ikon) oraz <c>KPovModeler</c> (oprogramowanie
+    do modelowanie w trzech wymiarach).
+  </ti>
+</tr>
+<tr>
+ <ti>kdemultimedia</ti>
+  <ti>
+    Oprogramowanie związane z multimediami, włączając wsparcie dla aplikacji
+    obsługujących dyski CD, MP3, DVD, dźwiękowych i wideo. Więcej informacji
+    znajduje się na stronie projektu <uri link="http://multimedia.kde.org">KDE
+    Multimedia Project</uri>.
+  </ti>
+</tr>
+<tr>
+  <ti>kdenetwork</ti>
+  <ti>
+    Aplikacje związane z pracą w sieci, jak <c>Kopete</c> (wieloprotokołowy
+    komunikator), <c>kppp</c> (Dial-In) i <c>KSirc</c> (klient IRC). Należy
+    pamiętać, że <c>konqueror</c> (menedżer plików <e>i</e> przeglądarka) jest
+    częścią pakietu <c>kdebase</c>
+  </ti>
+</tr>
+<tr>
+  <ti>kdepim</ti>
+  <ti>
+    Narzędzia do zarządzania informacjami osobistymi, takie jak
+    <c>KOrganizer</c> (dziennik), <c>KAddressbook</c> (książka adresowa),
+    <c>Kontact</c> (praca grupowa) oraz <c>KMail</c> (poczta elektroniczna).
+    Więcej informacji o nich znajdziemy na stronie projektu <uri
+    link="http://pim.kde.org">KDE PIM Project</uri>.
+  </ti>
+</tr>
+<tr>
+  <ti>kdesdk</ti>
+  <ti>
+    Narzędzia do rozwijania kodu, włączając <c>KBabel</c> (narzędzie do
+    tłumaczeń), <c>KBugBuster</c> (interfejs użytkownika do śledzenia dziur w
+    KDE) oraz <c>Kompare</c> (interfejs do przedstawiania różnic w plikach).
+  </ti>
+</tr>
+<tr>
+  <ti>kdetoys</ti>
+  <ti>
+    Różne zabawki które przynoszą rozrywkę w trakcie oczekiwania na przybycie
+    pizzy. Znajdują się tu takie aplety jak <c>eyesapplet</c> oraz
+    <c>fifteenapplet</c>, ale również takie narzędzia jak <c>amor</c>, które nie
+    robią nic oprócz zjadania zasobów :)
+  </ti>
+</tr>
+<tr>
+  <ti>kdeutils</ti>
+  <ti>
+    Graficzne narzędzia systemowe takie jak <c>kcalc</c> (kalkulator),
+    <c>kdessh</c> (terminal SSH), <c>kfloppy</c> (czynności związane ze stacjami
+    dyskietek), itp.
+  </ti>
+</tr>
+<tr>
+  <ti>kde-i18n</ti>
+  <ti>
+    Internacjonalne elementy KDE. Pakiet zawiera m.in. przetłumaczoną
+    dokumentację. Więcej informacji uzyskać można na stronie <uri
+    link="http://i18n.kde.org">projektu KDE i18n</uri>.
+  </ti>
+</tr>
+</table>
+
+<p>
+Dla przykładu, aby zainstalować KDE jedynie z aplikacjami związanymi z siecią
+oraz czynnościami administracyjnymi wykonamy polecenie:
+</p>
+
+<pre caption="Przykładowa instalacja pojedynczych komponenetów KDE">
+# <i>emerge kdebase kdenetwork kdeadmin</i>
+</pre>
+
+<p>
+W przypadku wątpliwości: kompilacja KDE troszkę trwa.
+</p>
+
+</body>
+</section>
+<section>
+<title>Dodatkowe aplikacje KDE</title>
+<body>
+
+<p>
+Aplikacje KDE nie ograniczają się tylko do tych, które dołączane są do
+oficjalnych wydań tego środowiska. Istnieje wiele programów, które wykorzystują
+szkielet KDE i jego biblioteki. Poniżej znajduje się lista tylko tych
+najbardziej popularnych:
+</p>
+
+<table>
+<tr>
+  <th>Nazwa ebuilda</th>
+  <th>Opis</th>
+</tr>
+<tr>
+  <ti><c>koffice</c></ti>
+  <ti>
+    <uri link="http://www.koffice.org/">KOffice</uri> to obszerny pakiet
+    biurowy, w którego skład wchodzą aplikacje przeznaczone do edycji tekstu
+    (KWord), pracy w arkuszu kalkulacyjnym (KSpread), tworzenia prezentacji
+    (KPresenter), edycji grafiki (Krita), zarządzania bazami danych (Kexi) i
+    wiele innych. Podobnie jak KDE instalowane przez ebuildy <c>kde</c> lub
+    <c>kde-meta</c>, KOffice może zostać zainstalowany przy użyciu
+    monolitycznego pakietu (<c>koffice</c>) lub zestawu pojedynczych pakietów
+    (<c>koffice-meta</c>).
+  </ti>
+</tr>
+<tr>
+  <ti><c>amarok</c></ti>
+  <ti>
+    <uri link="http://amarok.kde.org/">amaroK</uri> to posiadający wiele
+    możliwości odtwarzacz muzyczny dla systemów Unix/Linux
+  </ti>
+</tr>
+<tr>
+  <ti><c>k3b</c></ti>
+  <ti>
+    <uri link="http://www.k3b.org/">K3B</uri> stanowi kompletne narzędzie do
+    nagrywania płyt CD/DVD z obsługą płyt audio. Nagrywanie płyt przy jego
+    użyciu jest bardzo proste.
+  </ti>
+</tr>
+<tr>
+  <ti><c>kaffeine</c></ti>
+  <ti>
+    <uri link="http://kaffeine.sourceforge.net/">Kaffeine</uri> to rozbudowany
+    odtwarzacz multimedialny dla KDE.
+  </ti>
+</tr>
+</table>
+
+</body>
+</section>
+<section>
+<title>Pierwsze wrażenia</title>
+<body>
+
+<p>
+Spójrzmy teraz na rezultat. Należy przestrzegać tego czego mama od zawsze
+nauczała o pracy na koncie roota. Dlatego też należałoby posłuchać rad mamy i
+uruchomić KDE na koncie zwykłego użytkownika. Trzeba skonfigurować sesję aby
+system uruchamiał KDE po wpisaniu <c>startx</c> w linii poleceń. Wystarczy
+wpisać <c>exec starkde</c> w <path>~/.xinitrc</path> (więcej informacji w
+akapicie <uri link="/doc/pl/xorg-config.xml#using_startx">Używanie startx</uri>
+w dokumencie <uri link="/doc/pl/xorg-config.xml">Konfiguracja serwera X</uri>):
+</p>
+
+<pre caption="Konfigurowanie lokalnej sesji">
+$ <i>echo "exec startkde" &gt; ~/.xinitrc</i>
+</pre>
+
+<p>
+Teraz trzeba wpisać <c>startx</c> w linii poleceń, aby uruchomić środowisko
+graficzne.
+</p>
+
+<pre caption="Uruchamianie KDE">
+$ <i>startx</i>
+</pre>
+
+<p>
+Na powitanie pojawi się aplikacja zwana <c>KPersonalizer</c>. Gratulacje, teraz
+trzeba tylko skonfigurować KDE...
+</p>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Konfiguracja KDE</title>
+<section>
+<title>KPersonalizer</title>
+<body>
+
+<p>
+KPersonalizer to aplikacja, która dokonuje konfiguracji KDE. Jest to bardzo
+przydatny kreator, który pozwala w szybki sposób dostosować KDE do własnych
+potrzeb. Przy pierwszym uruchomieniu KDE, KPersonalizer jest uruchamiane
+automatycznie.
+</p>
+
+<p>
+Pierwsze dane jakie należy podać to preferowany kraj oraz język. Jako że jeszcze
+nie zostały zainstalowane pakiety lokalizacyjne, dostępne języki będą bardzo
+ograniczone -- zapewne do wyboru będzie jedynie język angielski. Nie należy się
+tym przejmować, gdyż język będzie można później zmienić.
+</p>
+
+<p>
+Kolejny wybór jaki jest przedstawiany to <e>sposób zachowania się systemu</e>. W
+tym zachowanie się okien, wybór myszą, itd. Przy wybieraniu danego zachowania,
+jego opis jest przedstawiany, aby pomóc przy dokonywaniu wyboru. W razie
+niepewności, nie ma co panikować -- można zmienić to zachowanie w dowolnym
+momencie.
+</p>
+
+<p>
+W kolejnym kroku, KPersonalizer pyta o ilość graficznych urozmaiceń które
+powinny być włączone. Im więcej, tym ładniej będzie wyglądać KDE, jednak
+procesor będzie bardziej obciążony. Jednakże nie jest aż tak źle - na systemie z
+procesorem 600MHz i 128Mb pamięci, włączenie maksymalnej ilości urozmaiceń
+graficznych nadal pozwala na w miarę wygodną pracę.
+</p>
+
+<p>
+Ostatecznie, KDE pyta o styl jaki ma być używany. Styl opisuje dekorację okna,
+temat, wygląd przycisków itd. Małe okienko pozwala zorientować się w ich
+wyglądzie. Czy wspominaliśmy już, że KDE jest bardzo konfigurowalne?
+</p>
+
+<p>
+Teraz można usiąść i się cieszyć się -- KDE się uruchomi, a na ekran zawita
+ładne, uporządkowane i funkcjonalne środowisko graficzne.
+</p>
+
+</body>
+</section>
+<section>
+<title>Instalowanie innych języków</title>
+<body>
+
+<p>
+Ta sekcja przeznaczona jest dla osób, których język macierzysty jest inny niż
+angielski, lub które chcą po prostu pracować w KDE w innym języku. Zostanie tu
+opisane jak zainstalować inne języki.
+</p>
+
+<p>
+Paczki językowe znajdują się w paczce <c>kde-i18n</c>. Aby zainstalować wybrany
+pakiet lokalizacyjny, należy ustawić zmienną <c>LINGUAS</c>, aby wskazywała na
+odpowiedni(e) język(i). Rozsądne jest aby umieścić ją w
+<path>/etc/make.conf</path> tak, aby aktualizacja systemu nie usuwała pożądanych
+pakietów językowych.
+</p>
+
+<pre caption="Ustawianie LINGUAS w /etc/make.conf">
+# <i>nano -w /etc/make.conf</i>
+<comment>(Jako przykład, zostaną zainstalowane pakiety dla języka polskiego (pl)
+ oraz  francuskiego (fr))</comment>
+LINGUAS="pl fr"
+</pre>
+
+<p>
+Teraz trzeba wpisać <c>emerge kde-i18n</c>, aby zainstalować odpowiednie
+pakiety. Po instalacji, wystarczy ponownie uruchomić KDE i przejść do Centrum
+Sterowania KDE (K-menu &gt; Control Center). Jest to miejsce w
+którym można kontrolować niemalże każdą część KDE. Jest też ono znacznie
+bardziej rozbudowane niż KPersonalizer.
+</p>
+
+<p>
+Aby zmienić język, należy wejść do <c>Regional &amp; Accessibility</c>,
+<c>Country/Region &amp; Languages</c>. Tam należy dodać wybrane języki. Aby
+ujrzeć zlokalizowane KDE, wystarczy uruchomić go ponownie.
+</p>
+
+</body>
+</section>
+<section>
+<title>Graficzny ekran logowania</title>
+<body>
+
+<p>
+Aby używać programu <c>kdm</c> jako graficznego menadżera logowania (co oznacza,
+że nie trzeba będzie logować się do terminala i wpisywać <c>startx</c> za każdym
+razem), trzeba najpierw zainstalować go, a następnie zmienić jeden plik
+konfiguracyjny i ustawić system, aby uruchamiał się w trybie graficznym tuż po
+wystartowaniu, zgodnie z opisem znajdującym się poniżej.
+</p>
+
+<note>
+Użytkownicy <c>kdebase-meta</c> i <c>kde-meta</c> nie muszą dodatkowo instalować
+pakietu <c>kdm</c>. Jest on już zainstalowany. Jeśli pojawi się problem z
+pakietami blokującymi <c>kde-base/kdm</c>, należy przejść do następnego
+rozdziału.
+</note>
+
+<pre caption="Instalacja programu kdm">
+# <i>emerge --ask kdm</i>
+</pre>
+
+<p>
+W pliku <path>/etc/conf.d/xdm</path>, trzeba ustawić w zmiennej
+<c>DISPLAYMANAGER</c> wartość <c>kdm</c>.
+</p>
+
+<pre caption="Ustawianie zmiennej DISPLAYMANAGER w /etc/conf.d/xdm">
+# <i>nano -w /etc/conf.d/xdm</i>
+<comment>(Trzeba wyedytować poniższą zmienną)</comment>
+DISPLAYMANAGER="kdm"
+</pre>
+
+<p>
+Na zakończenie należy dodać <c>xdm</c> do domyślnego poziomu uruchamiania:
+</p>
+
+<pre caption="Dodawanie xdm do domyślnego poziom uruchamiania">
+# <i>rc-update add xdm default</i>
+</pre>
+
+<p>
+Po ponownym rozruchu systemu, KDM zostanie użyte jako graficzny ekran logowania.
+</p>
+
+<p>
+KDM wyświetli listę dostępnych do uruchomienia sesji, jedną z nich oczywiście
+będzie KDE, pozostałe pozycje będą zależne od zainstalowanego w systemie
+oprogramowania. Sesje dla wszystkich menedżerów okien znajdują się w katalogu
+<path>/usr/share/xsessions/</path>. Jeśli korzysta się z KDM nie trzeba zmieniać
+pliku <path>~/.xinitrc</path>.
+</p>
+
+</body>
+</section>
+<section id="kde_device_mounting">
+<title>Montowanie urządzeń w KDE</title>
+<body>
+
+<p>
+KDE daje możliwość montowania urządzeń takich jak napęd CD-ROM czy pamięć USB
+poprzez pojedyncze kliknięcie w graficznym interfejsie. Aby skorzystać z tej
+funkcjonalności konieczne jest skompilowanie KDE z flagą USE <c>hal</c> i
+zainstalowanie programów <c>dbus</c> i <c>hal</c>. Należy również dodać
+<c>dbus</c> i <c>hal</c> do domyślnego poziomu uruchamiania, a użytkownicy
+powinni być członkami grupy <c>plugdev</c>.
+</p>
+
+<pre caption="Ustawienia dla montowania urządzeń">
+# <i>emerge --ask dbus hal</i>
+# <i>rc-update add dbus default</i>
+# <i>rc-update add hald default</i>
+<comment>Add &lt;user&gt; to the plugdev group</comment>
+# <i>gpasswd -a &lt;user&gt; plugdev</i>
+</pre>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Zarządzanie instalacjami KDE</title>
+<section>
+<title>Wielokrotne instalacje</title>
+<body>
+
+<p>
+Jedną ze specyficznych cech zarządzania instalacjami KDE w Gentoo jest to, że
+kiedy nowa seria KDE zostaje opublikowana (jak na przykład seria 3.5.x,
+zastępująca serię 3.4.x), zostanie ona zainstalowana obok starej i jej nie
+nadpisze. Przykładowo, jeśli posiadamy KDE 3.4 i zainstalujemy KDE 3.5, to
+będziemy posiadali w systemie dwie wersje, jedną zainstalowaną w katalogu
+<path>/usr/kde/3.4/</path> i drugą w <path>/usr/kde/3.5/</path>.
+</p>
+
+<p>
+Należy zwrócić uwagę na fakt, że wersje KDE z różnych serii posiadają oddzielne
+katalogi z konfiguracją w katalogu domowym użytkownika. KDE 3.4 wczytuje swoje
+ustawienia z katalogu <path>/home/&lt;user&gt;/.kde3.4</path>. Gdy po raz
+pierwszy uruchomimy KDE 3.5, utworzony zostanie katalog
+<path>/home/&lt;user&gt;/.kde3.5</path>, do którego przeniesiona zostanie
+konfiguracja wersji 3.4. Pliki konfiguracyjne dwóch serii mogą być modyfikowane
+niezależnie.
+</p>
+
+<p>
+Kolejną sprawą, o której należy pamiętać w czasie aktualizacji KDE, jest
+możliwość wystąpienia problemów z dodatkowymi aplikacjami KDE, które wcześniej
+zainstalowaliśmy (jak <c>koffice</c>, <c>amarok</c> lub <c>k3b</c>). Konieczne
+jest przekompilowanie takich programów w obecności nowej wersji KDE. Gdy tylko
+zaczniemy używać nowej serii KDE, musimy powtórnie zainstalować te aplikacje,
+aby zostały one powiązane z nowymi bibliotekami.
+</p>
+
+</body>
+</section>
+<section>
+<title>Odinstalowywanie starej wersji</title>
+<body>
+
+<p>
+Posiadanie wielu wersji KDE zainstalowanych jednocześnie wywołuje problem, w
+jaki sposób usunąć starsze wersje, gdy zdecydujemy, że nie są one nam już
+potrzebne. Niestety portage nie daje możliwości odinstalowania pakietu i
+wszystkich jego zależności przy pomocy pojedynczej komendy, więc jeśli wykonamy
+polecenie <c>emerge --unmerge kde</c>, w rzeczywistości nie usuniemy pakietów
+KDE.
+</p>
+
+<p>
+Aby usunąć jakąś wersję KDE (przykładowo 3.4), poszczególne pakiety muszą zostać
+usunięte.
+</p>
+
+<pre caption="Usuwanie pakietów KDE 3.4">
+# <i>emerge --unmerge =arts-3.4* =kdelibs-3.4* =kdebase-3.4* ...</i>
+</pre>
+
+<p>
+Oczywiście jest to sposób skrajnie niewygodny, jeśli zainstalowaliśmy wiele
+programów KDE. Powyższą operację można zautomatyzować na wiele sposobów,
+poniższy jest tylko przykładem.
+</p>
+
+<p>
+Na początku wygenerujemy listę wszystkich pakietów, jakie chcemy usunąć.
+Posłużymy się narzędziem <c>equery</c>, który jest częścią pakietu
+<c>app-portage/gentoolkit</c>:
+</p>
+
+<pre caption="Generowanie listy pakietów do usunięcia">
+<comment>(Wszystkie zainstalowane pakiety KDE)</comment>
+# <i>equery list kde-base/</i>
+<comment>(Zainstalowane pakiety KDE 3.4)</comment>
+# <i>equery list kde-base/ | grep 3\.4</i>
+</pre>
+
+<p>
+Należy dwukrotnie sprawdzić, czy lista pakietów zawiera programy, które
+powinniśmy usunąć z systemu. Jeśli lista jest poprawna, możemy przekazać ją jako
+argument dla komendy <c>emerge --unmerge</c>.
+</p>
+
+<pre caption="Usuwanie wybranych pakietów">
+# <i>equery list kde-base/ | grep 3\.4 | xargs emerge --unmerge --pretend</i>
+</pre>
+
+<p>
+Sprawdźmy jeszcze raz listę programów i jeśli jest ona poprawna powtórzmy
+powyższą komendę bez parametru <c>--pretend</c>, aby rozpocząć proces
+odinstalowywania.
+</p>
+
+<p>
+Gdy ten proces zakończy się, katalog <path>/usr/kde/3.4/</path> powinien
+zawierać tylko kilka plików (głównie pliki konfiguracyjne - polityka portage
+zakłada, aby nigdy nie ingerować w konfigurację). Jeśli chcemy, możemy
+bezpiecznie usunąć katalog <path>/usr/kde/3.4/</path> razem z jego zawartością,
+aby pozbyć się pozostałości KDE 3.4.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Często zadawane pytania</title>
+<section>
+<title>KDE jest niezwykle wolne podczas startu</title>
+<body>
+
+<p>
+Trzeba upewnić się, że plik <path>/etc/hosts</path> jest prawidłowy:
+</p>
+
+<ul>
+  <li>
+    W przypadku statycznego numeru IP, trzeba upewnić się że FQDN oraz nazwa
+    hosta są odpowiednio wpisane, np. <c>192.168.0.10 tux.mydomain tux</c>
+  </li>
+  <li>
+    W przypadku adresu przydzielanego dynamicznie lub gdy nie ma w ogóle
+    dodatkowych interfejsów, należy dodać nazwę hosta w linijce z adresem
+    localhost, np. <c>127.0.0.1 localhost tux</c>
+  </li>
+</ul>
+
+<p>
+Należy upewnić się, że dla dysków uruchomione jest DMA:
+</p>
+
+<pre caption="Sprawdzanie ustawień DMA">
+# <i>hdparm /dev/hda</i>
+<comment>(...)</comment>
+using_dma       = 1 (on)
+<comment>(...)</comment>
+</pre>
+
+</body>
+</section>
+</chapter>
+
+</guide>
