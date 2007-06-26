@@ -1,0 +1,630 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sections SYSTEM "/dtd/book.dtd">
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
+
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/handbook/2007.0/hb-install-sparc-disk.xml,v 1.2 2007/05/08 21:52:24 shadoww Exp $ -->
+
+<sections>
+
+<version>8.1</version>
+<date>2007-06-26</date>
+
+<section>
+<title>Wprowadzenie do urządzeń blokowych</title>
+<subsection>
+<title>Urządzenia blokowe</title>
+<body>
+
+<p>
+Rzućmy okiem na aspekty Gentoo Linux, oraz ogólnie Linuksa, związane z dyskami.
+Omówimy systemy plików, partycje oraz urządzenia blokowe. Następnie
+przeprowadzimy Cię przez proces podziału twardego dysku, abyś mógł jak najlepiej
+wykorzystać dostępną przestrzeń.
+</p>
+
+<p>
+Zaczniemy od omówienia <e>urządzeń blokowych</e>. Najpopularniejszym z nich
+prawdopodobnie jest <path>/dev/hda</path>, reprezentujący w Linuksie pierwszy
+napęd IDE. Jeśli posiadasz urządzenia SCSI lub SATA pierwszym takim
+dyskiem jest <path>/dev/sda</path>.
+</p>
+
+<p>
+Urządzenia blokowe stanowią abstrakcyjny interfejs dysków. Programy
+użytkownika mogą z nich korzystać nie martwiąc się czy napędy
+są typu IDE, SCSI, lub jeszcze innego. Przechowywane dane adresuje się
+za jako ciąg 512-bajtowych bloków.
+</p>
+
+<p>
+Urządzenia blokowe są reprezentowane przez pliki w katalogu <path>/dev/</path>.
+Zwykle pierwszy napęd SCSI ma nazwę <path>/dev/sda</path>, drugi
+<path>/dev/sdb</path>, i tak dalej. Dyski IDE nazywane są podobnie, z tym, że
+ich nazwy rozpoczynają się od liter hd-, a nie sd-. Jeśli masz dyski IDE to
+pierwszy z nich będzie miał nazwę <path>/dev/hda</path>, drugi
+<path>/dev/hdb</path> i tak dalej.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Partycje</title>
+<body>
+
+<p>
+Teoretycznie możliwe jest przeznaczenie całego dysku na system,
+zazwyczaj nie jest to jednak rozwiązanie zbyt praktyczne. Zamiast tego dzielimy
+napęd na mniejsze i dużo łatwiejsze w zarządzaniu urządzenia blokowe.
+W większości platform nazywane są one <e>partycjami</e>. Część architektur
+korzystająca z podobnych technik nazywa je <e>plastrami</e>.
+</p>
+
+<p>
+Pierwsza partycja na pierwszym dysku SCSI to <path>/dev/sda1</path>, druga to
+<path>/dev/sda2</path> i tak dalej. Analogicznie pierwsze dwie partycje dysku
+IDE będą miały nazwy <path>/dev/hda1</path> i <path>/dev/hda2</path>.
+</p>
+
+<p>
+Trzecia partycja na systemach Sun jest ustawiona jako "całodyskowa". Nie może
+zawierać żadnego systemu plików.
+</p>
+
+<p>
+Użytkownicy przyzwyczajeni do schematu partycjonowania w stylu DOS powinni
+pamiętać, że Sun nie ma partycji podstawowych i rozszerzonych. Zamiast tego
+można mieć maksymalnie 8 zwykłych partycji dyskowych, z tym, że trzecia jest
+zarezerwowana do specjalnych celów.
+</p>
+
+</body>
+</subsection>
+</section>
+<section>
+<title>Projektowanie schematu podziału</title>
+<subsection>
+<title>Domyślny schemat podziału</title>
+<body>
+
+<p>
+Jeśli nie masz ochoty samodzielnie rozrysowywać schematu podziału
+swojego dysku, możesz skorzystać z domyślnego, który prezentujemy poniżej.
+Jeśli Twój system oparty jest o napędy IDE musisz  w poniższych przykładach
+zmienić wszystkie <c>sda</c> na <c>hda</c>.
+</p>
+
+<p>
+Nie polecamy posiadania osobnej partycji <path>/boot</path> na
+SPARC, ponieważ bardzo to komplikuje konfigurację bootloadera.
+</p>
+
+
+
+<table>
+<tr>
+  <th>Partycja:</th>
+  <th>System plików:</th>
+  <th>Rozmiar:</th>
+  <th>Punkt montowania:</th>
+  <th>Opis:</th>
+</tr>
+<tr>
+    <ti>/dev/sda1</ti>
+    <ti>ext3</ti>
+    <ti>&lt;2 GB</ti>
+    <ti>/</ti>
+    <ti>
+      Partycja root. Na systemach sparc64 ze starszymi wersjami OBP <e>musi</e>
+      mieć rozmiar mniejszy niż 2 GB, oraz być pierwszą partycją na dysku.
+    </ti>
+</tr>
+<tr>
+    <ti>/dev/sda2</ti>
+    <ti>swap</ti>
+    <ti>512 MBytes</ti>
+    <ti>brak</ti>
+    <ti>
+  Partycja wymiany. Żeby wykonać bootstrap oraz kilka większych kompilacji
+  musisz mieć co najmniej 512MB RAM (łącznie z partycją wymiany).
+    </ti>
+</tr>
+<tr>
+    <ti>/dev/sda3</ti>
+    <ti>brak</ti>
+    <ti>cały dysk</ti>
+    <ti>brak</ti>
+    <ti>Parycja "whole disk". Niezbędna dla systemów SPARC.</ti>
+</tr>
+<tr>
+    <ti>/dev/sda4</ti>
+    <ti>ext3</ti>
+    <ti>co najmniej 2 GB</ti>
+    <ti>/usr</ti>
+    <ti>
+    Partycja /usr. Tu będą instalowane programy. Domyślnie na tej partycji
+    znajduje się również drzewo Portage.
+    </ti>
+</tr>
+<tr>
+    <ti>/dev/sda5</ti>
+    <ti>ext3</ti>
+    <ti>co najmniej 1GB</ti>
+    <ti>/var</ti>
+    <ti>
+  Partycja /var. Używana do przechowywania danych generowanych przez programy.
+  Domyślnie Portage używa tej partycji jako miejsca, gdzie kompiluje programy.
+  Jeśli zamierzasz skompilować kilka większych programów jak Mozilla czy
+  OpenOffice.org będziesz potrzebował ponad 1GB miejsca na tymczasowe
+  pliki.
+    </ti>
+</tr>
+<tr>
+    <ti>/dev/sda6</ti>
+    <ti>ext3</ti>
+    <ti>pozostałe miejsce</ti>
+    <ti>/home</ti>
+    <ti>Partycja /home. Tu będą znajdować się katalogi domowe użytkowników.</ti>
+</tr>
+</table>
+
+</body>
+</subsection>
+</section>
+
+<section id="fdisk">
+<title>Partycjonowanie dysku za pomocą fdisk</title>
+<subsection>
+<body>
+
+<p>
+Teraz pokażemy jak utworzyć partycje takie jak te zaprezentowane w powyższym
+przykładowym schemacie podziału dysku:
+</p>
+
+<table>
+<tr>
+  <th>Partycja</th>
+  <th>Opis</th>
+</tr>
+<tr>
+    <ti>/dev/sda1</ti>
+    <ti>/</ti>
+</tr>
+<tr>
+    <ti>/dev/sda2</ti>
+    <ti>swap</ti>
+</tr>
+<tr>
+    <ti>/dev/sda3</ti>
+    <ti>whole disk slice</ti>
+</tr>
+<tr>
+    <ti>/dev/sda4</ti>
+    <ti>/usr</ti>
+</tr>
+<tr>
+    <ti>/dev/sda5</ti>
+    <ti>/var</ti>
+</tr>
+<tr>
+    <ti>/dev/sda6</ti>
+    <ti>/home</ti>
+</tr>
+</table>
+
+<p>
+Możesz dostosować ten schemat do swoich potrzeb. Pamiętaj jednak, że na
+starszych systemach partycja root musi znajdować się na pierwszych 2GB dysku.
+Pamiętaj również, że na dyskach SCSI i SATA nie możesz mieć więcej niż 15
+partycji.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Uruchamianie fdisk</title>
+<body>
+
+<p>
+Uruchom <c>fdisk</c> dla swojego dysku:
+</p>
+
+<pre caption="Uruchamianie fdisk">
+# <i>fdisk /dev/sda</i>
+</pre>
+
+<p>
+Twoim oczom ukaże się jego znak zachęty:
+</p>
+
+<pre caption="Znak zachęty fdisk">
+Command (m for help):
+</pre>
+
+<p>
+Aby wyświetlić dostępne partycje, wpisz <c>p</c>:
+</p>
+
+<pre caption="Wyświetlanie dostępnych partycji">
+Command (m for help): <i>p</i>
+
+Disk /dev/sda (Sun disk label): 64 heads, 32 sectors, 8635 cylinders
+Units = cylinders of 2048 * 512 bytes
+
+   Device Flag    Start       End    Blocks   Id  System
+/dev/sda1        0       488    499712   83  Linux native
+/dev/sda2      488       976    499712   82  Linux swap
+/dev/sda3        0      8635   8842240    5  Whole disk
+/dev/sda4      976      1953   1000448   83  Linux native
+/dev/sda5     1953      2144    195584   83  Linux native
+/dev/sda6     2144      8635   6646784   83  Linux native
+</pre>
+
+<p>
+Zwróć uwagę na <c>Sun Disk Label</c>. Jeśli go brakuje, oznacza to że
+dysk korzysta z partycji DOS. W takim razie, aby stworzyć
+tablicę partycji Sun, wpisz <c>s</c>.
+</p>
+
+<pre caption="Tworzenie Sun Disklabel">
+Command (m for help): s
+Building a new sun disklabel. Changes will remain in memory only,
+until you decide to write them. After that, of course, the previous
+content won't be recoverable.
+
+Drive type
+   ?   auto configure
+   0   custom (with hardware detected defaults)
+   a   Quantum ProDrive 80S
+   b   Quantum ProDrive 105S
+   c   CDC Wren IV 94171-344
+   d   IBM DPES-31080
+   e   IBM DORS-32160
+   f   IBM DNES-318350
+   g   SEAGATE ST34371
+   h   SUN0104
+   i   SUN0207
+   j   SUN0327
+   k   SUN0340
+   l   SUN0424
+   m   SUN0535
+   n   SUN0669
+   o   SUN1.0G
+   p   SUN1.05
+   q   SUN1.3G
+   r   SUN2.1G
+   s   IOMEGA Jaz
+Select type (? for auto, 0 for custom): <i>0</i>
+Heads (1-1024, default 64):
+Using default value 64
+Sectors/track (1-1024, default 32):
+Using default value 32
+Cylinders (1-65535, default 8635):
+Using default value 8635
+Alternate cylinders (0-65535, default 2):
+Using default value 2
+Physical cylinders (0-65535, default 8637):
+Using default value 8637
+Rotation speed (rpm) (1-100000, default 5400): <i>10000</i>
+Interleave factor (1-32, default 1):
+Using default value 1
+Extra sectors per cylinder (0-32, default 0):
+Using default value 0
+</pre>
+
+<p>
+Właściwe wartości parametrów znajdziesz w dokumentacji swojego dysku. Zwykle
+opcja automatycznej konfiguracji działa bez zarzutu.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Usuwanie istniejących partycji</title>
+<body>
+
+<p>
+Nadszedł czas na pozbycie się istniejących partycji. Do usuwania
+służy polecenie <c>d</c>. Wpisz je i naciśnij Enter. Zostaniesz zapytany
+o numer partycji. Jeśli ma to być <path>/dev/hda1</path>, wpisz:
+</p>
+
+<pre caption="Usuwanie partycji">
+Command (m for help): <i>d</i>
+Partition number (1-4): <i>1</i>
+</pre>
+
+<p>
+<e>Nie powineneś kasować partycji numer 3 (whole disk).</e> Jeśli ta partycja
+nie istnieje przejdź do sekcji "Tworzenie Sun Disklabel" powyżej i wykonaj
+zawarte w niej instrukcje.
+</p>
+
+<p>
+Po usunięciu wszystkich partycji, listing podziału powinien wyglądać podobnie:
+</p>
+
+<pre caption="Pusty listing podziału">
+Command (m for help): <i>p</i>
+
+Disk /dev/sda (Sun disk label): 64 heads, 32 sectors, 8635 cylinders
+Units = cylinders of 2048 * 512 bytes
+
+   Device Flag    Start       End    Blocks   Id  System
+/dev/sda3        0      8635   8842240    5  Whole disk
+</pre>
+
+
+</body>
+</subsection>
+
+<subsection>
+<title>Tworzenie partycji root</title>
+<body>
+
+<p>
+Stwórz teraz partycję root. W tym celu ponownie skorzystaj
+z polecenia <c>n</c>. Następnie wpisz <c>4</c>, żeby wybrać czwartą
+partycję - w naszym przypadku <path>/dev/hda4</path>. Zapytany o
+pierwszy i ostatni cylinder wciśnij Enter. Dzięki temu
+partycja zajmie całą pozostałą przestrzeń. Kiedy skończysz
+polecenie <c>p</c> powinno dawać następujący rezultat:
+</p>
+
+<pre caption="Tworzenie partycji root">
+Command (m for help): <i>n</i>
+Partition number (1-8): <i>1</i>
+First cylinder (0-8635): <i>(press Enter)</i>
+Last cylinder or +size or +sizeM or +sizeK (0-8635, default 8635): <i>+512M</i>
+</pre>
+
+<p>
+Teraz po wpisaniu <c>p</c> powinieneś zobaczyć następujący listing partycji:
+</p>
+
+<pre caption="Listing kompletnej tablicy partycji">
+Command (m for help): <i>p</i>
+
+Disk /dev/sda (Sun disk label): 64 heads, 32 sectors, 8635 cylinders
+Units = cylinders of 2048 * 512 bytes
+
+   Device Flag    Start       End    Blocks   Id  System
+/dev/sda1        0       488    499712   83  Linux native
+/dev/sda3        0      8635   8842240    5  Whole disk
+</pre>
+
+</body>
+</subsection>
+<subsection>
+<title>Tworzenie partycji wymiany</title>
+<body>
+
+<p>
+Pora stworzyć partycję wymiany. W tym celu skorzystaj z polecenia <c>n</c> aby
+rozpocząć proces zakładania, następnie wpisz <c>2</c> aby wybrać drugą
+partycję, w naszym przypadku <path>/dev/sda2</path>. Zapytany o pierwszy
+cylinder wciśnij Enter, natomiast na pytanie o ostatni wpisz <c>+512M</c>
+aby ustalić jej rozmiar na 512MB. Następnie wpisz <c>t</c> aby zmienić
+typ partycji i wpisz <c>82</c> żeby ustawić go na "Linux Swap". Po ukończeniu
+listing partycji powinien wyglądać następująco:
+</p>
+
+<pre caption="Listing partycji">
+Command (m for help): <i>p</i>
+
+Disk /dev/sda (Sun disk label): 64 heads, 32 sectors, 8635 cylinders
+Units = cylinders of 2048 * 512 bytes
+
+   Device Flag    Start       End    Blocks   Id  System
+/dev/sda1        0       488    499712   83  Linux native
+/dev/sda2      488       976    499712   82  Linux swap
+/dev/sda3        0      8635   8842240    5  Whole disk
+</pre>
+
+</body>
+</subsection>
+<subsection>
+<title>Tworzenie partycji /usr, /var i /home</title>
+<body>
+
+<p>
+W końcu przyszła kolej na utworzenie partycji /usr, /var i /home. Tak jak
+wcześniej wpisz <c>n</c> w celu utworzenia nowej partycji, następnie naciśnij
+<c>4</c>, aby utworzyć trzecią partycję, w naszym przypadku
+<path>/dev/sda4</path>. Kiedy zostaniesz zapytany o pierwszy cylinder wciśnij
+po prostu enter. Kiedy program zapyta o ostatni cylinder wpisz wartość
+<c>+2048M</c>, co utworzy partycję o rozmiarze 2 GB. Powtórz ten proces dla
+<path>sda5</path> i <path>sda6</path>, podając za każdym razem odpowiedni
+żądany rozmiar. Kiedy skończysz powinieneś ujrzeć coś takiego:
+</p>
+
+<pre caption="Końcowy listing kompletnej tablicy partycji">
+Command (m for help): <i>p</i>
+
+Disk /dev/sda (Sun disk label): 64 heads, 32 sectors, 8635 cylinders
+Units = cylinders of 2048 * 512 bytes
+
+   Device Flag    Start       End    Blocks   Id  System
+/dev/sda1        0       488    499712   83  Linux native
+/dev/sda2      488       976    499712   82  Linux swap
+/dev/sda3        0      8635   8842240    5  Whole disk
+/dev/sda4      976      1953   1000448   83  Linux native
+/dev/sda5     1953      2144    195584   83  Linux native
+/dev/sda6     2144      8635   6646784   83  Linux native
+</pre>
+
+</body>
+</subsection>
+<subsection>
+<title>Zapisywanie zmian i opuszczanie programu</title>
+<body>
+
+<p>
+Aby zapisać wprowadzone zmiany i opuścić <c>fdisk</c> wpisz w:
+</p>
+
+<pre caption="Zapisywanie zmian i opuszczanie programu">
+Command (m for help): <i>w</i>
+</pre>
+
+<p>
+Kiedy już skończysz tworzyć partycje przejdź do paragrafu <uri
+link="#filesystems">Tworzenie systemów plików</uri>.
+</p>
+
+</body>
+</subsection>
+</section>
+<section id="filesystems">
+<title>Tworzenie systemów plików</title>
+<subsection>
+<title>Wprowadzenie</title>
+<body>
+
+<p>
+Po utworzeniu partycji nadszedł czas na założenie na nich systemów plików.
+Jeśli nie obchodzi Cię jakie wybierzesz lub jesteś zadowolony z domyślnych
+ustawień w podręczniku, przejdź do paragrafu <uri
+link="#filesystems-apply">Zakładanie na partycji systemu plików</uri>.
+W przeciwnym wypadku czytaj dalej aby dowiedzieć się co nieco na ich temat.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Systemy plików?</title>
+<body>
+
+<p>
+Jeśli chodzi o architekturę SPARC to polecamy wybór sprawdzonych i stabilnych
+systemów plików ext2 i ext3. Pozostałe raczej nie będą działały poprawnie.
+</p>
+
+<p>
+<b>ext2</b> to sprawdzony i popularny linuksowy system plików, którego jedyną
+wadą jest to, że nie posiada księgowania. Powoduje to, iż jego regularne
+kontrole przy starcie systemu bywają długotrwałe. Obecnie istnieją nowoczesne
+systemy plików z księgowaniem, które można szybko sprawdzić i to właśnie te
+polecamy naszym użytkownikom. Księgowanie zapobiega długotrwałym kontrolom
+podczas uruchamiania systemu oraz ewentualnym błędom spójności danych.
+</p>
+
+<p>
+<b>ext3</b> to odpowiednik ext2 posiadający księgowanie w trybach full oraz
+ordered, dzięki czemu w razie awarii dane odzyskiwane są błyskawicznie. ext3
+używa indeksu drzewa HTree, który zapewnia wysoką wydajność w prawie wszystkich
+zastosowaniach. Jest on bardzo dobrym i niezawodnym rozwiązaniem.
+</p>
+
+</body>
+</subsection>
+<subsection id="filesystems-apply">
+<title>Zakładanie systemu plików na partycji</title>
+<body>
+
+<p>
+Aby założyć na woluminie lub partycji system plików skorzystaj z
+odpowiedniego narzędzia:
+</p>
+
+<table>
+<tr>
+  <th>System plików</th>
+  <th>Program do zakładania</th>
+</tr>
+<tr>
+  <ti>ext2</ti>
+  <ti><c>mke2fs</c></ti>
+</tr>
+<tr>
+  <ti>ext3</ti>
+  <ti><c>mke2fs -j</c></ti>
+</tr>
+</table>
+
+<p>
+Na przykład jeśli chcesz utworzyć system plików ext2 na partycji root
+(<path>/dev/sda1</path> w naszym przykładzie), oraz ext3 na partycjach
+<path>/usr</path>, <path>/var</path> i <path>/home</path>
+(<path>/dev/sda4</path>, <path>5</path> i <path>6</path> w naszym przykładzie)
+powinieneś wpisać następujące polecenia:
+</p>
+
+<pre caption="Tworzenie systmu plików na partycjach">
+# <i>mke2fs /dev/sda1</i>
+# <i>mke2fs -j /dev/sda4</i>
+# <i>mke2fs -j /dev/sda5</i>
+# <i>mke2fs -j /dev/sda6</i>
+</pre>
+
+</body>
+</subsection>
+<subsection>
+<title>Aktywowanie partycji wymiany</title>
+<body>
+
+<p>
+Do tworzenia partycji wymiany używamy programu <c>mkswap</c>:
+</p>
+
+<pre caption="Tworzenie partycji wymiany">
+# <i>mkswap /dev/sda2</i>
+</pre>
+
+<p>
+Aby aktywować partycję wymiany użyj programu <c>swapon</c>:
+</p>
+
+<pre caption="Aktywacja partycji wymiany">
+# <i>swapon /dev/sda2</i>
+</pre>
+
+<p>
+Utwórz i aktywuj swoją partycję wymiany przy pomocy poleceń podanych powyżej.
+</p>
+
+</body>
+</subsection>
+</section>
+<section>
+<title>Montowanie</title>
+<body>
+
+<p>
+Po założeniu partycji i utworzeniu systemów plików, nadszedł czas na ich
+zamontowanie. Służy do tego program <c>mount</c>. Nie zapomnij utworzyć
+odpowiednich katalogów dla każdego z nich. Na przykład:
+</p>
+
+<pre caption="Mountowanie partycji">
+# <i>mount /dev/sda1 /mnt/gentoo</i>
+# <i>mkdir /mnt/gentoo/usr</i>
+# <i>mount /dev/sda4 /mnt/gentoo/usr</i>
+# <i>mkdir /mnt/gentoo/var</i>
+# <i>mount /dev/sda5 /mnt/gentoo/var</i>
+# <i>mkdir /mnt/gentoo/home</i>
+# <i>mount /dev/sda6 /mnt/gentoo/home</i>
+</pre>
+
+<note>
+Jeżeli chcesz przenieść <path>/tmp</path> na oddzielną partycję,
+nie zapomnij po zamontowaniu odpowiedni poprawić praw dostępu: <c>chmod
+1777 /mnt/gentoo/tmp</c>. Dotyczy to również <path>/var/tmp</path>.
+</note>
+
+<p>
+Musimy też zamontować system plików proc (wirtualny interfejs jądra)
+w <path>/proc</path>. Najpierw jednak umieścimy na dysku kilka plików.
+</p>
+
+<p>
+Kiedy skończysz przejdź do rozdziału <uri
+link="?part=1&amp;chap=5">Wypakowywanie plików instalacyjnych</uri>.
+</p>
+
+</body>
+</section>
+</sections>
+

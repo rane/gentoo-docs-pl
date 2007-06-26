@@ -1,0 +1,637 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sections SYSTEM "/dtd/book.dtd">
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
+
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/handbook/hb-install-ia64-disk.xml,v 1.3 2007/05/16 00:31:59 rane Exp $ -->
+
+<sections>
+
+<version>3.2</version>
+<date>2007-06-26</date>
+
+<section>
+<title>Wprowadzenie do urządzeń blokowych</title>
+<subsection>
+<title>Urządzenia blokowe</title>
+<body>
+
+<p>
+Rzućmy okiem na aspekty Gentoo Linux oraz ogólnie Linuksa związane z dyskami.
+Omówimy systemy plików, partycje oraz urządzenia blokowe. Następnie opiszemy
+proces podziału twardego dysku tak. aby jak najlepiej wykorzystać dostępne
+miejsce.
+</p>
+
+<p>
+Zaczniemy od omówienia <e>urządzeń blokowych</e>. Najpopularniejszym z nich
+prawdopodobnie jest <path>/dev/hda</path> reprezentujący w Linuksie pierwszy
+napęd IDE. U posiadaczy urządzeń SCSI lub SATA pierwszym takim dyskiem jest
+<path>/dev/sda</path>.
+</p>
+
+<p>
+Urządzenia blokowe stanowią abstrakcyjny interfejs dysków. Programy użytkownika
+mogą z nich korzystać nie martwiąc się o to czy napędy są typu IDE, SCSI czy
+jakiegoś innego. Przechowywane dane adresuje się jako ciąg 512-bajtowych bloków.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Partycje</title>
+<body>
+
+<p>
+Teoretycznie przeznaczenie na system całego dysku jest możliwe, zazwyczaj nie
+jest to jednak zbyt dobre rozwiązanie. Zamiast tego dzielimy napęd na mniejsze i
+dużo łatwiejsze w zarządzaniu urządzenia blokowe.  W <keyval
+id="arch"/>systemach opartych na architekturze nazywane są one
+<e>partycjami</e>.
+</p>
+
+<p>
+Systemy Itanium korzystają z EFI, Extensible Firmware Interface, do
+uruchamiania. Format tabeli partycji rozumiany przez EFI nazywa się GPT (GUID
+Partition Table). Program partycjonujący, który rozumie GPT nazywa się
+"parted", więc jest to narzędzie, z którego będziemy korzystali poniżej.
+Dodatkowo EFI potrafi czytać tylko system plików FAT, więc takiego formatu
+należy użyć dla partycji rozruchowej, gdzie "elilo" zainstaluje jądro.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Zaawansowane metody przechowywania danych</title>
+<body>
+
+<p>
+Płyty instalacyjne dla architektury <keyval id="arch"/> posiadają obsługę EVMS
+oraz LVM2, co znacznie rozszerza możliwości partycjonowania dysków.  W
+Podręczniku skupimy się na tworzeniu "zwykłych" partycji, warto jednak wiedzieć,
+że możliwe jest korzystanie również z nowocześniejszych rozwiązań.
+</p>
+
+</body>
+</subsection>
+</section>
+<section>
+<title>Projektowanie schematu podziału</title>
+<subsection>
+<title>Domyślny schemat podziału</title>
+<body>
+
+<p>
+Można pominąć samodzielne rozrysowywanie schematu podziału dysku i po prostu
+skorzystać z naszego:
+</p>
+
+<table>
+  <tr>
+    <th>Partycja</th>
+    <th>System plików</th>
+    <th>Rozmiar</th>
+    <th>Opis</th>
+  </tr>
+  <tr>
+    <ti><path>/dev/sda1</path></ti>
+    <ti>vfat</ti>
+    <ti>32M</ti>
+    <ti>Partycja rozruchowa EFI</ti>
+  </tr>
+  <tr>
+    <ti><path>/dev/sda2</path></ti>
+    <ti>(swap)</ti>
+    <ti>512M</ti>
+    <ti>Partycja wymiany</ti>
+  </tr>
+  <tr>
+    <ti><path>/dev/sda3</path></ti>
+    <ti>ext3</ti>
+    <ti>Rest of the disk</ti>
+    <ti>Partycja główna</ti>
+  </tr>
+</table>
+
+<p>
+W dalszej części tekstu wyjaśnimy jak wiele i jak dużych partycji należy
+utworzyć. Można pominąć te informacje i przejść bezpośrednio
+do <uri link="#parted">partycjonowania dysku przy pomocy parted</uri>.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Jak dużo i o jakim rozmiarze?</title>
+<body>
+
+<p>
+Ilość partycji ściśle zależy od danego środowiska. Na przykład, jeśli
+administruje się systemem mającym wielu użytkowników, prawdopodobnie uzna się
+stosowne oddzielenie <path>/home</path> aby poprawić bezpieczeństwo i uprościć
+tworzenie kopii zapasowych. Jeżeli docelowym zastosowaniem Gentoo jest serwer
+poczty, na osobnej partycji należy umieścić <path>/var</path>, gdzie
+przechowywane są listy. Dobry wybór systemu plików może znacznie zwiększyć
+wydajność. Oddzielenie /opt jest dobrym rozwiązaniem na serwerach gier, gdyż
+większość używanego oprogramowania zostanie tam zainstalowana. Powód jest
+podobny jak przy <path>/home</path>: bezpieczeństwo i kopie zapasowe. Na pewno
+warto zapewnić dużo wolnego miejsca na <path>/usr</path>, ponieważ będą tam się
+znajdowały nie tylko dane wszystkich zainstalowanych pakietów, ale również
+ważące 500 MB drzewo Portage i kody źródłowe programów.
+</p>
+
+<p>
+Jak widać, wiele zależy od oczekiwanego rezultatu. Rozdzielenie partycji ma
+wiele zalet:
+</p>
+
+<ul>
+<li>
+  Daje możliwość wybrania dla poszczególnych partycji najbardziej wydajnego w
+  danym zastosowaniu systemu plików.
+</li>
+<li>
+  Zapełnienie całego wolnego miejsca na partycji przez wadliwie działający
+  program nie będzie miało szkodliwego wpływu na całość systemu.
+</li>
+<li>
+  Możliwe będzie skrócenie czasu kontroli systemów plików dzięki jednoczesnemu
+  dokonywaniu jej na kilku partycjach (ma to znaczenie zwłaszcza na komputerze
+  z wieloma twardymi dyskami).
+</li>
+<li>
+  Montując część partycji lub woluminów z opcjami read-only (tylko do odczytu),
+  nosuid (ignorowane są bity setuid), noexec (ignorowane są bity wykonywalności)
+  itd. można znacznie poprawić bezpieczeństwo.
+</li>
+</ul>
+
+<p>
+Niestety zbyt rozbudowany schemat podziału niesie również ze sobą spore
+problemy. Źle zaplanowany zaowocuje pustkami na zbyt dużych i ciasnotą na zbyt
+małych partycjach. Istnieje również limit 15-tu partycji dla SCSI i SATA.
+</p>
+
+<p>
+W przykładzie pokażemy partycjonowanie dysku o rozmiarze 20GB wykorzystywanego w
+laptopie z zainstalowanym serwerem poczty, stron internetowych oraz środowiskiem
+gnome:
+</p>
+
+<pre caption="Przykładowy podział dysku">
+$ <i>df -h</i>
+Filesystem    Type    Size  Used Avail Use% Mounted on
+/dev/hda5     ext3    509M  132M  351M  28% /
+/dev/hda2     ext3    5.0G  3.0G  1.8G  63% /home
+/dev/hda7     ext3    7.9G  6.2G  1.3G  83% /usr
+/dev/hda8     ext3   1011M  483M  477M  51% /opt
+/dev/hda9     ext3    2.0G  607M  1.3G  32% /var
+/dev/hda1     ext2     51M   17M   31M  36% /boot
+/dev/hda6     swap    516M   12M  504M   2% &lt;nie zamontowany&gt;
+<comment>(Zostało 2GB nie przydzielonego do żadnej partycji miejsca -do wykorzystania w przyszłości)</comment>
+</pre>
+
+<p>
+<path>/usr</path> jest niemal w pełni zajęty (wykorzystane 83%), ale po
+instalacji wszystkich potrzebnych pakietów nie będzie się on zbytnio rozrastał.
+Przeznaczenie kilku gigabajtów na <path>/var</path> może wydać się zbyt
+rozrzutne. Należy jednak zwrócić uwagę, że Gentoo kompiluje tam domyślnie
+wszystkie pakiety. Jeżeli chcemy, aby <path>/var</path> posiadało mniejszy
+rozmiar, na przykład 1GB, powinniśmy zmodyfikować zmienną <c>PORTAGE_TMPDIR</c>
+w pliku <path>/etc/make.conf</path>, tak aby prowadziła do partycji z
+odpowiednią ilością wolnego miejsca do kompilacji ekstremalnie dużych pakietów
+takich jak OpenOffice.
+</p>
+
+</body>
+</subsection>
+</section>
+<section id="parted">
+<title>Partycjonowanie dysku przy pomocy parted</title>
+<subsection>
+<body>
+
+<p>
+Teraz przedstawimy proces tworzenia partycji wypisanych w naszym przykładowym
+schemacie podziału dysku. Oto on:
+</p>
+
+<table>
+<tr>
+  <th>Partycja</th>
+  <th>Opis</th>
+</tr>
+<tr>
+  <ti><path>/dev/sda1</path></ti>
+  <ti>Partycja rozruchowa EFI</ti>
+</tr>
+<tr>
+  <ti><path>/dev/sda2</path></ti>
+  <ti>Partycja wymiany</ti>
+</tr>
+<tr>
+  <ti><path>/dev/sda3</path></ti>
+  <ti>Partycja główna</ti>
+</tr>
+</table>
+
+<p>
+Ten schemat oczywiście można (i zwykle należy) zmodyfikować stosownie do
+własnych potrzeb.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Wyświetlanie aktualnego podziału dysku</title>
+<body>
+
+<p>
+<c>parted</c> jest edytorem GNU partycji. Uruchamiamy <c>parted</c> na naszym
+dysku (w powyższym przykładzie jest to <path>/dev/sda</path>):
+</p>
+
+<pre caption="Uruchamianie parted">
+# <i>parted /dev/sda</i>
+</pre>
+
+<p>
+Po chwili ukaże się taki znak zachęty <c>parted</c>:
+</p>
+
+<pre caption="Znak zachęty parted">
+GNU Parted 1.6.22
+Copyright (C) 1998 - 2005 Free Software Foundation, Inc.
+This program is free software, covered by the GNU General Public License.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without
+even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+PURPOSE.  See the GNU General Public License for more details.
+
+Using /dev/sda
+(parted)
+</pre>
+
+<p>
+W tym miejscu jedną z dostępnych komend będzie <c>help</c>, z którego należy
+skorzystać jeśli chcemy poznać pozostałe komendy. Kolejną komendą jest
+<c>print</c>, który powinniśmy wprowadzić chcąc wyświetlić obecną konfigurację
+partycji:
+</p>
+
+<pre caption="Przykładowa konfiguracja partycji">
+(parted) <i>print</i>
+Disk geometry for /dev/sda: 0.000-34732.890 megabytes
+Disk label type: gpt
+Minor    Start       End     Filesystem  Name                  Flags
+1          0.017    203.938  fat32                             boot
+2        203.938   4243.468  linux-swap
+3       4243.469  34724.281  ext3
+</pre>
+
+<p>
+Ta konkretna konfiguracja jest bardzo podobna do tej proponowanej wcześniej.
+Zwróćmy uwagę, że w drugiej linii tablica partycji podana jest w GPT.  Jeżeli
+jest inaczej to system ia64 nie będzie w stanie się uruchomić z tego dysku. Dla
+potrzeb tego przewodnika usuniemy partycje i stworzymy je od nowa.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Usuwanie partycji</title>
+<body>
+
+<note>
+W przeciwieństwie do fdisk i innych programów partycjonujących, które odkładają
+wykonanie zmian aż do podania instrukcji zapisu, polecenia w parted mają efekt
+natychmiastowy. Po rozpoczęciu tworzenia i usuwania partycji nie ma możliwości
+wyjścia z programu bez zapisu... wszystko już zostało zapisane.
+</note>
+
+<p>
+Łatwym sposobem usunięcia wszystkich partycji i stworzenia wszystkiego od
+początku, co zagwarantuje nam, że używamy poprawnej tablicy partycji, jest
+utworzenie nowej tabeli partycji przy użyciu polecenia <c>mklabel</c>. Po
+dokonaniu tego otrzymamy pustą tablicę partycji GPT.
+</p>
+
+<pre caption="Tworzenie nowej tablicy partycji">
+(parted) <i>mklabel gpt</i>
+(parted) <i>print</i>
+Disk geometry for /dev/sda: 0.000-34732.890 megabytes
+Disk label type: gpt
+Minor    Start       End     Filesystem  Name                  Flags
+</pre>
+
+<p>
+Nasza tablica partycji jest już pusta i możemy stworzyć nowe partycje. Użyjemy
+domyślnego schematu partycjonowania jak ten omawiany wcześniej. Nie kieruj się
+tymi instrukcjami słowo w słowo jeżeli nie chcesz używać takiego samego schematu
+partycji.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Tworzenie partycji rozruchowej EFI</title>
+<body>
+
+<p>
+Na początek tworzymy małą partycje rozruchową EFI. Wymaga się tutaj systemu
+plików FAT, aby wbudowane oprogramowanie ia64 mogło ją odczytać. W naszym
+przykładzie partycja ta ma rozmiar 32 megabajtów, co jest wystarczające do
+przechowywania jąder oraz konfiguracji elilo. Zazwyczaj jądra ia64 mają wielkość
+około 5 megabajtów, więc taka konfiguracja pozostawia nam jeszcze miejsce na
+eksperymenty.
+</p>
+
+<pre caption="Tworzenie partycji rozruchowej">
+(parted) <i>mkpart primary fat32 0 32</i>
+(parted) <i>print</i>
+Disk geometry for /dev/sda: 0.000-34732.890 megabytes
+Disk label type: gpt
+Minor    Start       End     Filesystem  Name                  Flags
+1          0.017     32.000  fat32
+</pre>
+
+</body>
+</subsection>
+<subsection>
+<title>Tworzenie partycji wymiany</title>
+<body>
+
+<p>
+Stwórzmy partycję wymiany. Klasyczny rozmiar dla takiej partycji wynosił
+podwójną ilość pamięci RAM. W nowoczesnych systemach z dużą ilością RAM-u nie
+jest to już konieczne. Dla większość systemów typu desktop 512-megowa partycja
+wymiany jest wystarczająca. Dla serwera powinniśmy rozważyć założenie większej
+partycji.
+</p>
+
+<pre caption="Tworzenie partycji wymiany">
+(parted) <i>mkpart primary linux-swap 32 544</i>
+(parted) <i>print</i>
+Disk geometry for /dev/sda: 0.000-34732.890 megabytes
+Disk label type: gpt
+Minor    Start       End     Filesystem  Name                  Flags
+1          0.017     32.000  fat32
+2         32.000    544.000
+</pre>
+
+</body>
+</subsection>
+<subsection>
+<title>Tworzenie głównej partycji</title>
+<body>
+
+<p>
+Na koniec tworzymy partycję główną. Nasza konfiguracja pozwoli głównej partycji
+na zajęcie pozostałej przestrzeni naszego dysku. Używamy domyślnie ext3, ale
+można wykorzystać ext2, jfs, reiserfs czy xfs. Rzeczywisty system plików nie
+jest tworzony w tym kroku, ale tablica partycji zawiera informacje początkowe o
+systemie plików każdej partycji i dobrym pomysłem jest, aby nasza tablica
+odpowiadała naszym zamiarom.
+</p>
+
+<pre caption="Tworzenie partycji głównej">
+(parted) <i>mkpart primary ext3 544 34732.890</i>
+(parted) <i>print</i>
+Disk geometry for /dev/sda: 0.000-34732.890 megabytes
+Disk label type: gpt
+Minor    Start       End     Filesystem  Name                  Flags
+1          0.017     32.000  fat32
+2         32.000    544.000
+3        544.000  34732.874
+</pre>
+
+</body>
+</subsection>
+<subsection>
+<title>Opuszczanie parted</title>
+<body>
+
+<p>
+Aby opuścić parted wpisujemy <c>quit</c>. Nie ma potrzeby wykonywać
+jakichkolwiek kroków w celu zapisania układu partycji, ponieważ zostało to już
+dokonane. Po wyjściu parted przypomni o konieczności aktualizacji
+<c>/etc/fstab</c>, co zrobimy w dalszej części tego przewodnika.
+</p>
+
+<pre caption="Opuszczanie parted">
+(parted) <i>quit</i>
+Information: Don't forget to update /etc/fstab, if necessary.
+</pre>
+
+<p>
+Teraz gdy już partycje zostały stworzone możemy przejść do <uri
+link="#filesystems">tworzenia systemu plików</uri>.
+</p>
+
+</body>
+</subsection>
+</section>
+<section id="filesystems">
+<title>Tworzenie systemu plików</title>
+<subsection>
+<title>Wprowadzenie</title>
+<body>
+
+<p>
+Po utworzeniu partycji trzeba założyć na nich odpowiednie systemy plików.
+Osoby, którym wszystko jedno jaki system plików wybiorą lub te, które są
+zadowolone z domyślnych ustawień z Podręcznika mogą przejść do <uri
+link="#filesystems-apply">zakładania systemów plików na partycji</uri>.
+Pozostali muszą czytać dalej, aby dowiedzieć się więcej na ich temat.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Systemy plików?</title>
+<body>
+
+<p>
+Jądro Linuksa wspiera różne systemy plików. My omówimy vfat, ext2, ext3,
+ReiserFS, XFS oraz JFS, ponieważ są to najczęściej używane systemy plików na
+systemach linuksowych.
+</p>
+
+<p>
+<b>vfat</b> to system plików MS-DOS, zaktualizowany do możliwości obsługi
+długich nazw plików. Jest to również jedyny system plików rozumiany przez
+firmware EFI na systemach ia64. Partycja rozruchowa na systemach ia64 powinna
+zawsze być vfat, ale dla danych powinny zostać użyte inne systemy plików podane
+poniżej.
+</p>
+
+<p>
+<b>ext2</b> to sprawdzony i popularny linuksowy system plików, którego główną
+wadą jest to, że nie posiada księgowania. Powoduje to, iż jego regularne
+kontrole przy starcie systemu bywają długotrwałe. Obecnie istnieją nowoczesne
+systemy plików z księgowaniem, które można szybko sprawdzić i to właśnie te
+polecamy naszym użytkownikom. Księgowanie zapobiega długotrwałym kontrolom
+podczas uruchamiania systemu oraz ewentualnym błędom spójności danych.
+</p>
+
+<p>
+<b>ext3</b> to odpowiednik ext2 posiadający księgowanie w trybach full oraz
+ordered, dzięki czemu w razie awarii dane odzyskiwane są błyskawicznie. ext3
+używa indeksu drzewa HTree, który zapewnia wysoką wydajność w prawie wszystkich
+zastosowaniach. W skrócie, ext3 to bardzo dobry i niezawodny system plików.
+</p>
+
+<p>
+<b>ReiserFS</b> to system plików oparty na drzewie B+, oferujący dużą wydajność.
+Przy wielu małych plikach (poniżej 4k) może być szybszy od ext3 nawet
+piętnastokrotnie. ReiserFS jest wysoce skalowalny i posiada księgowanie,
+Charakteryzuje go niezawodność i użyteczność zarówno na partycjach ogólnego
+przeznaczenia jak i w ekstremalnych przypadkach, takich jak ogromne partycje,
+operacje na wielu bardzo małych, lub bardzo dużych plikach czy też operacje na
+katalogach zawierających dziesiątki tysięcy plików.
+</p>
+
+<p>
+<b>XFS</b> to system plików z księgowaniem, w pełni wspierany w Gentoo Linux
+przez jądro xfs-sources. Jest bardzo funkcjonalny i zoptymalizowany do
+skalowalności. Zalecamy go wyłącznie do systemów z nowoczesnymi dyskami SCSI
+i/lub ciągłego zapisu danych z nieprzerwanym dostępem zasilania. Ponieważ XFS
+przechowuje dużo danych w pamięci RAM, źle zaprojektowane programy (te nie
+zachowujące odpowiednich środków ostrożności podczas zapisywania plików na dysk,
+których niestety jest sporo) mogą doprowadzić w razie padu systemu do utraty
+danych.
+</p>
+
+<p>
+JFS to bardzo wydajny system plików IBM wyposażony w księgowanie. Jest dość
+nowy i jest jeszcze za wcześnie by oceniać jego stabilność.
+</p>
+
+</body>
+</subsection>
+<subsection id="filesystems-apply">
+<title>Zakładanie systemów plików na partycjach</title>
+<body>
+
+<p>
+Aby założyć na woluminie lub partycji system plików należy skorzystać z
+odpowiednich narzędzi:
+</p>
+
+<table>
+  <tr>
+    <th>System plików</th>
+    <th>Program do jego zakładania</th>
+  </tr>
+  <tr>
+    <ti>vfat</ti>
+    <ti><c>mkdosfs</c></ti>
+  </tr>
+  <tr>
+    <ti>ext2</ti>
+    <ti><c>mke2fs</c></ti>
+  </tr>
+  <tr>
+    <ti>ext3</ti>
+    <ti><c>mke2fs -j</c></ti>
+  </tr>
+  <tr>
+    <ti>reiserfs</ti>
+    <ti><c>mkreiserfs</c></ti>
+  </tr>
+  <tr>
+    <ti>xfs</ti>
+    <ti><c>mkfs.xfs</c></ti>
+  </tr>
+  <tr>
+    <ti>jfs</ti>
+    <ti><c>mkfs.jfs</c></ti>
+  </tr>
+</table>
+
+<p>
+Na przykład aby założyć partycję rozruchową (<path>/dev/sda1</path> w naszym
+przykładzie) jako vfat oraz partycję główną (<path>/dev/sda3</path> w naszym
+przykładzie) jako ext3, należy wykonać poniższe polecenia.
+</p>
+
+<pre caption="Zakładanie systemu plików na partycji">
+# <i>mkdosfs /dev/sda1</i>
+# <i>mke2fs -j /dev/sda3</i>
+</pre>
+
+</body>
+</subsection>
+<subsection>
+<title>Aktywacja partycji wymiany</title>
+<body>
+
+<p>
+Aby utworzyć partycję wymiany, należy skorzystać z programu <c>mkswap</c>.
+</p>
+
+<pre caption="Tworzenie partycji wymiany">
+# <i>mkswap /dev/sda2</i>
+</pre>
+
+<p>
+Do aktywowania partycji wymiany używa się programu <c>swapon</c>:
+</p>
+
+<pre caption="Aktywacja partycji wymiany">
+# <i>swapon /dev/sda2</i>
+</pre>
+
+<p>
+Teraz tworzymy i aktywujemy partycję wymiany za pomocą wyżej podanych poleceń.
+</p>
+
+</body>
+</subsection>
+</section>
+<section>
+<title>Montowanie</title>
+<body>
+
+<p>
+Po założeniu partycji i utworzeniu na nich systemów plików nadszedł czas na ich
+zamontowanie. Służy do tego program <c>mount</c>. Należy utworzyć odpowiednie
+katalogi dla montowanych partycji. W przykładzie zamontujemy partycję rozruchową
+i główną:
+</p>
+
+<pre caption="Montowanie głównej partycji">
+# <i>mount /dev/sda3 /mnt/gentoo</i>
+</pre>
+
+<note>
+W przeciwieństwie do innych architektur wspieranych przez Gentoo,
+<path>/boot</path> nie jest montowane na ia64. Powodem tego jest fakt. że
+partycja rozruchowa EFI będzie montowana automatycznie i zapisywana przez
+komendę elilo przy jej każdym wykonaniu. Dlatego też /boot rezyduje na głównym
+systemie plików i jest miejscem, w którym przetrzymuje się jądra tworzone przez
+naszą konfigurację elilo.
+</note>
+
+<note>
+Aby przenieść <path>/tmp</path> na osobną partycję, należy po jego zamontowaniu
+odpowiednio zmienić prawa dostępu: <c>chmod 1777 /mnt/gentoo/tmp</c>. Dotyczy to
+również <path>/var/tmp</path>.
+</note>
+
+<p>
+Konieczne będzie także zamontowanie systemu plików proc (wirtualny interfejs
+jądra) w katalogu <path>/proc</path>/, ale najpierw musimy umieścić odpowiednie
+pliki na partycjach.
+</p>
+
+<p>
+Kolejny rozdział to
+<uri link="?part=1&amp;chap=5">Wypakowywanie plików instalacyjnych</uri>.
+</p>
+
+</body>
+</section>
+</sections>

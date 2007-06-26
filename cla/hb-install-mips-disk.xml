@@ -1,0 +1,707 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sections SYSTEM "/dtd/book.dtd">
+
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/handbook/hb-install-mips-disk.xml,v 1.21 2007/05/08 19:55:02 rane Exp $ -->
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5-->
+<sections>
+
+<version>2.1</version>
+<date>2007-06-26</date>
+
+<section>
+<title>Wprowadzenie do urządzeń blokowych</title>
+<subsection>
+<title>Urządzenia blokowe</title>
+<body>
+
+<p>
+Rzućmy okiem na aspekty Gentoo Linux, oraz ogólnie Linuksa związane z dyskami.
+Omówimy systemy plików, partycje oraz urządzenia blokowe. Następnie przejdziemy
+razem przez proces podziału twardego dysku, aby jak najlepiej wykorzystać
+dostępne miejsce.
+</p>
+
+<p>
+Zaczniemy od omówienia <e>urządzeń blokowych</e>. Najpopularniejszym z nich
+prawdopodobnie jest <path>/dev/hda</path>, reprezentujący w Linuksie pierwszy
+napęd IDE. Jeśli w komputerze znajdują się urządzenia SCSI lub SATA pierwszym
+takim dyskiem jest <path>/dev/sda</path>.
+</p>
+
+<p>
+Urządzenia blokowe stanowią abstrakcyjny interfejs dysków. Programy
+użytkownika mogą z nich korzystać nie martwiąc się czy napędy
+są typu IDE, SCSI lub jeszcze inne. Przechowywane dane adresuje się jako ciąg
+512-bajtowych bloków.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Partycje</title>
+<body>
+
+<p>
+Teoretycznie można przeznaczyć na system cały dysk, ale zazwyczaj jest to
+rozwiązanie bardzo niepraktyczne. Dlatego dzielimy napęd na mniejsze i
+łatwiejsze w zarządzaniu urządzenia blokowe, nazywane <e>partycjami</e>.
+</p>
+
+</body>
+</subsection>
+</section>
+<section>
+<title>Projektowanie schematu podziału</title>
+<subsection>
+<title>Jak dużo jak wielkich?</title>
+<body>
+
+<p>
+Ilość partycji ściśle zależy od danego środowiska. Na przykład, jeśli
+administrujemy systemem mającym wielu użytkowników, prawdopodobnie uznamy za
+stosowne oddzielenie <path>/home</path> aby poprawić bezpieczeństwo i uprościć
+tworzenie kopii zapasowych. Jeżeli docelowym zastosowaniem Gentoo jest serwer
+poczty, na osobnej partycji powinno się umieścić <path>/var</path>, gdzie
+przechowywane są listy. Dobry wybór systemu plików może znacznie zwiększyć
+wydajność. Oddzielenie <path>/opt</path> jest dobrym rozwiązaniem na serwerach
+gier, gdyż większość używanego oprogramowania zostanie tam zainstalowana. Powód
+jest podobny jak przy <path>/home</path>: bezpieczeństwo i kopie zapasowe.  Na
+pewno warto zapewnić dużo wolnego miejsca na <path>/usr</path>, ponieważ będą
+tam się znajdowały nie tylko dane wszystkich zainstalowanych pakietów, ale
+również ważące 500 MB drzewo Portage.
+</p>
+
+<p>
+Jak widać, wiele zależy od oczekiwanego rezultatu. Wydzielenie partycji
+lub woluminów ma wiele zalet:
+</p>
+
+<ul>
+<li>
+  Mamy możliwość dostosowania jak najwydajniejszego dla danego zastosowania
+  systemu plików dla poszczególnych partycji lub woluminów.
+</li>
+<li>
+  W przypadku zapełnienia partycji przez nieprawidłowo działające narzędzie, nie
+  ma to wpływu na całość systemu.
+  </li>
+<li>
+  Jeśli to konieczne, można skrócić czas kontroli systemów plików, gdyż
+  można jednocześnie dokonywać jej na kilku partycjach (ma to znaczenie
+  zwłaszcza na sprzęcie z wieloma dyskami).
+</li>
+<li>
+  Montując część partycji lub woluminów z opcjami read-only (tylko do odczytu),
+  nosuid (ignorowane są bity setuid), noexec (ignorowane są bity wykonywalności)
+  itd. można znacznie poprawić bezpieczeństwo.
+  </li>
+</ul>
+
+<p>
+Niestety zbyt rozbudowany podział niesie ze sobą spore niebezpieczeństwo: źle
+zaplanowany zaowocuje pustkami na zbyt dużych i ciasnotą na zbyt małych
+partycjach. Pamiętać należy również, że na dyskach SCSI i SATA może znajdować
+się maksymalnie 15 partycji.
+</p>
+
+</body>
+</subsection>
+</section>
+<section>
+<title>Partycjonowanie dysku za pomocą fdisk na MIPS</title>
+<subsection>
+<title>Komputery SGI: Tworzenie SGI Disk Label</title>
+<body>
+
+<p>
+Wszystkie dyski w systemie SGI wymagają <e>SGI Disk Label</e>, pełniącego
+podobną funkcję jak etykiety Suna i MS-DOS - przechowują informacje
+o partycjach. Stworzenie nowego SGI Disk Label zaowocuje powstaniem dwóch nowych
+partycji:
+</p>
+
+<ul>
+  <li>
+    <e>SGI Volume Header</e> (partycja dziewiąta): ta partycja jest potrzebna,
+    to z niej skorzysta program ładujący arcboot oraz to na niej będą w
+    niektórych przypadkach znajdowały się kernele.
+  </li>
+  <li>
+    <e>SGI Volume</e> (partycja jedenasta): Partycja ta spełnia podobne funkcje
+    do zajmującej cały dysk Sun Disklabel. Obejmuje ona całą dostępną przestrzeń
+    i nie powinna być modyfikowana. Nie ma żadnego specjalnego zadania, poza
+    pomaganiem PROM-owi w jakichś nieudokumentowanych operacjach (lub używana
+    jest w jakiś sposób przez IRIX).
+  </li>
+</ul>
+
+<warn>
+SGI Volume Header <e>musi</e> rozpoczynać się od cylindra 0. Jeśli zrobimy
+inaczej system nie uruchomi się z tego dysku.
+</warn>
+
+<p>
+Następny przykład zaczerpnięto z sesji <c>fdisk</c>. Należy go przeczytać i
+zmodyfikować stosownie do potrzeb...
+</p>
+
+<pre caption="Zakładanie SGI Disklabel">
+# <i>fdisk /dev/sda</i>
+
+Command (m for help): <i>x</i>
+
+Expert command (m for help): <i>m</i>
+Command action
+   b   move beginning of data in a partition
+   c   change number of cylinders
+   d   print the raw data in the partition table
+   e   list extended partitions
+   f   fix partition order
+   g   create an IRIX (SGI) partition table
+   h   change number of heads
+   m   print this menu
+   p   print the partition table
+   q   quit without saving changes
+   r   return to main menu
+   s   change number of sectors/track
+   v   verify the partition table
+   w   write table to disk and exit
+
+Expert command (m for help): <i>g</i>
+Building a new SGI disklabel. Changes will remain in memory only,
+until you decide to write them. After that, of course, the previous
+content will be unrecoverably lost.
+
+Expert command (m for help): <i>r</i>
+
+Command (m for help): <i>p</i>
+
+Disk /dev/sda (SGI disk label): 64 heads, 32 sectors, 17482 cylinders
+Units = cylinders of 2048 * 512 bytes
+
+----- partitions -----
+Pt#  Device  Info   Start       End   Sectors  Id  System
+ 9:  /dev/sda1         0         4     10240   0  SGI volhdr
+11:  /dev/sda2         0     17481  35803136   6  SGI volume
+----- Bootinfo -----
+Bootfile: /unix
+----- Directory Entries -----
+
+Command (m for help):
+</pre>
+
+<note>
+Jeśli na dysku znajduje się już SGI Disklabel, fdisk nie pozwoli na stworzenie
+nowego. Są dwa sposoby, żeby to ominąć. Pierwszym jest stworzenie etykiety
+SUN lub MS-DOS, zapisanie zmian i ponowne uruchomienie fdisk. Drugim jest
+nadpisanie tablicy partycji następującym poleceniem:
+<c>dd if=/dev/zero of=/dev/sda bs=512 count=1</c>.
+</note>
+
+</body>
+</subsection>
+<subsection>
+<title>Nadawanie właściwego rozmiaru SGI Volume Header</title>
+<body>
+
+<impo>
+Ten krok okazuje się często bardzo przydatny, w związku z pewnymi błędami w
+programie <c>fdisk</c>, który powoduje, że SGI Volume Header nie jest tworzony
+w prawidłowy sposób, tak że jego początkowy i końcowy cylinder jest ustawiany
+na 0. Teraz opiszemy jak obejść ten błąd.
+</impo>
+
+<p>
+Gdy stworzysz SGI Disklabel, możesz przystąpić do definiowania partycji.
+W powyższym przykładzie, dwie z nich zostały już przygotowane.  Pełnią one
+specjalne funkcje i nie mogą być wykorzystane w normalny sposób.  Jakkolwiek,
+instalując Gentoo musimy załadować program ładujący i obrazy jądra bezpośrednio
+do nagłówka woluminu, gdyż nie ma w Portage wspieranego menadżera uruchamiania.
+Nagłówek woluminu może przechowywać maksymalnie <e>osiem</e> kerneli o dowolnym
+rozmiarze i ośmioznakowej nazwie.
+</p>
+
+<p>
+Proces powiększania woluminu nagłówka nie jest prosty - trzeba zastosować
+kilka sztuczek. Nie można po prostu usunąć i dodać go ponownie, ze
+względu na dziwne zachowanie fdisk. W poniższym przykładzie, utworzymy
+50MB nagłówek woluminu oraz 50MB partycję boot. Rzeczywisty
+podział Twojego dysku może być inny, przykład służy tylko
+zilustrowaniu czynności:
+</p>
+
+<pre caption="Prawidłowa zmiana rozmiaru Nagłówka Woluminu SGI">
+Command (m for help): <i>n</i>
+Partition number (1-16): <i>1</i>
+First cylinder (5-8682, default 5): <i>51</i>
+ Last cylinder (51-8682, default 8682): <i>101</i>
+<comment>(Notice how fdisk only allows Partition #1 to be re-created starting at a minimum of cylinder 5)</comment>
+<comment>(Had you attempted to delete &amp; re-create the SGI Volume Header this way, this is the same issue
+ you would have encountered.)</comment>
+<comment>(In our example, we want /boot to be 50MB, so we start it at cylinder 51 (the Volume Header needs to
+ start at cylinder 0, remember?), and set its ending cylinder to 101, which will roughly be 50MB (+/- 1-5MB))</comment>
+
+Command (m for help): <i>d</i>
+Partition number (1-16): <i>9</i>
+<comment>(Delete Partition #9 (SGI Volume Header))</comment>
+
+Command (m for help): <i>n</i>
+Partition number (1-16): <i>9</i>
+First cylinder (0-50, default 0): <i>0</i>
+ Last cylinder (0-50, default 50): <i>50</i>
+<comment>(Re-Create Partition #9, ending just before Partition #1)</comment>
+</pre>
+
+<p>
+Jeżeli nie jesteśmy pewni w jaki sposób obsługiwać <c>fdisk</c> będziemy
+musieli zajrzeć do dalszej części tego podręcznika po instrukcje na temat
+partycjonowania na komputerach Cobalt. Generalne zasady są podobne, należy
+jedynie pamiętać o pozostawieniu volume header i partycji niepołączonych.
+</p>
+
+<p>
+Kiedy już to skończymy resztę partycji tworzymy według własnych potrzeb. Po
+partycjonowaniu powinniśmy pamiętać o ustawieniu ID naszej partycji SWAP na
+wartość <c>82</c>. Domyślnie wartość ta jest ustawiania na <c>83</c>.
+</p>
+
+<p>
+Kiedy partycje są już utworzone możemy przejść do części <uri
+link="#filesystems">Tworzenie systemów plików</uri>.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Komputery Cobalt: Partycjonowanie dysku</title>
+<body>
+
+<p>
+BOOTROM na komputerach Cobalt oczekuje jedynie obecności MS-DOS MBR, więc
+partycjonowanie dysku jest stosunkowo proste. Dokonuje się tego dokładnie tak
+jak na komputerze Intel x86. <e>Jednak</e> jest również kilka rzeczy, o których
+warto pamiętać.
+</p>
+
+<ul>
+  <li>
+    Dla firmware komputerów Cobalt <path>/dev/hda1</path> musi być partycją
+    linuksową sformatowaną w systemie plików <e>EXT2 Revision 0</e>. Partycje
+    <e>EXT2 Revision 1 NIE BĘDĄ DZIAŁAĆ</e> (BOOTROM Cobaltów radzi sobie
+    jedynie z EXT2r0).
+  </li>
+  <li>
+    Wspomniana wyżej partycja musi zawierać obraz ELF o nazwie
+    <path>vmlinux.gz</path> w swoim katalogu głównym, aby móc go załadować jako
+    jądro.
+  </li>
+</ul>
+
+<p>
+Z tego powodu radzimy utworzenie ~20MB partycji <path>/boot</path> sformatowanej
+w systemie plików EXT2r0, na której będą instalowane jądra dla CoLo. Pozwala to
+na korzystanie z nowocześniejszych systemów plików, jak EXT3 czy ReiserFS na
+partycji głównej.
+</p>
+
+<p>
+Zakładamy, że została utworzona w celu późniejszego zamontowania partycja
+<path>/boot</path> na urządzeniu <path>/dev/hda1</path>. Jeśli ma być to także
+urządzenie partycji głównej nie można zapominać o spełnieniu oczekiwań PROM.
+</p>
+
+<p>
+Kontynuując... Do stworzenia partycji należy wpisać polecenie <c>fdisk
+/dev/hda</c>. Główne polecenia jakie należy znać to:
+</p>
+
+<ul>
+  <li>
+    <c>o</c>: Wyczyszczenie starej i stworzenie nowej czystej tablicy partycji
+    MS-DOS
+  </li>
+  <li>
+    <c>n</c>: Nowa partycja
+  </li>
+  <li>
+    <c>t</c>: Zmienia typ partycji
+    <ul>
+      <li>Typ <c>82</c> to Linux Swap, <c>83</c> to Linux FS</li>
+    </ul>
+  </li>
+  <li>
+    <c>d</c>: Usuwa partycję
+  </li>
+  <li>
+    <c>p</c>: Wyświetla tablicę partycji
+  </li>
+  <li>
+    <c>q</c>: Wyjście bez zapisywania
+  </li>
+  <li>
+    <c>w</c>: Wyjście z zapisywaniem
+  </li>
+</ul>
+
+<pre caption="Partycjonowanie dysku">
+# <i>fdisk /dev/hda</i>
+
+The number of cylinders for this disk is set to 19870.
+There is nothing wrong with that, but this is larger than 1024,
+and could in certain setups cause problems with:
+1) software that runs at boot time (e.g., old versions of LILO)
+2) booting and partitioning software from other OSs
+   (e.g., DOS FDISK, OS/2 FDISK)
+
+<comment>(Usuwamy istniejące partycje)</comment>
+Command (m for help): <i>o</i>
+Building a new DOS disklabel. Changes will remain in memory only,
+until you decide to write them. After that, of course, the previous
+content won't be recoverable.
+
+
+The number of cylinders for this disk is set to 19870.
+There is nothing wrong with that, but this is larger than 1024,
+and could in certain setups cause problems with:
+1) software that runs at boot time (e.g., old versions of LILO)
+2) booting and partitioning software from other OSs
+   (e.g., DOS FDISK, OS/2 FDISK)
+Warning: invalid flag 0x0000 of partition table 4 will be corrected by w(rite)
+
+<comment>(Sprawdzanie utworzonej partycji przy pomocy komendy "p")</comment>
+
+Command (m for help): <i>p</i>
+
+Disk /dev/hda: 10.2 GB, 10254827520 bytes
+16 heads, 63 sectors/track, 19870 cylinders
+Units = cylinders of 1008 * 512 = 516096 bytes
+
+   Device Boot      Start         End      Blocks   Id  System
+
+<comment>(Tworzenie partycji /boot)</comment>
+
+Command (m for help): <i>n</i>
+Command action
+   e   extended
+   p   primary partition (1-4)
+<i>p</i>
+Partition number (1-4): <i>1</i>
+
+<comment>(Wciśnięcie Enter dla wybrania ustawień domyślnych)</comment>
+
+First cylinder (1-19870, default 1):
+Last cylinder or +size or +sizeM or +sizeK (1-19870, default 19870): <i>+20M</i>
+
+<comment>(Kolejny test sprawdzający utworzene partycje - klawisz 'p')</comment>
+Command (m for help): <i>p</i>
+
+Disk /dev/hda: 10.2 GB, 10254827520 bytes
+16 heads, 63 sectors/track, 19870 cylinders
+Units = cylinders of 1008 * 512 = 516096 bytes
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/hda1               1          40       20128+  83  Linux
+
+<comment>(Pozostałe wolne miejsce przeznaczamy na partycję rozszerzoną)</comment>
+
+Command (m for help): <i>n</i>
+Command action
+   e   extended
+   p   primary partition (1-4)
+<i>e</i>
+Partition number (1-4): <i>2</i>
+
+<comment>(Po raz kolejny by wybrać domyślne ustawienie wciskamy Enter)</comment>
+
+First cylinder (41-19870, default 41):
+Using default value 41
+
+<comment>(Używamy całego dostępnego miejsca wciskając po prostu Enter)</comment>
+Last cylinder or +size or +sizeM or +sizeK (41-19870, default 19870):
+Using default value 19870
+
+<comment>(Następnie partycja root, w związku z tym, że /usr i /var będą
+znajdowały się na osobnych partycjach root może być mała. Polecamy dostosowanie
+rozmiaru do własnych potrzeb.)</comment>
+
+Command (m for help): <i>n</i>
+Command action
+   l   logical (5 or over)
+   p   primary partition (1-4)
+<i>l</i>
+First cylinder (41-19870, default 41):<i>&lt;Wciskamy Enter&gt;</i>
+Using default value 41
+Last cylinder or +size or +sizeM or +sizeK (41-19870, default 19870): <i>+500M</i>
+
+<comment>(... kontynuujemy dla innych partycji ...)</comment>
+
+<comment>(Partycja wymiany, powinna mieć co najmniej 250MB swap, optymalnie 1GB)</comment>
+
+Command (m for help): <i>n</i>
+Command action
+   l   logical (5 or over)
+   p   primary partition (1-4)
+<i>l</i>
+First cylinder (17294-19870, default 17294): <i>&lt;Wciskamy Enter&gt;</i>
+Using default value 17294
+Last cylinder or +size or +sizeM or +sizeK (1011-19870, default 19870):
+<i>&lt;Wciskamy Enter&gt;</i>
+Using default value 19870
+
+<comment>(Sprawdzanie tablicy partycji, do końca pozostała jeszcze jedna mała rzecz...)</comment>
+
+Command (m for help): <i>p</i>
+
+Disk /dev/hda: 10.2 GB, 10254827520 bytes
+16 heads, 63 sectors/track, 19870 cylinders
+Units = cylinders of 1008 * 512 = 516096 bytes
+
+Device Boot      Start         End      Blocks      ID  System
+/dev/hda1               1          21       10552+  83  Linux
+/dev/hda2              22       19870    10003896    5  Extended
+/dev/hda5              22        1037      512032+  83  Linux
+/dev/hda6            1038        5101     2048224+  83  Linux
+/dev/hda7            5102        9165     2048224+  83  Linux
+/dev/hda8            9166       13229     2048224+  83  Linux
+/dev/hda9           13230       17293     2048224+  83  Linux
+/dev/hda10          17294       19870     1298776+  83  Linux
+
+<comment>(Dlaczego numer #10, czyli partycja wymiany wciąż ma ustawiony typ 83?)</comment>
+
+Command (m for help): <i>t</i>
+Partition number (1-10): <i>10</i>
+Hex code (type L to list codes): <i>82</i>
+Changed system type of partition 10 to 82 (Linux swap)
+
+<comment>(Poprawiamy i sprawdzamy...)</comment>
+
+Command (m for help): <i>p</i>
+
+Disk /dev/hda: 10.2 GB, 10254827520 bytes
+16 heads, 63 sectors/track, 19870 cylinders
+Units = cylinders of 1008 * 512 = 516096 bytes
+
+Device Boot      Start         End      Blocks      ID  System
+/dev/hda1               1          21       10552+  83  Linux
+/dev/hda2              22       19870    10003896    5  Extended
+/dev/hda5              22        1037      512032+  83  Linux
+/dev/hda6            1038        5101     2048224+  83  Linux
+/dev/hda7            5102        9165     2048224+  83  Linux
+/dev/hda8            9166       13229     2048224+  83  Linux
+/dev/hda9           13230       17293     2048224+  83  Linux
+/dev/hda10          17294       19870     1298776+  82  Linux Swap
+
+<comment>(Zapisujemy naszą tablicę partycji)</comment>
+
+Command (m for help): <i>w</i>
+The partition table has been altered!
+
+Calling ioctl() to re-read partition table.
+Syncing disks.
+
+#
+</pre>
+
+<p>
+I to wszystko. Kolejny punkt programu to <uri link="#filesystems">Tworzenie
+systemów plików</uri>.
+</p>
+
+</body>
+</subsection>
+</section>
+<section id="filesystems">
+<title>Tworzenie systemów plików</title>
+<subsection>
+<title>Wprowadzenie</title>
+<body>
+
+<p>
+Po utworzeniu partycji nadszedł czas na założenie na nich systemów plików.
+Jeśli jest nam obojętne jakie wybierzemy lub jesteśmy zadowoleni z domyślnych
+ustawień w podręczniku, przechodzimy do paragrafu <uri
+link="#filesystems-apply">Zakładanie systemów plików na partycji</uri>.
+W przeciwnym polecamy dalszą lekturę aby dowiedzieć się więcej na ich temat.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Systemy plików?</title>
+<body>
+
+<p>
+Na architekturze MIPS stabilnie działają jedynie systemy plików ReiserFS, ext2 i
+ext3. Reszta jest eksperymentalna.
+</p>
+
+<p>
+<b>Ext2</b> to sprawdzony i popularny linuksowy system plików, którego główną
+wadą jest to, że nie posiada księgowania. Powoduje to, iż jego regularne
+kontrole przy starcie systemu bywają długotrwałe. Obecnie istnieją nowoczesne
+systemy plików z księgowaniem, które można szybko sprawdzić i to właśnie te
+polecamy naszym użytkownikom. Księgowanie zapobiega długotrwałym kontrolom
+podczas uruchamiania systemu oraz ewentualnym błędom spójności danych.
+</p>
+
+<p>
+<b>ext3</b> to odpowiednik ext2 posiadający księgowanie w trybach full oraz
+ordered, dzięki czemu w razie awarii dane odzyskiwane są błyskawicznie. ext3
+używa indeksu drzewa HTree, który zapewnia wysoką wydajność w prawie wszystkich
+zastosowaniach. W skrócie, ext3 to bardzo dobry i niezawodny system plików.
+</p>
+
+<p>
+<b>ReiserFS</b> to system plików oparty na drzewie B+, oferujący dużą
+wydajność.  Przy wielu małych plikach (poniżej 4k) może być szybszy od ext3
+nawet piętnastokrotnie. ReiserFS jest wysoce skalowalny i posiada księgowanie,
+Charakteryzuje go niezawodność i użyteczność zarówno na partycjach ogólnego
+przeznaczenia jak i w ekstremalnych przypadkach, takich jak ogromne partycje,
+operacje na wielu bardzo małych, lub bardzo dużych plikach czy też operacje na
+katalogach zawierających dziesiątki tysięcy plików.
+</p>
+
+<p>
+<b>XFS</b> to system plików z księgowaniem, w pełni wspierany
+w Gentoo Linux przez jądro xfs-sources. Jest bardzo funkcjonalny i
+zoptymalizowany do skalowalności. Zalecamy go wyłącznie do systemów z
+nowoczesnymi dyskami SCSI i/lub ciągłego zapisu danych z nieprzerwanym dostępem
+zasilania. Ponieważ XFS przechowuje dużo danych w pamięci RAM, źle
+zaprojektowane programy (te nie zachowujące odpowiednich środków ostrożności
+podczas zapisywania plików na dysk, których niestety jest sporo) mogą
+doprowadzić w razie padu systemu do utraty danych.
+</p>
+
+<p>
+<b>JFS</b> to bardzo wydajny system plików IBM'a wyposażony w księgowanie.
+Jest dość nowy i jest jeszcze za wcześnie by oceniać jego stabilność.
+</p>
+
+</body>
+</subsection>
+<subsection id="filesystems-apply">
+<title>Zakładanie systemu plików na partycji</title>
+<body>
+
+<p>
+Aby założyć na woluminie lub partycji system plików, można skorzystać z
+odpowiedniego dla każdego z nich narzędzia:
+</p>
+<table>
+
+<tr>
+  <th>System plików</th>
+  <th>Program do zakładania</th>
+</tr>
+<tr>
+  <ti>ext2</ti>
+  <ti><c>mke2fs</c></ti>
+</tr>
+<tr>
+  <ti>ext3</ti>
+  <ti><c>mke2fs -j</c></ti>
+</tr>
+<tr>
+  <ti>reiserfs</ti>
+  <ti><c>mkreiserfs</c></ti>
+</tr>
+<tr>
+  <ti>xfs</ti>
+  <ti><c>mkfs.xfs</c></ti>
+</tr>
+<tr>
+  <ti>jfs</ti>
+  <ti><c>mkfs.jfs</c></ti>
+</tr>
+</table>
+
+<p>
+Na przykład, aby założyć ext2 na partycji boot (w naszym przypadku
+<path>/dev/sda1</path>) oraz ext3 na partycji root (w naszym przypadku
+<path>/dev/sda3</path>), należy wykonać następujące polecenia:
+</p>
+
+<pre caption="Zakładanie na partycji systemu plików">
+# <i>mke2fs /dev/sda1</i>
+# <i>mke2fs -j /dev/sda4</i>
+</pre>
+
+<p>
+Teraz należy stworzyć systemy plików na partycjach (lub woluminach).
+</p>
+
+<warn>
+Jeżeli instalujemy system na serwerze Cobalt musimy pamiętać, że partycja
+<path>/dev/hda1</path> musi być partycją rodzaju <e>EXT2 revision 0</e>. Każdy
+inny typ partycji <e>NIE BĘDZIE DZIAŁAŁ POPRAWNIE</e>. Partycję możemy
+sformatować przy pomocy polecenia <c>mke2fs -r 0 /dev/hda1</c>.
+</warn>
+
+</body>
+</subsection>
+<subsection>
+<title>Aktywacja partycji wymiany</title>
+<body>
+
+<p>
+Aby utworzyć partycję wymiany skorzystamy z programu <c>mkswap</c>.
+</p>
+
+<pre caption="Tworzenie partycji wymiany">
+# <i>mkswap /dev/sda2</i>
+</pre>
+
+<p>
+Do aktywowania partycji wymiany użyjemy programu <c>swapon</c>:
+</p>
+
+<pre caption="Aktywacja partycji wymiany">
+# <i>swapon /dev/sda2</i>
+</pre>
+
+<p>
+Partycję wymiany tworzymy przy pomocy poleceń pokazanych powyżej.
+</p>
+
+</body>
+</subsection>
+</section>
+<section>
+<title>Montowanie</title>
+<body>
+
+<p>
+Po założeniu partycji i utworzeniu na nich systemów plików nadszedł czas na ich
+zamontowanie. Służy do tego program <c>mount</c>. Nie zapominamy o utworzeniu
+odpowiednich katalogów dla montowanych partycji. W przykładzie zamontujemy
+partycje boot i root:
+</p>
+
+<pre caption="Montowanie partycji">
+# <i>mount /dev/sda3 /mnt/gentoo</i>
+# <i>mkdir /mnt/gentoo/boot</i>
+# <i>mount /dev/sda1 /mnt/gentoo/boot</i>
+</pre>
+
+<note>
+Jeżeli chcemy przenieść <path>/tmp</path> na osobną partycję,
+nie należy zapomnieć po zamontowaniu odpowiednio zmienić praw dostępu: <c>chmod
+1777 /mnt/gentoo/tmp</c>. Dotyczy to również <path>/var/tmp</path>.
+</note>
+
+<p>
+Konieczne będzie także zamontowanie systemu plików proc (wirtualny interfejs
+jądra) w <path>/proc</path>, ale najpierw musimy umieścić odpowiednie pliki na
+partycjach.
+</p>
+
+<p>
+Kolejny rozdział to <uri link="?part=1&amp;chap=5">Wypakowywanie plików
+instalacyjnych</uri>.
+</p>
+
+</body>
+</section>
+</sections>

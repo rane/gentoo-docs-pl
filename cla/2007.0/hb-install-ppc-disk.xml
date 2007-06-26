@@ -1,0 +1,674 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sections SYSTEM "/dtd/book.dtd">
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/handbook/2007.0/hb-install-ppc-disk.xml,v 1.4 2007/05/09 17:19:45 shadoww Exp $ -->
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
+
+<sections>
+
+<version>8.2</version>
+<date>2007-05-08</date>
+
+<section>
+<title>Wprowadzenie do urządzeń blokowych</title>
+<subsection>
+<title>Urządzenia blokowe</title>
+<body>
+
+<p>
+Rzućmy okiem na aspekty Gentoo Linux, oraz ogólnie Linuksa związane z dyskami.
+Omówimy systemy plików, partycje oraz urządzenia blokowe. Następnie wspólnie
+przejdziemy przez proces podziału twardego dysku, aby jak najlepiej
+wykorzystać dostępne miejsce.
+</p>
+
+<p>
+Zaczniemy od omówienia <e>urządzeń blokowych</e>. Najpopularniejszym z nich
+prawdopodobnie jest <path>/dev/hda</path>, reprezentujący w Linuksie pierwszy
+napęd IDE. Jeśli w komputerze znajdują się urządzenia SCSI, FireWWire, USB lub
+SATA, pierwszym takim dyskiem jest <path>/dev/sda</path>. Dyski numerowane są
+przez kolejne litery alfabetu. I tak na przykład, trzeci dyski IDE będzie można
+znaleźć w <path>/dev/hdc</path>.
+</p>
+
+<p>
+Urządzenia blokowe stanowią abstrakcyjny interfejs dysków. Programy
+użytkownika mogą z nich korzystać nie martwiąc się czy napędy są typu IDE, SCSI,
+czy nawet jakiegoś jeszcze innego. Przechowywane dane adresuje się jako ciąg
+512-bajtowych bloków.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Partycje</title>
+<body>
+
+<p>
+Teoretycznie możliwe jest przeznaczenie na system całego dysku, zazwyczaj nie
+jest to jednak rozwiązanie zbyt praktyczne. Zamiast tego dzielimy napęd na
+mniejsze, łatwiejsze w zarządzaniu urządzenia blokowe. Na większości platform
+nazywane są one <e>partycjami</e>.
+</p>
+
+</body>
+</subsection>
+</section>
+<section>
+<title>Projektowanie schematu podziału</title>
+<subsection>
+<title>Domyślny schemat podziału</title>
+<body>
+
+<p>
+Jeśli nie mamy ochoty samodzielnie rozrysowywać schematu podziału dysku,
+możemy skorzystać z domyślnego, z którego korzystamy w podręczniku. Należy
+wybrać najlepszy układ systemu plików dla naszego komputera PowerPC.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Komputer Apple New World</title>
+<body>
+
+<p>
+Apple New World jest dość prosty w konfiguracji komputerem. Pierwszą partycją
+jest zawsze partycja <e>Apple Partition Map</e>. Partycja ta ma za zadanie
+przechowywać informację o układzie naszych partycji. Nie można jej usunąć.
+Kolejną partycją zawsze powinna być partycja bootstrap. Partycja ta posiada
+mały (800KB) system plików HFS, którego zadaniem jest przechowywanie kopii
+zapasowej programu ładującego Yaboot oraz plików konfiguracyjnych tego
+programu. Partycja ta nie pełni takiej samej roli jak partycja
+<path>/boot</path> na innych architekturach. Po takiej partycji zazwyczaj
+znajdują się standardowe systemy plików Linux, zgodnie z przedstawionym
+poniżej schematem. Główna partycja posiada system plików, na którym
+zainstalowany jest system Gentoo. Jeżeli chcemy mieć dwa systemy, musimy się
+upewnić, że partycja OSX znajduje się za partycją bootstrap, tak aby program
+yaboot uruchamiał się w pierwszej kolejności.
+</p>
+
+<note>
+Na dysku mogą znajdować się partycje "Disk Driver" takie jak
+<path>Apple_Driver63, Apple_Driver_ATA, Apple_FWDriver, Apple_Driver_IOKit,
+Apple_Patches</path>. Używa się ich do uruchamiania systemu MacOS, więc jeśli
+nie posiadamy tego systemu, można je bezpiecznie usunąć poprzez uruchomienie
+programu mac-fdisk z opcją <c>i</c>. Spowoduje to całkowite wyczyszczenie
+dysku! Jeśli mamy wątpliwości zostawmy te partycje w spokoju.
+</note>
+
+<note>
+Jeżeli do podzielenia dysku użyliśmy programu Apple Disk Utility, między
+partycjami może znajdować się wolna 128MB przestrzeń, którą Apple rezerwuje dla
+"przyszłych zastosowań". Można bezpiecznie usunąć tę wolną przestrzeń.
+</note>
+
+<table>
+<tr>
+  <th>Partycja</th>
+  <th>Rozmiar</th>
+  <th>System plików</th>
+  <th>Opis</th>
+</tr>
+<tr>
+  <ti><path>/dev/hda1</path></ti>
+  <ti>32k</ti>
+  <ti>Brak</ti>
+  <ti>Apple Partition Map</ti>
+</tr>
+<tr>
+  <ti><path>/dev/hda2</path></ti>
+  <ti>800k</ti>
+  <ti>HFS</ti>
+  <ti>Apple Bootstrap</ti>
+</tr>
+<tr>
+  <ti><path>/dev/hda3</path></ti>
+  <ti>512Mb</ti>
+  <ti>Swap</ti>
+  <ti>Linux Swap</ti>
+</tr>
+<tr>
+  <ti><path>/dev/hda4</path></ti>
+  <ti>Pozostała część dysku</ti>
+  <ti>ext3, reiserfs, xfs</ti>
+  <ti>Partycja główna Linux</ti>
+</tr>
+</table>
+
+</body>
+</subsection>
+<subsection>
+<title>Komputery Apple Old World</title>
+<body>
+
+<p>
+Komputery Apple Old World są już nieco trudniejsze w konfiguracji. Pierwszą
+partycją jest zawsze partycja <e>Apple Partition Map</e>. Partycja ta ma za
+zadanie przechowywać informację o układzie naszych partycji. Nie można jej
+usunąć. Jeżeli używamy BootX, w konfiguracji przedstawionej poniżej założono,
+że MacOS jest zainstalowany na oddzielnym dysku. W przeciwnym wypadku, na dysku
+znajdowała będzie się dodatkowa partycja dla "Apple Disk Drivers" zawierająca
+<path>Apple_Driver63, Apple_Driver_ATA, Apple_FWDriver, Apple_Driver_IOKit,
+Apple_Patches</path> oraz instalacja MacOS. Jeżeli używamy Quik, będziemy
+musieli stworzyć partycję boot, aby mieć gdzie przetrzymywać jądro. Po partycji
+boot, należy stworzyć standardowe systemy plików Linux, zgodnie ze schematem
+przedstawionym poniżej. Partycja wymiany jest miejscem, wykorzystywanym w
+sytuacji gdy system wykorzystał już całą dostępną fizyczną pamięć. Główna
+partycja zawiera system plików, na którym zainstalowany jest system Gentoo.
+</p>
+
+<note>
+Jeżeli używamy komputera OldWorld, będziemy cały czas potrzebowali MacOS. W
+poniższym schemacie, założyliśmy, że MacOS zainstalowany jest na oddzielnej
+partycji.
+</note>
+
+<table>
+<tr>
+  <th>Partycja</th>
+  <th>Rozmiar</th>
+  <th>System plików</th>
+  <th>Opis</th>
+</tr>
+<tr>
+  <ti><path>/dev/hda1</path></ti>
+  <ti>32k</ti>
+  <ti>Brak</ti>
+  <ti>Apple Partition Map</ti>
+</tr>
+<tr>
+  <ti><path>/dev/hda2</path></ti>
+  <ti>32Mb</ti>
+  <ti>ext2</ti>
+  <ti>Quik Boot Partition (tylko quik)</ti>
+</tr>
+<tr>
+  <ti><path>/dev/hda3</path></ti>
+  <ti>512Mb</ti>
+  <ti>Swap</ti>
+  <ti>Linux Swap</ti>
+</tr>
+<tr>
+  <ti><path>/dev/hda4</path></ti>
+  <ti>Pozostała część dysku</ti>
+  <ti>ext3, reiserfs, xfs</ti>
+  <ti>Główna partycja Linux</ti>
+</tr>
+</table>
+
+</body>
+</subsection>
+<subsection>
+<title>Pegasos</title>
+<body>
+
+<p>
+Układ partycji Pegasos jest podobno do układu Apple. Pierwsza partycją jest
+partycją boot, zawierającą jądra, które chcemy uruchomić. Dodatkowo znajduje
+się tutaj skrypt OpenFirmware, który wyświetla menu podczas uruchamiania
+komputera. Po partycji boot, znajdują się standardowe systemy plików Linux,
+umieszczone zgodnie ze schematem znajdującym się poniżej. Partycja wymiany jest
+miejscem, wykorzystywanym w sytuacji gdy system wykorzystał już całą dostępną
+fizyczną pamięć. Główna partycja zawiera system plików, na którym
+zainstalowany jest system Gentoo.
+</p>
+
+<table>
+<tr>
+  <th>Partycja</th>
+  <th>Rozmiar</th>
+  <th>System plików</th>
+  <th>Opis</th>
+</tr>
+<tr>
+  <ti><path>/dev/hda1</path></ti>
+  <ti>32Mb</ti>
+  <ti>affs1 lub ext2</ti>
+  <ti>Partycja boot</ti>
+</tr>
+<tr>
+  <ti><path>/dev/hda2</path></ti>
+  <ti>512Mb</ti>
+  <ti>Swap</ti>
+  <ti>Linux Swap</ti>
+</tr>
+<tr>
+  <ti><path>/dev/hda3</path></ti>
+  <ti>Pozostała część dysku</ti>
+  <ti>ext3, reiserfs, xfs</ti>
+  <ti>Główna partycja Linux</ti>
+</tr>
+</table>
+
+</body>
+</subsection>
+<subsection>
+<title>IBM PReP (RS/6000)</title>
+<body>
+
+<p>
+Komputery bazujące na referencyjnej platformie IBM PowerPC (PReP) potrzebują
+małej partycji boot PReP, po której należy utworzyć partycję wymiany oraz
+partycję główną.
+</p>
+
+<table>
+<tr>
+  <th>Partycja</th>
+  <th>Rozmiar</th>
+  <th>System plików</th>
+  <th>Opis</th>
+</tr>
+<tr>
+  <ti><path>/dev/hda1</path></ti>
+  <ti>800k</ti>
+  <ti>Brak</ti>
+  <ti>Partycja boot PReP (Typ 0x41)</ti>
+</tr>
+<tr>
+  <ti><path>/dev/hda2</path></ti>
+  <ti>512Mb</ti>
+  <ti>Swap</ti>
+  <ti>Linux Swap (Typ 0x82)</ti>
+</tr>
+<tr>
+  <ti><path>/dev/hda3</path></ti>
+  <ti>Pozostała część dysku</ti>
+  <ti>ext3, reiserfs, xfs</ti>
+  <ti>Główna parycja Linux (Typ 0x83)</ti>
+</tr>
+</table>
+
+<warn>
+Program <c>parted</c> ma możliwość zmiany rozmiaru partycji, również HFS+.
+Niestety wiąże się to z dużym ryzykiem w przypadku partycji HFS+ używających
+księgowania. Należy wyłączyć księgowanie w Mac OS X, przed zmianą rozmiaru
+partycji. Wszystkie próby zmiany rozmiaru partycji przy pomocy parted to spore
+ryzyko, należy więc wykonać najpierw kopie zapasowe danych!
+</warn>
+
+<p>
+Jeżeli interesuje nas informacja o odpowiednim rozmiarze partycji lub jaka
+ich liczba będzie nam potrzebna, powinniśmy przeczytać dalszą część tego
+rozdziału. W przeciwnym wypadku należy przejść do części <uri
+link="#mac-fdisk">Domyślnie: Partycjonowanie dysku za pomocą mac-fdisk</uri>
+lub <uri link="#parted">Alternatywnie: Partycjonowanie dysku przy pomocy parted
+(zwłaszcza Pegasos)</uri>.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Jak dużo i jak wielkich?</title>
+<body>
+
+<p>
+Ilość partycji ściśle zależy od naszego środowiska. Na przykład jeśli
+administrujemy systemem mającym wielu użytkowników prawdopodobnie uznamy za
+stosowne oddzielenie <path>/home</path>, co poprawi bezpieczeństwo i uprości
+proces tworzenia kopii zapasowych. Jeżeli docelowym zastosowaniem
+instalowanego
+systemu jest serwer pocztowy to na osobnej partycji należy umieścić
+<path>/var</path> gdzie przechowywane są listy. Dobry wybór systemu plików
+może tu znacznie zwiększyć wydajność. Za to oddzielenie <path>/opt</path> jest
+dobrym rozwiązaniem na serwerach gier, gdyż większość używanego oprogramowania
+będzie instalowana właśnie tam. Powodami przyjęcia takiego rozwiązania są
+również bezpieczeństwo i łatwość tworzenia kopii zapasowych. Warto upewnić
+się, że partycja <path>/usr</path> będzie wystarczająco duża ponieważ będą tam
+znajdowały się nie tylko dane wszystkich aplikacji, ale również ważące 500 MB
+drzewo Portage.
+</p>
+
+<p>
+Jak widać, wiele zależy od oczekiwanego rezultatu. Wydzielenie partycji lub
+woluminów ma wiele zalet:
+</p>
+
+<ul>
+<li>
+Mamy możliwość dostosowania jak najwydajniejszego w danym zastosowaniu systemu
+plików dla poszczególnych partycji lub woluminów.
+</li>
+<li>
+Zapełnienie całego wolnego miejsca na partycji przez wadliwie działające
+narzędzie nie ma szkodliwego wpływu na całość systemu.
+</li>
+<li>
+Jeśli to konieczne, można skrócić czas kontroli systemów plików, dzięki
+możliwości jednoczesnego dokonywania jej na kilku partycjach (ma to znaczenie
+zwłaszcza na sprzęcie z wieloma dyskami).
+</li>
+<li>
+Montując część partycji lub woluminów z opcjami read-only (tylko do odczytu),
+nosuid (ignorowane są bity setuid), noexec (ignorowane są bity wykonywalności)
+itd. można znacznie poprawić bezpieczeństwo.
+</li>
+</ul>
+
+<p>
+Niestety zbyt rozbudowany podział niesie z sobą spore niebezpieczeństwo: źle
+zaplanowany zaowocuje pustkami na zbyt dużych i ciasnotą na zbyt małych
+partycjach. Ponadto dla dysków opartych na interfejsach SCSI jest limit
+maksymalnie 15 partycji.
+</p>
+
+</body>
+</subsection>
+</section>
+<section id="mac-fdisk">
+<title>Domyślnie: Partycjonowanie dysku za pomocą mac-fdisk</title>
+<body>
+
+<p>
+Aby utworzyć partycje skorzystamy z programu <c>mac-fdisk</c>:
+</p>
+
+<pre caption="Uruchamianie mac-fdisk">
+# <i>mac-fdisk /dev/hda</i>
+</pre>
+
+<p>
+Jeżeli używaliśmy Apple Disk Utility do pozostawienia miejsca dla Linuksa,
+najpierw musimy usunąć partycje utworzone poprzednio. Skorzystamy w tym celu z
+polecenia <c>d</c>. Zapyta ono o numer kasowanych partycji. Zwykle pierwsza
+partycja na komputerach NewWorld (Apple_partition_map) nie może zostać
+skasowana. Jeżeli chcemy rozpocząć pracę z czystym dyskiem, należy uruchomić
+program z parametrem <c>i</c>. Opcja ta całkowicie usuwa zawartość dysku, więc
+należy używać jej ostrożnie.
+</p>
+
+<p>
+Następnie zakładamy partycję <e>Apple_bootstrap</e> za pomocą <c>b</c>.
+Zostaniemy zapytani o początkowy blok. Jeśli poprzednio wybraliśmy na ten cel
+trzecią partycję, wpiszemy <c>3p</c>.
+</p>
+
+<note>
+To <e>nie</e> jest partycja "boot". Nie jest nawet używana przez Linuksa; nie
+potrzeba na niej miejsca do założenia systemu plików, nie powinien jej nawet
+montować. Użytkownicy Apple nie potrzebują osobnej partycji rozruchowej.
+</note>
+
+<p>
+Teraz stworzymy partycję wymiany za pomocą <c>c</c>. Program <c>mac-fdisk</c>
+ponownie zapyta o blok początkowy. Jako, że wcześniej skorzystaliśmy z
+<c>3</c>, teraz wpiszemy <c>4p</c>. Gdy zostaniemy zapytani o rozmiar wpisujemy
+<c>512M</c> (lub inny na jaki się zdecydowaliśmy - 512MB to zalecane minimum,
+jednak powszechnie akceptowaną normą jest podwójny iloczyn posiadanej fizycznej
+pamięci). Następnie na pytanie o nazwę wpisujemy <c>swap</c> (koniecznie).
+</p>
+
+<p>
+Żeby założyć partycję root, wpiszemy <c>c</c>, następnie <c>5p</c>, aby wybrać
+blok od którego ma się zaczynać. Na pytanie o rozmiar ponownie wpiszemy
+<c>5p</c>, <c>mac-fdisk</c> przydzieli jej całą pozostałą wolną przestrzeń
+Należy koniecznie nadać jej nazwę <c>root</c>.
+</p>
+
+<p>
+Na zakończenie zachowujemy zmiany i opuszczamy <c>mac-fdisk</c> poleceniami
+<c>w</c> oraz <c>q</c>.
+</p>
+
+<note>
+Aby się upewnić, że wszystko zostało poprawnie wykonane, należy uruchomić
+<c>mac-fdisk -l</c> jeszcze raz i sprawdzić czy są tam wszystkie nowo utworzone
+partycje. Jeśli nie widać żadnych partycji, lub też nie ma zmian, które przed
+chwilą wprowadziliśmy, należy ponownie wprowadzić zmiany, przy pomocy klawisza
+<c>i</c>. Należy zwrócić uwagę, że polecenie to usuwa wszystkie obecne
+partycje
+i zastępuje je tymi odtworzonymi.
+</note>
+
+<p>
+Następnie przechodzimy do paragrafu <uri link="#filesystems">Zakładanie
+systemów plików</uri>.
+</p>
+
+</body>
+</section>
+<section id="parted">
+<title>Alternatywnie: Partycjonowanie dysku przy pomocy parted (zwłaszcza
+Pegasos)</title>
+<body>
+
+<p>
+Program <c>parted</c>, czyli Partition Editor, jest w stanie obsłużyć partycje
+HFS+ używane przez Mac OS i Mac OS X. Dzięki niemu można zmienić rozmiar
+obecnych partycji, aby zrobić miejsce na partycje dla Linuksa. W przykładzie
+poniżej opiszemy jednak partycjonowanie dysku jedynie dla maszyn Pegasos.
+</p>
+
+<p>
+Zacznijmy od uruchomienia programu <c>parted</c>:
+</p>
+
+<pre caption="Uruchamianie parted">
+# <i>parted /dev/hda</i>
+</pre>
+
+<p>
+Jeśli dysk nie jest jeszcze podzielony na partycje, uruchamiamy <c>mklabel
+amiga</c>, aby utworzyć nową etykietę dla tego napędu.
+</p>
+
+<p>
+Zawsze można wpisać polecenie <c>print</c>, aby wyświetlić aktualną tabelę
+partycji. Zmiany jakie wprowadzimy nie zostaną zapisane aż do czasu wyjścia z
+aplikacji. Przez cały czas można anulować omyłkowo wprowadzone zmiany przy
+pomocy kombinacji klawiszy <c>Ctrl-C</c>, która przerwie działanie programu.
+</p>
+
+<p>
+Jeśli zamierzamy na swojej maszynie zainstalować również MorphOS musimy
+utworzyć system plików affs1 na początku napędu. Do
+zainstalowania kernela MorphOS'a wystarczy 32MB miejsca. Jeśli mamy Pegasos
+lub
+chcemy używać reiserfs, bądź xfs będzie trzeba ponadto trzymać na tej partycji
+kernel Linuksa (Pegasos II może zostać zabootowany z partycji ext2/ext3 lub
+affs1). Aby utworzyć partycję wpiszemy polecenie <c>mkpart primary affs1 START
+END</c>, gdzie <c>START</c> i <c>END</c> to obszar w megabajtach (np. <c>0
+32</c> tworzy partycję o rozmiarze 32MB rozpoczynając od 0MB i kończąc na 32MB.
+Jeżeli zechcemy utworzyć partycję ext2 lub ext3, musimy zamienić zmienną affs1
+z polecenia mkpart na jeden z wybranych przez nas systemów).
+</p>
+
+<p>
+Należy utworzyć dwie partycje dla systemu Linux, jeden główny system plików
+oraz partycję typu swap. Należy uruchomić polecenia <c>mkpart primary START
+END</c>, aby utworzyć każdą z nich zastępując <c>START</c> oraz <c>END</c>
+wymaganymi przez nas wielkościami.
+</p>
+
+<p>
+Zalecaną wielkością dla partycji swap jest podwójny rozmiar posiadanej przez
+nas pamięci RAM, jednak minimalną wartością jest 512MB. Aby utworzyć partycję
+swap należy wykonać polecenie <c>mkpart primary linux-swap START END</c>, a w
+miejsce START i END wpisać pożądane przez nas wartości.
+</p>
+
+<p>
+Kiedy skończymy pracę w parted wyłączamy go wpisując po prostu <c>quit</c>.
+</p>
+
+</body>
+</section>
+<section id="filesystems">
+<title>Tworzenie systemów plików</title>
+<subsection>
+<title>Wprowadzenie</title>
+<body>
+
+<p>
+Po utworzeniu partycji nadszedł czas na założenie na nich systemów plików.
+Jeśli nie wiemy jakie system plików wybrać lub odpowiadają nam domyślne
+ustawienia w podręczniku, przejdźmy do paragrafu <uri
+link="#filesystems-apply">Zakładania systemów plików na partycjach</uri>. W
+przeciwnym wypadku polecamy dalszą lekturę aby dowiedzieć się więcej na ich
+temat.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Systemy plików?</title>
+<body>
+
+<p>
+Mamy do dyspozycji kilka systemu plików dostępnych dla komputerów PowerPC
+włączając w to: ext2, ext3, XFS i ReiserFS.
+</p>
+
+<p>
+<b>Ext2</b> to sprawdzony i popularny linuksowy system plików, którego główną
+wadą jest to, że nie posiada księgowania. Powoduje to, iż jego regularne
+kontrole przy starcie systemu bywają długotrwałe. Obecnie istnieją nowoczesne
+systemy plików z księgowaniem, które można szybko sprawdzić i to właśnie te
+polecamy naszym użytkownikom.
+</p>
+<p>
+<b>Ext3</b> to odpowiednik ext2 posiadający księgowanie w trybach full oraz
+ordered, dzięki czemu w razie awarii dane odzyskiwane są błyskawicznie. ext3
+używa indeksu drzewa HTree, który zapewnia wysoką wydajność w prawie wszystkich
+zastosowaniach. Jest on bardzo dobrym i niezawodnym rozwiązaniem, polecanym dla
+większości użytkowników.
+</p>
+
+<p>
+<b>ReiserFS</b> to system plików oparty na drzewie B+, oferujący dużą
+wydajność.  Przy wielu małych plikach (poniżej 4k) może być szybszy od ext3
+nawet piętnastokrotnie. ReiserFS jest wysoce skalowalny i posiada księgowanie,
+Charakteryzuje go niezawodność i użyteczność zarówno na partycjach ogólnego
+przeznaczenia jak i w ekstremalnych przypadkach, takich jak ogromne partycje,
+operacje na wielu bardzo małych, lub bardzo dużych plikach czy też operacje na
+katalogach zawierających dziesiątki tysięcy plików.
+</p>
+
+<p>
+<b>XFS</b> to system plików z księgowaniem, w pełni wspierany w Gentoo Linux
+przez jądro xfs-sources. Jest bardzo funkcjonalny i zoptymalizowany do
+skalowalności. Zalecamy go wyłącznie do systemów z nowoczesnymi dyskami SCSI
+i/lub ciągłego zapisu danych z nieprzerwanym dostępem zasilania. Ponieważ
+XFS przechowuje dużo danych w pamięci RAM, źle zaprojektowane programy
+(te, które nie zachowują odpowiednich środków ostrożności podczas zapisywania
+plików na dysk, których niestety jest sporo) mogą doprowadzić w razie awarii
+systemu do utraty danych.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Uruchamianie partycji wymiany</title>
+<body>
+
+<p>
+Partycje wymiany inicjalizujemy za pomocą polecenia <c>mkswap</c>:
+</p>
+
+<pre caption="Tworzenie partycji wymiany">
+# <i>mkswap /dev/hda3</i>
+</pre>
+
+<p>
+Aby uruchomić partycję wymiany, używamy polecenia <c>swapon</c>:
+</p>
+
+<pre caption="Uruchamianie partycji wymiany">
+# <i>swapon /dev/hda3</i>
+</pre>
+
+<p>
+Partycję wymiany tworzymy i uaktywniamy przed stworzeniem pozostałych systemów
+plików.
+</p>
+
+</body>
+</subsection>
+<subsection id="filesystems-apply">
+<title>Zakładanie systemów plików na partycjach</title>
+<body>
+
+<p>
+Aby założyć na woluminie lub partycji system plików należy skorzystać z
+odpowiednich narzędzi:
+</p>
+
+<table>
+<tr>
+  <th>System plików</th>
+  <th>Program do zakładania</th>
+</tr>
+<tr>
+  <ti>ext2</ti>
+  <ti><c>mke2fs</c></ti>
+</tr>
+<tr>
+  <ti>ext3</ti>
+  <ti><c>mke2fs -j</c></ti>
+</tr>
+<tr>
+  <ti>reiserfs</ti>
+  <ti><c>mkreiserfs</c></ti>
+</tr>
+<tr>
+  <ti>xfs</ti>
+  <ti><c>mkfs.xfs</c></ti>
+</tr>
+</table>
+
+<p>
+Na przykład, aby założyć ext3 na partycji boot (w naszym przypadku
+<path>/dev/hda4</path>), należy wykonać następujące polecenia:
+</p>
+
+<pre caption="Zakładanie systemu plików na partycji">
+# <i>mke2fs -j /dev/hda4</i>
+</pre>
+
+<p>
+Teraz należy stworzyć systemy plików na naszych nowo utworzonych partycjach
+(lub woluminach logicznych).
+</p>
+
+<note>
+Na maszynach Pegasos II kernel musi znajdować się na systemach plików ext2,
+ext3 lub affs1. Maszyny NewWorld można uruchomić z ext2, ext3, ReiserFS, a
+nawet z HFS/HFS+. Na maszynach OldWorld uruchamiając komputer przy pomocy
+BootX, jądro musi znajdować się na partycji HFS, jednak zostanie to wykonane
+po konfiguracji programu ładującego.
+</note>
+
+</body>
+</subsection>
+</section>
+<section>
+<title>Montowanie</title>
+<body>
+
+<p>
+Po założeniu partycji i utworzeniu systemów plików nadszedł czas na ich
+zamontowanie. Służy do tego program <c>mount</c>. Pokażemy to na przykładzie
+partycji root:
+</p>
+
+<pre caption="Montowanie partycji">
+# <i>mount /dev/hda4 /mnt/gentoo</i>
+</pre>
+
+<note>
+Jeżeli chcemy przenieść <path>/tmp</path> na oddzielną partycję,
+nie można zapomnieć po zamontowaniu i rozpakowaniu odpowiednio poprawić praw
+dostępu: <c>chmod 1777 /mnt/gentoo/tmp</c>. Dotyczy to również
+<path>/var/tmp</path>.
+</note>
+
+<p>
+Następnie przechodzimy do rozdziału <uri
+link="?part=1&amp;chap=5">Wypakowywanie plików instalacyjnych</uri>.
+</p>
+
+</body>
+</section>
+</sections>
