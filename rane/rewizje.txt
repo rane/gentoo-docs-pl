@@ -1,7 +1,0 @@
-xorg-config.xml -> 1.23
-lpi-101-administration-p2.xml -> 1.5
-genkernel.xml -> 1.29
-shb-services.xml -> 1.7
-distcc.xml -> 1.40
-kernel-upgrade.xml -> 1.17
-hb-install-stage.xmk -> 1.111
