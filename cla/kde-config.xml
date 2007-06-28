@@ -137,8 +137,8 @@ Gentoo</uri>.
 <body>
 
 <note>
-Deweloperzy zalecają użycie rozdzielonych pakietów KDE bardziej niż
-monolitycznych (chociaż obie metody instalacji zostaną przedstawione).
+Deweloperzy zalecają użycie rozdzielonych ebuildów bardziej niż monolitycznych,
+chociaż obie metody zostaną przedstawione.
 </note>
 
 <p>
@@ -353,6 +353,7 @@ można zainstalować.
   </ti>
 </tr>
 <tr>
+  <ti>kdeadmin</ti>
   <ti>kdeadmin</ti>
   <ti>
     Programy administracyjne KDE, takie jak <c>KCron</c> <!--(Task

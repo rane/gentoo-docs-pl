@@ -53,7 +53,7 @@ działania.
 </body>
 </section>
 <section>
-<title>Jak są używane?</title>
+<title>Jak ich używać?</title>
 <body>
 
 <p>
@@ -144,21 +144,21 @@ kod.
 <body>
 
 <p>
-The goal behind using CFLAGS and CXXFLAGS is to create code tailor-made to your
-system; it should function perfectly while being lean and fast, if possible.
-Sometimes these conditions are mutually exclusive, so we'll stick with
-combinations known to work well. Ideally, they are the best available for any
-CPU architecture. We'll mention the aggressive flags later so you know what to
-look out for. We won't discuss every option listed on the <c>gcc</c> manual
-(there are hundreds), but we'll cover the basic, most common flags.
+Celem flag jest stworzenie kodu, idealnie dopasowanego do konfiguracji
+sprzętowej; powinien działać prawidłowo, a zarazem być mały i szybki jak tylko
+możliwe. Czasami te dwie cechy się wzajemnie wykluczają, więc trzeba trochę
+poeksperymentować z takimi kombinacjami, jakie będą prawidłowe. Są one dostępne
+dla każdej architekstury procesora. Agresywne flagi zostaną wspomiane w
+późniejszym etapie. Nie omówimy każdej opcji z podręcznika <c>gcc</c>, ponieważ
+jest ich setki. Skupimy się na głównych, najczęściej używanych flagach.
 </p>
 
 <note>
-Whenever you're not sure what a flag actually does, refer to the relevant
-chapter of the <uri
-link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Optimize-Options.html#Optimize-Options">gcc
-manual</uri>. If you're still stumped, try Google, or check out the <c>gcc</c>
-<uri link="http://gcc.gnu.org/lists.html">mailing lists</uri>.
+Nie będąc pewnym do czego służy dana flaga, należy odwołać się do odpowiedniej
+sekcji <uri
+link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Optimize-Options.html#Optimize-Options">Podręcznika
+gcc</uri>. W razie dalszych wątpliwości można również sprawdzić <uri
+link="http://gcc.gnu.org/lists.html">listę mailingową</uri> <c>gcc</c>.
 </note>
 
 </body>
@@ -168,33 +168,33 @@ manual</uri>. If you're still stumped, try Google, or check out the <c>gcc</c>
 <body>
 
 <p>
-The first and most important option is <c>-march</c>. This tells the compiler
-what code it should produce for your processor <uri
-link="http://en.wikipedia.org/wiki/Microarchitecture">architecture</uri> (or
-<e>arch</e>); it says that it should produce code for a certain kind of CPU.
-Different CPUs have different capabilities, support different instruction sets,
-and have different ways of executing code. The <c>-march</c> flag will instruct
-the compiler to produce code specifically for your CPU, with all its
-capabilities, features, instruction sets, quirks, and so on.
+Najważniejszą opcją jest <c>-march</c>. Mówi ona kompilatorowi jaki powinien być
+kod wynikowy dla używanej <uri
+link="http://en.wikipedia.org/wiki/Microarchitecture">architektury</uri>
+(<e>arch</e>) procesora. Różne rodzaje procesorów mają różne zdolności,
+wspierają różne instrukcje i mają różne rodzaje wykonywania kodu. Flaga
+<c>-march</c> ma za zadanie stworzenie kodu, który będzie specyficzny dla danego
+procesora, ze wszystkimi tymi zdolnościami, cechami, instrukcjami itp.
 </p>
 
 <p>
-Even though the CHOST variable in <path>/etc/make.conf</path> specifies the
-general architecture used, <c>-march</c> should still be used so that programs
-can be optimized for your specific processor.
+Nawet jeśli zmienna CHOST jest ustawiona w pliku <path>/etc/make.conf</path> i
+określa używaną architekturę, flaga <c>-march</c> powinna być użyta aby programy
+mogły zostać zoptymalizowane dla konkretnego procesora.
 </p>
 
 <p>
-What kind of CPU do you have? To find out, run the following command:
+Aby dowiedzieć się, jaki rodzaj procesora jest w komputerze, którego używamy,
+należy wykonać polecenie:
 </p>
 
-<pre caption="Examining CPU information">
+<pre caption="Analiza informacji o procesorze">
 $ <i>cat /proc/cpuinfo</i>
 </pre>
 
 <p>
-Now let's see <c>-march</c> in action. This example is for an older Pentium III
-chip:
+Oglądnijmy <c>-march</c> w akcji. Ten przykład jest dla starszego procesora
+Pentium III:
 </p>
 
 <pre caption="/etc/make.conf: Pentium III">
@@ -203,7 +203,7 @@ CXXFLAGS="${CFLAGS}"
 </pre>
 
 <p>
-Here's another one for a 64-bit Sparc CPU:
+Ten przykład pochodzi z 64-bitowego procesora Sparc.
 </p>
 
 <pre caption="/etc/make.conf: Sparc">
@@ -213,26 +213,26 @@ CXXFLAGS="${CFLAGS}"
 
 
 <p>
-Also available are the <c>-mcpu</c> and <c>-mtune</c> flags. Either of these
-should <e>only</e> be used when there is no available <c>-march</c> option.
-What's the difference between them?  <c>-march</c> is much more specific about
-which processor features will be used when compiling code; it is a better
-choice. <c>-mcpu</c> will produce much more generic code less optimized for your
-machine. <c>-mtune</c> is even more generic than <c>-mcpu</c>. Whenever
-possible, use <c>-march</c>. For some less common architectures such as PowerPC
-and Alpha, <c>-mcpu</c> must be used.
+Dostępne są również flagi <c>-mcpu</c> oraz <c>-mtune</c>. Jednak powinny zostać
+one użyte tylko wtedy, gdy opcja <c>-march</c> nie jest dostępna. Jaka jest
+między nimi różnica? <c>-march</c> dokładniej precyzuje jakie cechy powinny
+zostać użyte podczas kompilacji kodu. <c>-mcpu</c> stworzy ogólny kod, mało
+zoptymalizowany dla naszego procesora. <c>-mtune</c> tworzy kod jeszcze bardziej
+ogólny. Należy użyć <c>-march</c> zawsze kiedy jest dostępny. Dla architektur
+takich jak PowerPC lub Alpha musi zostać użyty <c>-mcpu</c>.
 </p>
 
 <note>
-For more suggested <c>-march</c> settings, please read chapter 5 of the
-appropriate <uri link="/doc/en/handbook/index.xml">Gentoo Installation
-Handbook</uri> for your arch. Also, read the <c>gcc</c> manual's list of <uri
-link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Submodel-Options.html#Submodel-Options">architecture-specific
-options</uri>, as well as more detailed explanations about the differences
-between <c>-march</c>, <c>-mcpu</c>, and <c>-mtune</c>. This is quite helpful
-for determining which <c>-march</c> setting you should use, especially since on
-some architectures, such as x86, <c>-mcpu</c> is deprecated and <c>-mtune</c>
-should be used instead.
+Dla konkretniejszych ustawień <c>-march</c> należy przeczytać rozdział piąty
+<uri link="/doc/en/handbook/index.xml">Podręcznika instalacji Gentoo</uri> dla
+odpowiedniej architektury. Polecamy również przeczytać listę podręcznika
+<c>gcc</c> o <uri
+link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Submodel-Options.html#Submodel-Options">opcjach
+specyficznych dla danej architektury</uri> gdzie jest dokładnie wytłumaczona
+różnica pomiędzy <c>-march</c>, <c>-mcpu</c> i <c>-mtune</c>. Jest to bardzo
+pomocne przy precyzowaniu jakie opcje <c>-march</c> powinny zostać użyte.
+Zwłaszcza, że na niektórych architekturach, takich jak x86 flaga <c>-mcpu</c>
+jest przestarzała i niepolecana i powinno się użyć <c>-mtune</c> zamiast niej.
 </note>
 
 </body>
@@ -242,76 +242,74 @@ should be used instead.
 <body>
 
 <p>
-Next up is the <c>-O</c> variable. This controls the overall level of
-optimization. This makes the code compilation take somewhat more time, and can
-take up much more memory, especially as you increase the level of optimization.
+Następną opcją jest <c>-O</c>. Kontroluje ona całkowity poziom optymalizacji.
+Może ona spowodować, że kod będzie się kompilował nieco dłużej i zostanie użyte
+nieco więcej pamięci wraz z jej podnoszeniem.
 </p>
 
 <p>
-There are five <c>-O</c> settings: <c>-O0</c>, <c>-O1</c>, <c>-O2</c>,
-<c>-O3</c>, and <c>-Os</c>. You should use only one of them in
-<path>/etc/make.conf</path>.
+Jest pięć opcji: <c>-O0</c>, <c>-O1</c>, <c>-O2</c>, <c>-O3</c> oraz <c>-Os</c>.
+W <path>/etc/make.conf</path> powinna być użyta tylko jedna.
 </p>
 
 <p>
-The with the exception of <c>-O0</c>, the <c>-O</c> settings each activate
-several additional flags, so be sure to read the gcc manual's chapter on <uri
-link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Optimize-Options.html#Optimize-Options">optimization
-options</uri> to learn which flags are activated at each <c>-O</c> level, as
-well as some explanations as to what they do.
+Z wyjątkiem <c>-O0</c>, każda następna opcja aktywuje kilka dodatkowych flag.
+O tym jakie są to flagi i co powodują  można sie dowiedzieć po przeczytaniu
+rozdziału o <uri
+link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Optimize-Options.html#Optimize-Options">opcjach
+optymalizacji</uri> strony manuala gcc.
 </p>
 
 <p>
-Let's examine each optimization level:
+Przeanalizujmy każdy poziom optymalizacji:
 </p>
 
 <ul>
   <li>
-    <c>-O0</c>: This level (that's the letter "O" followed by a zero) turns off
-    optimization entirely and is the default if no <c>-O</c> level is specified
-    in CFLAGS or CXXFLAGS. Your code will not be optimized; it's not normally
-    desired.
+    <c>-O0</c>: Ten poziom (jest to litera "O" za którą jest cyfra zero)
+    kompletnie wyłącza optymalizację i jest domyślna kiedy opcja <c>-O</c> nie
+    jest określona w zmiennych CFLAGS i CXXFLAGS, co nie jest generalnie
+    pożądane.
   </li>
   <li>
-    <c>-O1</c>: This is the most basic optimization level. The compiler will try
-    to produce faster, smaller code without taking much compilation time.
-    It's pretty basic, but it should get the job done all the time.
+    <c>-O1</c>: Bardzi podstawowy poziom optymalizacji. Kompilator będzie
+    próbował budować szybszy i mniejszy kod bez tracenia na to czasu. Jest to
+    naprawdę podstawowy poziom ale nie powinien stanowić problemów podczas
+    kompilacji.
   </li>
   <li>
-    <c>-O2</c>: A step up from <c>-O1</c>. This is the <e>recommended</e> level
-    of optimization unless you have special needs (such as <c>-Os</c>, as will
-    be explained shortly). <c>-O2</c> will activate a few more flags in addition
-    to the ones activated by <c>-O1</c>. With <c>-O2</c>, the compiler will
-    attempt to increase code performance without compromising on size, and
-    without taking too much compilation time.
+    <c>-O2</c>: Poziom wyżej od <c>-O1</c>. Jest to <e>zalecany</c> poziom
+    optymalizacji jeżeli nie mamy specialnych potrzeb (takich jak <c>-Os</c>, co
+    zostanie wyjaśnione wkrótce). <c>-O2</c> do <c>-O1</c> doda kilka nowych
+    flag. Z tą opcją kompilator będzie próbował zwiększyć wydajność kodu nie
+    zwracając uwagi na rozmiar kodu wynikowego przy długim czasie kompilacji.
   </li>
   <li>
-    <c>-O3</c>: This is the highest level of optimization possible, and also the
-    riskiest. It will take a longer time to compile your code with this option,
-    and in fact it <e>should not be used system-wide with <c>gcc</c> 4.x</e>.
-    The behavior of <c>gcc</c> has changed significantly since version 3.x. In
-    3.x, <c>-O3</c> has been shown to lead to marginally faster execution times
-    over <c>-O2</c>, but this is no longer the case with <c>gcc</c> 4.x.
-    Compiling all your packages with <c>-O3</c> <e>will</e> result in larger
-    binaries that require more memory, and will significantly increase the odds
-    of compilation failure or unexpected program behavior (including errors).
-    The downsides outweigh the benefits; remember the principle of diminishing
-    returns. <b>Using <c>-O3</c> is not recommended for <c>gcc</c> 4.x.</b>
+    <c>-O3</c>: Najwyższy możliwy poziom optymalizacji i zarazem najbardziej
+    ryzykowny. Z tą opcję kompilator będzie tracił dużo czasu na stworzenie kodu
+    wynikowego. Generalnie opcja <e>nie powinna być używana na systemach
+    używających <c>gcc</c> w wersji 4.x</e>. Zachowanie <c>gcc</c> znacznie się
+    zmieniło od wersji 3.x, gdzie opcja <c>-O3</c> miała prowadzić do trochę
+    szybszego wykonania niż przy <c>-O2</c>. Przy wersji kompilatora <c>gcc</c>
+    4.x, kod <e>będzie</e> wynikował wielkim rozmiarem i dużą ilością pamięci.
+    Będzie również znacznie zwiększał przypadki niepowodzenia kompilacji i
+    nieoczekiwane zachowanie programów, a to przeważa nad pożytkiem. <b>Używanie
+    <c>-O3</c> nie jest zalecane dla <c>gcc</c> 4.x.</b>
   </li>
   <li>
-    <c>-Os</c>: This level will optimize your code for size. It activates all
-    <c>-O2</c> options that don't increase the size of the generated code. It's
-    useful for machines that have extremely limited disk storage space and/or
-    have CPUs with small cache sizes.
+    <c>-Os</c>: Ten poziom będzie optymalizował kod pod względem wielkości.
+    Aktywuje on wszystkie flagi z poziomu <c>-O2</c>, które nie biorą udziału w
+    zwiększeniu wygenerowanego kodu. Jest to przydatne dla maszyn, które mają
+    bardzo ograniczoną przestrzeń dyskową lub z procesorami o bardzo małej
+    wielkości cache.
   </li>
 </ul>
 
 <p>
-As previously mentioned, <c>-O2</c> is the recommended optimization level. If
-package compilations error out, check to make sure that you aren't using
-<c>-O3</c>. As a fallback option, try setting your CFLAGS and CXXFLAGS to a
-lower optimization level, such as <c>-O1</c> or <c>-Os</c> and recompile the
-package.
+Jak zostało wcześniej wspomniane, <c>-O2</c> jest rekomendowanym poziomem
+optymalizacji. Jeśli pakiet zawiedzie podczas kompilacji, należy się upewnić, że
+nie jest używana opcja <c>-O3</c>. Należy wtedy spróbować z niższym poziomem
+optymalizacji, takim jak <c>-O1</c> lub <c>-Os</c>.
 </p>
 
 </body>
@@ -321,10 +319,9 @@ package.
 <body>
 
 <p>
-A fun, safe flag to use is <c>-pipe</c>. This flag actually has no effect on the
-generated code, but it makes the compilation process faster. It tells the
-compiler to use pipes instead of temporary files during the different stages of
-compilation.
+<c>-pipe</c> jest bezpieczną flagą. Nie ma ona wpływu na generowany kod, lecz
+przynosi zysk w prędkości kompilacji. Każe kompilatorowi używać potoków zamiast
+plików tymczasowych w różnych etapach kompilacji.
 </p>
 
 </body>
