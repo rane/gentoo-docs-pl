@@ -13,5 +13,5 @@ gentoo/xml/htdocs/doc/pl/handbook/2007.0/hb-install-sparc-disk.xml: -> 1.6
 gentoo/xml/htdocs/doc/pl/gentoolkit.xml: -> 1.30
 gentoo/xml/htdocs/doc/pl/kde-split-ebuilds.xml: -> 1.13
 gentoo/xml/htdocs/doc/pl/mailfilter-guide.xml: -> 1.19
-
+gentoo/xml/htdocs/proj/pl/devrel/handbook/hb-guide-ebuild.xml: -> 1.43
 
