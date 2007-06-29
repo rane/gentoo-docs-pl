@@ -4,7 +4,7 @@
 
 <!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
 
-<guide link="/doc/en/co-guide.xml" lang="pl">
+<guide link="/doc/pl/gcc-optimization.xml" lang="pl">
 
 <title>Przewodnik po optymalizacji</title>
 
@@ -25,8 +25,8 @@ optymalizacji.
 <!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
 <license/>
 
-<version>1.0</version>
-<date>2007-06-26</date>
+<version>1.1</version>
+<date>2007-06-27</date>
 
 <chapter>
 <title>Wstęp</title>
@@ -224,7 +224,7 @@ takich jak PowerPC lub Alpha musi zostać użyty <c>-mcpu</c>.
 
 <note>
 Dla konkretniejszych ustawień <c>-march</c> należy przeczytać rozdział piąty
-<uri link="/doc/en/handbook/index.xml">Podręcznika instalacji Gentoo</uri> dla
+<uri link="/doc/pl/handbook/index.xml">Podręcznika instalacji Gentoo</uri> dla
 odpowiedniej architektury. Polecamy również przeczytać listę podręcznika
 <c>gcc</c> o <uri
 link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Submodel-Options.html#Submodel-Options">opcjach
@@ -278,7 +278,7 @@ Przeanalizujmy każdy poziom optymalizacji:
     kompilacji.
   </li>
   <li>
-    <c>-O2</c>: Poziom wyżej od <c>-O1</c>. Jest to <e>zalecany</c> poziom
+    <c>-O2</c>: Poziom wyżej od <c>-O1</c>. Jest to <e>zalecany</e> poziom
     optymalizacji jeżeli nie mamy specialnych potrzeb (takich jak <c>-Os</c>, co
     zostanie wyjaśnione wkrótce). <c>-O2</c> do <c>-O1</c> doda kilka nowych
     flag. Z tą opcją kompilator będzie próbował zwiększyć wydajność kodu nie
@@ -331,30 +331,29 @@ plików tymczasowych w różnych etapach kompilacji.
 <body>
 
 <p>
-This is a very common flag designed to reduce generated code size. It is turned
-on at all levels of <c>-O</c> (except <c>-O0</c>) on architectures where doing
-so does not interfere with debugging (such as x86-64), but you may need to
-activate it yourself by adding it to your flags. Though the GNU <c>gcc</c>
-manual does not specify all architectures it is turned on by using <c>-O</c>,
-you will need to explicity activate it on x86. However, using this flag will
-make debugging hard to impossible.
+Jest to bardzo powszechna flaga stworzona do zmniejszania wielkości generowanego
+kodu. Chociaż jest ona  włączona w każdym poziomie <c>-O</c> (poza <c>-O0</c>)
+na architekturach gdzie jest to możliwe i nie przeszkadza przy debugowaniu (tak
+jak na x86-64). Ponieważ trona podręcznika GNU <c>gcc</c> nie podaje wszystkich
+architektur, na których <c>-O</c> wymusza działanie tej flagi, trzeba ją dodać
+własnoręcznie. Używanie tej flagi może powodować problemy podczas debugowania
+kodu.
 </p>
 
 <p>
-In particular, it makes troubleshooting applications written in Java much
-harder, though Java is not the only code affected by using this flag. So while
-the flag can help, it can also make debugging harder. If you don't plan to do
-much debugging and haven't added any other debugging-related CFLAGS such as
-<c>-ggdb</c> (and you aren't installing packages with the <c>debug</c> USE
-flag), then try using <c>-fomit-frame-pointer</c>.
+Szczególne problemy sprawiają aplikacje napisane w Javie, chociaż nie jest ona
+jedynym językiem napiętnowanym przez tą flagę. Trzeba mieć na uwadzę, że mimo
+tego, że flaga ogólnie pomaga, może sprawić debugowanie kodu znacznie
+trudniejsze. Jeśli nie zamierzamy poddawać kodu operacjom debugowania i nie mamy
+w zmiennej CFLAGS innych flag, takich jak <c>-ggdb</c> (ani nie kompilujemy z
+włączoną flagą USE="debug"),  warto dodać <c>-fomit-frame-pointer</c>.
 </p>
 
 <impo>
-Do <e>not</e> combine <c>-fomit-frame-pointer</c> with the similar flag
-<c>-momit-leaf-frame-pointer</c>. Using the latter flag is discouraged, as
-<c>-fomit-frame-pointer</c> already does the job properly. Furthermore,
-<c>-momit-leaf-frame-pointer</c> has been shown to negatively impact code
-performance.
+<e>Nie należy</e> łączyć <c>-fomit-frame-pointer</c> z podobnie działającą flagą
+<c>-momit-leaf-frame-pointer</c>. Użycie drugiej flagi jest niepotrzebne,
+ponieważ <c>-fomit-frame-pointer</c> wykonuje swoją pracę prawidłowo. Ponadto,
+<c>-momit-leaf-frame-pointer</c> okazuje się negatywnie wpływać na jakość kodu.
 <!--
 source for this info:
 http://www.coyotegulch.com/products/acovea/aco5p4gcc40.html
@@ -368,40 +367,40 @@ http://www.coyotegulch.com/products/acovea/aco5p4gcc40.html
 <body>
 
 <p>
-These flags enable the <uri
-link="http://en.wikipedia.org/wiki/Streaming_SIMD_Extensions">SSE</uri>, <uri
+Te flagi uruchamiają ustawienia instrukcji
+<uri link="http://en.wikipedia.org/wiki/Streaming_SIMD_Extensions">SSE</uri>, <uri
 link="http://en.wikipedia.org/wiki/SSE2">SSE2</uri>, <uri
 link="http://en.wikipedia.org/wiki/SSSE3">SSE3</uri>, <uri
-link="http://en.wikipedia.org/wiki/MMX">MMX</uri>, and <uri
-link="http://en.wikipedia.org/wiki/3dnow">3DNow!</uri> instruction sets for x86
-and x86-64 architectures. These are useful primarily in multimedia, gaming, and
-other floating point-intensive computing tasks, though they also contain several
-other mathematical enhancements. These instruction sets are found in more modern
-CPUs.
+link="http://en.wikipedia.org/wiki/MMX">MMX</uri> i <uri
+link="http://en.wikipedia.org/wiki/3dnow">3DNow!</uri> dla architektur x86 i
+x86-64. Jest to użyteczne przede wszystkim przy multimediach, grach i zadaniach,
+wymagających intensywnych obliczeń matematycznych. Funkcje te są dostępne w
+nowszych modelach procesorów.
 </p>
 
 <impo>
-Be sure to check if your CPU supports these by running <c>cat /proc/cpuinfo</c>.
-The output will include any supported additional instruction sets. Note that
-<b>pni</b> is just a different name for SSE3.
+Należy się upewnić, że dany procesor wspiera powyższe flagi. Można się tego
+dowiedzieć poprzez <c>cat /proc/cpuinfo</c>. Wyjście tego polecenia będzie
+zawierało wszystkie dodatkwoe ustawienia. Trzeba mieć na uwadze, że <b>pni</b>
+jest inną nazwą dla SSE3.
 </impo>
 
 <p>
-You normally don't need to add any of these flags to <path>/etc/make.conf</path>
-as long as you are using the correct <c>-march</c> (for example,
-<c>-march=nocona</c> implies <c>-msse3</c>). Some notable exceptions are newer
-VIA and AMD64 CPUs that support instructions not implied by <c>-march</c> (such
-as SSE3). For CPUs like these you'll need to enable additional flags where
-appropriate after checking the output of <c>cat /proc/cpuinfo</c>.
+Generalnie nie ma potrzeby dodawania jakiejkolwiek z tych flag, dopóki jest
+ustawiona odpowiednia opcja <c>-march</c> (np <c>-march=nocona</c> zawiera
+<c>-msse3</c>). Kilka wartych uwagi wyjątków to nowsze procesory VIA i AMD64,
+które wspierają instrukcje niezawarte w <c>-march</c> (takie jak SSE3). Dla
+takich procesorów będzie wymagane dodanie flag, które będą odpowiadały wynikowi
+<c>cat /proc/cpuinfo</c>.
 </p>
 
 <note>
-You should check the <uri
-link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/i386-and-x86_002d64-Options.html#i386-and-x86_002d64-Options">list</uri>
-of x86 and x86-64-specific flags to see which of these instruction sets are
-activated by the proper CPU type flag. If an instruction is listed, then you
-don't need to specify it; it will be turned on by using the proper <c>-march</c>
-setting.
+Należy zapoznać się z <uri
+link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/i386-and-x86_002d64-Options.html#i386-and-x86_002d64-Options">listą</uri>
+flag specyficznych tylko dla architektur x86 i x86-64, aby wiedzieć co aktywuje
+każe z tych ustawień. Jeśli instrukcja jest podana, wtedy nie ma potrzeby jej
+wyszczególnienia. Będzie ona domyślnie włączona przy odpowiedniej fladze
+<c>-march</c>.
 </note>
 
 </body>
@@ -409,62 +408,59 @@ setting.
 </chapter>
 
 <chapter>
-<title>Optimization FAQs</title>
+<title>FAQ Optymalizacji</title>
 <section>
-<title>But I get better performance with -funroll-loops -fomg-optimize!</title>
+<title>Ale można osiągnąć lepsze wyniki przy użyciu -funroll-loops -fomg-optimize!</title>
 <body>
 
 <p>
-No, you only <e>think</e> you do because someone has convinced you that more
-flags are better. Aggressive flags will only hurt your applications when used
-system-wide. Even the <c>gcc</c> <uri
-link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Optimize-Options.html#Optimize-Options">manual</uri>
-says that using <c>-funroll-loops</c> and <c>-funroll-all-loops</c> makes code
-larger and run more slowly. Yet for some reason, these two flags, along with
-<c>-ffast-math</c>, <c>-fforce-mem</c>, <c>-fforce-addr</c>, and similar flags,
-continue to be very popular among ricers who want the biggest bragging rights.
+Niestety. Może się tylko <e>wydawać</e>, ponieważ ktoś nas przekonał, że
+wydajność rośnie z liczbą użytych flag. Agresywne flagi mogą tylko uszkodzić
+aplikacje. Nawet strona <uri
+link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Optimize-Options.html#Optimize-Options">manuala</uri>
+<c>gcc</c> mówi, że użycie <c>-funroll-loops</c> i <c>-funroll-all-loops</c>
+tworzy kod większy i bardziej powolny. Po <c>-ffast-math</c>,
+<c>-fforce-mem</c>, <c>-fforce-addr</c>, są to kolejne mylnie używane flagi.
 </p>
 
 <p>
-The truth of the matter is that they are dangerously aggressive flags. Take a
-good look around the <uri link="http://forums.gentoo.org">Gentoo Forums</uri>
-and <uri link="http://bugs.gentoo.org">Bugzilla</uri> to see what those flags
-do: nothing good!
+Prawdą jest, że są to niebezpiecznie agresywne flagi. Można się o tym przekonać
+w bardzo łatwy sposób: odwiezając <uri link="http://forums.gentoo.org">Forum
+Gentoo</uri> oraz <uri link="http://bugs.gentoo.org">Bugzillę</uri>. Szybko
+zauważymy że nie robią one nic dobrego!
 </p>
 
 <p>
-You don't need to use those flags globally in CFLAGS or CXXFLAGS. They will only
-hurt performance. They may make you sound like you have a high-performance
-system running on the bleeding edge, but they don't do anything but bloat your
-code and get your bugs marked INVALID or WONTFIX.
+Nie należy ich używać, ponieważ stworzą one spuchnięty kod o wielkich rozmiarach
+i słabej wydajności. Sprawią, że system będzie działał na krawędzi noża, a nasze
+bugi zostaną oznaczone jako INVALID lub WONTFIX.
 </p>
 
 <p>
-You don't need dangerous flags like these. <b>Don't use them</b>. Stick to the
-basics: <c>-march</c>, <c>-O</c>, and <c>-pipe</c>.
+Nie potrzeba tak niebezpiecznych flag. <b>Nie należy ich używać</b>. Lepsze od
+tego jest użycie podstawowych flag: <c>-march</c>, <c>-O</c> i <c>-pipe</c>.
 </p>
 
 </body>
 </section>
 <section>
-<title>What about -O levels higher than 3?</title>
+<title>Co z poziomami -O wyższymi niż 3?</title>
 <body>
 
 <p>
-Some users boast about even better performance obtained by using <c>-O4</c>,
-<c>-O9</c>, and so on, but the reality is that <c>-O</c> levels higher than 3
-have no effect. The compiler may accept CFLAGS like <c>-O4</c>, but it actually
-doesn't do anything with them. It only performs the optimizations for
-<c>-O3</c>, nothing more.
+Niektórzy użytkownicy chwalą się lepszą wydajnością przy użyciu <c>-O4</c>,
+<c>-O9</c> itp. Prawdą jednak jest to, że poziomy wyższe niż 3 nie mają żadnego
+wpływu. Kompilator akceptuje CFLAGS takie jak <c>-O4</c>, lecz nie wykorzystuje
+ich przy budowie kodu. Jest to równoznaczne z użyciem <c>-O3</c>, nic więcej.
 </p>
 
 <p>
-Need more proof? Examine the <c>gcc</c> <uri
-link="http://gcc.gnu.org/viewcvs/trunk/gcc/opts.c?revision=124622&amp;view=markup">source
-code</uri>:
+Więcej dowodów? Przeanalizuj
+<uri link="http://gcc.gnu.org/viewcvs/trunk/gcc/opts.c?revision=124622&amp;view=markup">kod
+źródłowy</uri> <c>gcc</c>:
 </p>
 
-<pre caption="-O source code">
+<pre caption="Kod źródłowy -O">
 if (optimize >= 3)
     {
       flag_inline_functions = 1;
@@ -477,38 +473,39 @@ if (optimize >= 3)
 </pre>
 
 <p>
-As you can see, any value higher than 3 is treated as just <c>-O3</c>.
+Jak widać, każda wartość większa niż 3 jest traktowana jak <c>-O3</c>.
 </p>
 
 </body>
 </section>
 <section>
-<title>What about redundant flags?</title>
+<title>Co ze zbędnymi flagami?</title>
 <body>
 
 <p>
-Oftentimes CFLAGS and CXXFLAGS that are turned on at various <c>-O</c> levels
-are specified redundantly in <path>/etc/make.conf</path>. Sometimes this is done
-out of ignorance, but it is also done to avoid flag filtering or flag replacing.
+Często CFLAGS i CXXFLAGS, które są ustawione na różne poziomy <c>-O</c> są
+zbędne w <path>/etc/make.conf</path>. Czasami są one ignorowane, a czasami
+filtrowane lub zastępowane.
 </p>
 
 <p>
-Flag filtering/replacing is done in many of the ebuilds in the Portage tree. It
-is usually done because packages fail to compile at certain <c>-O</c> levels, or
-when the source code is too sensitive for any additional flags to be used. The
-ebuild will either filter out some or all CFLAGS and CXXFLAGS, or it may replace
-<c>-O</c> with a different level.
+Filtracje i zastępowanie flag jest wykorzystywane przez wiele ebuildów w drzewie
+Portage. Zazwyczaj jest to robione z powodu niepowodzenia przy kompilacji z
+określonym poziomem optymalizacji <c>-O</c> lub kiedy kod jest zbyt wrażliwy na
+wszelkie dodatkowe flagi. Ebuild będzie filtrował niektóre CFLAGS i CXXFLAGS lub
+zastąpi <c>-O</c> innym poziomem.
 </p>
 
 <p>
-The <uri
-link="http://devmanual.gentoo.org/ebuild-writing/functions/src_compile/build-environment/index.html">Gentoo
-Developer Manual</uri> outlines where and how flag filtering/replacing works.
+<uri
+link="http://devmanual.gentoo.org/ebuild-writing/functions/src_compile/build-environment/index.html">Podręcznik
+Dewelopera Gentoo</uri> tworzy szkic gdzie i jak filtrowanie i zastępowanie flag
+działa.
 </p>
 
 <p>
-It's possible to circumvent <c>-O</c> filtering by redundantly listing the flags
-for a certain level, such as <c>-O3</c>, by doing things like:
+Możliwym jest ominięcie filtrowania <c>-O</c> poprzez niepotrzebne dodawanie
+flag pewnych poziomów, takich jak <c>-O3</c>
 </p>
 
 <pre caption="Specifying redundant CFLAGS">
@@ -516,38 +513,35 @@ CFLAGS="-O3 -finline-functions -funswitch-loops"
 </pre>
 
 <p>
-However, <brite>this is not a smart thing to do</brite>. CFLAGS are filtered for
-a reason! When flags are filtered, it means that it is unsafe to build a package
-with those flags. Clearly, it is <e>not</e> safe to compile your whole system
-with <c>-O3</c> if some of the flags turned on by that level will cause problems
-with certain packages. Therefore, you shouldn't try to "outsmart" the developers
-who maintain those packages. <e>Trust the developers</e>. Flag filtering and
-replacing is done for your benefit! If an ebuild specifies alternative flags,
-then don't try to get around it.
+<brite>Nie jest to mądre</brite>. CFLAGS jest filtrowane z konkretnego powodu!
+Kiedy flagi są filtrowane, znaczy to, że są niebezpieczne do budowy pakietu.
+Naprawdę, <e>nie</e> jest bezpieczne budowanie całego systemu z <c>-O3</c> jeśli
+jakaś flaga z tego poziomu optymalizacji będzie tworzyła problemy z danymi
+pakietami. <e>Zaufaj deweloperom</e>. Filtrowanie i zastępowanie flag jest
+robione dla naszych zysków. Jeśli ebuild określa alternatywną flagę, nie należy
+tego obchodzić w żaden sposób!
 </p>
 
 <p>
-You will most likely continue to run into problems when you build a package with
-unacceptable flags. When you report your troubles on Bugzilla, the flags you use
-in <path>/etc/make.conf</path> will be readily visible and you will be told to
-recompile without those flags. Save yourself the trouble of recompiling by not
-using redundant flags in the first place! Don't just automatically assume that
-you know better than the developers.
+Po zbudowaniu pakietu z nieakceptowanymi flagami, najczęściej pogłębiamy się w
+problemach. Kiedy zgłaszamy błąd na Bugzilli, użyte flagi z
+<path>/etc/make.conf</path> są widoczne. Zostaniemy wtedy powiadomieni, aby
+przebudować dany pakiet bez niepotrzebnych flag. Można sobie tego oszczędzić
+poprzez ich nieużywanie i zakładanie, że wie się lepiej niż deweloperzy.
 </p>
 
 </body>
 </section>
 <section>
-<title>What about LDFLAGS?</title>
+<title>Co z LDFLAGS?</title>
 <body>
 
 <p>
-Don't use them. You may have heard that they can speed up application load times
-or reduce binary size, but in reality, LDFLAGS are more likely to make your
-applications stop working. They are not supported, and you can expect to have
-your bugs closed and marked INVALID if you report errors with packages while
-using LDFLAGS. At the very least you will have to recompile all affected
-packages without setting LDFLAGS.
+Nie należy ich używać. Można usłyszeć, że mogą podnieść czas uruchamiania
+aplikacji lub zmniejszyć ich rozmiar. Jednak LDFLAGS najczęściej powodują
+zepsucie się danej aplikacji. Nie są one wspierane, więc można oczekiwać, że
+zgłoszony bug zostanie oznaczony jako INVALID. Ostatecznie trzeba będzie
+ponownie kompilować pakiet bez ustawionych LDFLAGS.
 </p>
 
 </body>
@@ -555,33 +549,31 @@ packages without setting LDFLAGS.
 </chapter>
 
 <chapter>
-<title>Resources</title>
+<title>Zasoby</title>
 <section>
 <body>
 
 <p>
-The following resources are of some help in further understanding optimization:
+Poniższe źródła są pożyteczne dla dalszego zrozumienia optymalizacji:
 </p>
 
 <ul>
   <li>
-    The <uri link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/">GNU gcc
-    manual</uri>
+    <uri link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/">Strona manuala GNU
+    gcc</uri>
   </li>
   <li>
-    Chapter 5 of the <uri link="/doc/en/handbook/">Gentoo Installation
-    Handbooks</uri>
+    Akapit 5 <uri link="/doc/pl/handbook/">Podręcznika Instalacji Gentoo</uri>
   </li>
   <li><c>man make.conf</c></li>
   <li><uri link="http://en.wikipedia.org">Wikipedia</uri></li>
   <li>
-    <uri link="http://www.coyotegulch.com/products/acovea/">Acovea</uri>, a
-    benchmarking and test suite that can be useful for determining how different
-    compiler flags interact and affect generated code, though its code
-    suggestions are not appropriate for system-wide use. It is available in
-    Portage: <c>emerge acovea</c>.
+    <uri link="http://www.coyotegulch.com/products/acovea/">Acovea</uri> -
+    benchmark. Może być przydatny do ustalenia w jak różny sposób flagi wpływają
+    na wygenerowany przez kompilator kod. Program jest dostępny w Portage:
+    <c>emerge acovea</c>.
   </li>
-  <li>The <uri link="http://forums.gentoo.org">Gentoo Forums</uri></li>
+  <li><uri link="http://forums.gentoo.org">Forum Gentoo</uri></li>
 </ul>
 
 </body>
