@@ -37,14 +37,14 @@ optymalizacji.
 <p>
 CFLAGS i CXXFLAGS są zmiennymi środowiskowymi, które są używane przy kompilacji
 kodu przez kompilator <c>gcc</c>. Mówią one jakie przełączniki mają być użyte
-podczas kompilaci. Zmienna CFLAGS jest dla kodu napisanego w języku C, zaś
+podczas kompilacji. Zmienna CFLAGS jest dla kodu napisanego w języku C, zaś
 CXXFLAS dla kodu napisanego w C++.
 </p>
 
 <p>
-Mogą one się przysłużyć do zmniejszenia się ilości informacji diagnostycznych
-dla programu, wzrostu poziomu ostrzeżeniach o błędach i optymalizacji
-wyprodukowanego kodu. <uri
+Mogą one przysłużyć się do zmniejszenia ilości informacji diagnostycznych dla
+programu, wzrostu poziomu ostrzeżeń o błędach i optymalizacji wygenerowanego
+kodu. <uri
 link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Invoking-GCC.html#Invoking-GCC">Podręcznik
 GNU gcc</uri> zawiera kompletną listę z dostępnymi opcjami i opisem ich
 działania.
@@ -57,8 +57,8 @@ działania.
 <body>
 
 <p>
-CFLAGS i CXXFLAGS mogą być użyte na dwa sposoby. Po pierwsze, mogą być użyte
-przez bezpośrednie wywołanie programu <c>gcc</c> oraz kod, który ma zostać
+CFLAGS i CXXFLAGS mogą być użyte na dwa sposoby. Po pierwsze przez
+bezpośrednie wywołanie programu <c>gcc</c> oraz kod, który ma zostać
 skompilowany.
 </p>
 
@@ -67,8 +67,8 @@ $ <i>CFLAGS="-march=i686" gcc file.c</i>
 </pre>
 
 <p>
-Nie powinno się tego używać podczas instalacji pakietów z drzewa Portage. Od
-tego są zmienne CFLAGS i CXXFLAGS w <path>/etc/make.conf</path>. Tą drogą
+Nie należy tego używać podczas instalacji pakietów z drzewa Portage. Od
+tego są zmienne CFLAGS i CXXFLAGS w <path>/etc/make.conf</path>. W ten sposób
 wszystkie pakiety zostaną skompilowane z danymi opcjami.
 </p>
 
@@ -78,8 +78,8 @@ CXXFLAGS="${CFLAGS}"
 </pre>
 
 <p>
-Jak można dostrzec, CXXFLAGS zawiera wszystkie opcje podane przez CFLAGS. Jest
-to bezpieczny sposób, który nigdy nie powinien zawieść. Nigdy nie powinno się
+Jak widać, CXXFLAGS zawiera wszystkie opcje podane przez CFLAGS. Jest to
+bezpieczny sposób, który nigdy nie powinien zawieść. Nigdy nie powinno się
 dodawać innych opcji do CXXFLAGS.
 </p>
 
@@ -98,16 +98,16 @@ pakietów.
 
 <p>
 Kiedy mówi się, że CFLAGS i CXXFLAGS mogą być bardzo efektywne, znaczy to, że
-produkuje mniejszą i/lub szybszą wersję binarną. Mogą również osłabić funkcje
+produkują mniejszą i/lub szybszą wersję binarną. Ale mogą też osłabić funkcje
 kodu oraz powiększyć jego rozmiary, spowolnić czas jego wykonywania a nawet
 spowodować niepowodzenie jego kompilacji!
 </p>
 
 <p>
 CFLAGS nie jest receptą na sukces. Nie stworzą systemu, który będzie się
-uruchamiał szybciej lub też skompilowany kod będzie zabierał mniej miejsca.
-Dodawanie większej ilości flag w celu optymalizacji zaskutkuje wprost
-przeciwnie. Jest to pewna recepta na niepowodzenie.
+uruchamiał szybciej lub też skompilowany kod będzie zajmował mniej miejsca.
+Dodawanie większej ilości flag w celu optymalizacji zaowocuje efektem odwrotnym.
+Jest to pewna recepta na niepowodzenie.
 </p>
 
 <p>
@@ -126,7 +126,7 @@ będzie instalowane w systemie!
 
 <p>
 Skoro już jesteśmy świadomi ryzyka, spójrzmy na kilka bezpiecznych flag dla
-naszego systemu. Pozwoli to być pożytecznym zawsze, kiedy zostanie zgłoszony
+naszego systemu. Pozwoli to być pomocnym zawsze, kiedy zostanie zgłoszony
 problem na <uri link="http://bugs.gentoo.org">Bugzilli</uri>. Deweloperzy zwykle
 proszą o ponowną kompilację kodu z minimalnymi flagami, aby dowiedzieć się, czy
 problem faktycznie istnieje. Ważne jest to, że agresywne flagi mogą zrujnować
@@ -147,10 +147,10 @@ kod.
 Celem flag jest stworzenie kodu, idealnie dopasowanego do konfiguracji
 sprzętowej; powinien działać prawidłowo, a zarazem być mały i szybki jak tylko
 możliwe. Czasami te dwie cechy się wzajemnie wykluczają, więc trzeba trochę
-poeksperymentować z takimi kombinacjami, jakie będą prawidłowe. Są one dostępne
-dla każdej architekstury procesora. Agresywne flagi zostaną wspomiane w
+poeksperymentować z kombinacjami, aby były  prawidłowe. Są one dostępne
+dla każdej architektury procesora. Agresywne flagi zostaną opisane w
 późniejszym etapie. Nie omówimy każdej opcji z podręcznika <c>gcc</c>, ponieważ
-jest ich setki. Skupimy się na głównych, najczęściej używanych flagach.
+są ich setki. Skupimy się na głównych, najczęściej używanych flagach.
 </p>
 
 <note>
@@ -193,8 +193,8 @@ $ <i>cat /proc/cpuinfo</i>
 </pre>
 
 <p>
-Oglądnijmy <c>-march</c> w akcji. Ten przykład jest dla starszego procesora
-Pentium III:
+Oglądnijmy <c>-march</c> w akcji. Przykład jest dla starszego procesora Penium
+III
 </p>
 
 <pre caption="/etc/make.conf: Pentium III">
@@ -232,7 +232,7 @@ specyficznych dla danej architektury</uri> gdzie jest dokładnie wytłumaczona
 różnica pomiędzy <c>-march</c>, <c>-mcpu</c> i <c>-mtune</c>. Jest to bardzo
 pomocne przy precyzowaniu jakie opcje <c>-march</c> powinny zostać użyte.
 Zwłaszcza, że na niektórych architekturach, takich jak x86 flaga <c>-mcpu</c>
-jest przestarzała i niepolecana i powinno się użyć <c>-mtune</c> zamiast niej.
+jest przestarzała i powinno się użyć <c>-mtune</c> zamiast niej.
 </note>
 
 </body>
@@ -272,9 +272,9 @@ Przeanalizujmy każdy poziom optymalizacji:
     pożądane.
   </li>
   <li>
-    <c>-O1</c>: Bardzi podstawowy poziom optymalizacji. Kompilator będzie
+    <c>-O1</c>: Bardzo podstawowy poziom optymalizacji. Kompilator będzie
     próbował budować szybszy i mniejszy kod bez tracenia na to czasu. Jest to
-    naprawdę podstawowy poziom ale nie powinien stanowić problemów podczas
+    naprawdę podstawowy poziom i nie powinien stanowić problemów podczas
     kompilacji.
   </li>
   <li>
@@ -286,15 +286,15 @@ Przeanalizujmy każdy poziom optymalizacji:
   </li>
   <li>
     <c>-O3</c>: Najwyższy możliwy poziom optymalizacji i zarazem najbardziej
-    ryzykowny. Z tą opcję kompilator będzie tracił dużo czasu na stworzenie kodu
+    ryzykowny. Z tą opcją kompilator będzie tracił dużo czasu na stworzenie kodu
     wynikowego. Generalnie opcja <e>nie powinna być używana na systemach
     używających <c>gcc</c> w wersji 4.x</e>. Zachowanie <c>gcc</c> znacznie się
     zmieniło od wersji 3.x, gdzie opcja <c>-O3</c> miała prowadzić do trochę
     szybszego wykonania niż przy <c>-O2</c>. Przy wersji kompilatora <c>gcc</c>
     4.x, kod <e>będzie</e> wynikował wielkim rozmiarem i dużą ilością pamięci.
     Będzie również znacznie zwiększał przypadki niepowodzenia kompilacji i
-    nieoczekiwane zachowanie programów, a to przeważa nad pożytkiem. <b>Używanie
-    <c>-O3</c> nie jest zalecane dla <c>gcc</c> 4.x.</b>
+    nieoczekiwane zachowanie programów. <b>Używanie <c>-O3</c> nie jest zalecane
+    dla <c>gcc</c> 4.x.</b>
   </li>
   <li>
     <c>-Os</c>: Ten poziom będzie optymalizował kod pod względem wielkości.
@@ -334,7 +334,7 @@ plików tymczasowych w różnych etapach kompilacji.
 Jest to bardzo powszechna flaga stworzona do zmniejszania wielkości generowanego
 kodu. Chociaż jest ona  włączona w każdym poziomie <c>-O</c> (poza <c>-O0</c>)
 na architekturach gdzie jest to możliwe i nie przeszkadza przy debugowaniu (tak
-jak na x86-64). Ponieważ trona podręcznika GNU <c>gcc</c> nie podaje wszystkich
+jak na x86-64). Ponieważ strona podręcznika GNU <c>gcc</c> nie podaje wszystkich
 architektur, na których <c>-O</c> wymusza działanie tej flagi, trzeba ją dodać
 własnoręcznie. Używanie tej flagi może powodować problemy podczas debugowania
 kodu.
@@ -342,11 +342,11 @@ kodu.
 
 <p>
 Szczególne problemy sprawiają aplikacje napisane w Javie, chociaż nie jest ona
-jedynym językiem napiętnowanym przez tą flagę. Trzeba mieć na uwadzę, że mimo
+jedynym językiem napiętnowanym przez tę flagę. Trzeba mieć na uwadzę, że mimo
 tego, że flaga ogólnie pomaga, może sprawić debugowanie kodu znacznie
-trudniejsze. Jeśli nie zamierzamy poddawać kodu operacjom debugowania i nie mamy
-w zmiennej CFLAGS innych flag, takich jak <c>-ggdb</c> (ani nie kompilujemy z
-włączoną flagą USE="debug"),  warto dodać <c>-fomit-frame-pointer</c>.
+trudniejszym. Jeśli nie zamierzamy poddawać kodu operacjom debugowania i nie
+mamy w zmiennej CFLAGS innych flag, takich jak <c>-ggdb</c> (ani nie kompilujemy
+z włączoną flagą USE="debug"), warto dodać <c>-fomit-frame-pointer</c>.
 </p>
 
 <impo>
@@ -389,7 +389,7 @@ jest inną nazwą dla SSE3.
 Generalnie nie ma potrzeby dodawania jakiejkolwiek z tych flag, dopóki jest
 ustawiona odpowiednia opcja <c>-march</c> (np <c>-march=nocona</c> zawiera
 <c>-msse3</c>). Kilka wartych uwagi wyjątków to nowsze procesory VIA i AMD64,
-które wspierają instrukcje niezawarte w <c>-march</c> (takie jak SSE3). Dla
+które wspierają instrukcje nie zawarte w <c>-march</c> (takie jak SSE3). Dla
 takich procesorów będzie wymagane dodanie flag, które będą odpowiadały wynikowi
 <c>cat /proc/cpuinfo</c>.
 </p>
@@ -398,7 +398,7 @@ takich procesorów będzie wymagane dodanie flag, które będą odpowiadały wyn
 Należy zapoznać się z <uri
 link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/i386-and-x86_002d64-Options.html#i386-and-x86_002d64-Options">listą</uri>
 flag specyficznych tylko dla architektur x86 i x86-64, aby wiedzieć co aktywuje
-każe z tych ustawień. Jeśli instrukcja jest podana, wtedy nie ma potrzeby jej
+każa z tych ustawień. Gdy instrukcja jest podana, wtedy nie ma potrzeby jej
 wyszczególnienia. Będzie ona domyślnie włączona przy odpowiedniej fladze
 <c>-march</c>.
 </note>
@@ -424,16 +424,16 @@ tworzy kod większy i bardziej powolny. Po <c>-ffast-math</c>,
 </p>
 
 <p>
-Prawdą jest, że są to niebezpiecznie agresywne flagi. Można się o tym przekonać
-w bardzo łatwy sposób: odwiezając <uri link="http://forums.gentoo.org">Forum
-Gentoo</uri> oraz <uri link="http://bugs.gentoo.org">Bugzillę</uri>. Szybko
-zauważymy że nie robią one nic dobrego!
+Prawdą jest, że są to bardzo agresywne flagi. Można się o tym przekonać w bardzo
+łatwy sposób: odwiezając <uri link="http://forums.gentoo.org">Forum Gentoo</uri>
+oraz <uri link="http://bugs.gentoo.org">Bugzillę</uri>. Szybko zauważymy że nie
+robią one nic dobrego!
 </p>
 
 <p>
 Nie należy ich używać, ponieważ stworzą one spuchnięty kod o wielkich rozmiarach
-i słabej wydajności. Sprawią, że system będzie działał na krawędzi noża, a nasze
-bugi zostaną oznaczone jako INVALID lub WONTFIX.
+i słabej wydajności. Sprawią, że system będzie działał na krawędzi, a nasze bugi
+zostaną oznaczone jako INVALID lub WONTFIX.
 </p>
 
 <p>
@@ -483,7 +483,7 @@ Jak widać, każda wartość większa niż 3 jest traktowana jak <c>-O3</c>.
 <body>
 
 <p>
-Często CFLAGS i CXXFLAGS, które są ustawione na różne poziomy <c>-O</c> są
+Opcje CFLAGS i CXXFLAGS, które są zawarte w różnych poziomach <c>-O</c> są
 zbędne w <path>/etc/make.conf</path>. Czasami są one ignorowane, a czasami
 filtrowane lub zastępowane.
 </p>
@@ -504,11 +504,11 @@ działa.
 </p>
 
 <p>
-Możliwym jest ominięcie filtrowania <c>-O</c> poprzez niepotrzebne dodawanie
-flag pewnych poziomów, takich jak <c>-O3</c>
+Można ominąć filtrowania <c>-O</c> poprzez niepotrzebne dodawanie
+flag pewnych poziomów optymalizacji, takich jak <c>-O3</c>
 </p>
 
-<pre caption="Specifying redundant CFLAGS">
+<pre caption="Zbędne opcje w CFLAGS">
 CFLAGS="-O3 -finline-functions -funswitch-loops"
 </pre>
 
@@ -554,7 +554,7 @@ ponownie kompilować pakiet bez ustawionych LDFLAGS.
 <body>
 
 <p>
-Poniższe źródła są pożyteczne dla dalszego zrozumienia optymalizacji:
+Poniższe źródła są pomocne dla dalszego zrozumienia optymalizacji:
 </p>
 
 <ul>
