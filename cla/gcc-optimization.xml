@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
-<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/en/co-guide.xml,v 1.1 2007/06/27 06:04:17 nightmorph Exp $ -->
+<!-- $Header: $ -->
 
 <!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
 
@@ -58,13 +58,8 @@ działania.
 
 <p>
 CFLAGS i CXXFLAGS mogą być użyte na dwa sposoby. Po pierwsze przez
-bezpośrednie wywołanie programu <c>gcc</c> oraz kod, który ma zostać
-skompilowany.
+program przy użyciu plików Makefile wygenerowanych przez automake.
 </p>
-
-<pre caption="Bezpośrednie wywołanie">
-$ <i>CFLAGS="-march=i686" gcc file.c</i>
-</pre>
 
 <p>
 Nie należy tego używać podczas instalacji pakietów z drzewa Portage. Od
@@ -193,7 +188,7 @@ $ <i>cat /proc/cpuinfo</i>
 </pre>
 
 <p>
-Oglądnijmy <c>-march</c> w akcji. Przykład jest dla starszego procesora Penium
+Oglądnijmy <c>-march</c> w akcji. Przykład jest dla starszego procesora Pentium
 III
 </p>
 
@@ -248,14 +243,14 @@ nieco więcej pamięci wraz z jej podnoszeniem.
 </p>
 
 <p>
-Jest pięć opcji: <c>-O0</c>, <c>-O1</c>, <c>-O2</c>, <c>-O3</c> oraz <c>-Os</c>.
-W <path>/etc/make.conf</path> powinna być użyta tylko jedna.
+Jest pięć opcji <c>-O</c>: <c>-O0</c>, <c>-O1</c>, <c>-O2</c>, <c>-O3</c> oraz
+<c>-Os</c>. W <path>/etc/make.conf</path> powinna być użyta tylko jedna.
 </p>
 
 <p>
-Z wyjątkiem <c>-O0</c>, każda następna opcja aktywuje kilka dodatkowych flag.
-O tym jakie są to flagi i co powodują  można sie dowiedzieć po przeczytaniu
-rozdziału o <uri
+Z wyjątkiem <c>-O0</c>, każda następna opcja <c>-O</c> aktywuje kilka
+dodatkowych flag. O tym jakie flagi są aktywowane przy każdym poziomie <c>-O</c>
+i co powodują, można sie dowiedzieć po przeczytaniu rozdziału o <uri
 link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Optimize-Options.html#Optimize-Options">opcjach
 optymalizacji</uri> strony manuala gcc.
 </p>
@@ -279,10 +274,11 @@ Przeanalizujmy każdy poziom optymalizacji:
   </li>
   <li>
     <c>-O2</c>: Poziom wyżej od <c>-O1</c>. Jest to <e>zalecany</e> poziom
-    optymalizacji jeżeli nie mamy specialnych potrzeb (takich jak <c>-Os</c>, co
+    optymalizacji jeżeli nie mamy specjalnych potrzeb (takich jak <c>-Os</c>, co
     zostanie wyjaśnione wkrótce). <c>-O2</c> do <c>-O1</c> doda kilka nowych
-    flag. Z tą opcją kompilator będzie próbował zwiększyć wydajność kodu nie
-    zwracając uwagi na rozmiar kodu wynikowego przy długim czasie kompilacji.
+    flag. Z opcją <c>-O2</c> kompilator będzie próbował zwiększyć wydajność kodu
+    nie zwracając uwagi na rozmiar kodu wynikowego przy długim czasie
+    kompilacji.
   </li>
   <li>
     <c>-O3</c>: Najwyższy możliwy poziom optymalizacji i zarazem najbardziej
@@ -291,8 +287,9 @@ Przeanalizujmy każdy poziom optymalizacji:
     używających <c>gcc</c> w wersji 4.x</e>. Zachowanie <c>gcc</c> znacznie się
     zmieniło od wersji 3.x, gdzie opcja <c>-O3</c> miała prowadzić do trochę
     szybszego wykonania niż przy <c>-O2</c>. Przy wersji kompilatora <c>gcc</c>
-    4.x, kod <e>będzie</e> wynikował wielkim rozmiarem i dużą ilością pamięci.
-    Będzie również znacznie zwiększał przypadki niepowodzenia kompilacji i
+    4.x, kompilowany z użyciem <c>-O3</c> kod <e>będzie</e> miał wielki rozmiar,
+    a jego wykonanie będzie wymagało użycia większej ilości pamięci. Będzie
+    również znacznie zwiększał przypadki niepowodzenia kompilacji i
     nieoczekiwane zachowanie programów. <b>Używanie <c>-O3</c> nie jest zalecane
     dla <c>gcc</c> 4.x.</b>
   </li>
@@ -342,7 +339,7 @@ kodu.
 
 <p>
 Szczególne problemy sprawiają aplikacje napisane w Javie, chociaż nie jest ona
-jedynym językiem napiętnowanym przez tę flagę. Trzeba mieć na uwadzę, że mimo
+jedynym językiem napiętnowanym przez tę flagę. Trzeba mieć na uwadze, że mimo
 tego, że flaga ogólnie pomaga, może sprawić debugowanie kodu znacznie
 trudniejszym. Jeśli nie zamierzamy poddawać kodu operacjom debugowania i nie
 mamy w zmiennej CFLAGS innych flag, takich jak <c>-ggdb</c> (ani nie kompilujemy
@@ -368,8 +365,8 @@ http://www.coyotegulch.com/products/acovea/aco5p4gcc40.html
 
 <p>
 Te flagi uruchamiają ustawienia instrukcji
-<uri link="http://en.wikipedia.org/wiki/Streaming_SIMD_Extensions">SSE</uri>, <uri
-link="http://en.wikipedia.org/wiki/SSE2">SSE2</uri>, <uri
+<uri link="http://en.wikipedia.org/wiki/Streaming_SIMD_Extensions">SSE</uri>,
+<uri link="http://en.wikipedia.org/wiki/SSE2">SSE2</uri>, <uri
 link="http://en.wikipedia.org/wiki/SSSE3">SSE3</uri>, <uri
 link="http://en.wikipedia.org/wiki/MMX">MMX</uri> i <uri
 link="http://en.wikipedia.org/wiki/3dnow">3DNow!</uri> dla architektur x86 i
@@ -381,7 +378,7 @@ nowszych modelach procesorów.
 <impo>
 Należy się upewnić, że dany procesor wspiera powyższe flagi. Można się tego
 dowiedzieć poprzez <c>cat /proc/cpuinfo</c>. Wyjście tego polecenia będzie
-zawierało wszystkie dodatkwoe ustawienia. Trzeba mieć na uwadze, że <b>pni</b>
+zawierało wszystkie dodatkowe ustawienia. Trzeba mieć na uwadze, że <b>pni</b>
 jest inną nazwą dla SSE3.
 </impo>
 
@@ -398,7 +395,7 @@ takich procesorów będzie wymagane dodanie flag, które będą odpowiadały wyn
 Należy zapoznać się z <uri
 link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/i386-and-x86_002d64-Options.html#i386-and-x86_002d64-Options">listą</uri>
 flag specyficznych tylko dla architektur x86 i x86-64, aby wiedzieć co aktywuje
-każa z tych ustawień. Gdy instrukcja jest podana, wtedy nie ma potrzeby jej
+każda z tych ustawień. Gdy instrukcja jest podana, wtedy nie ma potrzeby jej
 wyszczególnienia. Będzie ona domyślnie włączona przy odpowiedniej fladze
 <c>-march</c>.
 </note>
@@ -425,9 +422,9 @@ tworzy kod większy i bardziej powolny. Po <c>-ffast-math</c>,
 
 <p>
 Prawdą jest, że są to bardzo agresywne flagi. Można się o tym przekonać w bardzo
-łatwy sposób: odwiezając <uri link="http://forums.gentoo.org">Forum Gentoo</uri>
-oraz <uri link="http://bugs.gentoo.org">Bugzillę</uri>. Szybko zauważymy że nie
-robią one nic dobrego!
+łatwy sposób: odwiedzając <uri link="http://forums.gentoo.org">Forum
+Gentoo</uri> oraz <uri link="http://bugs.gentoo.org">Bugzillę</uri>. Szybko
+zauważymy że nie robią one nic dobrego!
 </p>
 
 <p>
