@@ -15,3 +15,7 @@
 /doc/pl/mailfilter-guide.xml: -> 1.19
 /proj/pl/devrel/handbook/hb-guide-ebuild.xml: -> 1.43
 /doc/pl/kde-config.xml: -> 1.32
+
+/doc/pl/gcc-optimization.xml: -> 1.4 (dodać!)
+/doc/pl/metadoc.xml -> 1.187
+
