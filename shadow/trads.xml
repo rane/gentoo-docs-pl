@@ -1,327 +1,327 @@
 <?xml version='1.0' encoding='UTF-8'?><!DOCTYPE trads SYSTEM "../dtd/trads.dtd"><trads>
 <config dohtml='no' wwwdev='shadoww@dev.gentoo.org:public_html' cvsroot='gentoo' wwwroot='http://www.gentoo.org' localcvs='/home/shadow/development/htdocs/' cvspath='xml/htdocs' genfile='trads' langfrom='en' langto='pl'/>
 <documents>
- <doc ID=' metadoc'>
+ <doc ID='metadoc'>
    <files name='metadoc.xml' path='doc'/>
    <info nick='rane' prior='C'/>
-   <rev sync='1.183' target=''/>
+   <rev sync='1.188' target=''/>
  </doc>
- <doc ID=' Index'>
+ <doc ID='index'>
   <files name='index.xml' path='doc'/>
   <info nick='rane' prior='C'/>
   <rev sync='1.109' target=''/>
  </doc>
- <doc ID='x86 Quick Install'>
+ <doc ID='gentoo-x86-quickinstall'>
   <files name='gentoo-x86-quickinstall.xml' path='doc'/>
   <info nick='' prior='C' group='Install'/>
   <rev sync='1.78' target=''/>
  </doc>
- <doc ID='x86 raid+lvm Quick Install'>
+ <doc ID='gentoo-x86+raid+lvm2-quickinstall'>
   <files name='gentoo-x86+raid+lvm2-quickinstall.xml' path='doc'/>
   <info nick='' prior='C' group='Install'/>
   <rev sync='1.17' target=''/>
  </doc>
- <doc ID='x86 Tips&apos;n&apos; Tricks'>
+ <doc ID='gentoo-x86-tipsntricks'>
   <files name='gentoo-x86-tipsntricks.xml' path='doc'/>
   <info nick='' prior='I' group='Install'/>
   <rev sync='1.24' target=''/>
  </doc>
- <doc ID='VServers'>
+ <doc ID='vserver-howto'>
   <files name='vserver-howto.xml' path='doc'/>
   <info nick='' prior='C' group='System'/>
   <rev sync='1.9' target=''/>
  </doc>
- <doc ID='Change Chost'>
+ <doc ID='change-chost'>
   <files name='change-chost.xml' path='doc'/>
   <info nick='' prior='C' group='System'/>
   <rev sync='1.1' target=''/>
  </doc>
- <doc ID='ZSH'>
+ <doc ID='zsh'>
   <files name='zsh.xml' path='doc'/>
   <info nick='' prior='I' group='System'/>
   <rev sync='1.4' target=''/>
  </doc>
- <doc ID='LDAP-DNS'>
+ <doc ID='ldapdns-guide'>
   <files name='ldapdns-guide.xml' path='doc'/>
   <info nick='rane' prior='C' group='System'/>
   <rev sync='1.5' target=''/>
  </doc>
- <doc ID='Keychain'>
+ <doc ID='keychain-guide'>
   <files name='keychain-guide.xml' path='doc'/>
   <info nick='' prior='I' group='System'/>
   <rev sync='1.3' target=''/>
  </doc>
- <doc ID='Shoutcast'>
+ <doc ID='shoutcast-config'>
   <files name='shoutcast-config.xml' path='doc'/>
   <info nick='' prior='N' group='Desktop'/>
   <rev sync='1.15' target=''/>
  </doc>
- <doc ID='Bluetooth'>
+ <doc ID='bluetooth-guide'>
   <files name='bluetooth-guide.xml' path='doc'/>
   <info nick='shadow' prior='N' group='Desktop'/>
   <rev sync='1.13' target=''/>
  </doc>
- <doc ID='LiveUSB'>
+ <doc ID='liveusb'>
   <files name='liveusb.xml' path='doc'/>
   <info nick='' prior='N' group='Desktop'/>
   <rev sync='1.13' target=''/>
  </doc>
- <doc ID='NVidia Guide'>
+ <doc ID='nvidia-guide'>
   <files name='nvidia-guide.xml' path='doc'/>
   <info nick='' prior='C' group='Desktop'/>
   <rev sync='1.40' target=''/>
  </doc>
- <doc ID='Portage on MacOS'>
+ <doc ID='macos-guide'>
   <files name='macos-guide.xml' path='doc'/>
   <info nick='' prior='N' lock='' group='System'/>
   <rev sync='1.9' target=''/>
  </doc>
- <doc ID='Home Router'>
+ <doc ID='home-router-howto'>
   <files name='home-router-howto.xml' path='doc'/>
   <info nick='rane' prior='I' lock='' group='System'/>
   <rev sync='1.58' target=''/>
  </doc>
- <doc ID='coLinux'>
+ <doc ID='colinux-howto'>
   <files name='colinux-howto.xml' path='doc'/>
   <info nick='' prior='I' group='System'/>
   <rev sync='1.12' target=''/>
  </doc>
- <doc ID='Sparc Quick Install'>
+ <doc ID='gentoo-sparc-quickinstall'>
   <files name='gentoo-sparc-quickinstall.xml' path='doc'/>
   <info nick='stawrul' prior='I' group='Install'/>
   <rev sync='1.22' target=''/>
  </doc>
- <doc ID='Bugzilla Howto'>
+ <doc ID='bugzilla-howto'>
   <files name='bugzilla-howto.xml' path='doc'/>
   <info nick='' prior='N' lock=''/>
   <rev sync='1.10' target=''/>
  </doc>
-  <doc ID='NX guide'>
+  <doc ID='nx-guide'>
  <files name='nx-guide.xml' path='doc'/>
   <info nick='shadow' prior='N' lock=''/>
   <rev sync='1.5' target=''/>
  </doc>
- <doc ID='AMD64 FAQ'>
+ <doc ID='gentoo-amd64-faq'>
   <files name='gentoo-amd64-faq.xml' path='doc'/>
   <info nick='' prior='I' lock=''/>
   <rev sync='1.24' target=''/>
  </doc>
- <doc ID='ALPHA FAQ'>
+ <doc ID='gentoo-alpha-faq'>
   <files name='gentoo-alpha-faq.xml' path='doc'/>
   <info nick='' prior='I' lock=''/>
   <rev sync='1.3' target=''/>
  </doc>
- <doc ID='MIPS FAQ'>
+ <doc ID='gentoo-mips-faq'>
   <files name='gentoo-mips-faq.xml' path='doc'/>
   <info nick='' prior='I' lock=''/>
   <rev sync='1.2' target=''/>
  </doc>
- <doc ID='x86 FAQ'>
+ <doc ID='faq'>
   <files name='faq.xml' path='doc'/>
   <info nick='' prior='I'/>
   <rev sync='1.106' target=''/>
  </doc>
- <doc ID='PPC FAQ'>
+ <doc ID='gentoo-ppc-faq'>
   <files name='gentoo-ppc-faq.xml' path='doc'/>
   <info nick='' prior='I'/>
   <rev sync='1.61' target=''/>
  </doc>
- <doc ID='FreeBSD'>
+ <doc ID='gentoo-freebsd'>
   <files name='gentoo-freebsd.xml' path='doc'/>
   <info nick='' prior='I'/>
   <rev sync='1.29' target=''/>
  </doc>
- <doc ID='SPARC FAQ'>
+ <doc ID='gentoo-sparc-faq'>
   <files name='gentoo-sparc-faq.xml' path='doc'/>
   <info nick='' prior='I'/>
-  <rev sync='1.13' target=''/>
+  <rev sync='1.14' target=''/>
  </doc>
- <doc ID='SPARC NetBoot'>
+ <doc ID='gentoo-sparc-netboot-howto'>
   <files name='gentoo-sparc-netboot-howto.xml' path='doc'/>
   <info nick='' prior='I'/>
   <rev sync='1.8' target=''/>
  </doc>
- <doc ID='Alternative installs'>
+ <doc ID='altinstall'>
   <files name='altinstall.xml' path='doc'/>
   <info nick='rane' prior='I' group='Install'/>
   <rev sync='1.72' target=''/>
  </doc>
- <doc ID='Upgrade 1.x to 1.4'>
+ <doc ID='new-upgrade-to-gentoo-1.4'>
   <files name='new-upgrade-to-gentoo-1.4.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
   <rev sync='1.16' target=''/>
  </doc>
- <doc ID='GPM'>
+ <doc ID='gpm'>
    <files name='gpm.xml' path='doc'/>
    <info nick='rane' prior='I' group='Desktop'/>
    <rev sync='1.4' target=''/>
  </doc>
- <doc ID='Cron'>
+ <doc ID='cron-guide'>
   <files name='cron-guide.xml' path='doc'/>
   <info nick='' prior='I' group='System'/>
   <rev sync='1.15' target=''/>
  </doc>
- <doc ID='LDAP howto'>
+ <doc ID='ldap-howto'>
   <files name='ldap-howto.xml' path='doc'/>
   <info nick='shadow' prior='N' group='System'/>
   <rev sync='1.35' target=''/>
  </doc>
- <doc ID='java guide'>
+ <doc ID='java'>
   <files name='java.xml' path='doc'/>
   <info nick='' prior='N'/>
   <rev sync='1.39' target=''/>
  </doc>
- <doc ID='Printing howto'>
+ <doc ID='printing-howto'>
   <files name='printing-howto.xml' path='doc'/>
   <info nick='rane' prior='C' lock='' group='System'/>
   <rev sync='1.67' target=''/>
  </doc>
- <doc ID='Localization guide'>
+ <doc ID='guide-localization'>
   <files name='guide-localization.xml' path='doc'/>
   <info nick='' prior='I' group='Desktop'/>
   <rev sync='1.46' target=''/>
  </doc>
- <doc ID='Man guide'>
+ <doc ID='man-guide'>
   <files name='man-guide.xml' path='doc'/>
   <info nick='' prior='I' group='Desktop'/>
   <rev sync='1.5' target=''/>
  </doc>
- <doc ID='info guide'>
+ <doc ID='info-guide'>
   <files name='info-guide.xml' path='doc'/>
   <info nick='' prior='I' group='Desktop'/>
   <rev sync='1.1' target=''/>
  </doc>
- <doc ID='Kernel guide'>
+ <doc ID='gentoo-kernel'>
   <files name='gentoo-kernel.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
   <rev sync='1.49' target=''/>
  </doc>
- <doc ID='Kernel config'>
+ <doc ID='kernel-config'>
   <files name='kernel-config.xml' path='doc'/>
   <info nick='rane' prior='N' group='System'/>
   <rev sync='1.3' target=''/>
  </doc>
- <doc ID='Kernel upgrage guide'>
+ <doc ID='kernel-upgrade'>
   <files name='kernel-upgrade.xml' path='doc'/>
   <info nick='shadow' prior='I' group='System'/>
-  <rev sync='1.16' target=''/>
+  <rev sync='1.17' target=''/>
  </doc>
- <doc ID='Direct Rendering'>
+ <doc ID='dri-howto'>
   <files name='dri-howto.xml' path='doc'/>
   <info nick='' prior='N' group='Desktop'/>
   <rev sync='1.38' target=''/>
  </doc>
- <doc ID='ati FAQ'>
+ <doc ID='ati-faq'>
   <files name='ati-faq.xml' path='doc'/>
   <info nick='' prior='N' group='Desktop'/>
   <rev sync='1.42' target=''/>
  </doc>
- <doc ID='openmosix'>
+ <doc ID='openmosix-howto'>
   <files name='openmosix-howto.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
   <rev sync='1.10' target=''/>
  </doc>
- <doc ID='Diskless'>
+ <doc ID='diskless-howto'>
   <files name='diskless-howto.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
   <rev sync='1.34' target=''/>
  </doc>
- <doc ID='devfs'>
+ <doc ID='devfs-guide'>
   <files name='devfs-guide.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
   <rev sync='1.14' target=''/>
  </doc>
- <doc ID='alsa config'>
+ <doc ID='alsa-guide'>
   <files name='alsa-guide.xml' path='doc'/>
   <info nick='rane' prior='I' group='Desktop'/>
   <rev sync='1.80' target=''/>
  </doc>
- <doc ID='nano'>
+ <doc ID='nano-basics-guide'>
   <files name='nano-basics-guide.xml' path='doc'/>
   <info nick='rane' prior='I'/>
   <rev sync='1.25' target=''/>
  </doc>
- <doc ID='open AFS'>
+ <doc ID='openafs'>
   <files name='openafs.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
-  <rev sync='1.23' target=''/>
+  <rev sync='1.26' target=''/>
  </doc>
- <doc ID='vi guide'>
+ <doc ID='vi-guide'>
   <files name='vi-guide.xml' path='doc'/>
   <info nick='' prior='I'/>
   <rev sync='1.14' target=''/>
  </doc>
- <doc ID='Prelinking guide'>
+ <doc ID='prelink-howto'>
   <files name='prelink-howto.xml' path='doc'/>
   <info nick='' prior='N'/>
   <rev sync='1.45' target=''/>
  </doc>
- <doc ID='Genkernel'>
+ <doc ID='genkernel'>
   <files name='genkernel.xml' path='doc'/>
   <info nick='' prior='I' group='System'/>
-  <rev sync='1.28' target=''/>
+  <rev sync='1.29' target=''/>
  </doc>
- <doc ID='Gentoolkit'>
+ <doc ID='gentoolkit'>
   <files name='gentoolkit.xml' path='doc'/>
   <info nick='' prior='I' group='System'/>
-  <rev sync='1.28' target=''/>
+  <rev sync='1.30' target=''/>
  </doc>
- <doc ID="Portage-utils">
+ <doc ID="portage-utils">
    <files name='portage-utils.xml' path='doc'/>
    <info nick='rane' prior='I' group='System'/>
    <rev sync='1.5' target=''/>
  </doc>
- <doc ID='Manually Fixing Portage'>
+ <doc ID='manually-fixing-portage'>
    <files name='manually-fixing-portage.xml' subdir='portage/doc' path='proj'/>
    <info nick='rane' prior='I' group='Projekty'/>
    <rev sync='1.7' target=''/>
  </doc>
- <doc ID='Common Portage Problems'>
+ <doc ID='common-problems'>
    <files name='common-problems.xml' subdir='portage/doc' path='proj'/>
    <info nick='' prior='I' group='Projekty'/>
    <rev sync='1.5' target=''/>
  </doc>
- <doc ID='Backtraces'>
+ <doc ID='backtraces'>
   <files name='backtraces.xml' subdir='qa' path='proj'/>
   <info nick='' prior='N' group='Projekty'/>
   <rev sync='1.7' target=''/>
  </doc>
- <doc ID='GnuPG'>
+ <doc ID='gnupg-user'>
   <files name='gnupg-user.xml' path='doc'/>
   <info nick='' prior='N' group='Desktop'/>
   <rev sync='1.41' target=''/>
  </doc>
- <doc ID='Virtual mail'>
+ <doc ID='virt-mail-howto'>
   <files name='virt-mail-howto.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
   <rev sync='1.54' target=''/>
  </doc>
- <doc ID='qmail howto'>
+ <doc ID='qmail-howto'>
   <files name='qmail-howto.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
   <rev sync='1.38' target=''/>
  </doc>
- <doc ID='Mail filter'>
+ <doc ID='mailfilter-guide'>
   <files name='mailfilter-guide.xml' path='doc'/>
   <info nick='shadow' prior='N' group='System'/>
-  <rev sync='1.18' target=''/>
+  <rev sync='1.19' target=''/>
  </doc>
- <doc ID='LVM2'>
+ <doc ID='lvm2'>
   <files name='lvm2.xml' path='doc'/>
   <info nick='' prior='I' group='System'/>
   <rev sync='1.22' target=''/>
  </doc>
- <doc ID='CLI Mail (Mutt,...)'>
+ <doc ID='guide-to-mutt'>
   <files name='guide-to-mutt.xml' path='doc'/>
   <info nick='' prior='N'/>
   <rev sync='1.19' target=''/>
  </doc>
- <doc ID='udev'>
+ <doc ID='udev-guide'>
   <files name='udev-guide.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
   <rev sync='1.41' target=''/>
  </doc>
- <doc ID='User-Mode Linux'>
+ <doc ID='uml'>
   <files name='uml.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
   <rev sync='1.29' target=''/>
@@ -331,42 +331,42 @@
   <info nick='' prior='N' group='System'/>
   <rev sync='1.27' target=''/>
  </doc>
- <doc ID='sudo'>
+ <doc ID='sudo-guide'>
   <files name='sudo-guide.xml' path='doc'/>
   <info nick='' prior='I' group='System'/>
   <rev sync='1.11' target=''/>
  </doc>
- <doc ID='Apache Upgrade'>
+ <doc ID='apache-upgrading'>
   <files name='apache-upgrading.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
   <rev sync='1.6' target=''/>
  </doc>
- <doc ID='Apache Troubleshooting'>
+ <doc ID='apache-troubleshooting'>
   <files name='apache-troubleshooting.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
   <rev sync='1.3' target=''/>
  </doc>
-  <doc ID='PHP Upgrading'>
+  <doc ID='php-upgrading'>
   <files name='php-upgrading.xml' subdir='php' path='proj'/>
   <info nick='' prior='N' group='System'/>
   <rev sync='1.4' target=''/>
  </doc>
- <doc ID='MySQL 4.1 Upgrade'>
+ <doc ID='mysql-upgrading'>
   <files name='mysql-upgrading.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
   <rev sync='1.21' target=''/>
  </doc>
- <doc ID='Unslotting MySQL'>
+ <doc ID='mysql-upgrade-slotted'>
   <files name='mysql-upgrade-slotted.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
   <rev sync='1.11' target=''/>
  </doc>
- <doc ID='Jffnms'>
+ <doc ID='jffnms'>
   <files name='jffnms.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
   <rev sync='1.4' target=''/>
  </doc>
- <doc ID='Terminal Server'>
+ <doc ID='ltsp'>
   <files name='ltsp.xml' path='doc'/>
   <info nick='' prior='N' group='Desktop'/>
   <rev sync='1.20' target=''/>
@@ -374,380 +374,385 @@
  <doc ID='distcc'>
   <files name='distcc.xml' path='doc'/>
   <info nick='' prior='I' group='System'/>
-  <rev sync='1.39' target=''/>
+  <rev sync='1.40' target=''/>
  </doc>
  <doc ID='gnome-2.16-upgrade'>
   <files name='gnome-2.16-upgrade.xml' subdir='desktop/gnome/howtos' path='proj'/>
   <info nick='cla' prior='I' group='Projekty'/>
   <rev sync='1.10' target=''/>
  </doc>
- <doc ID='xml guide'>
+ <doc ID='xml-guide'>
   <files name='xml-guide.xml' path='doc'/>
   <info nick='rane' prior='I' group='Projekty'/>
   <rev sync='1.66' target=''/>
  </doc>
- <doc ID='xml tips&apos;n&apos;tricks'>
+ <doc ID='doc-tipsntricks'>
   <files name='doc-tipsntricks.xml' subdir='gdp/doc' path='proj'/>
   <info nick='' prior='I' lock='' group='Projekty'/>
   <rev sync='1.24' target=''/>
  </doc>
- <doc ID='Java upgrade'>
+ <doc ID='java-upgrade'>
    <files name='java-upgrade.xml' subdir='java' path='proj'/>
    <info nick='' prior='I' lock='' group='Projekty'/>
    <rev sync='1.23' target=''/>
  </doc>
- <doc ID='CVS guide'>
+ <doc ID='cvs-tutorial'>
   <files name='cvs-tutorial.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
   <rev sync='1.18' target=''/>
  </doc>
- <doc ID='ebuild submit'>
+ <doc ID='ebuild-submit'>
   <files name='ebuild-submit.xml' path='doc'/>
   <info nick='' prior='I'/>
   <rev sync='1.12' target=''/>
  </doc>
- <doc ID='Migration to 2.6'>
+ <doc ID='migration-to-2.6'>
   <files name='migration-to-2.6.xml' path='doc'/>
   <info nick='' prior='I' group='System'/>
   <rev sync='1.24' target=''/>
  </doc>
- <doc ID='Power Management'>
+ <doc ID='power-management-guide'>
   <files name='power-management-guide.xml' path='doc'/>
   <info nick='' prior='I' group='Desktop'/>
   <rev sync='1.27' target=''/>
  </doc>
- <doc ID='About Gentoo'>
+ <doc ID='about'>
   <files name='about.xml' path='main'/>
   <info nick='' prior='I'/>
   <rev sync='1.37' target=''/>
  </doc>
- <doc ID='Contact'>
+ <doc ID='contact'>
   <files name='contact.xml' path='main'/>
   <info nick='' prior='I'/>
   <rev sync='1.4' target=''/>
  </doc>
- <doc ID='Lists'>
+ <doc ID='lists'>
   <files name='lists.xml' path='main'/>
   <info nick='' prior='I'/>
   <rev sync='1.95' target=''/>
  </doc>
- <doc ID='IRC channels'>
+ <doc ID='irc'>
   <files name='irc.xml' path='main'/>
   <info nick='' prior='I'/>
   <rev sync='1.105' target=''/>
  </doc>
- <doc ID='Where'>
+ <doc ID='where'>
   <files name='where.xml' path='main'/>
   <info nick='' prior='I'/>
   <rev sync='1.107' target=''/>
  </doc>
- <doc ID='Installer Design'>
+ <doc ID='design'>
   <files name='design.xml' subdir='releng/installer/' path='proj'/>
   <info nick='' prior='I'/>
   <rev sync='1.4' target=''/>
  </doc>
-  <doc ID='Screenshots'>
+  <doc ID='shots'>
   <files name='shots.xml' path='main'/>
   <info nick='' prior='I'/>
   <rev sync='1.33' target=''/>
  </doc>
- <doc ID='Philosophy'>
+ <doc ID='philosophy'>
   <files name='philosophy.xml' path='main'/>
   <info nick='rane' prior='I'/>
   <rev sync='1.11' target=''/>
  </doc>
- <doc ID='Social contract'>
+ <doc ID='contract'>
   <files name='contract.xml' path='main'/>
   <info nick='' prior='I'/>
   <rev sync='1.13' target=''/>
  </doc>
- <doc ID='xml projects'>
+ <doc ID='site'>
   <files name='site.xml' path='proj'/>
   <info nick='' prior='N'/>
   <rev sync='1.9' target=''/>
  </doc>
- <doc ID='rsync mirror'>
+ <doc ID='rsync'>
   <files name='rsync.xml' path='doc'/>
   <info nick='rane' prior='N' group='System'/>
   <rev sync='1.57' target=''/>
  </doc>
- <doc ID='distfiles mirror'>
+ <doc ID='source_mirrors'>
   <files name='source_mirrors.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
   <rev sync='1.31' target=''/>
  </doc>
- <doc ID='Sparc OBP'>
+ <doc ID='gentoo-sparc-obpreference'>
   <files name='gentoo-sparc-obpreference.xml' path='doc'/>
   <info nick='' prior='N'/>
   <rev sync='1.5' target=''/>
  </doc>
- <doc ID='Samba quick howto'>
+ <doc ID='quick-samba-howto'>
   <files name='quick-samba-howto.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
   <rev sync='1.29' target=''/>
  </doc>
- <doc ID='HPC howto'>
+ <doc ID='hpc-howto'>
   <files name='hpc-howto.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
   <rev sync='1.13' target=''/>
  </doc>
- <doc ID='UTF-8'>
+ <doc ID='utf-8'>
   <files name='utf-8.xml' path='doc'/>
   <info nick='' prior='I' group='Desktop'/>
   <rev sync='1.47' target=''/>
  </doc>
- <doc ID='GCC upgrade'>
+ <doc ID='gcc-upgrading'>
    <files name='gcc-upgrading.xml' path='doc'/>
    <info nick='' prior='I' group='System'/>
    <rev sync='1.26' target=''/>
  </doc>
- <doc ID='X.org howto'>
+ <doc ID='gcc-optimization'>
+   <files name='gcc-optimization.xml' path='doc'/>
+   <info nick='cla' prior='C' group='System'/>
+   <rev sync='1.5' target=''/>
+ </doc>
+ <doc ID='xorg-config'>
   <files name='xorg-config.xml' path='doc'/>
   <info nick='rane' prior='I' group='Desktop'/>
-  <rev sync='1.22' target=''/>
+  <rev sync='1.23' target=''/>
  </doc>
-  <doc ID='Conky'>
+  <doc ID='conky-howto'>
   <files name='conky-howto.xml' path='doc'/>
   <info nick='rane' prior='I' group='Desktop'/>
-  <rev sync='1.5' target=''/>
+  <rev sync='1.6' target=''/>
   </doc>
-  <doc ID='Modular X'>
+  <doc ID='modular-x-howto'>
   <files name='modular-x-howto.xml' subdir='desktop/x/x11' path='proj'/>
   <info nick='Damjanek' prior='I' group='Desktop'/>
   <rev sync='1.62' target=''/>
  </doc>
- <doc ID='Porting Modular X'>
+ <doc ID='porting-modular-x-howto'>
   <files name='porting-modular-x-howto.xml' subdir='desktop/x/x11' path='proj'/>
   <info nick='Damjanek' prior='I' group='Desktop'/>
   <rev sync='1.8' target=''/>
  </doc>
- <doc ID='KDE Config'>
+ <doc ID='kde-config'>
   <files name='kde-config.xml' path='doc'/>
   <info nick='' prior='I' group='Desktop'/>
-  <rev sync='1.31' target=''/>
+  <rev sync='1.32' target=''/>
  </doc>
- <doc ID='KDE Ebuilds'>
+ <doc ID='kde-split-ebuilds'>
   <files name='kde-split-ebuilds.xml' path='doc'/>
   <info nick='' prior='I' group='Desktop'/>
-  <rev sync='1.12' target=''/>
+  <rev sync='1.13' target=''/>
  </doc>
- <doc ID='Fluxbox Config'>
+ <doc ID='fluxbox-config'>
   <files name='fluxbox-config.xml' path='doc'/>
   <info nick='' prior='I' group='Desktop'/>
   <rev sync='1.26' target=''/>
  </doc>
- <doc ID='Xfce Config'>
+ <doc ID='xfce-config'>
   <files name='xfce-config.xml' path='doc/'/>
   <info nick='cla' prior='I' group='Desktop'/>
   <rev sync='1.7' target=''/>
  </doc>
- <doc ID='GNOME Config'>
+ <doc ID='gnome-config'>
   <files name='gnome-config.xml' path='doc'/>
   <info nick='rane' prior='I' group='Desktop'/>
   <rev sync='1.18' target=''/>
  </doc>
- <doc ID='Upgrade Gentoo'>
+ <doc ID='gentoo-upgrading'>
   <files name='gentoo-upgrading.xml' path='doc'/>
   <info nick='' prior='I' group='System'/>
   <rev sync='1.37' target=''/>
  </doc>
- <doc ID='MIPS requirements'>
+ <doc ID='mips-requirements'>
   <files name='mips-requirements.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
   <rev sync='1.12' target=''/>
  </doc>
- <doc ID='Grub Error Guide'>
+ <doc ID='grub-error-guide'>
   <files name='grub-error-guide.xml' path='doc'/>
   <info nick='' prior='I' group='System'/>
   <rev sync='1.14' target=''/>
  </doc>
- <doc ID='USB Guide'>
+ <doc ID='usb-guide'>
   <files name='usb-guide.xml' path='doc'/>
   <info nick='' prior='I' group='Desktop'/>
   <rev sync='1.16' target=''/>
  </doc>
- <doc ID='MySQL Howto'>
+ <doc ID='mysql-howto'>
   <files name='mysql-howto.xml' path='doc'/>
   <info nick='' prior='I' group='System'/>
   <rev sync='1.7' target=''/>
  </doc>
- <doc ID='Postgres Howto'>
+ <doc ID='postgres-howto'>
   <files name='postgres-howto.xml' path='doc'/>
   <info nick='' prior='I' group='System'/>
   <rev sync='1.4' target=''/>
  </doc>
  <!-- Artykuły -->
- <doc ID='Bash 1'>
+ <doc ID='bash-by-example-p1'>
   <files name='bash-by-example-p1.xml' subdir='articles' path='doc'/>
   <info nick='stawrul' prior='N' lock='' group='Artykuły'/>
   <rev sync='1.7' target=''/>
  </doc>
- <doc ID='Bash 2'>
+ <doc ID='bash-by-example-p2'>
   <files name='bash-by-example-p2.xml' subdir='articles' path='doc'/>
   <info nick='stawrul' prior='N' lock='' group='Artykuły'/>
   <rev sync='1.6' target=''/>
  </doc>
- <doc ID='Bash 3'>
+ <doc ID='bash-by-example-p3'>
   <files name='bash-by-example-p3.xml' subdir='articles' path='doc'/>
   <info nick='stawrul' prior='N' lock='' group='Artykuły'/>
   <rev sync='1.5' target=''/>
  </doc>
- <doc ID='lpi 101 fundamentals'>
+ <doc ID='lpi-101-fundamentals-p1'>
   <files name='lpi-101-fundamentals-p1.xml' subdir='articles' path='doc'/>
   <info nick='' prior='N' lock='' group='Artykuły'/>
   <rev sync='1.6' target=''/>
  </doc>
- <doc ID='lpi 101 administration'>
+ <doc ID='lpi-101-administration-p2'>
   <files name='lpi-101-administration-p2.xml' subdir='articles' path='doc'/>
   <info nick='' prior='N' lock='' group='Artykuły'/>
-  <rev sync='1.4' target=''/>
+  <rev sync='1.5' target=''/>
  </doc>
- <doc ID='Dynamic iptables firewalls'>
+ <doc ID='dynamic-iptables-firewalls'>
   <files name='dynamic-iptables-firewalls.xml' subdir='articles' path='doc'/>
   <info nick='' prior='N' lock='' group='Artykuły'/>
   <rev sync='1.5' target=''/>
  </doc>
- <doc ID='sed 1'>
+ <doc ID='l-sed1'>
   <files name='l-sed1.xml' subdir='articles' path='doc'/>
   <info nick='' prior='N' lock='' group='Artykuły'/>
   <rev sync='1.7' target=''/>
  </doc>
- <doc ID='sed 2'>
+ <doc ID='l-sed2'>
   <files name='l-sed2.xml' subdir='articles' path='doc'/>
   <info nick='' prior='N' lock='' group='Artykuły'/>
   <rev sync='1.5' target=''/>
  </doc>
- <doc ID='sed 3'>
+ <doc ID='l-sed3'>
   <files name='l-sed3.xml' subdir='articles' path='doc'/>
   <info nick='shadow' prior='N' lock='' group='Artykuły'/>
   <rev sync='1.5' target=''/>
  </doc>
- <doc ID='awk 1'>
+ <doc ID='l-awk1'>
   <files name='l-awk1.xml' subdir='articles' path='doc'/>
   <info nick='' prior='N' lock='' group='Artykuły'/>
   <rev sync='1.6' target=''/>
  </doc>
- <doc ID='awk 2'>
+ <doc ID='l-awk2'>
   <files name='l-awk2.xml' subdir='articles' path='doc'/>
   <info nick='' prior='N' lock='' group='Artykuły'/>
   <rev sync='1.6' target=''/>
  </doc>
- <doc ID='awk 3'>
+ <doc ID='l-awk3'>
   <files name='l-awk3.xml' subdir='articles' path='doc'/>
   <info nick='' prior='N' lock='' group='Artykuły'/>
   <rev sync='1.6' target=''/>
  </doc>
-  <doc ID='samba 1'>
+  <doc ID='samba-p1'>
   <files name='samba-p1.xml' subdir='articles' path='doc'/>
   <info nick='iieee' prior='N' lock='' group='Artykuły'/>
   <rev sync='1.3' target=''/>
  </doc>
- <doc ID='samba 2'>
+ <doc ID='samba-p2'>
   <files name='samba-p2.xml' subdir='articles' path='doc'/>
   <info nick='iieee' prior='N' lock='' group='Artykuły'/>
   <rev sync='1.2' target=''/>
  </doc>
- <doc ID='samba 3'>
+ <doc ID='samba-p3'>
   <files name='samba-p3.xml' subdir='articles' path='doc'/>
   <info nick='iieee' prior='N' lock='' group='Artykuły'/>
   <rev sync='1.1' target=''/>
  </doc>
- <doc ID='Stateful firewall design'>
+ <doc ID='linux-24-stateful-fw-design'>
   <files name='linux-24-stateful-fw-design.xml' subdir='articles' path='doc'/>
   <info nick='' prior='N' lock='' group='Artykuły'/>
   <rev sync='1.5' target=''/>
  </doc>
- <doc ID='Partitioning 1'>
+ <doc ID='partitioning-p1'>
   <files name='partitioning-p1.xml' subdir='articles' path='doc'/>
   <info nick='' prior='N' lock='' group='Artykuły'/>
   <rev sync='1.5' target=''/>
  </doc>
- <doc ID='Partitioning 2'>
+ <doc ID='partitioning-p2'>
   <files name='partitioning-p2.xml' subdir='articles' path='doc'/>
   <info nick='' prior='N' lock='' group='Artykuły'/>
   <rev sync='1.6' target=''/>
  </doc>
- <doc ID='Partition planning'>
+ <doc ID='partition-planning-tips'>
   <files name='partition-planning-tips.xml' subdir='articles' path='doc'/>
   <info nick='' prior='N' lock='' group='Artykuły'/>
   <rev sync='1.2' target=''/>
  </doc>
- <doc ID='Maximum swappage'>
+ <doc ID='maximum-swappage'>
   <files name='maximum-swappage.xml' subdir='articles' path='doc'/>
   <info nick='' prior='N' lock='' group='Artykuły'/>
   <rev sync='1.4' target=''/>
  </doc>
- <doc ID='Prompt magic'>
+ <doc ID='prompt-magic'>
    <files name='prompt-magic.xml' subdir='articles' path='doc'/>
    <info nick='' prior='N' lock='' group='Artykuły'/>
    <rev sync='1.4' target=''/>
  </doc>
- <doc ID='OpenSSH 1'>
+ <doc ID='openssh-key-management-p1'>
    <files name='openssh-key-management-p1.xml' subdir='articles' path='doc'/>
    <info nick='' prior='N' lock='' group='Artykuły'/>
    <rev sync='1.3' target=''/>
  </doc>
- <doc ID='OpenSSH 2'>
+ <doc ID='openssh-key-management-p2'>
    <files name='openssh-key-management-p2.xml' subdir='articles' path='doc'/>
    <info nick='' prior='N' lock='' group='Artykuły'/>
    <rev sync='1.4' target=''/>
  </doc>
- <doc ID='OpenSSH 3'>
+ <doc ID='openssh-key-management-p3'>
    <files name='openssh-key-management-p3.xml' subdir='articles' path='doc'/>
    <info nick='' prior='N' lock='' group='Artykuły'/>
    <rev sync='1.4' target=''/>
  </doc>
- <doc ID='Capabilities'>
+ <doc ID='capabilities'>
     <files name='capabilities.xml' subdir='hardened' path='proj'/>
     <info nick='' prior='I' group='hardened'/>
     <rev sync='1.7' target=''/>
  </doc>
- <doc ID='Grsecurity2'>
+ <doc ID='grsecurity2'>
     <files name='grsecurity2.xml' subdir='hardened' path='proj'/>
     <info nick='' prior='I' group='hardened'/>
     <rev sync='1.12' target=''/>
  </doc>
- <doc ID='Hardened FAQ'>
+ <doc ID='hardenedfaq'>
     <files name='hardenedfaq.xml' subdir='hardened' path='proj'/>
     <info nick='' prior='I' group='hardened'/>
     <rev sync='1.22' target=''/>
  </doc>
- <doc ID='Hardened X.org'>
+ <doc ID='hardenedxorg'>
     <files name='hardenedxorg.xml' subdir='hardened' path='proj'/>
     <info nick='' prior='I' group='hardened'/>
     <rev sync='1.11' target=''/>
  </doc>
- <doc ID='PAX Quick start'>
+ <doc ID='pax-quickstart'>
     <files name='pax-quickstart.xml' subdir='hardened' path='proj'/>
     <info nick='' prior='I' group='hardened'/>
     <rev sync='1.10' target=''/>
  </doc>
- <doc ID='Primer'>
+ <doc ID='primer'>
     <files name='primer.xml' subdir='hardened' path='proj'/>
     <info nick='' prior='I' group='hardened'/>
     <rev sync='1.9' target=''/>
  </doc>
- <doc ID='Propolice'>
+ <doc ID='capabilities'>
     <files name='capabilities.xml' subdir='hardened' path='proj'/>
     <info nick='' prior='I' group='hardened'/>
     <rev sync='1.7' target=''/>
  </doc>
- <doc ID='Rsbac overview'>
+ <doc ID='overview'>
     <files name='overview.xml' subdir='hardened/rsbac' path='proj'/>
     <info nick='' prior='I' group='hardened'/>
     <rev sync='1.6' target=''/>
  </doc>
- <doc ID='Rsbac quickstart'>
+ <doc ID='quickstart'>
     <files name='quickstart.xml' subdir='hardened/rsbac' path='proj'/>
     <info nick='' prior='I' group='hardened'/>
     <rev sync='1.11' target=''/>
  </doc>
-  <doc ID='Vulnerability Policy'>
+  <doc ID='vulnerability-policy'>
     <files name='vulnerability-policy.xml' path='security'/>
     <info nick='shadow' prior='I' group='Projekty'/>
     <rev sync='1.18' target=''/>
  </doc>
- <doc ID='Catalyst FAQ'>
+ <doc ID='releng/catalyst/faq'>
     <files name='faq.xml' subdir='releng/catalyst' path='proj'/>
     <info nick='' prior='I' group='Projekty'/>
     <rev sync='1.5' target=''/>
@@ -759,275 +764,275 @@
   <info nick=''/>
   <rev sync='1.71' target=''/>
  </hbdoc>
- <hbdoc part='0' ID='Handbook Alpha' filename='handbook-alpha.xml' chap='0'>
+ <hbdoc part='0' ID='handbook-alpha' filename='handbook-alpha.xml' chap='0'>
   <info nick='' lock=''/>
   <rev sync='1.133' target=''/>
  </hbdoc>
- <hbdoc part='0' ID='Handbook AMD64' filename='handbook-amd64.xml' chap='0'>
+ <hbdoc part='0' ID='handbook-amd64' filename='handbook-amd64.xml' chap='0'>
   <info nick='' lock=''/>
   <rev sync='1.141' target=''/>
  </hbdoc>
- <hbdoc part='0' ID='Handbook HPPA' filename='handbook-hppa.xml' chap='0'>
+ <hbdoc part='0' ID='handbook-hppa' filename='handbook-hppa.xml' chap='0'>
   <info nick='' lock=''/>
   <rev sync='1.130' target=''/>
  </hbdoc>
- <hbdoc part='0' ID='Handbook IA64' filename='handbook-ia64.xml' chap='0'>
+ <hbdoc part='0' ID='handbook-ia64' filename='handbook-ia64.xml' chap='0'>
   <info nick='' lock=''/>
   <rev sync='1.8' target=''/>
  </hbdoc>
- <hbdoc part='0' ID='Handbook MIPS' filename='handbook-mips.xml' chap='0'>
+ <hbdoc part='0' ID='handbook-mips' filename='handbook-mips.xml' chap='0'>
   <info nick='' lock=''/>
   <rev sync='1.121' target=''/>
  </hbdoc>
- <hbdoc part='0' ID='Handbook PPC' filename='handbook-ppc.xml' chap='0'>
+ <hbdoc part='0' ID='handbook-ppc' filename='handbook-ppc.xml' chap='0'>
   <info nick='' lock=''/>
   <rev sync='1.151' target=''/>
  </hbdoc>
- <hbdoc part='0' ID='Handbook PPC64' filename='handbook-ppc64.xml' chap='0'>
+ <hbdoc part='0' ID='handbook-ppc64' filename='handbook-ppc64.xml' chap='0'>
   <info nick='' lock=''/>
   <rev sync='1.72' target=''/>
  </hbdoc>
- <hbdoc part='0' ID='Handbook SPARC' filename='handbook-sparc.xml' chap='0'>
+ <hbdoc part='0' ID='handbook-sparc' filename='handbook-sparc.xml' chap='0'>
   <info nick='' lock=''/>
   <rev sync='1.134' target=''/>
  </hbdoc>
- <hbdoc part='0' ID='Handbook x86' filename='handbook-x86.xml' chap='0'>
+ <hbdoc part='0' ID='handbook-x86' filename='handbook-x86.xml' chap='0'>
   <info nick='' lock=''/>
  <rev sync='1.161' target=''/>
  </hbdoc>
- <hbdoc part='1' ID='1.a About' filename='hb-install-about.xml' chap='1'>
+ <hbdoc part='1' ID='hb-install-about' filename='hb-install-about.xml' chap='1'>
   <info nick='' lock=''/>
   <rev sync='1.42' target=''/>
  </hbdoc>
- <hbdoc part='1' ID='1.b Medium Alpha' filename='hb-install-alpha-medium.xml' chap='2'>
-  <info nick='' lock=''/>
-  <rev sync='1.45' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.b Medium HPPA' filename='hb-install-hppa-medium.xml' chap='2'>
+ <hbdoc part='1' ID='hb-install-alpha-medium' filename='hb-install-alpha-medium.xml' chap='2'>
   <info nick='' lock=''/>
   <rev sync='1.46' target=''/>
  </hbdoc>
- <hbdoc part='1' ID='1.b Medium IA64' filename='hb-install-ia64-medium.xml' chap='2'>
+ <hbdoc part='1' ID='hb-install-hppa-medium' filename='hb-install-hppa-medium.xml' chap='2'>
   <info nick='' lock=''/>
-  <rev sync='1.3' target=''/>
+  <rev sync='1.47' target=''/>
  </hbdoc>
- <hbdoc part='1' ID='1.b Medium MIPS' filename='hb-install-mips-medium.xml' chap='2'>
+ <hbdoc part='1' ID='hb-install-ia64-medium' filename='hb-install-ia64-medium.xml' chap='2'>
   <info nick='' lock=''/>
-  <rev sync='1.22' target=''/>
+  <rev sync='1.4' target=''/>
  </hbdoc>
- <hbdoc part='1' ID='1.b Medium PPC' filename='hb-install-ppc-medium.xml' chap='2'>
-  <info nick='' lock=''/>
-  <rev sync='1.55' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.b Medium PPC64' filename='hb-install-ppc64-medium.xml' chap='2'>
-  <info nick=''/>
-  <rev sync='1.34' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.b Medium SPARC' filename='hb-install-sparc-medium.xml' chap='2'>
-  <info nick=''/>
-  <rev sync='1.44' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.b Medium x86+amd64' filename='hb-install-x86+amd64-medium.xml' chap='2'>
-  <info nick='' lock=''/>
-  <rev sync='1.8' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.c Network' filename='hb-install-network.xml' chap='3'>
-  <info nick='' lock=''/>
-  <rev sync='1.52' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.d Disks Alpha' filename='hb-install-alpha-disk.xml' chap='4'>
-  <info nick='' lock=''/>
-  <rev sync='1.25' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.d Disks HPPA' filename='hb-install-hppa-disk.xml' chap='4'>
-  <info nick='' lock=''/>
-  <rev sync='1.22' target=''/>
- </hbdoc>
-  <hbdoc part='1' ID='1.d Disks IA64' filename='hb-install-ia64-disk.xml' chap='4'>
-  <info nick='' lock=''/>
-  <rev sync='1.5' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.d Disks MIPS' filename='hb-install-mips-disk.xml' chap='4'>
+ <hbdoc part='1' ID='hb-install-mips-medium' filename='hb-install-mips-medium.xml' chap='2'>
   <info nick='' lock=''/>
   <rev sync='1.23' target=''/>
  </hbdoc>
- <hbdoc part='1' ID='1.d Disks PPC' filename='hb-install-ppc-disk.xml' chap='4'>
+ <hbdoc part='1' ID='hb-install-ppc-medium' filename='hb-install-ppc-medium.xml' chap='2'>
   <info nick='' lock=''/>
-  <rev sync='1.42' target=''/>
+  <rev sync='1.56' target=''/>
  </hbdoc>
- <hbdoc part='1' ID='1.d Disks PPC64' filename='hb-install-ppc64-disk.xml' chap='4'>
+ <hbdoc part='1' ID='hb-install-ppc64-medium' filename='hb-install-ppc64-medium.xml' chap='2'>
   <info nick=''/>
-  <rev sync='1.30' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.d Disks SPARC' filename='hb-install-sparc-disk.xml' chap='4'>
-  <info nick='' lock=''/>
-  <rev sync='1.29' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.d Disks x86+amd64' filename='hb-install-x86+amd64-disk.xml' chap='4'>
-  <info nick='' lock=''/>
-  <rev sync='1.8' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.e Stage' filename='hb-install-stage.xml' chap='5'>
-  <info nick='' lock=''/>
-  <rev sync='1.110' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.e Stage MIPS' filename='hb-install-mips-stage.xml' chap='5'>
-  <info nick='stawrul' lock=''/>
-  <rev sync='1.8' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.f Chrooting' filename='hb-install-system.xml' chap='6'>
-  <info nick=''/>
-  <rev sync='1.106' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.x MIPS System' filename='hb-install-mips-system.xml' chap='6'>
-  <info nick=''/>
-  <rev sync='1.4' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.g Kernel Alpha' filename='hb-install-alpha-kernel.xml' chap='7'>
-  <info nick=''/>
-  <rev sync='1.41' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.g Kernel HPPA' filename='hb-install-hppa-kernel.xml' chap='7'>
-  <info nick='' lock=''/>
-  <rev sync='1.41' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.g Kernel IA64' filename='hb-install-ia64-kernel.xml' chap='7'>
-  <info nick='' lock=''/>
-  <rev sync='1.8' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.g Kernel MIPS' filename='hb-install-mips-kernel.xml' chap='7'>
-  <info nick='' lock=''/>
-  <rev sync='1.27' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.g Kernel PPC' filename='hb-install-ppc-kernel.xml' chap='7'>
-  <info nick='' lock=''/>
-  <rev sync='1.53' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.g Kernel PPC64' filename='hb-install-ppc64-kernel.xml' chap='7'>
-  <info nick=''/>
-  <rev sync='1.30' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.g Kernel SPARC' filename='hb-install-sparc-kernel.xml' chap='7'>
-  <info nick='' lock=''/>
-  <rev sync='1.29' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.g Kernel x86+amd64' filename='hb-install-x86+amd64-kernel.xml' chap='7'>
-  <info nick='' lock=''/>
-  <rev sync='1.13' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.h Config' filename='hb-install-config.xml' chap='8'>
-  <info nick=''/>
-  <rev sync='1.94' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.i System Tools' filename='hb-install-tools.xml' chap='9'>
-  <info nick='' lock=''/>
-  <rev sync='1.46' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.j Bootloader Alpha' filename='hb-install-alpha-bootloader.xml' chap='10'>
-  <info nick='' lock=''/>
-  <rev sync='1.20' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.j Bootloader HPPA' filename='hb-install-hppa-bootloader.xml' chap='10'>
-  <info nick='' lock=''/>
-  <rev sync='1.16' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.j Bootloader IA64' filename='hb-install-ia64-bootloader.xml' chap='10'>
-  <info nick='' lock=''/>
-  <rev sync='1.3' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.j Bootloader MIPS' filename='hb-install-mips-bootloader.xml' chap='10'>
-  <info nick='' lock=''/>
-  <rev sync='1.18' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.j Bootloader PPC' filename='hb-install-ppc-bootloader.xml' chap='10'>
-  <info nick='stawrul' lock=''/>
-  <rev sync='1.42' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.j Bootloader PPC64' filename='hb-install-ppc64-bootloader.xml' chap='10'>
-  <info nick=''/>
-  <rev sync='1.26' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.j Bootloader SPARC' filename='hb-install-sparc-bootloader.xml' chap='10'>
-  <info nick='' lock=''/>
-  <rev sync='1.20' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.j Bootloader x86+amd64'  filename='hb-install-x86+amd64-bootloader.xml' chap='10'>
-  <info nick='' lock=''/>
-  <rev sync='1.8' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.k Final' filename='hb-install-finalise.xml' chap='11'>
-  <info nick='' lock=''/>
-  <rev sync='1.48' target=''/>
- </hbdoc>
- <hbdoc part='1' ID='1.l Next' filename='hb-install-next.xml' chap='12'>
-  <info nick='' lock=''/>
-  <rev sync='1.26' target=''/>
- </hbdoc>
- <hbdoc part='2' ID='2.a Portage' filename='hb-working-portage.xml' chap='1'>
-  <info nick='' lock=''/>
-  <rev sync='1.63' target=''/>
- </hbdoc>
- <hbdoc part='2' ID='2.b USE' filename='hb-working-use.xml' chap='2'>
-  <info nick=''/>
-  <rev sync='1.46' target=''/>
- </hbdoc>
- <hbdoc part='2' ID='2.c Features' filename='hb-working-features.xml' chap='3'>
-  <info nick='' lock=''/>
   <rev sync='1.35' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='2.d Init Scripts' filename='hb-working-rcscripts.xml' chap='4'>
-  <info nick='' lock=''/>
-  <rev sync='1.29' target=''/>
- </hbdoc>
- <hbdoc part='2' ID='2.e Env. Var.' filename='hb-working-variables.xml' chap='5'>
-  <info nick='' lock=''/>
-  <rev sync='1.22' target=''/>
- </hbdoc>
- <hbdoc part='3' ID='3.a Portage Files' filename='hb-portage-files.xml' chap='1'>
+ <hbdoc part='1' ID='hb-install-sparc-medium' filename='hb-install-sparc-medium.xml' chap='2'>
   <info nick=''/>
-  <rev sync='1.18' target=''/>
+  <rev sync='1.45' target=''/>
  </hbdoc>
- <hbdoc part='3' ID='3.b Portage Conf' filename='hb-portage-configuration.xml' chap='2'>
-  <info nick='' lock=''/>
-  <rev sync='1.15' target=''/>
- </hbdoc>
- <hbdoc part='3' ID='3.c Portage Branches' filename='hb-portage-branches.xml' chap='3'>
-  <info nick='' lock=''/>
-  <rev sync='1.15' target=''/>
- </hbdoc>
- <hbdoc part='3' ID='3.d Portage Tools' filename='hb-portage-tools.xml' chap='4'>
+ <hbdoc part='1' ID='hb-install-x86+amd64-medium' filename='hb-install-x86+amd64-medium.xml' chap='2'>
   <info nick='' lock=''/>
   <rev sync='1.9' target=''/>
  </hbdoc>
- <hbdoc part='3' ID='3.e Portage Tree' filename='hb-portage-diverttree.xml' chap='5'>
+ <hbdoc part='1' ID='hb-install-network' filename='hb-install-network.xml' chap='3'>
   <info nick='' lock=''/>
-  <rev sync='1.14' target=''/>
+  <rev sync='1.52' target=''/>
  </hbdoc>
- <hbdoc part='3' ID='3.f Portage Ebuild' filename='hb-portage-ebuild.xml' chap='6'>
+ <hbdoc part='1' ID='hb-install-alpha-disk' filename='hb-install-alpha-disk.xml' chap='4'>
+  <info nick='' lock=''/>
+  <rev sync='1.26' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-hppa-disk' filename='hb-install-hppa-disk.xml' chap='4'>
+  <info nick='' lock=''/>
+  <rev sync='1.23' target=''/>
+ </hbdoc>
+  <hbdoc part='1' ID='hb-install-ia64-disk' filename='hb-install-ia64-disk.xml' chap='4'>
+  <info nick='' lock=''/>
+  <rev sync='1.6' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-mips-disk' filename='hb-install-mips-disk.xml' chap='4'>
+  <info nick='' lock=''/>
+  <rev sync='1.24' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-ppc-disk' filename='hb-install-ppc-disk.xml' chap='4'>
+  <info nick='' lock=''/>
+  <rev sync='1.44' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-ppc64-disk' filename='hb-install-ppc64-disk.xml' chap='4'>
+  <info nick=''/>
+  <rev sync='1.32' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-sparc-disk' filename='hb-install-sparc-disk.xml' chap='4'>
+  <info nick='' lock=''/>
+  <rev sync='1.30' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-x86+amd64-disk' filename='hb-install-x86+amd64-disk.xml' chap='4'>
+  <info nick='' lock=''/>
+  <rev sync='1.9' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-stage' filename='hb-install-stage.xml' chap='5'>
+  <info nick='' lock=''/>
+  <rev sync='1.112' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-mips-stage' filename='hb-install-mips-stage.xml' chap='5'>
+  <info nick='stawrul' lock=''/>
+  <rev sync='1.8' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-system' filename='hb-install-system.xml' chap='6'>
+  <info nick=''/>
+  <rev sync='1.106' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-mips-system' filename='hb-install-mips-system.xml' chap='6'>
+  <info nick=''/>
+  <rev sync='1.4' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-alpha-kernel' filename='hb-install-alpha-kernel.xml' chap='7'>
+  <info nick=''/>
+  <rev sync='1.41' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-hppa-kernel' filename='hb-install-hppa-kernel.xml' chap='7'>
+  <info nick='' lock=''/>
+  <rev sync='1.41' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-ia64-kernel' filename='hb-install-ia64-kernel.xml' chap='7'>
   <info nick='' lock=''/>
   <rev sync='1.8' target=''/>
  </hbdoc>
- <hbdoc ID='4.a Net Start' filename='hb-net-start.xml'>
+ <hbdoc part='1' ID='hb-install-mips-kernel' filename='hb-install-mips-kernel.xml' chap='7'>
+  <info nick='' lock=''/>
+  <rev sync='1.27' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-ppc-kernel' filename='hb-install-ppc-kernel.xml' chap='7'>
+  <info nick='' lock=''/>
+  <rev sync='1.53' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-ppc64-kernel' filename='hb-install-ppc64-kernel.xml' chap='7'>
+  <info nick=''/>
+  <rev sync='1.30' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-sparc-kernel' filename='hb-install-sparc-kernel.xml' chap='7'>
+  <info nick='' lock=''/>
+  <rev sync='1.29' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-x86+amd64-kernel' filename='hb-install-x86+amd64-kernel.xml' chap='7'>
+  <info nick='' lock=''/>
+  <rev sync='1.13' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-config' filename='hb-install-config.xml' chap='8'>
+  <info nick=''/>
+  <rev sync='1.94' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-tools' filename='hb-install-tools.xml' chap='9'>
+  <info nick='' lock=''/>
+  <rev sync='1.46' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-alpha-bootloader' filename='hb-install-alpha-bootloader.xml' chap='10'>
+  <info nick='' lock=''/>
+  <rev sync='1.20' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-hppa-bootloader' filename='hb-install-hppa-bootloader.xml' chap='10'>
+  <info nick='' lock=''/>
+  <rev sync='1.16' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-ia64-bootloader' filename='hb-install-ia64-bootloader.xml' chap='10'>
+  <info nick='' lock=''/>
+  <rev sync='1.3' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-mips-bootloader' filename='hb-install-mips-bootloader.xml' chap='10'>
+  <info nick='' lock=''/>
+  <rev sync='1.18' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-ppc-bootloader' filename='hb-install-ppc-bootloader.xml' chap='10'>
+  <info nick='stawrul' lock=''/>
+  <rev sync='1.42' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-ppc64-bootloader' filename='hb-install-ppc64-bootloader.xml' chap='10'>
+  <info nick=''/>
+  <rev sync='1.26' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-sparc-bootloader' filename='hb-install-sparc-bootloader.xml' chap='10'>
+  <info nick='' lock=''/>
+  <rev sync='1.20' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-x86+amd64-bootloader'  filename='hb-install-x86+amd64-bootloader.xml' chap='10'>
+  <info nick='' lock=''/>
+  <rev sync='1.8' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-finalise' filename='hb-install-finalise.xml' chap='11'>
+  <info nick='' lock=''/>
+  <rev sync='1.48' target=''/>
+ </hbdoc>
+ <hbdoc part='1' ID='hb-install-next' filename='hb-install-next.xml' chap='12'>
+  <info nick='' lock=''/>
+  <rev sync='1.26' target=''/>
+ </hbdoc>
+ <hbdoc part='2' ID='hb-working-portage' filename='hb-working-portage.xml' chap='1'>
+  <info nick='' lock=''/>
+  <rev sync='1.63' target=''/>
+ </hbdoc>
+ <hbdoc part='2' ID='hb-working-use' filename='hb-working-use.xml' chap='2'>
+  <info nick=''/>
+  <rev sync='1.46' target=''/>
+ </hbdoc>
+ <hbdoc part='2' ID='hb-working-features' filename='hb-working-features.xml' chap='3'>
+  <info nick='' lock=''/>
+  <rev sync='1.35' target=''/>
+ </hbdoc>
+ <hbdoc part='2' ID='hb-working-rcscripts' filename='hb-working-rcscripts.xml' chap='4'>
+  <info nick='' lock=''/>
+  <rev sync='1.29' target=''/>
+ </hbdoc>
+ <hbdoc part='2' ID='hb-working-variables' filename='hb-working-variables.xml' chap='5'>
+  <info nick='' lock=''/>
+  <rev sync='1.22' target=''/>
+ </hbdoc>
+ <hbdoc part='3' ID='hb-portage-files' filename='hb-portage-files.xml' chap='1'>
+  <info nick=''/>
+  <rev sync='1.18' target=''/>
+ </hbdoc>
+ <hbdoc part='3' ID='hb-portage-configuration' filename='hb-portage-configuration.xml' chap='2'>
+  <info nick='' lock=''/>
+  <rev sync='1.15' target=''/>
+ </hbdoc>
+ <hbdoc part='3' ID='hb-portage-branches' filename='hb-portage-branches.xml' chap='3'>
+  <info nick='' lock=''/>
+  <rev sync='1.15' target=''/>
+ </hbdoc>
+ <hbdoc part='3' ID='hb-portage-tools' filename='hb-portage-tools.xml' chap='4'>
+  <info nick='' lock=''/>
+  <rev sync='1.9' target=''/>
+ </hbdoc>
+ <hbdoc part='3' ID='hb-portage-diverttree' filename='hb-portage-diverttree.xml' chap='5'>
+  <info nick='' lock=''/>
+  <rev sync='1.14' target=''/>
+ </hbdoc>
+ <hbdoc part='3' ID='hb-portage-ebuild' filename='hb-portage-ebuild.xml' chap='6'>
+  <info nick='' lock=''/>
+  <rev sync='1.8' target=''/>
+ </hbdoc>
+ <hbdoc ID='hb-net-start' filename='hb-net-start.xml'>
    <info nick=''/>
    <rev sync='1.8' target=''/>
   </hbdoc>
-  <hbdoc ID='4.b Net Advanced' filename='hb-net-advanced.xml'>
+  <hbdoc ID='hb-net-advanced' filename='hb-net-advanced.xml'>
     <info nick=''/>
     <rev sync='1.14' target=''/>
   </hbdoc>
-  <hbdoc ID='4.c Net Modules' filename='hb-net-modules.xml'>
+  <hbdoc ID='hb-net-modules' filename='hb-net-modules.xml'>
     <info nick=''/>
     <rev sync='1.23' target=''/>
   </hbdoc>
-  <hbdoc ID='4.d Net Wireless' filename='hb-net-wireless.xml'>
+  <hbdoc ID='hb-net-wireless' filename='hb-net-wireless.xml'>
     <info nick=''/>
     <rev sync='1.15' target=''/>
   </hbdoc>
-  <hbdoc ID='4.e Net Functions' filename='hb-net-functions.xml'>
+  <hbdoc ID='hb-net-functions' filename='hb-net-functions.xml'>
     <info nick=''/>
     <rev sync='1.11' target=''/>
   </hbdoc>
-  <hbdoc ID='4.f Net Management' filename='hb-net-management.xml'>
+  <hbdoc ID='hb-net-management' filename='hb-net-management.xml'>
     <info nick=''/>
     <rev sync='1.11' target=''/>
   </hbdoc>
@@ -1080,7 +1085,7 @@
  </hbdoc>
  <hbdoc part='0' ID='hb-install-gli-medium' filename='hb-install-gli-medium.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.6' target=''/>
+  <rev sync='1.7' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='hb-install-gtkfe' filename='hb-install-gtkfe.xml' chap='0'>
   <info nick=''/>
@@ -1092,7 +1097,7 @@
  </hbdoc>
  <hbdoc part='0' ID='hb-install-hppa-disk' filename='hb-install-hppa-disk.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.4' target=''/>
+  <rev sync='1.5' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='hb-install-hppa-kernel' filename='hb-install-hppa-kernel.xml' chap='0'>
   <info nick=''/>
@@ -1100,7 +1105,7 @@
  </hbdoc>
  <hbdoc part='0' ID='hb-install-hppa-medium' filename='hb-install-hppa-medium.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.7' target=''/>
+  <rev sync='1.8' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='hb-install-network' filename='hb-install-network.xml' chap='0'>
   <info nick=''/>
@@ -1116,7 +1121,7 @@
  </hbdoc>
  <hbdoc part='0' ID='hb-install-ppc-disk' filename='hb-install-ppc-disk.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.9' target=''/>
+  <rev sync='1.11' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='hb-install-ppc-kernel' filename='hb-install-ppc-kernel.xml' chap='0'>
   <info nick=''/>
@@ -1124,7 +1129,7 @@
  </hbdoc>
  <hbdoc part='0' ID='hb-install-ppc-medium' filename='hb-install-ppc-medium.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.7' target=''/>
+  <rev sync='1.8' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='hb-install-ppc64-bootloader' filename='hb-install-ppc64-bootloader.xml' chap='0'>
   <info nick=''/>
@@ -1132,7 +1137,7 @@
  </hbdoc>
  <hbdoc part='0' ID='hb-install-ppc64-disk' filename='hb-install-ppc64-disk.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.6' target=''/>
+  <rev sync='1.8' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='hb-install-ppc64-kernel' filename='hb-install-ppc64-kernel.xml' chap='0'>
   <info nick=''/>
@@ -1140,7 +1145,7 @@
  </hbdoc>
  <hbdoc part='0' ID='hb-install-ppc64-medium' filename='hb-install-ppc64-medium.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.7' target=''/>
+  <rev sync='1.8' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='hb-install-sparc-bootloader' filename='hb-install-sparc-bootloader.xml' chap='0'>
   <info nick=''/>
@@ -1148,7 +1153,7 @@
  </hbdoc>
  <hbdoc part='0' ID='hb-install-sparc-disk' filename='hb-install-sparc-disk.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.5' target=''/>
+  <rev sync='1.6' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='hb-install-sparc-kernel' filename='hb-install-sparc-kernel.xml' chap='0'>
   <info nick=''/>
@@ -1156,7 +1161,7 @@
  </hbdoc>
  <hbdoc part='0' ID='hb-install-sparc-medium' filename='hb-install-sparc-medium.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.6' target=''/>
+  <rev sync='1.7' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='hb-install-stage' filename='hb-install-stage.xml' chap='0'>
   <info nick=''/>
@@ -1170,7 +1175,7 @@
   <info nick=''/>
   <rev sync='1.7' target=''/>
  </hbdoc>
- <hbdoc part='0' ID='Index' filename='index.xml' chap='0'>
+ <hbdoc part='0' ID='index' filename='index.xml' chap='0'>
   <info nick=''/>
   <rev sync='1.12' target=''/>
  </hbdoc>
@@ -1178,59 +1183,59 @@
 
 <!-- Devrel Handbook -->
 <handbook subdir='devrel/handbook' prior='N' label='Devrel Handbook' path='proj'>
- <hbdoc part='-1' ID='Devrel Handbook' filename='handbook.xml' chap='0'>
+ <hbdoc part='-1' ID='handbook' filename='handbook.xml' chap='0'>
   <info nick='' lock=''/>
   <rev sync='1.9' target=''/>
  </hbdoc>
- <hbdoc part='1' ID='1.a Introduction' filename='hb-introduction.xml' chap='1'>
+ <hbdoc part='1' ID='hb-introductio' filename='hb-introduction.xml' chap='1'>
   <info nick='' lock=''/>
   <rev sync='1.3' target=''/>
  </hbdoc>
- <hbdoc part='1' ID='1.b Becoming a Dev' filename='hb-introduction-becoming-a-dev.xml' chap='2'>
+ <hbdoc part='1' ID='hb-introduction-becoming-a-dev' filename='hb-introduction-becoming-a-dev.xml' chap='2'>
   <info nick='' lock=''/>
   <rev sync='1.5' target=''/>
  </hbdoc>
- <hbdoc part='1' ID='1.c What You Get' filename='hb-introduction-whatyouget.xml' chap='3'>
+ <hbdoc part='1' ID='hb-introduction-whatyouget' filename='hb-introduction-whatyouget.xml' chap='3'>
   <info nick='' lock=''/>
   <rev sync='1.8' target=''/>
  </hbdoc>
- <hbdoc part='1' ID='1.d New Devs' filename='hb-introduction-new-devs.xml' chap='4'>
+ <hbdoc part='1' ID='hb-introduction-new-devs' filename='hb-introduction-new-devs.xml' chap='4'>
   <info nick='' lock=''/>
   <rev sync='1.9' target=''/>
  </hbdoc>
- <hbdoc part='1' ID='1.e Hierarchy' filename='hb-introduction-hierachy.xml' chap='5'>
+ <hbdoc part='1' ID='hb-introduction-hierachy' filename='hb-introduction-hierachy.xml' chap='5'>
   <info nick='' lock=''/>
   <rev sync='1.5' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='2.a Ebuild Howto' filename='hb-guide-ebuild.xml' chap='1'>
+ <hbdoc part='2' ID='hb-guide-ebuild' filename='hb-guide-ebuild.xml' chap='1'>
   <info nick='' lock=''/>
-  <rev sync='1.42' target=''/>
+  <rev sync='1.43' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='2.b Eclass Howto' filename='hb-guide-eclass.xml' chap='2'>
+ <hbdoc part='2' ID='hb-guide-eclass' filename='hb-guide-eclass.xml' chap='2'>
   <info nick='' lock=''/>
   <rev sync='1.9' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='2.c Common Mistakes' filename='hb-guide-common-mistakes.xml' chap='3'>
+ <hbdoc part='2' ID='hb-guide-common-mistakes' filename='hb-guide-common-mistakes.xml' chap='3'>
   <info nick='' lock=''/>
   <rev sync='1.5' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='2.d Metadata' filename='hb-guide-metadata.xml' chap='4'>
+ <hbdoc part='2' ID='hb-guide-metadata' filename='hb-guide-metadata.xml' chap='4'>
   <info nick='' lock=''/>
   <rev sync='1.8' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='2.e Ebuild Maintenance' filename='hb-guide-ebuild-maintaining.xml' chap='5'>
+ <hbdoc part='2' ID='hb-guide-ebuild-maintaining' filename='hb-guide-ebuild-maintaining.xml' chap='5'>
   <info nick='' lock=''/>
   <rev sync='1.14' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='2.f Manifest Signing' filename='hb-guide-manifest-signing.xml' chap='6'>
+ <hbdoc part='2' ID='hb-guide-manifest-signing' filename='hb-guide-manifest-signing.xml' chap='6'>
   <info nick='' lock=''/>
   <rev sync='1.3' target=''/>
  </hbdoc>
- <hbdoc part='3' ID='3.a Ebuild Policy' filename='hb-policy-ebuild.xml' chap='1'>
+ <hbdoc part='3' ID='hb-policy-ebuild' filename='hb-policy-ebuild.xml' chap='1'>
   <info nick='' lock=''/>
   <rev sync='1.19' target=''/>
  </hbdoc>
- <hbdoc part='3' ID='3.b Etiquette Policy' filename='hb-policy-etiquette.xml' chap='2'>
+ <hbdoc part='3' ID='hb-policy-etiquette' filename='hb-policy-etiquette.xml' chap='2'>
   <info nick='' lock=''/>
   <rev sync='1.13' target=''/>
  </hbdoc>
@@ -1238,82 +1243,82 @@
 
 <!-- Security Handbook -->
 <handbook subdir='security' prior='C' path='doc' label='Security Handbook'>
-  <hbdoc ID='Index' filename='index.xml'>
+  <hbdoc ID='index' filename='index.xml'>
     <info nick='rane'/>
     <rev sync='1.2' target=''/>
   </hbdoc>
-  <hbdoc ID='Security Handbook' filename='security-handbook.xml'>
+  <hbdoc ID='security-handbook' filename='security-handbook.xml'>
     <info nick='rane'/>
     <rev sync='1.3' target=''/>
   </hbdoc>
-  <hbdoc ID='1.a Pre' filename='shb-pre.xml'>
+  <hbdoc ID='shb-pre' filename='shb-pre.xml'>
     <info nick='rane'/>
     <rev sync='1.3' target=''/>
   </hbdoc>
-  <hbdoc ID='1.b Tighten' filename='shb-tight.xml'>
+  <hbdoc ID='shb-tight' filename='shb-tight.xml'>
     <info nick='rane'/>
     <rev sync='1.3' target=''/>
   </hbdoc>
-  <hbdoc ID='1.c Logging' filename='shb-logging.xml'>
+  <hbdoc ID='shb-logging' filename='shb-logging.xml'>
     <info nick='rane'/>
     <rev sync='1.5' target=''/>
   </hbdoc>
-  <hbdoc ID='1.d Mounting' filename='shb-mounting.xml'>
+  <hbdoc ID='shb-mounting' filename='shb-mounting.xml'>
     <info nick='rane'/>
     <rev sync='1.4' target=''/>
   </hbdoc>
-  <hbdoc ID='1.e Limits ' filename='shb-limits.xml'>
+  <hbdoc ID='shb-limits' filename='shb-limits.xml'>
     <info nick='rane'/>
     <rev sync='1.6' target=''/>
   </hbdoc>
-    <hbdoc ID='1.f Perms' filename='shb-perms.xml'>
+    <hbdoc ID='shb-perms' filename='shb-perms.xml'>
     <info nick='rane'/>
     <rev sync='1.4' target=''/>
   </hbdoc>
-  <hbdoc ID='1.g PAM' filename='shb-pam.xml'>
+  <hbdoc ID='shb-pam' filename='shb-pam.xml'>
     <info nick='rane'/>
     <rev sync='1.4' target=''/>
   </hbdoc>
-  <hbdoc ID='1.h TCP Wrappers' filename='shb-tcp.xml'>
+  <hbdoc ID='shb-tcp' filename='shb-tcp.xml'>
     <info nick='rane'/>
     <rev sync='1.1' target=''/>
   </hbdoc>
-  <hbdoc ID='1.i Kernel' filename='shb-kernel.xml'>
+  <hbdoc ID='shb-kernel' filename='shb-kernel.xml'>
     <info nick='rane'/>
     <rev sync='1.3' target=''/>
   </hbdoc>
-  <hbdoc ID='1.j Services' filename='shb-services.xml'>
-    <info nick='rane'/>
-    <rev sync='1.6' target=''/>
-  </hbdoc>
-  <hbdoc ID='1.k Chrooting' filename='shb-chroot.xml'>
-    <info nick='rane'/>
-    <rev sync='1.3' target=''/>
-  </hbdoc>
-  <hbdoc ID='1.l Firewalls' filename='shb-firewalls.xml'>
+  <hbdoc ID='shb-services' filename='shb-services.xml'>
     <info nick='rane'/>
     <rev sync='1.7' target=''/>
   </hbdoc>
-  <hbdoc ID='1.m Intrusion' filename='shb-intrusion.xml'>
+  <hbdoc ID='shb-chroot' filename='shb-chroot.xml'>
+    <info nick='rane'/>
+    <rev sync='1.3' target=''/>
+  </hbdoc>
+  <hbdoc ID='shb-firewalls' filename='shb-firewalls.xml'>
+    <info nick='rane'/>
+    <rev sync='1.7' target=''/>
+  </hbdoc>
+  <hbdoc ID='shb-intrusion' filename='shb-intrusion.xml'>
     <info nick='rane'/>
     <rev sync='1.5' target=''/>
   </hbdoc>
-  <hbdoc ID='1.n Up-To-Date' filename='shb-uptodate.xml'>
+  <hbdoc ID='shb-uptodate' filename='shb-uptodate.xml'>
     <info nick='rane'/>
     <rev sync='1.3' target=''/>
   </hbdoc>
 </handbook>
 <!-- AMD64 HOWTOS -->
 <handbook subdir='base/amd64/howtos' prior='I' index='index.xml' path='proj' label='amd64 Howtos'>
- <hbdoc part='2' ID='Bugs' filename='bugs.xml' chap='5'>
+ <hbdoc part='2' ID='bugs' filename='bugs.xml' chap='5'>
   <info nick='' lock=''/>
   <rev sync='1.5' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='Chroot' filename='chroot-old.xml' chap='5'>
+ <hbdoc part='2' ID='chroot-old' filename='chroot-old.xml' chap='5'>
   <info nick='' lock=''/>
   <rev sync='1.1' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='Index' filename='index.xml' chap='5'>
+ <hbdoc part='2' ID='index' filename='index.xml' chap='5'>
   <info nick='' lock=''/>
   <rev sync='1.8' target=''/>
  </hbdoc>
@@ -1321,63 +1326,63 @@
 
 <!-- SELINUX -->
 <handbook subdir='hardened/selinux' prior='I' index='index.xml' path='proj' label='SELinux Handbook'>
- <hbdoc part='2' ID='Index' filename='index.xml' chap='1'>
+ <hbdoc part='2' ID='index' filename='index.xml' chap='1'>
   <info nick='' lock=''/>
   <rev sync='1.36' target=''/>
  </hbdoc>
-  <hbdoc part='2' ID='HB Install' filename='hb-install.xml' chap='1'>
+  <hbdoc part='2' ID='hb-install' filename='hb-install.xml' chap='1'>
   <info nick='' lock=''/>
   <rev sync='1.4' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='Conv profile' filename='hb-selinux-conv-profile.xml' chap='1'>
+ <hbdoc part='2' ID='hb-selinux-conv-profile' filename='hb-selinux-conv-profile.xml' chap='1'>
   <info nick='' lock=''/>
   <rev sync='1.7' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='Conv reboot 1' filename='hb-selinux-conv-reboot1.xml' chap='1'>
+ <hbdoc part='2' ID='hb-selinux-conv-reboot1' filename='hb-selinux-conv-reboot1.xml' chap='1'>
   <info nick='' lock=''/>
   <rev sync='1.8' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='Conv reboot 2' filename='hb-selinux-conv-reboot2.xml' chap='1'>
+ <hbdoc part='2' ID='hb-selinux-conv-reboot2' filename='hb-selinux-conv-reboot2.xml' chap='1'>
   <info nick='' lock=''/>
   <rev sync='1.7' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='Selinux FAQ' filename='hb-selinux-faq.xml' chap='1'>
+ <hbdoc part='2' ID='hb-selinux-faq' filename='hb-selinux-faq.xml' chap='1'>
   <info nick='' lock=''/>
   <rev sync='1.4' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='Selinux Howto' filename='hb-selinux-howto.xml' chap='1'>
+ <hbdoc part='2' ID='hb-selinux-howto' filename='hb-selinux-howto.xml' chap='1'>
   <info nick='' lock=''/>
   <rev sync='1.5' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='Selinux Initpol' filename='hb-selinux-initpol.xml' chap='1'>
+ <hbdoc part='2' ID='hb-selinux-initpol' filename='hb-selinux-initpol.xml' chap='1'>
   <info nick='' lock=''/>
   <rev sync='1.5' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='Selinux Libsemanage' filename='hb-selinux-libsemanage.xml' chap='1'>
+ <hbdoc part='2' ID='hb-selinux-libsemanage' filename='hb-selinux-libsemanage.xml' chap='1'>
   <info nick='' lock=''/>
   <rev sync='1.1' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='Selinux Localmod' filename='hb-selinux-localmod.xml' chap='1'>
+ <hbdoc part='2' ID='hb-selinux-localmod' filename='hb-selinux-localmod.xml' chap='1'>
   <info nick='' lock=''/>
   <rev sync='1.1' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='Selinux loglocal' filename='hb-selinux-loglocal.xml' chap='1'>
+ <hbdoc part='2' ID='hb-selinux-loglocal' filename='hb-selinux-loglocal.xml' chap='1'>
   <info nick='' lock=''/>
   <rev sync='1.6' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='Selinux logremote' filename='hb-selinux-logremote.xml' chap='1'>
+ <hbdoc part='2' ID='hb-selinux-logremote' filename='hb-selinux-logremote.xml' chap='1'>
   <info nick='' lock=''/>
   <rev sync='1.6' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='Selinux Overview' filename='hb-selinux-overview.xml' chap='1'>
+ <hbdoc part='2' ID='hb-selinux-overview' filename='hb-selinux-overview.xml' chap='1'>
   <info nick='' lock=''/>
   <rev sync='1.7' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='Selinux References' filename='hb-selinux-references.xml' chap='1'>
+ <hbdoc part='2' ID='hb-selinux-references' filename='hb-selinux-references.xml' chap='1'>
   <info nick='' lock=''/>
   <rev sync='1.4' target=''/>
  </hbdoc>
- <hbdoc part='2' ID='SELinux Handbook' filename='selinux-handbook.xml' chap='1'>
+ <hbdoc part='2' ID='selinux-handbook' filename='selinux-handbook.xml' chap='1'>
   <info nick='' lock=''/>
   <rev sync='1.8' target=''/>
  </hbdoc>
