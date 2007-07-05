@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/gnome-config.xml,v 1.12 2007/05/24 20:24:17 rane Exp $ -->
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+
+<guide link="/doc/pl/gnome-config.xml" lang="pl">
+<title>Konfigurowanie GNOME</title>
+
+<author title="Autor">
+  <mail link="swift@gentoo.org">Sven Vermeulen</mail>
+</author>
+<author title="Redaktor">
+  <mail link="lars@strojny.net">Lars Strojny</mail>
+</author>
+<author title="Tłumaczenie">
+  <mail link="rane@gentoo.org">Łukasz Damentko</mail>
+</author>
+<author title="Tłumaczenie">
+  <mail link="stawrul@gmail.com">Waldemar Korłub</mail>
+</author>
+
+<abstract>
+Opis wszystkich aspektów GNOME, włączając w to opis instalacji, konfiguracji i
+pracy z tym środowiskiem graficznym.
+</abstract>
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
+<license/>
+
+<version>1.16</version>
+<date>2007-07-05</date>
+
+<chapter>
+<title>Czym jest GNOME?</title>
+<section>
+<title>Projekt</title>
+<body>
+
+<p>
+Projekt <uri link="http://www.gnome.org">GNOME</uri> to grupa osób zajmujących
+się rozwijaniem środowiska graficznego o tej samej nazwie. <uri
+link="http://foundation.gnome.org">Fundacja GNOME</uri> koordynuje prace i
+zajmuje się niezwiązanymi z programowaniem aspektami rozwoju środowiska GNOME.
+</p>
+
+</body>
+</section>
+<section>
+<title>Oprogramowanie</title>
+<body>
+
+<p>
+GNOME to środowisko graficzne oraz platforma deweloperska i jest doskonały
+wybór zarówno dla użytkowników domowych jak i dla developerów.
+</p>
+
+</body>
+</section>
+<section>
+<title>Społeczność</title>
+<body>
+
+<p>
+Tak jak każdy duży projekt otwartego oprogramowania, GNOME posiada szeroką grupę
+użytkowników oraz developerów. Na stronie <uri
+link="http://www.gnomedesktop.org">Footnotes</uri> znajdują się wiadomości dla
+zwykłych użytkowników. Osoby bardziej zaawansowane na pewno zainteresuje za to
+strona <uri link="http://planet.gnome.org">GnomePlanet</uri>, a
+zainteresowanych pomocą w rozwoju środowiska GNOME strona <uri
+link="http://developer.gnome.org">Developer.Gnome.Org</uri>.
+</p>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Instalowanie GNOME</title>
+<section>
+<title>Co jest potrzebne?</title>
+<body>
+
+<p>
+Przed rozpoczęciem instalacji GNOME należy odpowiednio zmienić flagi USE w pliku
+<path>/etc/make.conf</path> tak, aby były włączone <c>gtk</c> i <c>gnome</c>.
+Jeśli potrzebna jest obsługa <c>hald</c>, warstwy abstrakcji sprzętowej, należy
+dodać do listy flagę <c>hal</c>. Zmienna <c>avahi</c> doda GNOME obsługę
+wykrywania DNS (podobną do Rendevouz z Mac OS X). Jeśli nie jest potrzebna
+obsługa KDE (innego dużego środowiska graficznego), można usunąć z listy flagi
+<c>qt</c>, <c>arts</c> i <c>kde</c>.
+</p>
+
+<pre caption="Przykładowa lista flag USE w /etc/make.conf">
+USE="-qt3 -qt4 -arts -kde gtk gnome hal avahi"
+</pre>
+
+<p>
+Korzystając z flagi USE <c>branding</c> uzyskamy ładny splashscreen z logo
+Gentoo zamiast standardowego Gnome:
+</p>
+
+<pre caption="Dodanie elementów graficznych z marką Gentoo">
+# <i>echo "gnome-base/gnome-session branding" &gt;&gt; /etc/portage/package.use</i>
+</pre>
+
+<p>
+Potem można wgrać GNOME poprzez zainstalowanie pakietów <c>gnome</c>:
+</p>
+
+<pre caption="Instalowanie GNOME">
+# <i>emerge gnome</i>
+</pre>
+
+<p>
+Minimalne środowisko Gnome można znaleźć w pakiecie <c>gnome-light</c>:
+</p>
+
+<pre caption="Instalowanie minimalnego środowiska GNOME">
+# <i>emerge gnome-light</i>
+</pre>
+
+<p>
+Zajmie to chwilę. Po zakończeniu instalacji należy uaktualnić zmienne
+środowiskowe:
+</p>
+
+<pre caption="Uaktualnianie zmiennych środowiskowych">
+# <i>env-update &amp;&amp; source /etc/profile</i>
+</pre>
+
+<p>
+Wynik polecenia <c>emerge</c> chwilę wcześniej zawierał sugestię dotyczącą
+dodania <c>gamin</c> na domyślny poziom uruchomieniowy w celu umożliwienia
+nautilusowi i gnome-vfs monitorowania zmian w plikach:
+</p>
+
+<pre caption="Instalowanie gamin, programu monitorującego zmiany w plikach">
+# <i>emerge gamin</i>
+</pre>
+
+<impo>
+Jeśli jest to zmiana z <c>fam</c> (programu, który był używany w tym samym celu
+w przeszłości, należy najpierw usunąć <c>famd</c> ze wszystkich poziomów
+uruchomieniowych, a następnie całkowicie odinstalować:
+</impo>
+
+<pre caption="Opcjonalnie: zamiana programu fam na gamin">
+# <i>rc-update del famd</i>
+# <i>emerge --unmerge app-admin/fam</i>
+</pre>
+
+<p>
+Następnie należy wyczyścić wszystkie pozostałe usługi.
+</p>
+
+<pre caption="Dodawanie hald i avahi-dnsconfd na domyślny poziom uruchomienowy">
+# <i>/etc/init.d/hald start</i>
+# <i>rc-update add hald default</i>
+
+# <i>/etc/init.d/avahi-dnsconfd start</i>
+# <i>rc-update add avahi-dnsconfd default</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Pierwsze wrażenia</title>
+<body>
+
+<p>
+Po pierwsze warto dowiedzieć się co właściwie się zbudowało. Opuszczamy konto
+roota i logujemy się jako zwykły użytkownik. Skonfigurujemy system tak, aby
+uruchamiał GNOME po każdym wpisaniu polecenia <c>startx</c>. Więcej szczegółów
+na ten temat znajduje się w akapicie dotyczącym <uri
+link="/doc/pl/xorg-config.xml#using_startx">używania startx</uri> w dokumencie
+opisującym <uri link="/doc/pl/xorg-config.xml">konfigurację serwera X</uri>.
+</p>
+
+<pre caption="Konfigurowanie GNOME jako domyślnego środowiska">
+$ <i>echo "exec gnome-session" &gt; ~/.xinitrc</i>
+</pre>
+
+<p>
+Następnie uruchamiamy środowisko za pomocą polecenia <c>startx</c>:
+</p>
+
+<pre caption="Uruchamianie GNOME">
+$ <i>startx</i>
+</pre>
+
+<p>
+Jeśli wszystko pójdzie dobrze uruchomi się środowisko graficzne z logo GNOME.
+Pora przyjrzeć się możliwym do przeprowadzenia na samym początku dodatkowym
+zmianom w konfiguracji.
+</p>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Konfigurowanie GNOME</title>
+<section>
+<title>Graficzny menedżer logowania GNOME</title>
+<body>
+
+<p>
+Jeśli menedżer logowania GNOME (GDM) ma być uruchamiany automatycznie po starcie
+systemu tak, aby możliwe było zalogowanie się ze środowiska graficznego, należy
+dodać skrypt startowy <c>xdm</c> na domyślny poziom uruchomieniowy:
+</p>
+
+<pre caption="Dodawanie xdm na domyślny poziom uruchomieniowy">
+# <i>rc-update add xdm default</i>
+</pre>
+
+<p>
+Następnie należy otworzyć plik <path>/etc/conf.d/xdm</path> i odpowiednio
+zmienić zawartość zmiennej DISPLAYMANAGER.
+</p>
+
+<pre caption="Edytowanie /etc/conf.d/xdm">
+DISPLAYMANAGER="gdm"
+</pre>
+
+<p>
+Po ponownym uruchomieniu komputera pojawi się GDM i umożliwi zalogowanie się do
+środowiska GNOME. Istnieje opcja uruchamiania z tego menedżera innych środowisk,
+należy w tym celu wyedytować plik <path>/usr/share/xsessions/</path>. Warto
+wspomnieć, że jeśli korzysta się z GDM to niepotrzebny staje się plik
+<path>~/.xinitrc</path>.
+</p>
+
+<p>
+W celu uruchomienia <c>hald</c> należy uruchomić <c>gnome-volume-manager</c> i
+dokonać edycji ustawień. Ponadto należy dodać użytkowników do grupy
+<c>plugdev</c>
+</p>
+
+</body>
+</section>
+</chapter>
+</guide>
