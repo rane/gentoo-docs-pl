@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/change-chost.xml,v 1.2 2007/05/12 21:27:12 rane Exp $ -->
+
+<guide link="/doc/pl/change-chost.xml" lang="pl">
+
+<title>Zmiana wartości zmiennej CHOST</title>
+
+<author title="Autor">
+  <mail link="amne@gentoo.org">Wernfried Haas</mail>
+</author>
+<author title="Redaktor">
+  <mail link="vapier@gentoo.org">Mike Frysinger</mail>
+</author>
+<author title="GuideXML">
+  <mail link="chriswhite@gentoo.org">Chris White</mail>
+</author>
+<author title="Tłumaczenie">
+  Jakub Hudak
+</author>
+
+<abstract>
+Ten dokument wyjaśnia jak zmienić wartość zmiennej CHOST w zainstalowanym
+systemie.
+</abstract>
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
+<license/>
+
+<version>2</version>
+<date>2007-07-16</date>
+
+<chapter>
+<title>Wstęp</title>
+<section>
+<body>
+
+<p>
+Zmiana wartości zmiennej CHOST może być problemem, który poważnie może uszkodzić
+system. Zatem dlaczego jest do tego w ogóle przewodnik?
+</p>
+
+<p>
+Istnieje sporo przypadków, kiedy zmiana wartości zmiennej CHOST jest
+nieunikniona, np. jeśli chce się zaktualizować glibc 2.4, które wspiera tylko
+nptl, a zmienna CHOST to i386, co uniemożliwia wykorzystanie nptl. W takim
+wypadku nie ma zbyt dużej liczby rozwiązań problemu. Zmiana wartości zmiennej
+CHOST jest jedną z nich.
+</p>
+
+<p>
+Nawet jeśli wykona się poniższe instrukcje, mogą powstać problemy, dlatego
+trzeba być podczas całego procesu bardzo uważnym. W tym przykładzie zmienna
+CHOST będzie zmieniania z i386 na i686. Aby dokonać zmiany z innych wartości
+zmiennej CHOST, należy zmienić odpowiednio komendy.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Zmiana wartości zmiennej CHOST</title>
+<section>
+<title>Instalowanie pakietów</title>
+<body>
+
+<p>
+Aby zmienić wartość zmiennej CHOST, otwieramy plik <path>/etc/make.conf</path> i
+zmieniamy wartość <b>CHOST</b> na taką, jakiej potrzebujemy. Potem należy
+przebudować następujące pakiety:
+</p>
+
+<pre caption="Przebudowanie ważnych narzędzi systemowych">
+# <i>emerge -av1 binutils gcc glibc</i>
+</pre>
+
+<impo>
+Aktualizacja gcc i zmiana wartości zmiennej CHOST w tym samym czasie (np. wersja
+gcc 3.3, wartość zmiennej CHOST i386 zmieniane na gcc w wersji 4.1 i wartość
+zmiennej CHOST na i686) mogą powodować szereg problemów dodatkowych. Może się
+okazać niemożliwe wykonanie tej zmiany. Dlatego ostrzegamy, należy wykonywać
+tylko jedną czynność naraz, np. zaktualizować najpierw gcc (korzystając z
+<uri link="/doc/pl/gcc-upgrading.xml">podręcznika aktualizacji gcc</uri>) a
+następnie zmienić wartość zmiennej CHOST. Jeśli wartość zmiennej CHOST to i386,
+trzeba zamaskować pakiet glibc w wersji 2.4 (lub nowszej) podczas aktualizacji
+gcc, tak by nie mógł on być użyty z i386. Po skończonej aktualizacji
+odmaskowujemy go.
+</impo>
+
+</body>
+</section>
+<section>
+<title>Sprawdzenie wprowadzonych zmian</title>
+<body>
+
+<p>
+Teraz sprawdzimy czy ustawienia <c>gcc-config</c> i <c>binutils-config</c> są w
+porządku i czy nie ma żadnych pozostałości w <path>/etc/env.d/</path>.
+</p>
+
+<p>
+Wynik poleceń <c>gcc-config</c> i <c>binutils-config</c> powinien wyglądać mniej
+więcej tak jak poniżej (mogą się nieznacznie różnić z zależności od wersji gcc i
+wartości CHOST). My podajemy przykłady dla wersji 4.1.1 i 2.16.1.
+</p>
+
+<pre caption="Sprawdzenie poprawności ustawień">
+# <i>gcc-config -l</i>
+ [1] i686-pc-linux-gnu-4.1.1 *
+# <i>gcc-config -c</i>
+i686-pc-linux-gnu-4.1.1
+
+# <i>binutils-config -l</i>
+ [1] i686-pc-linux-gnu-2.16.1 *
+# <i>binutils-config -c</i>
+i686-pc-linux-gnu-2.16.1
+</pre>
+
+<p>
+Następnie wyszukujemy odwołania do starej wartości zmiennej CHOST w katalogu
+<path>/etc/env.d/</path>:
+</p>
+
+<pre caption="Sprawdzenie odwołań do starej wartości zmiennej CHOST">
+# <i>cd /etc/env.d/</i>
+# <i>grep 386 *</i>
+05gcc-i386-pc-linux-gnu:PATH="/usr/i386-pc-linux-gnu/gcc-bin/4.1.1"
+05gcc-i386-pc-linux-gnu:ROOTPATH="/usr/i386-pc-linux-gnu/gcc-bin/4.1.1"
+</pre>
+
+<note>
+Może się to nie zdarzyć każdemu, ale akurat w tym wypadku plik
+05gcc-i386-pc-linux-gnu zawiera odwołanie do starej wartości zmiennej CHOST.
+Ustawienia w systemie, które odwołują się do wartości zmiennej CHOST mogą się
+różnić od przykładu albo być w porządku. Nazwa powinna wyglądać tak:
+05gcc-nowa_wartość_CHOST-pc-linux-gnu.
+</note>
+
+<p>
+Przed skasowaniem tego pliku należy sprawdzić pliki ze zaktualizowaną wartością
+zmiennej CHOST:
+</p>
+
+<pre caption="Sprawdzenie plików ze zaktualizowaną wartością zmiennej CHOST">
+# <i>grep 686 *</i>
+05binutils:MANPATH=/usr/share/binutils-data/i686-pc-linux-gnu/2.16.1/man
+05binutils:INFOPATH=/usr/share/binutils-data/i686-pc-linux-gnu/2.16.1/info
+05binutils:LDPATH=/usr/i686-pc-linux-gnu/lib
+05gcc:PATH="/usr/i686-pc-linux-gnu/gcc-bin/4.1.1"
+05gcc:ROOTPATH="/usr/i686-pc-linux-gnu/gcc-bin/4.1.1"
+05gcc:MANPATH="/usr/share/gcc-data/i686-pc-linux-gnu/4.1.1/man"
+05gcc:INFOPATH="/usr/share/gcc-data/i686-pc-linux-gnu/4.1.1/info"
+05gcc:LDPATH="/usr/lib/gcc/i686-pc-linux-gnu/4.1.1"
+</pre>
+
+<p>
+Ten plik wygląda dobrze. Jest tylko jeden problem. Powinien być tylko jeden plik
+dla <c>gcc</c> w katalogu <path>/etc/env.d/</path> (05gcc w tym przykładzie),
+więc kasujemy ten drugi z niepoprawnym odwołaniem:
+</p>
+
+<pre caption="Usuwanie plików z niepoprawnymi odwołaniami">
+# <i>rm 05gcc-i386-pc-linux-gnu</i>
+</pre>
+
+<p>
+To same kroki należy wykonać dla <c>binutils</c>. Jeśli jest jakiś dodatkowy
+niepasujący do wersji zmiennej CHOST plik, należy go usunąć. Następnie
+sprawdzamy katalog <path>/etc/env.d/binutils/</path>
+</p>
+
+<pre caption="Sprawdzenie zawartości katalogu binutils">
+# <i>cd /etc/env.d/binutils/</i>
+# <i>ls -la</i>
+total 8
+-rw-r--r-- 1 root root  15 Sep  3 13:48 config-i686-pc-linux-gnu
+-rw-r--r-- 1 root root 126 Sep  3 13:48 i686-pc-linux-gnu-2.16.1
+
+# <i>cat config-i686-pc-linux-gnu</i>
+CURRENT=2.16.1
+# <i>cat i686-pc-linux-gnu-2.16.1</i>
+TARGET="i686-pc-linux-gnu"
+VER="2.16.1"
+LIBPATH="/usr/lib/binutils/i686-pc-linux-gnu/2.16.1"
+FAKE_TARGETS="i686-pc-linux-gnu"
+</pre>
+
+<p>
+Ten katalog wygląda dobrze, te dwa pliki powinny w nim zostać. Teraz czas na
+przejście do katalogu gcc.
+</p>
+
+<pre caption="Sprawdzenie zawartości katalogu gcc">
+# <i>cd /etc/env.d/gcc</i>
+# <i>ls -la</i>
+total 12
+-rw-r--r-- 1 root root  32 Sep  3 16:43 config
+-rw-r--r-- 1 root root  32 Aug  3 14:25 config-i386-pc-linux-gnu
+-rw-r--r-- 1 root root 292 Sep  3 16:43 i686-pc-linux-gnu-4.1.1
+
+# <i>cat config</i>
+CURRENT=i686-pc-linux-gnu-4.1.1
+
+# <i>cat config-i386-pc-linux-gnu</i>
+CURRENT=i386-pc-linux-gnu-4.1.1
+
+# <i>cat i686-pc-linux-gnu-4.1.1</i>
+PATH="/usr/i686-pc-linux-gnu/gcc-bin/4.1.1"
+ROOTPATH="/usr/i686-pc-linux-gnu/gcc-bin/4.1.1"
+LDPATH="/usr/lib/gcc/i686-pc-linux-gnu/4.1.1"
+GCCBITS="32"
+MANPATH="/usr/share/gcc-data/i686-pc-linux-gnu/4.1.1/man"
+INFOPATH="/usr/share/gcc-data/i686-pc-linux-gnu/4.1.1/info"
+STDCXX_INCDIR="g++-v4"
+</pre>
+
+<p>
+Pliki <path>config</path> i <path>i686-pc-linux-gnu-4.1.1</path> wyglądają w
+porządku, ale plik <path>config-i386-pc-linux-gnu</path> jest kolejną
+pozostałością do usunięcia.
+</p>
+
+<note>
+Ponownie nazwa pliku zawiera odwołanie do nieistniejącej wersji gcc, np.
+config-i686-pc-linux-gnu, nawet jeśli zmieniono wartość na i686. Jest ważne, aby
+sprawdzać pliki po ich zawartości, a nie tylko po nazwie.
+</note>
+
+<pre caption="Usuwanie niepoprawnego pliku konfiguracyjnego dla gcc">
+# <i>rm config-i386-pc-linux-gnu</i>
+</pre>
+
+<p>
+Następnie wykonujemy poniższe komendy, aby zaktualizować środowisko:
+</p>
+
+<pre caption="Aktualizacja środowiska">
+# <i>env-update &amp;&amp; source /etc/profile</i>
+</pre>
+
+<p>
+Następnie sprawdzamy, czy wszystko jest w porządku:
+</p>
+
+<pre caption="Sprawdzenie odwołań do starej wartości zmiennej CHOST">
+# <i>grep -r 386 /etc/env.d/</i>
+</pre>
+
+<p>
+Jeśli ciągle istnieją niepoprawne odwołania, najprawdopodobniej pominięto jakiś
+plik. Trzeba znaleźć go ręcznie przed przejściem dalej.
+</p>
+
+</body>
+</section>
+<section>
+<title>Kończenie zmian</title>
+<body>
+
+<p>
+Następnie koniecznie należy przekompilować pakiet <c>libtool</c> i wykonać
+polecenie <c>fix_libtool_files.sh</c>. Należy upewnić się, że używa się
+odpowiedniej wersji gcc.
+</p>
+
+<pre caption="Zapewnienie poprawności biblioteki">
+# <i>emerge -av1 libtool</i>
+# <i>fix_libtool_files.sh 4.1.1 --oldarch i386-pc-linux-gnu</i>
+</pre>
+
+<p>
+Teraz jest dobra okazja by przebudować cały system:
+</p>
+
+<pre caption="Przebudowa world">
+# <i>emerge -e world</i>
+</pre>
+
+<p>
+Przebudowa systemu jest wskazana, ale nie konieczna, poza tym nie ma 100%
+pewności, że to ten przypadek. Jeśli nie przebudowano całego systemu na pewno
+pewne pakiety wymagają rekompilacji. Zaczynamy od:
+</p>
+
+<pre caption="Rekompilacja pythona">
+# <i>emerge -av1 python</i>
+</pre>
+
+<p>
+Pakiety związane z perlem instalują się do katalogu, który ma zmienną CHOST w
+nazwie. W związku z tym należy je teraz wszystkie przebudować. Jeśli w systemie
+nie ma jeszcze programu <c>qfile</c>, trzeba będzie najpierw zainstalować pakiet
+<c>app-portage/portage-utils</c>.
+</p>
+
+<pre caption="Ponowna instalacja pakietów perla">
+# <i>emerge -av portage-utils</i>
+# <i>emerge -av1 `qfile /usr/lib/perl* -Cq | sort -u`</i>
+</pre>
+
+<p>
+Jeśli jakiś pakiet nie wymieniony w tym dokumencie wymaga przebudowy po zmianie
+CHOST, należy o tym poinformować autora tego dokumentu.
+</p>
+
+</body>
+</section>
+<section>
+<title>Częste problemy</title>
+<body>
+
+<p>
+Po aktualizacji gcc z wersji 3.3 do 4.1 z równoczesną zmianą zmiennej CHOST (nie
+jest to wskazane), kilku użytkowników zgłosiło, że pakiety takie jak groff i
+courier wymagają rekompilacji:
+</p>
+
+<pre caption="Błąd">
+error while loading shared libraries: libstdc++.so.5: cannot open shared object
+file: No such file or directory
+</pre>
+
+<p>
+Dzieje się tak, ponieważ po aktualizacji zmienna CHOST nie pasuje do zmiennej
+CTARGET i kompilator wybiera kompilację skrośną (ang.  cross-compiling).  W
+konsekwencji zmienna LDPATH nie zostaje załadowana do <path>ld.so.conf</path>,
+powodując ten błąd.
+</p>
+
+<p>
+Aby dowiedzieć się, co trzeba zrobić po przejściu na inną wersję gcc, należy
+przeczytać tekst o <uri link="/doc/pl/gcc-upgrading.xml">aktualizacji gcc</uri>.
+</p>
+
+<p>
+W rzadkich przypadkach może to również spowodować popsucie starych wersji
+pythona. Może to zostać naprawione poprzez dodanie
+<path>/usr/lib/gcc-lib/i386-pc-linux-gnu/3.3.6</path> (należy odpowiednio
+zmienić wartość chost i wersję gcc na używane poprzednio) w
+<path>/etc/ld.so.conf</path>, wykonać polecenie <c>ldconfig</c> i dopiero wtedy
+<c>emerge libstdc++-v3</c>. Jednak jak widać powinno się unikać tego problemu -
+stąd wniosek: nie powinno się zmieniać wartości zmiennej CHOST z jednoczesną
+aktualizacją gcc.
+</p>
+
+</body>
+</section>
+<section>
+<title>Kontakt</title>
+<body>
+
+<p>
+Wszelkie komentarze na temat tego tekstu (zarówno pozytywne jak i konstruktywną
+krytykę) należy przesyłać na adres <mail>amne@gentoo.org</mail> lub publikować
+w tym <uri link="http://forums.gentoo.org/viewtopic-t-494147.html">wątku na
+forum</uri>. Sporą część tego tekstu napisał vapier, dziękujemy!
+</p>
+
+</body>
+</section>
+</chapter>
+</guide>
