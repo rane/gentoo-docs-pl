@@ -1,0 +1,936 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/gentoo-x86+raid+lvm2-quickinstall.xml,v 1.9 2007/06/03 14:33:50 rane Exp $ -->
+
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+
+<guide link="/doc/pl/gentoo-x86+raid+lvm2-quickinstall.xml" lang="pl">
+<title>Szybka instalacja Gentoo z obsługą programowego Raid i LVM2</title>
+
+<author title="Autor">
+  <mail link="neysx@gentoo.org">Xavier Neys</mail>
+</author>
+<author title="Autor">
+  <mail link="swift@gentoo.org">Sven Vermeulen</mail>
+</author>
+<author title="Autor">Steven Wagner</author>
+<author title="Tłumaczenie">
+  <mail link="rane@gentoo.org">Łukasz Damentko</mail>
+</author>
+<author title="Tłumaczenie">
+  <mail link="jbozanowski@gmail.com">Kuba Bożanowski</mail>
+</author>
+
+<abstract>
+Skrócony opis instalacji Gentoo z obsługą programowych macierzy dyskowych RAID
+oraz LVM2. Pozwala na szybką instalację systemu ze stage3 i jest przeznaczony
+dla zaawansowanych użytkowników.
+</abstract>
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
+<license/>
+
+<version>11</version>
+<date>2007-07-18</date>
+
+<chapter>
+<title>Wprowadzenie</title>
+<section>
+<body>
+
+<p>
+Ten dokument zawiera wszystkie polecenia, których wydanie jest konieczne dla
+zainstalowania Gentoo za pomocą archiwum stage3, w tym skonfigurowanie obsługi
+LVM2 wraz z programową macierzą dyskową RAID. Przewodnik ten jest przeznaczony
+dla zaawansowanych użytkowników. Do pobrania archiwum stage3 i drzewa Portage
+konieczne będzie działające połączenie z Internetem.
+</p>
+
+<p>
+Czas podany w opisie został zmierzony na komputerze PC z procesorem AMD 2000+
+1.66 GHz, 512 MB pamięci RAM i dwoma dyskami SATA podłączonymi do sprzętowego
+kontrolera, skonfigurowanego jako JBOD (system widzi dwa osobne dyski twarde).
+Jeśli płyta główna naszego komputera posiada „sprzętowy” kontroler RAID, to
+najprawdopodobniej jednak wcale <b>nie</b> jest on sprzętowy.
+</p>
+
+<pre caption="Sprawdzanie komputera">
+<comment>(Poniższe polecenia umożliwią obliczenie czasu jaki zajmie
+instalacja Gentoo na komputerze o innych parametrach technicznych)</comment>
+
+# <i>grep bogo /proc/cpuinfo</i>
+bogomips       : 3337.81
+
+# <i>hdparm -tT /dev/sda /dev/sdb</i>
+/dev/sda:
+reads:   1048 MB in  2.00 seconds = 524.00 MB/sec
+ Timing buffered disk reads:  152 MB in  3.01 seconds =  50.50 MB/sec
+
+/dev/sdb:
+ Timing cached reads:   1048 MB in  2.00 seconds = 524.00 MB/sec
+ Timing buffered disk reads:  152 MB in  3.01 seconds =  50.50 MB/sec
+
+# <i>grep MemTotal /proc/meminfo</i>
+MemTotal:       509248 kB
+</pre>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Szybka instalacja</title>
+<section>
+<title>Płyty instalacyjne</title>
+<body>
+
+<p>
+Pobieramy płytę z jednego z <uri link="/main/en/mirrors.xml">serwerów
+lustrzanych</uri>. Minimalne pliki ISO są w katalogu
+<path>releases/x86/&lt;release&gt;/installcd</path>, pełne płyty instalacyjne w
+<path>releases/x86/&lt;release&gt;/livecd</path>. Płyta minimalna przydaje się
+tylko wtedy, gdy komputer jest podłączony do Internetu. Płyta pełna służy do
+instalowania Gentoo bez dostępu do sieci, w takim przypadku należy skorzystać z
+<uri link="/doc/pl/handbook/2007.0/handbook-x86.xml">Podręcznika Gentoo
+2007.0</uri>. Jeśli chodzi o ten opis, należy pobrać płytę minimalną.
+</p>
+
+<p>
+<uri link="/doc/pl/faq.xml#isoburning">Nagrywamy</uri> i uruchamiamy płytę
+instalacyjną.
+</p>
+
+</body>
+</section>
+<section>
+<title>Uruchamianie systemu płyty instalacyjnej</title>
+<body>
+
+<p>
+Wciskamy <c>F2</c> na ekranie uruchamiania, aby poznać możliwe do wybrania
+opcje. Można uruchomić <c>gentoo</c> lub <c>gentoo-nofb</c>, to drugie wyłącza
+framebuffer. Dodajemy opcję <c>nox</c>, aby nie ładowało się środowisko
+graficzne. Inne opcje pozwalają na włączenie lub wyłączenie rozmaitych
+dodatkowych funkcji. Jeśli wszystko pójdzie dobrze, sprzęt zostanie poprawnie
+wykryty, a odpowiednie sterowniki załadowane. Jeśli jądro się nie uruchomi lub
+komputer się zawiesi, należy poeksperymentować z różnymi ustawieniami.
+Najbezpieczniejsza jest opcja <c>nodetect</c> - po wydaniu której sami ręcznie
+możemy załadować potrzebne moduły.
+</p>
+
+<pre caption="Uruchamianie systemu płyty instalacyjnej">
+Gentoo Linux Installation LiveCD                     http://www.gentoo.org
+Enter to Boot; F1 for kernels  F2 for options.
+boot: <i>gentoo-nofb</i>
+<comment>(w razie problemów)</comment>
+boot: <i>gentoo-nofb nodetect</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Opcjonalnie: ładowanie modułów</title>
+<body>
+
+<p>
+Jeśli skorzystamy z opcji <c>nodetect</c>, po uruchomieniu będzie konieczne
+ręczne załadowanie niezbędnych do obsługi sprzętu modułów. Konieczne jest
+zapewnienie połączenia z Internetem i obsługi dysków. Program <c>lspci</c>
+umożliwia wykrycie używanego sprzętu.
+</p>
+
+<pre caption="Ładowanie potrzebnych modułów">
+livecd root # <i>lspci</i>
+<comment>(Korzystamy z wyniku tego polecenia w celu określenia, które moduły są potrzebne)</comment>
+
+<comment>(A następnie je ładujemy)</comment>
+livecd root # <i>modprobe 3w-9xxx</i>
+livecd root # <i>modprobe r8169</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja sieci</title>
+<body>
+
+<p>
+Jeśli połączenie sieciowe jeszcze nie działa, należy skorzystać z programu
+<c>net-setup</c> w celu jego konfiguracji. Możliwe też, że przed
+przystąpieniem do konfiguracji konieczne będzie załadowanie dodatkowych
+modułów za pomocą polecenia <c>modprobe</c>. Posiadacze ADSL powinni
+skorzystać z <c>pppoe-setup</c> i <c>pppoe-start</c>. Jeśli jednak mamy router
+ADSL, nie ma potrzeby, aby uruchamiać te skrypty, gdyż urządzenie to samo
+nawiąże połączenie. Aby zadziałało PPTP, należy edytować
+<path>/etc/ppp/chap-secrets</path> i <path>/etc/ppp/options.pptp</path>, a
+następnie użyć <c>pptp &lt;numer&nbsp;ip&nbsp;serwera&gt;</c>.
+</p>
+
+<p>
+Połączenia bezprzewodowe konfiguruje się za pomocą <c>iwconfig</c>, a dopiero
+potem uruchamia <c>net-setup</c>, <c>ifconfig</c>, <c>dhcpcd</c> oraz, jeśli to
+jest konieczne, <c>route</c>.
+</p>
+
+<p>
+Jeśli komputer znajduje się za serwerem proxy, należy za pomocą polecenia
+export ustawić odpowiednio zmienne <c>http_proxy</c>, <c>ftp_proxy</c> i
+<c>RSYNC_PROXY</c>.
+</p>
+
+<pre caption="Konfiguracja sieci za pomocą kreatora">
+livecd root # <i>net-setup eth0</i>
+</pre>
+
+<p>
+Można również skonfigurować sieć ręcznie. W poniższym przykładzie przypisujemy
+komputerowi adres 192.168.1.10 oraz ustawiamy 192.168.1.1 jako router i serwer
+nazw.
+</p>
+
+<pre caption="Ręczna konfiguracja sieci">
+livecd root # <i>ifconfig eth0 192.168.1.10/24</i>
+livecd root # <i>route add default gw 192.168.1.1</i>
+livecd root # <i>echo nameserver 192.168.1.1 > /etc/resolv.conf</i>
+</pre>
+
+<p>
+Płyta instalacyjna umożliwia uruchomienie serwera <c>sshd</c>. Możemy również
+dodać konta użytkowników i uruchomić <c>irssi</c> (tekstowy klient IRC) oraz
+przeglądać sieć za pomocą <c>lynx</c> i <c>links</c>.
+</p>
+
+</body>
+</section>
+<section>
+<title>Opcjonalnie: konfiguracja serwera SSH</title>
+<body>
+
+<p>
+Serwer <c>sshd</c> umożliwia łączenie się z komputerem, na którym instalujemy
+Gentoo z innych maszyn oraz zdalną instalację.
+</p>
+
+<pre caption="Uruchamianie sshd">
+livecd root # <i>time /etc/init.d/sshd start</i>
+ * Generating hostkey ...
+<comment>(sshd tworzy klucze, wyświetla dalsze informacje)</comment>
+ * starting sshd ...                            [ok]
+
+real   0m13.688s
+user   0m9.420s
+sys    0m0.090s
+</pre>
+
+<p>
+Następnie ustawiamy hasło roota na płycie instalacyjnej, co umożliwi łączenie
+się z innego komputera. Ostrzegamy, że umożliwianie takich połączeń w
+normalnych warunkach jest bardzo niebezpieczne. Jeśli sieć nie jest bezpieczna,
+należy ustawić długie i mocne hasło oraz nie korzystać z takich opcji w
+przyszłości. Serwer SSH zostanie wyłączony po ponownym uruchomieniu komputera.
+</p>
+
+<pre caption="Ustawianie hasła roota">
+livecd root # <i>passwd</i>
+New UNIX password: <comment>wpisz_hasło</comment>
+Retype new UNIX password: <comment>wpisz_hasło</comment>
+passwd: password updated successfully
+</pre>
+
+<p>
+Teraz można uruchomić terminal na drugim komputerze, połączyć się z nową
+maszyną i kontynuować instalację zdalnie, przeklejając polecenia z tego opisu.
+</p>
+
+<pre caption="Łączenie z innego komputera">
+<comment>(Wpisujemy adres IP komputera, na którym instalujemy Gentoo)</comment>
+$ <i>ssh root@192.168.1.10</i>
+The authenticity of host '192.168.1.10 (192.168.1.10)' can't be established.
+RSA key fingerprint is 96:e7:2d:12:ac:9c:b0:94:90:9f:40:89:b0:45:26:8f.
+Are you sure you want to continue connecting (yes/no)? <i>yes</i>
+Warning: Permanently added '192.168.1.10' (RSA) to the list of known hosts.
+Password: <comment>wpisz_hasło</comment>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Przygotowywanie dysków</title>
+<body>
+
+<p>
+Teraz należy załadować moduły RAID i LVM2.
+</p>
+
+<pre caption="Ładowanie modułów RAID i LVM2">
+livecd ~ # <i>modprobe raid0</i>
+livecd ~ # <i>modprobe raid1</i>
+<comment>(dostępne są także raid5, raid6 i raid10)</comment>
+
+livecd ~ # <i>modprobe dm-mod</i>
+</pre>
+
+<p>
+Dzielimy dysk na partycje za pomocą programu <c>fdisk</c> lub <c>cfdisk</c>.
+Prawdopodobne nazwy urządzeń twardego dysku to <path>/dev/sda</path> i
+<path>/dev/sdb</path> dla dysków SATA i SCSI lub <path>/dev/hda</path> i
+<path>/dev/hdb</path> dla dysków IDE. W niniejszym dokumencie zostanie użyty
+następujący układ:
+</p>
+
+<table>
+  <tr>
+    <ti/>
+    <th><path>/dev/sda</path></th>
+    <th><path>/dev/sdb</path></th>
+    <th>Typ</th>
+  </tr>
+  <tr>
+    <th><path>/dev/md1</path></th>
+    <th><path>/boot</path></th>
+    <th><path>/boot</path></th>
+    <ti>Raid-1 (mirroring)</ti>
+  </tr>
+  <tr>
+    <th/>
+    <th>swap</th>
+    <th>swap</th>
+    <ti>Normalne partycje</ti>
+  </tr>
+  <tr>
+    <th><path>/dev/md3</path></th>
+    <th><path>/</path></th>
+    <th><path>/</path></th>
+    <ti>Raid-1 (mirroring)</ti>
+  </tr>
+  <tr>
+    <th><path>/dev/md4</path></th>
+    <th colspan="2">Woluminy LVM2</th>
+    <ti>Raid-0 (przeplatanie)</ti>
+  </tr>
+</table>
+
+<impo>
+Partycja, z której będzie uruchamiany system nie może być przeplatana. Nie może
+być typu raid-5 lub raid-0.
+</impo>
+
+<note>
+Z jednej strony, chcąc uzyskać większą stabilność, warto zastanowić się nad
+użyciem raid-1 (lub nawet raid-5) na partycji (partycjach) wymiany. Wówczas
+awaria dysku nie uszkodzi danych wymiany i nie spowoduje awarii aplikacji,
+które z nich korzystają. Z drugiej strony, chcąc uzyskać większą wydajność,
+można pozwolić kernelowi na użycie osobnych partycji wymiany, ponieważ i tak
+domyślnie dane między nimi będą przeplatane.
+</note>
+
+<pre caption="Tworzenie partycji">
+livecd ~ # <i>fdisk /dev/sda</i>
+<comment>(Należy pamiętać, aby użyć typ fd)</comment>
+
+<comment>(W dalszej częsci opisu będziemy posługiwać się następującym podziałem:)</comment>
+livecd ~ # <i>fdisk -l /dev/sda</i>
+
+Disk /dev/sda: 299.9 GB, 299989204992 bytes
+255 heads, 63 sectors/track, 36471 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1               1          11       88326   fd  Linux raid autodetect
+/dev/sda2              12          61      401625   82  Linux swap / Solaris
+/dev/sda3              62         311     2008125   fd  Linux raid autodetect
+/dev/sda4             312       36471   290455200   fd  Linux raid autodetect
+
+<comment>(Drugi dysk należy podzielić na partycje identycznie jak pierwszy)</comment>
+livecd ~ # <i>fdisk /dev/sdb</i>
+</pre>
+
+<p>
+Następnie należy stworzyć węzły urządzeń RAID i same urządzenia:
+</p>
+
+<pre caption="Tworzenie węzłów urządzeń i urządzeń">
+livecd ~ # <i>mknod /dev/md1 b 9 1</i>
+livecd ~ # <i>mknod /dev/md3 b 9 3</i>
+livecd ~ # <i>mknod /dev/md4 b 9 4</i>
+
+livecd ~ # <i>mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/sda1 /dev/sdb1</i>
+mdadm: array /dev/md1 started.
+livecd ~ # <i>mdadm --create /dev/md3 --level=1 --raid-devices=2 /dev/sda3 /dev/sdb3</i>
+mdadm: array /dev/md3 started.
+livecd ~ # <i>mdadm --create /dev/md4 --level=0 --raid-devices=2 /dev/sda4 /dev/sdb4</i>
+mdadm: array /dev/md4 started.
+
+<comment>(Poczekajmy aż wszystkie jednostki będą gotowe)</comment>
+livecd ~ # <i>cat /proc/mdstat</i>
+Personalities : [raid0] [raid1]
+md4 : active raid0 sdb4[1] sda4[0]
+581006592 blocks 64k chunks
+
+md3 : active raid1 sdb3[1] sda3[0]
+1959808 blocks [2/2] [UU]
+
+md1 : active raid1 sdb1[1] sda1[0]
+88256 blocks [2/2] [UU]
+</pre>
+
+<p>
+Następnie stwórzmy woluminy LVM2 na <path>/dev/md4</path>. Następujący układ
+jest jedynie <b>przykładowy</b>:
+</p>
+
+<table>
+<tr>
+  <th>Ścieżka</th>
+  <th>Rozmiar</th>
+  <th>System plików</th>
+</tr>
+<tr>
+  <ti>/usr</ti>
+  <ti>8 GB</ti>
+  <ti>ext3</ti>
+</tr>
+<tr>
+  <ti>/usr/portage</ti>
+  <ti>2 GB</ti>
+  <ti>ext2, niewielki rozmiar bloków, wiele i-węzłów</ti>
+</tr>
+<tr>
+  <ti>/usr/portage/distfiles</ti>
+  <ti>4 GB</ti>
+  <ti>ext2, duży rozmiar bloków, mniej i-węzłów</ti>
+</tr>
+<tr>
+  <ti>/home</ti>
+  <ti>10 GB</ti>
+  <ti>ext3</ti>
+</tr>
+<tr>
+  <ti>/opt</ti>
+  <ti>4 GB</ti>
+  <ti>ext3</ti>
+</tr>
+<tr>
+  <ti>/var</ti>
+  <ti>4 GB</ti>
+  <ti>ext3</ti>
+</tr>
+<tr>
+  <ti>/var/tmp</ti>
+  <ti>6 GB</ti>
+  <ti>ext2</ti>
+</tr>
+<tr>
+  <ti>/tmp</ti>
+  <ti>2 GB</ti>
+  <ti>ext2</ti>
+</tr>
+</table>
+
+<pre caption="Tworzenie woluminów LVM2">
+livecd ~ # <i>vgscan</i>
+  Reading all physical volumes.  This may take a while...
+  No volume groups found
+livecd ~ # <i>vgchange -a y</i>
+  No volume groups found
+
+<comment>(Tworzymy fizyczne woluminy, w naszym przykładzie jest tylko jeden)</comment>
+livecd ~ # <i>pvcreate /dev/md4</i>
+  Physical volume "/dev/md4" successfully created
+
+<comment>(Tworzymy grupy woluminów, jak wyżej, tu mamy tylko jedną)</comment>
+livecd ~ # <i>vgcreate vg /dev/md4</i>
+  Volume group "vg" successfully created
+
+<comment>(Tworzymy logiczne woluminy)</comment>
+livecd ~ # <i>lvcreate -L8G -nusr vg</i>
+  /dev/cdrom: open failed: Read-only file system
+  Logical volume "usr" created <comment>(Pominięto dalsze podobne komunikaty)</comment>
+livecd ~ # <i>lvcreate -L2G -nportage vg</i>
+livecd ~ # <i>lvcreate -L4G -ndistfiles vg</i>
+livecd ~ # <i>lvcreate -L10G -nhome vg</i>
+livecd ~ # <i>lvcreate -L4G -nopt vg</i>
+livecd ~ # <i>lvcreate -L4G -nvar vg</i>
+livecd ~ # <i>lvcreate -L6G -nvartmp vg</i>
+livecd ~ # <i>lvcreate -L2G -ntmp vg</i>
+
+<comment>(Wyświetlamy grupy woluminów i woluminy logiczne)</comment>
+livecd ~ # <i>vgs</i>
+  VG   #PV #LV #SN Attr  VSize   VFree
+  vg     1   8   0 wz--n 554.09G 514.09G
+livecd ~ # <i>lvs</i>
+  LV        VG   Attr   LSize  Origin Snap%  Move Copy%
+  distfiles vg   -wi-a-  4.00G
+  home      vg   -wi-a- 10.00G
+  opt       vg   -wi-a-  4.00G
+  portage   vg   -wi-a-  2.00G
+  tmp       vg   -wi-a-  2.00G
+  usr       vg   -wi-a-  8.00G
+  var       vg   -wi-a-  4.00G
+  vartmp    vg   -wi-a-  6.00G
+</pre>
+
+<p>
+Następnie za pomocą <c>mke2fs</c>, <c>mke2fs -j</c>, <c>mkreiserfs</c>,
+<c>mkfs.xfs</c> lub <c>mkfs.jfs</c> tworzymy systemy plików na partycjach
+linuksowych. Aktywujemy też partycję wymiany za pomocą poleceń <c>mkswap</c> i
+<c>swapon</c>.
+</p>
+
+<pre caption="Tworzenie systemów plików i aktywowanie partycji wymiany">
+<comment>(ext2 wystarczy dla partycji /boot)</comment>
+livecd ~ # <i>mke2fs /dev/md1</i>
+
+<comment>(Główna partycja będzie na ext3)</comment>
+livecd ~ # <i>mke2fs -j /dev/md3</i>
+
+<comment>(Tworzymy systemy plików na woluminach logicznych)</comment>
+livecd ~ # <i>mke2fs -b 4096 -T largefile /dev/vg/distfiles</i>
+livecd ~ # <i>mke2fs -j /dev/vg/home</i>
+livecd ~ # <i>mke2fs -j /dev/vg/opt</i>
+livecd ~ # <i>mke2fs -b 1024 -N 200000 /dev/vg/portage</i>
+livecd ~ # <i>mke2fs /dev/vg/tmp</i>
+livecd ~ # <i>mke2fs -j /dev/vg/usr</i>
+livecd ~ # <i>mke2fs -j /dev/vg/var</i>
+livecd ~ # <i>mke2fs /dev/vg/vartmp</i>
+
+<comment>(Tworzymy i aktywujemy partycję wymiany)</comment>
+livecd ~ # <i>mkswap /dev/sda2 &amp;&amp; mkswap /dev/sdb2</i>
+livecd ~ # <i>swapon -p 1 /dev/sda2 &amp;&amp; swapon -p 1 /dev/sdb2</i>
+<comment>(Sprawdźmy czy wszystkie partycje wymiany używają tego samego priorytetu)</comment>
+livecd ~ # <i>swapon -v -s</i>
+Filename                   Type            Size    Used    Priority
+/dev/sda2                  partition       401616  0       1
+/dev/sdb2                  partition       401616  0       1
+</pre>
+
+<p>
+Montujemy główną partycję w katalogu <path>/mnt/gentoo</path>. W razie potrzeby
+tworzymy katalogi dla dodatkowych partycji i montujemy je również.
+</p>
+
+<pre caption="Montowanie systemów plików">
+livecd ~ # <i>mount /dev/md3 /mnt/gentoo</i>
+livecd ~ # <i>cd /mnt/gentoo</i>
+livecd gentoo # <i>mkdir boot home usr opt var tmp</i>
+livecd gentoo # <i>mount /dev/md1 /mnt/gentoo/boot</i>
+livecd gentoo # <i>mount /dev/vg/usr /mnt/gentoo/usr</i>
+livecd gentoo # <i>mount /dev/vg/home /mnt/gentoo/home</i>
+livecd gentoo # <i>mount /dev/vg/opt /mnt/gentoo/opt</i>
+livecd gentoo # <i>mount /dev/vg/tmp /mnt/gentoo/tmp</i>
+livecd gentoo # <i>mount /dev/vg/var /mnt/gentoo/var</i>
+livecd gentoo # <i>mkdir usr/portage var/tmp</i>
+livecd gentoo # <i>mount /dev/vg/vartmp /mnt/gentoo/var/tmp</i>
+livecd gentoo # <i>mount /dev/vg/portage /mnt/gentoo/usr/portage</i>
+livecd gentoo # <i>mkdir usr/portage/distfiles</i>
+livecd gentoo # <i>mount /dev/vg/distfiles /mnt/gentoo/usr/portage/distfiles</i>
+
+<comment>(Należy ustawić odpowiednie uprawnienia dla katalogów tmp)</comment>
+livecd gentoo # <i>chmod 1777 /mnt/gentoo/tmp /mnt/gentoo/var/tmp</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Rozpakowywanie archiwum stage</title>
+<body>
+
+<p>
+Po pierwsze ustawiamy datę za pomocą polecenia <c>date MMDDRRRR</c>. W
+przykładzie używamy czasu UTC.
+</p>
+
+<pre caption="Ustawianie daty i czasu UTC">
+<comment>(Sprawdzamy godzinę)</comment>
+livecd gentoo # <i>date</i>
+Mon Mar  6 00:14:13 UTC 2006
+
+<comment>(Ustawiamy datę i godzinę jeśli jest to konieczne)</comment>
+livecd gentoo # <i>date 030600162006</i> <comment>(Format is MMDDhhmmYYYY)</comment>
+Mon Mar  6 00:16:00 UTC 2006
+</pre>
+
+<p>
+Następnie pobieramy archiwum stage z jednego z <uri
+link="/main/en/mirrors.xml">serwerów lustrzanych</uri>. Przechodzimy do
+<path>/mnt/gentoo</path> i rozpakowujemy je poleceniem <c>tar xjpf &lt;plik
+stage3&gt;</c>.
+</p>
+
+<pre caption="Pobieranie archiwum stage3">
+livecd gentoo # <i>links http://www.gentoo.org/main/en/mirrors.xml</i>
+<comment>(Wybieramy serwer i przechodzimy do katalogu releases/x86/current/stages,
+wybierając z niego odpowiedni plik (prawdopodobnie i686 stage) i naciskamy D by go pobrać)</comment>
+
+<comment>(<b>Lub</b> pobieramy plik bezpośrednio, nie szukając znajdującego się najbliżej serwera)</comment>
+livecd gentoo # <i>wget ftp://gentoo.osuosl.org/pub/gentoo/releases/x86/current/stages/stage3-i686*tar.bz2</i>
+</pre>
+
+<pre caption="Rozpakowujemy archiwum">
+livecd gentoo # <i>time tar xjpf stage3*</i>
+
+real  1m14.157s
+user  1m2.920s
+sys   0m7.530s
+</pre>
+
+<p>
+Następnie instalujemy drzewo Portage. Postępujemy z nim tak jak ze stage3.
+Wybieramy <uri link="/main/en/mirrors.xml">serwer lustrzany</uri>, pobieramy
+plik i rozpakowujemy.
+</p>
+
+<pre caption="Pobieranie drzewa Portage">
+livecd gentoo # <i>cd /mnt/gentoo/usr</i>
+livecd usr # <i>links http://www.gentoo.org/main/en/mirrors.xml</i>
+<comment>(Wybieramy serwer, przechodzimy do katalogu snapshots/, podświetlamy
+<b>portage-latest.tar.bz2</b> i wciskamy D żeby go pobrać)</comment>
+
+<comment>(<b>Lub</b> pobieramy go bezpośrednio, nie szukając znajdującego się najbliżej serwera)</comment>
+livecd gentoo # <i>cd /mnt/gentoo/usr</i>
+livecd usr # <i>wget http://gentoo.osuosl.org/snapshots/portage-latest.tar.bz2</i>
+</pre>
+
+<pre caption="Rozpakowujemy archiwum z drzewem Portage">
+livecd usr # <i>time tar xjf portage-lat*</i>
+
+real  0m40.523s
+user  0m28.280s
+sys   0m8.240s
+</pre>
+
+</body>
+</section>
+<section>
+<title>Chrootowanie</title>
+<body>
+
+<p>
+Montujemy system plików <path>/proc</path>, kopiujemy do nowego systemu plik
+<path>/etc/resolv.conf</path> i chrootujemy się do instalowanego systemu.
+</p>
+
+<pre caption="Chrootowanie">
+livecd usr # <i>cd /</i>
+livecd / # <i>mount -t proc proc /mnt/gentoo/proc</i>
+livecd / # <i>cp -L /etc/resolv.conf /mnt/gentoo/etc/</i>
+livecd / # <i>chroot /mnt/gentoo /bin/bash</i>
+livecd / # <i>env-update &amp;&amp; source /etc/profile</i>
+>>> Regenerating /etc/ld.so.cache...
+</pre>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja strefy czasowej</title>
+<body>
+
+<p>
+Ustawiamy informację o strefie czasowej wybierając właściwą pozycję z katalogu
+<path>/usr/share/zoneinfo</path>.
+</p>
+
+<pre caption="Ustawianie strefy czasowej">
+livecd / # <i>ls /usr/share/zoneinfo</i>
+<comment>(Przykład dla Warszawy)</comment>
+livecd / # <i>cp /usr/share/zoneinfo/Europe/Warsaw /etc/localtime</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja nazw hosta i domeny</title>
+<body>
+
+<p>
+Ustawiamy nazwę hosta w plikach <path>/etc/conf.d/hostname</path> i
+<path>/etc/hosts</path>. W poniższym przykładzie skorzystamy z <c>mybox</c>
+jako nazwy hosta oraz z <c>at.myplace</c> jako domeny. Można edytować pliki w
+edytorze <c>nano</c> lub skorzystać z poniższych poleceń:
+</p>
+
+<pre caption="Ustawianie nazwy hosta i domeny">
+livecd / # <i>cd /etc</i>
+livecd etc # <i>echo "127.0.0.1 mybox.at.myplace mybox localhost" > hosts</i>
+livecd etc # <i>sed -i -e 's/HOSTNAME.*/HOSTNAME="mybox"/' conf.d/hostname</i>
+<comment>(Korzystamy ze zdefiniowanej nazwy hosta i sprawdzamy)</comment>
+livecd etc # <i>hostname mybox</i>
+livecd etc # <i>hostname -f</i>
+mybox.at.myplace
+</pre>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja jądra</title>
+<body>
+
+<p>
+Instalujemy źródła jądra (zwykle <c>gentoo-sources</c> kompilujemy i kopiujemy
+plik <path>arch/i386/boot/bzImage</path> do katalogu <path>/boot</path>.
+</p>
+
+<pre caption="Instalacja jądra">
+livecd etc # <i>time emerge gentoo-sources</i>
+
+real  3m3.110s
+user  1m2.320s
+sys   0m34.990s
+livecd etc # <i>cd /usr/src/linux</i>
+livecd linux # <i>make menuconfig</i>
+
+<comment>(Teraz należy skonfigurować jądro, upewniając się przy tym, że
+obsługa RAID i LVM jest wkompilowana na stałe (<b>nie</b> jako moduły). To
+samo dotyczy obsługi dysków i systemów plików)</comment>
+Multi-device support (RAID and LVM)  --->
+[*] Multiple devices driver support (RAID and LVM)
+  &lt;*&gt;   RAID support
+  &lt; &gt;     Linear (append) mode (NEW)
+  &lt;*&gt;     RAID-0 (striping) mode
+  &lt;*&gt;     RAID-1 (mirroring) mode
+  &lt; &gt;     RAID-10 (mirrored striping) mode (EXPERIMENTAL) (NEW)
+  &lt; &gt;     RAID-4/RAID-5 mode (NEW)
+  &lt; &gt;     RAID-6 mode (NEW)
+  &lt; &gt;     Multipath I/O support (NEW)
+  &lt; &gt;     Faulty test module for MD (NEW)
+  &lt;*&gt;   Device mapper support
+  &lt; &gt;     Crypt target support (NEW)
+  &lt; &gt;     Snapshot target (EXPERIMENTAL) (NEW)
+  &lt; &gt;     Mirror target (EXPERIMENTAL) (NEW)
+  &lt; &gt;     Zero target (EXPERIMENTAL) (NEW)
+  &lt; &gt;     Multipath target (EXPERIMENTAL) (NEW)
+  &lt; &gt;     Bad Block Relocation Device Target (EXPERIMENTAL) (NEW)
+
+livecd linux # <i>time make -j2</i>
+
+<comment>(Czas trwania zależy od wybranych opcji)</comment>
+real  5m5.869s
+user  4m32.320s
+sys   0m32.930s
+
+livecd linux # <i>make modules_install</i>
+livecd linux # <i>cp arch/i386/boot/bzImage /boot/kernel</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja systemu</title>
+<body>
+
+<p>
+Edytujemy plik <path>/etc/fstab</path> i zamieniamy wpisy <c>BOOT</c>,
+<c>ROOT</c> i <c>SWAP</c> nazwami konkretnych partycji, nie zapominając o
+dodaniu woluminów logicznych. Należy dwa razy sprawdzić czy wpisy odpowiadają
+założonym przed chwilą partycjom i systemom plików.
+</p>
+
+<pre caption="Przykładowy plik fstab">
+livecd linux # <i>cd /etc</i>
+livecd etc # <i>nano -w fstab</i>
+/dev/<i>md1</i>          /boot                   ext2  noauto,noatime  1 2
+/dev/<i>md3</i>          /                       ext3  noatime         0 1
+/dev/<i>sda2</i>         none                    swap  sw,pri=1        0 0
+/dev/<i>sdb2</i>         none                    swap  sw,pri=1        0 0
+/dev/vg/usr       /usr                    ext3  noatime         1 2
+/dev/vg/portage   /usr/portage            ext2  noatime         1 2
+/dev/vg/distfiles /usr/portage/distfiles  ext2  noatime         1 2
+/dev/vg/home      /home                   ext3  noatime         1 2
+/dev/vg/opt       /opt                    ext3  noatime         1 2
+/dev/vg/tmp       /tmp                    ext2  noatime         1 2
+/dev/vg/var       /var                    ext3  noatime         1 2
+/dev/vg/vartmp    /var/tmp                ext2  noatime         1 2
+</pre>
+
+<p>
+Następnie konfigurujemy połączenie sieciowe w pliku
+<path>/etc/conf.d/net</path>. Dodajemy skrypt startowy <c>net.eth0</c> na
+domyślny (default) poziom uruchomieniowy. Jeśli mamy kilka kart sieciowych,
+podlinkowujemy je do skryptu <c>net.eth0</c> i dodajemy na domyślny poziom
+uruchomieniowy. Następnie edytujemy plik <path>/etc/conf.d/net</path> za pomocą
+<c>nano</c> lub wpisujemy następujące polecenia:
+</p>
+
+<pre caption="Konfiguracja sieci">
+livecd etc # <i>cd conf.d</i>
+livecd conf.d # <i>echo 'config_eth0=( "192.168.1.10/24" )' >> net</i>
+livecd conf.d # <i>echo 'routes_eth0=( "default via 192.168.1.1" )' >> net</i>
+livecd conf.d # <i>rc-update add net.eth0 default</i>
+<comment>(Jeśli sterownik do karty sieciowej został zbudowany jako moduł, należy dopisać go do pliku /etc/modules.autoload.d/kernel-2.6)</comment>
+livecd conf.d # <i>echo r8169 >> /etc/modules.autoload.d/kernel-2.6</i>
+<comment>(Aby umożliwić łączenie się przez SSH do komputera po jego ponownym uruchomieniu)</comment>
+livecd conf.d # <i>rc-update add sshd default</i>
+</pre>
+
+<note>
+Jeśli to konieczne, instalujemy <c>pcmciautils</c> aby uzyskać wsparcie dla kart
+PCMCIA.
+</note>
+
+<p>
+Ustawiamy hasło roota za pomocą polecenia <c>passwd</c>.
+</p>
+
+<pre caption="Ustawianie hasła roota">
+livecd conf.d # <i>passwd</i>
+New UNIX password: <comment>wpisz_hasło</comment>
+Retype new UNIX password: <comment>wpisz_hasło</comment>
+passwd: password updated successfully
+</pre>
+
+<p>
+Następnie ustawiamy odpowiednią strefę czasową w pliku
+<path>/etc/conf.d/clock</path>.
+</p>
+
+<pre caption="Edycja /etc/conf.d/clock">
+livecd conf.d # <i>nano -w /etc/conf.d/clock</i>
+TIMEZONE="Europe/Warsaw"
+</pre>
+
+<p>
+Sprawdzamy konfigurację systemu w <path>/etc/rc.conf</path>,
+<path>/etc/conf.d/rc</path>, <path>/etc/conf.d/keymaps</path> i zmieniamy wpisy
+tak, aby odpowiadały żądanym ustawieniom.
+</p>
+
+<pre caption="Opcjonalnie: konfiguracja systemu">
+livecd conf.d # <i>nano -w /etc/rc.conf</i>
+livecd conf.d # <i>nano -w /etc/conf.d/rc</i>
+livecd conf.d # <i>nano -w /etc/conf.d/keymaps</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Instalowanie narzędzi systemowych</title>
+<body>
+
+<p>
+Instalujemy narzędzia pomocnicze RAID i LVM2.
+</p>
+
+<pre caption="Instalowanie narzędzi RAID &amp; LVM2">
+livecd conf.d # <i>emerge mdadm lvm2</i>
+</pre>
+
+<p>
+Zaczynamy od instalacji programu logującego, np. <c>syslog-ng</c> oraz demona
+cron, np. <c>vixie-cron</c>. Oba dodajemy do poziomu uruchomieniowego.
+</p>
+
+<note>
+Demony cron są zależne od MTA. W związku z tym jako zależność zostanie
+zainstalowane <c>mail-mta/ssmtp</c>. Można użyć bardziej zaawansowanego MTA
+instalując go przed instalacją demona cron. Jeśli nie jest potrzebny, zostajemy
+przy domyślnym wyborze.
+</note>
+
+<pre caption="Instalacja loggera i demona cron">
+livecd conf.d # <i>time emerge syslog-ng vixie-cron</i>
+
+real  1m54.099s
+user  1m2.630s
+sys   0m34.620s
+livecd conf.d # <i>rc-update add syslog-ng default</i>
+livecd conf.d # <i>rc-update add vixie-cron default</i>
+</pre>
+
+<p>
+Następnie instalujemy niezbędne narzędzia systemowe (<c>xfsprogs</c>,
+<c>reiserfsprogs</c> lub <c>jfsutils</c>) oraz programy do obsługi sieci
+(<c>dhcpcd</c> lub <c>ppp</c>).
+</p>
+
+<pre caption="Instalowanie dodatkowych narzędzi systemowych">
+livecd conf.d # <i>emerge xfsprogs</i>           <comment>(Jeśli używamy systemu plików XFS)</comment>
+livecd conf.d # <i>emerge jfsutils</i>           <comment>(Jeśli używamy systemu plików JFS)</comment>
+livecd conf.d # <i>emerge reiserfsprogs</i>      <comment>(Jeśli używamy systemu plików Reiser)</comment>
+livecd conf.d # <i>emerge dhcpcd</i>             <comment>(Jeśli potrzebny jest klient DHCP)</comment>
+livecd conf.d # <i>emerge ppp</i>  <comment>(Dla połączeń PPPoE ADSL)</comment>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja programu ładującego</title>
+<body>
+
+<p>
+Instalujemy program <c>grub</c> i konfigurujemy go.
+</p>
+
+<pre caption="Instalacja i konfiguracja GRUB">
+livecd conf.d # <i>time emerge grub</i>
+
+real  1m4.634s
+user  0m39.460s
+sys   0m15.280s
+livecd conf.d # <i>nano -w /boot/grub/grub.conf</i>
+</pre>
+
+<pre caption="Przykładowy plik grub.conf">
+default 0
+timeout 10
+
+title=Gentoo
+root (hd0,0)
+kernel /boot/kernel root=/dev/md3
+</pre>
+
+<pre caption="Instalacja GRUB-a na obu dyskach">
+livecd conf.d # <i>grub</i>
+Probing devices to guess BIOS drives. This may take a long time.
+
+grub> <i>root (hd0,0)</i>
+ Filesystem type is ext2fs, partition type 0x83
+
+grub> <i>setup (hd0)</i>
+ Checking if "/boot/grub/stage1" exists... yes
+ Checking if "/boot/grub/stage2" exists... yes
+ Checking if "/boot/grub/e2fs_stage1_5" exists... yes
+ Running "embed /boot/grub/e2fs_stage1_5 (hd0)"...  16 sectors are embedded.
+succeeded
+ Running "install /boot/grub/stage1 (hd0) (hd0)1+16 p (hd0,0)/boot/grub/stage2 /boot/
+grub/menu.lst"... succeeded
+Done.
+
+grub> <i>root (hd1,0)</i>
+ Filesystem type is ext2fs, partition type 0x83
+
+grub> <i>setup (hd1)</i>
+
+grub> <i>quit</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Ponowne uruchamianie systemu</title>
+<body>
+
+<p>
+Wychodzimy z chroota, odmontowujemy systemy plików i ponownie uruchamiamy
+komputer:
+</p>
+
+<pre caption="Ponowne uruchomienie komputera">
+livecd conf.d # <i>exit</i>
+livecd / # <i>umount /mnt/gentoo/usr/portage/distfiles /mnt/gentoo/usr/portage /mnt/gentoo/usr</i>
+livecd / # <i>umount /mnt/gentoo/var/tmp /mnt/gentoo/tmp /mnt/gentoo/var /mnt/gentoo/opt</i>
+livecd / # <i>umount /mnt/gentoo/proc /mnt/gentoo/home /mnt/gentoo/boot /mnt/gentoo</i>
+livecd / # <i>reboot</i>
+<comment>(Wyjmujemy płytę instalacyjną z napędu)</comment>
+</pre>
+
+<p>
+Dalszą część instrukcji jest identyczna jak w standardowym skróconym opisie
+instalacji x86. Należy skorzystać z niego, zaczynając od rozdziału <uri
+link="/doc/pl/gentoo-x86-quickinstall.xml#after-reboot">Finalizowanie
+instalacji</uri>, aby dokończyć proces instalowania systemu.
+</p>
+
+</body>
+</section>
+</chapter>
+</guide>
