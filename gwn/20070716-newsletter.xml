@@ -295,29 +295,31 @@ for."
 </body>
 </section>
 <section>
-<title>LWN.net (5 July, 2007)</title>
+<title>LWN.net (5 lipiec 2007)</title>
 <body>
 
 <p>
-In the July 5 edition of the <uri link="http://lwn.net/Articles/240081/">Linux
-Weekly News</uri>, Gentoo developer <mail link="dberkholz@gentoo.org">Donnie
-Berkholz</mail> wrote an article entitled &quot;Package management in Gentoo
-Linux&quot;. The article compares the three currently available package
-managers and includes a brief overview of their features, as well as mentioning
-PMS (Package Manager Specification) and EAPI (Ebuild API).
+W wydaniu <uri link="http://lwn.net/Articles/240081/">Linux Weekly News</uri> z
+5 lipca 2007 zamieszczono artykuł napisany przez dewelopera Gentoo <mail
+link="dberkholz@gentoo.org">Donniego Berkholza</mail>. Opatrzony tytułem
+„Package management in Gentoo Linux” (Zarządzanie pakietami w Gentoo Linux)
+tekst zawiera porównanie trzech, aktualnie dostępnych menadżerów pakietów oraz
+krótki opis najważniejszych cech każdego z nich. W artykule Donnie wspomniał
+także o pracach nad PMS (Package Manager Specification - Specyfikacja Menadżera
+Pakietów) oraz EAPI (Ebuild API).
 </p>
 
 </body>
 </section>
 <section>
-<title>Techgage.com (12 May, 2007)</title>
+<title>Techgage.com (12 maj 2007)</title>
 <body>
 
 <p>
-Techgage did a nice little review of the Gentoo 2007.0 release. The review 
-points out some of the major changes and also lists a couple hangups with the
-new installer. There's also a couple nice screenshots comparing the LiveCD to
-the LiveDVD.
+W Techgage zamieszczono krótką recenzję wydania Gentoo Linux 2007.0. Znajduje
+sie w nim podsumowanie najważniejszych zmian, wspomniano także o problemach z
+nowym instalatorem. W artykule można również znaleźć kilka zrzutów ekranu
+porównujących wydania LiveCD i LiveDVD.
 </p>
 
 <ul>
@@ -754,13 +756,15 @@ poprawie i pozostaną one w oficjalnym drzewie Portage.
 
 <!-- paste from email -->
 <note>
-Due to time constraints on the publishing of this version of the GWN, the
-Last Rites section has been temporarily removed. This section will return once
-it has become more automated, as it currently accounts for more than 80 percent
-of the time required to publish an edition of the GWN. The GWN staff would like
-to apologize for this inconvenience and remind everyone that this information
-comes directly from the <c>package.mask</c> file in the profiles directory of
-the tree.
+Z powodu ograniczeń czasowych w procesie tworzenia kolejnych wydań Tygodnika
+Gentoo sekcja ostatnie namaszczenie zostaje tymczasowo zamknięta. Kolejne wpisy
+pojawią się tutaj, gdy tworzenie listy pakietów przewidzianych do usunięcia
+zostanie bardziej zautomatyzowane. Obecnie jej złożenie zajmuje około 80% czasu
+wymaganego do publikacji każdego numeru Tygodnika Gentoo. Zespół Tygodnika chce
+w tym miejscu przeprosić wszystkich za spowodowane tym niedogodności, pragniemy
+tutaj przypomnieć, że informacje przekazywane w tej sekcji pochodzą bezpośrednio
+z pliku <c>package.mask</c> znajdującego się w katalogu profiles drzewa
+Portage.
 </note>
 
 </body>
