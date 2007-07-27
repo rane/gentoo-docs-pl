@@ -73,7 +73,7 @@ Jak zwykle, GWN szuka pomocy społeczności. Jeśli macie informacje związane z
 Gentoo, którymi chcielibyście się podzielić z czytelnikami GWN, prześlijcie je
 na adres <mail>gwn-feedback@gentoo.org</mail> a dodamy je do przyszłego wydania
 Tygodnika Gentoo.
-/p>
+</p>
 
 </body>
 </section>
@@ -231,8 +231,7 @@ Gentoo.
 
 <figure link="/images/gwn/20070716_linuxtage.jpg"
         short="Tobias Scherbaum"
-        caption="Tobias Scherbaum (dertobi123) i kilka maszyn z uruchomionym
-	Gentoo" />
+        caption="Tobias Scherbaum (dertobi123) i kilka maszyn z uruchomionym Gentoo" />
 
 <p>
 Poza wszechobecną architekturą x86, na stoisku były maszyny PPC i HP PA-RISC z
@@ -384,12 +383,12 @@ przyszłych instalacji można analizować plik <c>emerge.log</c> lub użyć narz
 </pre>
 
 <p>
-This information can be used to estimate how long an update would take. The
-tool can be used to calculate the emerge time for a variety of package sets,
-like a world update, by calling it this way:
+Informacja ta może być użyta do oszacowania czasu aktualizacji. Narzędzie może
+być również użyte do przewidzenia czasu aktualizacji różnych grup pakietów jak
+na przykład world, poprzez użycie go w następujący sposób:
 </p>
 
-<pre caption="Example of emerging world:">
+<pre caption="Przykład aktualizacji world:">
   # emerge -uDp world | genlop -p
   These are the pretended packages: (this may take a while; wait...)
   [ebuild     U ] app-office/openoffice-2.2.1 [2.2.0]
@@ -398,12 +397,12 @@ like a world update, by calling it this way:
 </pre>
 
 <p>
-Now, what if you have a new package that you didn't have installed, such as you
-want to install <c>fluxbox</c> on a machine that previously did not have X
-installed:
+A co jeśli mamy nowy pakiet, który nie był wcześniej instalowany? Dla przykładu
+chcemy zainstalować <c>fluxbox</c> na maszynie, na której nie był wcześniej
+instalowany serwer X:
 </p>
 
-<pre caption="Example of using on a new package:">
+<pre caption="Przykład instalacji nowego pakietu:">
   # emerge -p fluxbox | genlop -p
   ...
   [ebuild  N    ] x11-libs/libXmu-1.0.3  USE="-debug -ipv6"
@@ -416,22 +415,22 @@ installed:
 </pre>
 
 <p>
-Genlop will only reference the packages it knows. If you use the -q option
-(genlop version &gt;= 0.30.7), an online database running on
-<c>gentoo.linuxhowtos.org</c> is queried for compile times based on users with
-an identical CPU to yours.
+Genlop odnosi się tylko do pakietów które zna. Jeśli użyjemy opcje -q (wersja
+&gt;= 0.30.7), genlop zapyta bazę danych zamieszczoną na
+<c>gentoo.linuxhowtos.org</c> o czas kompilacji u użytkowników identycznego
+procesora, jaki sami posiadamy.
 </p>
 
-<pre caption="Above query results in:">
+<pre caption="Rezultat poniższego zapytania:">
   # emerge -p fluxbox | genlop -p -q
   These are the pretended packages: (this may take a while; wait...) ...
   Estimated update time: 38 minutes.
 </pre>
 
 <p>
-The times are not 100% accurate; it does not respect USE flags or memory speed,
-hard disk speed, or other factors. However, as the times get averaged over
-different users, these factors become less important.
+Czasy nie są trafne na 100%; w obliczaniu nie są uwzględniane flagi USE lub
+prędkości pamięci i dyków, jak również inne czynniki. Jednak jako że są średnią
+spośród różnych użytkowników, te czynniki stają się mniej ważne.
 </p>
 
 </body>
