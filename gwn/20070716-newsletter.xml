@@ -36,8 +36,12 @@
   <mail link="musikc@gentoo.org">Chrissy Fullam</mail>
 </author>
 <author title="Tłumacz">
+  <mail link="moloh@gentoo.org">Michał Kurgan</mail>
+</author>
+<author title="Tłumacz">
   <mail link="cla@gentoo.org">Dawid Węgliński</mail>
 </author>
+
 <!-- Be sure to add yourself if you write an article -->
 <abstract>Wydanie Tygodnika Gentoo z 16 lipca 2007.</abstract>
 <summary/>
@@ -49,55 +53,61 @@
 <chapter>
 <title>Wiadomości Gentoo</title>
 <section>
-<title>Załoga GWN wita po przerwie</title>
+<title>Redakcja Tygodnika Gentoo wita po przerwie</title>
 <body>
 
 <p>
-Jest nam miło poinformować, że GWN powraca po krótkiej przerwie. Dziękujemy
-wszystkim, którzy nadesłali nowości i pomysły do wydania GWN oraz wszystkim,
-którzy oferowali swoją pomoc. Niestety czasami prawdziwe życie wkracza na drogę
-wolontariatu, na który brakuje czasu, ale jesteśmy spowrotem. Nastąpi kilka
-zmian w publikaci GWN, które powinny przyczynić się do szybszego tworzenia i
-publikacji artykułów zgodnie z planem. Oczywiście znaczy to, że ten numer jest
-dłuższy niż to zazwyczaj bywa, jako że z powodu długiej przerwy zawiera więcej
-artykułów.
+Jest nam miło poinformować, że Tygodnik Gentoo wraca na wasze ekrany po krótkiej
+przerwie. Dziękujemy wszystkim, którzy nadsyłali nowinki i pomysły na artykuły
+oraz tym, którzy oferowali swoją pomoc. Niestety czasami problemy życia
+codziennego dotykają i nas wolontariuszy, kolidując z pracą na rzecz Gentoo, ale
+jesteśmy już gotowi do dalszej działalności. Planowane jest kilka zmian, które
+powinny przyczynić się do szybszego tworzenia i publikacji artykułów. Z powodu
+przerwy w tym numerze możecie znaleźć więcej ciekawostek ze świata Gentoo niż to
+ma miejsce zazwyczaj.
 </p>
 
 <p>
-Dla zainteresowanych statystykami brakujących wydań, załoga GWN wypełniła
-statystyki w starszych edycjach i umieściła online. Nie będą one wysłane jako
-email z powodu wieku, który tworzy mnie mniej ważne niż najnowsze statystyki.
-Starsze wydania GWN są zlinkowane na głównej stronie <uri
-link="/news/pl/gwn/gwn.xml">GWN</uri>.
+Dla zainteresowanych statystykami, które powinny się pojawić w czasie przerwy w
+wydawaniu Tygodnika Gentoo mamy dobrą nowinę. Uzupełniliśmy wszystkie braki i są
+one dostępne na stronie domowej Tygodnika. Z powodu ich nieaktualności nie
+zostaną one jednak wysłane emailem. Zapraszamy do zapoznania się z wszystkimi
+opublikowanymi statystykami na głównej stronie <uri
+link="/news/pl/gwn/gwn.xml">Tygodnika Gentoo</uri> (polskie tłumaczenia będą
+sukcesywnie dodawane).
 </p>
 
 <p>
-Jak zwykle, GWN szuka pomocy społeczności. Jeśli macie informacje związane z
-Gentoo, którymi chcielibyście się podzielić z czytelnikami GWN, prześlijcie je
-na adres <mail>gwn-feedback@gentoo.org</mail> a dodamy je do przyszłego wydania
-Tygodnika Gentoo.
+Tygodnik Gentoo ciągle szuka pomocy ze strony społeczności. Jeśli macie
+informacje związane z Gentoo, którymi chcielibyście się podzielić z czytelnikami
+Tygodnika to zachęcamy do przesłania ich na adres
+<mail>gwn-feedback@gentoo.org</mail>. Zostaną one z pewnością dodane w jednym z
+kolejnych numerów.
 </p>
 
 </body>
 </section>
 <section>
-<title>Otwarto nominacje na Zarząd Gentoo</title>
+<title>Nominacje do Rady Gentoo</title>
 <body>
 
 <p>
-Rozpoczęły się nominacje na <uri link="/proj/en/council">Gentoo Council</uri>;
-zarząd, który określa kierunek rozwoju wydań Gentoo i repozytoriów oraz <uri
-link="/foundation/en">Radę Powierników</uri> Fundacji. Gentoo Council tworzy
-siedmiu deweloperów, wybranych przez społeczeństwo deweloperów Gentoo.
-Członkowie Zarządu pełnią swoją funkcję przez rok i podejmują decyzje dotyczące
-kierunku rozwoju i polityki nim rządzącej, ale również podejmuje czynności
-dyscyplinarne. Fundacja Gentoo jest ciałem prawnym tworzonym przez pięciu
-deweloperów wybranych przez społeczność deweloperów Gentoo. Powiernicy pełnią
-funkcję przez rok i zarządza niedochodową Fundacją Gentoo, która chroni własność
-intelektualną Gentoo. Kandydaci są podani na liście mailingowej
-<c>gentoo-dev</c>. Lista nominowanych jest dostępna na <uri
+Rozpoczęto zbieranie nominacji do <uri link="/proj/en/council">Rady
+Gentoo</uri>. Do jej zadań należy określenie kierunku rozwoju kolejnych wydań
+Gentoo Linux i oficjalnych repozytoriów, a także nadzór nad <uri
+link="/foundation/en">Radę Powierniczą</uri> Fundacji. Radę Gentoo tworzy
+siedmiu deweloperów, wybranych przez społeczność deweloperów Gentoo. Członkowie
+Rady pełnią swoją funkcję przez rok i podejmują decyzje dotyczące kierunku
+rozwoju dystrybucji oraz strategii i polityki. Jest ona także ostatnią instancją
+odwoławczą, nadzorującą podejmowane akcje dyscyplinarne. Radę Powierniczą
+Fundacji jest niezwykle istotnym ciałem prawnym, składa się na nie pięciu
+deweloperów wybranych przez społeczność deweloperów Gentoo. Kadencja każdego z
+Powierników trwa rok i do ich zadań należy zarządzanie organizacją non profit,
+Fundacja Gentoo, która chroni własność intelektualną Gentoo. Kandydatów można
+zgłaszać za pośrednictwem listy dyskusyjnej <c>gentoo-dev</c>. Lista
+nominowanych jest dostępna na <uri
 link="/proj/en/council/voting-logs/council-2007-nominees.xml">stronie
-projektu</uri> Gentoo Council.
+projektu</uri> Rady Gentoo.
 </p>
 
 </body>
@@ -185,7 +195,7 @@ Marcus opowiadał zarówno o Gentoo jak i KDE, problemach napotkanych przy praca
 nad KDE, aktualną wersją 3.5 oraz tymi wcześniejszymi, a także o
 doświadczeniach w kontaktach z deweloperami z KDE i innych dystrybucji. W
 trakcie jego wykładu można było również usłyszeć o planach związanych z nowym
-wydaniem KDE 4.0.  Zainteresowanych dodatkowymi szczegółami na temat prezentacji
+wydaniem KDE 4.0. Zainteresowanych dodatkowymi szczegółami na temat prezentacji
 Marcusa zachęcamy do przeglądnięcia <uri
 link="http://blog.cryos.net/uploads/MDHanwell-aKademy2007.pdf">slajdów</uri>
 oraz oglądnięcia <uri
