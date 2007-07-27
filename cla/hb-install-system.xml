@@ -1,0 +1,359 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sections SYSTEM "/dtd/book.dtd">
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/handbook/hb-install-system.xml,v 1.27 2007/05/07 23:06:18 rane Exp $ -->
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
+<sections>
+
+<abstract>
+Przed przystąpieniem do instalacji z pliku stage3 trzeba nagrać system
+podstawowy.
+</abstract>
+
+<version>8.1</version>
+<date>2007-07-26</date>
+
+<section>
+<title>Praca w chroot</title>
+<subsection>
+<title>Opcjonalnie: Wybieranie serwerów lustrzanych</title>
+<body>
+
+<p>
+Aby móc szybko ściągać źródła programów, należy wybrać szybki serwer lustrzany.
+Portage używa serwerów zawartych w zmiennej GENTOO_MIRRORS, która znajduje się
+w pliku <path>make.conf</path>. Aby wybrać najlepsze serwery, należy wejść na
+stronę <uri link="/main/en/mirrors.xml">listy serwerów lustrzanych Gentoo</uri>
+i wybrać z nich te, które znajdują się najbliżej lub użyć narzędzia
+<c>mirrorselect</c>, które potrafi w prosty sposób automatycznie wybrać
+najlepsze serwery lustrzane.
+</p>
+
+<pre caption="Sposób użycia programu mirrorselect">
+# <i>mirrorselect -i -o &gt;&gt; /mnt/gentoo/etc/make.conf</i>
+</pre>
+
+<warn>
+Nie należy wybierać żadnych serwerów IPv6. Nasze pliki stage aktualnie nie
+wspierają IPv6.
+</warn>
+
+<p>
+Następną ważną sprawą jest ustawienie zmiennej SYNC w pliku
+<path>make.conf</path>. Zmienna ta wskazuje na serwer rsync, z którego będzie
+uaktualniane drzewo Portage (kolekcja ebuildów, czyli skryptów które zawierają
+wszystkie informacje potrzebne do ściągnięcia i zainstalowania programów).
+Można ręcznie wpisać serwer, którego chcemy używać lub skorzystać z programu
+<c>mirrorselect</c>:
+</p>
+
+<pre caption="Wybór serwera rsync za pomocą programu mirrorselect">
+# <i>mirrorselect -i -r -o &gt;&gt; /mnt/gentoo/etc/make.conf</i>
+</pre>
+
+<p>
+Po konfiguracji plików za pomocą programu <c>mirrorselect</c> należy sprawdzić
+czy wszystko zostało prawidłowo dopisane do pliku
+<path>/mnt/gentoo/etc/make.conf</path>.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Kopiowanie informacji o DNS</title>
+<body>
+
+<p>
+Zanim zmienimy środowisko pracy, musimy wykonać pewną bardzo ważną czynność.
+Jest nią przekopiowanie ustawień DNS z pliku <path>/etc/resolv.conf</path> do
+nowego środowiska. Jest to konieczne, by sieć działała także tam. Plik
+<path>/etc/resolv.conf</path> określa jakie serwery nazw będą używane dla
+sieci.
+</p>
+
+<pre caption="Kopiowanie informacji o DNS">
+<comment>(Opcja "-L" jest konieczna, sprawia, że nie zostanie skopiowane dowiązanie symboliczne)</comment>
+# <i>cp -L /etc/resolv.conf /mnt/gentoo/etc/</i>
+</pre>
+
+</body>
+</subsection>
+<subsection test="not(func:keyval('arch')='IA64')">
+<title>Montowanie systemów plików /proc i /dev</title>
+<body>
+
+<p>
+Następnie przemontowujemy system plików <path>/proc</path> do
+<path>/mnt/gentoo/proc</path>, aby umożliwić systemowi korzystanie z informacji
+dostarczanych przez jądro także w środowisku chrootowanym oraz ponownie
+montujemy system plików <path>/dev</path>.
+</p>
+
+<pre caption="Montowanie /proc i /dev">
+ # <i>mount -t proc none /mnt/gentoo/proc</i>
+ # <i>mount -o bind /dev /mnt/gentoo/dev</i>
+</pre>
+
+</body>
+</subsection>
+<subsection test="func:keyval('arch')='IA64'">
+<title>Montowanie systemów plików /proc i /dev</title>
+<body>
+
+<p>
+Następnie przemontowujemy system plików <path>/proc</path> do
+<path>/mnt/gentoo/proc</path>, aby umożliwić systemowi korzystanie z informacji
+dostarczanych przez jądro także w środowisku chrootowanym oraz ponownie
+montujemy systemy plików <path>/dev</path> oraz <path>/sys</path>.
+</p>
+
+<pre caption="Montowanie /proc /sys i /dev">
+# <i>mount -t proc none /mnt/gentoo/proc</i>
+# <i>mount -o bind /dev /mnt/gentoo/dev</i>
+# <i>mount -o bind /sys /mnt/gentoo/sys</i>
+</pre>
+
+</body>
+</subsection>
+<subsection>
+<title>Zmiana środowiska</title>
+<body>
+
+<p>
+Teraz, gdy wszystkie partycje są już założone, a podstawowe środowisko
+zainstalowane, nadszedł czas wejścia do niego poprzez <e>chroot</e>. Oznacza to
+przejście z systemu instalacyjnego (płyty instalacyjnej lub innego medium) do
+systemu instalowanego (czyli na założone partycje).
+</p>
+
+<p>
+Przechodzenie odbywa sie w trzech etapach. Najpierw zamieniamy katalog
+z <path>/</path> (w systemie instalacyjnym) na <path>/mnt/gentoo</path> (na
+założonych partycjach) poleceniem <c>chroot</c>. Następnie tworzymy nowe
+środowisko przy pomocy polecenia <c>env-update</c>, które wyeksportuje nowe
+zmienne środowiskowe. Ostatecznie wczytujemy te zmienne do pamięci poleceniem
+<c>source</c>.
+</p>
+
+<pre caption="Zmiana środowiska poprzez chroot">
+# <i>chroot /mnt/gentoo /bin/bash</i>
+# <i>env-update</i>
+>> Regenerating /etc/ld.so.cache...
+# <i>source /etc/profile</i>
+# <i>export PS1="(chroot) $PS1"</i>
+</pre>
+
+<p>
+Gratulacje! Znajdujemy się wewnątrz nowego systemu Gentoo Linux. Oczywiście do
+końca jeszcze daleko, przecież zostało jeszcze kilka rozdziałów Podręcznika do
+przeczytania. :-)
+</p>
+
+</body>
+</subsection>
+</section>
+<section>
+<title>Konfiguracja Portage</title>
+<subsection>
+<title>Aktualizacja drzewa Portage</title>
+<body>
+
+<p>
+Aktualizujemy drzewo Portage za pomocą polecenia <c>emerge --sync</c>.
+</p>
+
+<pre caption="Aktualizowanie drzewa Portage">
+# <i>emerge --sync</i>
+<comment>(Jeśli korzysta się z wolnych terminali, takich jak konsola bufora
+ramki, należy dodać parametr --quiet dla przyspieszenia całego procesu)</comment>
+# <i>emerge --sync --quiet</i>
+</pre>
+
+<p>
+Portage używa protokołu RSYNC do uaktualniania drzewa pakietów. Jeżeli powyższe
+polecenie zakończy się niepowodzeniem (np. z winy firewalla) używamy polecenia
+<c>emerge-webrsync</c>, które ściąga i instaluje drzewo Portage przy za pomocą
+protokołu HTTP.
+</p>
+
+<p>
+Jeśli otrzymamy ostrzeżenie, że dostępna jest nowa wersja programu Portage i
+należy dokonać jego aktualizacji, należy to natychmiast zrobić. Dokonuje się
+tego poleceniem <c>emerge portage</c>.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Wybór odpowiedniego profilu</title>
+<body>
+
+<p>
+Najpierw mała definicja.
+</p>
+
+<p>
+Profil jest szablonem budowy systemu Gentoo. Nie tylko określa domyślne
+wartości dla CHOST, CFLAGS i innych ważnych zmiennych, ale również ogranicza
+wersje pakietów jakie mogą zostać zainstalowane w systemie. Wszystkie te
+informacje są konfigurowane przez deweloperów Gentoo.
+</p>
+
+<p>
+Poprzednio profil taki był niemodyfikowalny przez użytkownika. Jednak może się
+nadarzyć taka okoliczność, w której zmiana profilu będzie potrzebna.
+</p>
+
+<p>
+Aktualnie używany profil można sprawdzić za pomocą poniższego polecenia:
+</p>
+
+<pre caption="Sprawdzanie profilu systemowego">
+# <i>ls -FGg /etc/make.profile</i>
+lrwxrwxrwx  1 48 Apr  8 18:51 /etc/make.profile -> ../usr/portage/profiles/default-linux/x86/2007.0/
+</pre>
+
+<p>
+Domyślny profil jest profilem bazującym na systemie z jądrem serii 2.6. Jest to
+zalecane ustawienie chociaż mamy możliwość wyboru innego profilu.
+</p>
+
+<p>
+Istnieją również podprofile <c>desktop</c> oraz <c>server</c> dla niektórych
+architektur. Należy przejrzeć katalog profilu <path>2007.0/</path>, aby
+przekonać się czy podprofile dostępne są dla architektury używanej przez nas.
+Oczywiście możemy przejrzeć plik <path>make.defaults</path> profilu
+<c>desktop</c>, aby sprawdzić czy odpowiada on naszym potrzebom.
+</p>
+
+<p>
+W katalogu <path>/usr/portage/profiles/</path> znajduje się wiele różnych
+profili dla różnych architektur. Warto przejrzeć te dostępne dla używanej
+architektury i sprawdzić czy któryś z nich będzie wygodniejszy niż ten domyślny.
+</p>
+
+<pre caption="Zmiana profilu">
+# <i>ln -snf /usr/portage/profiles/&lt;nazwa&gt; /etc/make.profile</i>
+</pre>
+
+<p test="func:keyval('arch')='AMD64'">
+Jeśli chce się korzystać z czystego środowiska 64-bitowego, należy wybrać profil
+bez multilib.
+</p>
+
+<pre test="func:keyval('arch')='AMD64'" caption="Wybór profilu bez multilib">
+# <i>ln -snf /usr/portage/profiles/default-linux/amd64/2007.0/no-multilib /etc/make.profile</i>
+</pre>
+
+</body>
+</subsection>
+<subsection id="configure_USE">
+<title>Konfiguracja zmiennych USE</title>
+<body>
+
+<p>
+<c>USE</c> to jedna z najważniejszych zmiennych w Gentoo. Niektóre programy
+mogą być kompilowane z dodatkową obsługi niektórych funkcji lub bez niej. Na
+przykład możliwe jest budowanie różnych programów ze wsparciem dla bibliotek
+gtk lub qt. Inne pakiety możemy z kolei wyposażyć w obsługę SSL, bądź też jej
+pozbawić. Jeszcze inne mogą być kompilowane ze wsparciem bufora ramki (svgalib)
+zamiast X11 (serwera X).
+</p>
+
+<p>
+Większość dystrybucji kompiluje swoje pakiety ze wsparciem dla tak wielu
+elementów, jak to tylko możliwe, powiększając rozmiar programów i czas ich
+uruchamiania, nie wspominając o olbrzymiej liczbie zależności. W Gentoo możemy
+zdecydować, z którymi opcjami dany pakiet powinien być budowany. I to właśnie
+jest moment, kiedy <c>USE</c> wkracza do gry.
+</p>
+
+<p>
+W zmiennych <c>USE</c> definiujemy słowa kluczowe zamieniane następnie na opcje
+kompilowania. Na przykład dodanie do zmiennej <e>ssl</e> włączy obsługę SSL w
+programach, które go wykorzystują. <e>-X</e> usunie wsparcie dla serwera X
+(należy zwrócić uwagę na znak minusa z przodu). Ustawienie <e>gnome gtk -kde
+-qt3 -qt4</e> zaowocuje wsparciem dla GNOME (oraz gtk), ale nie dla KDE (i
+związanym z nim ściśle qt), znakomicie przygotowując grunt pod GNOME.
+</p>
+
+<p>
+Domyślny zestaw flag <c>USE</c> znajduje się w pliku <path>make.defaults</path>
+wybranego profilu. Wszystkie pliki <path>make.defaults</path> znajdują się w
+katalogu wskazywanym przez dowiązanie <path>/etc/make.profile</path> oraz w
+katalogach nadrzędnych. Aktualna konfiguracja <c>USE</c> jest zawsze sumą
+wszystkich flag ustawionych w plikach <path>make.defaults</path>. Wszystko co
+umieścimy w pliku <path>/etc/make.conf</path> zostanie dodane do tej zmiennej.
+Jeśli chcemy coś z niej usunąć wpisujemy wybraną flagę ze znakiem minus na
+początku. <e>Nie wolno</e> zmieniać plików wewnątrz katalogu
+<path>/etc/make.profile</path>, zmiany zostaną nadpisane przy następnej
+aktualizacji drzewa Portage.
+</p>
+
+<p>
+Pełny opis <c>USE</c> znajduje się w drugiej części Podręcznika Gentoo, w
+rozdziale <uri link="?part=2&amp;chap=2">Flagi USE</uri>. Kompletną
+charakterystykę dostępnych flag USE znajdziemy w pliku
+<path>/usr/portage/profiles/use.desc</path>.
+</p>
+
+<pre caption="Przegląd dostępnych flag USE">
+# <i>less /usr/portage/profiles/use.desc</i>
+<comment>(Używamy strzałek, aby przewijać plik. Aby wyjść naciskamy 'q')</comment>
+</pre>
+
+<p>
+Jako przykład przedstawimy flagi <c>USE</c> dla systemu bazującego na KDE ze
+wsparciem dla DVD, ALSA i nagrywania CD:
+</p>
+
+<pre caption="Edytowanie /etc/make.conf">
+# <i>nano -w /etc/make.conf</i>
+</pre>
+
+<pre caption="Ustawienia USE">
+USE="-gtk -gnome qt3 qt4 kde dvd alsa cdr"
+</pre>
+
+</body>
+</subsection>
+<subsection>
+<title>Opcjonalnie: Lokalizacje GLIBC</title>
+<body>
+
+<p>
+Zwykle w systemie używa się tylko jednej, góra dwóch lokalizacji.  Można je
+wybrać w pliku <path>/etc/locale.gen</path>.
+</p>
+
+<pre caption="Otwieranie pliku /etc/locale.gen">
+# <i>nano -w /etc/locale.gen</i>
+</pre>
+
+<p>
+Poniższy przykład to lokalizacje polskie oraz angielskie (Ameryka) z obsługą
+kodowania znaków (jak UTF-8).
+</p>
+
+<pre caption="Ustawianie lokalizacji">
+en_US ISO-8859-1
+en_US.UTF-8 UTF-8
+pl_PL ISO-8859-2
+pl_PL.UTF-8 UTF-8
+</pre>
+
+<p>
+Następnie należy uruchomić polecenie <c>locale-gen</c>, które utworzy wszystkie
+lokalizacje wybrane w pliku <path>/etc/locale.gen</path>.
+</p>
+
+<p>
+Kolejny etap instalacji to <uri link="?part=1&amp;chap=7">Konfigurowanie
+jądra</uri>.
+</p>
+
+</body>
+</subsection>
+</section>
+</sections>
