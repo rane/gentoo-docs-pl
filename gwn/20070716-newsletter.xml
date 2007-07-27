@@ -8,9 +8,6 @@
 <author title="Redaktor">
   <mail link="wolf31o2@gentoo.org">Chris Gianelloni</mail>
 </author>
-<author title="Assistant Editor">
-<mail link="musikc@gentoo.org">Chrissy Fullam</mail>
-</author>
 <author title="Autor">
   <mail link="davide.italiano@gmail.com">Davide Italiano</mail>
 </author>
@@ -35,7 +32,9 @@
 <author title="Autor">
   <mail link="dberkholz@gentoo.org">Donnie Berkholz</mail>
 </author>
-
+<author title="Edytor">
+  <mail link="musikc@gentoo.org">Chrissy Fullam</mail>
+</author>
 <!-- Be sure to add yourself if you write an article -->
 <abstract>Wydanie Tygodnika Gentoo z 16 lipca 2007.</abstract>
 <summary/>
@@ -47,114 +46,110 @@
 <chapter>
 <title>Wiadomości Gentoo</title>
 <section>
-<title>Welcome back from the GWN staff</title>
+<title>Załoga GWN wita po przerwie</title>
 <body>
 
 <p>
-Gentoo's GWN staff are pleased to be back after a short break. We would like to
-thank everyone that continued to submit news and ideas to the GWN and to
-everyone that offered to help. Unfortunately, sometimes life gets in the way
-of volunteer time, but we are back. There will be some changes done to how we
-publish the GWN which should make it quicker for us to create, hopefully
-allowing us to publish on schedule. Of course, this means this issue is a bit
-longer than usual, as it includes more articles than usual due to the long time
-since the last publishing.
+Jest nam miło poinformować, że GWN powraca po krótkiej przerwie. Dziękujemy
+wszystkim, którzy nadesłali nowości i pomysły do wydania GWN oraz wszystkim,
+którzy oferowali swoją pomoc. Niestety czasami prawdziwe życie wkracza na drogę
+wolontariatu, na który brakuje czasu, ale jesteśmy spowrotem. Nastąpi kilka
+zmian w publikaci GWN, które powinny przyczynić się do szybszego tworzenia i
+publikacji artykułów zgodnie z planem. Oczywiście znaczy to, że ten numer jest
+dłuższy niż to zazwyczaj bywa, jako że z powodu długiej przerwy zawiera więcej
+artykułów.
 </p>
 
 <p>
-For those of you wondering about the statistics from the missing GWN editions,
-the GWN staff has filled in the statistics into the older GWN editions and
-placed them online.  They will not be sent out as emails simply due to the age
-of the information making it not as important as fresh statistics. These older
-editions of the GWN are linked on the main <uri
-link="/news/en/gwn/gwn.xml">GWN page</uri>.
+Dla zainteresowanych statystykami brakujących wydań, załoga GWN wypełniła
+statystyki w starszych edycjach i umieściła online. Nie będą one wysłane jako
+email z powodu wieku, który tworzy mnie mniej ważne niż najnowsze statystyki.
+Starsze wydania GWN są zlinkowane na głównej stronie <uri
+link="/news/pl/gwn/gwn.xml">GWN</uri>.
 </p>
 
 <p>
-As always, the GWN is looking for submissions from the community. If you have
-something Gentoo-related that you would like to share with the GWN readers,
-send it to <mail>gwn-feedback@gentoo.org</mail> and we'll add it to a future
-edition of the Gentoo Weekly Newsletter.
+Jak zwykle, GWN szuka pomocy społeczności. Jeśli macie informacje związane z
+Gentoo, którymi chcielibyście się podzielić z czytelnikami GWN, prześlijcie je
+na adres <mail>gwn-feedback@gentoo.org</mail> a dodamy je do przyszłego wydania
+Tygodnika Gentoo.
 </p>
 
 </body>
 </section>
 <section>
-<title>Gentoo Council and Trustee nominations open</title>
+<title>Otwarto nominacje na Zarząd Gentoo</title>
 <body>
 
 <p>
-Nominations are being taken for the <uri link="/proj/en/council">Gentoo
-Council</uri>, the body which governs the direction of Gentoo's software
-releases and repositories, and the Gentoo Foundation's <uri
-link="/foundation/en">Board of Trustees</uri>. The Gentoo Council is a technical
-body of seven developers, elected by the developer community. The Council
-members serve for one year and make decisions on the global direction of the
-Gentoo distribution and policies, as well as an appeals board for disciplinary
-actions. The Gentoo Foundation Board of Trustees is a legal body of five
-developers, elected by the developer community. The Trustees serve for one
-year and manage the non-profit Gentoo Foundation, which holds the intellectual
-property for Gentoo. New nominees are given on the <c>gentoo-dev</c> mailing
-list. The nominations are tracked at the <uri
-link="/proj/en/council/voting-logs/council-2007-nominees.xml">Council
-page</uri> for the Gentoo Council.
+Rozpoczęły się nominacje na <uri link="/proj/en/council">Gentoo Council</uri>;
+zarząd, który określa kierunek rozwoju wydań Gentoo i repozytoriów oraz <uri
+link="/foundation/en">Radę Powierników</uri> Fundacji. Gentoo Council tworzy
+siedmiu deweloperów, wybranych przez społeczeństwo deweloperów Gentoo.
+Członkowie Zarządu pełnią swoją funkcję przez rok i podejmują decyzje dotyczące
+kierunku rozwoju i polityki nim rządzącej, ale również podejmuje czynności
+dyscyplinarne. Fundacja Gentoo jest ciałem prawnym tworzonym przez pięciu
+deweloperów wybranych przez społeczność deweloperów Gentoo. Powiernicy pełnią
+funkcję przez rok i zarządza niedochodową Fundacją Gentoo, która chroni własność
+intelektualną Gentoo. Kandydaci są podani na liście mailingowej
+<c>gentoo-dev</c>. Lista nominowanych jest dostępna na <uri
+link="/proj/en/council/voting-logs/council-2007-nominees.xml">stronie
+projektu</uri> Gentoo Council.
 </p>
 
 </body>
 </section>
 <section>
-<title>News about PAM and cracklib</title>
+<title>Nowości ze świata PAM i cracklib</title>
 <body>
 
 <p>
-<mail link="flameeyes@gentoo.org">Diego Pettenò</mail> announced on his <uri
-link="http://farragut.flameeyes-is-a-geek.org">blog</uri> his progress with
-PAM. Some time ago, there was a discussion about moving
-<c>sys-apps/cracklib</c> out of the system packages set as it was not a 
-necessary package. However <c>sys-apps/cracklib</c> is no longer in the system, 
-if you used <c>PAM</c> you couldn't remove it as <c>sys-libs/pam</c>
-considered it as a necessary dependency. Diego has committed a revision bump for
-<c>sys-libs/pam</c> in ~arch that makes cracklib optional, controlled by the 
-cracklib USE flag., but enabled by default.
+<mail link="flameeyes@gentoo.org">Diego Pettenò</mail> ogłosił na swoim <uri
+link="http://farragut.flameeyes-is-a-geek.org">blogu</uri> swoje postępy nad
+pracą z PAM-em. Jakiś czas temu była dyskusja o przeniesieniu
+<c>sys-apps/cracklib</c> z grupy pakietów systemowych, jako że biblioteki te nie
+są niezbędne. Chociaż <c>sys-apps/cracklib</c> nie jest już w tej grupie, dalej
+jest potrzebny dla użytkowników <c>PAM</c>. Diego dodał do drzewa korektę do
+<c>sys-libs/pam</c> (oznaczony maską ~arch), która pozwala kontrolować
+instalację cracklib poprzez standardowo aktywną flagę cracklib.
 </p>
 
 </body>
 </section>
 <section>
-<title>More manpower needed for Gentoo Kernel security project</title>
+<title>Projekt Gentoo Kernel security poszukuje chętnych do pomocy</title>
 <body>
 
 <p>
-<mail link="dsd@gentoo.org">Daniel Drake</mail> is looking for people interested
-in helping the Gentoo Kernel security project. He is seeking someone to develop
-software to help the team track the security bugs and help communicate
-that info to users who want to know when a new kernel fixes a security issue.
-The basic role involves handling vulnerabilities (both minor and major) in the
-kernel. The issues come in from databases, and you have to coordinate those
-patches flowing into the portage tree.
+<mail link="dsd@gentoo.org">Daniel Drake</mail> poszukuje chętnych do pomocy w
+projekcie Gentoo Kernel security. Ich zadaniem ma być rozwój oprogramowania pod
+wezględem bezpieczeństwa (śledzenie błędów bezpieczeństwa i pomoc w informowaniu
+użytkowników kiedy nowa wersja jądra rozwiąże problemy bezpieczeństwa).
+Podstawową rola wiąże się z opanowaniem błędów (groźnych i niegroźnych) w
+kernelu. Problemy pochodzą z bazy pochodzą z bazy danych, więc będzie trzeba
+będzie kontrolować nakładki wpływające o drzewa Portage.
 </p>
 
 <p>
-If you think that you might be interested in helping out, contact Daniel Drake
-at <mail>dsd@gentoo.org</mail>.
+Jeśli jesteś zainteresowany pomocą, skontaktuj się z Danielem Drake
+(<mail>dsd@gentoo.org</mail>.
 </p>
 
 </body>
 </section>
 <section>
-<title>GNOME 2.18.2 going stable</title>
+<title>Stabilizacja GNOME 2.18.2</title>
 <body>
 
 <p>
-The Gentoo <uri link="/proj/en/desktop/gnome">GNOME team</uri> is working
-towards stabilization of GNOME 2.18.2 in the tree. This will be an upgrade
-from the current stable GNOME 2.16 release. You can find out more about the
-changes in this major GNOME upgrade on the <uri
-link="http://www.gnome.org/start/2.18">GNOME 2.18 page</uri>. Please consult
-the <uri link="/proj/en/desktop/gnome/howtos/gnome-2.18-upgrade.xml">GNOME 2.18
-Upgrade Guide</uri> before upgrading. If you wish to track the stabilization
-efforts, you can follow <uri link="http://bugs.gentoo.org/185823">bug
-#185823</uri>.
+Zespół <uri link="/proj/en/desktop/gnome">GNOME</uri> pracuje nad stabilizacją
+GNOME 2.18.2. Będzie to aktualizacja z obecnie stabilnej wersji GNOME 2.16.
+Więcej informacji o zmianach można znaleźć na stronie domowej projektu <uri
+link="http://www.gnome.org/start/2.18">GNOME</uri>. Warto zapoznać się również z
+<uri link="/proj/en/desktop/gnome/howtos/gnome-2.18-upgrade.xml">Przewodnikiem
+Aktualizacji GNOME 2.18</uri> przed rozpoczęciem tego procesu. Jeśli chcesz
+pomóc w stabilizacji zwróć uwagę na <uri
+link="http://bugs.gentoo.org/185823">bug #185823</uri>.
 </p>
 
 </body>
@@ -201,57 +196,57 @@ link="http://home.kde.org/~akademy07/videos/1-21-Gentoo_KDE.ogg">filmu</uri>.
 </body>
 </section>
 <section>
-<title>Gentoo UK 2007 Conference</title>
+<title>Konferencja Gentoo UK 2007</title>
 <body>
 
 <p>
-The <uri link="http://www.gentoo.org/proj/en/pr/events/guk07/">Gentoo UK 2007 
-Conference</uri> was held at University College London on the 14th of July. As
-you surely know it is the largest Gentoo-specific conference in the world.
-One can find more details regarding the event at the conference's
-<uri link="http://genbot.co.uk/">home</uri>. There was also a social event the
-night before at the <uri
-link="www.beerintheevening.com/pubs/s/85/858/Marylbone_Tup/Marylbone">
-Marylebone Tup</uri>. Among the talks given at the event, Marcus D. Hanwell
-gave a talk about KDE and scientific applications within Gentoo.
+<uri link="http://www.gentoo.org/proj/en/pr/events/guk07/">Konferencja Gentoo UK
+2007</uri> odbyła się w University College w Londynie w dnia 14 i 15 lipca. Jak
+wiadomo jest to największa konferencja na temat Gentoo na świecie. Więcej
+informacji o tym wydarzeniu można uzyskać na <uri
+link="http://genbot.co.uk/">stronie</uri> domowej konferencji. Dzień wcześniej
+odbyło się spotkanie towarzyskie w <uri
+link="www.beerintheevening.com/pubs/s/85/858/Marylbone_Tup/Marylbone">Marylebone
+Tup</uri>. Wśród wykładów jakie miały miejsce na konferencji był jeden dotyczący
+KDE oraz aplikacji naukowych w obrębie Gentoo, poprowadzony przez Marcusa D.
+Hanwella.
 </p>
 
 </body>
 </section>
 <section>
-<title>Gentoo at the Grazer Linuxtage</title>
+<title>Gentoo na Grazer Linuxtage</title>
 <body>
 
 <p>
-As in the previous years, Gentoo was present with a booth at the <uri
-link="http://linuxtage.at">Grazer Linuxtage</uri>. Visitors had not only the
-chance to talk to <mail link="dertobi123@gentoo.org">Tobias Scherbaum</mail>,
-who had traveled to Graz from Germany, the locals <mail
-link="roger55@gentoo.org">Roger Miliker</mail>, <mail
-link="amne@gentoo.org">Wernfried Haas</mail>, and forums Veteran
-Peter Gantner (nephros), but they could also see some of the architectures
-supported by Gentoo.
+Wzorem poprzednich lat Gentoo zostało zaprezentowane na <uri
+link="http://linuxtage.at">Grazer Linuxtage</uri>. Odwiedzający mieli okazję
+porozmawiania z <mail link="dertobi123@gentoo.org">Tobiasem Scherbaumem</mail>,
+który przybył na Graz z Niemiec oraz lokalnymi mieszkańcami: <mail
+link="roger55@gentoo.org">Rogerem Milikerem</mail>, <mail
+link="amne@gentoo.org">Wernfriedem Haasem</mail> i weteranem forum, Peterem
+Gantnerem (nephros). Mogli również zobaczyć kilka architektur opartych na
+Gentoo.
 </p>
 
 <figure link="/images/gwn/20070716_linuxtage.jpg"
         short="Tobias Scherbaum"
-        caption="Tobias Scherbaum (dertobi123) and several machines running Gentoo" />
+        caption="Tobias Scherbaum (dertobi123) i kilka maszyn z uruchomionym Gentoo" />
 
 <p>
-Besides the omnipresent x86 architecture, there were PPC and HP PA-RISC
-machines at the booth running Gentoo Linux. There was even Doom running on the
-HP machine, which was quite an eye catcher.
+Poza wszechobecną architekturą x86, na stoisku były maszyny PPC i HP PA-RISC z
+uruchomionym systemem Gentoo Linux. Była również uruchomiona gra Doom, która
+miała za zadanie przyciągać odwiedzających.
 </p>
 
 <p>
-For the first time a speech about Gentoo was given by both Tobias and
-Wernfried together, the slides (in German) can be found at
-<uri>http://linuxtage.at/89/</uri>.
+Pierwszy wykład był prowadzony przez Tobiasa i Wernfrieda. Opis (w języku
+niemieckim) można znaleźć na <uri>http://linuxtage.at/89/</uri>.
 </p>
 
 <p>
-Pictures of the whole event can be found on the Grazer Linuxtage <uri
-link="http://linuxtage.at/gallery/">gallery</uri>.
+Zdjęcia z tego wydarzenia są dostępne w <uri
+link="http://linuxtage.at/gallery/">galerii</uri> Grazer Linuxtage.
 </p>
 
 </body>
@@ -262,29 +257,32 @@ link="http://linuxtage.at/gallery/">gallery</uri>.
 <title>Gentoo w prasie</title>
 
 <section>
-<title>Linux Format (11 July, 2007)</title>
+<title>Linux Format (11 lipca 2007)</title>
 <body>
 
 <p>
-In a full-page review of Gentoo Linux 2007.0 in the August 2007 issue of Linux
-Format, the reviewer, Neil Bothwick, was so impressed with the new release that
-he awarded the distribution 9 points out of ten.
+Całą stronę sierpniowego wydania Linux Format poświęcił na renecję Gentoo Linux
+2007.0 recenzent Neil Bothwick. Był pod tak wielkim wrażeniem nowego wydania
+dystrybucji, że nagrodził ją dziewięcioma punktami na dziesięć możliwych.
 </p>
 
 <p>
-From the article: "The upside is that you have great control over what is
-installed. It is this control, rather than the ability to use insane compiler
-flags which govern features are enabled in the software you install, and by
-disabling features you don't need, you can save space, reduce dependencies,
-shorten program load times and even lessen your susceptibility to security
-holes. Building your own kernel is also made easy by the 'genkernel' tool used
-by the installer, or you can use this to configure your kernel manually.
+Z artykułu: "Zaletą jest to, że ma się wielką kontrolę nad tym co jest
+instalowane. To jest ta kontrola; zamiast użycia nierozsądnych flag kompilatora
+które określają jakie opcje mają być aktywowane w instalowanym oprogramowaniu
+lub jakie mają być nieaktywne jeśli nie ma takiej potrzeby. Można zaoszczędzić
+przestrzeń dyskową, zredukować zależności, skrócić czas ładowania programu a
+nawet zmniejszyć podatność na luki w bezpieczeństwie. Budowa jądra jest też
+łatwa do przeprowadzenia poprzez narzędzie 'genkernel', użyte przez instalator
+lub jego manualną konfigurację.
 </p>
 
 <p>
-Portage contains almost 12,000 packages, so you won't be short of software."
-The author concludes: "If you want more control over your system and are
-prepared to make the extra effort, Gentoo could be just what you are looking
+Drzewo portage zawiera prawie 12 000 pakietów, więc oprogramowania nie będzie
+brakowało."
+Autor zakończył: "Jeśli chciałbyś większej kontroli nad systemem i jesteś
+przygotowany aby włożyć w to dodatkowy wysiłek, Gentoo może być właśnie tym,
+czego szukasz."
 for."
 </p>
 
@@ -295,7 +293,7 @@ for."
 </body>
 </section>
 <section>
-<title>LWN.net (5 lipiec 2007)</title>
+<title>LWN.net (5 lipca 2007)</title>
 <body>
 
 <p>
@@ -312,7 +310,7 @@ Pakietów) oraz EAPI (Ebuild API).
 </body>
 </section>
 <section>
-<title>Techgage.com (12 maj 2007)</title>
+<title>Techgage.com (12 maja 2007)</title>
 <body>
 
 <p>
@@ -329,36 +327,36 @@ porównujących wydania LiveCD i LiveDVD.
 </body>
 </section>
 <section>
-<title>LinuxDevices.com (8 May, 2007)</title>
+<title>LinuxDevices.com (8 maja 2007)</title>
 <body>
 
 <p>
-LinuxDevices.com was first to report about the Zonbu Zonbox, which is a
-lower power alternative to standard PC hardware and runs Gentoo Linux. Here is
-a taste of what they had to say.
+Serwis LinuxDevices.com pierwszy poinformował o Zonbu Zonbox, który jest nie
+wymagającą dużej mocy alternatywą dla standardowego komputera klasy PC, bazowana
+na Gentoo Linux. Poniżej odrobina tego, co mieli do powiedzenia.
 </p>
 
 <p>
-&quot;A Palo Alto, CA based start-up is readying a silent, low-cost, 
-Linux-based computing appliance said to burn an order of magnitude less 
-power than traditional PCs. The Zonbu Zonbox runs Gentoo Linux and two 
-dozen open source applications on a Via C7 processor clocked at 1.2GHz.&quot;
+&quot;A Palo Alto, uruchomiony na bazie CA ma być cichym, tanim w utrzymaniu i
+opartym na Linuksie urządzeniem, nie wymagającym tak wiele energii jak
+tradycyjne komputery klasy PC. Zonbu Zonbox uruchamia Gentoo Linux i dwa tuziny
+aplikacji Open Source na procesorze Via C7, taktowanym zegarem 1.2GHz.&quot;
 </p>
 
 <p>
-They also went on to note its power requirements versus a regular PC.
+Zwracają uwagę na jego wymagania energetyczne w porównaniu z typowym pecetem.
 </p>
 
 <p>
-&quot;It consumes 15 Watts (average), or 131 kW/year, generating about 97 
-pounds of CO2 emissions, according to Zonbu. ... A standard PC, in 
-comparison, consumes 175 Watts on average, or 1,533 kW/year.&quot;
+&quot;Według Zonbu zużywa 15 Watt (przeciętnie) lub 131 kW na rok, emitując
+około 44kg dwutlenku węgla do atmosfery. Standardowy komputer klasy PC w
+porównaniu, zużywa przeciętnie 175 Watt lub 1,533 kW na rok.&quot;
 </p>
 
 <p>
-Also, the New York Times picked up on the Zonbox and ran their own <uri
-link="http://www.nytimes.com/2007/07/16/technology/16cheap.html">article</uri>
-on the device.
+Również New York Times wspomniał o Zonbox i stworzył własny <uri
+link="http://www.nytimes.com/2007/07/16/technology/16cheap.html">artykuł</uri>
+na temat tego urządzenia.
 </p>
 
 </body>
@@ -369,28 +367,28 @@ on the device.
 <chapter>
 <title>Sztuczki i kruczki</title>
 <section>
-<title>Estimate emerge time</title>
+<title>Szacowanie czasu kompilacji</title>
 <body>
 
 <p>
-You can analyze your system's <c>emerge.log</c> file to find out how long a
-given package took to compile and also to estimate the time of future compile
-jobs, or you can use <c>genlop</c>, which is designed for the job.
+Aby dowiedzieć się ile czasu zajęła instalacja danego pakietu lub oszacować czas
+przyszłych instalacji można analizować plik <c>emerge.log</c> lub użyć narzędzia
+<c>genlop</c> które jest stworzone do tego zadania.
 </p>
 
-<pre caption="Example of how it works:">
+<pre caption="Przykład zastosowania">
   # genlop -nt kdelibs
   Tue May  8 18:26:59 2007 &gt;&gt;&gt; kde-base/kdelibs-3.5.6-r8
   merge time: 38 minutes and 6 seconds.
 </pre>
 
 <p>
-This information can be used to estimate how long an update would take. The
-tool can be used to calculate the emerge time for a variety of package sets,
-like a world update, by calling it this way:
+Informacja ta może być użyta do oszacowania czasu aktualizacji. Narzędzie może
+być również użyte do przewidzenia czasu aktualizacji różnych grup pakietów jak
+na przykład world, poprzez użycie go w następujący sposób:
 </p>
 
-<pre caption="Example of emerging world:">
+<pre caption="Przykład aktualizacji world:">
   # emerge -uDp world | genlop -p
   These are the pretended packages: (this may take a while; wait...)
   [ebuild     U ] app-office/openoffice-2.2.1 [2.2.0]
@@ -399,12 +397,12 @@ like a world update, by calling it this way:
 </pre>
 
 <p>
-Now, what if you have a new package that you didn't have installed, such as you
-want to install <c>fluxbox</c> on a machine that previously did not have X
-installed:
+A co jeśli mamy nowy pakiet, który nie był wcześniej instalowany? Dla przykładu
+chcemy zainstalować <c>fluxbox</c> na maszynie, na której nie był wcześniej
+instalowany serwer X:
 </p>
 
-<pre caption="Example of using on a new package:">
+<pre caption="Przykład instalacji nowego pakietu:">
   # emerge -p fluxbox | genlop -p
   ...
   [ebuild  N    ] x11-libs/libXmu-1.0.3  USE="-debug -ipv6"
@@ -417,22 +415,22 @@ installed:
 </pre>
 
 <p>
-Genlop will only reference the packages it knows. If you use the -q option
-(genlop version &gt;= 0.30.7), an online database running on
-<c>gentoo.linuxhowtos.org</c> is queried for compile times based on users with
-an identical CPU to yours.
+Genlop odnosi się tylko do pakietów które zna. Jeśli użyjemy opcje -q (wersja
+&gt;= 0.30.7), genlop zapyta bazę danych zamieszczoną na
+<c>gentoo.linuxhowtos.org</c> o czas kompilacji u użytkowników identycznego
+procesora, jaki sami posiadamy.
 </p>
 
-<pre caption="Above query results in:">
+<pre caption="Rezultat poniższego zapytania:">
   # emerge -p fluxbox | genlop -p -q
   These are the pretended packages: (this may take a while; wait...) ...
   Estimated update time: 38 minutes.
 </pre>
 
 <p>
-The times are not 100% accurate; it does not respect USE flags or memory speed,
-hard disk speed, or other factors. However, as the times get averaged over
-different users, these factors become less important.
+Czasy nie są trafne na 100%; w obliczaniu nie są uwzględniane flagi USE lub
+prędkości pamięci i dyków, jak również inne czynniki. Jednak jako że są średnią
+spośród różnych użytkowników, te czynniki stają się mniej ważne.
 </p>
 
 </body>
