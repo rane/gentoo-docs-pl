@@ -192,8 +192,8 @@ zwrócenia uwagę na <uri link="http://bugs.gentoo.org/185823">bug #185823</uri>
 Gentoo KDE na tegorocznej konferencji <uri
 link="http://akademy2007.kde.org/">aKademy</uri>, corocznym spotkaniu
 użytkowników i deweloperów KDE. W tym roku odbyło się ono w Glasgow, Szkocja.
-Marcus opowiadał zarówno o Gentoo jak i KDE, problemach napotkanych przy pracach
-nad KDE, aktualną wersją 3.5 oraz tymi wcześniejszymi, a także o
+Marcus opowiadał zarówno o Gentoo jak i KDE, wspominał o napotkanych problemach
+przy pracach nad KDE, aktualną wersją 3.5 oraz tymi wcześniejszymi, a także o
 doświadczeniach w kontaktach z deweloperami z KDE i innych dystrybucji. W
 trakcie jego wykładu można było również usłyszeć o planach związanych z nowym
 wydaniem KDE 4.0. Zainteresowanych dodatkowymi szczegółami na temat prezentacji
@@ -215,15 +215,14 @@ link="http://home.kde.org/~akademy07/videos/1-21-Gentoo_KDE.ogg">filmu</uri>.
 
 <p>
 <uri link="http://www.gentoo.org/proj/en/pr/events/guk07/">Konferencja Gentoo UK
-2007</uri> odbyła się w University College w Londynie w dnia 14 i 15 lipca. Jak
-wiadomo jest to największa konferencja na temat Gentoo na świecie. Więcej
-informacji o tym wydarzeniu można uzyskać na <uri
-link="http://genbot.co.uk/">stronie</uri> domowej konferencji. Dzień wcześniej
-odbyło się spotkanie towarzyskie w <uri
+2007</uri> odbyła się na University College w Londynie w dniach 14 i 15 lipca.
+Jest to największa konferencja na temat Gentoo na świecie. Więcej informacji o
+tym wydarzeniu można uzyskać na <uri link="http://genbot.co.uk/">stronie domowej
+imprezy</uri>. W przeddzień odbyło się spotkanie towarzyskie w <uri
 link="www.beerintheevening.com/pubs/s/85/858/Marylbone_Tup/Marylbone">Marylebone
-Tup</uri>. Wśród wykładów jakie miały miejsce na konferencji był jeden dotyczący
-KDE oraz aplikacji naukowych w obrębie Gentoo, poprowadzony przez Marcusa D.
-Hanwella.
+Tup</uri>. Wśród wykładów jakie można było usłyszeć w czasie konferencji należy
+wspomnieć ten dotyczący KDE oraz aplikacji naukowych w Gentoo, a poprowadzony
+przez Marcusa D.  Hanwella.
 </p>
 
 </body>
@@ -233,14 +232,14 @@ Hanwella.
 <body>
 
 <p>
-Wzorem poprzednich lat Gentoo zostało zaprezentowane na <uri
+Wzorem poprzednich lat Gentoo było reprezentowane na <uri
 link="http://linuxtage.at">Grazer Linuxtage</uri>. Odwiedzający mieli okazję
 porozmawiania z <mail link="dertobi123@gentoo.org">Tobiasem Scherbaumem</mail>,
-który przybył na Graz z Niemiec oraz lokalnymi mieszkańcami: <mail
+który przybył na imprezę z Niemiec oraz lokalnymi mieszkańcami: <mail
 link="roger55@gentoo.org">Rogerem Milikerem</mail>, <mail
-link="amne@gentoo.org">Wernfriedem Haasem</mail> i weteranem forum, Peterem
-Gantnerem (nephros). Mogli również zobaczyć kilka architektur opartych na
-Gentoo.
+link="amne@gentoo.org">Wernfriedem Haasem</mail> orez weteranem forum, Peterem
+Gantnerem (nephros). Na stoisku można było podziwiać kilka architektur
+działających pod kontrolą Gentoo Linux.
 </p>
 
 <figure link="/images/gwn/20070716_linuxtage.jpg"
@@ -248,28 +247,30 @@ Gentoo.
         caption="Tobias Scherbaum (dertobi123) i kilka maszyn z uruchomionym Gentoo" />
 
 <p>
-Poza wszechobecną architekturą x86, na stoisku były maszyny PPC i HP PA-RISC z
-uruchomionym systemem Gentoo Linux. Była również uruchomiona gra Doom, która
-miała za zadanie przyciągać odwiedzających.
+Poza wszechobecną architekturą x86, na stoisku można było znaleźć komputery
+oparte o procesory PPC i HP PA-RISC z uruchomionym Gentoo Linux.  Ta ostatnia
+była ciekawa z tego względu, że można na niej było na niej pograć sobie w Domma,
+co na pewno przykuwało uwagę odwiedzających.
 </p>
 
 <p>
-Pierwszy wykład był prowadzony przez Tobiasa i Wernfrieda. Opis (w języku
-niemieckim) można znaleźć na <uri>http://linuxtage.at/89/</uri>.
+Po raz pierwszy wykład o Gentoo został poprowadzony przez dwóch prowadzących,
+Tobiasa oraz Wernfrieda. Prezentacje (w języku niemieckim) można znaleźć pod
+adresem <uri>http://linuxtage.at/89/</uri>.
 </p>
 
 <p>
-Zdjęcia z tego wydarzenia są dostępne w <uri
-link="http://linuxtage.at/gallery/">galerii</uri> Grazer Linuxtage.
+Zdjęcia z imprezy są dostępne w <uri link="http://linuxtage.at/gallery/">galerii
+Grazer Linuxtage</uri>.
 </p>
 
 </body>
 </section>
 </chapter>
+
 <!-- Gentoo in the press -->
 <chapter>
 <title>Gentoo w prasie</title>
-
 <section>
 <title>Linux Format (11 lipca 2007)</title>
 <body>
