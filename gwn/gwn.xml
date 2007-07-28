@@ -96,6 +96,13 @@ czytelników.
 </tr>
 -->
 <tr>
+  <ti><uri link="/news/pl/gwn/20070716-newsletter.xml">16 lipca 2007</uri></ti>
+  <ti>Tygodnik Gentoo wskrzeszony. Nominacje do Rady Gentoo. Nowości ze świata
+  PAM i cracklib. Projekt Gentoo Kernel Security poszukuje chętnych do pomocy.
+  Stabilizacja GNOME 2.18.2. Cichy, tani, oszczędny i do tego z Gentoo Linux -
+  Zonbu Zonbox. Szacowanie czasu kompilacji.</ti>
+</tr>
+<tr>
   <ti><uri link="/news/pl/gwn/20070507-newsletter.xml">7 maja 2007</uri></ti>
   <ti>Wydano Gentoo 2007.0 „Secret Sauce”. Ostatnia aktualizacja coreutils i
   kwestie skryptów. Status Gentoo MIPS. Aktualizacja Gentoo z małym wyjątkiem.
