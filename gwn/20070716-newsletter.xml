@@ -276,29 +276,27 @@ Grazer Linuxtage</uri>.
 <body>
 
 <p>
-Całą stronę sierpniowego wydania Linux Format poświęcił na renecję Gentoo Linux
-2007.0 recenzent Neil Bothwick. Był pod tak wielkim wrażeniem nowego wydania
-dystrybucji, że nagrodził ją dziewięcioma punktami na dziesięć możliwych.
+W sierpniowym wydaniu Linux Format można znaleźć rozległą recenzję Gentoo Linux
+2007.0 napisaną przez Neila Bothwicka. Był on pod dużym wrażeniem nowego wydania
+dystrybucji, że ocenił ją aż na dziewięć punktów w dziesięcio stopniowej skali.
 </p>
 
 <p>
-Z artykułu: "Zaletą jest to, że ma się wielką kontrolę nad tym co jest
-instalowane. To jest ta kontrola; zamiast użycia nierozsądnych flag kompilatora
-które określają jakie opcje mają być aktywowane w instalowanym oprogramowaniu
-lub jakie mają być nieaktywne jeśli nie ma takiej potrzeby. Można zaoszczędzić
-przestrzeń dyskową, zredukować zależności, skrócić czas ładowania programu a
-nawet zmniejszyć podatność na luki w bezpieczeństwie. Budowa jądra jest też
-łatwa do przeprowadzenia poprzez narzędzie 'genkernel', użyte przez instalator
-lub jego manualną konfigurację.
+Z artykułu: „Zaletą jest to, że ma się wielką kontrolę nad tym co jest
+instalowane. To właśnie ta kontrola, a nie nierozważne użycie flag kompilatora,
+określa jakie opcje mają być aktywowane w instalowanym oprogramowaniu, a które
+są niepotrzebne. Można zaoszczędzić przestrzeń dyskową, zredukować zależności,
+skrócić czas ładowania programu. a nawet zmniejszyć podatność na luki
+bezpieczeństwa. Budowa jądra jest też łatwa dzięki narzędziu 'genkernel', które
+jest używane przez graficzny instalator. Możliwa jest także manualna
+konfiguracja jądra.
 </p>
 
 <p>
-Drzewo portage zawiera prawie 12 000 pakietów, więc oprogramowania nie będzie
-brakowało."
-Autor zakończył: "Jeśli chciałbyś większej kontroli nad systemem i jesteś
-przygotowany aby włożyć w to dodatkowy wysiłek, Gentoo może być właśnie tym,
-czego szukasz."
-for."
+Drzewo Portage zawiera prawie 12 000 pakietów, więc oprogramowania z pewnością
+nam nie będzie brakowało.” Autor podsumowuje: „Jeśli chcesz mieć większą
+kontrolę nad systemem i jesteś przygotowany, aby włożyć w to dodatkowy wysiłek
+to Gentoo może być właśnie tym, czego szukasz.”
 </p>
 
 <ul>
@@ -346,30 +344,34 @@ porównujących wydania LiveCD i LiveDVD.
 <body>
 
 <p>
-Serwis LinuxDevices.com pierwszy poinformował o Zonbu Zonbox, który jest nie
-wymagającą dużej mocy alternatywą dla standardowego komputera klasy PC, bazowana
-na Gentoo Linux. Poniżej odrobina tego, co mieli do powiedzenia.
+Serwis LinuxDevices.com jako pierwszy poinformował o Zonbu Zonbox. Jest to
+ciekawe urządzenie, charakteryzujące się niskim poborem prądu i stanowiące
+doskonałą alternatywę dla standardowych komputerów klasy PC, a co działające
+pod kontrolą systemu Gentoo Linux. Poniżej można znaleźć kilka szczegółów na
+jego temat.
 </p>
 
 <p>
-&quot;A Palo Alto, uruchomiony na bazie CA ma być cichym, tanim w utrzymaniu i
-opartym na Linuksie urządzeniem, nie wymagającym tak wiele energii jak
-tradycyjne komputery klasy PC. Zonbu Zonbox uruchamia Gentoo Linux i dwa tuziny
-aplikacji Open Source na procesorze Via C7, taktowanym zegarem 1.2GHz.&quot;
+„Firma z Palo Alto, CA przygotowuje premierę cichego, taniego i bazującego na
+Linuksie urządzenia, które dodatkowo potrzebuje o rząd wielkości mniej prądu w
+stosunku do tradycyjnych PC-tów. Zonbu Zonbox używa Gentoo Linux i dwóch
+tuzinów aplikacji Open Source uruchomionych na procesorze Via C7, taktowanym
+zegarem 1.2GHz.”
 </p>
 
 <p>
-Zwracają uwagę na jego wymagania energetyczne w porównaniu z typowym pecetem.
+Dość szczegółowej analizie poddano wymagania energetyczne nowego urządzenia i
+tradycyjnych komputerów.
 </p>
 
 <p>
-&quot;Według Zonbu zużywa 15 Watt (przeciętnie) lub 131 kW na rok, emitując
-około 44kg dwutlenku węgla do atmosfery. Standardowy komputer klasy PC w
-porównaniu, zużywa przeciętnie 175 Watt lub 1,533 kW na rok.&quot;
+„Zonbu zużywa średnio 15 W lub 131 kW na rok, powodując emisję około 44kg
+dwutlenku węgla do atmosfery. Dla porównania standardowy komputer klasy PC
+zużywa przeciętnie 175 W lub 1,533 kW na rok.”
 </p>
 
 <p>
-Również New York Times wspomniał o Zonbox i stworzył własny <uri
+New York Times również podjął temat Zonbox i stworzył własny <uri
 link="http://www.nytimes.com/2007/07/16/technology/16cheap.html">artykuł</uri>
 na temat tego urządzenia.
 </p>
@@ -386,21 +388,21 @@ na temat tego urządzenia.
 <body>
 
 <p>
-Aby dowiedzieć się ile czasu zajęła instalacja danego pakietu lub oszacować czas
-przyszłych instalacji można analizować plik <c>emerge.log</c> lub użyć narzędzia
-<c>genlop</c> które jest stworzone do tego zadania.
+Aby dowiedzieć się ile czasu zajęła instalacja pakietu lub oszacować czas
+przyszłych aktualizacji można analizować plik <c>emerge.log</c> lub skorzystać z
+narzędzia <c>genlop</c> które stworzono właśnie w tym celu.
 </p>
 
-<pre caption="Przykład zastosowania">
+<pre caption="Przykład użycia">
   # genlop -nt kdelibs
   Tue May  8 18:26:59 2007 &gt;&gt;&gt; kde-base/kdelibs-3.5.6-r8
   merge time: 38 minutes and 6 seconds.
 </pre>
 
 <p>
-Informacja ta może być użyta do oszacowania czasu aktualizacji. Narzędzie może
-być również użyte do przewidzenia czasu aktualizacji różnych grup pakietów jak
-na przykład world, poprzez użycie go w następujący sposób:
+Informację tą można użyć do oszacowania czasu aktualizacji. Narzędzie może
+być również wykorzystać, by oszacować czas instalacji większej ilości pakietów,
+włączając w to użycie grupy world:
 </p>
 
 <pre caption="Przykład aktualizacji world:">
@@ -412,9 +414,9 @@ na przykład world, poprzez użycie go w następujący sposób:
 </pre>
 
 <p>
-A co jeśli mamy nowy pakiet, który nie był wcześniej instalowany? Dla przykładu
-chcemy zainstalować <c>fluxbox</c> na maszynie, na której nie był wcześniej
-instalowany serwer X:
+Co jednak w przypadku, gdy chcemy zainstalować nowy pakiet? Na przykład gdy
+chcemy zainstalować <c>fluxbox</c> na komputerze, na którym do tej pory nie ma
+jeszcze serwera X:
 </p>
 
 <pre caption="Przykład instalacji nowego pakietu:">
@@ -430,22 +432,23 @@ instalowany serwer X:
 </pre>
 
 <p>
-Genlop odnosi się tylko do pakietów które zna. Jeśli użyjemy opcje -q (wersja
-&gt;= 0.30.7), genlop zapyta bazę danych zamieszczoną na
-<c>gentoo.linuxhowtos.org</c> o czas kompilacji u użytkowników identycznego
-procesora, jaki sami posiadamy.
+Genlop potrafi oszacować czas kompilacji jedynie znanych mu pakietów. Możemy
+jednak skorzystać z opcji -q (wersja &gt;= 0.30.7), dowiemy się wtedy jak sprawa
+wygląda dla innych użytkowników, posiadających komputery wyposażone w ten sam
+co nasz model procesora.
 </p>
 
-<pre caption="Rezultat poniższego zapytania:">
+<pre caption="Rezultat zewnętrznego zapytania:">
   # emerge -p fluxbox | genlop -p -q
   These are the pretended packages: (this may take a while; wait...) ...
   Estimated update time: 38 minutes.
 </pre>
 
 <p>
-Czasy nie są trafne na 100%; w obliczaniu nie są uwzględniane flagi USE lub
-prędkości pamięci i dyków, jak również inne czynniki. Jednak jako że są średnią
-spośród różnych użytkowników, te czynniki stają się mniej ważne.
+Rezultaty zwracane prze genlop nie są trafne w 100%. Nie uwzględniają one różnic
+w używanych flagach USE, wydajności pamięci, dysku twardego i innych czynników.
+W odpowiedzi uzyskamy średni czas instalacji dla różnych użytkowników, więc te
+różnice stają się mniej istotne.
 </p>
 
 </body>
