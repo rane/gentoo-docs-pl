@@ -70,7 +70,7 @@ ma miejsce zazwyczaj.
 <p>
 Dla zainteresowanych statystykami, które powinny się pojawić w czasie przerwy w
 wydawaniu Tygodnika Gentoo mamy dobrą nowinę. Uzupełniliśmy wszystkie braki i są
-one dostępne na stronie domowej Tygodnika. Z powodu ich nieaktualności nie
+one dostępne na stronie domowej Tygodnika. Z powodu ich nieaktualności, nie
 zostaną one jednak wysłane emailem. Zapraszamy do zapoznania się z wszystkimi
 opublikowanymi statystykami na głównej stronie <uri
 link="/news/pl/gwn/gwn.xml">Tygodnika Gentoo</uri> (polskie tłumaczenia będą
@@ -80,7 +80,7 @@ sukcesywnie dodawane).
 <p>
 Tygodnik Gentoo ciągle szuka pomocy ze strony społeczności. Jeśli macie
 informacje związane z Gentoo, którymi chcielibyście się podzielić z czytelnikami
-Tygodnika to zachęcamy do przesłania ich na adres
+Tygodnika to zachęcamy do przesyłania ich na adres
 <mail>gwn-feedback@gentoo.org</mail>. Zostaną one z pewnością dodane w jednym z
 kolejnych numerów.
 </p>
@@ -117,35 +117,36 @@ projektu</uri> Rady Gentoo.
 <body>
 
 <p>
-<mail link="flameeyes@gentoo.org">Diego Pettenò</mail> ogłosił na swoim <uri
-link="http://farragut.flameeyes-is-a-geek.org">blogu</uri> swoje postępy nad
-pracą z PAM-em. Jakiś czas temu była dyskusja o przeniesieniu
-<c>sys-apps/cracklib</c> z grupy pakietów systemowych, jako że biblioteki te nie
-są niezbędne. Chociaż <c>sys-apps/cracklib</c> nie jest już w tej grupie, dalej
-jest potrzebny dla użytkowników <c>PAM</c>. Diego dodał do drzewa korektę do
-<c>sys-libs/pam</c> (oznaczony maską ~arch), która pozwala kontrolować
-instalację cracklib poprzez standardowo aktywną flagę cracklib.
+<mail link="flameeyes@gentoo.org">Diego Pettenò</mail> przedstawił w swoim <uri
+link="http://farragut.flameeyes-is-a-geek.org">blogu</uri> postępy prac nad PAM.
+Jakiś czas temu odbyła się dyskusja na temat usunięcia <c>sys-libs/cracklib</c>
+z grupy pakietów systemowych, jako że biblioteka nie jest już niezbędne. Chociaż
+<c>sys-libs/cracklib</c> nie jest już w grupie system, to dalej jest ona
+potrzebna użytkownikom <c>PAM</c>. Diego dodał do niestabilnej gałęzi drzewa
+kolejną wersję <c>sys-libs/pam</c>, która umożliwia za pośrednictwem flagi USE
+zrezygnować z cracklib. Jak na razie biblioteka ta jest domyślnie używana.
 </p>
 
 </body>
 </section>
 <section>
-<title>Projekt Gentoo Kernel security poszukuje chętnych do pomocy</title>
+<title>Projekt Gentoo Kernel Security poszukuje chętnych do pomocy</title>
 <body>
 
 <p>
-<mail link="dsd@gentoo.org">Daniel Drake</mail> poszukuje chętnych do pomocy w
-projekcie Gentoo Kernel security. Ich zadaniem ma być rozwój oprogramowania pod
-wezględem bezpieczeństwa (śledzenie błędów bezpieczeństwa i pomoc w informowaniu
-użytkowników kiedy nowa wersja jądra rozwiąże problemy bezpieczeństwa).
-Podstawową rola wiąże się z opanowaniem błędów (groźnych i niegroźnych) w
-kernelu. Problemy pochodzą z bazy pochodzą z bazy danych, więc będzie trzeba
-będzie kontrolować nakładki wpływające o drzewa Portage.
+<mail link="dsd@gentoo.org">Daniel Drake</mail> z projektu Gentoo Kernel
+Security poszukuje chętnych do pomocy. Szczególnie potrzebna jest pomoc w
+stworzeniu aplikacji umożliwiającej automatyczne śledzenie problemów
+bezpieczeństwa i informowanie o nich zainteresowanych użytkowników. Do
+obowiązków należeć będzie radzenie sobie z usterkami w jądrze, zarówno tymi
+mniej jak i bardziej groźnymi. Poprawki pojawiają się w bazach danych, wymagana
+jest tutaj umiejętność ich odpowiedniego aplikowania w jądrze dystrybucyjnym w
+drzewie Portage.
 </p>
 
 <p>
-Jeśli jesteś zainteresowany pomocą, skontaktuj się z Danielem Drake
-(<mail>dsd@gentoo.org</mail>.
+Daniel Drake prosi zainteresowane osoby o kontakt na adres
+<mail>dsd@gentoo.org</mail>.
 </p>
 
 </body>
@@ -158,11 +159,11 @@ Jeśli jesteś zainteresowany pomocą, skontaktuj się z Danielem Drake
 Zespół <uri link="/proj/en/desktop/gnome">GNOME</uri> pracuje nad stabilizacją
 GNOME 2.18.2. Będzie to aktualizacja z obecnie stabilnej wersji GNOME 2.16.
 Więcej informacji o zmianach można znaleźć na stronie domowej projektu <uri
-link="http://www.gnome.org/start/2.18">GNOME</uri>. Warto zapoznać się również z
-<uri link="/proj/en/desktop/gnome/howtos/gnome-2.18-upgrade.xml">Przewodnikiem
-Aktualizacji GNOME 2.18</uri> przed rozpoczęciem tego procesu. Jeśli chcesz
-pomóc w stabilizacji zwróć uwagę na <uri
-link="http://bugs.gentoo.org/185823">bug #185823</uri>.
+link="http://www.gnome.org/start/2.18">GNOME</uri>. Przed rozpoczęciem warto
+zapoznać się również z poradnikiem <uri
+link="/proj/en/desktop/gnome/howtos/gnome-2.18-upgrade.xml">Gnome 2.18 Upgrade
+Guide</uri>. Zainteresowanych pomocą w procesie stabilizacji zachęcamy do
+zwrócenia uwagę na <uri link="http://bugs.gentoo.org/185823">bug #185823</uri>.
 </p>
 
 </body>
