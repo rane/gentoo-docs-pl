@@ -4,7 +4,7 @@
  <doc ID='metadoc'>
    <files name='metadoc.xml' path='doc'/>
    <info nick='rane' prior='C'/>
-   <rev sync='1.188' target=''/>
+   <rev sync='1.189' target=''/>
  </doc>
  <doc ID='index'>
   <files name='index.xml' path='doc'/>
@@ -19,7 +19,7 @@
  <doc ID='gentoo-x86+raid+lvm2-quickinstall'>
   <files name='gentoo-x86+raid+lvm2-quickinstall.xml' path='doc'/>
   <info nick='' prior='C' group='Install'/>
-  <rev sync='1.17' target=''/>
+  <rev sync='1.18' target=''/>
  </doc>
  <doc ID='gentoo-x86-tipsntricks'>
   <files name='gentoo-x86-tipsntricks.xml' path='doc'/>
@@ -34,12 +34,12 @@
  <doc ID='change-chost'>
   <files name='change-chost.xml' path='doc'/>
   <info nick='' prior='C' group='System'/>
-  <rev sync='1.1' target=''/>
+  <rev sync='1.2' target=''/>
  </doc>
  <doc ID='zsh'>
   <files name='zsh.xml' path='doc'/>
   <info nick='' prior='I' group='System'/>
-  <rev sync='1.4' target=''/>
+  <rev sync='1.5' target=''/>
  </doc>
  <doc ID='ldapdns-guide'>
   <files name='ldapdns-guide.xml' path='doc'/>
@@ -69,7 +69,7 @@
  <doc ID='nvidia-guide'>
   <files name='nvidia-guide.xml' path='doc'/>
   <info nick='' prior='C' group='Desktop'/>
-  <rev sync='1.40' target=''/>
+  <rev sync='1.41' target=''/>
  </doc>
  <doc ID='macos-guide'>
   <files name='macos-guide.xml' path='doc'/>
@@ -84,7 +84,7 @@
  <doc ID='colinux-howto'>
   <files name='colinux-howto.xml' path='doc'/>
   <info nick='' prior='I' group='System'/>
-  <rev sync='1.12' target=''/>
+  <rev sync='1.13' target=''/>
  </doc>
  <doc ID='gentoo-sparc-quickinstall'>
   <files name='gentoo-sparc-quickinstall.xml' path='doc'/>
@@ -99,7 +99,7 @@
   <doc ID='nx-guide'>
  <files name='nx-guide.xml' path='doc'/>
   <info nick='shadow' prior='N' lock=''/>
-  <rev sync='1.5' target=''/>
+  <rev sync='1.6' target=''/>
  </doc>
  <doc ID='gentoo-amd64-faq'>
   <files name='gentoo-amd64-faq.xml' path='doc'/>
@@ -179,7 +179,7 @@
  <doc ID='guide-localization'>
   <files name='guide-localization.xml' path='doc'/>
   <info nick='' prior='I' group='Desktop'/>
-  <rev sync='1.46' target=''/>
+  <rev sync='1.47' target=''/>
  </doc>
  <doc ID='man-guide'>
   <files name='man-guide.xml' path='doc'/>
@@ -209,7 +209,7 @@
  <doc ID='dri-howto'>
   <files name='dri-howto.xml' path='doc'/>
   <info nick='' prior='N' group='Desktop'/>
-  <rev sync='1.38' target=''/>
+  <rev sync='1.39' target=''/>
  </doc>
  <doc ID='ati-faq'>
   <files name='ati-faq.xml' path='doc'/>
@@ -289,7 +289,7 @@
  <doc ID='gnupg-user'>
   <files name='gnupg-user.xml' path='doc'/>
   <info nick='' prior='N' group='Desktop'/>
-  <rev sync='1.41' target=''/>
+  <rev sync='1.42' target=''/>
  </doc>
  <doc ID='virt-mail-howto'>
   <files name='virt-mail-howto.xml' path='doc'/>
@@ -364,7 +364,7 @@
  <doc ID='jffnms'>
   <files name='jffnms.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
-  <rev sync='1.4' target=''/>
+  <rev sync='1.6' target=''/>
  </doc>
  <doc ID='ltsp'>
   <files name='ltsp.xml' path='doc'/>
@@ -389,7 +389,7 @@
  <doc ID='doc-tipsntricks'>
   <files name='doc-tipsntricks.xml' subdir='gdp/doc' path='proj'/>
   <info nick='' prior='I' lock='' group='Projekty'/>
-  <rev sync='1.24' target=''/>
+  <rev sync='1.25' target=''/>
  </doc>
  <doc ID='java-upgrade'>
    <files name='java-upgrade.xml' subdir='java' path='proj'/>
@@ -414,7 +414,7 @@
  <doc ID='power-management-guide'>
   <files name='power-management-guide.xml' path='doc'/>
   <info nick='' prior='I' group='Desktop'/>
-  <rev sync='1.27' target=''/>
+  <rev sync='1.29' target=''/>
  </doc>
  <doc ID='about'>
   <files name='about.xml' path='main'/>
@@ -429,7 +429,7 @@
  <doc ID='lists'>
   <files name='lists.xml' path='main'/>
   <info nick='' prior='I'/>
-  <rev sync='1.95' target=''/>
+  <rev sync='1.96' target=''/>
  </doc>
  <doc ID='irc'>
   <files name='irc.xml' path='main'/>
@@ -484,7 +484,7 @@
  <doc ID='quick-samba-howto'>
   <files name='quick-samba-howto.xml' path='doc'/>
   <info nick='' prior='N' group='System'/>
-  <rev sync='1.29' target=''/>
+  <rev sync='1.30' target=''/>
  </doc>
  <doc ID='hpc-howto'>
   <files name='hpc-howto.xml' path='doc'/>
@@ -519,7 +519,7 @@
   <doc ID='modular-x-howto'>
   <files name='modular-x-howto.xml' subdir='desktop/x/x11' path='proj'/>
   <info nick='Damjanek' prior='I' group='Desktop'/>
-  <rev sync='1.62' target=''/>
+  <rev sync='1.63' target=''/>
  </doc>
  <doc ID='porting-modular-x-howto'>
   <files name='porting-modular-x-howto.xml' subdir='desktop/x/x11' path='proj'/>
@@ -544,12 +544,12 @@
  <doc ID='xfce-config'>
   <files name='xfce-config.xml' path='doc/'/>
   <info nick='cla' prior='I' group='Desktop'/>
-  <rev sync='1.7' target=''/>
+  <rev sync='1.8' target=''/>
  </doc>
  <doc ID='gnome-config'>
   <files name='gnome-config.xml' path='doc'/>
   <info nick='rane' prior='I' group='Desktop'/>
-  <rev sync='1.18' target=''/>
+  <rev sync='1.19' target=''/>
  </doc>
  <doc ID='gentoo-upgrading'>
   <files name='gentoo-upgrading.xml' path='doc'/>
@@ -818,15 +818,15 @@
  </hbdoc>
  <hbdoc part='1' ID='hb-install-mips-medium' filename='hb-install-mips-medium.xml' chap='2'>
   <info nick='' lock=''/>
-  <rev sync='1.23' target=''/>
+  <rev sync='1.24' target=''/>
  </hbdoc>
  <hbdoc part='1' ID='hb-install-ppc-medium' filename='hb-install-ppc-medium.xml' chap='2'>
   <info nick='' lock=''/>
-  <rev sync='1.56' target=''/>
+  <rev sync='1.57' target=''/>
  </hbdoc>
  <hbdoc part='1' ID='hb-install-ppc64-medium' filename='hb-install-ppc64-medium.xml' chap='2'>
   <info nick=''/>
-  <rev sync='1.35' target=''/>
+  <rev sync='1.36' target=''/>
  </hbdoc>
  <hbdoc part='1' ID='hb-install-sparc-medium' filename='hb-install-sparc-medium.xml' chap='2'>
   <info nick=''/>
@@ -858,7 +858,7 @@
  </hbdoc>
  <hbdoc part='1' ID='hb-install-ppc-disk' filename='hb-install-ppc-disk.xml' chap='4'>
   <info nick='' lock=''/>
-  <rev sync='1.44' target=''/>
+  <rev sync='1.45' target=''/>
  </hbdoc>
  <hbdoc part='1' ID='hb-install-ppc64-disk' filename='hb-install-ppc64-disk.xml' chap='4'>
   <info nick=''/>
@@ -882,11 +882,11 @@
  </hbdoc>
  <hbdoc part='1' ID='hb-install-system' filename='hb-install-system.xml' chap='6'>
   <info nick=''/>
-  <rev sync='1.106' target=''/>
+  <rev sync='1.107' target=''/>
  </hbdoc>
  <hbdoc part='1' ID='hb-install-mips-system' filename='hb-install-mips-system.xml' chap='6'>
   <info nick=''/>
-  <rev sync='1.4' target=''/>
+  <rev sync='1.5' target=''/>
  </hbdoc>
  <hbdoc part='1' ID='hb-install-alpha-kernel' filename='hb-install-alpha-kernel.xml' chap='7'>
   <info nick=''/>
@@ -906,7 +906,7 @@
  </hbdoc>
  <hbdoc part='1' ID='hb-install-ppc-kernel' filename='hb-install-ppc-kernel.xml' chap='7'>
   <info nick='' lock=''/>
-  <rev sync='1.53' target=''/>
+  <rev sync='1.54' target=''/>
  </hbdoc>
  <hbdoc part='1' ID='hb-install-ppc64-kernel' filename='hb-install-ppc64-kernel.xml' chap='7'>
   <info nick=''/>
@@ -946,11 +946,11 @@
  </hbdoc>
  <hbdoc part='1' ID='hb-install-ppc-bootloader' filename='hb-install-ppc-bootloader.xml' chap='10'>
   <info nick='stawrul' lock=''/>
-  <rev sync='1.42' target=''/>
+  <rev sync='1.43' target=''/>
  </hbdoc>
  <hbdoc part='1' ID='hb-install-ppc64-bootloader' filename='hb-install-ppc64-bootloader.xml' chap='10'>
   <info nick=''/>
-  <rev sync='1.26' target=''/>
+  <rev sync='1.27' target=''/>
  </hbdoc>
  <hbdoc part='1' ID='hb-install-sparc-bootloader' filename='hb-install-sparc-bootloader.xml' chap='10'>
   <info nick='' lock=''/>
@@ -974,7 +974,7 @@
  </hbdoc>
  <hbdoc part='2' ID='hb-working-use' filename='hb-working-use.xml' chap='2'>
   <info nick=''/>
-  <rev sync='1.46' target=''/>
+  <rev sync='1.48' target=''/>
  </hbdoc>
  <hbdoc part='2' ID='hb-working-features' filename='hb-working-features.xml' chap='3'>
   <info nick='' lock=''/>
@@ -982,7 +982,7 @@
  </hbdoc>
  <hbdoc part='2' ID='hb-working-rcscripts' filename='hb-working-rcscripts.xml' chap='4'>
   <info nick='' lock=''/>
-  <rev sync='1.29' target=''/>
+  <rev sync='1.30' target=''/>
  </hbdoc>
  <hbdoc part='2' ID='hb-working-variables' filename='hb-working-variables.xml' chap='5'>
   <info nick='' lock=''/>
@@ -1117,23 +1117,23 @@
  </hbdoc>
  <hbdoc part='0' ID='hb-install-ppc-bootloader' filename='hb-install-ppc-bootloader.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.10' target=''/>
+  <rev sync='1.11' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='hb-install-ppc-disk' filename='hb-install-ppc-disk.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.11' target=''/>
+  <rev sync='1.12' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='hb-install-ppc-kernel' filename='hb-install-ppc-kernel.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.13' target=''/>
+  <rev sync='1.14' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='hb-install-ppc-medium' filename='hb-install-ppc-medium.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.8' target=''/>
+  <rev sync='1.9' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='hb-install-ppc64-bootloader' filename='hb-install-ppc64-bootloader.xml' chap='0'>
   <info nick=''/>
-  <rev sync='1.4' target=''/>
+  <rev sync='1.5' target=''/>
  </hbdoc>
  <hbdoc part='0' ID='hb-install-ppc64-disk' filename='hb-install-ppc64-disk.xml' chap='0'>
   <info nick=''/>
@@ -1269,7 +1269,7 @@
   </hbdoc>
   <hbdoc ID='shb-limits' filename='shb-limits.xml'>
     <info nick='rane'/>
-    <rev sync='1.6' target=''/>
+    <rev sync='1.7' target=''/>
   </hbdoc>
     <hbdoc ID='shb-perms' filename='shb-perms.xml'>
     <info nick='rane'/>
@@ -1289,7 +1289,7 @@
   </hbdoc>
   <hbdoc ID='shb-services' filename='shb-services.xml'>
     <info nick='rane'/>
-    <rev sync='1.7' target=''/>
+    <rev sync='1.8' target=''/>
   </hbdoc>
   <hbdoc ID='shb-chroot' filename='shb-chroot.xml'>
     <info nick='rane'/>
