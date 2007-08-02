@@ -133,45 +133,45 @@ improvements.
 <!-- Gentoo International-->
 <!-- Gentoo in the press -->
 <chapter>
-<title>Gentoo in the Press</title>
+<title>Gentoo w prasie</title>
 <section>
-<title>Linux+ (03 July, 2007)</title>
+<title>Linux+ (03 lipiec, 2007)</title>
 <body>
 
 <p>
-Linux+ has released an issue featuring Gentoo's latest release: 2007.0. The
-magazine release includes three articles about the Gentoo Linux Installer (GLI),
-an introduction to some of the basics of portage, and deploying Gentoo on
-multiple machines.
+Magazyn Linux+ poruszył zagadnienia dotyczące ostatniego wydania Gentoo: 2007.0.
+Opublikowano trzy artykuły - parę słów na temat Instalatora Gentoo (GLI), dwa
+zdania wstępu do Portage oraz trochę o tym, jak instalować Gentoo na kilku
+maszynach.
 </p>
 
 <p>
-The first article about the Gentoo Linux Installer was written by <mail 
-link="codeman@gentoo.org">Preston Cody</mail>, who helped create the Gentoo
-Linux Installer. The article describes why the installer was created, what the
-hardest tasks of building the Graphical Linux Installer are, and what each step
-of the installation is about.
+Pierwszy artykuł opisuje Instalator Gentoo, twórcą artykułu jest <mail 
+link="codeman@gentoo.org">Preston Cody</mail>, który zresztą jest też jedną z
+osób zajmujących się projektem Instalatora. W artykule opisano dlaczego ów
+projekt powstał, jakie zadania są najcięższe przy jego budowie i wyjaśnia
+krok po kroku cały tok instalacji.
 </p>
 
 <p>
-The next article, written by <mail link="anant@gentoo.org">Anant Narayanan
-</mail>, who has worked with GNU parted amongst other OSS projects, covers
-how to easily install Gentoo on multiple machines. The article gives details
-about the pre-requisites before you plan on duplicating the machine and then
-shows you how to do it with a program called Partition Image.
+Kolejny, napisany przez <mail link="anant@gentoo.org">Ananta Narayanana
+</mail>, który pracował już z narzędziem GNU parted przy innych projektach OSS,
+pokazuje jak można łatwo zainstalować Gentoo na kilku maszynach. Artykuł
+wyjaśnia szczegóły wszystkich wymogów potrzebnych przed przystąpieniem do duplikowania
+maszyny, po czym pokazuje jak tego dokonać przy pomocy programu zwanego Partition 
+Image.
 </p>
 
 <p>
-The third article goes in depth about Gentoo's package manager and was written
-by <mail link="genone@gentoo.org">Marius Mauch</mail>, one of the lead Portage
-developers. It gives some great insight on the portage package manager as well
-as the configuration, basic operations and explanations of the main tools used
-with Portage.
+Trzeci opisuje czeluści menedżera pakietów Gentoo, a jego autorem jest 
+<mail link="genone@gentoo.org">Marius Mauch</mail>, jeden z liderów grupy
+deweloperów Portage. Czytając artykuł odkrywamy Portage od samej konfiguracji,
+przez podstawowe operacje, po narzędzia wykorzystywane wraz z menedżerem. 
 </p>
 
 <p>
-A link to the magazine can be found <uri 
-link="http://lpmagazine.org/en/linuxplus/issues.html">here</uri>.
+Strona magazynu dostępna jest pod <uri 
+link="http://lpmagazine.org/en/linuxplus/issues.html">tym adresem</uri>.
 </p>
 
 </body>
