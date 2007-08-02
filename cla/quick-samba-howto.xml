@@ -1,0 +1,1160 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/quick-samba-howto.xml,v 1.9 2007/06/09 13:50:15 rane Exp $ -->
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+
+<guide link="/doc/pl/quick-samba-howto.xml" lang="pl">
+<title>Konfiguracja Samba3, CUPS i ClamAV w Gentoo</title>
+<author title="Autor">
+  <mail link="daff at dword dot org">Andreas "daff" Ntaflos</mail>
+</author>
+<author title="Autor">
+  <mail link="joshua@sungentoo.homeunix.com">Joshua Preston</mail>
+</author>
+<author title="Tłumaczenie">
+  <mail link="edi15ta@gazeta.pl">Mateusz Kotyrba</mail>
+</author>
+
+<abstract>
+Ustawianie, instalacja oraz konfiguracja serwera Samba pod Gentoo, który
+współdzieli pliki, drukarki bez potrzeby instalacji sterowników oraz dostarcza
+automatycznego skanowania antywirusowego.
+</abstract>
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
+<license/>
+
+<version>1.20</version>
+<date>2007-07-29</date>
+
+<chapter>
+<title>Wprowadzenie</title>
+<section>
+<title>Cel</title>
+<body>
+
+<p>
+Ten przewodnik ma pomóc w przebudowie sieci, w której klienci mówią różnymi
+językami, na taką w której każdy klient mówi tym samym językiem. Ostatecznym
+celem jest stworzenie wspólnego środowiska sieciowego dla wielu różnych
+architektur i systemów.
+</p>
+
+<p>
+Wskazówki w tym przewodniku są krokiem w kierunku wspólnej koegzystencji systemu
+Windows oraz wszystkich rodzajów systemów *nix.
+</p>
+
+<p>
+Ten przewodnik w początkowej fazie był tylko zbiorem pytań i odpowiedzi. Jego
+intencją było ukazanie zespołu funkcji oraz mocy systemu Gentoo, narzędzia
+Portage oraz flag USE. Podobnie jak w innych projektach, szybko zorientowano się
+czego brakuje królestwu Gentoo: nie było właściwie żadnego przewodnika o Sambie
+dla użytkowników Gentoo. Właśnie użytkownicy Gentoo są bardziej wymagający niż
+posiadacze innych dystrybucji. Wymagają wydajności, elastyczności oraz
+dostosowania do własnych potrzeb. Jednak nie znaczy to, że ten przewodnik nie
+może być wykorzystany w innych dystrybucjach. Lecz został on stworzony do pracy
+z wysoko zindywidualizowaną wersją Samby.
+</p>
+
+<p>
+Ten przewodnik opisuje jak współdzielić pliki oraz drukarki pomiędzy
+komputerami z systemem Windows, a tymi z systemami *nix. Demonstruje on także
+użycie cechy Samby - VFS (wirtualnego systemu plików), aby automatycznie
+zabezpieczyć się przed wirusami. W końcu pokażemy również jak zamontować oraz
+manipulować zasobami współdzielonymi.
+</p>
+
+<p>
+Kilka tematów poruszonych tutaj wybiega poza obszar tego przewodnika. Wtedy
+zostanie to wyraźnie podkreślone.
+</p>
+
+<p>
+Ten przewodnik jest oparty na połączeniu doskonałego przewodnika umieszczonego
+na <uri link="http://forums.gentoo.org">Forum Gentoo</uri> przez Andreasa
+"daffa" Ntaflosa oraz zgromadzonej przez Joshuę Prestona wiedzy. Odnośnik do tej
+dyskusji znajduje się poniżej:
+</p>
+
+<ul>
+  <li>
+    <uri link="http://forums.gentoo.org/viewtopic.php?t=110931">HOWTO
+    CUPS+Samba: printing from Windows &amp; Linux</uri>
+  </li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Zanim zaczniemy</title>
+<body>
+
+<p>
+Istnieje kilka przewodników dotyczących konfiguracji CUPS i/lub Samby, proszę je
+również przeczytać, gdyż mogą w nich być rzeczy nie zawarte w tym przewodniku.
+Jednym z tych dokumentów jest bardzo użyteczny oraz dobrze napisany <uri
+link="/doc/pl/printing-howto.xml">Drukowanie w Gentoo</uri>, znajdziemy w nim
+tematy, które nie są tu poruszane m.in. problemy konfiguracyjne oraz ustawianie
+konkretnych drukarek.
+</p>
+
+</body>
+</section>
+<section>
+<title>Przegląd</title>
+<body>
+
+<p>
+Po przedstawieniu wszystkich flag USE, będziemy poruszali tematy zgodnie z
+następującą listą:
+</p>
+
+<ul>
+  <li>Na serwerze Samby:
+    <ul>
+      <li>Instalacja oraz konfiguracja ClamAV</li>
+      <li>Instalacja oraz konfiguracja Samba</li>
+      <li>Instalacja oraz konfiguracja CUPS</li>
+      <li>Dodawanie drukarki do CUPS</li>
+      <li>Dodawanie sterowników PS do klientów z systemem Windows</li>
+    </ul>
+  </li>
+  <li>Na klientach UNIX-owych:
+    <ul>
+      <li>Instalacja oraz konfiguracja CUPS</li>
+      <li>Konfiguracja domyślnej drukarki</li>
+      <li>Montowanie zasobów współdzielonych Windows lub Samby</li>
+    </ul>
+  </li>
+  <li>Na klientach Windowsowych:
+    <ul>
+       <li>Konfiguracja drukarki</li>
+       <li>Dostęp do zasobów współdzielonych Samby</li>
+    </ul>
+  </li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Wymagania</title>
+<body>
+
+<p>
+Potrzebujemy następujących pakietów i urządzeń:
+</p>
+
+<ul>
+  <li>net-fs/samba</li>
+  <li>app-antivirus/clamav</li>
+  <li>net-print/cups</li>
+  <li>net-print/foomatic</li>
+  <li>net-print/hplip (jeśli mamy drukarkę HP)</li>
+  <li>Dowolne jądro (serii 2.6)</li>
+  <li>
+    Drukarka (PS lub nie-PS, niekoniecznie ZBYT nowa lub wyróżniająca się)
+  </li>
+  <li>
+    Działająca sieć (w domu, biurze, itd.) składająca się z co najmniej 2 maszyn
+  </li>
+</ul>
+
+<p>
+Głównym pakietem, którego będziemy używać jest net-fs/samba, jednakże,
+potrzebujemy również jądro z załączonym wsparciem dla cifs, w celu montowania
+zasobów współdzielonych Samby lub Windows z innego komputera. CUPS zostanie
+zainstalowany, jeśli jeszcze nie jest. Zostanie tu również użyty
+app-antivirus/clamav, jednakże inne programy powinniśmy również bardzo łatwo
+przystosować do pracy z Sambą. Ebuild Samby w Gentoo wspiera wszystkie rodzaje
+technologii skanerów antywirusowych, takich jak Sophos, FProt, Fsav, Trend,
+Icap, Nai, itd.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Zaznajamianie się z Sambą</title>
+<section>
+<title>Flagi USE</title>
+<body>
+
+<p>
+Przed zainstalowaniem czegokolwiek, przyjrzyjmy się niektórym flagom USE
+dostępnym dla Samby.
+</p>
+
+<pre caption="Samba używa następujących zmiennych USE:">
+kerberos acl cups ldap pam readline python oav
+</pre>
+
+<p>
+W zależności od topologii sieci oraz konkretnych wymagań serwera, flagi USE
+przedstawione poniżej zdefiniują co należy włączyć lub wyłączyć podczas
+instalacji Samby.
+</p>
+
+<table>
+<tr>
+  <th><b>Flaga USE</b></th>
+  <th>Opis</th>
+</tr>
+<tr>
+  <th><b>kerberos</b></th>
+  <ti>
+    Włączenie wsparcia dla Kerberos.  Serwer będzie tego potrzebował, jeśli mamy
+    zamiar dołączyć do istniejącej domeny lub Active Directory.  Po więcej
+    informacji proszę zobaczyć poniższą uwagę.
+  </ti>
+</tr>
+<tr>
+  <th><b>acl</b></th>
+  <ti>
+    Włącza Access Control Lists. Wsparcie ACL w Sambie używa poprawionych ext2,
+    ext3 lub SGI XFS w celu właściwiego funkcjonowania, gdyż rozszerza ona
+    bardziej szczegółowy dostęp do plików lub katalogów, znacznie bardziej niż
+    typowe schematy GID lub UID systemów *nix.
+  </ti>
+</tr>
+<tr>
+  <th><b>cups</b></th>
+  <ti>
+    Załącza wsparcie dla Common Unix Printing System. To dostarcza interfejs
+    pozwalający, aby lokalne drukarki CUPS mogły być udostępnione innym systemom
+    w sieci.
+  </ti>
+</tr>
+<tr>
+  <th><b>ldap</b></th>
+  <ti>
+    Włącza Lightweight Directory Access Protocol (LDAP).  Jeśli Samba ma używać
+    Active Directory, wtedy ta opcja musi być użyta.  Zostanie to wykorzystane,
+    gdy Samba będzie potrzebowała się zalogować lub dostarczyć wejście do domeny
+    lub serwera Active Directory.  Flaga kerberos jest wymagana dla prawidłowego
+    funkcjonowania tej opcji.
+  </ti>
+</tr>
+<tr>
+  <th><b>pam</b></th>
+  <ti>
+    Włączanie wsparcia dla pluggable authentication modules (PAM). Dostarcza to
+    możliwość uwierzytelniania użytkowników na serwerze Samba, który jest
+    wymagany jeśli użytkownik musi się logować do serwera. Flaga kerberos jest
+    zalecana razem z tą opcją.
+  </ti>
+</tr>
+<tr>
+  <th><b>readline</b></th>
+  <ti>
+    Łączy Sambę z libreadline.  Ta flaga jest mocno polecana i nie powinna być
+    wyłączana.
+  </ti>
+</tr>
+<tr>
+  <th><b>python</b></th>
+  <ti>
+    Dowiązanie Pythona z interfejsem API.  Dostarcza interfejsu API, który
+    pozwoli Pythonowi na połączenie z Sambą.
+  </ti>
+</tr>
+<tr>
+  <th><b>oav</b></th>
+  <ti>
+    Dostarcza możliwość skanowania zasobów współdzielonych Samby w trakcie
+    próby dostępu, za pomocą demonu FRISK F-Prot, Kaspersky AntiVirus,
+    OpenAntiVirus.org ScannerDaemon, Sophos Sweep (SAVI), Symantec CarrierScan
+    oraz Trend Micro (VSAPI).
+  </ti>
+</tr>
+</table>
+
+<p>
+Kilka rzeczy o flagach USE oraz funkcjach Samby o których warto wspomnieć:
+</p>
+
+<ul>
+  <li>
+    ACL na ext2/3 jest wdrażane poprzez rozszerzone właściwości (ang. extended
+    attributes (EA)). Opcje jądra EA oraz ACL dla ext2 i/lub ext3 należy włączyć
+    (w zależności jakiego systemu plików używamy).
+  </li>
+  <li>
+    Funkcje Active Directory, ACL i PDC wykraczają poza ten przewodnik, więcej
+    użytecznych informacji można znaleźć na stronach:
+    <ul>
+      <li><uri>http://www.bluelightning.org/linux/samba_acl_howto/</uri></li>
+      <li><uri>http://www.wlug.org.nz/HowtoSamba3AndActiveDirectory</uri></li>
+    </ul>
+  </li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Instalacja oprogramowania serwera</title>
+<section>
+<title>Instalacja Samby</title>
+<body>
+
+<p>
+Po pierwsze: należy się upewnić, że wszystkie nazwy hostów w sieci są
+rozwiązywane poprawnie. Uzyskamy to jeśli w naszej sieci będziemy posiadali
+działający serwer DNS, bądź odpowiednie wpisy w pliku <path>/etc/hosts</path> na
+każdym z komputerów. <c>cupsaddsmb</c> często zawodzi jeśli nazwy hostów nie
+wskazują poprawnych maszyn.
+</p>
+
+<p>
+Na szczęście możemy teraz dokonać oceny czego nam aktualnie potrzeba, aby używać
+Samby w naszym konkretnym przypadku. Ustawieniami użytymi w tym przewodniku są:
+</p>
+
+<ul>
+  <li>oav</li>
+  <li>cups</li>
+  <li>readline</li>
+  <li>pam</li>
+</ul>
+
+<p>
+Aby zoptymalizować wydajność, wielkość oraz czas kompilacji, flagi USE są
+specjalnie włączane lub wyłączane.
+</p>
+
+<pre caption="Instalacja Samby">
+# <i>echo "net-fs/samba oav readline cups pam" &gt;&gt; /etc/portage/package.use</i>
+# <i>emerge net-fs/samba</i>
+</pre>
+
+<note>
+Użytkownicy następujących architektur powinni dodać znak <e>~</e> do
+<e>KEYWORDS</e>: x86, ppc, sparc, hppa, ia64 i alpha.
+</note>
+
+<p>
+To zainstaluje Sambę oraz CUPS (jeśli CUPS nie jest jeszcze zainstalowany).
+</p>
+
+</body>
+</section>
+<section>
+<title>Instalujemy ClamAV</title>
+<body>
+
+<p>
+Ponieważ flaga <e>oav</e> dostarcza tylko interfejs pozwalający na skanowanie
+antywirusowe w trakcie dostępu do pliku, więc sam skaner antywirusowy należy
+również zainstalować. W tym przewodniku używamy skanera ClamAV.
+</p>
+
+<pre caption="Instalacja Clamav">
+# <i>emerge app-antivirus/clamav</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Instalujemy foomatic</title>
+<body>
+
+<pre caption="Instalacja foomatic">
+# <i>emerge net-print/foomatic</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Instalujemy net-print/hplip</title>
+<body>
+
+<p>
+Ten pakiet jest wymagany tylko w przypadku używania drukarki HP.
+</p>
+
+<pre caption="Instalacja hplip">
+# <i>emerge net-print/hplip</i>
+</pre>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Konfiguracja serwera</title>
+<section>
+<title>Konfiguracja Samby</title>
+<body>
+
+<p>
+Głównym plikiem konfiguracyjnym Samby jest <path>/etc/samba/smb.conf</path>.
+Jest on podzielony na części za pomocą [nazwasekcji]. Komentarze są po znaku #
+lub ;.  Przykładowy <path>smb.conf</path> jest dołączony poniżej z
+komentarzami, sugestiami oraz modyfikacjami. Jeśli potrzebnych jest więcej
+informacji, wtedy należy spojrzeć do strony manuala <path>smb.conf</path>,
+zainstalowanego przykładowego pliku <path>smb.conf.example</path>, strony
+domowej Samby lub jakiejkolwiek książki dostępnej na rynku.
+</p>
+
+<pre caption="Przykładowy /etc/samba/smb.conf">
+[global]
+<comment># Zastępujemy MOJAGRUPAROBOCZA odpowiednią grupą roboczą lub
+domeną</comment>
+workgroup = <comment>MOJAGRUPAROBOCZA</comment>
+<comment># Ta linia oczywiście jest bez znaczenia, gdyż
+# każdy wie, że to nie Windows!
+# %v wyświetli wersję Samby, której używamy.</comment>
+server string = Samba Server %v
+<comment># Chcemy używać CUPS, więc odpowiedni wpis znajduje się tu
+;-)</comment>
+printcap name = cups
+printing = cups
+load printers = yes
+<comment># Chcemy używać pliku dziennika, nie większego niż 50kb.</comment>
+log file = /var/log/samba/log.%m
+max log size = 50
+<comment># Niektóre opcje dla naszych interfejsów...</comment>
+socket options = TCP_NODELAY SO_RCVBUF=8192 SO_SNDBUF=8192
+<comment># To jest świetny pomysł, linia ta przywiązuje
+# serwer Samby do naszej sieci lokalnej.
+# Przykładowo, jeśli eth0 jest naszym lokalnym urządzeniem sieciowym</comment>
+interfaces = lo <i>eth0</i>
+bind interfaces only = yes
+<comment># Tu podajemy hosty, którym zezwalamy na dostęp.
+# Jesteśmy tak ostrożni, ponieważ ta konfiguracja
+# nie używa haseł!</comment>
+hosts allow = 127.0.0.1 <i>192.168.1.0/24</i>
+hosts deny = 0.0.0.0/0
+<comment># Innymi opcjami są tu USER, DOMAIN, ADS i SERVER
+# Domyślnie jest user</comment>
+security = share
+<comment># Brak haseł, więc tworzymy konto gościa!</comment>
+guest account = samba
+guest ok = yes
+<comment># Teraz wszczepimy skaner antywirusowy.
+# UWAGA: Poprzez wpisanie tego do części [global], włączamy
+# skanowanie WSZYSTKICH zasobów współdzielonych, opcjonalnie możemy przenieść
+# te wpisy do konkretnych zasobów i skanować tylko te zasoby.</comment>
+
+<comment># Dla Samby 3.x. To włącza skanowanie ClamAV podczas próby
+# dostępu do pliku.</comment>
+vfs object = vscan-clamav
+vscan-clamav: config-file = /etc/samba/vscan-clamav.conf
+
+<comment># Ustawianie informacji o sterownikach drukarki!</comment>
+[print$]
+comment = Printer Drivers
+path = /etc/samba/printer <comment># ta ścieżka utrzymuje strukturę
+# sterownika</comment>
+guest ok = yes
+browseable = yes
+read only = yes
+<comment># Tu wpisujemy "nazwaużytkownika,root", jeśli nie chcemy, aby root
+# był jedynym administratorem drukarki.</comment>
+write list = <i>root</i>
+
+<comment># Teraz ustawiamy, które drukarki mają być udostępniane, nazwa jest
+# obowiązkowa, powinna być taka sama w Sambie oraz w CUPS!</comment>
+[HPDeskJet930C]
+comment = HP DeskJet 930C Network Printer
+printable = yes
+path = /var/spool/samba
+public = yes
+guest ok = yes
+<comment># Wpisujemy tu "nazwaużytkownika,root", jeśli nie chcemy, aby root
+# był jedynym administratorem drukarki.</comment>
+printer admin = <i>root</i>
+<comment># Ustawiamy udostępnianie drukarek.  Wpisujemy 'yes' obok
+# browseable, printable, public.</comment>
+[printers]
+comment = All Printers
+browseable = no
+printable = yes
+writable = no
+public = yes
+guest ok = yes
+path = /var/spool/samba
+<comment># Wpisujemy tu "nazwaużytkownika,root", jeśli nie chcemy, aby root
+# był jedynym administratorem drukarki.</comment>
+printer admin = <i>root</i>
+
+<comment># Tworzymy nowe zasoby współdzielone, do których będziemy mieli prawa
+# odczytu-zapisu. Jest to rodzaj publicznych, tymczasowych zasobów
+# współdzielonych, każdy tu może robić co mu się podoba.</comment>
+[public]
+comment = Public Files
+browseable = yes
+public = yes
+create mode = 0766
+guest ok = yes
+path = /home/samba/public
+</pre>
+
+<warn>
+Jeśli lubimy używać konta gościa Samby w celu drukowania dokumentów z klientów
+Windowsowych: nie należy ustawiać <c>guest only = yes</c> w części
+<c>[global]</c>.  Konto gościa stwarza czasem problemy, gdy uruchamiamy
+<c>cupsaddsmb</c> z maszyn Windowsowych. Proszę spojrzeć poniżej, gdzie jest
+omawiany <c>cupsaddsmb</c> oraz problemy jakie mogą z nim wystąpić.  Zamiast
+tego należy używać konta użytkownika, który ma uprawnienia do korzystania z
+drukarki, chociażby <c>printeruser</c>, <c>printer</c> lub <c>printme</c> lub
+jakikolwiek inny. To rozwiązanie nie boli, a na pewno uchroni nas przed
+niepotrzebnymi problemami.
+</warn>
+
+<warn>
+Włączenie skanowania ClamAV w części <c>[global]</c> znacznie obniży wydajność
+serwera Samby.
+</warn>
+
+<p>
+Teraz stworzymy katalogi wymagane do minimalnej konfiguracji Samby, aby móc
+współdzielić zainstalowaną drukarkę poprzez sieć.
+</p>
+
+<pre caption="Tworzenie katalogów">
+# <i>mkdir /etc/samba/printer</i>
+# <i>mkdir /var/spool/samba</i>
+# <i>mkdir /home/samba/public</i>
+</pre>
+
+<p>
+Co najmniej jeden użytkownik Samba jest wymagany do zainstalowania sterowniki
+drukarki oraz umożliwić innym użytkownikom na łączenie się z drukarką.
+Użytkownicy ci muszą być wpisani do pliku systemowego
+<path>/etc/passwd</path>.
+</p>
+
+<pre caption="Tworzenie kont użytkowników">
+# <i>smbpasswd -a root</i>
+
+<comment>(Jeśli chcemy, aby nie tylko root był administratorem drukarki)</comment>
+# <i>smbpasswd -a nazwaużytkownika</i>
+</pre>
+
+<p>
+Hasła Samby nie muszą być takie same jak hasła systemowe w
+<path>/etc/passwd</path>.
+</p>
+
+<p>
+Należy również zaktualizować <path>/etc/nsswitch.conf</path>, aby systemy
+Windows mogły być łatwo znalezione za pomocą NetBIOS:
+</p>
+
+<pre caption="Edytowanie /etc/nsswitch.conf">
+# <i>nano -w /etc/nsswitch.conf</i>
+<comment>(Edytujemy linię hosts)</comment>
+hosts: files dns <i>wins</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja ClamAV</title>
+<body>
+
+<p>
+Plikiem konfiguracyjnym podanym w <path>smb.conf</path> jest
+<path>/etc/samba/vscan-clamav.conf</path>.  Teraz ustawione są domyślne opcje,
+jednakże opcja akcji przy znalezieniu zakażonego pliku może wymagać zmiany.
+</p>
+
+<pre caption="/etc/samba/vscan-clamav.conf">
+[samba-vscan]
+<comment>; Konfiguracja wykonawcza dla vscan-samba używającego clamd
+; wszystkie opcje mają wartości domyślne</comment>
+
+<comment>; Wpis nakazujący skanowanie plików mniejszych niż X bajtów. Jeśli
+; ustawimy 0 (domyślnie), wtedy ta opcja zostanie wyłączona (wszystkie pliki
+; będą skanowane).</comment>
+max file size = 0
+
+<comment>; Rejestry skanowanych plików (mamy do wyboru 'yes' lub 'no'). Jeśli
+; wpiszemy 'yes', rejestr każdego skanowanego pliku będzie wyświetlany. Jeśli
+; wpiszemy 'no' (domyślnie), tylko rejestry plików zakażonych zostaną
+; wyświetlone.</comment>
+verbose file logging = no
+
+<comment>; Wpisanie 'yes' (domyślnie), wywoła skanowanie pliku podczas
+; otwierania.</comment>
+scan on open = yes
+<comment>; Wpisanie 'yes' (domyślnie), wywoła skanowanie pliku podczas
+; zamykania.</comment>
+scan on close = yes
+
+<comment>; Jeśli komunikacja z clamd zawiedzie, czy dostęp do pliku powinien
+; być zabroniony? (domyślnie: yes)</comment>
+deny access on error = yes
+
+<comment>; Jeśli demon zawiedzie wyświetlając błąd (uszkodzenie, itp.),
+; czy dostęp do pliku powinien być zabroniony? (domyślnie: yes)</comment>
+deny access on minor error = yes
+
+<comment>; Czy wysłać wiadomość przez usługę Posłaniec, gdy wirus zostanie
+; znaleziony? (domyślnie: yes)</comment>
+send warning message = yes
+
+<comment>; Co zrobić z zakażonym plikiem?
+; quarantine: spróbować przenieść go do katalogu kwarantanny; usunąć przy
+;             niepowodzeniu
+; delete:     usunąć zakażony plik
+; nothing:    nic nie robić</comment>
+infected file action = <comment>delete</comment>
+
+<comment>; Gdzie umieścić zakażone pliki - tę opcję należy zmienić!
+; Katalog musi znajdować się na tym samym urządzeniu fizycznym, co zasoby
+; współdzielone!</comment>
+quarantine directory  = /tmp
+<comment>; Przedrostek dla plików znajdujących się w kwarantannie.</comment>
+quarantine prefix = vir-
+
+<comment>; Ponieważ Windows próbuje czasem otwierać jeden plik często w
+; (bardzo) krótkim czasie, samba-vscan używa mechanizmu ostatnio używanych
+; plików (ang. recently used file mechanism), aby uniknąć wielokrotnych
+; skanowań plików. Ta opcja określa liczbę pozycji na liście plików ostatnio
+; używanych. (domyślnie: 100)</comment>
+max lru files entries = 100
+
+<comment>; Powyższy wpis jest unieważniany po upłynięciu czasu życia pliku lru
+(w sekundach). (domyślnie: 5)</comment>
+lru file entry lifetime = 5
+
+<comment>; Nazwa portu clamd (domyślnie: /var/run/clamd).</comment>
+clamd socket name = /tmp/clamd
+
+<comment>; Numer portu nasłuchiwanego przez demon skanera
+; antywriusowego.</comment>
+oav port = 8127
+</pre>
+
+<p>
+Ogólnie rzecz biorąc dobrze jest natychmiast uruchomić skaner antywirusowy.
+Dodajemy go do <e>domyślnego</e> poziomu uruchamiania, po czym natychmiastowo
+uruchamiamy usługę <c>clamd</c>. Usługa posiada dwa procesy: freshcalm zajmuje
+się aktualizacją bazy danych wirusów, natomiast clamd jest demonem
+antywirusowym. Jednak najpierw należy ustawić wedle własnych upodobań ścieżki
+dostępu do katalogów gdzie znajdują się pliki dziennika.
+</p>
+
+<pre caption="Sprawdzanie miejsca w którym znajdują się pliki dziennika">
+# <i>vim /etc/clamd.conf</i>
+<comment>(Sprawdzamy linię "LogFile /var/log/clamd.log")</comment>
+# <i>vim /etc/freshclam.conf</i>
+<comment>(Sprawdzamy linię "UpdateLogFile /var/log/freshclam.log")</comment>
+# <i>vim /etc/conf.d/clamd</i>
+<comment>(Ustawiamy "START_CLAMD=yes" oraz "START_FRESHCLAM=yes")</comment>
+</pre>
+
+<p>
+Teraz odpalamy skaner antywirusowy.
+</p>
+
+<pre caption="Załączanie clamd oraz dodawanie go do domyślnego poziomu uruchamiania">
+# <i>rc-update add clamd default</i>
+# <i>/etc/init.d/clamd start</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja CUPS</title>
+<body>
+
+<p>
+To jest nieco bardziej skomplikowane. Głównym plikiem konfiguracyjnym CUPS
+jest <path>/etc/cups/cupsd.conf</path>. Jego struktura przypomina plik
+Apache <path>httpd.conf</path>, więc możliwe, że z taką strukturą już się
+spotkaliśmy. Nakreślone wpisy w przykładzie należy zmienić:
+</p>
+
+<pre caption="/etc/cups/cupsd.conf">
+ServerName <i>PrintServer</i>          <comment># Nazwa serwera drukarki.</comment>
+ServerAdmin <i>root@PrintServer</i>    <comment># Osoba odpowiedzialna za wiadomości związane z drukarką</comment>
+
+AccessLog /var/log/cups/access_log <comment># Prawdopodobnie nie wymaga zmian</comment>
+ErrorLog  /var/log/cups/error_log  <comment># Również raczej nie wymaga zmian</comment>
+
+LogLevel  debug <comment># Tylko podczas instalacji oraz testowania, później
+                         # należy zmienić na 'info'</comment>
+
+MaxClients 100 <comment># Kiedyś musiałem mieć tę opcję ustawioną
+                        # na 1000000000, gdyż wyglądało na to, że był błąd w
+                        # interfejsie sieciowym kontrolującym CUPS, co
+                        # powodowało, że podczas konfiguracji CUPS za pomocą
+                        # interfejsu sieciowego, CUPS myślał, że stał się ofiarą
+                        # ataku DoS. Dziwne.</comment>
+
+BrowseAddress @IF(<i>eth0</i>) <comment># Należy to zmienić na wewnętrzny interfejs sieciowy</comment>
+
+&lt;Location /&gt;
+Order Deny,Allow
+Deny From All
+Allow From <i>192.168.1.*</i>  <comment># Adresy sieci wewnętrznej
+                        # np. 192.168.1.* zezwoli na połączenia z dowolnego
+                        # hosta z sieci 192.168.1.0. Należy tę opcję zmienić
+                        # tak, aby nam pasowała.</comment>
+&lt;/Location&gt;
+
+&lt;Location /admin&gt;
+AuthType Basic
+AuthClass System
+Allow From <i>192.168.1.*</i>  <comment># To samo co powyżej, zezwala
+                               # każdemu hostowi z sieci 192.168.1.0 na
+                               # połączenie się oraz wykonywanie zadań
+                               # administracyjnych po
+                               # uwierzytelnieniu.</comment>
+Order Deny,Allow
+Deny From All
+&lt;/Location&gt;
+</pre>
+
+<p>
+Edytujemy <path>/etc/cups/mime.convs</path>, aby odkomentować kilka linii.
+Zmiany w <path>mime.convs</path> i <path>mime.types</path> są potrzebne, aby
+CUPS mógł drukować dokumenty Microsoft Office.
+</p>
+
+<pre caption="/etc/cups/mime.convs">
+<comment>(Ta linia znajduje się blisko końca pliku. Należy ją odkomentować)</comment>
+application/octet-stream        application/vnd.cups-raw        0
+</pre>
+
+<p>
+Edytujemy <path>/etc/cups/mime.types</path>, aby odkomentować kilka linii.
+</p>
+
+<pre caption="/etc/cups/mime.types">
+<comment>(Ta linia znajduje się blisko końca pliku. Należy ją odkomentować)</comment>
+application/octet-stream
+</pre>
+
+<p>
+CUPS musi być uruchomione natychmiast oraz podczas ładowania systemu.
+</p>
+
+<pre caption="Załączanie usługi CUPS" >
+<comment>(Aby CUPS było uruchamiane podczas startu systemu)</comment>
+# <i>rc-update add cupsd default</i>
+<comment>(Ponowne uruchomienie CUPS)</comment>
+# <i>/etc/init.d/cupsd restart</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Instalowanie drukarki dla i z CUPS</title>
+<body>
+
+<p>
+Najpierw należy zajrzeć na <uri
+link="http://linuxprinting.org">LinuxPrinting.Org</uri>, aby znaleźć oraz
+ściągnąć plik PPD dla naszej drukarki oraz CUPS. Aby to wykonać klikamy na
+odnośnik Printer Listings, który znajduje się z lewej strony. Wybieramy
+producenta oraz model naszej drukarki, np. HP oraz DeskJet 930C. Klikamy "Show".
+Na następnej stronie, po przeczytaniu kilku uwag oraz informacji, klikamy
+odnośnik "recommended driver". Po czym, ponownie po przeczytaniu kilku uwag,
+pobieramy plik PPD z następnej strony. Możliwe, że będziemy musieli ponownie
+wybrać producenta oraz model. Przeczytanie <uri
+link="http://www.linuxprinting.org/cups-doc.html">CUPS quickstart guide</uri>
+jest także bardzo pomocne podczas pracy z CUPS.
+</p>
+
+<p>
+Teraz mamy plik PPD dla naszej drukarki, aby mogła współpracować z CUPS.
+Umieszczamy go w <path>/usr/share/cups/model</path>. PPD dla HP DeskJet 930C
+został nazwany <path>HP-DeskJet_930C-hpijs.ppd</path>. Teraz powinniśmy
+zainstalować drukarkę. Można to zrobić zarówno poprzez interfejs sieciowy CUPS
+jak i poprzez linię poleceń. Interfejs sieciowy znajduje się pod adresem
+<path>http://SERWER_WYDRUKU:631</path>, kiedy CUPS jest uruchomiony.
+</p>
+
+<pre caption="Instalacja drukarki poprzez wiersz poleceń">
+# <i>lpadmin -p HPDeskJet930C -E -v usb:/dev/ultp0 -m HP-DeskJet_930C-hpijs.ppd</i>
+# <i>/etc/init.d/cupsd restart</i>
+</pre>
+
+<p>
+Należy pamiętać, aby dostosować powyższe polecenie do posiadanej drukarki.
+Należy się upewnić, że mamy nazwę (argument <c>-p</c>) poprawną (musi ona być
+taka sama jaką ustawiliśmy podczas konfiguracji Samby) oraz aby wprowadzić
+poprawne <c>usb:/dev/usb/coś</c>, <c>parallel:/dev/coś</c> lub jakiekolwiek inne
+urządzenie, którego używamy dla naszej drukarki.
+</p>
+
+<p>
+Powinniśmy mieć już dostęp do drukarki poprzez interfejs sieciowy oraz
+powinniśmy być w stanie wydrukować stronę testową.
+</p>
+
+</body>
+</section>
+<section>
+<title>Instalowanie sterowników drukarki systemu Windows</title>
+<body>
+
+<p>
+Drukarka działa, więc nadszedł czas, aby zainstalować sterowniki dla klientów
+Windowsowych. Samba 2.2 wprowadziła ten zespół funkcji. Będąc w systemie Windows
+wchodzimy do "Otoczenie sieciowe", wchodzimy do serwera drukarki i klikamy
+prawym przyciskiem na udostępnioną drukarkę wybierając "Połącz", klient
+automagicznie ściągnie odpowiednie sterowniki, ominiemy tym samym trudy ręcznej
+instalacji sterowników drukarki.
+</p>
+
+<p>
+Do tego celu istnieją dwa zbiory sterowników drukarek. Pierwszym są sterowniki
+Adobe PS, które mogą być uzyskane ze strony <uri
+link="http://www.adobe.com/support/downloads/main.html">Adobe</uri> (sterowniki
+drukarki PostScript). Drugim, są sterowniki CUPS PS, które możemy zainstalować
+poprzez <c>emerge net-print/cups-windows</c>. Zwróćmy uwagę na to, że wciąż mogą
+być zamaskowane poprzez ~arch, więc może być potrzeba dodania ich do
+<path>/etc/portage/package.keywords</path>. Zdaje się, że nie ma różnicy w
+funkcjonalności tych dwóch sterowników, lecz te spod znaku Adobe PS wymagają
+rozpakowania na systemie Windows. Również cała procdura szukania i kopiowania
+jest dosyć kłopotliwa. Sterowniki CUPS mają kilka opcji, których brak w
+sterownikach Adobe.
+</p>
+
+<p>
+Ten przewodnik pokaże jak użyć sterowników Windows:
+</p>
+
+<pre caption="Ręczna instalacja sterowników">
+# <i>emerge -av cups-windows</i>
+# <i>/etc/init.d/cupsd restart</i>
+</pre>
+
+<p>
+Teraz użyjemy skryptu <c>cupsaddsmb</c> dostarczonego przez dystrybucję CUPS.
+Strona manuala tego skryptu jest lekturą wartą polecenia.
+</p>
+
+<pre caption="Uruchomienie cupsaddsmb">
+# <i>cupsaddsmb -H PrintServer -U root -h PrintServer -v HPDeskJet930C</i>
+<comment>(Zamiast HPDeskJet930C możemy również użyć parametru "-a", który
+"wyeksportuje wszystkie znane drukarki")</comment>
+# <i>cupsaddsmb -H PrintServer -U root -h PrintServer -a</i>
+</pre>
+
+<warn>
+Wykonanie tego polecenia powoduje najwięcej problemów, wnioskujemy to czytając
+<uri link="http://forums.gentoo.org/viewtopic.php?t=110931">posty w tym
+wątku</uri>, aby dowiedzieć się więcej o rozwiązywaniu problemów.
+</warn>
+
+<p>
+Poniżej znajdują się najczęstsze błędy:
+</p>
+
+<ul>
+  <li>
+    Nazwa hosta podawana po parametrze <c>-h</c> oraz <c>-H</c> (<c>Serwer
+    drukarki</c>) często nie jest poprawnie rozwikływana i serwer drukarki nie
+    może być zidentyfikowany, aby współpraca CUPS-Samba przebiegła pomyślnie.
+    Jeśli wystąpi błąd typu: <b>Warning: No PPD file for printer
+    "CUPS_PRINTER_NAME" - skipping!</b>, pierwsze co należy zrobić to zamienić
+    <c>Serwer drukarki</c> na <c>localhost</c> i spróbować ponownie.
+  </li>
+  <li>
+    Polecenie zawodzi wyświetlając <b>NT_STATUS_UNSUCCESSFUL</b>. Ten błąd jest
+    dosyć popularny, ale może on być spowodowany wieloma czynnikami.  Niestety
+    wyświetlony komunikat nie jest tu zbyt pomocny. Możemy tymczasowo ustawić
+    <c>security = user</c> w <path>smb.conf</path>. Po lub jeśli instalacja
+    zakończy się powodzeniem, powinniśmy zamienić z powrotem na 'share' lub na
+    cokolwiek co było przedtem.
+  </li>
+</ul>
+
+<p>
+To powinno zainstalować poprawną strukturę katalogów pod
+<path>/etc/samba/printer</path>. W naszym przypadku jest to
+<path>/etc/samba/printer/W32X86/2/</path>. Plikami w nim zawartymi powinny być 3
+pliki sterownika oraz plik PPD, ze zmienioną nazwą na
+<path>NazwaDrukarki.ppd</path> (nazwa której użyliśmy instalując drukarkę -
+proszę spojrzeć wyżej).
+</p>
+
+<p>
+Jeśli jeszcze nie pojawiły się błędy lub inne komplikacje, nasze sterowniki są
+już zainstalowane.
+</p>
+
+</body>
+</section>
+<section>
+<title>Kończenie ustawień</title>
+<body>
+
+<p>
+Na zakończenie ustawiamy katalogi.
+</p>
+
+<pre caption="Ostateczne wymagane zmiany">
+# <i>mkdir /home/samba</i>
+# <i>mkdir /home/samba/public</i>
+# <i>chmod 755 /home/samba</i>
+# <i>chmod 755 /home/samba/public</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Testowanie konfiguracji Samby</title>
+<body>
+
+<p>
+Teraz chcemy sprawdzić plik konfiguracyjny, aby upewnić się, że jest poprawnie
+sformatowany oraz wszystkie nasze opcje mają poprawną składnię. W tym celu
+wykorzystujemy <c>testparm</c>.
+</p>
+
+<pre caption="Uruchamianie testparm">
+<comment>(Domyślnie testparm sprawdza /etc/samba/smb.conf)</comment>
+# <i>/usr/bin/testparm</i>
+Load smb config files from /etc/samba/smb.conf
+Processing section &quot;[printers]&quot;
+Global parameter guest account found in service section!
+Processing section &quot;[public]&quot;
+Global parameter guest account found in service section!
+Loaded services file OK.
+Server role: ROLE_STANDALONE
+Press enter to see a dump of your service definitions
+ ...
+ ...
+</pre>
+
+</body>
+</section>
+<section>
+<title>Uruchamianie usługi Samba</title>
+<body>
+
+<p>
+Konfigurujemy Sambę, aby uruchamiała się podczas ładowania systemu, następnie ją
+uruchamiamy.
+</p>
+
+<pre caption="Załączanie usługi Samba">
+# <i>rc-update add samba default</i>
+# <i>/etc/init.d/samba start</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>Sprawdzanie usług</title>
+<body>
+
+<p>
+Najroztropniej byłoby sprawdzić pliki dziennika. Jednakże my sprawdzimy zasoby
+współdzielone za pomocą <c>smbclient</c>.
+</p>
+
+<pre caption="Sprawdzanie zasobów współdzielonych za pomocą smbclient">
+# <i>smbclient -L localhost</i>
+Password:
+<comment>(Tu powinna wyświetlić się DŁUGA lista usług)</comment>
+</pre>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Konfiguracja klientów</title>
+<section>
+<title>Konfiguracja drukarki na klientach systemów *nix</title>
+<body>
+
+<p>
+Pomimo różnic, jedyną wymaganą rzeczą jest CUPS. Wykonujemy to samo na klientach
+UNIX, Linux lub BSD.
+</p>
+
+<pre caption="Konfiguracja Gentoo">
+# <i>emerge cups</i>
+# <i>nano -w /etc/cups/client.conf</i>
+ServerName <i>PrintServer</i>      <comment># nazwa serwera drukarki</comment>
+</pre>
+
+<p>
+To wystarczy, nic więcej już nie trzeba.
+</p>
+
+<p>
+Jeśli używamy tylko jednej drukarki, będzie ona domyślną.  Jeśli nasz serwer
+wydruku zarządza kilkoma drukarkami, to domyślną drukarkę wybrał administrator.
+Jeśli chcemy zdefiniować inną domyślną drukarkę, wtedy użyteczne będzie
+polecenie <c>lpoptions</c>.
+</p>
+
+<pre caption="Ustawianie domyślnej drukarki">
+<comment>(Wyświetla dostępne drukarki)</comment>
+# <i>lpstat -a</i>
+<comment>(Przykłądowe wyjście, nasze będzie się różniło)</comment>
+HPDeskJet930C accepting requests since Jan 01 00:00
+laser accepting requests since Jan 01 00:00
+<comment>(Definiujemy HPDeskJet930C jako domyślną drukarkę)</comment>
+# <i>lpoptions -d HPDeskJet930C</i>
+</pre>
+
+<pre caption="Drukowanie na systemach *nix">
+<comment>(Wybieramy odpowiednią drukarkę)</comment>
+# <i>lp -d HPDeskJet930C cokolwiek.txt</i>
+<comment>(Używamy domyślnej drukarki)</comment>
+# <i>lp tratata.cokolwiek.ps</i>
+</pre>
+
+<p>
+Wpisujemy w przeglądarce internetowej adres <c>http://SERWER_WYDRUKU:631</c>,
+jeśli chcemy zarządzać drukarkami za pomocą ładnego interfejsu sieciowego.
+Zastępujemy <c>printserver</c> nazwą  <e>maszyny</e>, która pełni rolę serwera
+drukarki, nie nazwą którą podaliśmy serwerowi drukarki CUPS, jeśli użyliśmy
+różnych nazw.
+</p>
+
+</body>
+</section>
+<section>
+<title>Montowanie zasobów współdzielonych Windows lub Samba w GNU/Linux</title>
+<body>
+
+<note>
+Trzeba pamiętać, żeby najpierw zainstalować klienta samby używając polecenia
+<c>emerge samba</c>
+</note>
+
+<p>
+Nadszedł czas, aby skonfigurować wsparcie dla cifs w jądrze. Ponieważ zakładam,
+że skompilowaliśmy przynajmniej jedno jądro, więc musimy się upewnić, że mamy
+wszystkie poprawne opcje wybrane w jądrze. Najlepiej byłoby gdybyśmy
+skompilowali obsługę smbfs jako moduł. Opinia, że moduły są dobrą rzeczą oraz
+powinny być używane kiedy to jest tylko możliwe, jest tylko opinią autora.
+</p>
+
+<pre caption="Wsparcie jądra">
+CONFIG_CIFS=m
+</pre>
+
+<p>
+Kompilujemy moduł, instalujemy i ładujemy go za pomocą:
+</p>
+
+<pre caption="Ładowanie modułu jądra">
+# <i>modprobe cifs</i>
+</pre>
+
+<p>
+Po załadowaniu modułu, możliwe jest montowanie zasobów współdzielonych Samby lub
+Windows. W tym celu używamy polecenia <c>mount</c>:
+</p>
+
+<pre caption="Montowanie zasobów współdzielonych Windows lub Samba">
+<comment>(Składnią montującą zasoby współdzielone Windows lub Samba jest:
+  mount -t cifs [-o username=xxx,password=xxx] //serwer/zasoby /mnt/punkt
+Jeśli nie używamy haseł lub hasło nie jest potrzebne)</comment>
+
+# <i>mount -t cifs //PrintServer/public /mnt/public</i>
+
+<comment>(Jeśli konieczne jest hasło)</comment>
+# <i>mount -t cifs -o username=USERNAME,password=PASSWORD //PrintServer/public /mnt/public</i>
+</pre>
+
+<p>
+Po ich zamontowaniu, mamy do nich dostęp tak jakby znajdowały się one na
+lokalnym dysku twardym.
+</p>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja drukarki dla klientów z systemem Windows NT/2000/XP</title>
+<body>
+
+<p>
+To jest sprawą tylko kilku kliknięć. Przechodzimy do <path>\\PrintServer</path>,
+klikamy prawym przyciskiem na drukarkę (HPDeskJet930C) i wybieramy "Połącz". To
+ściągnie potrzebne sterowniki i każda aplikacja (taka jak Word lub Acrobat)
+będzie oferować HPDeskJet930C jako dostępną drukarkę. :-)
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Uwagi końcowe</title>
+<section>
+<title>Czułe pożegnanie</title>
+<body>
+
+<p>
+Na tym kończymy. Powinniśmy posiadać poprawne środowisko drukarskie, które jest
+przyjazne dla systemów Windows jak i *nix oraz w pełni bezpieczne zasoby
+współdzielone!
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Odnośniki i zasoby</title>
+<section>
+<title>Odnośniki</title>
+<body>
+
+<p>
+Poniżej znajduje się kilka odnośników, które mogą nam się przydać do
+konfiguracji oraz rozwiązywania problemów z naszą instalacją:
+</p>
+
+<ul>
+  <li><uri link="http://www.cups.org/">Strona domowa CUPS</uri></li>
+  <li>
+    <uri link="http://www.samba.org/">Strona domowa Samby</uri>, a szczególnie
+    <uri
+    link="http://www.samba.org/samba/docs/man/Samba-HOWTO-Collection/CUPS-printing.html">rozdział
+    o konfiguracji Samby</uri>
+    </li>
+  <li>
+    <uri link="http://linuxprinting.org/">LinuxPrinting dot Org</uri>
+  </li>
+  <li>
+    <uri link="http://www.linuxprinting.org/kpfeifle/SambaPrintHOWTO/">Kurt
+    Pfeifle's Samba Print HOWTO</uri> (Ten przewodnik naprawdę zawiera
+    <e>WSZYSTKO</e> co zostało tu opisane, dodatkowo znajduje się tam
+    <e>ZNACZNIE</e> więcej materiałów dotyczących CUPS oraz Samby oraz ogólnie
+    wsparcie drukowania przez sieć. Naprawdę jest on interesującą lekturą z
+    bardzo wieloma szczegółami).
+  </li>
+  <li>
+    <uri link="http://www.freebsddiary.org/cups.php">FreeBSD Diary's CUPS
+    Topic</uri>
+  </li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Rozwiązywanie błędów</title>
+<body>
+
+<p>
+Należy spojrzeć również na <uri
+link="http://www.linuxprinting.org/kpfeifle/SambaPrintHOWTO/Samba-HOWTO-
+Collection-3.0-PrintingChapter-11th-draft.html#37">tę stronę</uri> z
+podręcznika "Printing Support in Samba 3.0" Kurta Pfeifle'a. Znajduje się tam
+dużo użytecznych wskazówek! Zanim wyślemy gdzieś nasze problemy i pytania,
+najpierw należy tam spojrzeć! Być może rozwiązanie naszego problemu znajduje
+się właśnie tam.
+</p>
+
+</body>
+</section>
+</chapter>
+</guide>
