@@ -182,64 +182,65 @@ link="http://lpmagazine.org/en/linuxplus/issues.html">tym adresem</uri>.
 <chapter>
 <title>Sztuczki i kruczki</title>
 <section>
-<title>New update script</title>
+<title>Nowy skrypt do aktualizacji</title>
 <body>
 
 <p>
-Back in the December 4th <uri
-link="/news/en/gwn/20061204-newsletter.xml">issue</uri> of the GWN, a nice
-update script called <c>update-world</c> was featured in the Tips and Tricks
-section. Since December, several more update scripts have been posted by
-budding developers. One such script is simply called <c>update</c>.
+W numerze z <uri link="/news/en/gwn/20061204-newsletter.xml">4 grudnia zeszłego
+roku</uri> opisywaliśmy skrypt o nazwie <c>update-world</c>, służący do
+aktualizacji systemu. Od tego czasu początkujący deweloperzy napisali ich
+więcej. Jeden z nich nazywa się po prostu <c>update</c>.
 </p>
 
 <p>
-Update was started based on conversations around guenther's <uri
-link="http://forums.gentoo.org/viewtopic-t-494331.html">upgrade</uri>
-and count_zero's <uri
-link="http://forums.gentoo.org/viewtopic-p-3798148.html">update-world</uri>. It
-has been in testing since mid-January 2007, and one such tester event boasts on
-its "flawless" performance.
+Prace nad Update rozpoczęły się po dyskusjach na temat skryptu <uri
+link="http://forums.gentoo.org/viewtopic-t-494331.html">upgrade</uri> guenthera
+i <uri
+link="http://forums.gentoo.org/viewtopic-p-3798148.html">update-world</uri>
+count_zero. Testy rozpoczęły się w połowie stycznia 2007, a jeden z testerów
+twierdzi, że skrypt działa bez zarzutu.
 </p>
 
 <p>
-So, what exactly does this script do? Update is similar to other update
-scripts in that it will automatically skip failed packages and continue to
-emerge the rest of an emerge list. In addition, it has built-in support for
-automatically running revdep-rebuild, auto-mounting a tmpfs to speedup emerges,
-sync first, fetch files first, special options for updating a server via a cron
-job, and more. Another great feature is that it automatically hides most of the
-cruft from compiling packages, which makes it much easier to see einfo and
-ewarns, though this capability is less important with the newest versions of
-portage. You can also further reduce or even increase the log output with the
-use of the -q and -v options.
+Cóż więc dokładnie ten skrypt robi? Update jest podobny do innych skryptów
+uaktualniających w tym, że automatycznie pominie pakiety, których instalacja
+zakończy się niepowodzeniem i będzie kontynuował aktualizację kolejnych pakietów
+z listy. Dodatkowo ma wbudowaną obsługę automatycznego uruchamiania skryptu
+revdep-rebuild, automatycznego montowania tmpfs w celu przyspieszenia
+instalacji, opcję do synchronizacji drzewa i pobrania plików przed
+uaktualnieniem, specjalną funkcjonalność uaktualniania serwera poprzez zadanie
+cron i wiele innych. Kolejną godną uwagi funkcją jest ukrywanie większości
+komunikatów kompilacji, dzięki czemu łatwiej jest dostrzec komunikaty einfo i
+ewarn, choć należy dodać, że ta funkcjonalność nie jest już tak istotna przy
+ostatnich wersjach Portage. Mamy także możliwość dalszego zmniejszenia (lub
+zwiększenia) ilości komunikatów poprzez użycie parametrów -q i -v.
 </p>
 
 <p>
-Here is some <uri link="http://phpfi.com/214168">sample output</uri> from a gcc
-compile.
+Oto <uri link="http://phpfi.com/214168">przykładowe komunikaty</uri> podczas
+kompilacji gcc.
 </p>
 
-<pre caption="Getting the script">
+<pre caption="Pobieranie skryptu">
 # wget -O /sbin/updatescript.sh http://phpfi.com/241954?download
 # chmod +x /sbin/updatescript.sh
 </pre>
 
 <p>
-Most users will likely find this script as an easy way to update their entire
-system.
+Prawdopodobnie większość użytkowników uzna Update za ułatwienie przy
+uaktualnianiu systemu.
 </p>
 
-<pre caption="This is easily done with:">
+<pre caption="Uaktualnianie systemu:">
 # updatescript.sh
-(or, if you want to sync the portage tree first)
+(lub, jeśli chcemy najpierw uaktualnić drzewo pakietów)
 # updatescript.sh -s
 </pre>
 
 <p>
-The original forum thread and a download link for the script can be found at
-<uri>http://forums.gentoo.org/viewtopic-t-546828.html</uri>. Thanks to steveL
-for providing this script.
+Pierwotny wątek na forum oraz odnośnik, z którego można pobrać skrypt można
+znaleźć pod adresem <uri>http://forums.gentoo.org/viewtopic-t-546828.html</uri>.
+Za skrypt podziękowania należą się użytkownikowi steveL.
 </p>
 
 </body>
