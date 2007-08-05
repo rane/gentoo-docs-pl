@@ -29,6 +29,15 @@
 <author title="Autor">
   <mail link="rat@ratsshack.net">Aaron Valandra</mail>
 </author>
+<author title="Tłumacz">
+  <mail link="jbozanowski@gmail.com">Jakub Bożanowski</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="karol.kania@gmail.com">Karol Kania</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="moloh@gentoo.org">Michał Kurgan</mail>
+</author>
 
 <!-- Be sure to add yourself if you write an article -->
 <abstract>Wydanie Tygodnika Gentoo z 23 lipca 2007.</abstract>
@@ -41,79 +50,86 @@
 <chapter>
 <title>Wiadomości Gentoo</title>
 <section>
-<title>Gentoo Realtime Guide</title> 
+<title>Poradnik dla wymagających muzyków</title>
 <body>
 
 <p>
-<mail link="flameeyes@gentoo.org">Diego Pettenò</mail> completed a <uri
-link="/proj/en/desktop/sound/realtime.xml">guide</uri> on enabling realtime
-support for multimedia processes. If you were playing with a MIDI instrument
-connected to a software synthesizer, a high latency would yield improper
-results. However, if you use multimedia processes only to play songs while
-doing other tasks such as surfing the web, you don't need realtime support.
+<mail link="flameeyes@gentoo.org">Diego Pettenò</mail> stworzył <uri
+link="/proj/en/desktop/sound/realtime.xml">poradnik</uri> opisujący proces
+uruchomienia dostępu do przetwarzania w czasie rzeczywistym dla aplikacji
+multimedialnych. Jest to szczególnie ważne dla osób grających na instrumentach
+MIDI podłączonych do programowego syntezatora, gdzie niezwykle ważne jest
+odpowiednio niskie opóźnienie. Użytkownicy zainteresowani jedynie odtwarzaniem
+muzyki w czasie pracy przy komputerze, czy przeglądaniu internetu nie
+skorzystają na tych zmianach.
 </p>
 
 <p>
-This guide was written for people who need the maximum priority for multimedia
-support. The beauty of this guide is that it will show you a simple method to
-get realtime support, without any extra software: you have only to set up
-<c>PAM</c> correctly.
+Poradnik został napisany z myślą o osobach dla których niezwykle ważna jest
+odpowiednia jakość w czasie pracy nad multimediami. Niezwykle istotne jest to,
+że opisana procedura jest niezwykle prosta, nie jest także wymagana instalacja
+żadnego dodatkowego oprogramowania, będziemy jedynie musieli odpowiednio
+skonfigurować <c>PAM</c>.
 </p>
 
 <p>
-Thanks a lot to Diego for this nice guide and also to <mail
-link="nightmorph@gentoo.org">Josh Saddler</mail> for editing the guide.
+Podziękowania za stworzenie dokumentu, oprócz autorowi, należą się także <mail
+link="nightmorph@gentoo.org">Joshowi Saddlerowi</mail> za poprawki i szybką
+edycję poradnika.
 </p>
 
 </body>
 </section>
 <section>
-<title>Compilation Optimization Guide</title> 
+<title>Poradnik optymalizacji kompilacji</title> 
 <body>
 
 <p>
-<mail link="nightmorph@gentoo.org">Josh Saddler</mail> completed writing the
-<uri link="/doc/en/gcc-optimization.xml">Compilation Optimization guide</uri>,
-which has been added to the Gentoo documentation repository. This guide is an
-introduction to optimizing your compiled code using sane <c>CFLAGS</c> and
-<c>CXXFLAGS</c> and also includes an introduction to optimization in general.
-This guide was highly requested from users on the forums, Bugzilla, and IRC.
+<mail link="nightmorph@gentoo.org">Josh Saddler</mail> napisał poradnik <uri
+link="/doc/pl/gcc-optimization.xml">Optymalizacja kompilacji</uri>, który został
+dodany do zbiorów dokumentacji Gentoo. Można w nim znaleźć porady i wskazówki
+które flagi kompilacji są bezpieczne i mogą zostać użyte w zmiennych
+<c>CFLAGS</c> i <c>CXXFLAGS</c>. Stanowi on też ogólne wprowadzenie w samo
+zagadnienie optymalizacji. Poradnik powstał jako odzew na olbrzymie
+zainteresowanie społeczności Gentoo tym tematem, które można było zaobserwować
+na Forum, Bugzilli oraz kanałach IRC.
 </p>
 
 </body>
 </section>
 <section>
-<title>Gentoo Artwork Project looking for volunteers</title>
+<title>Projekt Gentoo Artwork poszukuje chętnych do pomocy</title>
 <body>
 
 <p>
-<mail link="cla@gentoo.org">Dawid Weglinski</mail> has recently kicked off a
-new <uri link="/proj/en/desktop/artwork/index.xml">Artwork project</uri> aimed
-at officially maintaining all Gentoo-related artwork and Gentoo desktop themes.
-The team is looking for new members and would appreciate any artwork
-contributions from the community.
+<mail link="cla@gentoo.org">Dawid Weglinski</mail> jest koordynatorem i twórcą
+niedawno stworzonego projektu <uri
+link="/proj/en/desktop/artwork/index.xml">Gentoo Artwork</uri>, którego celem
+jest opieka nad grafiką i stylami związanymi z Gentoo. Zespół aktualnie
+poszukuje chętnych do pomocy w pracy przy projekcie. Możecie także wysyłać wasze
+prace i projekty związane z naszą ulubioną dystrybucją.
 </p>
 
 <p>
-Qualifications for interested contributors should be a base knowledge on
-creating artwork, use of the related programs, as well as a sense of esthetics.
-There is particular interest for people with experience in configuring graphic
-environments (KDE, GNOME, Xfce), especially with GTK+ based applications. If
-anyone is interested, join <c>#Gentoo-desktop</c> for discussions.
+Od zainteresowanych wymagane jest podstawowa wiedza na temat tworzenia grafiki,
+obsługa odpowiedniego oprogramowania oraz poczucie estetyki.  W szczególności
+poszukiwane są osoby posiadające wiedzę dotyczącą konfiguracji środowisk
+graficznych jak KDE, Gnome, czy Xfce, a zwłaszcza aplikacji używających GTK+.
+Zainteresowanych prosimy o odwiedzenie kanału <c>#gentoo-desktop</c>
 </p>
 
 </body>
 </section>
 <section>
-<title>Gentoo Alpha Project Status Update</title> 
+<title>Stan projektu Gentoo Alpha</title> 
 <body>
 
 <p>
-A new <uri link="/proj/en/base/alpha/status/status-20070721.xml">Gentoo Alpha
-Status Update</uri> has been released. Check out the update to find out more
-about the changes in core system packages (kernel, GCC, glibc), general port
-overview and even the latest news on the new aboot revision and security
-improvements. 
+Projekt Gentoo Alpha opublikował właśnie <uri
+link="/proj/en/base/alpha/status/status-20070721.xml">aktualizację stanu
+projektu</uri>. Zachęcamy do zapoznania się z raportem, by poznać zmiany w
+najważniejszych pakietach (jądro, kompilator gcc, biblioteka glibc), generalny
+opis portu oraz najnowsze informacje dotyczące wydań i bezpieczeństwa.
 </p>
 
 </body>
@@ -135,42 +151,43 @@ improvements.
 <chapter>
 <title>Gentoo w prasie</title>
 <section>
-<title>Linux+ (03 lipiec, 2007)</title>
+<title>Linux+ (3 lipiec 2007)</title>
 <body>
 
 <p>
-Magazyn Linux+ poruszył zagadnienia dotyczące ostatniego wydania Gentoo: 2007.0.
-Opublikowano trzy artykuły - parę słów na temat Instalatora Gentoo (GLI), dwa
-zdania wstępu do Portage oraz trochę o tym, jak instalować Gentoo na kilku
-maszynach.
+W magazynie Linux+ można znaleźć opis ostatniego wydania Gentoo: 2007.0.
+Opublikowano trzy artykuły - parę słów na temat Instalatora Gentoo (GLI),
+wprowadzenie do Portage oraz trochę informacji o tym, w jaki sposób instalować
+Gentoo na kilku maszynach.
 </p>
 
 <p>
-Pierwszy artykuł opisuje Instalator Gentoo, twórcą artykułu jest <mail 
-link="codeman@gentoo.org">Preston Cody</mail>, który zresztą jest też jedną z
-osób zajmujących się projektem Instalatora. W artykule opisano dlaczego ów
-projekt powstał, jakie zadania są najcięższe przy jego budowie i wyjaśnia
-krok po kroku cały tok instalacji.
+<mail link="codeman@gentoo.org">Preston Cody</mail> w pierwszym artykule opisuje
+Instalator Gentoo. Sam autor jest zresztą jedną z osób zajmujących się samym
+projektem Instalatora. W artykule opisano dlaczego projekt powstał,
+przedstawiono największe problemy na jakie napotkano w trakcie pracy nad jego
+rozwojem i wyjaśnia krok po kroku cały proces instalacji.
 </p>
 
 <p>
-Kolejny, napisany przez <mail link="anant@gentoo.org">Ananta Narayanana
-</mail>, który pracował już z narzędziem GNU parted przy innych projektach OSS,
-pokazuje jak można łatwo zainstalować Gentoo na kilku maszynach. Artykuł
-wyjaśnia szczegóły wszystkich wymogów potrzebnych przed przystąpieniem do duplikowania
-maszyny, po czym pokazuje jak tego dokonać przy pomocy programu zwanego Partition 
-Image.
+Kolejny artykuł, napisany przez <mail link="anant@gentoo.org">Ananta
+Narayanana</mail>, który poza Gentoo pracował już nad narzędziem GNU parted,
+pokazuje w jaki sposób można łatwo zainstalować Gentoo na kilku maszynach.
+Artykuł opisuje wymagania jakie należy spełnić przed przystąpieniem do
+duplikowania maszyny, po czym pokazuje jak tego dokonać dzięki pomocy programu
+Partition Image.
 </p>
 
 <p>
-Trzeci opisuje czeluści menedżera pakietów Gentoo, a jego autorem jest 
-<mail link="genone@gentoo.org">Marius Mauch</mail>, jeden z liderów grupy
-deweloperów Portage. Czytając artykuł odkrywamy Portage od samej konfiguracji,
-przez podstawowe operacje, po narzędzia wykorzystywane wraz z menedżerem. 
+Ostatni artykuł, autorstwa <mail link="genone@gentoo.org">Mariusa Maucha</mail>,
+jednego z głównych deweloperów Portage, opisuje czeluści menedżera pakietów
+Gentoo. Czytając artykuł odkrywamy tajemnice Portage począwszy od samej
+konfiguracji, przez podstawowe operacje, po główne narzędzia używane z
+menedżerem. 
 </p>
 
 <p>
-Strona magazynu dostępna jest pod <uri 
+Strona z informacjami na temat numeru dostępna jest pod <uri
 link="http://lpmagazine.org/en/linuxplus/issues.html">tym adresem</uri>.
 </p>
 
@@ -186,10 +203,10 @@ link="http://lpmagazine.org/en/linuxplus/issues.html">tym adresem</uri>.
 <body>
 
 <p>
-W numerze z <uri link="/news/en/gwn/20061204-newsletter.xml">4 grudnia zeszłego
+W numerze z <uri link="/news/pl/gwn/20061204-newsletter.xml">4 grudnia zeszłego
 roku</uri> opisywaliśmy skrypt o nazwie <c>update-world</c>, służący do
-aktualizacji systemu. Od tego czasu początkujący deweloperzy napisali ich
-więcej. Jeden z nich nazywa się po prostu <c>update</c>.
+aktualizacji systemu. Od tego czasu początkujący deweloperzy napisali kilka
+kolejnych. Jednym z nich jest <c>update</c>.
 </p>
 
 <p>
