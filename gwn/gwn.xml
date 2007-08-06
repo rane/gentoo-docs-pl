@@ -96,6 +96,12 @@ czytelników.
 </tr>
 -->
 <tr>
+  <ti><uri link="/news/pl/gwn/20070723-newsletter.xml">23 lipca 2007</uri></ti>
+  <ti>Nowe poradniki w dokumentacji Gentoo - Poradnik dla wymagających muzyków,
+  Poradnik optymalizacji kompilacji. Projekt Gentoo Artwork poszukuje chętnych
+  do pomocy. Stan projektu Gentoo Alpha. Nowy skrypt do aktualizacji.</ti>
+</tr>
+<tr>
   <ti><uri link="/news/pl/gwn/20070716-newsletter.xml">16 lipca 2007</uri></ti>
   <ti>Tygodnik Gentoo wskrzeszony. Nominacje do Rady Gentoo. Nowości ze świata
   PAM i cracklib. Projekt Gentoo Kernel Security poszukuje chętnych do pomocy.
