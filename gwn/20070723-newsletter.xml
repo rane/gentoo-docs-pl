@@ -56,11 +56,11 @@
 <p>
 <mail link="flameeyes@gentoo.org">Diego Pettenò</mail> stworzył <uri
 link="/proj/en/desktop/sound/realtime.xml">poradnik</uri> opisujący proces
-uruchomienia dostępu do przetwarzania w czasie rzeczywistym dla aplikacji
+umożliwienia dostępu do przetwarzania w czasie rzeczywistym dla aplikacji
 multimedialnych. Jest to szczególnie ważne dla osób grających na instrumentach
 MIDI podłączonych do programowego syntezatora, gdzie niezwykle ważne jest
 odpowiednio niskie opóźnienie. Użytkownicy zainteresowani jedynie odtwarzaniem
-muzyki w czasie pracy przy komputerze, czy przeglądaniu internetu nie
+muzyki w czasie pracy przy komputerze, czy przeglądaniu internetu, nie
 skorzystają na tych zmianach.
 </p>
 
@@ -89,7 +89,7 @@ edycję poradnika.
 link="/doc/pl/gcc-optimization.xml">Optymalizacja kompilacji</uri>, który został
 dodany do zbiorów dokumentacji Gentoo. Można w nim znaleźć porady i wskazówki
 które flagi kompilacji są bezpieczne i mogą zostać użyte w zmiennych
-<c>CFLAGS</c> i <c>CXXFLAGS</c>. Stanowi on też ogólne wprowadzenie w samo
+<c>CFLAGS</c> i <c>CXXFLAGS</c>. Stanowi on także ogólne wprowadzenie w samo
 zagadnienie optymalizacji. Poradnik powstał jako odzew na olbrzymie
 zainteresowanie społeczności Gentoo tym tematem, które można było zaobserwować
 na Forum, Bugzilli oraz kanałach IRC.
@@ -112,7 +112,7 @@ prace i projekty związane z naszą ulubioną dystrybucją.
 
 <p>
 Od zainteresowanych wymagane jest podstawowa wiedza na temat tworzenia grafiki,
-obsługa odpowiedniego oprogramowania oraz poczucie estetyki.  W szczególności
+obsługa odpowiedniego oprogramowania oraz poczucie estetyki. W szczególności
 poszukiwane są osoby posiadające wiedzę dotyczącą konfiguracji środowisk
 graficznych jak KDE, Gnome, czy Xfce, a zwłaszcza aplikacji używających GTK+.
 Zainteresowanych prosimy o odwiedzenie kanału <c>#gentoo-desktop</c>
@@ -210,26 +210,26 @@ kolejnych. Jednym z nich jest <c>update</c>.
 </p>
 
 <p>
-Prace nad Update rozpoczęły się po dyskusjach na temat skryptu <uri
-link="http://forums.gentoo.org/viewtopic-t-494331.html">upgrade</uri> guenthera
-i <uri
+Prace nad update rozpoczęły się po dyskusjach na temat skryptu <uri
+link="http://forums.gentoo.org/viewtopic-t-494331.html">upgrade</uri>
+stworzonego przez guenthera'e i <uri
 link="http://forums.gentoo.org/viewtopic-p-3798148.html">update-world</uri>
-count_zero. Testy rozpoczęły się w połowie stycznia 2007, a jeden z testerów
-twierdzi, że skrypt działa bez zarzutu.
+autorstwa count_zero. Jest on już testowany od połowy stycznia 2007, a jeden z
+testerów wyraża się o nim we samych superlatywach.
 </p>
 
 <p>
-Cóż więc dokładnie ten skrypt robi? Update jest podobny do innych skryptów
-uaktualniających w tym, że automatycznie pominie pakiety, których instalacja
-zakończy się niepowodzeniem i będzie kontynuował aktualizację kolejnych pakietów
-z listy. Dodatkowo ma wbudowaną obsługę automatycznego uruchamiania skryptu
-revdep-rebuild, automatycznego montowania tmpfs w celu przyspieszenia
-instalacji, opcję do synchronizacji drzewa i pobrania plików przed
-uaktualnieniem, specjalną funkcjonalność uaktualniania serwera poprzez zadanie
-cron i wiele innych. Kolejną godną uwagi funkcją jest ukrywanie większości
-komunikatów kompilacji, dzięki czemu łatwiej jest dostrzec komunikaty einfo i
-ewarn, choć należy dodać, że ta funkcjonalność nie jest już tak istotna przy
-ostatnich wersjach Portage. Mamy także możliwość dalszego zmniejszenia (lub
+Cóż więc dokładnie ten skrypt robi? Update jest podobny do wielu innych skryptów
+aktualizujących system w tym, że automatycznie pomija pakiety, których
+instalacja zakończy się niepowodzeniem i będzie dalej kontynuował procedurę
+uaktualniania. Dodatkowo posiada wbudowaną obsługę automatycznego uruchamiania
+skryptu revdep-rebuild, automatycznego montowania tmpfs w celu przyspieszenia
+instalacji, opcję synchronizacji drzewa, pobrania plików przed uaktualnieniem,
+specjalną funkcjonalność uaktualniania serwera poprzez zadanie cron i wiele,
+wiele innych. Kolejną godną uwagi funkcją jest ukrywanie większości komunikatów
+kompilacji, dzięki czemu łatwiej jest dostrzec komunikaty einfo i ewarn, choć
+należy dodać, że ta funkcjonalność nie jest już tak istotna w przypadku
+ostatnich wersji Portage. Mamy także możliwość dalszego zmniejszenia (lub
 zwiększenia) ilości komunikatów poprzez użycie parametrów -q i -v.
 </p>
 
@@ -244,18 +244,18 @@ kompilacji gcc.
 </pre>
 
 <p>
-Prawdopodobnie większość użytkowników uzna Update za ułatwienie przy
-uaktualnianiu systemu.
+Prawdopodobnie większość użytkowników uzna update za znaczne uproszczenie
+procesu aktualizacji systemu.
 </p>
 
-<pre caption="Uaktualnianie systemu:">
+<pre caption="Aktualizacja systemu:">
 # updatescript.sh
 (lub, jeśli chcemy najpierw uaktualnić drzewo pakietów)
 # updatescript.sh -s
 </pre>
 
 <p>
-Pierwotny wątek na forum oraz odnośnik, z którego można pobrać skrypt można
+Pierwotny wątek na Forum oraz odnośnik, z którego można pobrać skrypt można
 znaleźć pod adresem <uri>http://forums.gentoo.org/viewtopic-t-546828.html</uri>.
 Za skrypt podziękowania należą się użytkownikowi steveL.
 </p>
