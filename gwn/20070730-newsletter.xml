@@ -73,33 +73,33 @@ list</uri>.
 <!-- Developer of the Week -->
 <!-- Heard in the community -->
 <chapter>
-<title>Heard in the Community</title>
+<title>Społeczność Gentoo</title>
 <!-- forums.gentoo.org -->
 <section>
 <title>Forum</title>
 <body>
 
 <p>
-<b>Portato: A Portage GUI</b>
+<b>Portato: Interfejs graficzny Portage</b>
 </p>
 
 <p>
 <uri link="http://forums.gentoo.org/profile.php?mode=viewprofile&amp;u=126014">
-Necoro</uri> announced a GTK+ based GUI for Portage:
+Necoro</uri> przedstawił na Forum bazujący na GTK+ interfejs graficzny Portage
 <uri link="http://forums.gentoo.org/viewtopic-t-495971-highlight-.html">Portato
-</uri> in the forums (albeit in German). This GUI was designed to help users
-when the CLI isn't sufficient. For example, when emerging a package with lots
-of dependencies and USE flags. This is made easier to do with a graphical
-front-end with the use of an Emerge Queue, which updates automatically and shows
-dependencies. Necoro stated that Portato wasn't meant as a replacement for the
-CLI tools but is more comfortable in various situations.
+</uri> (język niemiecki). Program powstał z myślą, by pomóc użytkownikom w
+sytuacjach gdy terminal może okazać się niewystarczający. Na przykład w sytuacji
+instalacji pakietu z dużą liczbą zależności i flag USE. Dzięki specjalnie
+zaprojektowanej kolejce i interfejsowi graficznemu taka operacjo może być
+prostsza i bardziej czytelna. Necoro rozpoczął pracę nad stworzeniem Portato nie
+w celu zastąpienia narzędzi CLI, ale by uprościć pewne operacje.
 </p>
 
 <p>
-To get Portato, execute the following commands:
+Aby pobrać pakiet Portato wystarczy wykonać następujące polecenia:
 </p>
 
-<pre caption="How to get Portato">
+<pre caption="Pobieranie pakietu Portato">
 # <i> layman -o http://portato.sf.net/layman.xml -S </i>
 # <i> layman -o http://portato.sf.net/layman.xml -a portato </i>
 </pre>
@@ -267,12 +267,12 @@ Linux funkcję:
 <chapter>
 <title>Bezpieczeństwo Gentoo</title>
 <section>
-<title>MPlayer: Multiple buffer overflows</title>
+<title>MPlayer: Wiele usterek przepełnienia bufora</title>
 <body>
 
 <p>
-Multiple vulnerabilities have been discovered in MPlayer, possibly allowing
-for the remote execution of arbitrary code.
+MPlayer zwiera wiele usterek przepełnienia bufora, które mogą zostać
+wykorzystane do zdalnego wykonania niepożądanego kodu.
 </p>
 
 <p>
@@ -284,12 +284,12 @@ GLSA</uri>
 </body>
 </section>
 <section>
-<title>NVClock: Insecure file usage</title>
+<title>NVClock: Niebezpieczne użycie plików</title>
 <body>
 
 <p>
-A vulnerability has been discovered in NVClock, allowing for the execution
-of arbitrary code.
+NVClock zawiera usterkę, która może zostać wykorzystana do wykonania
+niepożądanego kodu.
 </p>
 
 <p>
@@ -301,12 +301,12 @@ GLSA</uri>
 </body>
 </section>
 <section>
-<title>GIMP: Multiple integer overflows</title>
+<title>GIMP: Wiele usterek przekroczenia zakresu liczby całkowitej</title>
 <body>
 
 <p>
-Multiple vulnerabilities have been discovered in GIMP, allowing for the
-remote execution of arbitrary code.
+GIMP zawiera wiele usterek, które mogą zostać wykorzystane do zdalnego wykonania
+niepożądanego kodu.
 </p>
 
 <p>
@@ -318,12 +318,11 @@ GLSA</uri>
 </body>
 </section>
 <section>
-<title>Festival: Privilege elevation</title>
+<title>Festival: Przekroczenie uprawnień</title>
 <body>
 
-<p>
-A vulnerability has been discovered in Festival, allowing for a local
-privilege escalation.
+Festival zwiera usterkę, która umożliwia lokalnemu użytkownikowi przekroczenie
+uprawnień.<p>
 </p>
 
 <p>
@@ -335,12 +334,13 @@ GLSA</uri>
 </body>
 </section>
 <section>
-<title>MIT Kerberos 5: Arbitrary remote code execution</title>
+<title>MIT Kerberos 5: Zdalne wykonanie niepożądanego kodu</title>
 <body>
 
 <p>
-Multiple vulnerabilities in MIT Kerberos 5 could potentially result in
-remote code execution with root privileges by unauthenticated users.
+MIT Kerberos 5 zawiera szereg usterek, które mogą zostać wykorzystane do
+zdalnego wykonania niepożądanego kodu na prawach administratora przez
+nieuwierzytelnionych użytkowników.
 </p>
 
 <p>
@@ -352,12 +352,12 @@ GLSA</uri>
 </body>
 </section>
 <section>
-<title>VLC media player: Format string vulnerabilities</title>
+<title>VLC media player: Usterki format string</title>
 <body>
 
 <p>
-A vulnerability has been discovered in VLC media player, allowing for the
-remote execution of arbitrary code.
+VLC zawiera usterki, które mogą zostać wykorzystane do zdalnego wykonania
+niepożądanego kodu.
 </p>
 
 <p>
@@ -373,24 +373,25 @@ GLSA</uri>
 <body>
 
 <p>
-Fail2ban is vulnerable to a Denial of Service attack.
+Fail2ban jest podatne na atak Denial of Service.
+
 </p>
 
 <p>
-Więcej informacji można znaleźć w
-<uri link="http://www.gentoo.org/security/en/glsa/glsa-200707-13.xml">
-komunikacie GLSA</uri>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200707-13.xml"> komunikacie
+GLSA</uri>
 </p>
 
 </body>
 </section>
 <section>
-<title>tcpdump: Integer overflow</title>
+<title>tcpdump: Przekroczenie zakresu liczby całkowitej</title>
 <body>
 
 <p>
-A vulnerability has been discovered in tcpdump, allowing for the execution
-of arbitrary code, possibly with root privileges.
+tcpdump zawiera usterkę, która może zostać wykorzystane z wykonania
+niepożądanego kodu, możliwe że na prawach administratora.
 </p>
 
 <p>
