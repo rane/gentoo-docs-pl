@@ -138,21 +138,22 @@ interested in having your own weblog, please send your info to
 <chapter>
 <title>Międzynarodowe Gentoo</title>
 <section>
-<title>GUADEC 2007</title>
+<title>Konferencja GUADEC 2007</title>
 <body>
 
 <p>
-This years <uri link="http://www.guadec.org/">GUADEC</uri>, the GNOME Users' 
-And Developers European Conference, was held at the UCE Birmingham 
-Conservatoire, in Birmingham, England, from Sunday 15th July, until Saturday 
-21st of July 2007. The talks were divided in different categories, focusing on 
-the future of GNOME, the preview and demonstration of existing technologies, 
-as well as brainstorming sessions.
+Tegoroczna impreza <uri link="http://www.guadec.org/">GUADEC</uri>, czyli
+Europejska Konferencja Deweloperów i Uzytkowników GNOME odbyła się w UCE
+Birmingham Conservatoire w Birmingham w Anglii w czasie od niedzieli 15 lipca do
+soboty 21 lipca 2007. Wygłoszone prelekcje były podzielone na różne kategorie, w
+tym kwestię przyszłości GNOME, omówienia istniejących technologii oraz burze
+mózgów.
 </p>
 
 <p>
-Of the topics to be heard, there were several great discussions including the 
-GNOME Online Desktop, PyroDesktop, and interesting movement in the GTK+ area.
+Spośród wielu poruszonych tematów szczególnie godne uwagi dyskusje odbyły się na
+temat GNOME Online Desktop, PyroDesktop oraz o ciekawym rozwoju sytuacji
+biblioteki GTK+.
 </p>
 
 </body>
@@ -161,47 +162,47 @@ GNOME Online Desktop, PyroDesktop, and interesting movement in the GTK+ area.
 
 <!-- Gentoo in the press -->
 <chapter>
-<title>Gentoo in the Press</title>
+<title>Gentoo w prasie</title>
 <section>
-<title>Commandline.org (28, July 2007)</title>
+<title>Commandline.org (28 lipca 2007)</title>
 <body>
 
 <p>
-Search for Gentoo on many popular online Linux publications and it is easy to 
-find drama. Perhaps that is why this piece was a refreshing change. In a recent
-post on Commandline.org, editor <mail link="theology@gmail.com">Zeth</mail> 
-shared his views on the SFC and Gentoo.
+Szukając informacji o Gentoo w wielu popularnych publikacjach o Linuksie łatwo
+trafić na wiele dramatyzowania. Być może właśnie dlatego ten tekst był powiewem
+świeżego powietrza. W jednym z ostatnich artykułów na Commandline.org, redaktor
+<mail link="theology@gmail.com">Zeth</mail> podzielił się swoją opinią na temat
+SFC i Gentoo.
 </p>
 
 <p>
-"The <uri link="http://conservancy.softwarefreedom.org/">Software Freedom 
-Conservancy</uri> has offered to take care of all this non-technical stuff 
-(as covered by <mail link="g2boojum@gentoo.org">Grant Goodyear's</mail> blog 
-<uri link="http://www.grantgoodyear.org/g2blog/gentoo/20070717-sflc.html">post
-</uri>.) The SFC would take legal liability and abstract away the paper work 
-such as doing the accounts, claiming taxes back, interacting with government 
-and so on. Gentoo would be able leave at any time in the future, no strings 
-attached.
+Organizacja <uri link="http://conservancy.softwarefreedom.org/">Software Freedom
+Conservancy</uri> zaoferowała przejęcie opieki nad wszystkimi nie-technicznymi
+aspektami działalności Gentoo (które <uri
+link="http://www.grantgoodyear.org/g2blog/gentoo/20070717-sflc.html">opisał na
+blogu</uri> <mail link="g2boojum@gentoo.org">Grant Goodyear</mail>). SFC
+podjęłaby się odpowiedzialności prawnej i roboty papierkowej, na przykład
+prowadzenie kont, staranie się o zwrot podatków, czy wchodzenie w interakcję z
+rządem. Z tego układu można się wycofać w każdej chwili bez żadnych zobowiązań.
 </p>
 
 <p>
-The Software Freedom Conservancy ... already performs this service for Samba, 
-Wine, and some other projects. To me this sounds like the ideal solution for 
-Gentoo as well.
+Software Freedom Conservancy wykonuje już te usługi dla projektów Samba, Wine i
+kilku innych. Oferta wydaje się być idealną także dla Gentoo.
 </p>
 
 <p>
-Gentoo is run by a meritocratic community of developers. These developers are 
-some of the most highly skilled geeks in the world, and spend much of their 
-free time writing the ebuilds, fixing the bugs, compiling the LiveCDs, 
-developing Gentoo admin tools and so on. They have been selectively bred for 
-that and are great at that, so let them get on with it.
+Nad Gentoo pracuje merytokratyczna społeczność deweloperów. Należą oni do grona
+najbardziej utalentowanych fanów komputerów na świecie i poświęcają większość
+swojego czasu na pisanie ebuildów, poprawianie błędów, przygotowywanie wydań
+LiveCD, rozwój narzędzi administratorskich Gentoo i tak dalej. Do tego zostali
+przygotowani i w tym są najlepsi, więc powinni nadal się tym zajmować.
 </p>
 
 <p>
-So let the SFC manage the paperwork, and let the superdevelopers get on with 
-what they do. As for the flamewars, it is all white heat. There are only three 
-ways to judge the health of Gentoo: ebuilds, ebuilds and ebuilds."
+Niech więc SFC zajmie się robotą papierkową, pozwalając deweloperom skupić się
+na swojej pracy. Nie warto przejmować się pyskówkami na forach. Są tylko trzy
+sposoby na ocenienie jakości Gentoo: ebuildy, ebuildy i jeszcze raz ebuildy.
 </p>
 
 <ul>
