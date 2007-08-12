@@ -41,29 +41,28 @@
 <chapter>
 <title>Wiadomości Gentoo</title>
 <section>
-<title>NVIDIA Drivers Update</title>
+<title>Aktualizacja sterowników nVidia</title>
 <body>
 
 <p>
-Recently <c>x11-drivers/nvidia-drivers</c> has been updated to include all
-available driver versions, including the one found in
-<c>x11-drivers/nvidia-legacy-drivers</c>, as posted by <mail
-link="cardoe@gentoo.org">Doug Goldstein</mail> on <uri
+Jak donosi <mail link="cardoe@gentoo.org">Doug Goldstein</mail> na <uri
 link="http://blog.cardoe.com/archives/2007/07/19/nvidia-drivers-updates/">
-Gentoo Planet</uri>. The nvidia-legacy-drivers package have been removed in 
-favor of the 71xx driver version now available in nvidia-drivers. In 
-accordance with this change, <mail link="nightmorph@gentoo.org">Josh Saddler
-</mail> has updated the 
-<uri link="http://www.gentoo.org/doc/en/nvidia-guide.xml">NVIDIA guide</uri>.
+Gentoo Planet</uri>, ostatnia aktualizacja pakietu
+<c>x11-drivers/nvidia-drivers</c> zawiera wszystkie dostępne wersje sterowników,
+włączając w to również te zawarte w <c>x11-drivers/nvidia-legacy-drivers</c>. 
+Ten ostatni został usunięty z drzewa Portage. W związku z tymi zmianami, 
+<mail link="nightmorph@gentoo.org">Josh Saddler</mail> zaktualizował <uri
+link="http://www.gentoo.org/doc/pl/nvidia-guide.xml">przewodnik konfiguracji
+kart nVidia w Gentoo</uri>.
 </p>
 
 <p>
-While the NVIDIA drivers ebuild will perform some auto detection to ensure that 
-the right driver for your card gets installed, you may still need to mask later
-versions to get the one that you need. Josh Saddler has updated the guide with
-regards to this change, which can also be found and in NVIDIA's <uri
-link="http://www.nvidia.com/object/IO_32667.html">hardware compatibility
-list</uri>.
+Podczas gdy ebuild sam powinien dokonać autodetekcji by stwierdzić który sterownik
+dopasować do naszej karty, może okazać się, że zajdzie potrzeba zamaskowania
+późniejszych wersji by otrzymać tę, którą potrzebujemy. Josh Saddler umieścił 
+tę informację w zaktualizowanym przewodniku. Jest ona również dostępna na <uri
+link="http://www.nvidia.com/object/IO_32667.html">liście kompatybilności
+sprzętu</uri> dostępnej na stronie producenta.
 </p>
 
 </body>
