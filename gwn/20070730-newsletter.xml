@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
 <!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
-<guide type="newsletter" link="20070730-newsletter.xml" disclaimer="draft" lang="en">
+<guide type="newsletter" link="20070730-newsletter.xml" lang="en">
 <title>Tygodnik Gentoo</title>
 <subtitle>30 lipca 2007</subtitle>
 
