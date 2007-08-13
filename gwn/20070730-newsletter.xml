@@ -41,26 +41,27 @@
 <chapter>
 <title>Wiadomości Gentoo</title>
 <section>
-<title>Aktualizacja sterowników nVidia</title>
+<title>Zmiany w sterownikach nVidia</title>
 <body>
 
 <p>
 Jak donosi <mail link="cardoe@gentoo.org">Doug Goldstein</mail> na <uri
-link="http://blog.cardoe.com/archives/2007/07/19/nvidia-drivers-updates/">
-Gentoo Planet</uri>, ostatnia aktualizacja pakietu
-<c>x11-drivers/nvidia-drivers</c> zawiera wszystkie dostępne wersje sterowników,
-włączając w to również te zawarte w <c>x11-drivers/nvidia-legacy-drivers</c>. 
-Ten ostatni został usunięty z drzewa Portage. W związku z tymi zmianami, 
-<mail link="nightmorph@gentoo.org">Josh Saddler</mail> zaktualizował <uri
-link="http://www.gentoo.org/doc/pl/nvidia-guide.xml">przewodnik konfiguracji
-kart nVidia w Gentoo</uri>.
+link="http://blog.cardoe.com/archives/2007/07/19/nvidia-drivers-updates/">Planet
+Gentoo</uri>, najnowsza wersja pakietu <c>x11-drivers/nvidia-drivers</c> zawiera
+wszystkie dostępne wersje sterowników graficznych nVidia, włączając w to
+również te, zawarte w <c>x11-drivers/nvidia-legacy-drivers</c>. Ten ostatni
+ebuild został usunięty z drzewa Portage. W związku z tymi zmianami, <mail
+link="nightmorph@gentoo.org">Josh Saddler</mail> poprawił przewodnik <uri
+link="http://www.gentoo.org/doc/pl/nvidia-guide.xml">Konfiguracja kart nVidia w
+Gentoo</uri>.
 </p>
 
 <p>
-Podczas gdy ebuild sam powinien dokonać autodetekcji by stwierdzić który sterownik
-dopasować do naszej karty, może okazać się, że zajdzie potrzeba zamaskowania
-późniejszych wersji by otrzymać tę, którą potrzebujemy. Josh Saddler umieścił 
-tę informację w zaktualizowanym przewodniku. Jest ona również dostępna na <uri
+W czasie instalacji pakietu dokonywana jest automatyczna detekcja, by stwierdzić
+który sterownik pasuje do posiadanej karty. Może okazać się, że zajdzie potrzeba
+zamaskowania nowszych wersji by móc zainstalować tą odpowiednią. Josh Saddler
+umieścił szczegółowe informacje na temat poszczególnych wersji w poprawionym
+poradniku. Można je również znaleźć na <uri
 link="http://www.nvidia.com/object/IO_32667.html">liście kompatybilności
 sprzętu</uri> dostępnej na stronie producenta.
 </p>
@@ -84,14 +85,15 @@ sprzętu</uri> dostępnej na stronie producenta.
 
 <p>
 <uri link="http://forums.gentoo.org/profile.php?mode=viewprofile&amp;u=126014">
-Necoro</uri> przedstawił na Forum bazujący na GTK+ interfejs graficzny Portage
-<uri link="http://forums.gentoo.org/viewtopic-t-495971-highlight-.html">Portato
-</uri> (język niemiecki). Program powstał z myślą, by pomóc użytkownikom w
-sytuacjach gdy terminal może okazać się niewystarczający. Na przykład w sytuacji
-instalacji pakietu z dużą liczbą zależności i flag USE. Dzięki specjalnie
-zaprojektowanej kolejce i interfejsowi graficznemu taka operacjo może być
-prostsza i bardziej czytelna. Necoro rozpoczął pracę nad stworzeniem Portato nie
-w celu zastąpienia narzędzi CLI, ale by uprościć pewne operacje.
+Necoro</uri> przedstawił na Forum, bazujący na GTK+ interfejs graficzny Portage
+o nazwie <uri
+link="http://forums.gentoo.org/viewtopic-t-495971-highlight-.html">Portato
+</uri> (język niemiecki). Program powstał, by pomóc użytkownikom w momentach gdy
+terminal może okazać się niewystarczający. Na przykład w sytuacji instalacji
+pakietu z dużą liczbą zależności i flag USE. Dzięki specjalnie zaprojektowanej
+kolejce i interfejsowi graficznemu taka operacja może być prostsza i bardziej
+czytelna. Necoro rozpoczął pracę nad stworzeniem Portato nie w celu zastąpienia
+narzędzi CLI, ale by uprościć pewne operacje.
 </p>
 
 <p>
@@ -115,12 +117,13 @@ Aby pobrać pakiet Portato wystarczy wykonać następujące polecenia:
 </p>
 
 <p>
-<mail link="beandog@gentoo.org">Steve Dibb</mail> announced the Gentoo Planet 
-Summer of Code 2007 <uri link="http://planet.gentoo.org/soc/">site</uri> is up 
-and running. Like the other two Planets Gentoo hosts, the feeds are updated 
-hourly. If you are mentored by Gentoo for this year's Summer of Code and 
-interested in having your own weblog, please send your info to 
-<mail link="beandog@gentoo.org">Steve Dibb</mail>.
+<mail link="beandog@gentoo.org">Steve Dibb</mail> ogłosił otwarcie strony <uri
+link="http://planet.gentoo.org/soc/">Gentoo Planet Summer of Code 2007</uri>.
+Serwis jest już uruchomiony i podobnie jak to ma miejsce w przypadku dwóch
+innych „planet”, lista wpisów jest odświeżana co godzinę. Zachęcamy wszystkich
+studentów zajmujących się projektami nadzorowanymi przez Gentoo do prowadzenia
+własnych blogów. Zgłoszenia prosimy kierować do <mail
+link="beandog@gentoo.org">Steve'a Dibba</mail>.
 </p>
 
 </body>
@@ -142,17 +145,15 @@ interested in having your own weblog, please send your info to
 
 <p>
 Tegoroczna impreza <uri link="http://www.guadec.org/">GUADEC</uri>, czyli
-Europejska Konferencja Deweloperów i Uzytkowników GNOME odbyła się w UCE
-Birmingham Conservatoire w Birmingham w Anglii w czasie od niedzieli 15 lipca do
-soboty 21 lipca 2007. Wygłoszone prelekcje były podzielone na różne kategorie, w
-tym kwestię przyszłości GNOME, omówienia istniejących technologii oraz burze
-mózgów.
+Europejska Konferencja Deweloperów i Użytkowników GNOME odbyła się w UCE
+Birmingham Conservatoire w Birmingham w Anglii w dniach od 15 do 21 lipca 2007.
+Przeprowadzone prelekcje były podzielone na różne kategorie, m.in. przyszłość
+GNOME, technologie, czy też burza mózgów.
 </p>
 
 <p>
-Spośród wielu poruszonych tematów szczególnie godne uwagi dyskusje odbyły się na
-temat GNOME Online Desktop, PyroDesktop oraz o ciekawym rozwoju sytuacji
-biblioteki GTK+.
+Spośród wielu poruszonych tematów, szczególnie interesujące wydają się dyskusje
+na temat GNOME Online Desktop, PyroDesktop oraz rozwoju biblioteki GTK+.
 </p>
 
 </body>
@@ -167,11 +168,12 @@ biblioteki GTK+.
 <body>
 
 <p>
-Szukając informacji o Gentoo w wielu popularnych publikacjach o Linuksie łatwo
-trafić na wiele dramatyzowania. Być może właśnie dlatego ten tekst był powiewem
-świeżego powietrza. W jednym z ostatnich artykułów na Commandline.org, redaktor
-<mail link="theology@gmail.com">Zeth</mail> podzielił się swoją opinią na temat
-SFC i Gentoo.
+Szukając informacji o Gentoo w wielu popularnych magazynach internetowych o
+Linuksie łatwo znaleźć wiele dramatyzowania. Być może właśnie dlatego tekst,
+który chcemy wam przedstawić jest powiewem świeżego powietrza. W jednym z
+ostatnich artykułów na Commandline.org, redaktor <mail
+link="theology@gmail.com">Zeth</mail> podzielił się swoją opinią na temat SFC i
+Gentoo.
 </p>
 
 <p>
@@ -182,12 +184,14 @@ link="http://www.grantgoodyear.org/g2blog/gentoo/20070717-sflc.html">opisał na
 blogu</uri> <mail link="g2boojum@gentoo.org">Grant Goodyear</mail>). SFC
 podjęłaby się odpowiedzialności prawnej i roboty papierkowej, na przykład
 prowadzenie kont, staranie się o zwrot podatków, czy wchodzenie w interakcję z
-rządem. Z tego układu można się wycofać w każdej chwili bez żadnych zobowiązań.
+rządem. Gentoo miałoby w każdej chwili możliwość wycofania się z tego układu,
+bez żadnych zobowiązań.
 </p>
 
 <p>
-Software Freedom Conservancy wykonuje już te usługi dla projektów Samba, Wine i
-kilku innych. Oferta wydaje się być idealną także dla Gentoo.
+Software Freedom Conservancy zajmuje się już podobnymi rzeczami dla projektów
+Samba, Wine oraz kilku innych. Oferta ta wydaje się być idealną także dla
+Gentoo.
 </p>
 
 <p>
@@ -823,13 +827,17 @@ poprawie i pozostaną one w oficjalnym drzewie Portage.
 <body>
 
 <!-- paste from email -->
-<table>
-<tr>
-  <th>Pakiet:</th>
-  <th>Data usunięcia:</th>
-  <th>Kontakt:</th>
-</tr>
-</table>
+<note>
+Z powodu ograniczeń czasowych w procesie tworzenia kolejnych wydań Tygodnika
+Gentoo sekcja ostatnie namaszczenie zostaje tymczasowo zamknięta. Kolejne wpisy
+pojawią się tutaj, gdy tworzenie listy pakietów przewidzianych do usunięcia
+zostanie bardziej zautomatyzowane. Obecnie jej złożenie zajmuje około 80% czasu
+wymaganego do publikacji każdego numeru Tygodnika Gentoo. Zespół Tygodnika chce
+w tym miejscu przeprosić wszystkich za spowodowane tym niedogodności, pragniemy
+tutaj przypomnieć, że informacje przekazywane w tej sekcji pochodzą bezpośrednio
+z pliku <c>package.mask</c> znajdującego się w katalogu profiles drzewa
+Portage.
+</note>
 
 </body>
 </section>
