@@ -325,8 +325,9 @@ GLSA</uri>
 <title>Festival: Przekroczenie uprawnień</title>
 <body>
 
+<p>
 Festival zwiera usterkę, która umożliwia lokalnemu użytkownikowi przekroczenie
-uprawnień.<p>
+uprawnień.
 </p>
 
 <p>
