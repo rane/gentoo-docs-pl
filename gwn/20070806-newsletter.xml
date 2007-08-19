@@ -1,60 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
 <!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
-<guide type="newsletter" link="20070723-newsletter.xml" lang="en">
-<title>Gentoo Weekly Newsletter</title>
-<subtitle>6 August 2007</subtitle>
+<guide type="newsletter" link="20070723-newsletter.xml" lang="pl">
+<title>Tygodnik Gentoo</title>
+<subtitle>6 sierpnia 2007</subtitle>
 
-<author title="Editor">
-<mail link="wolf31o2@gentoo.org">Chris Gianelloni</mail>
+<author title="Redaktor">
+  <mail link="wolf31o2@gentoo.org">Chris Gianelloni</mail>
 </author>
-
-<author title="Editor">
-<mail link="musikc@gentoo.org">Chrissy Fullam</mail>
+<author title="Redaktor">
+  <mail link="musikc@gentoo.org">Chrissy Fullam</mail>
 </author>
-
-<author title="Author">
-<mail link="dertobi123@gentoo.org">Tobias Scherbaum</mail>
+<author title="Autor">
+  <mail link="dertobi123@gentoo.org">Tobias Scherbaum</mail>
 </author>
-
-<author title="Author">
-<mail link="uberlord@gentoo.org">Roy Marples</mail>
+<author title="Autor">
+  <mail link="uberlord@gentoo.org">Roy Marples</mail>
 </author>
 
 <!-- Be sure to add yourself if you write an article -->
-
-<abstract>This is the Gentoo Weekly Newsletter for the week of 6 August
-2007.</abstract>
+<abstract>Wydanie Tygodnika Gentoo z 6 sierpnia 2007.</abstract>
 <summary/>
 
-<version>Volume 6, Issue 32</version>
+<version>Wolumin 6, numer 32</version>
 <date>2007-08-06</date>
 
 <!-- Gentoo News -->
-
 <chapter>
-<title>Gentoo News</title>
-
+<title>Wiadomości Gentoo</title>
 <section>
-<title>Baselayout-2 Plans for Stabilization</title>
+<title>Plany stabilizacji baselayout-2</title>
 <body>
 
 <p>
-The first release condidate for the 2.0 branch of baselayout has been added to
-the tree without any keywords and in <c>package.mask</c>. The arch teams will
-keyword 2.0.0_rc1 to indicate they are ready for it to move to ~arch. When all
-keywords have been re-applied, the team will then remove it from package.mask.
-Now is a very good time to test the new baselayout version and report any last
-minute bugs!
+Pierwsze wydanie z gałęzi 2.0 baselayout zostało dodane do drzewa Portage, na
+razie jest zamaskowane przez <c>package.mask</c> i nie oznaczone na żadnej
+architekturze. Zespoły architektur zajmą się w najbliższym czasie dodaniem
+baselayout-2.0.0_rc1 do gałęzi niestabilnej. Po ich dodaniu i przetestowaniu
+pakietu przez poszczególne zespoły zostanie on usunięty z <c>package.mask</c>.
+Teraz jest najlepszy moment, aby przetestować nową wersję baselayout i zgłosić
+przeoczone przez deweloperów usterki.
 </p>
 
 <p>
-UPGRADE NOTES:
+Informacje związane z aktualizacją:
 </p>
 
 <ul>
-<li>media-gfx/splashutils users will have to re-emerge splashutils for it to
-work correctly.</li>
+  <li>użytkownicy media-gfx/splashutils będą musieli przeinstalować pakiet
+  splashutils, by działał on poprawnie.</li>
+
 <li>net.eth0 may disappear as we only ship net.lo (net.lo0 for *BSD) now as 
 there is no guarantee that eth0 exists on the host system. As such, you may have
 to re-link net.eth0 to net.lo like so ln -s net.lo /etc/init.d/net.eth0. One 
@@ -71,20 +66,18 @@ system may not boot!</li>
 
 </body>
 </section>
-
 </chapter>
 
 <!-- Developer of the Week -->
-
 <chapter>
 <title>Developer of the week</title>
-
 <section>
 <title>"Excuse me, are YOU the tooth fairy?" -Christian Heim, aka phreak</title>
 <body>
 
-<figure link="/images/gwn/20070806_phreak.jpg" short="phreak"
- caption="Christian Heim, aka phreak"/>
+<figure link="/images/gwn/20070806_phreak.jpg"
+        short="phreak"
+        caption="Christian Heim, aka phreak"/>
 
 <p>
 This week's developer of the week is 24 year old Christian Heim, known as 
@@ -137,34 +130,21 @@ konsole, and amarok.
 
 </body>
 </section>
-
 </chapter>
 
 <!-- Heard in the community -->
-
 <!-- forums.gentoo.org -->
-
 <!-- planet.gentoo.org -->
-
 <!-- gentoo-user -->
-
 <!-- gentoo-dev -->
-
 <!-- gentoo-catalyst -->
-
 <!-- gentoo-cluster -->
-
 <!-- gentoo-embedded -->
-
 <!-- gentoo-security -->
-
 <!-- Gentoo International-->
-
 <!-- Gentoo in the press -->
-
 <chapter>
 <title>Gentoo in the Press</title>
-
 <section>
 <title>Gentoo Linux - Die Metadistribution</title>
 <body>
@@ -203,574 +183,487 @@ More information about the book can be found on the
 <uri link="http://www.mitp.de/1769">Publisher's website</uri>.
 </p>
 
-
 </body>
 </section>
-
 </chapter>
 
 <!-- Tips and Tricks -->
-
 <!-- Gentoo developer moves -->
-
 <chapter>
-<title>Gentoo developer moves</title>
-
+<title>Zmiana statusu deweloperów Gentoo</title>
 <section>
-<title>Moves</title>
+<title>Odeszli</title>
 <body>
 
 <p>
-The following developers recently left the Gentoo project:
+Następujący deweloperzy opuścili projekt Gentoo Linux w minionym tygodniu:
 </p>
 
 <ul>
-<li><e>none this week</e></li>
+  <li><e>Nikt w tym tygodniu</e></li>
 </ul>
 
 </body>
 </section>
-
 <section>
-<title>Adds</title>
+<title>Przybyli</title>
 <body>
 
 <p>
-The following developers recently joined the Gentoo project:
+Następujący deweloperzy przyłączyli się do projektu Gentoo Linux w minionym
+tygodniu:
 </p>
 
 <ul>
-<li>Sven Vermeulen (swift) documentation</li>
-<li>Ali Polatel (hawking) netmon team</li>
-<li>Pierre-Yves Rofes (p-y) security team</li>
+  <li>Sven Vermeulen (swift) documentation</li>
+  <li>Ali Polatel (hawking) netmon team</li>
+  <li>Pierre-Yves Rofes (p-y) security team</li>
 </ul>
 
 </body>
 </section>
-
 <section>
-<title>Changes</title>
+<title>Zmienili status</title>
 <body>
 
 <p>
-The following developers recently changed roles within the Gentoo project:
+Następujący deweloperzy zmienili w minionym tygodniu pełnioną w projekcie Gentoo
+Linux funkcję:
 </p>
 
 <ul>
-<li><e>none this week</e></li>
+  <li><e>Nikt w tym tygodniu</e></li>
 </ul>
 
 </body>
 </section>
-
 </chapter>
 
 <!-- Gentoo security -->
-
 <!-- paste from the script -->
-
 <chapter>
-<title>Gentoo Security</title>
+<title>Bezpieczeństwo Gentoo</title>
 <section>
 <body>
 
 <p>
-Gentoo Security is on hiatus this week due to no GLSAs being released.
+Nie opublikowano żednych raportów GLSA w tym tygodniu.
 </p>
 
 </body>
 </section>
-
 </chapter>
 
 <!-- Gentoo package moves -->
-
 <chapter>
-<title>Gentoo package moves</title>
-
+<title>Zmiany w drzewie Portage</title>
 <section>
 <body>
 
 <p>
-This section lists packages that have either been moved or added to the tree
-and packages that have had their "last rites" announcement given to be removed
-in the future. The package removals come from many locations, including the <uri
-link="/proj/en/qa/treecleaners">Treecleaners</uri> and various developers. Most
-packages which are listed under the Last Rites section are in need of some love
-and care and can remain in the tree if proper maintainership is established.
+Poniżej znajduje się lista pakietów, które zostały usunięte lub dodane do drzewa
+Portage w ostatnim czasie oraz lista przedstawiająca plany dotyczące usunięcia
+kolejnych pakietów w przyszłości. Informacje te pochodzą z różnych źródeł,
+włączając projekt <uri link="/proj/en/qa/treecleaners">Treecleaners</uri> oraz
+zgłoszenia od poszczególnych deweloperów. Większość pakietów, które można
+znaleźć w części Ostatnie Namaszczenie wymaga jedynie miłości i opieki ze strony
+deweloperów. W przypadku znalezienia nowego opiekuna ich los z pewnością ulegnie
+poprawie i pozostaną one w oficjalnym drzewie Portage.
 </p>
 
 </body>
 </section>
-
 <!-- paste from the script -->
-
 <section>
-<title>Removals:</title>
+<title>Usunięte pakiety:</title>
 <body>
 
 <table>
-
 <tr>
-<th>Package:</th>
-<th>Removal date:</th>
-<th>Contact:</th>
+  <th>Pakiet:</th>
+  <th>Data usunięcia:</th>
+  <th>Kontakt:</th>
+</tr>
+<tr>
+  <ti>app-emacs/ognus</ti>
+  <ti>31 lipca 2007</ti>
+  <ti><mail link="ulm@gentoo.org">Ulrich Müller</mail></ti>
+</tr>
+<tr>
+  <ti>x11-drivers/mtxdrivers-pro</ti>
+  <ti>31 lipca 2007</ti>
+  <ti><mail link="peper@gentoo.org">Piotr Jaroszyński</mail></ti>
+</tr>
+<tr>
+  <ti>x11-drivers/nvidia-legacy-drivers</ti>
+  <ti>31 lipca 2007</ti>
+  <ti><mail link="cardoe@gentoo.org">Doug Goldstein</mail></ti>
+</tr>
+<tr>
+  <ti>mail-client/claws-mail-maildir</ti>
+  <ti>2 sierpnia 2007</ti>
+  <ti><mail link="ticho@gentoo.org">Andrej Kacian</mail></ti>
 </tr>
 
-<tr>
-<ti>app-emacs/ognus</ti>
-<ti>31 Jul 2007</ti>
-<ti><mail link="ulm@gentoo.org">Ulrich Müller</mail></ti>
-</tr>
+</table>
+</body>
+</section>
+<section>
+<title>Nowe pakiety:</title>
+<body>
 
+<table>
 <tr>
-<ti>x11-drivers/mtxdrivers-pro</ti>
-<ti>31 Jul 2007</ti>
-<ti><mail link="peper@gentoo.org">Piotr Jaroszyński</mail></ti>
+  <th>Pakiet:</th>
+  <th>Data dodania:</th>
+  <th>Kontakt:</th>
 </tr>
-
 <tr>
-<ti>x11-drivers/nvidia-legacy-drivers</ti>
-<ti>31 Jul 2007</ti>
-<ti><mail link="cardoe@gentoo.org">Doug Goldstein</mail></ti>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=games-strategy;name=hedgewars">games-strategy/hedgewars</uri></ti>
+  <ti>30 lipca 2007</ti>
+  <ti><mail link="nyhm@gentoo.org">Tristan Heaven</mail></ti>
 </tr>
-
 <tr>
-<ti>mail-client/claws-mail-maildir</ti>
-<ti>02 Aug 2007</ti>
-<ti><mail link="ticho@gentoo.org">Andrej Kacian</mail></ti>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-python;name=elixir">dev-python/elixir</uri></ti>
+  <ti>31 lipca 2007</ti>
+  <ti><mail link="dev-zero@gentoo.org">Tiziano Müller</mail></ti>
 </tr>
-
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-python;name=tg-widgets-scriptaculous">dev-python/tg-widgets-scriptaculous</uri></ti>
+  <ti>1 sierpnia 2007</ti>
+  <ti><mail link="dev-zero@gentoo.org">Tiziano Müller</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-python;name=tg-widgets-lightbox">dev-python/tg-widgets-lightbox</uri></ti>
+  <ti>1 sierpnia 2007</ti>
+  <ti><mail link="dev-zero@gentoo.org">Tiziano Müller</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=sci-mathematics;name=freemat">sci-mathematics/freemat</uri></ti>
+  <ti>1 sierpnia 2007</ti>
+  <ti><mail link="bicatali@gentoo.org">Sebastien Fabbro</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=media-libs;name=libtimidity">media-libs/libtimidity</uri></ti>
+  <ti>2 sierpnia 2007</ti>
+  <ti><mail link="drac@gentoo.org">Samuli Suominen</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=media-plugins;name=vdr-mailbox">media-plugins/vdr-mailbox</uri></ti>
+  <ti>2 sierpnia 2007</ti>
+  <ti><mail link="hd_brummy@gentoo.org">Joerg Bornkessel</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=sci-astronomy;name=ds9">sci-astronomy/ds9</uri></ti>
+  <ti>2 sierpnia 2007</ti>
+  <ti><mail link="bicatali@gentoo.org">Sebastien Fabbro</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-ruby;name=test-spec">dev-ruby/test-spec</uri></ti>
+  <ti>2 sierpnia 2007</ti>
+  <ti><mail link="nichoj@gentoo.org">Joshua Nichols</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=media-fonts;name=freefont-ttf">media-fonts/freefont-ttf</uri></ti>
+  <ti>4 sierpnia 2007</ti>
+  <ti><mail link="dirtyepic@gentoo.org">Ryan Hill</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=zemberek">dev-java/zemberek</uri></ti>
+  <ti>4 sierpnia 2007</ti>
+  <ti><mail link="fordfrog@gentoo.org">Miroslav Šulc</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=media-video;name=jubler">media-video/jubler</uri></ti>
+  <ti>4 sierpnia 2007</ti>
+  <ti><mail link="fordfrog@gentoo.org">Miroslav Šulc</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=games-strategy;name=boswars">games-strategy/boswars</uri></ti>
+  <ti>4 sierpnia 2007</ti>
+  <ti><mail link="tupone@gentoo.org">Alfredo Tupone</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-haskell;name=regex-base">dev-haskell/regex-base</uri></ti>
+  <ti>5 sierpnia 2007</ti>
+  <ti><mail link="kolmodin@gentoo.org">Lennart Kolmodin</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-haskell;name=regex-posix">dev-haskell/regex-posix</uri></ti>
+  <ti>5 sierpnia 2007</ti>
+  <ti><mail link="kolmodin@gentoo.org">Lennart Kolmodin</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-haskell;name=regex-compat">dev-haskell/regex-compat</uri></ti>
+  <ti>5 sierpnia 2007</ti>
+  <ti><mail link="kolmodin@gentoo.org">Lennart Kolmodin</mail></ti>
+</tr>
 </table>
 
 </body>
 </section>
-
 <section>
-<title>Additions:</title>
+<title>Ostatnie namaszczenie:</title>
 <body>
 
 <table>
-
 <tr>
-<th>Package:</th>
-<th>Addition date:</th>
-<th>Contact:</th>
+  <th>Pakiet:</th>
+  <th>Data usunięcia:</th>
+  <th>Kontakt:</th>
 </tr>
-
 <tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=games-strategy;name=hedgewars">games-strategy/hedgewars</uri></ti>
-<ti>30 Jul 2007</ti>
-<ti><mail link="nyhm@gentoo.org">Tristan Heaven</mail></ti>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=mail-client;name=claws-mail-etpan-privacy">mail-client/claws-mail-etpan-privacy</uri></ti>
+  <ti>02 Sep 2007</ti>
+  <ti><mail link="ticho@gentoo.org">Andrej Kacian</mail></ti>
 </tr>
-
 <tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=dev-python;name=elixir">dev-python/elixir</uri></ti>
-<ti>31 Jul 2007</ti>
-<ti><mail link="dev-zero@gentoo.org">Tiziano Müller</mail></ti>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-ruby;name=switchtower">dev-ruby/switchtower</uri></ti>
+  <ti>05 Sep 2007</ti>
+  <ti><mail link="graaff@gentoo.org">Hans de Graaff</mail></ti>
 </tr>
-
 <tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=dev-python;name=tg-widgets-scriptaculous">dev-python/tg-widgets-scriptaculous</uri></ti>
-<ti>01 Aug 2007</ti>
-<ti><mail link="dev-zero@gentoo.org">Tiziano Müller</mail></ti>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=kde-misc;name=kxdocker-configurator">kde-misc/kxdocker-configurator</uri></ti>
+  <ti>05 Sep 2007</ti>
+  <ti><mail link="dragonheart@gentoo.org">Daniel Black</mail></ti>
 </tr>
-
 <tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=dev-python;name=tg-widgets-lightbox">dev-python/tg-widgets-lightbox</uri></ti>
-<ti>01 Aug 2007</ti>
-<ti><mail link="dev-zero@gentoo.org">Tiziano Müller</mail></ti>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=kde-misc;name=kxdocker-dcop">kde-misc/kxdocker-dcop</uri></ti>
+  <ti>05 Sep 2007</ti>
+  <ti><mail link="dragonheart@gentoo.org">Daniel Black</mail></ti>
 </tr>
-
 <tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=sci-mathematics;name=freemat">sci-mathematics/freemat</uri></ti>
-<ti>01 Aug 2007</ti>
-<ti><mail link="bicatali@gentoo.org">Sebastien Fabbro</mail></ti>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=kde-misc;name=kxdocker-i18n">kde-misc/kxdocker-i18n</uri></ti>
+  <ti>05 Sep 2007</ti>
+  <ti><mail link="dragonheart@gentoo.org">Daniel Black</mail></ti>
 </tr>
-
 <tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=media-libs;name=libtimidity">media-libs/libtimidity</uri></ti>
-<ti>02 Aug 2007</ti>
-<ti><mail link="drac@gentoo.org">Samuli Suominen</mail></ti>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=kde-misc;name=kxdocker-resources">kde-misc/kxdocker-resources</uri></ti>
+  <ti>05 Sep 2007</ti>
+  <ti><mail link="dragonheart@gentoo.org">Daniel Black</mail></ti>
 </tr>
-
 <tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=media-plugins;name=vdr-mailbox">media-plugins/vdr-mailbox</uri></ti>
-<ti>02 Aug 2007</ti>
-<ti><mail link="hd_brummy@gentoo.org">Joerg Bornkessel</mail></ti>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=kde-misc;name=kxdocker-trayiconlogger">kde-misc/kxdocker-trayiconlogger</uri></ti>
+  <ti>05 Sep 2007</ti>
+  <ti><mail link="dragonheart@gentoo.org">Daniel Black</mail></ti>
 </tr>
-
 <tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=sci-astronomy;name=ds9">sci-astronomy/ds9</uri></ti>
-<ti>02 Aug 2007</ti>
-<ti><mail link="bicatali@gentoo.org">Sebastien Fabbro</mail></ti>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=kde-misc;name=kxdocker">kde-misc/kxdocker</uri></ti>
+  <ti>05 Sep 2007</ti>
+  <ti><mail link="dragonheart@gentoo.org">Daniel Black</mail></ti>
 </tr>
-
-<tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=dev-ruby;name=test-spec">dev-ruby/test-spec</uri></ti>
-<ti>02 Aug 2007</ti>
-<ti><mail link="nichoj@gentoo.org">Joshua Nichols</mail></ti>
-</tr>
-
-<tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=media-fonts;name=freefont-ttf">media-fonts/freefont-ttf</uri></ti>
-<ti>04 Aug 2007</ti>
-<ti><mail link="dirtyepic@gentoo.org">Ryan Hill</mail></ti>
-</tr>
-
-<tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=zemberek">dev-java/zemberek</uri></ti>
-<ti>04 Aug 2007</ti>
-<ti><mail link="fordfrog@gentoo.org">Miroslav Šulc</mail></ti>
-</tr>
-
-<tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=media-video;name=jubler">media-video/jubler</uri></ti>
-<ti>04 Aug 2007</ti>
-<ti><mail link="fordfrog@gentoo.org">Miroslav Šulc</mail></ti>
-</tr>
-
-<tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=games-strategy;name=boswars">games-strategy/boswars</uri></ti>
-<ti>04 Aug 2007</ti>
-<ti><mail link="tupone@gentoo.org">Alfredo Tupone</mail></ti>
-</tr>
-
-<tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=dev-haskell;name=regex-base">dev-haskell/regex-base</uri></ti>
-<ti>05 Aug 2007</ti>
-<ti><mail link="kolmodin@gentoo.org">Lennart Kolmodin</mail></ti>
-</tr>
-
-<tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=dev-haskell;name=regex-posix">dev-haskell/regex-posix</uri></ti>
-<ti>05 Aug 2007</ti>
-<ti><mail link="kolmodin@gentoo.org">Lennart Kolmodin</mail></ti>
-</tr>
-
-<tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=dev-haskell;name=regex-compat">dev-haskell/regex-compat</uri></ti>
-<ti>05 Aug 2007</ti>
-<ti><mail link="kolmodin@gentoo.org">Lennart Kolmodin</mail></ti>
-</tr>
-
 </table>
 
 </body>
 </section>
-
-<section>
-<title>Last Rites:</title>
-<body>
-<table>
-
-<tr>
-<th>Package:</th>
-<th>Removal date:</th>
-<th>Contact:</th>
-</tr>
-
-<tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=mail-client;name=claws-mail-etpan-privacy">mail-client/claws-mail-etpan-privacy</uri></ti>
-<ti>02 Sep 2007</ti>
-<ti><mail link="ticho@gentoo.org">Andrej Kacian</mail></ti>
-</tr>
-
-<tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=dev-ruby;name=switchtower">dev-ruby/switchtower</uri></ti>
-<ti>05 Sep 2007</ti>
-<ti><mail link="graaff@gentoo.org">Hans de Graaff</mail></ti>
-</tr>
-
-<tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=kde-misc;name=kxdocker-configurator">kde-misc/kxdocker-configurator</uri></ti>
-<ti>05 Sep 2007</ti>
-<ti><mail link="dragonheart@gentoo.org">Daniel Black</mail></ti>
-</tr>
-
-<tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=kde-misc;name=kxdocker-dcop">kde-misc/kxdocker-dcop</uri></ti>
-<ti>05 Sep 2007</ti>
-<ti><mail link="dragonheart@gentoo.org">Daniel Black</mail></ti>
-</tr>
-
-<tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=kde-misc;name=kxdocker-i18n">kde-misc/kxdocker-i18n</uri></ti>
-<ti>05 Sep 2007</ti>
-<ti><mail link="dragonheart@gentoo.org">Daniel Black</mail></ti>
-</tr>
-
-<tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=kde-misc;name=kxdocker-resources">kde-misc/kxdocker-resources</uri></ti>
-<ti>05 Sep 2007</ti>
-<ti><mail link="dragonheart@gentoo.org">Daniel Black</mail></ti>
-</tr>
-
-<tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=kde-misc;name=kxdocker-trayiconlogger">kde-misc/kxdocker-trayiconlogger</uri></ti>
-<ti>05 Sep 2007</ti>
-<ti><mail link="dragonheart@gentoo.org">Daniel Black</mail></ti>
-</tr>
-
-<tr>
-<ti><uri link="http://packages.gentoo.org/packages/?category=kde-misc;name=kxdocker">kde-misc/kxdocker</uri></ti>
-<ti>05 Sep 2007</ti>
-<ti><mail link="dragonheart@gentoo.org">Daniel Black</mail></ti>
-</tr>
-
-</table>
-
-</body>
-</section>
-
 </chapter>
 
 <!-- Bugzilla -->
-
 <!-- paste from the script -->
-
 <chapter>
 <title>Bugzilla</title>
-
 <section>
-<title>Summary</title>
+<title>Podsumowanie</title>
 <body>
 
 <ul>
-<li><uri link="#bugs-stats">Statistics</uri></li>
-<li><uri link="#bugs-closed">Closed bug ranking</uri></li>
-<li><uri link="#bugs-new">New bug rankings</uri></li>
+  <li><uri link="#bugs-stats">Statystyki</uri></li>
+  <li><uri link="#bugs-closed">Zamknięte bugi</uri></li>
+  <li><uri link="#bugs-new">Nowe bugi</uri></li>
 </ul>
 
 </body>
 </section>
-
 <section id="bugs-stats">
-<title>Statistics</title>
+<title>Statystyki</title>
 <body>
 
 <p>
-The Gentoo community uses Bugzilla (<uri
-link="http://bugs.gentoo.org">bugs.gentoo.org</uri>) to record and track
-bugs, notifications, suggestions and other interactions with the
-development team.  Between 29 July 2007
-and 04 August 2007, activity on the site has resulted in:
+Społeczność Gentoo używa Bugzilli (<uri
+link="http://bugs.gentoo.org/">bugs.gentoo.org</uri>) do zgłaszania i śledzenia
+błędów, ogłoszeń, sugestii oraz innych form kontaktu z deweloperami. Pomiędzy 29
+lipca 2007, a 4 sierpnia 2007 aktywność w serwisie przedstawiała się
+następująco:
 </p>
 
 <ul>
-<li>485 new bugs during this period</li>
-<li>282 bugs closed or resolved during this period</li>
-<li>22 previously closed bugs were reopened this period</li>
-<li>100 closed as NEEDINFO/WONTFIX/CANTFIX/INVALID/UPSTREAM during this period</li>
-<li>89 bugs marked as duplicates during this period</li>
+  <li>zgłoszono 485 nowych bugów</li>
+  <li>zamknięto lub rozwiązano 282 bugi</li>
+  <li>otwarto ponownie 22 uprzednio zamkniętych bugi</li>
+  <li>100 bugów oznaczono jako NEEDINFO/WONTFIX/CANTFIX/INVALID/UPSTREAM</li>
+  <li>89 bugów oznaczono jako duplikaty</li>
 </ul>
 
 <p>
-Of the 9924 currently open bugs: 11 are labeled 'blocker', 97 are labeled
-'critical', and 348 are labeled 'major'.
+Spośród 9924 obecnie otwartych bugów: 11 oznaczono jako 'blocker', 97 jako
+'critical', a 348 jako 'major'.
 </p>
 
 </body>
 </section>
-
 <section id="bugs-closed">
-<title>Closed bug rankings</title>
+<title>Zamknięte Bugi</title>
 <body>
 
 <p>
-The developers and teams who have closed the most bugs during this period are:
+Deweloperzy oraz zespoły, które zamknęły najwięcej bugów w minionym tygodniu,
+to:
 </p>
 
 <ul>
-<li><mail link="x11@gentoo.org">Gentoo X-windows packagers</mail>, with 28
-<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;resolution=FIXED&amp;assigned_to=x11@gentoo.org">closed bugs</uri>
-</li>
-<li><mail link="sound@gentoo.org">Gentoo Sound Team</mail>, with 17
-<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;resolution=FIXED&amp;assigned_to=sound@gentoo.org">closed bugs</uri>
-</li>
-<li><mail link="dev-portage@gentoo.org">Portage team</mail>, with 14
-<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;resolution=FIXED&amp;assigned_to=dev-portage@gentoo.org">closed bugs</uri>
-</li>
-<li><mail link="base-system@gentoo.org">Gentoo's Team for Core System packages</mail>, with 11
-<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;resolution=FIXED&amp;assigned_to=base-system@gentoo.org">closed bugs</uri>
-</li>
-<li><mail link="devrel@gentoo.org">Gentoo Developer Relations Team</mail>, with 10
-<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;resolution=FIXED&amp;assigned_to=devrel@gentoo.org">closed bugs</uri>
-</li>
-<li><mail link="apache-bugs@gentoo.org">Apache Team - Bugzilla Reports</mail>, with 9
-<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;resolution=FIXED&amp;assigned_to=apache-bugs@gentoo.org">closed bugs</uri>
-</li>
-<li><mail link="amd64@gentoo.org">AMD64 Project</mail>, with 8
-<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;resolution=FIXED&amp;assigned_to=amd64@gentoo.org">closed bugs</uri>
-</li>
-<li><mail link="scen@gentoo.org">Davide Cendron</mail>, with 7
-<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;resolution=FIXED&amp;assigned_to=scen@gentoo.org">closed bugs</uri>
-</li>
+  <li><mail link="x11@gentoo.org">Gentoo X-windows packagers</mail>, 28 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;resolution=FIXED&amp;assigned_to=x11@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="sound@gentoo.org">Gentoo Sound Team</mail>, 17 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;resolution=FIXED&amp;assigned_to=sound@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="dev-portage@gentoo.org">Portage team</mail>, 14 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;resolution=FIXED&amp;assigned_to=dev-portage@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="base-system@gentoo.org">Gentoo's Team for Core System
+  packages</mail>, 11 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;resolution=FIXED&amp;assigned_to=base-system@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="devrel@gentoo.org">Gentoo Developer Relations Team</mail>, 10
+  <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;resolution=FIXED&amp;assigned_to=devrel@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="apache-bugs@gentoo.org">Apache Team - Bugzilla Reports</mail>,
+  9 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;resolution=FIXED&amp;assigned_to=apache-bugs@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="amd64@gentoo.org">AMD64 Project</mail>, 8 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;resolution=FIXED&amp;assigned_to=amd64@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="scen@gentoo.org">Davide Cendron</mail>, 7 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;resolution=FIXED&amp;assigned_to=scen@gentoo.org">zamkniętych
+  bugów</uri></li>
 </ul>
 
 </body>
 </section>
-
 <section id="bugs-new">
-<title>New bug rankings</title>
+<title>Nowe Bugi</title>
 <body>
 
 <p>
-The developers and teams who have been assigned the most new bugs during this
-period are:
+Deweloperzy oraz zespoły, którym przydzielono najwięcej bugów w minionym tygodniu,
+to:
 </p>
 
 <ul>
-<li><mail link="maintainer-wanted@gentoo.org">Default Assignee for New Packages</mail>, with 26
-<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;assigned_to=maintainer-wanted@gentoo.org">new bugs</uri>
-</li>
-<li><mail link="amd64@gentoo.org">AMD64 Project</mail>, with 8
-<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;assigned_to=amd64@gentoo.org">new bugs</uri>
-</li>
-<li><mail link="devrel@gentoo.org">Gentoo Developer Relations Team</mail>, with 7
-<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;assigned_to=devrel@gentoo.org">new bugs</uri>
-</li>
-<li><mail link="toolchain@gentoo.org">Gentoo Toolchain Maintainers</mail>, with 5
-<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;assigned_to=toolchain@gentoo.org">new bugs</uri>
-</li>
-<li><mail link="maintainer-needed@gentoo.org">Default Assignee for Orphaned Packages</mail>, with 5
-<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;assigned_to=maintainer-needed@gentoo.org">new bugs</uri>
-</li>
-<li><mail link="media-video@gentoo.org">media-video herd</mail>, with 4
-<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;assigned_to=media-video@gentoo.org">new bugs</uri>
-</li>
-<li><mail link="kde@gentoo.org">Gentoo KDE team</mail>, with 4
-<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;assigned_to=kde@gentoo.org">new bugs</uri>
-</li>
-<li><mail link="tools-portage@gentoo.org">Portage Utilities Team</mail>, with 3
-<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;assigned_to=tools-portage@gentoo.org">new bugs</uri>
-</li>
+  <li><mail link="maintainer-wanted@gentoo.org">Default Assignee for New
+  Packages</mail>, 26 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;assigned_to=maintainer-wanted@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="amd64@gentoo.org">AMD64 Project</mail>, 8 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;assigned_to=amd64@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="devrel@gentoo.org">Gentoo Developer Relations Team</mail>, 7
+  <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;assigned_to=devrel@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="toolchain@gentoo.org">Gentoo Toolchain Maintainers</mail>, 5
+  <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;assigned_to=toolchain@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="maintainer-needed@gentoo.org">Default Assignee for Orphaned
+  Packages</mail>, 5 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;assigned_to=maintainer-needed@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="media-video@gentoo.org">media-video herd</mail>, 4 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;assigned_to=media-video@gentoo.org">nowe
+  bugi</uri></li>
+  <li><mail link="kde@gentoo.org">Gentoo KDE team</mail>, 4 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;assigned_to=kde@gentoo.org">nowe
+  bugi</uri></li>
+  <li><mail link="tools-portage@gentoo.org">Portage Utilities Team</mail>, 3
+  <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-07-29&amp;chfieldto=2007-08-04&amp;assigned_to=tools-portage@gentoo.org">nowe
+  bugi</uri></li>
 </ul>
 
 </body>
 </section>
-
 </chapter>
 
 <!-- GWN feedback information -->
-
 <chapter>
-
-<title>GWN feedback</title>
+<title>Opinie czytelników</title>
 <section>
 <body>
 
 <p>
-The GWN is staffed by volunteers and members of the community who submit ideas
-and articles.  If you are interested in writing for the GWN, have feedback on an
-article that we have posted, or just have an idea or article that you would
-like to submit to the GWN, please send us your <mail
-link="gwn-feedback@gentoo.org">feedback</mail> and help make the GWN
-better.
+Tygodnik Gentoo jest tworzony i tłumaczony przez ochotników i członków
+społeczności, którzy nadsyłają swoje pomysły i gotowe artykuły. Zachęcamy
+wszystkich do pomocy i współpracy przy tworzeniu kolejnych numerów Tygodnika
+Gentoo. Oczekujemy na wasze propozycje artykułów, interesują nas także opinie na
+temat tych już opublikowanych. Wszelkie komentarze prosimy kierować na <mail
+link="gwn-feedback@gentoo.org">adres Tygodnika Gentoo</mail>. Uwagi dotyczące
+tłumaczenia należy zgłaszać na adres <mail
+link="moloh@gentoo.org">koordynatora</mail>. Pomóżcie sprawić, by Tygodnik
+Gentoo był jeszcze lepszy.
 </p>
 
 </body>
 </section>
-
 </chapter>
 
 <!-- GWN subscription information -->
-
 <chapter>
-
-<title>GWN subscription information</title>
+<title>Subskrypcja Tygodnika Gentoo</title>
 <section>
 <body>
 
 <p>
-To subscribe to the Gentoo Weekly Newsletter, send a blank e-mail to
-<mail
-link="gentoo-gwn+subscribe@gentoo.org">gentoo-gwn+subscribe@gentoo.org</mail>.
-</p> 
+Aby zaprenumerować Tygodnik Gentoo, należy wysłać pustego emaila na adres <mail
+link="gentoo-gwn-pl+subscribe@gentoo.org">gentoo-gwn-pl+subscribe@gentoo.org</mail>.
+</p>
 
 <p>
-To unsubscribe to the Gentoo Weekly Newsletter, send a blank e-mail to
-<mail
-link="gentoo-gwn+unsubscribe@gentoo.org">gentoo-gwn+unsubscribe@gentoo.org</mail>
-from the e-mail address you are subscribed under.
+Aby zrezygnować z subskrypcji, należy wysłać pustego emaila na adres <mail
+link="gentoo-gwn-pl+unsubscribe@gentoo.org">
+gentoo-gwn-pl+unsubscribe@gentoo.org</mail> z konta, na które jest
+zarejestrowana.
 </p>
 
 </body>
 </section>
-
 </chapter>
 
 <!-- Other Languages -->
-
 <chapter>
-
-<title>Other languages</title>
+<title>Inne języki</title>
 <section>
 <body>
 
 <p>
-The Gentoo Weekly Newsletter is also available in the following
-languages:
+Tygodnik Gentoo jest dostępny w następujących językach:
 </p>
 
 <ul>
-<li>
-<uri link="/news/zh_cn/gwn/gwn.xml">Chinese (Simplified)</uri>
-</li>
-<!-- <li>
-<uri link="/news/da/gwn/gwn.xml">Danish</uri>
-</li> -->
-<li>
-<uri link="/news/nl/gwn/gwn.xml">Dutch</uri>
-</li>
-<li>
-<uri link="/news/en/gwn/gwn.xml">English</uri>
-</li>
-<li>
-<uri link="/news/de/gwn/gwn.xml">German</uri>
-</li>
-<li>
-<uri link="/news/el/gwn/gwn.xml">Greek</uri>
-</li>
-<li>
-<uri link="/news/fr/gwn/gwn.xml">French</uri>
-</li>
-<li>
-<uri link="/news/ko/gwn/gwn.xml">Korean</uri>
-</li>
-<li>
-<uri link="/news/ja/gwn/gwn.xml">Japanese</uri>
-</li>
-<li>
-<uri link="/news/it/gwn/gwn.xml">Italian</uri>
-</li>
-<li>
-<uri link="/news/pl/gwn/gwn.xml">Polish</uri>
-</li>
-<li>
-<uri link="/news/pt_br/gwn/gwn.xml">Portuguese (Brazil)</uri>
-</li>
-<li>
-<uri link="/news/pt/gwn/gwn.xml">Portuguese (Portugal)</uri>
-</li>
-<li>
-<uri link="/news/ru/gwn/gwn.xml">Russian</uri>
-</li>
-<li>
-<uri link="/news/sk/gwn/gwn.xml">Slovak</uri>
-</li>
-<li>
-<uri link="/news/es/gwn/gwn.xml">Spanish</uri>
-</li>
-<li>
-<uri link="/news/tr/gwn/gwn.xml">Turkish</uri>
-</li>
+  <li><uri link="/news/en/gwn/gwn.xml">angielskim</uri></li>
+  <li><uri link="/news/zh_cn/gwn/gwn.xml">chińskim (uproszczony)</uri></li>
+  <li><uri link="/news/da/gwn/gwn.xml">duńskim</uri></li>
+  <li><uri link="/news/fr/gwn/gwn.xml">francuskim</uri></li>
+  <li><uri link="/news/el/gwn/gwn.xml">greckim</uri></li>
+  <li><uri link="/news/es/gwn/gwn.xml">hiszpańskim</uri></li>
+  <li><uri link="/news/nl/gwn/gwn.xml">holenderskim</uri></li>
+  <li><uri link="/news/ja/gwn/gwn.xml">japońskim</uri></li>
+  <li><uri link="/news/ko/gwn/gwn.xml">koreańskim</uri></li>
+  <li><uri link="/news/de/gwn/gwn.xml">niemieckim</uri></li>
+  <li><uri link="/news/pl/gwn/gwn.xml">polskim</uri></li>
+  <li><uri link="/news/pt_br/gwn/gwn.xml">portugalskim (Brazylia)</uri></li>
+  <li><uri link="/news/pt/gwn/gwn.xml">portugalskim (Portugalia)</uri></li>
+  <li><uri link="/news/ru/gwn/gwn.xml">rosyjskim</uri></li>
+  <li><uri link="/news/sk/gwn/gwn.xml">słowackim</uri></li>
+  <li><uri link="/news/tr/gwn/gwn.xml">tureckim</uri></li>
+  <li><uri link="/news/it/gwn/gwn.xml">włoskim</uri></li>
 </ul>
 
 </body>
-
 </section>
-
 </chapter>
 
 </guide>
+
