@@ -144,43 +144,42 @@ konsole, and amarok.
 <!-- Gentoo International-->
 <!-- Gentoo in the press -->
 <chapter>
-<title>Gentoo in the Press</title>
+<title>Gentoo w prasie</title>
 <section>
 <title>Gentoo Linux - Die Metadistribution</title>
 <body>
 
 <p>
 "<uri link="http://www.mitp.de/1769">Gentoo Linux - Die
-Metadistribution</uri>" is the first book on Gentoo Linux published in the
-German language and is written by Gentoo's very own 
-<mail link="dertobi123@gentoo.org">Tobias Scherbaum</mail>.
+Metadistribution</uri>" jest pierwszą książką wydaną w języku niemieckim, a jej
+autorem jest <mail link="dertobi123@gentoo.org">Tobias Scherbaum</mail>.
 </p>
 
 <p>
-This book helps one get started with the Gentoo Distribution and escorts them
-from an installation, followed by an introduction to Gentoo's package manager,
-to installation and configuration of a Gentoo Desktop-System. It's mainly
-focused on configuration and work with Gentoo's package manager, Portage.
+Książka przeznaczona jest dla zaczynających swoją przygodę z dystrybucją Gentoo.
+Przeprowadza czytelnika przez instalację systemu, zapoznaje go z menedżerem
+pakietów i pokazuje jak zainstalować oraz skonfigurować wszystko dla biurka
+opartego o Gentoo. Głównie skupia się na przedstawieniu pracy z Portage -
+systemowym menedżerem pakietów.
 </p>
 
 <p>
-When asked what prompted the book, Gentoo developer and author Tobias Scherbaum
-stated, &quot;At several events where we represented Gentoo, a lot of visitors
-asked about a book on Gentoo. Therefore it is not surprising that the first 
-considerations about this book goes back until 2004&quot;. 
+Spytany co nakłoniło go do napisania książki, autor i deweloper Gentoo Tobias
+Scherbaum oznajmił: &quot;Na kilku z wydarzeń, na których reprezentowaliśmy
+Gentoo, masa ludzi pytała o książkę dotyczącą naszej dystrybucji. Zatem nie
+powinien dziwić fakt, że pierwsze przemyślenia na ten temat sięgają roku 2004&quot;.
 </p>
 
 <p>
-"Gentoo Linux - Die Metadistribution" covers about 270 pages and is
-published by MITP. It is available in bookstores at the price of 29,95
-EURO. The price includes a donation to the 
-<uri link="http://www.gentoo-ev.org">Förderverein Gentoo e.V. / Friends of
+"Gentoo Linux - Die Metadistribution" liczy około 270 stron i wydawana jest
+przez MITP. Dostępna w księgarniach w cenie 29,95 EURO, w którą wliczono dotacje dla
+organizacji <uri link="http://www.gentoo-ev.org">Förderverein Gentoo e.V. / Friends of
 Gentoo e.V.</uri>.
 </p>
 
 <p>
-More information about the book can be found on the
-<uri link="http://www.mitp.de/1769">Publisher's website</uri>.
+Więcej informacji na temat tej publikacji, można znaleźć na <uri 
+link="http://www.mitp.de/1769">stronie wydawnictwa</uri>.
 </p>
 
 </body>
