@@ -160,6 +160,12 @@ znajduje się na końcu tego dokumentu.
   <ti>Informacje z CVS o zmianach w dokumentacji</ti>
 </tr>
 <tr>
+  <ti><c>gentoo-commits</c></ti>
+  <ti>Informacje o zmianach w drzewach CVS i SVN. Lista o wielkim ruchu; tylko
+  do odczytu</ti>
+</tr>
+
+<tr>
   <ti><c>gentoo-translators</c></ti>
   <ti>Tłumaczenia dokumentacji</ti>
 </tr>
