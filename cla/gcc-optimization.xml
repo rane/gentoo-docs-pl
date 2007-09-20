@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/gcc-optimization.xml,v 1.2 2007/07/02 11:51:13 rane Exp $ -->
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/gcc-optimization.xml,v 1.3 2007/08/17 12:54:22 shadoww Exp $ -->
 <!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
 
 <guide link="/doc/pl/gcc-optimization.xml" lang="pl">
@@ -21,8 +21,8 @@ CFLAGS oraz CXXFLAGS. Opisuje również teorię optymalizacji.
 <!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
 <license/>
 
-<version>1.6</version>
-<date>2007-08-12</date>
+<version>1.4</version>
+<date>2007-07-28</date>
 
 <chapter>
 <title>Wstęp</title>
@@ -170,8 +170,7 @@ procesora, ze wszystkimi tymi zdolnościami, cechami, instrukcjami itp.
 <p>
 Nawet jeśli zmienna CHOST jest ustawiona w pliku <path>/etc/make.conf</path> i
 określa używaną architekturę, flaga <c>-march</c> powinna być użyta aby programy
-mogły zostać zoptymalizowane dla konkretnego procesora (x86 i x86-64 powinny
-używać flagi <c>-march</c>).
+mogły zostać zoptymalizowane dla konkretnego procesora.
 </p>
 
 <p>
@@ -204,44 +203,25 @@ CXXFLAGS="${CFLAGS}"
 
 <p>
 Dostępne są również flagi <c>-mcpu</c> oraz <c>-mtune</c>. Jednak powinny zostać
-one użyte tylko wtedy, gdy opcja <c>-march</c> nie jest dostępna. Pewne
-architektury procesorów mogą wymagać <c>-mtune</c> lub nawet <c>-mcpu</c>.
-Niestety <c>gcc</c> nie jest konsekwentne w zachowaniu każdej flagi na różnych
-architekturach.
-</p>
-
-<p>
-Na procesorach x86 i x86-64 flaga <c>-march</c> generuje kod przystosowany dla
-tych procesorów z użyciem wszystkich możliwych instrukcji i poprawnego ABI. Nie
-będzie on jednak działał na starszych lub innych procesorach. Jeśli mamy
-pewność, że kod nie będzie uruchamiany na innych komputerach, spokojnie można
-używać <c>-march</c>. <c>-mtune</c> powinno zostać użyte w przypadku, gdy kod ma
-być zoptymalizowany dla starszych procesorów, takich jak i386 lub i486.
-<c>-mtune</c> generuje kod bardziej ogólny niż <c>-march</c>. Pomimo tego, że
-będzie przystosowany dla starszych układów, nie będzie używał prawidłowych
-instrukcji i ABI. Nie należy używać <c>-mtune</c> dla procesorów x86 lub x86-64
-ponieważ opcja ta jest przestarzała.
-</p>
-
-<p>
-Jedynie na procesorach innych niż x86 i x86-64 (np Sparc, Alpha i PowerPC) może
-być wymagane użycie <c>-mtune</c> lub <c>-mcpu</c> zamiast <c>-march</c>. Na
-tych architekturach <c>-mtune</c>/<c>-mcpu</c> mogą się czasami zachowywać tak
-jak <c>-march</c> (na procesorach x86/x86-64). Ponownie: zachowanie <c>gcc</c> i
-nazywanie flag nie jest identyczne dla każdej architektury, więc najlepiej
-sprawdzić stronę <uri
-link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Submodel-Options.html#Submodel-Options">podręcznika</uri>
-<c>gcc</c>.
+one użyte tylko wtedy, gdy opcja <c>-march</c> nie jest dostępna. Jaka jest
+między nimi różnica? <c>-march</c> dokładniej precyzuje jakie cechy powinny
+zostać użyte podczas kompilacji kodu. <c>-mcpu</c> stworzy ogólny kod, mało
+zoptymalizowany dla danego procesora. <c>-mtune</c> tworzy kod jeszcze bardziej
+ogólny. Należy użyć <c>-march</c> zawsze kiedy jest dostępny. Dla architektur
+takich jak PowerPC, Sparc lub Alpha musi zostać użyty <c>-mcpu</c>.
 </p>
 
 <note>
-Dla konkretniejszych ustawień <c>-march</c>/<c>-mtune</c>/<c>-mcpu</c> należy
-przeczytać rozdział piąty <uri link="/doc/pl/handbook/index.xml">Podręcznika
-instalacji Gentoo</uri> dla odpowiedniej architektury. Polecamy również
-przeczytać listę podręcznika <c>gcc</c> o <uri
+Dla konkretniejszych ustawień <c>-march</c> należy przeczytać rozdział piąty
+<uri link="/doc/pl/handbook/index.xml">Podręcznika instalacji Gentoo</uri> dla
+odpowiedniej architektury. Polecamy również przeczytać listę podręcznika
+<c>gcc</c> o <uri
 link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Submodel-Options.html#Submodel-Options">opcjach
 specyficznych dla danej architektury</uri> gdzie jest dokładnie wytłumaczona
-różnica pomiędzy <c>-march</c>, <c>-mcpu</c> i <c>-mtune</c>.
+różnica pomiędzy <c>-march</c>, <c>-mcpu</c> i <c>-mtune</c>. Jest to bardzo
+pomocne przy precyzowaniu jakie opcje <c>-march</c> powinny zostać użyte.
+Zwłaszcza, że na niektórych architekturach (takich jak x86) flaga <c>-mcpu</c>
+jest przestarzała i powinno się użyć <c>-mtune</c> zamiast niej.
 </note>
 
 </body>
@@ -309,8 +289,8 @@ Przeanalizujmy każdy poziom optymalizacji:
   <li>
     <c>-Os</c>: Ten poziom będzie optymalizował kod pod względem wielkości.
     Aktywuje on wszystkie flagi z poziomu <c>-O2</c>, które nie biorą udziału w
-    zwiększeniu wygenerowanego kodu. Może to być przydatne dla maszyn, które
-    mają bardzo ograniczoną przestrzeń dyskową lub z procesorami o bardzo małej
+    zwiększeniu wygenerowanego kodu. Może to być przydatne dla maszyn, które mają
+    bardzo ograniczoną przestrzeń dyskową lub z procesorami o bardzo małej
     wielkości cache. Może jednak spowodować sporo problemów, ponieważ filtrowane
     przez wiele ebuilów z drzewa Portage. Używanie <c>-Os</c> nie jest zalecane.
   </li>
@@ -550,9 +530,9 @@ poprzez ich nieużywanie i niezakładanie, że wie się lepiej niż deweloperzy.
 <body>
 
 <p>
-Nie powinno się ich używać. Można usłyszeć, że mogą przyspieszyć czas
-uruchamiania aplikacji lub zmniejszyć ich rozmiar. Jednak LDFLAGS najczęściej
-powodują zepsucie się danej aplikacji. Nie są one wspierane, więc prawdopodobnie
+Nie należy ich używać. Można usłyszeć, że mogą podnieść czas uruchamiania
+aplikacji lub zmniejszyć ich rozmiar. Jednak LDFLAGS najczęściej powodują
+zepsucie się danej aplikacji. Nie są one wspierane, więc prawdopodobnie
 zgłoszony bug zostanie oznaczony jako INVALID. Ostatecznie trzeba będzie
 ponownie kompilować pakiet bez ustawionych LDFLAGS.
 </p>
