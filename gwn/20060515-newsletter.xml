@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<guide type="newsletter" link="20060515-newsletter.xml" lang="en">
+<title>Gentoo Weekly Newsletter</title>
+<subtitle>15 May 2006</subtitle>
+<author title="Editor">
+<mail link="plate@gentoo.org">Ulrich Plate</mail>
+</author>
+<author title="Author">
+<mail link="amne@gentoo.org">Wernfried Haas</mail>
+</author>
+<author title="Author">
+<mail link="deadhead@gechi.it">Andrea Perotti</mail>
+</author>
+<abstract>This is the Gentoo Weekly Newsletter for the week of 15 May 2006.</abstract>
+<summary/>
+<version>Volume 5, Issue 18</version>
+<date>2006-05-15</date>
+
+<!-- Gentoo News -->
+<chapter>
+<title>Gentoo news</title>
+<section>
+<title>Gentoo rsync mirror spring cleaning</title>
+<body>
+
+<p>
+A legacy module that is still being supported for backward compatibility for the
+settings in a few people's <path>/etc/make.conf</path> is a strong candidate for
+removal. A few of those users who have been synchronizing their Portage tree
+since 2001 or so may still have a line in their config file that points to the
+old <path>gentoo-x86-portage</path> module. As removing this option would make
+mirror configuration much easier, a simple replacement of
+<path>gentoo-x86-portage</path> with <path>gentoo-portage</path> is all that's
+needed:
+</p>
+
+<pre caption="/etc/make.conf">
+SYNC="rsync://192.168.0.75/gentoo-x86-portage" <comment>| Change this line</comment>
+SYNC="rsync://192.168.0.75/gentoo-portage"     <comment>| to this</comment>
+</pre>
+
+</body>
+</section>
+<section>
+<title>GWN translation forces need support</title>
+<body>
+
+<p>
+Park Jin Kyu, the lead translator for the GWN's excellent Korean version, has
+been chipping away at the newsletter translations mostly by himself for the last
+few issues. To help him assure a steady service for our readers in Korea, please
+<mail link="jinkyupark@gmail.com">contact him directly</mail> or send an e-mail
+to <mail link="gwn-feedback@gentoo.org">our own feedback address</mail>.
+</p>
+
+<p>
+Meanwhile, a new simplified Chinese version of the GWN is just about ready for
+official publication. Robert Zhang Le already has a few collaborators but could
+equally use additional help. The first issue of the simplified Chinese GWN will
+be posted shortly, please contact <mail
+link="robert.zhangle@gmail.com">Robert</mail> or, again, <mail
+link="gwn-feedback@gentoo.org">gwn-feedback@gentoo.org</mail>.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Future zone -->
+<!-- User Stories -->
+<!-- Gentoo Stories -->
+<!-- Developer of the week -->
+<!-- Heard in the community: gentoo-dev, gentoo-user, forums -->
+<!-- Gentoo international -->
+<chapter>
+<title>Międzynarodowe Gentoo</title>
+<section>
+<title>Austria: Gentoo na konferencji Grazer Linuxtage</title>
+<body>
+
+<p>
+20 maja w FH Joanneumw w Graz odbędzie się poświęcona społeczności część
+dorocznej imprezy <uri link="http://linuxtage.at/">Grazer Linuxtage</uri>.  Tak
+jak w ubiegłym roku, kilku deweloperów Gentoo, a także przyjaciół i entuzjastów
+będzie reprezentować system Gentoo Linux na stoisku w sali wystawowej. Będą
+rozdawać nalepki, sprzedawać <uri
+link="http://www.gentoo.de/pub/pics/gum/ob/20040604/data/Sm_dsc00036.jpg.html">plakietki
+przyklejane na obudowę komputera</uri> i wypalać płyty LiveCD. Będzie można z
+nimi także porozmawiać o Gentoo, wszechświecie i wszystkim innym. W ciągu dnia
+odbędzie się wiele <uri link="http://linuxtage.at/vortraege/">interesujących
+wykładów</uri>. Stoisko Gentoo będzie się mieściło tuż obok stoisk <uri
+link="http://grml.org/">grml</uri> i różnych projektów Debiana, również
+kontynuując w ten sposób tradycję z ubiegłego roku. Krążą plotki, że między tymi
+trzema stoiskami będzie nadzwyczaj silne połącznie, ale aby zorientować się o co
+chodzi, będziemy musieli odwiedzić imprezę Grazer Linuxtag.
+</p>
+
+</body>
+</section>
+<section>
+<title>Włochy: Gentoo na imprezie Linux World Summit w Mediolanie</title>
+<body>
+
+<p>
+Impreza znana wcześniej we Włoszech pod nazwą "Linux World Expo" zmieniła
+obecnie zarówno nazwę, jak i organizatorów i nosi obecnie miano <uri
+link="http://www.linuxworldsummit.it">Linux World Summit</uri>. Ta skierowana
+głównie do przedsiębiorców impreza rozpoczyna się 15 i 16 maja w Mediolanie.
+Członkowie <uri link="http://www.gechi.it/">Gechi (Gentoo Channel Italia)</uri>
+będą na niej obecni, posiadając własne stoisko.  Będziemy mogli znaleźć na nim
+najświeższe płyty CD Gentoo, zarówno instalacyjne, jak i z prekompilowanymi
+paczkami, przygotowane z myślą o wielu spośród obsługiwanych architektur, oraz
+specjalną płytę <uri link="http://www.lxnaydesign.net/">lxnay RR4/RR64
+LiveDVD</uri>. Jej twórca będzie obecny w poniedziałek po południu, demonstrując
+nowy produkt z rodziny RR. Będziemy mogli także zaopatrzyć się w koszulki Gechi.
+Na stoisku zobaczymy również klaster, zbudowany na bazie czterech płyt głównych
+Via Epia oraz maszynę Sun Fire V120. Więcej informacji (w języku włoskim)
+znajdziemy na <uri
+link="http://www.gechi.it/component/option,com_smf/Itemid,14/board,3.0">forum
+Gechi</uri>. Do zobaczenia na miejscu!
+</p>
+
+</body>
+</section>
+<section>
+<title>Norwegia: konferencja deweloperów PHP z uczestnictwem deweloperów
+Gentoo</title>
+<body>
+
+<p>
+<mail link="sebastian@gentoo.org">Sebastian Bergmann</mail> i <mail
+link="stuart@gentoo.org">Stuart Herbert</mail> są zaproszeni do uczestnictwa w
+konferencji <uri link="http://phpvikinger.org">PHP Vikinger</uri> -- lub raczej
+"niekonferencji", jak zwykł mówić organizator Zak Greant -- w przyszłym miesiącu
+w Skien, w dniach 24 i 25 czerwca 2006. Mało prawdopodobnym jest, by ojczyste
+miasto Henrika Ibsena w norweskiej prowincji Telemark zaoferowało ogrom atrakcji
+dla uczestników konferencji, dlatego też mogą oni w pełni skoncentrować się na
+tym co ogłoszono jako "naprawdę niesamowite wydarzenie", i skupić się na
+rozwijaniu PHP, wspólnie z każdym z zaproszonych gości i indywidualnie
+rejestrować się (?attendees /zgłaszać swoje uczestnictwo) z całego świata.
+</p>
+
+</body>
+</section>
+</chapter>
+<!-- Gentoo in the press -->
+<chapter>
+<title>Gentoo w prasie</title>
+<section>
+<title>Linuxdevices (9 Maj 2006)</title>
+<body>
+
+<p>
+Magazyn specjalizujący się w wiadomościach z rynku osadzonych (?wbudowanych)
+Linuksów, Linuxdevices, donosi o nowym osadzonym module procesora, który zawiera
+preinstalację Linuksa Gentoo. <uri
+link="http://linuxdevices.com/news/NS9007050548.html"> Artykuł</uri> recenzuje
+ostatni produkt izraelskiej firmy CompuLab, jako tzw. jednopłytowy komputer
+namierzający aplikacje telekomunikacyjne czasu rzeczywistego, <uri
+link="http://www.compulab.co.il/f82/html/f82-cm-datasheet.htm"> CM-F82</uri> z
+wbudowanym obrazem Gentoo o objętości 70MB.
+</p>
+
+</body>
+</section>
+</chapter>
+<!-- Tips and Tricks -->
+<!-- Gentoo developer moves -->
+<chapter>
+<title>Gentoo developer moves</title>
+<section>
+<title>Moves</title>
+<body>
+<p>
+The following developers recently left the Gentoo project:
+</p>
+<ul>
+<li><e>None this week</e></li>
+</ul>
+</body>
+</section>
+<section>
+<title>Adds</title>
+<body>
+<p>
+The following developers recently joined the Gentoo project:
+</p>
+<ul>
+<li><e>None this week</e></li>
+</ul>
+</body>
+</section>
+<section>
+<title>Changes</title>
+<body>
+<p>The following developers recently changed roles within the
+Gentoo project:</p>
+<ul>
+<li>Denis Dupeyron (calchan) - joined the media-video team to take care of <c>kino</c> et al.</li>
+</ul>
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo security -->
+<chapter>
+<title>Gentoo Security</title>
+<!-- paste from the script -->
+<section>
+<title>PHP: Multiple vulnerabilities</title>
+<body>
+<p>
+PHP is affected by multiple issues, including a buffer overflow in
+wordwrap() which may lead to execution of arbitrary code.
+</p>
+<p>
+For more information, please see the <uri link="/security/en/glsa/glsa-200605-08.xml">GLSA Announcement</uri>
+</p>
+</body>
+</section>
+<section>
+<title>Mozilla Thunderbird: Multiple vulnerabilities</title>
+<body>
+<p>
+Several vulnerabilities in Mozilla Thunderbird allow attacks ranging from
+script execution with elevated privileges to information leaks.
+</p>
+<p>
+For more information, please see the <uri link="/security/en/glsa/glsa-200605-09.xml">GLSA Announcement</uri>
+</p>
+</body>
+</section>
+<section>
+<title>pdnsd: Denial of Service and potential arbitrary code execution</title>
+<body>
+<p>
+pdnsd is vulnerable to a buffer overflow that may result in arbitrary code
+execution.
+</p>
+<p>
+For more information, please see the <uri link="/security/en/glsa/glsa-200605-10.xml">GLSA Announcement</uri>
+</p>
+</body>
+</section>
+<section>
+<title>Ruby: Denial of Service</title>
+<body>
+<p>
+Ruby WEBrick and XMLRPC servers are vulnerable to Denial of Service.
+</p>
+<p>
+For more information, please see the <uri link="/security/en/glsa/glsa-200605-11.xml">GLSA Announcement</uri>
+</p>
+</body>
+</section>
+<section>
+<title>Quake 3 engine based games: Buffer Overflow</title>
+<body>
+<p>
+The Quake 3 engine has a vulnerability that could be exploited to execute
+arbitrary code.
+</p>
+<p>
+For more information, please see the <uri link="/security/en/glsa/glsa-200605-12.xml">GLSA Announcement</uri>
+</p>
+</body>
+</section>
+<section>
+<title>MySQL: Information leakage</title>
+<body>
+<p>
+A MySQL server may leak information to unauthorized users.
+</p>
+<p>
+For more information, please see the <uri link="/security/en/glsa/glsa-200605-13.xml">GLSA Announcement</uri>
+</p>
+</body>
+</section>
+<!-- end of paste from the script -->
+</chapter>
+<!-- Bugzilla -->
+<!-- paste from the script -->
+<chapter>
+<title>Bugzilla</title>
+<section>
+<title>Statistics</title>
+<body>
+<p>
+The Gentoo community uses Bugzilla (<uri
+link="http://bugs.gentoo.org">bugs.gentoo.org</uri>) to record and track
+bugs, notifications, suggestions and other interactions with the
+development team.  Between 07 May 2006
+and 14 May 2006, activity on the site has resulted in:
+</p>
+<ul>
+<li>732 new bugs during this period</li>
+<li>353 bugs closed or resolved during this period</li>
+<li>22 previously closed bugs were reopened this period</li>
+</ul>
+<p>
+Of the 10071 currently open bugs: 60 are labeled 'blocker', 147 are labeled 'critical', and 526 are labeled 'major'.
+</p>
+</body>
+</section>
+
+<section>
+<title>Closed bug rankings</title>
+<body>
+<p>
+The developers and teams who have closed the most bugs during this period are:
+</p>
+<ul>
+<li><mail link="gnome@gentoo.org">Gentoo Linux Gnome Desktop Team</mail>, with 23
+<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-05-07&amp;chfieldto=2006-05-14&amp;resolution=FIXED&amp;assigned_to=gnome@gentoo.org">closed bugs</uri>
+</li>
+<li><mail link="ppc64@gentoo.org">ppc64 architecture team</mail>, with 21
+<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-05-07&amp;chfieldto=2006-05-14&amp;resolution=FIXED&amp;assigned_to=ppc64@gentoo.org">closed bugs</uri>
+</li>
+<li><mail link="dev-portage@gentoo.org">Portage team</mail>, with 15
+<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-05-07&amp;chfieldto=2006-05-14&amp;resolution=FIXED&amp;assigned_to=dev-portage@gentoo.org">closed bugs</uri>
+</li>
+<li><mail link="games@gentoo.org">Gentoo Games</mail>, with 14
+<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-05-07&amp;chfieldto=2006-05-14&amp;resolution=FIXED&amp;assigned_to=games@gentoo.org">closed bugs</uri>
+</li>
+<li><mail link="kde@gentoo.org">Gentoo KDE team</mail>, with 11
+<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-05-07&amp;chfieldto=2006-05-14&amp;resolution=FIXED&amp;assigned_to=kde@gentoo.org">closed bugs</uri>
+</li>
+<li><mail link="security@gentoo.org">Gentoo Security</mail>, with 10
+<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-05-07&amp;chfieldto=2006-05-14&amp;resolution=FIXED&amp;assigned_to=security@gentoo.org">closed bugs</uri>
+</li>
+<li><mail link="sci@gentoo.org">Gentoo Science Related Packages</mail>, with 10
+<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-05-07&amp;chfieldto=2006-05-14&amp;resolution=FIXED&amp;assigned_to=sci@gentoo.org">closed bugs</uri>
+</li>
+<li><mail link="base-system@gentoo.org">Gentoo's Team for Core System packages</mail>, with 9
+<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-05-07&amp;chfieldto=2006-05-14&amp;resolution=FIXED&amp;assigned_to=base-system@gentoo.org">closed bugs</uri>
+</li>
+</ul>
+</body>
+</section>
+
+<section>
+<title>New bug rankings</title>
+<body>
+<p>
+The developers and teams who have been assigned the most new bugs during this period are:
+</p>
+<ul>
+<li><mail link="maintainer-wanted@gentoo.org">Default Assignee for New Packages</mail>, with 22
+<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-05-07&amp;chfieldto=2006-05-14&amp;assigned_to=maintainer-wanted@gentoo.org">new bugs</uri>
+</li>
+<li><mail link="maintainer-needed@gentoo.org">Default Assignee for Orphaned Packages</mail>, with 9
+<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-05-07&amp;chfieldto=2006-05-14&amp;assigned_to=maintainer-needed@gentoo.org">new bugs</uri>
+</li>
+<li><mail link="amd64@gentoo.org">AMD64 Project</mail>, with 9
+<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-05-07&amp;chfieldto=2006-05-14&amp;assigned_to=amd64@gentoo.org">new bugs</uri>
+</li>
+<li><mail link="sound@gentoo.org">Gentoo Sound Team</mail>, with 7
+<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-05-07&amp;chfieldto=2006-05-14&amp;assigned_to=sound@gentoo.org">new bugs</uri>
+</li>
+<li><mail link="kernel@gentoo.org">Gentoo Kernel Bug Wranglers and Kernel Maintainers</mail>, with 7
+<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-05-07&amp;chfieldto=2006-05-14&amp;assigned_to=kernel@gentoo.org">new bugs</uri>
+</li>
+<li><mail link="zzam@gentoo.org">Matthias Schwarzott</mail>, with 6
+<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-05-07&amp;chfieldto=2006-05-14&amp;assigned_to=zzam@gentoo.org">new bugs</uri>
+</li>
+<li><mail link="x11-drivers@gentoo.org">X11 External Driver Maintainers</mail>, with 6
+<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-05-07&amp;chfieldto=2006-05-14&amp;assigned_to=x11-drivers@gentoo.org">new bugs</uri>
+</li>
+<li><mail link="media-video@gentoo.org">media-video herd</mail>, with 6
+<uri link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-05-07&amp;chfieldto=2006-05-14&amp;assigned_to=media-video@gentoo.org">new bugs</uri>
+</li>
+</ul>
+</body>
+</section>
+</chapter>
+<!-- end of paste from bugzilla script -->
+<!-- GWN feedback information -->
+<chapter>
+<title>GWN feedback</title>
+<section>
+<body>
+<p>
+Please send us your <mail link="gwn-feedback@gentoo.org">feedback</mail> and
+help make the GWN better.
+</p>
+</body>
+</section>
+</chapter>
+<!-- GWN subscription information -->
+<chapter>
+<title>GWN subscription information</title>
+<section>
+<body>
+<p>To subscribe to the Gentoo Weekly Newsletter, send a blank e-mail to
+<mail
+link="gentoo-gwn+subscribe@gentoo.org">gentoo-gwn+subscribe@gentoo.org</mail>.
+</p> 
+<p> To unsubscribe to the Gentoo Weekly Newsletter, send a blank e-mail to
+<mail
+link="gentoo-gwn+unsubscribe@gentoo.org">gentoo-gwn+unsubscribe@gentoo.org</mail>
+from the e-mail address you are subscribed under.</p>
+</body>
+</section>
+</chapter>
+
+<!-- Other Languages -->
+<chapter>
+<title>Other languages</title>
+<section>
+<body>
+<p>The Gentoo Weekly Newsletter is also available in the following
+languages:</p>
+<ul>
+<li>
+<uri link="/news/da/gwn/gwn.xml">Danish</uri>
+</li>
+<li>
+<uri link="/news/nl/gwn/gwn.xml">Dutch</uri>
+</li>
+<li>
+<uri link="/news/en/gwn/gwn.xml">English</uri>
+</li>
+<li>
+<uri link="/news/de/gwn/gwn.xml">German</uri>
+</li>
+<li>
+<uri link="/news/fr/gwn/gwn.xml">French</uri>
+</li>
+<li>
+<uri link="/news/ko/gwn/gwn.xml">Korean</uri>
+</li>
+<li>
+<uri link="/news/ja/gwn/gwn.xml">Japanese</uri>
+</li>
+<li>
+<uri link="/news/it/gwn/gwn.xml">Italian</uri>
+</li>
+<li>
+<uri link="/news/pl/gwn/gwn.xml">Polish</uri>
+</li>
+<li>
+<uri link="/news/pt_br/gwn/gwn.xml">Portuguese (Brazil)</uri>
+</li>
+<li>
+<uri link="/news/pt/gwn/gwn.xml">Portuguese (Portugal)</uri>
+</li>
+<li>
+<uri link="/news/ru/gwn/gwn.xml">Russian</uri>
+</li>
+<li>
+<uri link="/news/es/gwn/gwn.xml">Spanish</uri>
+</li>
+<li>
+<uri link="/news/tr/gwn/gwn.xml">Turkish</uri>
+</li>
+</ul>
+</body>
+</section>
+</chapter>
+</guide>

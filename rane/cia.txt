@@ -1,0 +1,20 @@
+<or>
+
+  <and>
+    <match path="project"> gentoo </match>
+    <or>
+      <find path="files"> htdocs/doc/pl/ </find>
+      <find path="files"> htdocs/proj/pl/ </find>
+      <find path="files"> htdocs/news/pl/ </find>
+      <find path="files"> htdocs/main/pl/ </find>
+    </or>
+   </and>
+
+  <and>
+    <match path="project"> gentoo </match>
+    <match path="module"> proj/docs-pl </match>
+   </and>
+
+</or>
+
+<formatter medium="irc"/>

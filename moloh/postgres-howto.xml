@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<!-- $Header: /var/www/www.gentoo.org/raw_cvs/gentoo/xml/htdocs/doc/en/postgres-howto.xml,v 1.2 2006/03/16 21:25:36 neysx Exp $ -->
+
+<guide link="/doc/pl/postgres-howto.xml" lang="pl">
+<title>Poradnik PostgreSQL</title>
+
+<author title="Autor">
+  <mail link="chriswhite@gentoo.org">Chris White</mail>
+</author>
+<author title="Redaktor">
+  <mail link="neysx@gentoo.org">Xavier Neys</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="moloh@gentoo.org">Michał Kurgan</mail>
+</author>
+
+<abstract>
+W poradniku znajduje się opis podstawowej konfiguracji PostgreSQL. Powinien być
+on wystarczający dla prostych aplikacji webowych oraz innego oprogramowania
+wspierającego PostgreSQL.
+</abstract>
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
+<license/>
+
+<version>1.0</version>
+<date>2006-03-14</date>
+
+<chapter>
+<title>Wprowadzenie</title>
+<section>
+<title>Wprowadzenie do PostgreSQL</title>
+<body>
+
+<p>
+Większość deweloperów zapytana o różne rozwiązania bazodanowe najprawdopodobniej
+wymieni dwa najpopularniejsze i najbardziej efektywne. Będą to <c>MySQL</c> oraz
+<c>PostgreSQL</c>, dokładniej opisany w tym dokumencie. Różnice i zalety obu
+systemów bazodanowych mogą zamienić się w długą debatę, jednak należy zwrócić
+uwagę że PostgreSQL jest bardziej związany z relacyjnym modelem przechowywania
+i dostępu do danych. Wydawało by się że standardowa funkcjonalność jak
+<b>FOREIGN KEY</b> powinna być zapewniona w każdym systemie SQL, i tak jest ale
+MySQL doczekał się jej dopiero w wersji 5.0. Niezależnie od zapewnianej
+funkcjonalności i zalet obu rozwiązań w poradniku znajdują się jedynie porady
+dotyczące PostgreSQL, będą one z pewnością cennym źródłem informacji dla każdego
+posługującego się tym systemem bazodanowym. Pierwszym krokiem jest oczywiście
+instalacja, w przypadku Gentoo sprowadza się to do wykonania polecenia
+<c>emerge</c>. W kolejnych rozdziałach zostanie opisany proces instalacji oraz
+podstawowej konfiguracji.
+</p>
+
+</body>
+</section>
+<section>
+<title>Instalacja PostgreSQL</title>
+<body>
+
+<p>
+Pierwszym krokiem jaki należy wykonać to instalacja pakietu PostgreSQL. Wpierw
+najlepiej jednak wykonać następujące polecenie, by przekonać się że wszystkie
+opcje są właściwie ustawione:
+</p>
+
+<pre caption="Sprawdzenie dostępnych flag USE w pakiecie PostgreSQL">
+# <i>emerge -pv postgresql</i>
+
+These are the packages that I would merge, in order:
+
+Calculating dependencies ...done!
+[ebuild  N    ] dev-db/postgresql-8.0.4  -doc -kerberos +libg++ +nls +pam +perl
+-pg-hier -pg-intdatetime +python +readline (-selinux) +ssl -tcltk +xml2 +zlib 0 kB
+</pre>
+
+<p>
+Poniżej znajduje się lista opcji wraz z krótkimi opisami:
+</p>
+
+<table>
+<tr>
+  <th>flaga USE</th>
+  <th>Znaczenie</th>
+</tr>
+<tr>
+  <ti>doc</ti>
+  <ti>
+    Włącza lub wyłącza instalacje dokumentacji z wyłączenie stron podręcznika
+    man. Jedynym powodem aby nie używać tej flagi USE jest tylko mała ilość
+    wolnej przestrzeni dyskowej lub alternatywna metoda dostępu do dokumentacji
+    PostgreSQL (np. strona www).
+  </ti>
+</tr>
+<tr>
+  <ti>kerberos</ti>
+  <ti>
+    W czasie nawiązywania połączenia z bazą danych, w przypadku gdy ta opcji
+    jest używana, administrator może skorzystać z metody autoryzacji
+    <c>kerberos</c> by zweryfikować użytkowników lub usługi, które chcą uzyskać
+    dostęp.
+  </ti>
+</tr>
+<tr>
+  <ti>libg++</ti>
+  <ti>
+    Włączenie tej flagi USE powoduje zbudowanie wiązań C++. Zostanie stworzona
+    biblioteka libpg++ umożliwiająca dostęp do funkcjonalności PostgreSQL z
+    poziomu języka C++.
+  </ti>
+</tr>
+<tr>
+  <ti>nls</ti>
+  <ti>
+    W przypadku używania tej opcji, PostgreSQL będzie używał tłumaczeń
+    komunikatów, co może być pomocne dla użytkowników nie posługujących się
+    językiem angielskim.
+  </ti>
+</tr>
+<tr>
+  <ti>pam</ti>
+  <ti>
+    Odpowiednia konfiguracja serwera PostgreSQL oraz aktywacja tej flagi USE
+    umożliwia administratorowi na użycie <c>PAM</c> (Pluggable Authentication
+    Module) jako sposobu autoryzacji w czasie nawiązywania połączeń przez
+    użytkowników z bazą danych.
+  </ti>
+</tr>
+<tr>
+  <ti>perl</ti>
+  <ti>
+    Włączenie tej opcji spowoduje zbudowanie wiązań PostgreSQL dla języka
+    <c>perl</c>.
+  </ti>
+</tr>
+<tr>
+  <ti>pg-hier</ti>
+  <ti>
+    W przypadku włączenia tej opcji zostanie użyta poprawką umożliwiająca użycie
+    hierarchicznych zapytań, takich jak polecenie <c>CONNECT</c> w przypadku
+    serwerów bazodanowych <c>Oracle</c>. Więcej informacji na temat tego typu
+    zapytań można znaleźć w <uri
+    link="http://www.lc.leidenuniv.nl/awcourse/oracle/server.920/a96540/
+    queries4a.htm">dokumentacji Oracle</uri> (język angielski).
+  </ti>
+</tr>
+<tr>
+  <ti>pg-intdatetime</ti>
+  <ti>
+    Wsparcie w PostgreSQL dla 64-bitowych typów reprezentujących datę.
+  </ti>
+</tr>
+<tr>
+  <ti>python</ti>
+  <ti>
+    Włączenie tej opcji spowoduje zbudowanie wiązań PostgreSQL dla języka
+    <c>python</c>.
+  </ti>
+</tr>
+<tr>
+  <ti>readline</ti>
+  <ti>
+    Opcja odpowiedzialna za wsparcie w PostgreSQL dla biblioteki
+    <c>readline</c>. Ułatwia posługiwanie się terminalem, dodaje historię oraz
+    opcję szukaj.
+  </ti>
+</tr>
+<tr>
+  <ti>selinux</ti>
+  <ti>
+    Włączenie tej opcji spowoduje instalację polis <c>selinux</c> dla
+    PostgreSQL.
+  </ti>
+</tr>
+<tr>
+  <ti>ssl</ti>
+  <ti>
+    Załączenie tej flagi USE umożliwi wykorzystanie przez PostgreSQL biblioteki
+    <c>OpenSSL</c> służącej do szyfrowania połączeń pomiędzy serwerami
+    PostgreSQL i ich klientami.
+  </ti>
+</tr>
+<tr>
+  <ti>tcltk</ti>
+  <ti>
+    Włączenie tej opcji spowoduje zbudowanie wiązań PostgreSQL dla języka
+    <c>tcl/tk</c>.
+  </ti>
+</tr>
+<tr>
+  <ti>xml2</ti>
+  <ti>
+    Włączenie tej opcji zapewni wsparcie dla <c>XPATH</c> w xml. Więcej
+    informacji na temat języka xml w PostgreSQL można znaleźć w dokumencie <uri
+    link="http://www.throwingbeans.org/tech/postgresql_and_xml.html">PostgreSQL
+    and XML</uri> (język angielski).
+  </ti>
+</tr>
+<tr>
+  <ti>zlib</ti>
+  <ti>
+    Opcja ta nie jest używana przez sam PostgreSQL, ale przez <c>pg_dump</c>.
+    Umożliwia kompresję tworzonych obrazów danych.
+  </ti>
+</tr>
+</table>
+
+<note>
+Autor poprawki <c>pg-hier</c> przestał nad nią pracować. Zostanie ona
+najprawdopodobniej usunięta w kolejnych wersjach.
+</note>
+
+<p>
+Po włączeniu odpowiednich flag, tak by odpowiednio dostosować konfigurację
+kompilacji PostgreSQL, czas na kolejny krok - instalację:
+</p>
+
+<pre caption="Instalacja PostgreSQL">
+# <i>emerge postgresql</i>
+<comment>(Komunikaty zostały skrócone)</comment>
+>>> /usr/lib/libecpg.so.5 -> libecpg.so.5.0
+>>> /usr/bin/postmaster -> postgres
+ * Make sure the postgres user in /etc/passwd has an account setup with /bin/bash as the shell
+ *
+ * Execute the following command
+ * emerge --config =postgresql-8.0.4
+ * to setup the initial database environment.
+ *
+>>> Regenerating /etc/ld.so.cache...
+>>> dev-db/postgresql-8.0.4 merged.
+</pre>
+
+<p>
+Jak pokazano na wydruku, po poprawnej kompilacji i instalacji PostgreSQL należy
+jeszcze wykonać dodatkowe czynności przygotowujące bazę danych do pracy. W
+kolejnym rozdziale zostanie opisany proces konfiguracji.
+</p>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Konfiguracja PostgreSQL</title>
+<section>
+<title>Stworzenie bazowego środowiska dla bazy danych</title>
+<body>
+
+<p>
+Po zakończonej sukcesem instalacji ebuild informuje nas o potrzebie stworzenia
+środowiska bazowego, tak by móc uruchomić usługę. Jednak przed wykonaniem
+podanego polecenia należy jeszcze zająć się jedną sprawą. W przeciwieństwie do
+MySQL, w przypadku PostgreSQL hasło administratora jest takie samo jak
+użytkownika w systemie. Jest on tworzony przez ebuild, ale jego hasło <e>nie</e>
+zostaje ustawione. Tak więc przed by móc rozpocząć właściwą konfigurację musimy
+ustawić hasło dla użytkownika postgres:
+</p>
+
+<pre caption="Ustawienie hasła">
+# <i>passwd postgres</i>
+New UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+</pre>
+
+<p>
+Po ustawieniu odpowiedniego hasła można przystąpić do stworzenia podstawowego
+środowiska PostgreSQL:
+</p>
+
+<pre caption="Konfiguracja środowiska bazodanowego poleceniem emerge --config">
+# <i>emerge --config =postgresql-8.0.4</i>
+
+
+Configuring pkg...
+
+ * Creating the data directory ...
+ * Initializing the database ...
+The files belonging to this database system will be owned by user "postgres".
+This user must also own the server process.
+
+The database cluster will be initialized with locale C.
+
+fixing permissions on existing directory /var/lib/postgresql/data ... ok
+creating directory /var/lib/postgresql/data/global ... ok
+creating directory /var/lib/postgresql/data/pg_xlog ... ok
+creating directory /var/lib/postgresql/data/pg_xlog/archive_status ... ok
+creating directory /var/lib/postgresql/data/pg_clog ... ok
+creating directory /var/lib/postgresql/data/pg_subtrans ... ok
+creating directory /var/lib/postgresql/data/base ... ok
+creating directory /var/lib/postgresql/data/base/1 ... ok
+creating directory /var/lib/postgresql/data/pg_tblspc ... ok
+selecting default max_connections ... 100
+selecting default shared_buffers ... 1000
+creating configuration files ... ok
+creating template1 database in /var/lib/postgresql/data/base/1 ... ok
+initializing pg_shadow ... ok
+enabling unlimited row size for system tables ... ok
+initializing pg_depend ... ok
+creating system views ... ok
+loading pg_description ... ok
+creating conversions ... ok
+setting privileges on built-in objects ... ok
+creating information schema ... ok
+vacuuming database template1 ... ok
+copying template1 to template0 ... ok
+
+WARNING: enabling "trust" authentication for local connections
+You can change this by editing pg_hba.conf or using the -A option the
+next time you run initdb.
+
+Success. You can now start the database server using:
+
+    /usr/bin/postmaster -D /var/lib/postgresql/data
+or
+    /usr/bin/pg_ctl -D /var/lib/postgresql/data -l logfile start
+
+ *
+ * You can use /etc/init.d/postgresql script to run PostgreSQL instead of pg_ctl.
+ *
+</pre>
+
+<p>
+Po wykonaniu polecenia, podstawowe środowisko, tabele i pliki konfiguracyjne
+zostały utworzone. W kolejnej sekcji dowiemy się w jak sprawdzić poprawność
+instalacji oraz poznamy sposoby kontroli dostępu do bazy danych przez
+użytkowników.
+</p>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja PostgreSQL</title>
+<body>
+
+<p>
+Po stworzeniu bazowego środowiska najlepiej sprawdzić, czy wszystkie czynności
+zostały prawidłowo wykonanie. Sprawdźmy więc czy start usługi zakończy się
+sukcesem:
+</p>
+
+<pre caption="Uruchomienie usługi PostgreSQL">
+# <i>/etc/init.d/postgresql start</i>
+* Starting PostgreSQL ...                                          [ ok ]
+</pre>
+
+<p>
+Po poprawnym starcie dobrym pomysłem jest jej dodanie do domyślnego poziomu
+startowego, co spowoduje uruchomienie systemu bazodanowego w czasie startu
+systemu:
+</p>
+
+<pre caption="Dodanie demona PostgreSQL do domyślnego poziomu startowego">
+# <i>rc-update add postgresql default</i>
+* postgresql added to runlevel default
+</pre>
+
+<p>
+Kolejnym krokiem po uruchomieniu demona PostgreSQL jest przetestowanie samego
+systemu bazodanowego. Na początek skorzystamy z polecenia <c>createdb</c>, by
+utworzyć testową bazę danych. Użyjemy opcji <c>-U</c> tak by ustawić użytkownika
+(domyślnie jest to ten aktualnie zalogowany) oraz <c>-W</c> by wymusić
+interaktywne podanie stworzonego wcześniej hasła. Ostatnim parametrem jest nazwa
+bazy danych, którą chcemy utworzyć:
+</p>
+
+<pre caption="Stworzenie bazy danych poleceniem createdb">
+$ <i>createdb -U postgres -W test</i>
+Password:
+CREATE DATABASE
+</pre>
+
+<p>
+Testowa baza danych została utworzona, można teraz zadać kilka podstawowych
+zapytań. Kolejnym krokiem weryfikującym poprawność instalacji, będzie jej
+usunięcie, używamy polecenia <c>dropdb</c>. Nową, właściwą bazę danych utworzymy
+później:
+</p>
+
+<pre caption="Usunięcie bazy danych poleceniem dropdb">
+$ <i>dropdb -U postgres -W test</i>
+Password:
+DROP DATABASE
+</pre>
+
+<p>
+Domyślna, po wykonaniu wszystkich powyższych czynności, konfiguracja zezwala
+jedynie użytkownikowi postgres na wydawanie poleceń. Nie jest to jednak zbyt
+wygodne, szczególnie w środowisku wieloużytkowym. W kolejnej sekcji zajmiemy się
+stworzeniem oraz ustawieniami kont użytkowników.
+</p>
+
+</body>
+</section>
+<section>
+<title>Tworzenie kont użytkowników</title>
+<body>
+
+<p>
+Jak wcześniej wspomniano, konieczność używania użytkownika postgres by połączyć
+się z bazą danych jest trochę uciążliwa, szczególnie w środowisku
+wieloużytkowym. W większości przypadków skorzystać z serwera będzie chciało co
+najmniej kilku użytkowników, dodatkowo posiadających różne uprawnienia. By
+zaradzić temu problemowi można skorzystać z polecenia <c>createuser</c> lub
+wydać serię zapytań SQL. Warto jednak skorzystać z tej pierwszej możliwości jako
+że jest o wiele bardziej elastyczna z punktu widzenia administratora. Zaczniemy
+od stworzenia dwóch użytkowników, administratora mogącego dodawać kolejnych
+użytkowników i zarządzać bazą danych oraz zwykłego użytkownika:
+</p>
+
+<pre caption="Tworzenie konta administratora">
+<comment>(nazwę chris można zamienić dowolnym innym identyfikatorem)</comment>
+$ <i>createuser -a -d -P -E -U postgres -W chris</i>
+Enter password for new user:
+Enter it again:
+Password:
+CREATE USER
+</pre>
+
+<p>
+Po wykonaniu powyższych poleceń stworzony został użytkownik posiadający
+uprawnienia administratora. Flaga <c>-a</c> oznacza, że może on dodawać
+kolejnych użytkowników, <c>-d</c> nadaje mu natomiast uprawnienia do tworzenia
+nowych baz danych. Korzystając z opcji <c>-P</c> można interaktywnie wprowadzić
+hasło dla tworzonego konta, natomiast dzięki fladze <c>-E</c> hasło zostanie
+zaszyfrowane, aby zwiększyć bezpieczeństwo. Po utworzeniu konta administratora
+nadszedł czas by je przetestować i stworzyć nowe konto dla zwykłego
+użytkownika:
+</p>
+
+<pre caption="Tworzenie zwykłego konta o nazwie testowy">
+<comment>(Zamień chris wcześniej użytym identyfikatorem)</comment>
+$ <i>createuser -A -D -P -E -U chris -W testowy</i>
+Enter password for new user:
+Enter it again:
+Password:
+CREATE USER
+</pre>
+
+<p>
+Sukces! Po wykonaniu powyższego polecenia został stworzony zwykły użytkownik, co
+ważne przetestowaliśmy także uprawnienia superużytkownika. Flagi <c>-A</c> i
+<c>-D</c> mają odwrotne znaczenie niż odpowiednio <c>-a</c> oraz <c>-d</c>, w
+zamian uniemożliwiając tworzenie kolejnych użytkowników i baz danych. Skoro
+dostęp od serwera bazodanowego ma już większe grono, czas na stworzenie bazy
+danych. Właśnie temu zagadnieniu będzie poświęcony kolejny rozdział.
+</p>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Używanie PostgreSQL</title>
+<section>
+<title>Konfiguracja praw dostępu</title>
+<body>
+
+<p>
+Po wykonaniu wszystkich czynności opisanych do tej pory, system zawiera
+użytkownika z uprawnieniami do tworzenia nowych użytkowników i baz danych,
+domyślnego superużytkownika, który nie posiada żadnych ograniczeń oraz jednego
+zwykłego użytkownika mogącego tylko połączyć się z serwerem bazodanowym.
+Normalnie użytkownicy powinni mieć nie tylko dostęp do samego serwera, ale także
+do poszczególnych baz danych, gdzie mogę modyfikować ich zawartość dodając i
+usuwając dane. By użytkownik testowy miał takie możliwości, należy wpierw odpowiednio
+skonfigurować odpowiednie prawa. Jest to bardzo proste dzięki poleceniu
+<c>createdb</c> oraz fladze <c>-O</c>. Rozpoczniemy od stworzenia nowej bazy
+danych <b>MojaBD</b>, której właścicielem będzie użytkownik testowy:
+</p>
+
+<pre caption="Tworzenie bazy danych MojaBD">
+$ <i>createdb -O testowy -U chris -W MojaBD</i>
+Password:
+CREATE DATABASE
+</pre>
+
+<p>
+Skoro stworzyliśmy już nową bazę danych o nazwie MojaBD, umożliwiając
+użytkownikowi testowy swobodny dostęp do niej to nadeszła najwyższa pora, aby
+sprawdzić czy wszystko zostało poprawnie wykonanie. By zalogować się do bazy
+danych wystarczy użyć programu <c>psql</c>, który umożliwia dostęp z poziomu
+linii poleceń. Można to zrobić postępując zgodnie z instrukcjami znajdującymi
+się na poniższym listingu:
+</p>
+
+<pre caption="Logowanie do bazy danych MojaBD jako użytkownik testowy">
+$ <i>psql -U testowy -W MojaBD</i>
+Password:
+Welcome to psql 8.0.4, the PostgreSQL interactive terminal.
+
+Type:  \copyright for distribution terms
+       \h for help with SQL commands
+       \? for help with psql commands
+       \g or terminate with semicolon to execute query
+       \q to quit
+
+MojaBD=&gt;
+</pre>
+
+<p>
+Teraz, testowy jest zalogowany do bazy danych i może rozpocząć wydawanie
+kolejnych poleceń. By zapoznać się z podstawowymi funkcjonalnościami
+udostępnianymi przez PostgreSQL w kolejnym rozdziale przyjrzymy się kilku
+podstawowym poleceniom klienta <c>psql</c> oraz SQL.
+</p>
+
+</body>
+</section>
+<section>
+<title>Podstawowe polecenia PostgreSQL i zapytania SQL</title>
+<body>
+
+<p>
+Dla tych wszystkich, którzy poznali już MySQL jest to z pewnością bardzo ważna
+część poradnika. Znajdują się tutaj nie tylko wyjaśnienia poszczególnych
+poleceń, ale także i ich odpowiedniki dla MySQL oraz różnice i unikalne
+właściwości charakterystyczne tylko dla PostgreSQL. Zacznijmy od podstawowych
+poleceń oferowanych przez klienta <c>psql</c>:
+</p>
+
+<table>
+<tr>
+  <th>Polecenie</th>
+  <th>Zastosowanie</th>
+  <th>Odpowiednik MySQL</th>
+</tr>
+<tr>
+  <ti>\c[onnect] [DBNAME|- [USER]]</ti>
+  <ti>Połącz się z inną bazą danych</ti>
+  <ti>USE DATABASE</ti>
+</tr>
+<tr>
+  <ti>\q</ti>
+  <ti>Zamknij klienta <c>psql</c></ti>
+  <ti>quit</ti>
+</tr>
+<tr>
+  <ti>\i FILE</ti>
+  <ti>Uruchom polecenia znajdujące sie w pliku <c>FILE</c></ti>
+  <ti>source FILE</ti>
+</tr>
+<tr>
+  <ti>\o [FILE]</ti>
+  <ti>Zapisz wynik zapytania w pliku <c>FILE</c></ti>
+  <ti>INTO OUTFILE, (zapisuje wszystko, nie tylko wynik zapytania SELECT)</ti>
+</tr>
+<tr>
+  <ti>\d [NAME]</ti>
+  <ti>Tworzy opis danej bezy danych, tabeli (także innych elementów)</ti>
+  <ti>DESC(RIBE)</ti>
+</tr>
+<tr>
+  <ti>\db [PATTERN]</ti>
+  <ti>Lista dostępnych baz danych pasujących do wzorca <c>PATTERN</c> (lub
+  wszystkie gdy go nie podano)</ti>
+  <ti>SHOW TABLES</ti>
+</tr>
+</table>
+
+<p>
+Z wyjątkiem polecenia <c>\c[onnect]</c>, pozostałe zostaną lepiej opisane w
+kolejnych sekcjach tego dokumentu. Jak na razie stworzona baza danych MojaBD
+jest pusta, jednak by móc zacząć dodawać do niej dane należy wpierw stworzyć
+tabelę. W tym celu można użyć jednego z zapytań języka SQL - <c>CREATE
+TABLE</c>. Tabela będzie zawierać informacje na temat poszczególnych produktów i
+zawierać pola produkt_id, opis oraz cena:
+</p>
+
+<pre caption="Tworzenie tabeli produktów">
+MojaBD=> CREATE TABLE produkty (
+MojaBD(&gt;   produkt_id SERIAL,
+MojaBD(&gt;   opis TEXT,
+MojaBD(&gt;   cena DECIMAL
+MojaBD(&gt; );
+NOTICE:  CREATE TABLE will create implicit sequence "produkty_produkt_id_seq"
+for serial column "produkty.produkt_id"
+CREATE TABLE
+</pre>
+
+<p>
+Uwaga NOTICE jest nieszkodliwa, więc nie trzeba się szczególnie nią przejmować.
+Patrząc na wynik polecenia, szczególnie wpis <c>CREATE TABLE</c> sugeruje, że
+operacja zakończyła się sukcesem. Dla pewności jednak najlepiej sprawdzić, czy
+tabela została stworzona poprawnie używając polecenia <c>\d</c>:
+</p>
+
+<pre caption="Rzut okiem na nową tabele, aby upewnić się że została ona
+stworzona poprawnie">
+MojaBD=&gt; <i>\d produkty</i>
+                                 Table "public.produkty"
+   Column    |  Type   |                            Modifiers
+-------------+---------+------------------------------------------------------------------
+ produkt_id  | integer | not null default nextval('public.produkty_produkt_id_seq'::text)
+ opis        | text    |
+ cena        | numeric |
+</pre>
+
+<p>
+Po oglądnięciu powyższego listingu można łatwo stwierdzić, czy wszystko zostało
+poprawnie wykonanie. Teraz skoro baza danych zawiera tabelę, należy zapełnić ją
+danymi. Kolejnej sekcja poradnika będzie właśnie tego dotyczyła.
+</p>
+
+</body>
+</section>
+<section>
+<title>Wprowadzanie danych do bazy danych</title>
+<body>
+
+<p>
+W tej części poradnika przyjrzymy się dwóm sposobom wprowadzania danych do nowo
+stworzonej tabeli. Najbardziej powszechną metodą jest użycie jednego z
+podstawowych poleceń SQL, <c>INSERT</c>:
+</p>
+
+<pre caption="Składnia INSERT">
+INSERT INTO [nazwatabeli] (kolumna1,kolumna2,kolumna3) VALUES(wartość1,wartość2,wartość3)
+</pre>
+
+<p>
+<c>nazwatabeli</c> jest nazwą tabeli do której dane mają zostać dopisane dane,
+(kolumna1,kolumna2,kolumna3) pozwala na określenie poszczególnych kolumn, które
+mają zawierać wartości określone przez VALUES(wartość1,wartość2,wartość3). Kolejność
+jest tu istotna i tak wartość1 zostanie przypisana kolumnie kolumna1, wartość2
+kolumnie kolumna2 itd. Ilość kolumn i wartości <e>musi</e> się zgadzać, w przeciwnym
+przypadku zostanie zgłoszony błąd. Przykładowe wywołanie może wyglądać w
+następujący sposób.
+</p>
+
+<impo>
+Z długiego doświadczenia jako użytkownika różnych systemów bazodanowych, polecam
+używanie tylko wyrażeń <c>INSERT</c> zgodnie ze składnią podaną powyżej.
+Deweloperzy bardzo często korzystają z <c>INSERT INTO</c> nie podając
+identyfikatorów kolumn. Może to prowadzić do problemów i błędów w przypadku, gdy
+dana tabela zostanie zmodyfikowana i zostaną dodane do niej nowe kolumny.
+Skutkiem będzie błąd spowodowany różną ilością kolumn w tabeli i określonych
+wartości w zapytaniu SQL. Należy <e>zawsze</e> podać nazwy kolumn, chyba że
+mamy 300% pewność, że struktura tabeli nigdy nie zostanie zmieniona.
+</impo>
+
+<pre caption="Dodawanie danych do tabeli">
+MojaBD=&gt; <i>INSERT INTO produkty (opis,cena) VALUES('produkt testowy', 12.00);</i>
+INSERT 17273 1
+</pre>
+
+<p>
+Ostatnia linia wymaga odrobiny wyjaśnień. W rezultacie wykonania zapytania
+insert zwrócony zostanie numer OID (Object Identifier) oraz numer wiersza do,
+którego dane zostały dopisane. OID nie będzie omówiony w ramach tego poradnika,
+szczegółowe informacje na ten temat zawiera <uri
+link="http://www.postgresql.org/docs/8.1/static/datatype-oid.html">podręcznik
+PostgreSQL</uri> (język angielski). Teraz postawmy się w sytuacji gdy musimy
+wprowadzić do tabeli dużą ilość produktów, wprowadzanie poszczególnych wierszy
+ręcznie może być bardzo czasochłonne. Na szczęście w takich przypadkach można
+posłużyć się poleceniem <c>COPY</c>, które umożliwia wprowadzenia danych z pliku
+lub standardowego wejścia. Załóżmy, że dane są zawarte w pliku tekstowym csv
+(comma separated values), który zawiera wszystkie potrzebne informacje:
+produkt_id, opis, cena. Przykładowy plik może wyglądać następująco:
+</p>
+
+<pre caption="produkty.csv">
+2,ser,6.79
+3,zupa,0.69
+4,woda,1.79
+</pre>
+
+<p>
+Skorzystamy w tym przypadku z polecenia <c>COPY</c>, by przepisać dane z pliku
+do tabeli w bazie danych:
+</p>
+
+<impo>
+Polecenie <c>COPY FROM STDIN</c> zostało użyte tylko z tego względu, że tylko
+użytkownik postgres może wczytać dane z pliku (z przyczyn bezpieczeństwa).
+</impo>
+
+<pre caption="Użycie COPY by zapełnić tabele produktów danymi">
+MojaBD=&gt; <i>COPY produkty FROM STDIN WITH DELIMITER AS ',';</i>
+Enter data to be copied followed by a newline.
+End with a backslash and a period on a line by itself.
+>> <i>2,ser,6.79</i>
+>> <i>3,zupa,0.69</i>
+>> <i>4,woda,1.79</i>
+>> <i>\.</i>
+</pre>
+
+<p>
+Niestety w tym przypadku po wykonaniu powyższego polecenia na wydruku nie
+zobaczymy podobnych informacji jak to miało miejsce w przypadku <c>INSERT
+INTO</c>. Więc w jaki sposób można się przekonać, że dane zostały rzeczywiście
+wprowadzone do tabeli? W kolejnej części poradnika można znaleźć odpowiedź na
+to pytanie.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zapytania SQL w PostgreSQL</title>
+<body>
+
+<p>
+W tej części poradnika, będzie można znaleźć opis oraz przykłady użycia
+zapytania SQL <c>SELECT</c>. Podstawowa składnia wygląda następująco:
+</p>
+
+<pre caption="Składnia SELECT">
+SELECT (kolumna1,kolumna2|*) FROM (tabela) [WHERE (warunki)]
+</pre>
+
+<p>
+Istnieją dwa sposoby na wybranie interesujących nas kolumn. Można albo użyć
+znaku <c>*</c> by wybrać wszystkie kolumny jakie zawiera dana tabela, lub podać
+listę nazw poszczególnych kolumn. Szczególnie ta druga metoda jest bardzo
+interesująca, gdyż pozwala zawęzić ilość zwracanych danych, co jest szczególnie
+ważne w przypadku gdy mamy do czynienia z rozbudowaną strukturą tabeli.
+Pierwszym krokiem będzie wykorzystania polecenia <c>SELECT</c> razem z
+<c>*</c>:
+</p>
+
+<pre caption="Odczyt danych z tabeli produkty">
+MojaBD=&gt; <i>SELECT * FROM produkty;</i>
+ produkt_id |  opis           | cena
+------------+---------------- +-------
+          1 | produkt testowy | 12.00
+          2 | ser             |  6.79
+          3 | zupa            |  0.69
+          4 | woda            |  1.79
+(4 rows)
+</pre>
+
+<p>
+Listing zawiera wszystkie wcześniej wprowadzone do tabeli dane. By zwiększyć
+czytelność najlepiej określić interesujące nas kolumny. Powiedzmy, że interesują
+nas jedynie cena i opis danego produktu, jego identyfikator w tym przypadku może
+zostać pominięty:
+</p>
+
+<pre caption="Odczyt wybranych wierszy z tabeli produkty">
+MojaBD=&gt; <i>SELECT opis,cena FROM produkty;</i>
+  opis           | cena
+-----------------+-------
+ produkt testowy | 12.00
+ ser             |  6.79
+ zupa            |  0.69
+ woda            |  1.79
+(4 rows)
+</pre>
+
+<p>
+Po zmodyfikowaniu zapytania na wydruku widzimy jedynie cenę i nazwę produktów,
+co pozwala skupić się jedynie na ważnych informacjach. Kolejnym krokiem będzie
+zawężenie informacji tylko do tych produktów, których cena jest wyższa niż 2
+złote. By tego dokonać bardzo pomocne jest słowo kluczowe <c>WHERE</c>.
+</p>
+
+<pre caption="Odczyt wybranych wierszy z tabeli produkty">
+MojaBD=&gt; <i>SELECT opis,cena FROM produkty WHERE cena > 2.00;</i>
+  opis           | cena
+-----------------+-------
+ produkt testowy | 12.00
+ ser             |  6.79
+(2 rows)
+</pre>
+
+<p>
+Wydruk zawiera teraz tylko listę produktów o cenie większej 2 złotych,
+zmniejszając jeszcze bardziej ilość wyświetlonych informacji. Takie metody
+odpytywania stanowią potężne narzędzie i mogą pomóc w stworzeniu przydatnych
+raportów.
+</p>
+
+</body>
+</section>
+<section>
+<title>Podsumowanie</title>
+<body>
+
+<p>
+Wielkie podziękowania należą sie Masatomo Nakano, opiekunowi pakietu postgresql
+w Gentoo, który służył poradą i odpowiedziami na wiele pytań. Wszelkie sugestie
+na temat zawartych informacji merytorycznych prosimy kierować na adres
+<mail>chriswhite@gentoo.org</mail>. Bardziej szczegółową dokumentację można
+znaleźć się na <uri link="http://www.postgresql.org">oficjalnej stronie
+PostgreSQL</uri>.
+</p>
+
+</body>
+</section>
+</chapter>
+</guide>

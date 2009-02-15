@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<guide type="newsletter" link="20061204-newsletter.xml" lang="pl">
+<title>Tygodnik Gentoo</title>
+<subtitle>4 grudnia 2006</subtitle>
+
+<author title="Redaktor naczelny">
+  <mail link="plate@gentoo.org">Ulrich Plate</mail>
+</author>
+<!-- Be sure to add yourself if you write an article -->
+<author title="Redaktor">
+  <mail link="thirtyyearswar@mindspring.com">Chris Atkinson</mail>
+</author>
+<author title="Redaktor">
+  <mail link="john.m.alberts@gmail.com">John Alberts</mail>
+</author>
+<author title="Redaktor">
+  <mail link="g@socallinuxexpo.org">Gareth J. Greenaway</mail>
+</author>
+<author title="Redaktor">
+  <mail link="christel@gentoo.org">Christel Dahlskjaer</mail>
+</author>
+<author title="Redaktor">
+  <mail link="wolf31o2@gentoo.org">Chris Gianelloni</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="jbozanowski@gmail.com">Jakub Bożanowski</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="moloh@gentoo.org">Michał Kurgan</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="ftpd@it-net.pl">Bartek Stalewski</mail>
+</author>
+
+<abstract>Wydanie Tygodnika Gentoo z 4 grudnia 2006.</abstract>
+<summary/>
+
+<version>Wolumin 5, numer 49</version>
+<date>2006-12-04</date>
+
+<!-- Gentoo News -->
+<chapter>
+<title>Wiadomości Gentoo</title>
+<section>
+<title>Playstation 3 opanowane przez Gentoo Linux</title>
+<body>
+
+<p>
+Więc czekałeś tylko 36 godzin w długiej kolejce, unikając latających wkoło kul i
+panoszących się rzezimieszków by dostać nową i lśniącą konsolę Playstation 3.
+Tylko co teraz z nią zrobić? Oczywiście zainstalować na niej Gentoo Linux!
+</p>
+
+<p>
+Wiele osób pracowało nad uruchomianiem Gentoo na ich własnych egzemplarzach PS3.
+Każdego zainteresowanego, w jaki sposób można samemu tego dokonać, zachęcamy do
+przeglądnięcia opublikowanych <uri
+link="http://whitesanjuro.googlepages.com/">instrukcji</uri>. Autor opisuje co
+jest potrzebne jeszcze przed samym rozpoczęciem procesu instalacji i przedstawia
+samą procedurę. Można również zobaczyć przykładowe obrazki przedstawiające
+rozruch <uri
+link="http://picasaweb.google.com/whitesanjuro/Ps3DayOne/photo#4998546376786706450">
+Gentoo Linux PPC64 InstallCD</uri> oraz samego <uri
+link="http://picasaweb.google.com/whitesanjuro/Ps3DayTwo/photo#4998878606740422674">systemu</uri>,
+już po instalacji.
+</p>
+
+<p>
+Maniaków i użytkowników procesorów CELL zachęcamy do przyglądnięcia się <uri
+link="http://overlays.gentoo.org/dev/lu_zero">nakładce Portage i wiki</uri>
+stworzonej przez dewelopera Gentoo, <mail link="lu_zero@gentoo.org">Luca
+Barbato</mail>. Można tam znaleźć trochę nowych i zaktualizowanych pakietów, a
+także kilka informacji dotyczących samej konsoli.
+</p>
+
+</body>
+</section>
+<section>
+<title>Rozpoczęto zapisy na Linux Expo 5x odbywające się w południowej
+Kalifornii (SCALE)</title>
+<body>
+
+<p>
+Właśnie rozpoczęta zapisy na SCALE 5X, rejestracji można dokonać pod adresem
+<uri>http://www.socallinuxexpo.org/order</uri>. Aktualnie, cena biletów wynosi
+60 dolarów dla zwykłych uczestników lub 30 dolarów dla studentów posiadających
+odpowiedni dokument. 24 stycznia 2007 ceny zostaną podniesione, więc najlepiej
+zapisać się już dziś!
+</p>
+
+<p>
+Lista uczestników i projektów które będzie można zobaczyć znajduje się pod
+adresem <uri>http://socallinuxexpo.com/scale5x/exhibitions.php</uri>. Oczywiście
+Gentoo Linux będzie jednym z nich. Zachęcamy do zapisów i wsparcia naszych
+deweloperów w czasie trwania imprezy!
+</p>
+
+<p>
+SCALE odbędzie się w dniach 10-11 lutego 2007 na lotnisku Westin w Los Angeles.
+Dla zainteresowanych dłuższym pobytem firma Westin oferuje specjalne pokoje
+hotelowe w atrakcyjnych cenach dla wszystkich uczestników imprezy. Informacje
+na ten temat dostępne są na stronie
+<uri>http://socallinuxexpo.com/scale5x/location.php</uri>.
+</p>
+
+</body>
+</section>
+<section>
+<title>Wybrano nowego Reprezentanta Użytkowników</title>
+<body>
+
+<p>
+W piętek, 17 listopada, George Prowse, bardziej znany jako cokehabit, opuścił
+projekt Gentoo User Relations i dotychczas piastowane stanowisko Reprezentanta
+Użytkowników. Niestety pomimo pokładanych przez wiele osób nadziei okazało się,
+że niezbyt pasował on do objętej przez niego roli i zdecydowano się na
+rozpoczęciu poszukiwania nowego kandydata na to stanowisko. Chcemy podziękować
+George'owi za jego ciężką pracę i poświęcony czas na rzecz Gentoo, życzymy mu
+jak najlepiej w jego przyszłych przedsięwzięciach.
+</p>
+
+<p>
+Puste stanowisko zostało zajęte przez Alexa Bokaga, znanego pod pseudonimem
+djay-il. Decyzję tę, ze skutkiem natychmiastowym, podjęto 2 grudnia na spotkaniu
+pomiędzy członkami projektu User Relations i Reprezentantami Użytkowników w
+wyniku jednomyślnego głosowania. Tym samym wybrany został jedenasty i ostatni
+Reprezentant Użytkowników. Witamy Alexa na pokładzie i liczymy na owocną
+współpracę w zbliżającym się nowym roku.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Heard in the community -->
+<chapter>
+<title>Społeczność Gentoo</title>
+<!-- forums.gentoo.org -->
+<!-- planet.gentoo.org -->
+<!-- gentoo-user -->
+<!-- gentoo-dev -->
+<section>
+<title>Lista dyskusyjna gentoo-dev</title>
+<body>
+
+<p>
+<b>[RFC] Dodanie ALSA_CARDS do USE_EXPAND</b>
+</p>
+
+<p>
+Diego "Flameeyes" Pettenò˛ zauważył, że pakiet alsa-drivers nie korzysta z
+funkcjonalności USE_EXPAND. Postanowił zmienić ten stan rzeczy i sądzi, że
+rezultat jest całkiem niezły.
+</p>
+
+<pre caption="Wynik modyfikacji Diega">
+Calculating dependencies... done!
+[ebuild   R   ] media-sound/alsa-driver-1.0.14_pre20061130  USE="-debug -doc 
+oss" 
+ALSA_CARDS="-ad1816a% -ad1848% -ad1848-lib% -ad1889% -adlib% -ali5451% -als100%
+-als300% -als4000% -aoa% -aoa-fabric-layout% -aoa-onyx% -aoa-soundbus%
+-aoa-soundbus-i2s% -aoa-tas% -aoa-toonie% -armaaci% -asihpi% -at91-soc%
+-at91-soc-eti-b1-wm8731% -atiixp% -atiixp-modem% -au1x00% -au8810% -au8820%
+-au8830% -azt2320% -azt3328% bt87x%* -ca0106% -cmi8330% -cmipci% -cs4231%
+-cs4231-lib% -cs4232% -cs4236% -cs4281% -cs46xx% -cs5535audio% -darla20%
+-darla24% -dt019x% -dummy% -echo3g% -emu10k1% -emu10k1x% -ens1370% -ens1371%
+-es1688% -es18xx% -es1938% -es1968% -es968% -fm801% -fm801-tea575x% -gina20%
+-gina24% -gusclassic% -gusextreme% -gusmax% -harmony% -hda-intel% -hdsp%
+-hdspm% -ice1712% -ice1724% -indigo% -indigodj% -indigoio% -intel8x0%
+-intel8x0m% -interwave% -interwave-stb% -korg1212% -layla20% -layla24%
+-loopback% -maestro3% -mia% -miro% -mixart% -mona% -mpu401% -msnd-pinnacle%
+-mtpav% -mts64% -nm256% -opl3sa2% -opti92x-ad1848% -opti92x-cs4231% -opti93x%
+-pc98-cs4232% -pcsp% -pcxhr% -pdaudiocf% -pdplus% -portman2x4% -powermac%
+-pxa2xx-i2sound% -pxa2xx-soc% -pxa2xx-soc-corgi% -pxa2xx-soc-poodle%
+-pxa2xx-soc-spitz% -pxa2xx-soc-tosa% -riptide% -rme32% -rme96% -rme9652%
+-s3c2410% -sa11xx-uda1341% -sb16% -sb8% -sbawe% -seq-dummy% -serial-u16550%
+-serialmidi% -sgalaxy% -soc% -sonicvibes% -sscape% -sun-amd7930% -sun-cs4231%
+-sun-dbri% -trident% -usb-audio% -usb-usx2y% via82xx%* -via82xx-modem%
+-virmidi% -vx222% -vxpocket% -wavefront% -ymfpci%" 0 kB
+</pre>
+
+<p>
+Diego zapytał, czy cokolwiek stoi na przeszkodzie zaimplementowania tej
+funkcjonalności w drzewie Portage. Marius Mauch stwierdził, że nie ma nic
+przeciwko temu, dopóki domyślne wartości zapewnią bezpieczne korzystanie z
+pakietu. Zauważył, że zaproponowana lista sterowników nie wydaje się zbyt
+rozsądna.
+</p>
+
+<p>
+Diego odpowiedział, że w domyślnie wszystkie sterowniki będą budowane. Petteri
+Räty zauważył, że będzie to niezgodne z obecną konwencją ustawiania tylko
+wskazanych przez użytkownika flag USE lub niczego, gdy żadna nie została
+wybrana. Diego stwierdził, że istnieją pakiety, które domyślnie włączają
+wszystkie flagi USE (np. zmienna LINGUAS w przypadku niektórych małych
+aplikacji). Po przedyskutowaniu problemu, zaproponowano ustawienia domyślne
+zależne od architektury:
+</p>
+
+<pre caption="Domyślne ustawienia dla x86/amd64">
+ali5451 atiixp atiixp-modem cmipci emu10k1 emu10k1x ens1370 ens1371 fm801 
+hda-intel intel8x0 intel8x0m maestro3 mpu401 usb-audio via82xx via82xx-modem
+</pre>
+
+<pre caption="Domyślne ustawienia dla ppc">
+aoa aoa-fabric-layout aoa-onyx aoa-soundbus aoa-soundbus-i2s aoa-tas 
+aoa-toonie powermac usb-audio
+</pre>
+
+<pre caption="Domyślne ustawienia dla sparc">
+sun-amd7930 sun-cs4231 sun-dbri
+</pre>
+
+<ul>
+  <li><uri>http://archives.gentoo.org/gentoo-dev/msg_141321.xml</uri></li>
+</ul>
+
+<p>
+<b>Podłączanie urządzeń przez udev, a plik /etc/init.d/modules</b>
+</p>
+
+<p>
+Svena Köhlera zdenerwował mechanizm podłączania urządzeń w czasie uruchamiania
+systemu przez udev-103. Przez lata miał on zagwarantowaną kolejność pojawiania
+się w jego systemie urządzeń poprzez ustawianie odpowiedniej kolejności
+ładowania modułów w pliku <path>/etc/modules.autoload.d/kernel-2.?</path>.
+</p>
+
+<p>
+Stephen Bennet zasugerował, żeby Sven użył adresu MAC kart sieciowych do
+stworzenia reguł dla udev, które zapewnią odpowiednie nazwy dla urządzeń. Sven
+chciał dowiedzieć się więcej na temat używania udev z kartami sieciowymi, na co
+Jean-François Gagnon Laporte skierował go do <uri
+link="http://www.reactivated.net/writing_udev_rules.html#example-netif">
+rozdziału dokumentu Daniela Drake'a dotyczącego tworzenia reguł w udev</uri>.
+</p>
+
+<p>
+Zajmujący się od dawna pracami nad jądrem systemu, ojciec mechanizmu udev, Greg
+Kroah-Hartman, także włączył się w obronę swojego dzieła. Sven mógłby bez
+problemu używać udev do nazywania urządzeń w swoim systemie. Jeśli naprawdę
+zależy mu na pominięciu udeva w tym konkretnym przypadku, to zawsze może
+umieścić odpowiednie moduły na czarnej liście i ładować je ręcznie, jak to robił
+do tej pory. Jeśli jednak chciałby skorzystać z tej drugiej możliwości to musi
+zaczekać, jako że mechanizm czarnych list jest właśnie naprawiany.
+</p>
+
+<ul>
+  <li><uri>http://archives.gentoo.org/gentoo-dev/msg_141352.xml</uri></li>
+</ul>
+
+</body>
+</section>
+<!-- gentoo-catalyst -->
+<!-- gentoo-cluster -->
+<!-- gentoo-embedded -->
+<!-- gentoo-security -->
+</chapter>
+
+<!-- Gentoo International-->
+<!-- Gentoo in the press -->
+<!-- Tips and Tricks -->
+<chapter>
+<title>Sztuczki i kruczki</title>
+<section>
+<title>Łatwiejszy sposób na uaktualnianie systemu</title>
+<body>
+
+<p>
+Bez wątpienia jedną z największych zalet Gentoo jest jego system zarządzania
+pakietami, Portage. Dzięki niemu możemy w prosty sposób uaktualnić wszystkie
+pakiety wydając tylko jedno polecenie. Niestety, w praktyce nie zawsze wszystko
+idzie gładko. Większość z nas przynajmniej raz spotkała się z sytuacją, gdy idąc
+spać wpisywaliśmy <c>emerge -uD world</c> spodziewając się, że po przebudzeniu
+nasz system będzie już uaktualniony, lecz rano naszym oczom ukazał się błąd
+kompilacji przy trzecim pakiecie z 220. I tak oto zaczynał się proces szukania
+błędów za pomocą polecenia <c>emerge --resume</c>.
+</p>
+
+<p>
+Możemy sobie jednak ułatwić życie dzięki update-world. Jest to skrypt napisany w
+bashu przez count_zero i <uri
+link="http://forums.gentoo.org/viewtopic-t-497125.html">udostępniony</uri> na
+forum Gentoo. Skrypt ten kontroluje proces uaktualnienia i zmusza Portage do
+pominięcia pakietów, które się nie kompilują, kontynuując proces aktualizacji
+systemu aż do samego końca. Pakiety, które się nie skompilowały są dodawane do
+listy, którą można obejrzeć gdy tylko proces się zakończy.
+</p>
+
+<note>
+Do poprawnego działania skrypt wymaga programu 'equery', będącego częścią
+pakietu app-portage/gentoolkit.
+</note>
+
+<p>
+Oczywiście zanim zaczniemy używać skryptu, musimy go wpierw ściągnąć, umieścić w
+ścieżce systemowej i ustawić odpowiednie uprawnienia.
+</p>
+
+<pre caption="Pobieranie skryptu">
+# <i>wget -O /usr/bin/update-world http://countzero.amidal.com/files/update-world</i>
+# <i>chmod +x /usr/bin/update-world</i>
+</pre>
+
+<p>
+Teraz jesteśmy już gotowi do działania.
+</p>
+
+<pre caption="Przygotowanie aktualizacji systemu">
+# <i>update-world --prepare</i>
+</pre>
+
+<p>
+Powyższym poleceniem rozpoczynamy proces aktualizacji systemu. Wygenerowana
+zostanie lista pakietów, które zostaną skompilowane. Będzie ona identyczna z
+rezultatem otrzymanym dzięki <c>emerge -uD --newuse world</c>. (Można także
+skorzystać z polecenia <c>update-world --empty</c>, aby stworzyć listę
+wszystkich pakietów obecnych w systemie. Wynik będzie analogiczny jak w
+przypadku <c>emerge -e world</c>). W rezultacie, w katalogu ~/.update-world/,
+zostanie stworzony plik 'emergelist' zawierający listę pakietów, które mają
+zostać zaktualizowane. Używając ulubionego edytora możemy zmodyfikować tą listę
+-- usuwając pakiety, zmieniając wersje, itd. Po wprowadzeniu wszystkich zmian
+czas na rozpoczęcie procesu aktualizacji:
+</p>
+
+<pre caption="Aktualizacja systemu">
+# <i>update-world --install</i>
+</pre>
+
+<p>
+Wydając powyższe polecenie rozpoczynamy właściwy proces kompilacji, analogicznie
+jak w przypadku użycia emerge -uD world. Różnica polega na tym, że jeśli
+kompilacja jednego pakietu zakończy się niepowodzeniem, to zostanie on dodany do
+pliku 'failedlist' znajdującego się w katalogu ~/.update-world/. Dodatkowo
+zostanie także stworzone dowiązanie symboliczne do pliku z logiem Portage
+(zwykle znajdującego się w katalogu /var/log/portage) i będzie ono znajdować się
+w katalogu ~/.update-world/[data]/log/. Gdy cały proces kompilacji zostanie
+zakończony na ekranie zostanie przedstawiona lista pakietów, które nie zostały
+skompilowane. Z pewnością pozwoli to na zaoszczędzenie sporej ilości czasu.
+Jeśli konieczne okazałoby się przerwanie kompilacji, wystarczy nacisnąć
+'Control-C'. Aby wznowić aktualizację systemu od miejsca, w którym została on
+przerwana wystarczy skorzystać ponownie z polecenia <c>update-world
+--install</c>.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo developer moves -->
+<chapter>
+<title>Zmiana statusu deweloperów Gentoo</title>
+<section>
+<title>Odeszli</title>
+<body>
+
+<p>
+Następujący deweloperzy opuścili projekt Gentoo Linux w minionym tygodniu:
+</p>
+
+<ul>
+  <li>Stuart Herbert (Stuart)</li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Przybyli</title>
+<body>
+
+<p>
+Następujący deweloperzy przyłączyli się do projektu Gentoo Linux w minionym
+tygodniu:
+</p>
+
+<ul>
+  <li>Alexander Gabert (pappy) zespół Hardened</li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Zmienili status</title>
+<body>
+
+<p>
+Następujący deweloperzy zmienili w minionym tygodniu pełnioną w projekcie Gentoo
+Linux funkcję:
+</p>
+
+<ul>
+  <li><e>Nikt w tym tygodniu</e></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo security -->
+<chapter>
+<title>Bezpieczeństwo Gentoo</title>
+<!-- paste from the script -->
+<section>
+<title>Kile: Błędne prawa plików kopii zapasowych</title>
+<body>
+
+<p>
+Kile używa domyślnych praw dla plików kopii zapasowych, co może prowadzić do
+ujawnienia informacji.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200611-21.xml"> komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>Ingo H3: Wstrzyknięcie poleceń powłoki</title>
+<body>
+
+<p>
+Ingo H3 umożliwia wykonanie niepożądanych poleceń powłoki w czasie przetwarzania
+reguł procmail.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200611-22.xml"> komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>Mono: Niebezpieczne tworzenie plików tymczasowych</title>
+<body>
+
+<p>
+Mono jest podatne na ataki z użyciem dowiązań symbolicznych co potencjalnie
+umożliwia lokalnemu użytkownikowi na nadpisanie dowlonych plików.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200611-23.xml"> komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>LHa: Wiele usterek</title>
+<body>
+
+<p>
+LHa zawiera wiele usterek, włączając zdalne wykonanie niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200611-24.xml"> komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>OpenLDAP: Usterka Denial of Service</title>
+<body>
+
+<p>
+Usterka w OpenLDAP umożliwia zdalnemu, nieautoryzowanemu użytkownikowi
+przeprowadzenie ataku Denial of Service.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200611-25.xml"> komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>ProFTPD: Zdalne wykonanie niepożądanego kodu</title>
+<body>
+
+<p>
+ProFTPD zawiera szereg usterek umożliwiających zdalnemu napastnikowi na
+wykonanie niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200611-26.xml"> komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Upcoming package removals -->
+<chapter>
+<title>Pakiety przewidziane do usunięcia</title>
+<section>
+<body>
+
+<p>
+Poniżej można znaleźć listę pakietów, które zostaną w najbliższym czasie
+usunięte z drzewa Portage. Informacje te pochodzą z różnych źródeł, włączając
+projekt <uri link="/proj/en/qa/treecleaners">Treecleaners</uri> oraz zgłoszenia
+od poszczególnych deweloperów.
+</p>
+
+</body>
+</section>
+<section>
+<title>Ostatnie namaszczenie:</title>
+<body>
+
+<!-- paste from email -->
+<table>
+<tr>
+  <th>Pakiet:</th>
+  <th>Data usunięcia:</th>
+  <th>Kontakt:</th>
+</tr>
+<tr>
+  <ti>app-xemacs/liece</ti>
+  <ti>26 grudnia 06</ti>
+  <ti><mail link="graaff@gentoo.org">Hans de Graaff</mail></ti>
+</tr>
+<tr>
+  <ti>net-p2p/gtkhx</ti>
+  <ti>26 grudnia 06</ti>
+  <ti><mail link="beandog@gentoo.org">Steve Dibb</mail></ti>
+</tr>
+<tr>
+  <ti>=net-misc/nxserver-personal-1.5*</ti>
+  <ti>27 grudnia 06</ti>
+  <ti><mail link="stuart@gentoo.org">Stuart Herbert</mail></ti>
+</tr>
+<tr>
+  <ti>=net-misc/nxserver-businessl-1.5*</ti>
+  <ti>27 grudnia 06</ti>
+  <ti><mail link="stuart@gentoo.org">Stuart Herbert</mail></ti>
+</tr>
+<tr>
+  <ti>=net-misc/nxserver-enterprise-1.5*</ti>
+  <ti>27 grudnia 06</ti>
+  <ti><mail link="stuart@gentoo.org">Stuart Herbert</mail></ti>
+</tr>
+<tr>
+  <ti>media-video/vlms</ti>
+  <ti>29 grudnia 06</ti>
+  <ti><mail link="zzam@gentoo.org">Matthias Schwarzott</mail></ti>
+</tr>
+<tr>
+  <ti>media-video/vls</ti>
+  <ti>29 grudnia 06</ti>
+  <ti><mail link="zzam@gentoo.org">Matthias Schwarzott</mail></ti>
+</tr>
+<tr>
+  <ti>media-libs/libvideogfx</ti>
+  <ti>29 grudnia 06</ti>
+  <ti><mail link="zzam@gentoo.org">Matthias Schwarzott</mail></ti>
+</tr>
+<tr>
+  <ti>media-video/sampeg3</ti>
+  <ti>29 grudnia 06</ti>
+  <ti><mail link="zzam@gentoo.org">Matthias Schwarzott</mail></ti>
+</tr>
+</table>
+
+</body>
+</section>
+</chapter>
+
+<!-- Bugzilla -->
+<!-- paste from the script -->
+<chapter>
+<title>Bugzilla</title>
+<section>
+<title>Podsumowanie</title>
+<body>
+
+<ul>
+  <li><uri link="#bugs-stats">Statystyki</uri></li>
+  <li><uri link="#bugs-closed">Zamknięte bugi</uri></li>
+  <li><uri link="#bugs-new">Nowe bugi</uri></li>
+</ul>
+
+</body>
+</section>
+<section id="bug-stats">
+<title>Statystyki</title>
+<body>
+
+<p>
+Społeczność Gentoo używa Bugzilli (<uri
+link="http://bugs.gentoo.org/">bugs.gentoo.org</uri>) do zgłaszania i śledzenia
+błędów, ogłoszeń, sugestii oraz innych form kontaktu z deweloperami. Pomiędzy 26
+listopada 2006, a 3 grudnia 2006 aktywność w serwisie przedstawiała się
+następująco:
+</p>
+
+<ul>
+  <li>zgłoszono 688 nowych bugów</li>
+  <li>zamknięto lub rozwiązano 440 bugów</li>
+  <li>otwarto ponownie 24 uprzednio zamknięte bugi</li>
+  <li>171 bugów oznaczono jako NEEDINFO/WONTFIX/CANTFIX/INVALID/UPSTREAM</li>
+  <li>209 bugów oznaczono jako duplikaty</li>
+</ul>
+
+<p>
+Spośród 10698 obecnie otwartych bugów: 27 oznaczono jako 'blocker', 106 jako
+'critical', a 457 jako 'major'.
+</p>
+
+</body>
+</section>
+<section id="bugs-closed">
+<title>Zamknięte Bugi</title>
+<body>
+
+<p>
+Deweloperzy oraz zespoły, które zamknęły najwięcej bugów w minionym tygodniu,
+to:
+</p>
+
+<ul>
+  <li><mail link="amd64@gentoo.org">AMD64 Project</mail>, 35 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-11-26&amp;chfieldto=2006-12-03&amp;resolution=FIXED&amp;assigned_to=amd64@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="treecleaner@gentoo.org">Gentoo TreeCleaner Project</mail>, 28
+  <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-11-26&amp;chfieldto=2006-12-03&amp;resolution=FIXED&amp;assigned_to=treecleaner@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="media-video@gentoo.org">media-video herd</mail>, 19 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-11-26&amp;chfieldto=2006-12-03&amp;resolution=FIXED&amp;assigned_to=media-video@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="base-system@gentoo.org">Gentoo's Team for Core System
+  packages</mail>, 18 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-11-26&amp;chfieldto=2006-12-03&amp;resolution=FIXED&amp;assigned_to=base-system@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="security@gentoo.org">Gentoo Security</mail>, 14 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-11-26&amp;chfieldto=2006-12-03&amp;resolution=FIXED&amp;assigned_to=security@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="netmon@gentoo.org">Netmon Herd</mail>, 12 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-11-26&amp;chfieldto=2006-12-03&amp;resolution=FIXED&amp;assigned_to=netmon@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="kde@gentoo.org">Gentoo KDE team</mail>, 12 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-11-26&amp;chfieldto=2006-12-03&amp;resolution=FIXED&amp;assigned_to=kde@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="games@gentoo.org">Gentoo Games</mail>, 12 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-11-26&amp;chfieldto=2006-12-03&amp;resolution=FIXED&amp;assigned_to=games@gentoo.org">zamkniętych
+  bugów</uri></li>
+</ul>
+
+</body>
+</section>
+<section id="bugs-new">
+<title>Nowe Bugi</title>
+<body>
+
+<p>
+Deweloperzy oraz zespoły, którym przydzielono najwięcej bugów w minionym tygodniu,
+to:
+</p>
+
+<ul>
+  <li><mail link="maintainer-wanted@gentoo.org">Default Assignee for New
+  Packages</mail>, 27 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-11-26&amp;chfieldto=2006-12-03&amp;assigned_to=maintainer-wanted@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="alpha@gentoo.org">Alpha Porters</mail>, 26 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-11-26&amp;chfieldto=2006-12-03&amp;assigned_to=alpha@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="amd64@gentoo.org">AMD64 Project</mail>, 9 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-11-26&amp;chfieldto=2006-12-03&amp;assigned_to=amd64@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="x11-drivers@gentoo.org">X11 External Driver
+  Maintainers</mail>, 8 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-11-26&amp;chfieldto=2006-12-03&amp;assigned_to=x11-drivers@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="sound@gentoo.org">Gentoo Sound Team</mail>, 8 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-11-26&amp;chfieldto=2006-12-03&amp;assigned_to=sound@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="mips@gentoo.org">mips team</mail>, 8 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-11-26&amp;chfieldto=2006-12-03&amp;assigned_to=mips@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="x11@gentoo.org">Gentoo X-windows packagers</mail>, 7 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-11-26&amp;chfieldto=2006-12-03&amp;assigned_to=x11@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="media-video@gentoo.org">media-video herd</mail>, 7 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-11-26&amp;chfieldto=2006-12-03&amp;assigned_to=media-video@gentoo.org">nowych
+  bugów</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- GWN feedback information -->
+<chapter>
+<title>Opinie czytelników</title>
+<section>
+<body>
+
+<p>
+Tygodnik Gentoo jest tworzony i tłumaczony przez ochotników i członków
+społeczności, którzy nadsyłają swoje pomysły i gotowe artykuły. Zachęcamy
+wszystkich do pomocy i współpracy przy tworzeniu kolejnych numerów Tygodnika
+Gentoo. Oczekujemy na wasze propozycje artykułów, interesują nas także opinie na
+temat tych już opublikowanych. Wszelkie komentarze prosimy kierować na <mail
+link="gwn-feedback@gentoo.org">adres Tygodnika Gentoo</mail>. Uwagi dotyczące
+tłumaczenia należy zgłaszać na adres <mail
+link="moloh@gentoo.org">koordynatora</mail>. Pomóżcie sprawić, by Tygodnik
+Gentoo był jeszcze lepszy.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- GWN subscription information -->
+<chapter>
+<title>Subskrypcja Tygodnika Gentoo</title>
+<section>
+<body>
+
+<p>
+Aby zaprenumerować Tygodnik Gentoo, należy wysłać pustego emaila na adres <mail
+link="gentoo-gwn-pl+subscribe@gentoo.org">gentoo-gwn-pl+subscribe@gentoo.org</mail>.
+</p>
+
+<p>
+Aby zrezygnować z subskrypcji, należy wysłać pustego emaila na adres <mail
+link="gentoo-gwn-pl+unsubscribe@gentoo.org">
+gentoo-gwn-pl+unsubscribe@gentoo.org</mail> z konta, na które jest
+zarejestrowana.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Other Languages -->
+<chapter>
+<title>Inne języki</title>
+<section>
+<body>
+
+<p>
+Tygodnik Gentoo jest dostępny w następujących językach:
+</p>
+
+<ul>
+  <li><uri link="/news/en/gwn/gwn.xml">angielskim</uri></li>
+  <li><uri link="/news/zh_cn/gwn/gwn.xml">chińskim (uproszczony)</uri></li>
+  <li><uri link="/news/da/gwn/gwn.xml">duńskim</uri></li>
+  <li><uri link="/news/fr/gwn/gwn.xml">francuskim</uri></li>
+  <li><uri link="/news/el/gwn/gwn.xml">greckim</uri></li>
+  <li><uri link="/news/es/gwn/gwn.xml">hiszpańskim</uri></li>
+  <li><uri link="/news/nl/gwn/gwn.xml">holenderskim</uri></li>
+  <li><uri link="/news/ja/gwn/gwn.xml">japońskim</uri></li>
+  <li><uri link="/news/ko/gwn/gwn.xml">koreańskim</uri></li>
+  <li><uri link="/news/de/gwn/gwn.xml">niemieckim</uri></li>
+  <li><uri link="/news/pl/gwn/gwn.xml">polskim</uri></li>
+  <li><uri link="/news/pt_br/gwn/gwn.xml">portugalskim (Brazylia)</uri></li>
+  <li><uri link="/news/pt/gwn/gwn.xml">portugalskim (Portugalia)</uri></li>
+  <li><uri link="/news/ru/gwn/gwn.xml">rosyjskim</uri></li>
+  <li><uri link="/news/sk/gwn/gwn.xml">słowackim</uri></li>
+  <li><uri link="/news/tr/gwn/gwn.xml">tureckim</uri></li>
+  <li><uri link="/news/it/gwn/gwn.xml">włoskim</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+</guide>
+

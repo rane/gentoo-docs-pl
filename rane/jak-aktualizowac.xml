@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+
+<guide link="jak-aktualizowac.xml" lang="pl">
+<title>Aktualizacja tłumaczeń dokumentacji Gentoo</title>
+
+<author title="Autor">
+  <mail link="rane@gentoo.pl">Łukasz Damentko</mail>
+</author>
+
+<abstract>
+Opis dla osób chcących pomóc w aktualizowaniu polskich wersji dokumentów
+dostępnych na oficjalnych stronach Gentoo.
+</abstract>
+
+<version>1.0</version>
+<date>2005-19-08</date>
+
+<chapter>
+<title>Wprowadzenie</title>
+<section>
+<body>
+
+<p>
+Postaram się tu możliwie krótko omówić proces aktualizowania polskiego
+dokumentu znajdującego się w <uri
+link="http://gentoo.org/doc/pl/list.xml">zasobach dokumentacji Gentoo</uri>.
+</p>
+
+<p>
+Aktualizowanie przetłumaczonej dokumentacji jest ważnym aspektem pracy nad nią i
+jest niezbędne, aby nadal była przydatna dla użytkowników naszej bardzo szybko
+rozwijającej się dystrybucji. Zajmuje zdecydowanie mniej czasu niż tłumaczenie
+dokumentów od zera, zwykle jest to kilka kosmetycznych poprawek, czasem trzeba
+dopisać jakiś akapit lub usunąć nieaktualne informacje. Jest to dobry wybór dla
+osób chcących nam pomóc, ale nie dysponujących zbyt dużą ilością wolnego czasu.
+</p>
+
+<p>
+Przy aktualizacji skorzystamy z kilku bardzo wygodnych i intuicyjnych narzędzi,
+które znacznie ułatwią naszą pracę. Przede wszystkim będzie to tabela znajdująca
+się na <uri link="http://dev.gentoo.org/~rane/trads.xml">oficjalnej stronie
+projektu</uri>, która umożliwi wyświetlenie różnic pomiędzy wersjami
+angielskimi. Omówimy też proces tworzenia pliku diff zawierającego naszą
+aktualizację oraz sposoby podzielenia się nim ze społecznością Gentoo.
+</p>
+
+<p>
+Wszystkie pytania, uwagi i propozycje zmian tego tekstu należy zgłaszać do <mail
+link="rane@gentoo.org">koordynatora</mail> polskiego projektu tłumaczenia
+dokumentacji Gentoo.
+</p>
+
+<p>
+Jeśli będzie to pierwsza praca wykonywana przy dokumentacji Gentoo, warto
+przedtem zapoznać się z <uri
+link="http://dev.gentoo.org/~rane/jak-tlumaczyc.xml">przewodnikiem dla tłumaczy
+dokumentacji Gentoo na język polski</uri>.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Aktualizowanie dokumentu</title>
+<section>
+<title>Wybieranie dokumentu do aktualizacji i pobieranie go na dysk</title>
+<body>
+
+<p>
+Zaczynamy od udania się pod adres
+<uri>http://dev.gentoo.org/~rane/trads-0.xml</uri> i przyjrzenia się
+znajdującej się tam tabeli z listą dokumentów. Musimy wybrać tekst, który
+będziemy aktualizować. Na samym początku musimy znaleźć nieaktualny dokument,
+najłatwiej zrobić to przeglądając kolumnę zatytułowaną <e>Diff wersji
+angielskich</e>. Większość pól tej kolumny powinna być pusta, wpisy znajdują
+się tylko w wierszach z nieaktualnymi dokumentami. Również kolorowe kropki
+powinny ułatwić namierzenie takiego tekstu. Zielona oznacza, że dokument jest
+aktualny, a żółta, pomarańczowa i czerwona informują o tym, że nie został
+jeszcze poprawiony.
+</p>
+
+<p>
+Zatem wybieramy któryś z nieaktualnych plików (warto wybierać najpierw te z
+większą ilością kropek, są bardziej nieaktualne od pozostałych). Wyższy
+priorytet mają dokumenty z kropkami czerwonymi niż te z żółtymi.
+</p>
+
+<figure link="images/tabela.jpg" caption="Wycinek tabeli"/>
+
+<p>
+W celu pobrania tłumaczenia klikamy prawym klawiszem myszki we wpis <c>(xml)</c>
+w kolumnie <e>Wersja polska</e> i zapisujemy plik na dysku.
+</p>
+
+</body>
+</section>
+<section>
+<title>Znajdowanie różnic między wersjami angielskimi</title>
+<body>
+
+<p>
+Sprawa jest prosta, wystarczy kliknąć w odnośnik w kolumnie zatytułowanej
+<e>Diff wersji angielskich</e>, a program view-cvs wyświetli nam ładnie
+pokolorowany plik, w którym zostaną wymienione wszystkie różnice między wersjami
+oryginału, które trzeba będzie nanieść na polskie tłumaczenie.  
+</p>
+
+<figure link="images/diff.jpg" caption="Strona z diffem"/>
+
+<p>
+W lewej kolumnie znajduje się wersja dokumentu, która była tłumaczona, a w
+prawej aktualna wersja. Linie zaznaczone na czerwono zostały usunięte z
+oryginału, żółte zostały zmienione, a zielone dodane. Warto zapoznać się
+pokrótce ze wszystkimi zmianami w dokumencie i poznać ich charakter przed
+przejściem do następnego kroku, czyli nanoszenia poprawek na tłumaczenie.
+</p>
+
+</body>
+</section>
+<section>
+<title>Nanoszenie poprawek na tłumaczenie</title>
+<body>
+
+<p>
+Otwieramy ściągnięty przed chwilą plik z polską wersją tekstu w ulubionym
+edytorze i zmieniamy w nim wszystkie wpisy, które uległy zmianie w oryginale.
+Zwykle tłumaczenia są bardzo wierne i nie ma problemu z namierzeniem
+odpowiednich akapitów, w których trzeba wprowadzić zmiany.
+</p>
+
+<p>
+Dodajemy, usuwamy lub zmieniamy wszystkie linie tak, aby polskie tłumaczenie
+znów odpowiadało wersji oryginalnej. Warto również przejrzeć jeszcze raz cały
+dokument i poprawić w nim ewentualne błędy oraz sprawdzić czy dodane zdania
+dobrze wkomponowały się w jego treść.
+</p>
+
+</body>
+</section>
+<section>
+<title>Tworzenie i wysyłanie diffa</title>
+<body>
+
+<p>
+Po zakończeniu prac nad aktualizacją należy utworzyć plik diff zawierający
+różnice między dokumentami i wysłać go pod adres <mail>rane@gentoo.org</mail>.
+</p>
+
+<pre caption="Tworzenie diffa">
+$ <i>diff -Naur stary.xml nowy.xml > plik.diff</i>
+</pre>
+
+<impo>
+Żeby wszystko było jasne: <c>stary.xml</c> to plik xml, który początkowo
+pobraliśmy na dysk, <c>nowy.xml</c> to plik, na który naniesiono poprawki, a
+<c>plik.diff</c> to plik zawierający aktualizację, który trzeba będzie wysłać na
+adres <mail>rane@gentoo.org</mail>.
+</impo>
+
+<note>
+Program <c>diff</c> jest częścią pakietu sys-apps/diffutils wchodzącego w skład
+kategorii "system" pakietów Gentoo. W związku z tym powinien być gotów do użycia
+bez żadnych dodatkowych instalacji i zmian w plikach konfiguracyjnych.
+</note>
+
+<p>
+Przypominamy także, że wszystkie niejasności jakie pojawiły się przy lekturze
+tego tekstu można rozwiać zadając pytanie <mail
+link="rane@gentoo.org">koordynatorowi</mail> projektu. Z uczestnikami projektu
+można porozmawiać na kanale <uri
+link="http://dev.gentoo.org/~rane/jak-tlumaczyc.xml#doc_chap6">#gentoo-docs-pl</uri>
+w sieci freenode lub na naszej <uri
+link="http://dev.gentoo.org/~rane/jak-tlumaczyc.xml#doc_chap6">liście
+mailingowej</uri>.
+</p>
+
+</body>
+</section>
+<section>
+<title>Kodowanie UTF-8</title>
+<body>
+
+<p>
+Pewną trudnością może okazać się fakt, że cała dokumentacja Gentoo napisana jest
+w kodowaniu UTF-8, które wciąż nie jest w naszym kraju zbyt popularne.
+</p>
+
+<p>
+Można uporać się z tym na kilka sposobów, np. przestawiając edytor do pracy w
+kodowaniu UTF-8. Można również wykorzystać program <c>recode</c>, który pozwala
+na łatwą konwersję między kodowaniami.
+</p>
+
+<pre caption="Zmiana kodowania dokumentu za pomocą programu recode">
+<comment>(Zaczniemy od zainstalowania programu)</comment>
+# <i>emerge app-text/recode</i>
+<comment>(Następnie przekonwertujemy plik z UTF-8 na ISO8859-2)</comment>
+$ <i>recode u8..l2 plik.xml</i>
+<comment>(Po zakończonej pracy i przed przygotowaniem diffa konieczne będzie ponowne przejście na UTF-8)</comment>
+$ <i>recode l2..u8 plik.xml</i>
+</pre>
+
+<p>
+Obsługa programu jest intuicyjna, <c>l2</c> oznacza kodowanie ISO8859-2,
+<c>u8</c> kodowanie UTF-8. Jako parametr podajemy dodatkowo nazwę pliku xml,
+który będziemy aktualizować.
+</p>
+
+
+</body>
+</section>
+</chapter>
+
+</guide>

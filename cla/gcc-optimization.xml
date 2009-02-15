@@ -1,0 +1,575 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/gcc-optimization.xml,v 1.3 2007/08/17 12:54:22 shadoww Exp $ -->
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+
+<guide link="/doc/pl/gcc-optimization.xml" lang="pl">
+<title>Optymalizacja kompilacji</title>
+
+<author title="Autor">
+  <mail link="nightmorph@gentoo.org">Joshua Saddler</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="cla@gentoo.org">Dawid Węgliński</mail>
+</author>
+
+<abstract>
+Wstęp do optymalizacji kompilowanego kodu przy użyciu bezpiecznych, rozsądnych
+CFLAGS oraz CXXFLAGS. Opisuje również teorię optymalizacji.
+</abstract>
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
+<license/>
+
+<version>1.4</version>
+<date>2007-07-28</date>
+
+<chapter>
+<title>Wstęp</title>
+<section>
+<title>Czym są CFLAGS i CXXFLAGS?</title>
+<body>
+
+<p>
+CFLAGS i CXXFLAGS są zmiennymi środowiskowymi, które są używane przy kompilacji
+kodu przez kompilator <c>gcc</c>. Mówią one jakie przełączniki mają być użyte
+podczas kompilacji. Zmienna CFLAGS jest dla kodu napisanego w języku C, zaś
+CXXFLAS dla kodu napisanego w C++.
+</p>
+
+<p>
+Mogą one przysłużyć się do zmniejszenia ilości informacji diagnostycznych dla
+programu, wzrostu poziomu ostrzeżeń o błędach i optymalizacji wygenerowanego
+kodu. <uri
+link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Invoking-GCC.html#Invoking-GCC">Podręcznik
+GNU gcc</uri> zawiera kompletną listę z dostępnymi opcjami i opisem ich
+działania.
+</p>
+
+</body>
+</section>
+<section>
+<title>Jak ich używać?</title>
+<body>
+
+<p>
+CFLAGS i CXXFLAGS mogą być użyte na dwa sposoby. Po pierwsze przez program przy
+użyciu plików Makefile wygenerowanych przez automake.
+</p>
+
+<p>
+Nie należy tego używać podczas instalacji pakietów z drzewa Portage. Od tego są
+zmienne CFLAGS i CXXFLAGS w <path>/etc/make.conf</path>. W ten sposób wszystkie
+pakiety zostaną skompilowane z danymi opcjami.
+</p>
+
+<pre caption="CFLAGS w /etc/make.conf">
+CFLAGS="-march=athlon64 -O2 -pipe"
+CXXFLAGS="${CFLAGS}"
+</pre>
+
+<p>
+Jak widać, zmienna CXXFLAGS zawiera wszystkie opcje podane przez CFLAGS. Jest to
+bezpieczny sposób, który nigdy nie powinien zawieść. Nigdy nie powinno się
+dodawać innych opcji do CXXFLAGS.
+</p>
+
+<impo>
+Portage nie może użyć CFLAGS na podstawie pakietu, który ma kompilować. Nie ma
+też dostępnej metody, która mogła by to wymusić. Flagi, które są ustawione w
+<path>/etc/make.conf</path> zostaną użyte dla <e>wszystkich</e> instalowanych
+pakietów.
+</impo>
+
+</body>
+</section>
+<section>
+<title>Błędne mniemanie</title>
+<body>
+
+<p>
+Kiedy mówi się, że CFLAGS i CXXFLAGS mogą być bardzo efektywne, znaczy to, że
+produkują mniejszą i/lub szybszą wersję binarną. Ale mogą też osłabić funkcje
+kodu oraz powiększyć jego rozmiary, spowolnić czas jego wykonywania a nawet
+spowodować niepowodzenie jego kompilacji!
+</p>
+
+<p>
+CFLAGS nie jest receptą na sukces. Nie stworzą systemu, który będzie się
+uruchamiał szybciej lub też skompilowany kod będzie zajmował mniej miejsca.
+Dodawanie większej ilości flag w celu optymalizacji zaowocuje efektem odwrotnym.
+Jest to pewna recepta na niepowodzenie.
+</p>
+
+<p>
+W internecie można znaleźć informacje o tym, że agresywne flagi mogą wyrządzić
+więcej szkód w systemie niż pożytku. Należy pamiętać o tym, że powodem istnienia
+flag jest określony cel działania. To, że poszczególne opcje są dobre dla
+kawałka kodu, nie oznacza, że są dobre dla wszystkiego, co będzie instalowane w
+systemie!
+</p>
+
+</body>
+</section>
+<section>
+<title>Gotowi?</title>
+<body>
+
+<p>
+Skoro już jesteśmy świadomi ryzyka, spójrzmy na kilka bezpiecznych flag dla
+naszego systemu. Pozwoli to być pomocnym zawsze, kiedy zostanie zgłoszony
+problem na <uri link="http://bugs.gentoo.org">Bugzilli</uri>. Deweloperzy zwykle
+proszą o ponowną kompilację kodu z minimalnymi flagami, aby dowiedzieć się, czy
+problem faktycznie istnieje. Agresywne flagi mogą zrujnować kod.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Optymalizacja</title>
+<section>
+<title>Podstawy</title>
+<body>
+
+<p>
+Celem flag jest stworzenie kodu idealnie dopasowanego do konfiguracji
+sprzętowej; powinien działać prawidłowo, a zarazem być mały i szybki jak tylko
+możliwe. Czasami te dwie cechy się wzajemnie wykluczają, więc trzeba trochę
+poeksperymentować z kombinacjami, aby były  prawidłowe. Są one dostępne
+dla każdej architektury procesora. Agresywne flagi zostaną opisane w
+późniejszym etapie. Nie omówimy każdej opcji z podręcznika <c>gcc</c>, ponieważ
+są ich setki. Skupimy się na głównych, najczęściej używanych flagach.
+</p>
+
+<note>
+Nie będąc pewnym do czego służy dana flaga, należy odwołać się do odpowiedniej
+sekcji <uri
+link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Optimize-Options.html#Optimize-Options">Podręcznika
+gcc</uri>. W razie dalszych wątpliwości można również sprawdzić <uri
+link="http://gcc.gnu.org/lists.html">listę mailingową</uri> <c>gcc</c>.
+</note>
+
+</body>
+</section>
+<section>
+<title>-march</title>
+<body>
+
+<p>
+Najważniejszą opcją jest <c>-march</c>. Mówi ona kompilatorowi jaki powinien być
+kod wynikowy dla używanej <uri
+link="http://en.wikipedia.org/wiki/Microarchitecture">architektury</uri>
+(<e>arch</e>) procesora. Różne rodzaje procesorów mają różne zdolności,
+wspierają różne instrukcje i mają różne rodzaje wykonywania kodu. Flaga
+<c>-march</c> ma za zadanie stworzenie kodu, który będzie specyficzny dla danego
+procesora, ze wszystkimi tymi zdolnościami, cechami, instrukcjami itp.
+</p>
+
+<p>
+Nawet jeśli zmienna CHOST jest ustawiona w pliku <path>/etc/make.conf</path> i
+określa używaną architekturę, flaga <c>-march</c> powinna być użyta aby programy
+mogły zostać zoptymalizowane dla konkretnego procesora.
+</p>
+
+<p>
+Aby dowiedzieć się, jaki rodzaj procesora jest w komputerze, którego używamy,
+należy wykonać polecenie:
+</p>
+
+<pre caption="Analiza informacji o procesorze">
+$ <i>cat /proc/cpuinfo</i>
+</pre>
+
+<p>
+Oglądnijmy <c>-march</c> w akcji. Przykład jest dla starszego procesora Pentium
+III
+</p>
+
+<pre caption="/etc/make.conf: Pentium III">
+CFLAGS="-march=pentium3"
+CXXFLAGS="${CFLAGS}"
+</pre>
+
+<p>
+Ten przykład pochodzi z 64-bitowego procesora AMD.
+</p>
+
+<pre caption="/etc/make.conf: AMD64">
+CFLAGS="-march=athlon64"
+CXXFLAGS="${CFLAGS}"
+</pre>
+
+<p>
+Dostępne są również flagi <c>-mcpu</c> oraz <c>-mtune</c>. Jednak powinny zostać
+one użyte tylko wtedy, gdy opcja <c>-march</c> nie jest dostępna. Jaka jest
+między nimi różnica? <c>-march</c> dokładniej precyzuje jakie cechy powinny
+zostać użyte podczas kompilacji kodu. <c>-mcpu</c> stworzy ogólny kod, mało
+zoptymalizowany dla danego procesora. <c>-mtune</c> tworzy kod jeszcze bardziej
+ogólny. Należy użyć <c>-march</c> zawsze kiedy jest dostępny. Dla architektur
+takich jak PowerPC, Sparc lub Alpha musi zostać użyty <c>-mcpu</c>.
+</p>
+
+<note>
+Dla konkretniejszych ustawień <c>-march</c> należy przeczytać rozdział piąty
+<uri link="/doc/pl/handbook/index.xml">Podręcznika instalacji Gentoo</uri> dla
+odpowiedniej architektury. Polecamy również przeczytać listę podręcznika
+<c>gcc</c> o <uri
+link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Submodel-Options.html#Submodel-Options">opcjach
+specyficznych dla danej architektury</uri> gdzie jest dokładnie wytłumaczona
+różnica pomiędzy <c>-march</c>, <c>-mcpu</c> i <c>-mtune</c>. Jest to bardzo
+pomocne przy precyzowaniu jakie opcje <c>-march</c> powinny zostać użyte.
+Zwłaszcza, że na niektórych architekturach (takich jak x86) flaga <c>-mcpu</c>
+jest przestarzała i powinno się użyć <c>-mtune</c> zamiast niej.
+</note>
+
+</body>
+</section>
+<section>
+<title>-O</title>
+<body>
+
+<p>
+Następną opcją jest <c>-O</c>. Kontroluje ona całkowity poziom optymalizacji.
+Może ona spowodować, że kod będzie się kompilował nieco dłużej i zostanie użyte
+nieco więcej pamięci wraz z jej podnoszeniem.
+</p>
+
+<p>
+Jest pięć opcji <c>-O</c>: <c>-O0</c>, <c>-O1</c>, <c>-O2</c>, <c>-O3</c> oraz
+<c>-Os</c>. W <path>/etc/make.conf</path> powinna być użyta tylko jedna.
+</p>
+
+<p>
+Z wyjątkiem <c>-O0</c>, każda następna opcja <c>-O</c> aktywuje kilka
+dodatkowych flag. O tym jakie flagi są aktywowane przy każdym poziomie <c>-O</c>
+i co powodują, można sie dowiedzieć po przeczytaniu rozdziału o <uri
+link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Optimize-Options.html#Optimize-Options">opcjach
+optymalizacji</uri> strony manuala gcc.
+</p>
+
+<p>
+Przeanalizujmy każdy poziom optymalizacji:
+</p>
+
+<ul>
+  <li>
+    <c>-O0</c>: Ten poziom (jest to litera "O" za którą jest cyfra zero)
+    kompletnie wyłącza optymalizację i jest domyślna kiedy opcja <c>-O</c> nie
+    jest określona w zmiennych CFLAGS i CXXFLAGS, co nie jest generalnie
+    pożądane.
+  </li>
+  <li>
+    <c>-O1</c>: Bardzo podstawowy poziom optymalizacji. Kompilator będzie
+    próbował budować szybszy i mniejszy kod bez tracenia na to czasu. Jest to
+    naprawdę podstawowy poziom i nie powinien stanowić problemów podczas
+    kompilacji.
+  </li>
+  <li>
+    <c>-O2</c>: Poziom wyżej od <c>-O1</c>. Jest to <e>zalecany</e> poziom
+    optymalizacji jeżeli nie mamy specjalnych potrzeb. <c>-O2</c> do <c>-O1</c>
+    doda kilka nowych flag. Z opcją <c>-O2</c> kompilator będzie próbował
+    zwiększyć wydajność kodu nie zwracając uwagi na rozmiar kodu wynikowego przy
+    długim czasie kompilacji.
+  </li>
+  <li>
+    <c>-O3</c>: Najwyższy możliwy poziom optymalizacji i zarazem najbardziej
+    ryzykowny. Z tą opcją kompilator będzie tracił dużo czasu na stworzenie kodu
+    wynikowego. Generalnie opcja <e>nie powinna być używana na systemach
+    używających <c>gcc</c> w wersji 4.x</e>. Zachowanie <c>gcc</c> znacznie się
+    zmieniło od wersji 3.x, gdzie opcja <c>-O3</c> miała prowadzić do trochę
+    szybszego wykonania niż przy <c>-O2</c>. Przy wersji kompilatora <c>gcc</c>
+    4.x, kompilowany z użyciem <c>-O3</c> kod <e>będzie</e> miał wielki rozmiar,
+    a jego wykonanie będzie wymagało użycia większej ilości pamięci. Będzie
+    również znacznie zwiększał przypadki niepowodzenia kompilacji i
+    nieoczekiwane zachowanie programów. <b>Używanie <c>-O3</c> nie jest zalecane
+    dla <c>gcc</c> 4.x.</b>
+  </li>
+  <li>
+    <c>-Os</c>: Ten poziom będzie optymalizował kod pod względem wielkości.
+    Aktywuje on wszystkie flagi z poziomu <c>-O2</c>, które nie biorą udziału w
+    zwiększeniu wygenerowanego kodu. Może to być przydatne dla maszyn, które mają
+    bardzo ograniczoną przestrzeń dyskową lub z procesorami o bardzo małej
+    wielkości cache. Może jednak spowodować sporo problemów, ponieważ filtrowane
+    przez wiele ebuilów z drzewa Portage. Używanie <c>-Os</c> nie jest zalecane.
+  </li>
+</ul>
+
+<p>
+Jak zostało wcześniej wspomniane, <c>-O2</c> jest rekomendowanym poziomem
+optymalizacji. Jeśli pakiet zawiedzie podczas kompilacji, należy się upewnić, że
+nie jest używana opcja <c>-O3</c>. Przed zgłoseniem błędu należy spróbować
+zbudować pakiet z użyciem niższego poziomu optymalizacji takim jak <c>-O1</c>
+lub nawet <c>-O0 -g2 -ggdb</c>.
+</p>
+
+</body>
+</section>
+<section>
+<title>-pipe</title>
+<body>
+
+<p>
+<c>-pipe</c> jest bezpieczną flagą. Nie ma ona wpływu na generowany kod, lecz
+przynosi zysk w prędkości kompilacji. Każe kompilatorowi używać potoków zamiast
+plików tymczasowych w różnych etapach kompilacji.
+</p>
+
+</body>
+</section>
+<section>
+<title>-fomit-frame-pointer</title>
+<body>
+
+<p>
+Jest to bardzo powszechna flaga stworzona do zmniejszania wielkości generowanego
+kodu. Jest ona włączona w każdym poziomie <c>-O</c> (poza <c>-O0</c>) na
+architekturach gdzie nie przeszkadza to przy debugowaniu (takich jak np.
+x86-64). Ponieważ strona podręcznika GNU <c>gcc</c> nie podaje wszystkich
+architektur, na których <c>-O</c> wymusza działanie tej flagi, czasem trzeba ją
+dodać własnoręcznie. Używanie tej flagi może powodować problemy podczas
+debugowania kodu.
+</p>
+
+<p>
+Szczególne problemy sprawiają aplikacje napisane w Javie, chociaż nie jest ona
+jedynym językiem napiętnowanym przez tę flagę. Trzeba mieć na uwadze, że mimo
+tego, że flaga ogólnie pomaga, powoduje trudności podczas debugowania kodu;
+backtrace będzie bezużyteczne. Jeśli nie zamierzamy poddawać kodu operacjom
+debugowania i nie mamy w zmiennej CFLAGS innych flag, takich jak <c>-ggdb</c>
+(ani nie kompilujemy z włączoną flagą USE="debug"), warto dodać
+<c>-fomit-frame-pointer</c>.
+</p>
+
+<impo>
+<e>Nie należy</e> łączyć <c>-fomit-frame-pointer</c> z podobnie działającą flagą
+<c>-momit-leaf-frame-pointer</c>. Użycie drugiej flagi jest niepotrzebne,
+ponieważ <c>-fomit-frame-pointer</c> wykonuje swoją pracę prawidłowo. Ponadto,
+<c>-momit-leaf-frame-pointer</c> okazuje się negatywnie wpływać na jakość kodu.
+<!--
+source for this info:
+http://www.coyotegulch.com/products/acovea/aco5p4gcc40.html
+-->
+</impo>
+
+</body>
+</section>
+<section>
+<title>-msse, -msse2, -msse3, -mmmx, -m3dnow</title>
+<body>
+
+<p>
+Te flagi uruchamiają ustawienia instrukcji
+<uri link="http://en.wikipedia.org/wiki/Streaming_SIMD_Extensions">SSE</uri>,
+<uri link="http://en.wikipedia.org/wiki/SSE2">SSE2</uri>, <uri
+link="http://en.wikipedia.org/wiki/SSSE3">SSE3</uri>, <uri
+link="http://en.wikipedia.org/wiki/MMX">MMX</uri> i <uri
+link="http://en.wikipedia.org/wiki/3dnow">3DNow!</uri> dla architektur x86 i
+x86-64. Jest to użyteczne przede wszystkim przy multimediach, grach i zadaniach,
+wymagających intensywnych obliczeń matematycznych. Funkcje te są dostępne w
+nowszych modelach procesorów.
+</p>
+
+<impo>
+Należy się upewnić, że dany procesor wspiera powyższe flagi. Można się tego
+dowiedzieć poprzez <c>cat /proc/cpuinfo</c>. Wyjście tego polecenia będzie
+zawierało wszystkie dodatkowe ustawienia. Trzeba mieć na uwadze, że <b>pni</b>
+jest inną nazwą dla SSE3.
+</impo>
+
+<p>
+Generalnie nie ma potrzeby dodawania jakiejkolwiek z tych flag, dopóki jest
+ustawiona odpowiednia opcja <c>-march</c> (np. <c>-march=nocona</c> zawiera
+<c>-msse3</c>). Kilka wartych uwagi wyjątków to nowsze procesory VIA i AMD64,
+które wspierają instrukcje niezawarte w <c>-march</c> (takie jak SSE3). Dla
+takich procesorów będzie wymagane dodanie flag, które będą odpowiadały wynikowi
+<c>cat /proc/cpuinfo</c>.
+</p>
+
+<note>
+Należy zapoznać się z <uri
+link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/i386-and-x86_002d64-Options.html#i386-and-x86_002d64-Options">listą</uri>
+flag specyficznych tylko dla architektur x86 i x86-64, aby wiedzieć co aktywuje
+każda z tych ustawień. Gdy instrukcja jest podana, wtedy nie ma potrzeby jej
+wyszczególnienia. Będzie ona domyślnie włączona przy odpowiedniej fladze
+<c>-march</c>.
+</note>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>FAQ Optymalizacji</title>
+<section>
+<title>Ale można osiągnąć lepsze wyniki przy użyciu -funroll-loops -fomg-optimize!</title>
+<body>
+
+<p>
+Niestety. Może się tylko <e>wydawać</e>, ponieważ ktoś nas przekonał, że
+wydajność rośnie z liczbą użytych flag. Agresywne flagi mogą tylko uszkodzić
+aplikacje. Nawet strona <uri
+link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Optimize-Options.html#Optimize-Options">manuala</uri>
+<c>gcc</c> mówi, że użycie <c>-funroll-loops</c> i <c>-funroll-all-loops</c>
+tworzy kod większy i bardziej powolny. Po <c>-ffast-math</c>,
+<c>-fforce-mem</c>, <c>-fforce-addr</c>, są to kolejne mylnie używane flagi.
+</p>
+
+<p>
+Prawdą jest, że są to bardzo agresywne flagi. Można się o tym przekonać w bardzo
+łatwy sposób: odwiedzając <uri link="http://forums.gentoo.org">Forum
+Gentoo</uri> oraz <uri link="http://bugs.gentoo.org">Bugzillę</uri>. Szybko
+zauważymy że nie robią one nic dobrego!
+</p>
+
+<p>
+Nie należy ich używać, ponieważ stworzą one spuchnięty kod o wielkich rozmiarach
+i słabej wydajności. Sprawią, że system będzie działał na krawędzi, a nasze bugi
+zostaną oznaczone jako INVALID lub WONTFIX.
+</p>
+
+<p>
+Nie potrzeba tak niebezpiecznych flag. <b>Nie należy ich używać</b>. Lepsze od
+tego jest użycie podstawowych flag: <c>-march</c>, <c>-O</c> i <c>-pipe</c>.
+</p>
+
+</body>
+</section>
+<section>
+<title>Co z poziomami -O wyższymi niż 3?</title>
+<body>
+
+<p>
+Niektórzy użytkownicy chwalą się lepszą wydajnością przy użyciu <c>-O4</c>,
+<c>-O9</c> itp. Prawdą jednak jest to, że poziomy wyższe niż 3 nie mają żadnego
+wpływu. Kompilator akceptuje CFLAGS takie jak <c>-O4</c>, lecz nie wykorzystuje
+ich przy budowie kodu. Jest to równoznaczne z użyciem <c>-O3</c>, nic więcej.
+</p>
+
+<p>
+Więcej dowodów? Przeanalizuj <uri
+link="http://gcc.gnu.org/viewcvs/trunk/gcc/opts.c?revision=124622&amp;view=markup">kod
+źródłowy</uri> <c>gcc</c>:
+</p>
+
+<pre caption="Kod źródłowy -O">
+if (optimize >= 3)
+    {
+      flag_inline_functions = 1;
+      flag_unswitch_loops = 1;
+      flag_gcse_after_reload = 1;
+      /* Allow even more virtual operators.  */
+      set_param_value ("max-aliased-vops", 1000);
+      set_param_value ("avg-aliased-vops", 3);
+    }
+</pre>
+
+<p>
+Jak widać, każda wartość większa niż 3 jest traktowana jak <c>-O3</c>.
+</p>
+
+</body>
+</section>
+<section>
+<title>Co ze zbędnymi flagami?</title>
+<body>
+
+<p>
+Opcje CFLAGS i CXXFLAGS, które są zawarte w różnych poziomach <c>-O</c> są
+zbędne w <path>/etc/make.conf</path>. Czasami są one ignorowane, a czasami
+filtrowane lub zastępowane.
+</p>
+
+<p>
+Filtracje i zastępowanie flag jest wykorzystywane przez wiele ebuildów w drzewie
+Portage. Zazwyczaj jest to robione z powodu niepowodzenia przy kompilacji z
+określonym poziomem optymalizacji <c>-O</c> lub kiedy kod jest zbyt wrażliwy na
+wszelkie dodatkowe flagi. Ebuild będzie filtrował niektóre CFLAGS i CXXFLAGS lub
+zastąpi <c>-O</c> innym poziomem.
+</p>
+
+<p>
+<uri
+link="http://devmanual.gentoo.org/ebuild-writing/functions/src_compile/build-environment/index.html">Podręcznik
+Dewelopera Gentoo</uri> tworzy szkic gdzie i jak filtrowanie i zastępowanie flag
+działa.
+</p>
+
+<p>
+Można ominąć filtrowania <c>-O</c> poprzez niepotrzebne dodawanie
+flag pewnych poziomów optymalizacji, takich jak <c>-O3</c>
+</p>
+
+<pre caption="Zbędne opcje w CFLAGS">
+CFLAGS="-O3 -finline-functions -funswitch-loops"
+</pre>
+
+<p>
+<brite>Nie jest to mądre</brite>. CFLAGS jest filtrowane z konkretnego powodu!
+Kiedy flagi są filtrowane, znaczy to, że są niebezpieczne do budowy pakietu.
+Naprawdę, <e>nie</e> jest bezpieczne budowanie całego systemu z <c>-O3</c> jeśli
+jakaś flaga z tego poziomu optymalizacji będzie tworzyła problemy z danymi
+pakietami. <e>Zaufaj deweloperom</e>. Filtrowanie i zastępowanie flag jest
+robione dla bezpieczeństwa naszych danych. Jeśli ebuild określa alternatywną
+flagę, nie należy tego obchodzić w żaden sposób!
+</p>
+
+<p>
+Po zbudowaniu pakietu z nieakceptowanymi flagami, najczęściej pogłębiamy się w
+problemach. Kiedy zgłaszamy błąd na Bugzilli, użyte flagi z
+<path>/etc/make.conf</path> są widoczne. Zostaniemy wtedy powiadomieni, aby
+przebudować dany pakiet bez niepotrzebnych flag. Można sobie tego oszczędzić
+poprzez ich nieużywanie i niezakładanie, że wie się lepiej niż deweloperzy.
+</p>
+
+</body>
+</section>
+<section>
+<title>Co z LDFLAGS?</title>
+<body>
+
+<p>
+Nie należy ich używać. Można usłyszeć, że mogą podnieść czas uruchamiania
+aplikacji lub zmniejszyć ich rozmiar. Jednak LDFLAGS najczęściej powodują
+zepsucie się danej aplikacji. Nie są one wspierane, więc prawdopodobnie
+zgłoszony bug zostanie oznaczony jako INVALID. Ostatecznie trzeba będzie
+ponownie kompilować pakiet bez ustawionych LDFLAGS.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Zasoby</title>
+<section>
+<body>
+
+<p>
+Poniższe źródła są pomocne dla dalszego zrozumienia optymalizacji:
+</p>
+
+<ul>
+  <li>
+    <uri link="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/">Strona manuala GNU
+    gcc</uri>
+  </li>
+  <li>
+    Akapit 5 <uri link="/doc/pl/handbook/">Podręcznika Instalacji Gentoo</uri>
+  </li>
+  <li><c>man make.conf</c></li>
+  <li><uri link="http://en.wikipedia.org">Wikipedia</uri></li>
+  <li>
+    <uri link="http://www.coyotegulch.com/products/acovea/">Acovea</uri> -
+    benchmark. Może być przydatny do ustalenia w jak różny sposób flagi wpływają
+    na wygenerowany przez kompilator kod. Program jest dostępny w Portage:
+    <c>emerge acovea</c>.
+  </li>
+  <li><uri link="http://forums.gentoo.org">Forum Gentoo</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+</guide>

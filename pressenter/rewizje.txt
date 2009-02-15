@@ -1,0 +1,16 @@
+gentoo-freebsd.xml -> v1.18
+gentoo-ppc-faq.xml -> v1.22
+bluetooth-guide.xml -> v1.13
+liveusb.xml -> v1.11
+power-management-guide.xml -> v1.6
+xfce-config.xml -> v1.5
+gentoo-sparc-quickinstall.xml -> v1.10
+gentoo-x86-quickinstall.xml -> v1.20
+gentoo-x86+raid+lvm2-quickinstall.xml -> v1.9
+proj/en/desktop/gnome/howtos/gnome-2.16-upgrade.xml -> v1.2
+diskless-howto.xml -> v1.13
+ipv6.xml -> v1.10
+qmail-howto.xml -> v1.10
+mysql-upgrade-slotted.xml -> v1.1
+manually-fixing-portage.xml -> 1.7
+kde-config.xml -> 1.30

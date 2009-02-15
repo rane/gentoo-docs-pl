@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<guide type="newsletter" link="20060731-newsletter.xml" lang="pl">
+<title>Tygodnik Gentoo</title>
+<subtitle>31 lipca 2006</subtitle>
+
+<author title="Redaktor naczelny">
+  <mail link="plate@gentoo.org">Ulrich Plate</mail>
+</author>
+<author title="Redaktor">
+  <mail link="wolf31o2@gentoo.org">Chris Gianelloni</mail>
+</author>
+<author title="Redaktor">
+  <mail link="dertobi123@gentoo.org">Tobias Scherbaum</mail>
+</author>
+<author title="Redaktor">
+  <mail link="jkt@gentoo.org">Jan Kundrát</mail>
+</author>
+<author title="Redaktor">
+  <mail link="kloeri@gentoo.org">Bryan Østergaard</mail>
+</author>
+<author title="Redaktor">
+  <mail link="nichoj@gentoo.org">Josh Nichols</mail>
+</author>
+<author title="Redaktor">
+  <mail link="musikc@hotmail.com">Chrissy Fullam</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="jbozanowski@gmail.com">Jakub Bożanowski</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="karol.kania@gmail.com">Karol Kania</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="shadoww@gentoo.org">Damian Kuras</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="moloh@gentoo.org">Michał Kurgan</mail>
+</author>
+
+<abstract>Wydanie Tygodnika Gentoo z 31 lipca 2006.</abstract>
+<summary/>
+
+<version>Wolumin 5, numer 28</version>
+<date>2006-07-31</date>
+
+<!-- Gentoo News -->
+<chapter>
+<title>Wiadomości Gentoo</title>
+
+<section>
+<title>Publikacja Catalyst 2.0</title>
+<body>
+
+<p>
+Projekt Gentoo <uri link="/proj/en/releng/index.xml">Release Engineering</uri>
+ma zaszczyt poinformować o publikacji narzędzia catalyst oznaczonej numerem 2.0.
+Wersja ta jest napisana całkowicie od nowa i zawiera wiele nowych
+funkcjonalności i aktualizacji. Do najważniejszych z nich można zaliczyć:
+</p>
+
+<ul>
+  <li>autoresume - próba kontynuacji procesu budowania po błędzie</li>
+  <li>kerncache - budowanie jądra odbywa się teraz w pamięci podręcznej co
+  przyśpiesza etap livecd-stage2</li>
+  <li>seedcache - użycie rezultatu poprzedniego procesu budowy, jeśli istnieje,
+  by przyspieszyć prędkość kopiowania</li>
+  <li>snapcache - umieszczenie obrazu w pamięci podręcznej tak, aby można było
+  go zamontować w środowisku chroot</li>
+  <li>DIGESTS - tworzy pliki digest w każdym formacie wspieranym przez
+  <c>shash</c></li>
+</ul>
+
+<p>
+Jak na razie jest ona jeszcze zamaskowana, ale w ciągu tygodnia powinna zostać
+odmaskowana. Użytkownicy, którzy korzystali z serii 2.0_pre będą musieli
+przedsięwziąć kilka kroków, by zapewnić bezproblemową aktualizację, w
+szczególności gdy celem jest zachowanie wszystkich tymczasowych pakietów, które
+są przechowywane w pamięci podręcznej.
+</p>
+
+<pre caption="Zmiana nazw katalogów catalyst">
+<comment>(Zmiana nazwy katalogu z pamięcią podręczną)</comment>
+# <i>mv -i /var/tmp/catalyst2 /var/tmp/catalyst</i>
+<comment>(Zmiana nazwy katalogu zawierającego konfiguracje)</comment>
+# <i>mv -i /etc/catalyst2 /etc/catalyst</i>
+# <i>cd /etc/catalyst</i>
+# <i>sed -i -e 's/catalyst2/catalyst/' *.conf</i>
+</pre>
+
+<p>
+Dokumentacja dla catalyst 2.0 jest obecnie tworzona i z chwilą stabilizacji
+pakietu zostanie oficjalnie opublikowana. Obecnie przykładowe szablony
+zainstalowane w katalogu <path>/usr/share/doc/catalyst-2.0/examples</path>
+stanowią jedyną dostępną dokumentacje.
+</p>
+
+</body>
+</section>
+<section>
+<title>Trzecia rocznica Gentoo Bugday</title>
+<body>
+
+<p>
+W sobotę, 5 sierpnia będziemy obchodzić trzecią rocznicę istnienia projektu
+Gentoo/Bugday. Jest on uważany za jeden z ważniejszych kamieni milowych na
+drodze rozwoju Gentoo. W związku z tym będzie on należycie obchodzony,
+włączając w to również konkursy i nagrody!
+</p>
+
+<p>
+Po rozpoczął swoje istnienie jako propozycja <uri
+link="/proj/en/glep/glep-0006.html">GLEP 6</uri>. Od samego początku projekt ten
+miał ogromny wpływ na Gentoo. Z pewnością w ciągu trzech lat istnienia dowiódł
+on swojej przydatności dla dystrybucji. Mnóstwo nowych deweloperów rozpoczęło
+przygodę z Gentoo właśnie od uczestnictwa w Bugday jako zwykli użytkownicy, czy
+inni mający pierwsze doświadczenia z poprzednich odsłon Bugday. Dla innych z
+kolei było to pierwsze doświadczenie związane z ebuildami, które pomogło im
+dołączyć do projektów nie związanych z Bugday.
+</p>
+
+<p>
+Oprócz faktu, że projekt jest świetnym narzędziem pomagającym w rekrutacji
+nowych deweloperów, w czasie dotychczasowych edycji Bugday użytkownicy i
+deweloperzy współpracując ze sobą naprawili imponującą listę błędów i usterek.
+Bugday jest z pewnością bardzo ważnym wydarzeniem stanowiącym jeden z
+fundamentów dla społeczności zgromadzonej wokół Gentoo. Projekt pomógł i ciągle
+pomaga w rozwijaniu kontaktów pomiędzy użytkownikami i deweloperami, a jego
+oficjalny kanał IRC w minionym czasie przerodził się w miejsce gdzie problemy
+związane z pakietami oraz poprawkami są codziennie omawiane.
+</p>
+
+<p>
+Aby uświetnić trzecią rocznicę, odbędzie się szereg konkursów. Użytkownicy
+zmierzą się w walce o najlepiej poprawione błędy, największą wiedzę na temat
+Gentoo, etc.
+</p>
+
+<p>
+Wciąż trwają prace nad przygotowaniem konkursów i nagród, a wszystkie szczegóły
+powinny ukazać się na <uri link="http://bugday.gentoo.org">stronie Bugday</uri>
+pod koniec tego tygodnia.
+</p>
+
+<p>
+Życzymy wszystkim powodzenie powodzenia. Członkowie projektu Bugday nie
+ukrywają, że mają nadzieję, że będzie to najlepszy Bugday z wszystkich
+odbywających się do tej pory. Wielkie podziękowania należą się każdemu kto
+uczestniczył w projekcie przez ostatnie trzy lata -- to właśnie ta pomoc
+sprawiła, że projekt odniósł tak wielki sukces.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zespół Gentoo/Java potrzebuje pomocy</title>
+<body>
+
+<p>
+Od dłuższego już czasu zespół Java ma problemy z powodu zbyt niskiej liczby
+członków jak na potrzeby tak rozbudowanego projektu. Poniżej można znaleźć kilka
+wolnych do wypełnienia „stanowisk” na które poszukiwane są osoby chętne do
+pomocy. Termin „do wypełnienia” użyty jest w dość luźnym znaczeniu, a znaczy
+tyle, że „to są rzeczy, przy których chcemy, abyście nam pomogli”. Zachęcamy
+wszystkich aktywnych deweloperów do spróbowania własnych sił, „nowe twarze” są
+oczywiście także mile widziane i mogą liczyć na aklimatyzację i pomoc ze strony
+aktualnych członków zespołu Gentoo/Java.
+</p>
+
+<ul>
+  <li>Generalnie Java</li>
+</ul>
+
+<p>
+Zespół Gentoo/Java opiekuje się olbrzymią ilością pakietów Java.  Podczas
+ostatniej próby ich podliczenia doliczono się ponad 400 aplikacji, bibliotek i
+innych. Jak łatwo można sobie to wyobrazić, taka liczba pakietów potrafi być
+stałym źródłem wielu raportów o aktualizację dostępnej w drzewie Portage wersji
+oraz zwykłych, dotyczących normalnych usterek.
+</p>
+
+<p>
+Zasadniczo, zespół Java poszukuje osób chcących pomóc przy opiece nad tymi
+pakietami. Od kandydatów oczekuje się znajomości Gentoo i Javy (niespodzianka!).
+Można jednak spróbować własnych sił pomimo braku tej wiedzy, wymagane jednak
+będzie oczywiście chęć do szybkiego uzupełnienia, tak by wiedzieć jak zachowują
+się pakiety Java w Gentoo. Znajomość ant, który używany jest w większości
+pakietów, jest również mile widziana.
+</p>
+
+<ul>
+  <li>Opiekun JBoss</li>
+</ul>
+
+<p>
+JBoss to jedna z ważniejszych aplikacji w świecie Java. Od pewnego czasu pakiet
+nie posiada własnego opiekuna i z pewnością przydałoby się mu trochę czułości.
+Z racji wielkości tej bestii, zespół Java liczy w szczególności na oferty osób
+mających do czynienia z aplikacją na co dzień, najlepiej w zastosowaniach
+komercyjnych.
+</p>
+
+<ul>
+  <li>Opiekun Jetty</li>
+</ul>
+
+<p>
+Jetty jest kontenerem dla serwletów, takim jak tomcat czy resin. Również ten
+pakiet w ostatnim czasie został mocno zaniedbany. Najlepiej, gdyby osoba chętna
+do pomocy przy tej aplikacji używała jej na co dzień w komercyjnych
+zastosowaniach.
+</p>
+
+<ul>
+  <li>Hakerzy Java</li>
+</ul>
+
+<p>
+Jeden z naszych doświadczonych i znamienitych użytkowników pracował nad
+możliwością użycia GCJ jako JDK, czyli jako narzędzia do budowania pakietów.
+Zespół Java ma pod swoją opieką także kilka innych maszyn wirtualnych
+znajdujących się w Portage, w tym kaffe, sablevm, jamvm itd. Poszukiwane są
+osoby chętne do testowania i budowania pakietów z użyciem innych maszyn
+wirtualnych.
+</p>
+
+<ul>
+  <li>Opiekun Eclipse/Netbeans</li>
+</ul>
+
+<p>
+Eclipse i Netbeans to zintegrowane środowiska deweloperskie (IDE) dla Javy.
+Samo Eclipse jest w tej chwili pod dobrą opieką, niestety jednak wtyczki do
+niego już nie. Netbeans potrzebuje trochę więcej miłości, jako że pakiet nie był
+aktualizowany już od jakiegoś czasu.
+</p>
+
+<p>
+Jeżeli którakolwiek z powyższych propozycji zabrzmiała interesującą to gorąco
+zachęcamy do zgłoszenia się i rozpoczęcia współpracy. Na początek najlepiej
+przyjrzeć się <uri link="/proj/en/java/">głównej stronie projektu</uri> i
+przeglądnąć dostępne na niej dokumenty. Jeżeli po ich przeczytaniu, decyzja o
+dołączeniu do zespołu nie zmieni się to ostatnim krokiem jest kontakt z <mail
+link="nichoj@gentoo.org">Joshem Nicholsem</mail>.
+</p>
+
+<p>
+Inne rzeczy, które warto wykonać przed przystąpieniem do zespołu:
+</p>
+
+<ul>
+  <li>Subskrypcja listy dyskusyjnej, <c>gentoo-java</c>. Charakteryzuje się mało
+  ilością wiadomości.</li>
+  <li>Dołączenie do kanału IRC <c>#gentoo-java</c> na serwerze irc.freenode.net.
+  Nie jest on zbytnio oblegany, więc nie należy spodziewać się zalewu
+  wiadomości, ani natychmiastowych odpowiedzi.</li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Czeskie tłumaczenie dokumentacji Gentoo oficjalnie wydane!</title>
+<body>
+
+<p>
+Po ponad roku ciężkiej pracy, zespół czeskich tłumaczy ma zaszczyt ogłosić że
+tworzone przez nich tłumaczenie dokumentacji osiągnęło odpowiednią jakość i
+zostało oficjalnie wydane. Oznacza to że od tej pory <uri
+link="/doc/cs/">dokumentacja w języku czeskim</uri> jest dostępna na oficjalnych
+serwerach Gentoo.
+</p>
+
+<p>
+Zachęcamy wszystkich posługujących się językiem czeskim, a potrafiących także
+czytać w języku angielskim do pomocy w tłumaczeniu kolejnych dokumentów. Wszyscy
+zainteresowani proszeni są o kontakt z <mail link="jkt@gentoo.org">Janem
+Kundrátem</mail>. Dzięki współpracy można uzyskać swój własny adres email z
+końcówką gentoo.org.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Developer of the Week -->
+<chapter>
+<title>Deweloper tygodnia</title>
+
+<section>
+<title>Joshua Kinard</title>
+<body>
+
+<figure link="/images/gwn/20060731_kumba.jpg"
+        short="kumba" 
+        caption="Joshua Kinard, aka kumba" />
+
+<p>
+Deweloper Joshua Kinard, znany również jako Kumba, przebywa na stałe w Waldorf w
+stanie Maryland, niedaleko miasta Washington, D.C. Mieszka z rodzicami i posiada
+kilka zwierzaków, w tym należącego do rodziny psa, dwa koty, Isis i Leto, oraz,
+co może dziwić, mysz. Koty ją oczywiście uwielbiają. Myszy to jednak nie
+przeszkadza, gdyż, jak twierdzi Kumba, jego rodzina próbowała ją wypuścić, ale
+nie chciała odejść. Joshua ma 24 lata, wciąż jednak pamięta wszystkie miejsca, w
+których mieszkał wraz z rodziną w czasie gdy jego ojciec służył w lotnictwie.
+Najlepiej wspomina kilka lat, które spędzili w Hiszpanii, w bazie wojskowej
+niedaleko Madrytu.
+</p>
+
+<p>
+Zainteresowania Kumby to głównie nietypowa muzyka, na przykład utwory
+irlandzkie lub celtyckie (szczególnie z dobrymi partiami dud), chóry
+gregoriańskie i niektóre podgatunki metalu, na przykład te grane przez
+zespoły Therion i Blind Guardian. Moderuje także kilka kanałów IRC, głównie
+poświęconych Gentoo oraz od czasu do czasu wciąż znajdzie chwilkę na granie
+w Diablo 2.
+</p>
+
+<p>
+Joshua aktualnie pracuje jako administrator w organizacji typu non-profit
+niedaleko miasta Washington, D.C. Ma tam do czynienia z różnymi systemami,
+między innymi Netware, HP-UX, Linux, a nawet Windows. Nie jest wielkim fanem
+atmosfery w wielkich korporacjach, więc w planach na przyszłość rozważa
+studia podyplomowe lub nawet przekwalifikowanie się.
+</p>
+
+<p>
+Jeśli chodzi o jego początki z Gentoo, twierdzi, że odbyło się to dość
+prosto. Używając wcześniej różnych dystrybucji, szukał takiej, której mógłby
+użyć na ostatnio nabytym, 64-bitowym komputerze SPARC i poszukiwania szybko
+zakończyły się na Gentoo. Od 2004 roku jest deweloperem, zaś aktualnie
+kieruje zespołem MIPS, chętnie jednak pomagając przy pracach zespołów
+baselayout, toolchain i SPARC.
+</p>
+
+<p>
+Krążące plotki na temat stacji roboczej Kumby są prawdziwe, jego Dual
+Pentium III rzeczywiście pracuje pod kontrolą systemu Windows Server 2003 i
+może pochwalić się wymienialną w czasie działania systemu macierzą dyskową
+typu RAID5 z dyskami SCSI. Pierwszym programem, jaką uruchamia jako
+moderator IRC jest oczywiście mIRC, zaraz potem włączając AIM/DeadAIM,
+Winampa i Firefoksa. Lubi też śledzić nietypowe zdarzenia pogodowe za pomocą
+programu Stormlab, oraz majstrować przy aplikacji WorldWind z NASA.
+Pozostałe komputery Kumby to dwuprocesorowy system Athlon MP 2000 służący
+jako serwer www, stary komputer SPARC, którego używa do testów, oraz kilka
+komputerów SGI: Octane wykorzystywany do pracy, dwa komputery O2, na jednym
+testuje paczki, na drugim jądro, oraz IP28. Posiada nawet stary SGI Indy z
+początku lat 90-tych, którego wciąż używa do testowania jądra.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Społeczność Gentoo</title>
+<!-- forums -->
+<!-- planet.gentoo.org -->
+<section>
+<title>Serwis planet.gentoo.org</title>
+<body>
+
+<p>
+<b>Nowy kanał IRC: #gentoo-db</b>
+</p>
+
+<p>
+Stworzono kolejny kanał IRC: <c>#gentoo-db</c> jest poświęcone dyskusjom na
+temat rozwoju rozwiązań bazodanowych w Gentoo. Do tej pory na kanale możne
+spotkać osoby zajmujące się MySQL, PostgreSQL oraz opiekunów innych pakietów
+zgromadzonych wokół systemów do zarządzania bazami danych. Zachęcamy wszystkich
+zainteresowanych do przyłączenia się do dyskusji.
+</p>
+
+<ul>
+  <li><uri link="http://chtekk.longitekk.com/?p=25">#gentoo-db</uri></li>
+</ul>
+
+<p>
+<b>Status Gentoo w 5 minut</b>
+</p>
+
+<p>
+<mail link="dberkholz@gentoo.org">Donnie Berkholz</mail> na tegorocznym <uri
+link="http://conferences.oreillynet.com/os2006/">OSCON</uri> poprowadził
+błyskawiczną prezentację opisującą aktualny status Gentoo, przedstawił m.in.
+Portage 2.1, nadchodzące wydanie 2006.1 (wraz z nową wersją Instalatora Gentoo)
+oraz wsparcie dla wielu nakładek Portage. Wspomniał także o artykule, który
+ukazał się w serwisie <uri
+link="http://business.newsforge.com/article.pl?sid=06/07/27/161239">NewsForge</uri>.
+</p>
+
+<ul>
+  <li><uri link="http://spyderous.livejournal.com/77772.html">State of Gentoo in
+  5 minutes</uri></li>
+</ul>
+
+<p>
+<b>Poszukiwani: Testerzy wydania PowerPC</b>
+</p>
+
+<p>
+<uri
+link="/news/pl/gwn/20060626-newsletter.xml#doc_chap1_sect1">Ogłoszenie o
+poszukiwaniu testerów wydań</uri>, które ukazało się już ponad miesiąc temu nie
+poskutkowało wystarczającą ilością zgłoszeń dla zespołu zajmującego się
+architekturą PowerPC. <mail link="pylon@gentoo.org">Lars Weiler</mail> prosi o
+kolejne zgłoszenia osób chcących przyczynić się do powstania kolejnego wydania
+Gentoo Linux. We wpisie podał także listę modeli, które nie są jeszcze
+wystarczająco przetestowane. <mail link="roger55@gentoo.org">Roger
+Miliker</mail> czeka na kontakt od wszystkich zainteresowanych osób.
+</p>
+
+<ul>
+  <li><uri
+  link="http://planet.gentoo.org/developers/pylon/2006/07/27/wanted_powerpc_release_testers">
+  Wanted: PowerPC Release Testers</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo International-->
+<!-- Gentoo in the press -->
+<!-- Tips and Tricks -->
+<!-- Gentoo developer moves -->
+<chapter>
+<title>Zmiana statusu deweloperów Gentoo</title>
+<section>
+<title>Odeszli</title>
+<body>
+
+<p>
+Następujący deweloperzy opuścili projekt Gentoo Linux w minionym tygodniu:
+</p>
+
+<ul>
+  <li>Henrik Brix Andersen (brix)</li>
+  <li>Michael Kohl (citizen428)</li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Przybyli</title>
+<body>
+
+<p>
+Następujący deweloperzy przyłączyli się do projektu Gentoo Linux w minionym
+tygodniu:
+</p>
+
+<ul>
+  <li>Wolf Giesen (frilled) Security</li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Zmienili status</title>
+<body>
+
+<p>
+Następujący deweloperzy zmienili w minionym tygodniu pełnioną w projekcie Gentoo
+Linux funkcję:
+</p>
+
+<ul>
+  <li><e>Nikt w tym tygodniu</e></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo security -->
+<chapter>
+<title>Bezpieczeństwo Gentoo</title>
+<!-- paste from the script -->
+<section>
+<title>Wireshark: Wiele usterek</title>
+<body>
+
+<p>
+Wireshark (do tej pory znany jako Ethereal) zawiera wiele usterek, które mogą
+zostać wykorzystane do zdalnego wykonania niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200607-09.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+
+<section>
+<title>Samba: Usterka Denial of Service</title>
+<body>
+
+<p>
+Samba zawiera usterkę Denial of Service, którą może spowodować duża liczba prób
+nawiązania połączenia i udostępnienia zasobów.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200607-10.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+
+<section>
+<title>TunePimp: Przepełnienie bufora</title>
+<body>
+
+<p>
+TunePimp zawiera usterkę, która może zostać wykorzystana do wykonania
+niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200607-11.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+
+<section>
+<title>OpenOffice.org: Wiele usterek</title>
+<body>
+
+<p>
+OpenOffice.org zawiera trzy usterki bezpieczeństwa, które mogą zostać
+wykorzystane przez zdalnego napastnika do wykonania niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200607-12.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+
+<section>
+<title>Audacious: Wiele usterek przepełnienia bufora i sterty</title>
+<body>
+
+<p>
+Biblioteka adplug dołączona do Audacious zawiera wiele usterek przepełnienia
+bufora i sterty, które mogą zostać wykorzystane do wykonania niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200607-13.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Bugzilla -->
+<!-- paste from the script -->
+<chapter>
+<title>Bugzilla</title>
+<section>
+<title>Podsumowanie</title>
+<body>
+
+<ul>
+  <li><uri link="#doc_chap1_sect2">Statystyki</uri></li>
+  <li><uri link="#doc_chap1_sect3">Zamknięte bugi</uri></li>
+  <li><uri link="#doc_chap1_sect4">Nowe bugi</uri></li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Statystyki</title>
+<body>
+
+<p>
+Społeczność Gentoo używa Bugzilli (<uri
+link="http://bugs.gentoo.org/">bugs.gentoo.org</uri>) do zgłaszania i śledzenia
+błędów, ogłoszeń, sugestii oraz innych form kontaktu z deweloperami. Pomiędzy 23
+lipca 2006, a 30 lipca 2006 aktywność w serwisie przedstawiała się następująco:
+</p>
+
+<ul>
+  <li>zgłoszono 679 nowych bugów</li>
+  <li>zamknięto lub rozwiązano 289 bugów</li>
+  <li>19 uprzednio zamkniętych bugów zostało ponownie otwartych</li>
+</ul>
+
+<p>
+Spośród 10687 obecnie otwartych bugów: 52 oznaczono jako 'blocker', 134 jako
+'critical', a 533 jako 'major'.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zamknięte Bugi</title>
+<body>
+
+<p>
+Deweloperzy oraz zespoły, które zamknęły najwięcej bugów w minionym tygodniu,
+to:
+</p>
+
+<ul>
+  <li><mail link="games@gentoo.org">Gentoo Games</mail>, 22 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-07-23&amp;chfieldto=2006-07-30&amp;resolution=FIXED&amp;assigned_to=games@gentoo.org">zamknięte
+  bugi</uri></li>
+  <li><mail link="java@gentoo.org">Java team</mail>, 19 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-07-23&amp;chfieldto=2006-07-30&amp;resolution=FIXED&amp;assigned_to=java@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="dev-portage@gentoo.org">Portage team</mail>, 15 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-07-23&amp;chfieldto=2006-07-30&amp;resolution=FIXED&amp;assigned_to=dev-portage@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="maintainer-needed@gentoo.org">Default Assignee for Orphaned
+  Packages</mail>, 14 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-07-23&amp;chfieldto=2006-07-30&amp;resolution=FIXED&amp;assigned_to=maintainer-needed@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="kde@gentoo.org">Gentoo KDE team</mail>, 10 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-07-23&amp;chfieldto=2006-07-30&amp;resolution=FIXED&amp;assigned_to=kde@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="security@gentoo.org">Gentoo Security</mail>, 8 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-07-23&amp;chfieldto=2006-07-30&amp;resolution=FIXED&amp;assigned_to=security@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="python@gentoo.org">Python Gentoo Team</mail>, 6 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-07-23&amp;chfieldto=2006-07-30&amp;resolution=FIXED&amp;assigned_to=python@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="neysx@gentoo.org">Xavier Neys</mail>, 6 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-07-23&amp;chfieldto=2006-07-30&amp;resolution=FIXED&amp;assigned_to=neysx@gentoo.org">zamkniętych
+  bugów</uri></li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Nowe Bugi</title>
+<body>
+
+<p>
+Deweloperzy oraz zespoły, którym przydzielono najwięcej bugów w minionym tygodniu,
+to:
+</p>
+
+<ul>
+  <li><mail link="maintainer-wanted@gentoo.org">Default Assignee for New
+  Packages</mail>, 33 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-07-23&amp;chfieldto=2006-07-30&amp;assigned_to=maintainer-wanted@gentoo.org">nowe
+  bugi</uri></li>
+  <li><mail link="sound@gentoo.org">Gentoo Sound Team</mail>, 9 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-07-23&amp;chfieldto=2006-07-30&amp;assigned_to=sound@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="amd64@gentoo.org">AMD64 Project</mail>, 9 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-07-23&amp;chfieldto=2006-07-30&amp;assigned_to=amd64@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="kernel@gentoo.org">Gentoo Kernel Bug Wranglers and Kernel
+  Maintainers</mail>, 8 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-07-23&amp;chfieldto=2006-07-30&amp;assigned_to=kernel@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="media-video@gentoo.org">media-video herd</mail>, 7 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-07-23&amp;chfieldto=2006-07-30&amp;assigned_to=media-video@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="gnome@gentoo.org">Gentoo Linux Gnome Desktop Team</mail>, 7
+  <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-07-23&amp;chfieldto=2006-07-30&amp;assigned_to=gnome@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="netmon@gentoo.org">Netmon Herd</mail>, 6 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-07-23&amp;chfieldto=2006-07-30&amp;assigned_to=netmon@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="games@gentoo.org">Gentoo Games</mail>, 6 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-07-23&amp;chfieldto=2006-07-30&amp;assigned_to=games@gentoo.org">nowych
+  bugów</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- GWN feedback information -->
+<chapter>
+<title>Opinie czytelników</title>
+<section>
+<body>
+
+<p>
+Jeśli chcesz, aby Tygodnik Gentoo był jeszcze lepszy, podziel się z <mail
+link="gwn-feedback@gentoo.org">nami</mail> swoją opinią na jego temat. Uwagi
+dotyczące tłumaczenia można zgłaszać na adres <mail
+link="moloh@gentoo.org">koordynatora</mail>.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- GWN subscription information -->
+<chapter>
+<title>Subskrypcja Tygodnika Gentoo</title>
+<section>
+<body>
+
+<p>
+Aby zaprenumerować Tygodnik Gentoo, należy wysłać pustego emaila na adres <mail
+link="gentoo-gwn-pl+subscribe@gentoo.org">gentoo-gwn-pl+subscribe@gentoo.org</mail>.
+</p>
+
+<p>
+Aby zrezygnować z subskrypcji, należy wysłać pustego emaila na adres <mail
+link="gentoo-gwn-pl+unsubscribe@gentoo.org">
+gentoo-gwn-pl+unsubscribe@gentoo.org</mail> z konta, na które jest
+zarejestrowana.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Other Languages -->
+<chapter>
+<title>Inne języki</title>
+<section>
+<body>
+
+<p>
+Tygodnik Gentoo jest dostępny w następujących językach:
+</p>
+
+<ul>
+  <li><uri link="/news/en/gwn/gwn.xml">angielskim</uri></li>
+  <li><uri link="/news/zh_cn/gwn/gwn.xml">chińskim (uproszczony)</uri></li>
+  <li><uri link="/news/da/gwn/gwn.xml">duńskim</uri></li>
+  <li><uri link="/news/fr/gwn/gwn.xml">francuskim</uri></li>
+  <li><uri link="/news/es/gwn/gwn.xml">hiszpańskim</uri></li>
+  <li><uri link="/news/nl/gwn/gwn.xml">holenderskim</uri></li>
+  <li><uri link="/news/ja/gwn/gwn.xml">japońskim</uri></li>
+  <li><uri link="/news/ko/gwn/gwn.xml">koreańskim</uri></li>
+  <li><uri link="/news/de/gwn/gwn.xml">niemieckim</uri></li>
+  <li><uri link="/news/pl/gwn/gwn.xml">polskim</uri></li>
+  <li><uri link="/news/pt_br/gwn/gwn.xml">portugalskim (Brazylia)</uri></li>
+  <li><uri link="/news/pt/gwn/gwn.xml">portugalskim (Portugalia)</uri></li>
+  <li><uri link="/news/ru/gwn/gwn.xml">rosyjskim</uri></li>
+  <li><uri link="/news/tr/gwn/gwn.xml">tureckim</uri></li>
+  <li><uri link="/news/it/gwn/gwn.xml">włoskim</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+</guide>
+

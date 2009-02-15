@@ -1,0 +1,1308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<guide type="newsletter" link="20070122-newsletter.xml" lang="pl">
+<title>Tygodnik Gentoo</title>
+<subtitle>22 stycznia 2007</subtitle>
+
+<!-- Be sure to add yourself if you write an article -->
+<author title="Redaktor">
+  <mail link="thirtyyearswar@mindspring.com">Chris Atkinson</mail>
+</author>
+<author title="Redaktor">
+  <mail link="diox@gentoo.org">Dimitry Bradt</mail>
+</author>
+<author title="Redaktor">
+  <mail link="nightmorph@gentoo.org">Josh Saddler</mail>
+</author>
+<author title="Redaktor naczelny">
+  <mail link="wolf31o2@gentoo.org">Chris Gianelloni</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="jbozanowski@gmail.com">Jakub Bożanowski</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="shadoww@gentoo.org">Damian Kuras</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="moloh@gentoo.org">Michał Kurgan</mail>
+</author>
+
+<abstract>
+Wydanie Tygodnika Gentoo z 22 stycznia 2007.
+</abstract>
+
+<summary/>
+
+<version>Wolumin 6, numer 4</version>
+<date>2007-01-22</date>
+
+<!-- Gentoo News -->
+<chapter>
+<title>Wiadomości Gentoo</title>
+<section>
+<title>Flash Player 9 oficjalnie wydany</title>
+<body>
+
+<p>
+<uri link="http://www.adobe.com">Adobe</uri> w ostatnich dniach <uri
+link="http://blogs.adobe.com/penguin.swf/2007/01/flash_player_9_for_linux_x86.html">opublikowało</uri>
+ostateczną wersją Flash Playera 9 dla Linuksa. Deweloperzy Gentoo byli bardzo
+szybcy i został on dodany do drzewa Portage niemal natychmiastowo. Należy
+zauważyć, że wersja ta nie posiada wersji debug i dodatkowo ciągle jest jeszcze
+zamaskowana. Za tak szybką reakcję podziękowania należą się dla <mail
+link="jakub@gentoo.org">Jakuba Moca</mail> oraz <mail
+link="tester@gentoo.org">Oliviera Crete'a</mail>.
+</p>
+
+</body>
+</section>
+<section>
+<title>Aktualizacja projektu Adopt a Developer</title>
+<body>
+
+<p>
+Projekt <uri link="/proj/en/userrel/adopt-a-dev">Adopt a Developer</uri> został
+w ostatnim czasie znacząco zaniedbany. Pomysłodawcy chcieliby przypomnieć
+użytkownikom, że deweloperzy zawsze zrobią użytek z podarowanego sprzętu, czy
+technicznych książek, tak aby uczynić z Gentoo jeszcze lepszą dystrybucję.
+Wszystkie datki zawsze są jak najbardziej mile widziane! Dla przykładu, <mail
+link="flameeyes@gentoo.org">Diego Pettenò</mail> potrzebował taniej karty
+SoundBlaster. Jest to doskonała okazja by wesprzeć jednego z deweloperów, dzięki
+czemu ALSA będzie miała zapewniony byt i prace nad jej rozwojem będą, bez
+przeszkód, kontynuowane.
+</p>
+
+<p>
+<mail link="chriswhite@gentoo.org">Chris White</mail> otrzymał od jednego z
+użytkowników książkę dotyczącą Perla. Jej lektura już owocuje, przyczyniając się
+do ułatwienia prac nad rozwojem i testowaniem pakietów Perla. Dziękujemy!
+</p>
+
+<p>
+Raz jeszcze. Poszukujemy zarówno deweloperów jak i użytkowników, którzy mogą
+zaoferować jakieś dobra. Nie muszą to być duże dary, będziecie zaskoczeni jak
+często proste i małe rzeczy mogą się przydać innym osobom.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zamknięcie projektu KBase</title>
+<body>
+
+<p>
+Ze względu na brak koordynatora projektu, czasu, zaangażowania, wiedzy
+technicznej, umiejętności oraz środków, aby implementować i opiekować się bazą
+wiedzy, projekt KBase został zamknięty. Dodatkowo ruch na liście dyskusyjnej
+był znikomy pomimo pojawiających się pytań. Także tematy na forum cieszyły się
+małym zainteresowaniem ze strony społeczności. Na podstawie tych faktów podjęto
+decyzję o tym, że na chwilę obecną Gentoo nie potrzebuje projektu KBase, a
+dokumentacja tworzona przez Projekt Dokumentacji Gentoo jest wystarczająca.
+</p>
+
+<p>
+Należy mieć na uwadze, że deweloperzy zajmujący się projektem KBase nie
+odchodzą, cały czas będą aktywni w innych obszarach dystrybucji. Jedyną rzeczą,
+która odeszła na emeryturę jest sam projekt.
+</p>
+
+<p>
+Na chwilę obecną nie ma planów przywrócenia projektu w przyszłości.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Developer of the Week -->
+<chapter>
+<title>Deweloper tygodnia</title>
+<section>
+<title>Dimitry Bradt (diox)</title>
+<body>
+
+<figure link="/images/gwn/20070115_diox.jpg"
+        short="diox"
+        caption="Dimitry Bradt, aka diox" />
+
+<p>
+Dimitry Bradt, dwudziestoletni deweloper, znany również jako diox, wychował się
+w De Panne w Belgii, natomiast aktualnie mieszka w Oostduinkerke, niedaleko
+belgijskiego wybrzeża. Dimitry mieszka z rodzicami, dwiema młodszymi siostrami i
+kotem o imieniu Felix.
+</p>
+
+<p>
+Dimitry przez kilka lat studiował na kierunku Multimedia i Technologia
+Komunikacji, chcąc zdobyć tytuł magistra. W końcu jednak zdecydował, że nie
+interesuje go kariera akademicka i zrezygnował, aby zająć się innymi rzeczami.
+Po odejściu z uczelni poszedł w ślady rodziców i został kucharzem. Pomimo iż
+nieźle sobie radzi, zastanawia się nad objęciem jakiejś posady w administracji
+rządowej.
+</p>
+
+<p>
+Gdy Dimitry nie pracuje przy komputerze, lubi oglądać anime. Jego ulubioną serią
+jest Bleach. Nieszczególnie interesują go wyjścia do pubów, woli za to odwiedzać
+przyjaciół i prowadzić dyskusje przy butelce wina. Jego ulubione gatunki muzyki
+to dobry drum and bass oraz połączenie jazzu i bluesa, które można usłyszeć na
+ścieżce dźwiękowej do serialu anime „Cowboy Bebop”. Dimitry lubi zarówno czytać
+jak i oglądać filmy. Jego ulubiony film to „Amelia” (znany też pod tytułem „Le
+Fabuleux Destin d'Amelie Poulin”). Nie będąc widocznie wystarczająco zajęty przy
+Gentoo, założył także organizację non-profit, która ma na celu pomoc starszym
+osobom w nauce obsługi komputerów.
+</p>
+
+<p>
+Gdy w 2004 roku diox wprowadził się do akademika, trafił na współlokatora, który
+używał Gentoo. Szybko zainteresował się tym systemem i zaczął udzielać się w
+Projekcie Dokumentacji Gentoo jako tłumacz. Wkrótce potem został zwerbowany na
+dewelopera dzięki pomocy <mail link="neysx@gentoo.org">Xaviera Neysa</mail>.
+Aktualnie diox jest koordynatorem tłumaczeń języka holenderskiego, a także
+współpracuje z zespołami Events, Tygodnika Gentoo oraz Adopt a Developer.
+</p>
+
+<p>
+Jego domowa kolekcja komputerów składa się ze stacji roboczej z procesorem P4
+oraz z trzech serwerów AMD Athlon64. Programy, które diox włącza po uruchomieniu
+komputera to fluxbox, rxvt, irssi, gajim, audacious, vim, azureus i gaim.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Heard in the community -->
+<chapter>
+<title>Społeczność Gentoo</title>
+<!-- forums.gentoo.org -->
+<!-- planet.gentoo.org -->
+<section>
+<title>Serwis planet.gentoo.org</title>
+<body>
+
+<p>
+<b>Otwarto Planetę Paludis!</b>
+</p>
+
+<p>
+<mail link="eroyf@gentoo.org">Alexander Færøy</mail>, jeden z współpracowników
+projektu <uri link="http://www.paludis.org">Paludis</uri>, opisał w kolejnym
+wpisie w swoim blogu nową inicjatywę, <uri>http://planetpaludis.org</uri>.  Dla
+wszystkich osób żyjących w innym świecie przypomnimy, Paludis jest nadchodzącą
+alternatywą dla Portage, napisaną w całości w języku C++, stworzoną z myślą o
+wydajności, uelastycznieniu konfiguracji oraz zapewniającą wiele funkcjonalności
+o które już wielokrotnie proszono deweloperów <c>Portage</c>. Planeta Paludis
+będzie odświeżana co 30 minut, tak by zapewnić społeczności jak najświeższe i
+szybkie źródło informacji o postępach prac deweloperów.
+</p>
+
+<p>
+Większość deweloperów menadżera pakietów Paludis jest także deweloperami Gentoo,
+z tego powodu <mail link="kugelfang@gentoo.org">Danny Van Dyk</mail> na
+zbliżającej się imprezie <uri link="http://www.fosdem.org">FOSDEM 2007</uri>
+przedstawi cele projektu. W trakcie prezentacji będzie można także usłyszeć w
+jaki sposób można uprościć opiekę nad pakietami wchodzącymi w skład podstawowej
+instalacji Gentoo Linux.
+</p>
+
+<ul>
+  <li><uri>http://alex.stener.nu/index.php/2007/01/18/introducing-planet-paludis</uri></li>
+</ul>
+
+</body>
+</section>
+<!-- gentoo-user -->
+<section>
+<title>Lista dyskusyjna gentoo-user</title>
+<body>
+
+<p>
+<b>Sugestie na minimalny system</b>
+</p>
+
+<p>
+Vlad Dogaru próbował stworzyć minimalny system tak, by móc go uruchomić na
+starszym komputerze wyposażonym w 384MB RAM-u. Zastanawiał się na zastosowaniem
+menadżera okien Ratpoison oraz poszukiwał jakiegoś zamiennika dla Firefoxa.
+Niestety eksperymenty z <c>Conkerorem</c> i <c>linksem</c> nie powiodły się,
+jako że ten pierwszy był zbyt podobny do <c>emacsa</c>, natomiast drugi nie
+posiadał kart.
+</p>
+
+<p>
+Większość osób nie słyszała nigdy o <uri
+link="http://conkeror.mozdev.org/">Conkerorze</uri>, przeglądarce bazującej na
+Firefoxie, której główną cechą jest możliwość nawigacji z użyciem wyłącznie
+klawiatury, skróty wzorowane są na tych znanych z <c>emacsa</c>. Niektórzy byli
+trochę zdezorientowali i myśleli, że chodzi o przeglądarkę ze środowiska KDE,
+Konqueror. Inni, słysząc o tym projekcie wykazali zainteresowanie i chęć jego
+przetestowaniem, jednak wskazali, że pomimo minimalistycznego interfejsu pod
+maską dalej znajduje się Firefox, który ma dość duże wymagania sprzętowe.
+</p>
+
+<p>
+Autorowi wątku zasugerowano przetestowanie Dillo, lekkiej przeglądarki
+wyposażonej w karty. Nie jest ona oczywiście pozbawiona wad, wśród nich można
+wymienić (jeśli to wada) niemożność oglądania animacji Flash oraz ubogą obsługę
+języka Javascript. Inni próbowali przekonać do Opery, pomimo tego że ta
+przeglądarka nie jest wolnym oprogramowaniem, to z pewnością jest szybka i
+udostępnia użytkownikowi możliwość skorzystania z kart.
+</p>
+
+<p>
+Wśród propozycji na menadżera plików przewinęło się wiele propozycji włączając
+evilwm, pewm, XFCE oraz, co ciekawe KDE. Jako główny argument za tym ostatnim
+podano integrację całego środowiska, czy to KDE, czy Gnome, które w bardziej
+wydajny sposób korzysta z wspólnych bibliotek. Problemy pojawiają się wtedy, gdy
+użytkownik chce skorzystać jednocześnie z obu tych środowisk, co wymusza
+załadowanie dwóch różnych zestawów bibliotek.
+</p>
+
+<ul>
+  <li><uri>http://archives.gentoo.org/gentoo-user/msg_107454.xml</uri></li>
+</ul>
+
+</body>
+</section>
+<!-- gentoo-dev -->
+<!-- gentoo-catalyst -->
+<!-- gentoo-cluster -->
+<!-- gentoo-embedded -->
+<!-- gentoo-security -->
+</chapter>
+
+<!-- Gentoo International-->
+<chapter>
+<title>Międzynarodowe Gentoo</title>
+<section>
+<title>Australia: Linux.conf.au, Sydney</title>
+<body>
+
+<p>
+W ostatnim tygodniu kilku deweloperów Gentoo uczestniczyło w konferencji Linux
+Conference w Sydney. Wśród nich znaleźli się <mail
+link="dostrow@gentoo.org">Daniel Ostrow</mail>, <mail
+link="mark_alec@gentoo.org">Mark Kowarsky</mail>, <mail
+link="pingu@gentoo.org">Christian Marie</mail> oraz <mail
+link="dragonheart@gentoo.org">Daniel Black</mail>. Pomimo tego, że nie stworzono
+dla Gentoo żadnego stoiska to przyjemnie spędzili czas. Wśród najciekawszych
+prezentacji wymienić można te poprowadzone przez Keitha Packarda, dotyczącą
+rozszerzenia <b>RandR</b>, wprowadzenie do <b>programowania w GTK+</b>
+wygłoszone przez Andrew Cowie'a i Madely'a oraz wykład Chrisa Blizzarda
+opisujący <b>OLPC</b>.
+</p>
+
+<ul>
+  <li><uri>http://lca2007.linux.org.au/</uri></li>
+</ul>
+
+<p>
+Oprócz samych prezentacji w czasie imprezy działo się także wiele innych rzeczy.
+Na użytkowników Gentoo czekała niespodzianka, zamiast gotowych krzesełek
+otrzymali oni pudła z samymi częściami tak, by mogli zbudować siedzenia
+własnoręcznie, oczywiście dostosowując je do własnych potrzeb!
+</p>
+
+<ul>
+  <li><uri>http://builderau.com.au/blogs/betaliving/viewblogpost.htm?p=339270753</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo in the press -->
+<!-- Tips and Tricks -->
+<!-- Gentoo developer moves -->
+<chapter>
+<title>Zmiana statusu deweloperów Gentoo</title>
+<section>
+<title>Odeszli</title>
+<body>
+
+<p>
+Następujący deweloperzy opuścili projekt Gentoo Linux w minionym tygodniu:
+</p>
+
+<ul>
+  <li>Aron Griffis (agriffis)</li>
+  <li>Kathryn Kulick (gothgirl)</li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Przybyli</title>
+<body>
+
+<p>
+Następujący deweloperzy przyłączyli się do projektu Gentoo Linux w minionym
+tygodniu:
+</p>
+
+<ul>
+  <li>Vic Fryzel (shellsage) zespół Security</li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Zmienili status</title>
+<body>
+
+<p>
+Następujący deweloperzy zmienili w minionym tygodniu pełnioną w projekcie Gentoo
+Linux funkcję:
+</p>
+
+<ul>
+  <li><e>Nikt w tym tygodniu</e></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo security -->
+<chapter>
+<title>Bezpieczeństwo Gentoo</title>
+<!-- paste from the script -->
+<section>
+<title>oftpd: Denial of Service</title>
+<body>
+
+<p>
+Błąd w oftpd może zostać wykorzystany do przeprowadzenia ataku Denial of
+Service.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200701-09.xml"> komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>WordPress: Wiele usterek</title>
+<body>
+
+<p>
+WordPress zawiera usterki SQL injection, błąd ujawnienia informacji oraz jest
+podatny na ataki cross-site scripting.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200701-10.xml"> komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>Kronolith: Dołączenie lokalnego pliku=</title>
+<body>
+
+<p>
+Kronolith zawiera usterkę umożliwiającą wykonanie niepożądanych plików.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200701-11.xml"> komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>Mono: Ujawnienie informacji</title>
+<body>
+
+<p>
+Mono w sposób niewystarczający dokonuje walidacji ścieżek, co może doprowadzić
+do ujawnienia informacji.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200701-12.xml"> komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo package moves -->
+<chapter>
+<title>Zmiany w drzewie Portage</title>
+
+<section>
+<body>
+
+<p>
+Poniżej znajduje się lista pakietów, które zostały usunięte lub dodane do drzewa
+Portage w ostatnim czasie oraz lista przedstawiająca plany dotyczące usunięcia
+kolejnych pakietów w przyszłości. Informacje te pochodzą z różnych źródeł,
+włączając projekt <uri link="/proj/en/qa/treecleaners">Treecleaners</uri> oraz
+zgłoszenia od poszczególnych deweloperów. Większość pakietów, które można
+znaleźć w części Ostatnie Namaszczenie wymaga jedynie miłości i opieki ze strony
+deweloperów. W przypadku znalezienia nowego opiekuna ich los z pewnością ulegnie
+poprawie i pozostaną one w oficjalnym drzewie Portage.
+</p>
+
+</body>
+</section>
+<section>
+<title>Usunięte pakiety:</title>
+<body>
+
+<table>
+<tr>
+  <th>Pakiet:</th>
+  <th>Data usunięcia:</th>
+  <th>Kontakt:</th>
+</tr>
+<tr>
+  <ti>net-p2p/xmule</ti>
+  <ti>15 stycznia 2007</ti>
+  <ti><mail link="opfer@gentoo.org">Christian Faulhammer</mail></ti>
+</tr>
+<tr>
+  <ti>www-apache/mod_survey</ti>
+  <ti>15 stycznia 2007</ti>
+  <ti><mail link="chtekk@gentoo.org">Luca Longinotti</mail></ti>
+</tr>
+<tr>
+  <ti>app-admin/empower</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>dev-libs/exml</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>media-gfx/retina</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>media-video/envision</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>x11-misc/enity</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>app-editors/enscribe</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>dev-util/enhance</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>media-libs/edje</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>sci-calculators/equate</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>x11-misc/enotes</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>app-laptop/epbb</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>dev-util/e_utils</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>media-libs/emotion</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>sys-fs/evfs</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>x11-misc/entrance</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>app-misc/entropy</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>mail-client/embrace</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>media-libs/epeg</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>x11-apps/elapse</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>x11-misc/estickies</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>app-misc/evidence</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>media-gfx/eclips</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>media-libs/epsilon</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>x11-libs/ecore</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>x11-misc/iconbar</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>app-misc/examine</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>media-gfx/elicit</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>x11-libs/esmart</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>x11-plugins/e_modules</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>media-gfx/entice</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>media-libs/imlib2_loaders</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>x11-libs/etk</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>x11-terms/enterminus</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>dev-libs/eet</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>media-gfx/ephoto</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>media-sound/extrackt</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>x11-libs/evas</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>x11-wm/e</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>dev-libs/embryo</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>media-gfx/exhibit</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>media-video/eclair</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>x11-libs/ewl</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>dev-libs/engrave</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>media-gfx/imlib2_tools</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>media-video/elation</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>x11-misc/engage</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>net-im/express</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>media-video/requant</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="hd_brummy@gentoo.org">Joerg Bornkessel</mail></ti>
+</tr>
+<tr>
+  <ti>x11-misc/eosd</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>net-dialup/gigaset-isdn</ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="mrness@gentoo.org">Alin Năstac</mail></ti>
+</tr>
+<tr>
+  <ti>media-sound/ipodder</ti>
+  <ti>17 stycznia 2007</ti>
+  <ti><mail link="mr_bones_@gentoo.org">Michael Sterrett</mail></ti>
+</tr>
+<tr>
+  <ti>media-libs/exscalibar</ti>
+  <ti>18 stycznia 2007</ti>
+  <ti><mail link="flameeyes@gentoo.org">Diego Pettenò</mail></ti>
+</tr>
+<tr>
+  <ti>www-apache/libapreq</ti>
+  <ti>20 stycznia 2007</ti>
+  <ti><mail link="mcummings@gentoo.org">Michael Cummings</mail></ti>
+</tr>
+<tr>
+  <ti>www-apache/libapreq2</ti>
+  <ti>20 stycznia 2007</ti>
+  <ti><mail link="mcummings@gentoo.org">Michael Cummings</mail></ti>
+</tr>
+<tr>
+  <ti>www-apache/Embperl</ti>
+  <ti>20 stycznia 2007</ti>
+  <ti><mail link="mcummings@gentoo.org">Michael Cummings</mail></ti>
+</tr>
+<tr>
+  <ti>sys-cluster/vserver-utils</ti>
+  <ti>20 stycznia 2007</ti>
+  <ti><mail link="phreak@gentoo.org">Christian Heim</mail></ti>
+</tr>
+<tr>
+  <ti>media-plugins/alsa-jack</ti>
+  <ti>20 stycznia 2007</ti>
+  <ti><mail link="flameeyes@gentoo.org">Diego Pettenò</mail></ti>
+</tr>
+<tr>
+  <ti>net-ftp/ftpd</ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>media-sound/xmp</ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="flameeyes@gentoo.org">Diego Pettenò</mail></ti>
+</tr>
+</table>
+
+</body>
+</section>
+<section>
+<title>Nowe pakiety:</title>
+<body>
+
+<table>
+<tr>
+  <th>Pakiet:</th>
+  <th>Data dodania:</th>
+  <th>Kontakt:</th>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=games-emulation;name=desmume">games-emulation/desmume</uri></ti>
+  <ti>15 stycznia 2007</ti>
+  <ti><mail link="hanno@gentoo.org">Hanno Boeck</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-db;name=pgmecab">dev-db/pgmecab</uri></ti>
+  <ti>15 stycznia 2007</ti>
+  <ti><mail link="nakano@gentoo.org">Masatomo Nakano</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=media-video;name=m2vrequantizer">media-video/m2vrequantizer</uri></ti>
+  <ti>15 stycznia 2007</ti>
+  <ti><mail link="hd_brummy@gentoo.org">Joerg Bornkessel</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=app-emulation;name=virtualbox">app-emulation/virtualbox</uri></ti>
+  <ti>15 stycznia 2007</ti>
+  <ti><mail link="jokey@gentoo.org">Markus Ullmann</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-perl;name=Term-ReadLine-Gnu">dev-perl/Term-ReadLine-Gnu</uri></ti>
+  <ti>15 stycznia 2007</ti>
+  <ti><mail link="mcummings@gentoo.org">Michael Cummings</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-perl;name=Data-Random">dev-perl/Data-Random</uri></ti>
+  <ti>15 stycznia 2007</ti>
+  <ti><mail link="mcummings@gentoo.org">Michael Cummings</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-perl;name=WWW-Mechanize-FormFiller">dev-perl/WWW-Mechanize-FormFiller</uri></ti>
+  <ti>15 stycznia 2007</ti>
+  <ti><mail link="mcummings@gentoo.org">Michael Cummings</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=www-apps;name=mod_survey">www-apps/mod_survey</uri></ti>
+  <ti>15 stycznia 2007</ti>
+  <ti><mail link="chtekk@gentoo.org">Luca Longinotti</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=net-p2p;name=microdc2">net-p2p/microdc2</uri></ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="armin76@gentoo.org">Raúl Porcel</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=games-strategy;name=dark-oberon">games-strategy/dark-oberon</uri></ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="tupone@gentoo.org">Alfredo Tupone</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=net-p2p;name=ctcs">net-p2p/ctcs</uri></ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="armin76@gentoo.org">Raúl Porcel</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=app-mobilephone;name=pysms">app-mobilephone/pysms</uri></ti>
+  <ti>16 stycznia 2007</ti>
+  <ti><mail link="mrness@gentoo.org">Alin Năstac</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=profiles;name=base">profiles/base</uri></ti>
+  <ti>17 stycznia 2007</ti>
+  <ti><mail link="rbu@gentoo.org">Robert Buchholz</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=net-p2p;name=linuxdcpp">net-p2p/linuxdcpp</uri></ti>
+  <ti>17 stycznia 2007</ti>
+  <ti><mail link="armin76@gentoo.org">Raúl Porcel</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-scheme;name=elk">dev-scheme/elk</uri></ti>
+  <ti>17 stycznia 2007</ti>
+  <ti><mail link="hkbst@gentoo.org">Marijn Schouten</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=sci-chemistry;name=gtk-gamess">sci-chemistry/gtk-gamess</uri></ti>
+  <ti>18 stycznia 2007</ti>
+  <ti><mail link="je_fro@gentoo.org">Jeffrey Gardner</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-python;name=webpy">dev-python/webpy</uri></ti>
+  <ti>19 stycznia 2007</ti>
+  <ti><mail link="wrobel@gentoo.org">Gunnar Wrobel</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=x11-misc;name=fraqtive">x11-misc/fraqtive</uri></ti>
+  <ti>19 stycznia 2007</ti>
+  <ti><mail link="drizzt@gentoo.org">Timothy Redaelli</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=www-misc;name=libapreq">www-misc/libapreq</uri></ti>
+  <ti>20 stycznia 2007</ti>
+  <ti><mail link="mcummings@gentoo.org">Michael Cummings</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=www-misc;name=libapreq2">www-misc/libapreq2</uri></ti>
+  <ti>20 stycznia 2007</ti>
+  <ti><mail link="mcummings@gentoo.org">Michael Cummings</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=www-apps;name=Embperl">www-apps/Embperl</uri></ti>
+  <ti>20 stycznia 2007</ti>
+  <ti><mail link="mcummings@gentoo.org">Michael Cummings</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-perl;name=Audio-DSP">dev-perl/Audio-DSP</uri></ti>
+  <ti>20 stycznia 2007</ti>
+  <ti><mail link="mcummings@gentoo.org">Michael Cummings</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-perl;name=Modem-Vgetty">dev-perl/Modem-Vgetty</uri></ti>
+  <ti>20 stycznia 2007</ti>
+  <ti><mail link="mcummings@gentoo.org">Michael Cummings</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-perl;name=XML-Mini">dev-perl/XML-Mini</uri></ti>
+  <ti>20 stycznia 2007</ti>
+  <ti><mail link="mcummings@gentoo.org">Michael Cummings</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=media-sound;name=murmur">media-sound/murmur</uri></ti>
+  <ti>20 stycznia 2007</ti>
+  <ti><mail link="drizzt@gentoo.org">Timothy Redaelli</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=rome">dev-java/rome</uri></ti>
+  <ti>20 stycznia 2007</ti>
+  <ti><mail link="fordfrog@gentoo.org">Miroslav Šulc</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-perl;name=File-Copy-Recursive">dev-perl/File-Copy-Recursive</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="mcummings@gentoo.org">Michael Cummings</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=glassfish-persistence">dev-java/glassfish-persistence</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="fordfrog@gentoo.org">Miroslav Šulc</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=net-ftp;name=netkit-ftpd">net-ftp/netkit-ftpd</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=xfce-extra;name=verve">xfce-extra/verve</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="nichoj@gentoo.org">Joshua Nichols</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-perl;name=B-Keywords">dev-perl/B-Keywords</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="mcummings@gentoo.org">Michael Cummings</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=xfce-extra;name=xfce4-dict">xfce-extra/xfce4-dict</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="nichoj@gentoo.org">Joshua Nichols</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=xfce-extra;name=xfce4-screenshooter">xfce-extra/xfce4-screenshooter</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="nichoj@gentoo.org">Joshua Nichols</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=ant-nodeps">dev-java/ant-nodeps</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="caster@gentoo.org">Vlastimil Babka</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=ant-antlr">dev-java/ant-antlr</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="caster@gentoo.org">Vlastimil Babka</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=ant-apache-bcel">dev-java/ant-apache-bcel</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="caster@gentoo.org">Vlastimil Babka</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=ant-apache-bsf">dev-java/ant-apache-bsf</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="caster@gentoo.org">Vlastimil Babka</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=ant-apache-log4j">dev-java/ant-apache-log4j</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="caster@gentoo.org">Vlastimil Babka</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=ant-apache-oro">dev-java/ant-apache-oro</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="caster@gentoo.org">Vlastimil Babka</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=ant-apache-regexp">dev-java/ant-apache-regexp</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="caster@gentoo.org">Vlastimil Babka</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=ant-apache-resolver">dev-java/ant-apache-resolver</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="caster@gentoo.org">Vlastimil Babka</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=ant-commons-logging">dev-java/ant-commons-logging</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="caster@gentoo.org">Vlastimil Babka</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=ant-commons-net">dev-java/ant-commons-net</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="caster@gentoo.org">Vlastimil Babka</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=ant-jai">dev-java/ant-jai</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="caster@gentoo.org">Vlastimil Babka</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=ant-javamail">dev-java/ant-javamail</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="caster@gentoo.org">Vlastimil Babka</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=ant-jdepend">dev-java/ant-jdepend</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="caster@gentoo.org">Vlastimil Babka</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=ant-jmf">dev-java/ant-jmf</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="caster@gentoo.org">Vlastimil Babka</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=ant-jsch">dev-java/ant-jsch</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="caster@gentoo.org">Vlastimil Babka</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=ant-junit">dev-java/ant-junit</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="caster@gentoo.org">Vlastimil Babka</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=ant-swing">dev-java/ant-swing</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="caster@gentoo.org">Vlastimil Babka</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-java;name=ant-trax">dev-java/ant-trax</uri></ti>
+  <ti>21 stycznia 2007</ti>
+  <ti><mail link="caster@gentoo.org">Vlastimil Babka</mail></ti>
+</tr>
+</table>
+
+</body>
+</section>
+<section>
+<title>Ostatnie namaszczenie:</title>
+<body>
+
+<!-- paste from email -->
+<table>
+<tr>
+  <th>Pakiet:</th>
+  <th>Data usunięcia:</th>
+  <th>Kontakt:</th>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=net-wireless;name=ipw2100">net-wireless/ipw2100</uri></ti>
+  <ti>19 lutego 2007</ti>
+  <ti><mail link="phreak@gentoo.org">Christian Heim</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=net-wireless;name=ipw2200">net-wireless/ipw2200</uri></ti>
+  <ti>19 lutego 2007</ti>
+  <ti><mail link="phreak@gentoo.org">Christian Heim</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=dev-lang;name=tolua">dev-lang/tolua</uri></ti>
+  <ti>19 lutego 2007</ti>
+  <ti><mail link="mabi@gentoo.org">Matti Bickel</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=net-analyzer;name=firestorm">net-analyzer/firestorm</uri></ti>
+  <ti>19 lutego 2007</ti>
+  <ti><mail link="masterdriverz@gentoo.org">Charlie Shepherd</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=net-p2p;name=g2gui">net-p2p/g2gui</uri></ti>
+  <ti>20 lutego 2007</ti>
+  <ti><mail link="armin76@gentoo.org">Raúl Porcel</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=net-p2p;name=bittorrent-stats">net-p2p/bittorrent-stats</uri></ti>
+  <ti>20 lutego 2007</ti>
+  <ti><mail link="armin76@gentoo.org">Raúl Porcel</mail></ti>
+</tr>
+<tr>
+  <ti><uri link="http://packages.gentoo.org/packages/?category=media-sound;name=amp">media-sound/amp</uri></ti>
+  <ti>21 lutego 2007</ti>
+  <ti><mail link="flameeyes@gentoo.org">Diego Pettenò</mail></ti>
+</tr>
+</table>
+
+</body>
+</section>
+</chapter>
+
+<!-- Bugzilla -->
+<!-- paste from the script -->
+<chapter>
+<title>Bugzilla</title>
+<section>
+<title>Podsumowanie</title>
+<body>
+
+<ul>
+  <li><uri link="#bugs-stats">Statystyki</uri></li>
+  <li><uri link="#bugs-closed">Zamknięte bugi</uri></li>
+  <li><uri link="#bugs-new">Nowe bugi</uri></li>
+</ul>
+
+</body>
+</section>
+<section id="bug-stats">
+<title>Statystyki</title>
+<body>
+
+<p>
+Społeczność Gentoo używa Bugzilli (<uri
+link="http://bugs.gentoo.org/">bugs.gentoo.org</uri>) do zgłaszania i śledzenia
+błędów, ogłoszeń, sugestii oraz innych form kontaktu z deweloperami. Pomiędzy 14
+stycznia 2007, a 21 stycznia 2007 aktywność w serwisie przedstawiała się
+następująco:
+</p>
+
+<ul>
+  <li>zgłoszono 684 nowych bugów</li>
+  <li>zamknięto lub rozwiązano 364 bugów</li>
+  <li>otwarto ponownie 27 uprzednio zamkniętych bugów</li>
+  <li>144 bugi oznaczono jako NEEDINFO/WONTFIX/CANTFIX/INVALID/UPSTREAM</li>
+  <li>127 bugów oznaczono jako duplikaty</li>
+</ul>
+
+<p>
+Spośród 10728 obecnie otwartych bugów: 25 oznaczono jako 'blocker', 98 jako
+'critical', a 458 jako 'major'.
+</p>
+
+</body>
+</section>
+<section id="bugs-closed">
+<title>Zamknięte Bugi</title>
+<body>
+
+<p>
+Deweloperzy oraz zespoły, które zamknęły najwięcej bugów w minionym tygodniu,
+to:
+</p>
+
+<ul>
+  <li><mail link="java@gentoo.org">Java team</mail>, 22 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-01-14&amp;chfieldto=2007-01-21&amp;resolution=FIXED&amp;assigned_to=java@gentoo.org">zamknięte
+  bugi</uri></li>
+  <li><mail link="gnome@gentoo.org">Gentoo Linux Gnome Desktop Team</mail>, 15
+  <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-01-14&amp;chfieldto=2007-01-21&amp;resolution=FIXED&amp;assigned_to=gnome@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="base-system@gentoo.org">Gentoo's Team for Core System
+  packages</mail>, 15 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-01-14&amp;chfieldto=2007-01-21&amp;resolution=FIXED&amp;assigned_to=base-system@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="maintainer-needed@gentoo.org">Default Assignee for Orphaned
+  Packages</mail>, 14 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-01-14&amp;chfieldto=2007-01-21&amp;resolution=FIXED&amp;assigned_to=maintainer-needed@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="games@gentoo.org">Gentoo Games</mail>, 12 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-01-14&amp;chfieldto=2007-01-21&amp;resolution=FIXED&amp;assigned_to=games@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="dev-portage@gentoo.org">Portage team</mail>, 12 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-01-14&amp;chfieldto=2007-01-21&amp;resolution=FIXED&amp;assigned_to=dev-portage@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="vapier@gentoo.org">SpanKY</mail>, 11 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-01-14&amp;chfieldto=2007-01-21&amp;resolution=FIXED&amp;assigned_to=vapier@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="hanno@gentoo.org">Hanno Boeck</mail>, 10 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2007-01-14&amp;chfieldto=2007-01-21&amp;resolution=FIXED&amp;assigned_to=hanno@gentoo.org">zamkniętych
+  bugów</uri></li>
+</ul>
+
+</body>
+</section>
+<section id="bugs-new">
+<title>Nowe Bugi</title>
+<body>
+
+<p>
+Deweloperzy oraz zespoły, którym przydzielono najwięcej bugów w minionym tygodniu,
+to:
+</p>
+
+<ul>
+  <li><mail link="maintainer-wanted@gentoo.org">Default Assignee for New
+  Packages</mail>, 29 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-01-14&amp;chfieldto=2007-01-21&amp;assigned_to=maintainer-wanted@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="maintainer-needed@gentoo.org">Default Assignee for Orphaned
+  Packages</mail>, 21 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-01-14&amp;chfieldto=2007-01-21&amp;assigned_to=maintainer-needed@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="games@gentoo.org">Gentoo Games</mail>, 19 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-01-14&amp;chfieldto=2007-01-21&amp;assigned_to=games@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="amd64@gentoo.org">AMD64 Project</mail>, 19 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-01-14&amp;chfieldto=2007-01-21&amp;assigned_to=amd64@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="selinux@gentoo.org">SE Linux Bugs</mail>, 9 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-01-14&amp;chfieldto=2007-01-21&amp;assigned_to=selinux@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="graphics@gentoo.org">media-gfx herd</mail>, 9 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-01-14&amp;chfieldto=2007-01-21&amp;assigned_to=graphics@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="kernel@gentoo.org">Gentoo Kernel Bug Wranglers and Kernel
+  Maintainers</mail>, 8 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-01-14&amp;chfieldto=2007-01-21&amp;assigned_to=kernel@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="media-video@gentoo.org">media-video herd</mail>, 7 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2007-01-14&amp;chfieldto=2007-01-21&amp;assigned_to=media-video@gentoo.org">nowych
+  bugów</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- GWN feedback information -->
+<chapter>
+<title>Opinie czytelników</title>
+<section>
+<body>
+
+<p>
+Tygodnik Gentoo jest tworzony i tłumaczony przez ochotników i członków
+społeczności, którzy nadsyłają swoje pomysły i gotowe artykuły. Zachęcamy
+wszystkich do pomocy i współpracy przy tworzeniu kolejnych numerów Tygodnika
+Gentoo. Oczekujemy na wasze propozycje artykułów, interesują nas także opinie na
+temat tych już opublikowanych. Wszelkie komentarze prosimy kierować na <mail
+link="gwn-feedback@gentoo.org">adres Tygodnika Gentoo</mail>. Uwagi dotyczące
+tłumaczenia należy zgłaszać na adres <mail
+link="moloh@gentoo.org">koordynatora</mail>. Pomóżcie sprawić, by Tygodnik
+Gentoo był jeszcze lepszy.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- GWN subscription information -->
+<chapter>
+<title>Subskrypcja Tygodnika Gentoo</title>
+<section>
+<body>
+
+<p>
+Aby zaprenumerować Tygodnik Gentoo, należy wysłać pustego emaila na adres <mail
+link="gentoo-gwn-pl+subscribe@gentoo.org">gentoo-gwn-pl+subscribe@gentoo.org</mail>.
+</p>
+
+<p>
+Aby zrezygnować z subskrypcji, należy wysłać pustego emaila na adres <mail
+link="gentoo-gwn-pl+unsubscribe@gentoo.org">
+gentoo-gwn-pl+unsubscribe@gentoo.org</mail> z konta, na które jest
+zarejestrowana.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Other Languages -->
+<chapter>
+<title>Inne języki</title>
+<section>
+<body>
+
+<p>
+Tygodnik Gentoo jest dostępny w następujących językach:
+</p>
+
+<ul>
+  <li><uri link="/news/en/gwn/gwn.xml">angielskim</uri></li>
+  <li><uri link="/news/zh_cn/gwn/gwn.xml">chińskim (uproszczony)</uri></li>
+  <li><uri link="/news/da/gwn/gwn.xml">duńskim</uri></li>
+  <li><uri link="/news/fr/gwn/gwn.xml">francuskim</uri></li>
+  <li><uri link="/news/el/gwn/gwn.xml">greckim</uri></li>
+  <li><uri link="/news/es/gwn/gwn.xml">hiszpańskim</uri></li>
+  <li><uri link="/news/nl/gwn/gwn.xml">holenderskim</uri></li>
+  <li><uri link="/news/ja/gwn/gwn.xml">japońskim</uri></li>
+  <li><uri link="/news/ko/gwn/gwn.xml">koreańskim</uri></li>
+  <li><uri link="/news/de/gwn/gwn.xml">niemieckim</uri></li>
+  <li><uri link="/news/pl/gwn/gwn.xml">polskim</uri></li>
+  <li><uri link="/news/pt_br/gwn/gwn.xml">portugalskim (Brazylia)</uri></li>
+  <li><uri link="/news/pt/gwn/gwn.xml">portugalskim (Portugalia)</uri></li>
+  <li><uri link="/news/ru/gwn/gwn.xml">rosyjskim</uri></li>
+  <li><uri link="/news/sk/gwn/gwn.xml">słowackim</uri></li>
+  <li><uri link="/news/tr/gwn/gwn.xml">tureckim</uri></li>
+  <li><uri link="/news/it/gwn/gwn.xml">włoskim</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+</guide>
+
+

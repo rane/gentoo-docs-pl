@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<guide type="newsletter" link="20060130-newsletter.xml" lang="pl">
+<title>Tygodnik Gentoo</title>
+<subtitle>30 stycznia 2006</subtitle>
+<author title="Redaktor naczelny">
+<mail link="plate@gentoo.org">Ulrich Plate</mail>
+</author>
+<author title="Redaktor">
+<mail link="dertobi123@gentoo.org">Tobias Scherbaum</mail>
+</author>
+<author title="Redaktor">
+<mail link="patrick@gentoo.org">Patrick Lauer</mail>
+</author>
+<author title="Redaktor">
+<mail link="spyderous@gentoo.org">Donnie Berkholz</mail>
+</author>
+<author title="Redaktor">
+<mail link="vericgar@gentoo.org">Michael Stewart</mail>
+</author>
+<author title="Redaktor">
+<mail link="amne@gentoo.org">Wernfried Haas</mail>
+</author>
+<author title="Redaktor">
+<mail link="grobian@gentoo.org">Fabian Groffen</mail>
+</author>
+<author title="Tłumacz">
+<mail link="jbozanowski@gmail.com">Jakub Bożanowski</mail>
+</author>
+<author title="Tłumacz">
+<mail link="karol.kania@gmail.com">Karol Kania</mail>
+</author>
+<author title="Tłumacz">
+<mail link="shadoww@gentoo.org">Damian Kuras</mail>
+</author>
+<author title="Tłumacz">
+<mail link="moloh@gentoo.org">Michał Kurgan</mail>
+</author>
+<author title="Korektor">
+<mail link="muchar@gentoo.org">Robert Muchacki</mail>
+</author>
+<abstract>Wydanie Tygodnika Gentoo z 30 stycznia 2006.</abstract>
+<summary/>
+<version>Wolumin 5, numer 3</version>
+<date>2006-01-30</date>
+
+<!-- Gentoo News -->
+<chapter>
+<title>Wiadomości Gentoo</title>
+<section>
+<title>Przeniesienie modularnego X do gałęzi testowej drzewa Portage</title>
+<body>
+<p>
+Zespół X planuje odmaskowanie kompletu 289 pakietów modularnego X. Wszystkie
+będą wtedy dostępne w gałęzi testowej (~arch) dla wszystkich architektur, do
+których są przypisane (alpha, amd64, arm, ia64, mips, ppc, sh, sparc i x86).
+Więcej informacji na temat prawidłowego procesu aktualizacji można znaleźć w
+dokumencie <uri
+link="http://www.gentoo.org/proj/pl/desktop/x/x11/modular-x-howto.xml">Migracja
+na modularne X</uri>. Omawia on zmiany we flagach USE, powód, dla którego X.org
+stał się modularny oraz czemu na razie nie wystarczy napisać <c>emerge
+xorg-x11</c>.
+</p>
+<p>
+Po dokonaniu aktualizacji na modularną wersję X, nie wszystkie pakiety będą
+działać, jednakże większość tych najpopularniejszych działa bezproblemowo już
+teraz. Zespół X prosi wszystkich użytkowników i deweloperów o zgłaszanie
+poprawek i raportów o błędach dotyczących ich ulubionych aplikacji, tak by
+działały one w nowym środowisku. Proces tworzenia łatki będzie znacznie
+prostszy gdy zapoznamy się z dokumentem <uri
+link="http://www.gentoo.org/proj/pl/desktop/x/x11/porting-modular-x-howto.xml">
+Przenoszenie programów na modularne X</uri>. Programy, które wymagają najwięcej
+wysiłku to gry i pakiety, które nie posiadają opiekuna lub pliku metadata.xml
+zawierającego dodatkowe informacje o danym pakiecie.
+</p>
+<p>
+<mail link="spyderous@gentoo.org">Donnie Berkholz</mail> prowadzi na <uri
+link="http://dev.gentoo.org/~spyderous/broken_modular/">swojej stronie</uri>,
+codziennie uaktualnianą, listę niekompatybilnych aplikacji wraz z
+wyszczególnieniem ich opiekunów. W razie napotkania jakichkolwiek błędów w
+czasie migracji prosimy o skorzystanie z <uri
+link="https://bugs.gentoo.org">odpowiedniego serwisu</uri>.
+</p>
+
+</body>
+</section>
+<section>
+<title>Koniec wsparcia dla starego stylu konfiguracji pakietów Apache</title>
+<body>
+<p>
+W październiku zespół Apache ogłosił zmiany w stylu konfiguracji Apache i jego
+modułów. Wielu użytkowników uaktualniło już swoje systemy, jednak ci bardziej
+ostrożni postanowili poczekać.
+</p>
+<p>
+1 marca 2006 zespół Apache przestanie wspierać konfigurację starego typu.
+Wszyscy, który do tej pory jeszcze nie uaktualnili serwera do wersji
+<c>net-www/apache-2.0.55</c> lub wyższej, bądź <c>net-www/apache-1.3.34-r10</c>
+lub wyższej, powinni to zrobić jak najszybciej. Informacje na temat procesu
+aktualizacji można znaleźć w przewodniku <uri
+link="http://www.gentoo.org/doc/pl/apache-upgrading.xml">Aktualizacja serwera
+Apache</uri>.
+</p>
+
+</body>
+</section>
+<section>
+<title>Styczniowe spotkanie grupy deweloperów PHP</title>
+<body>
+<p>
+Pierwsze spotkanie grupy zajmującej się rozwojem PHP odbyło się 21 stycznia 2006
+roku. Wśród punktów znajdujących się w programie spotkania można znaleźć wybory
+koordynatorów, dyskusja na temat tworzenia slotów dla mniejszych wersji pakietów
+oraz stabilizacja <c>dev-lang/php</c>.
+</p>
+<p>
+<mail link="chtekk@gentoo.org">Luca Longinotti</mail> został wybrany na
+stanowisko koordynatora odpowiedzialnego za główne pakiety PHP, natomiast <mail
+link="sebastian@gentoo.org">Sebastian Bergmann</mail> będzie odpowiadał za
+ebuildy PEAR. Grupa postanowiła pozostać przy dotychczasowym sposobie
+umieszczania pakietów w slotach, czyli robieniu tego tylko dla głównych wersji
+PHP (PHP 4, PHP 5). Najważniejsza decyzja z punktu widzenia użytkowników to
+konieczność jak najszybszej migracji z <c>dev-php/php</c> na
+<c>dev-lang/php</c>, gdyż zdecydowano o wycofaniu wsparcia dla pierwszego
+pakietu. Gdy tylko zespoły odpowiedzialne za poszczególne architektury
+ustabilizują pakiety w nowej kategorii, to stare, z katalogu <c>dev-php/php</c>,
+zostaną zamaskowane. Planowany termin ukończenia prac to koniec lutego. Dwa
+miesiące później przestarzałe pakiety zostaną całkowicie usunięte z drzewa
+Portage.
+</p>
+<p>
+Oficjalne sprawozdanie ze styczniowego posiedzenia herdu PHP jest dostępne na
+<uri link="http://tinyurl.com/cc964">stronie PHP Overlay</uri>. Termin
+następnego spotkania został wyznaczony na dzień 7 lutego o godzinie 19:00 czasu
+UTC na kanale #gentoo-php sieci irc.freenode.net.
+</p>
+</body>
+</section>
+<section>
+<title>Wsparcie dla slotów w MySQL</title>
+<body>
+<p>
+Opiekunowie pakietu MySQL planują w najbliższym czasie przenieść pakiety
+<c>=dev-db/mysql-4.1.16-r30</c> i <c>dev-db/mysql-5.0.18-r30</c> do niestabilnej
+gałęzi drzewa Portage. Wersja <c>-r30</c> ebuildu pozwala już na instalację
+kilku wersji MySQL równolegle. Od teraz wszystkie główne wydania, poczynając od
+4.1, będą instalowane w slotach, <c>dev-db/mysql-4.0*</c> pozostanie w
+<c>SLOT="0"</c> uniemożliwiając instalację innych wersji.
+</p>
+<p>
+Dodatkowo, aby ułatwić użytkownikom przełączanie się pomiędzy różnymi wersjami
+MySQL stworzone zostały nowe pliki eclass, a także nowy moduł <c>eselect</c>.
+Mimo tego, że mamy możliwość uruchomienia kilku wersji MySQL jednocześnie, dalej
+jesteśmy ograniczeni do jednej wersji <c>libmysqlclinet</c>. Aby zapoznać się
+ze szczegółami aktualizacji, prosimy o przeczytanie odpowiedniego <uri
+link="http://www.gentoo.org/doc/en/mysql-upgrade-slotted.xml">przewodnika</uri>.
+Wszystkie pakiety, które do tej pory poprawnie współpracowały z MySQL <e>nie
+powinny</e> sprawiać problemów.
+</p>
+<p>
+W przypadku napotkania jakichkolwiek błędów prosimy o zgłoszenie odpowiedniego
+raportu w serwisie <uri link="https://bugs.gentoo.org">bugzilla</uri>.
+</p>
+</body>
+</section>
+<section>
+<title>Aktualizacja gentoolkit</title>
+<body>
+<p>
+Nowa wersja <c>app-portage/gentoolkit</c> (<c>0.2.1</c>) zawierająca wiele
+znaczących usprawnień została oznaczona jako stabilna kilka dni temu. Poniżej
+wymienione są główne zmiany w stosunku do wersji 0.2.0:
+</p>
+<ul>
+<li>Dodano nowe narzędzie - <c>eclean</c>, służące do usuwania niepotrzebnych
+już plików distfiles.</li>
+<li><c>revdep-rebuild</c> pozwala teraz na znacznie większą ingerencję ze strony
+użytkownika. Możemy przerwać przebudowywanie pakietów binarnych takich jak
+<c>app-office/openoffice-bin</c> poprzez ustawienie zmiennej
+<c>SEARCH_DIRS_MASK</c> w pliku <path>/etc/make.conf</path>, tak by przykładowo
+pakiety zainstalowane w katalogu <path>/opt</path> nie były przebudowywane.</li>
+<li>Poprawiono działanie narzędzia <c>equery</c>, zużycie pamięci i wydajność.
+Pomimo tych zmian ciągle nie jest ono najszybszym rozwiązaniem, dla spragnionych
+szybkości na szczęście istnieje jeszcze pakiet <c>app-portage/portage-utils</c>,
+który może stanowić ciekawą alternatywę.</li>
+</ul>
+<p>
+Dla wszystkich zainteresowanych, szczegółowy wykaz zmian znajduje się w pliku
+<path>/usr/share/doc/gentoolkit-0.2.1/ChangeLog</path>.
+</p>
+</body>
+</section>
+<section>
+<title>Trzy miliony wiadomości na forum Gentoo</title>
+<body>
+<figure link="/images/gwn/20060130_3M-posts.png" short="3M postów" caption="Trzy
+miliony wiadomości na forum Gentoo"/>
+<p>
+Niemal dokładnie w rok od momentu gdy na forum Gentoo ukazała się dwu-milionowa
+wiadomość, a było to w <uri
+link="http://www.gentoo.org/news/pl/gwn/20050207-newsletter.xml">styczniu
+2005</uri>, ta liczba przekroczyła już trzy miliony. Z tej okazji założono <uri
+link="http://forums.gentoo.org/viewtopic-t-421954.html">specjalny wątek</uri> w,
+którym można znaleźć m.in. odpowiedź na pytanie "Kto napisał tą wiadomość”", a
+także próby wyjaśnienia czemu w tajemniczych okolicznościach, tuż przed
+przekroczeniem magicznej bariery, liczba wiadomości zaczęła się zmniejszać.
+Forum Gentoo to według <uri
+link="http://rankings.big-boards.com/?filter=phpBB,all">big-boards.com</uri>
+jeden z największych przedstawicieli phpBB.
+</p>
+
+</body>
+</section>
+<section>
+<title>pdftohtml zastąpiony przez poppler</title>
+<body>
+<p>
+Pakiet <c>app-text/pdftohtml</c> został zastąpiony przez <c>app-text/poppler</c>
+z powodu obaw o bezpieczeństwo wyrażanych w raporcie numer <uri
+link="https://bugs.gentoo.org/show_bug.cgi?id=115789">115789</uri>. Zalecane
+jest deinstalacaja <c>app-text/pdftohtml</c> i używanie <c>app-text/poppler</c>
+zamiast niego.
+</p>
+</body>
+</section>
+</chapter>
+
+<!-- Future zone -->
+<chapter>
+<title>Rzut okiem w przyszłość</title>
+<section>
+<title>Portage w Gentoo Mac OS X</title>
+<body>
+<p>
+Przez ostatnie kilka miesięcy, projekt Gentoo Mac OS X służył za główne
+środowisko testowe dla drzewa Portage i repozytorium pakietów, które jest
+„prefix aware”. Modyfikacja parametru prefix pozwala na bardziej elastyczną
+konfigurację oprogramowania zarządzanego przez Portage, tak by nie zakłócać
+działania systemu operacyjnego. Potrzeba takiej funkcjonalności zrodziła się ze
+względu na problemy z używaniem Portage w „obcym” środowisku systemu
+operacyjnego (m.in. Apple Mac OS X).
+</p>
+<p>
+W obecnej chwili system jest jedynie działającym prototypem, ale już teraz
+pokazał wiele interesujących możliwości, które mogą sprawdzić się w Gentoo i
+Portage. Pomimo, iż projekt Gentoo Mac OS X, jest pierwszym z tych wszystkich
+skupionych w ramach Gentoo/ALT, którego celem jest uruchomienie Portage na
+działającym systemie operacyjnym (instalujemy Portage na działającym systemie),
+zainteresowanie jakie budzi wśród użytkowników i deweloperów jest zdumiewające.
+Także liczba „zaliczonych” systemów jest imponująca, na tej liście można znaleźć
+m.in. AIX, HP-UX, FreeBSD, BeOS/Haiku/Zeta, Solaris i Fedorę Core.
+</p>
+<p>
+Zespół projektu Gentoo Mac OS X chce udostępnić wstępną dokumentacją i rozwijane
+pakiety instalatora tak szybko jak będzie to tylko możliwe. Dla zainteresowanych
+współpracą - kontakt: <mail link="kito@gentoo.org"> Kito Danya Dietrich</mail> i
+<mail link="grobian@gentoo.org">Fabian Groffen</mail>.
+</p>
+</body>
+</section>
+</chapter>
+
+<!-- User Stories -->
+<!-- Gentoo Stories -->
+<!-- Developer of the week -->
+<!-- Heard in the community: gentoo-dev, gentoo-user, forums -->
+<chapter>
+<title>Społeczność Gentoo</title>
+<section>
+<title>Lista dyskusyjna gentoo-dev</title>
+<body>
+
+<p><b>sed w Gentoo/ALT</b></p>
+<p>
+<mail link="flameeyes@gentoo.org">Diego Pettenò</mail> poprosił o radę jak
+poradzić sobie z nieco odmiennym zachowaniem implementacji sed na systemach nie
+posiadających oprogramowania GNU.
+</p>
+<ul>
+<li><uri
+link="http://thread.gmane.org/gmane.linux.gentoo.devel/35436">sed vs.
+gsed </uri></li>
+</ul>
+
+<p><b>RFC: emerge snapshots</b></p>
+<p>
+W przypadku awarii w czasie przeprowadzania aktualizacji, zaradzenie sytuacji
+może zabrać sporo czasu. Czy istnieją jakieś metody odtworzenia poprzedniego
+stanu systemu, by w ten sposób poradzić sobie z powstałym problemem? Co należy
+zrobić, aby była taka możliwość, i czemu quickpkg nie jest odpowiednim do tego
+narzędziem?
+</p>
+<ul>
+<li><uri
+link="http://thread.gmane.org/gmane.linux.gentoo.devel/35411">RFC:
+emerge snapshots </uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo international -->
+<!-- Gentoo in the press -->
+<chapter>
+<title>Gentoo w prasie</title>
+<section>
+<title>Linuks na platformie POWER5</title>
+<body>
+<p>
+W ramach <uri
+link="http://www-128.ibm.com/developerworks/linux/library/l-pow-linuxdistros.html?ca=drs-">
+IBM developerworks</uri> opublikowano recenzję dystrybucji Linuksa pracujących
+na platformie POWER5, a nie posiadających komercyjnego wsparcia. Oprócz
+informacji o Debianie, openSUSE 10 i Fedorze Core znajdziemy tam także opis
+środowiska testowego i procesu instalacji Gentoo na komputerze IBM eServer™
+OpenPower™ 720.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Tips and Tricks -->
+<!-- Gentoo developer moves -->
+<chapter>
+<title>Zmiana statusu deweloperów Gentoo</title>
+<section>
+<title>Odeszli</title>
+<body>
+<p>
+Następujący deweloperzy opuścili projekt Gentoo Linux w minionym tygodniu:
+</p>
+<ul>
+<li><e>Nikt w tym tygodniu</e></li>
+</ul>
+</body>
+</section>
+<section>
+<title>Przybyli</title>
+<body>
+<p>
+Następujący deweloperzy przyłączyli się do projektu Gentoo Linux w minionym
+tygodniu:
+</p>
+<ul>
+<li>Markus Ullmann (Jokey) - netmon</li>
+<li>Patrick Mclean (chutzpah) - sound, amd64</li>
+<li>Damian Kuras (shadoww) - polskie tłumaczenie</li>
+<li>Karol Pasternak (reb) - główny deweloper Gentoo/OpenBSD</li>
+</ul>
+</body>
+</section>
+<section>
+<title>Zmienili status</title>
+<body>
+<p>
+Następujący deweloperzy zmienili w minionym tygodniu pełnioną w projekcie Gentoo
+Linux funkcję:
+</p>
+<ul>
+<li><e>Nikt w tym tygodniu</e></li>
+</ul>
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo security -->
+<chapter>
+<title>Bezpieczeństwo Gentoo</title>
+<!-- paste from the script -->
+<section>
+<title>Sun oraz Blackdown Java: Przekroczenie uprawnień</title>
+<body>
+<p>
+Pakiety Sun i Blackdown JDK oraz JRE umożliwiają apletom na przekroczenie
+uprawnień.
+</p>
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200601-10.xml">komunikacie
+GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>KDE kjs: Przepełnienie sterty</title>
+<body>
+<p>
+Błąd w procesie walidacji URI, w czasie wykonywania kodu javascript przez kjs,
+może zostać wykorzystany do wykonania niepożądanego kodu.
+</p>
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200601-11.xml">komunikacie
+GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>Trac: Usterka Cross-site scripting</title>
+<body>
+<p>
+Trac zawiera usterkę cross-site scripting, która może zostać wykorzystana do
+wykonania niepożądanego kodu JavaScript.
+</p>
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200601-12.xml">komunikacie
+GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>Gallery: Usterka cross-site scripting</title>
+<body>
+<p>
+Gallery jest podatne na atak cross-site scripting, który może doprowadzić do
+wykonania niepożądanego kodu JavaScript.
+</p>
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200601-13.xml">komunikacie
+GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>LibAST: Przekroczenie uprawnień</title>
+<body>
+<p>
+LibAST zawiera usterkę przepełnienia bufora, która może zostać wykorzystana do
+wykonania niepożądanego kodu z przekroczonymi uprawnieniami.
+</p>
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200601-14.xml">komunikacie
+GLSA</uri>
+</p>
+</body>
+</section>
+<section>
+<title>Paros: Domyślne hasło administratora</title>
+<body>
+<p>
+Moduł bazodanowy wchodzący w skład Paros jest domyślnie zainstalowany bez hasła,
+co umożliwia zdalnemu napastnikowi wykonanie niepożądanych poleceń.
+</p>
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200601-15.xml">komunikacie
+GLSA</uri>
+</p>
+</body>
+</section>
+
+<!-- end of paste from the script -->
+</chapter>
+<!-- Bugzilla -->
+<!-- paste from the script -->
+<chapter>
+<title>Bugzilla</title>
+<section>
+<title>Podsumowanie</title>
+<body>
+<ul>
+<li><uri link="#doc_chap1_sect2">Statystyki</uri></li>
+<li><uri link="#doc_chap1_sect3">Zamknięte bugi</uri></li>
+<li><uri link="#doc_chap1_sect4">Nowe bugi</uri></li>
+</ul>
+</body>
+</section>
+
+<section>
+<title>Statystyki</title>
+<body>
+<p>
+Społeczność Gentoo używa Bugzilli (<uri
+link="http://bugs.gentoo.org/">bugs.gentoo.org</uri>) do zgłaszania i śledzenia
+błędów, ogłoszeń, sugestii oraz innych form kontaktu z deweloperami. Pomiędzy
+15 stycznia 2006, a 29 stycznia 2006 aktywność w serwisie przedstawiała się następująco:
+</p>
+<ul>
+<li>zgłoszono 1734 nowe bugi</li>
+<li>zamknięto lub rozwiązano 960 bugów</li>
+<li>59 uprzednio zamkniętych bugów zostało ponownie otwartych</li>
+</ul>
+<p>
+Spośród 9192 obecnie otwartych bugów: 72 oznaczono jako 'blocker', 171 jako
+'critical', a 503 jako 'major'.
+</p>
+</body>
+</section>
+
+<section>
+<title>Zamknięte Bugi</title>
+<body>
+<p>
+Deweloperzy oraz zespoły, które zamknęły najwięcej bugów w minionym tygodniu,
+to:
+</p>
+<ul>
+<li><mail link="php-bugs@gentoo.org">PHP Bugs</mail>, 53 <uri
+link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-01-15&amp;chfieldto=2006-01-29&amp;resolution=FIXED&amp;assigned_to=php-bugs@gentoo.org">zamknięte
+bugi</uri></li>
+<li><mail link="games@gentoo.org">Gentoo Games</mail>, 47 <uri
+link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-01-15&amp;chfieldto=2006-01-29&amp;resolution=FIXED&amp;assigned_to=games@gentoo.org">zamkniętych
+bugów</uri></li>
+<li><mail link="tools-portage@gentoo.org">Portage Utilities Team</mail>, 45 <uri
+link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-01-15&amp;chfieldto=2006-01-29&amp;resolution=FIXED&amp;assigned_to=tools-portage@gentoo.org">zamkniętych
+bugów</uri></li>
+<li><mail link="amd64@gentoo.org">AMD64 Porting Team</mail>, 32 <uri
+link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-01-15&amp;chfieldto=2006-01-29&amp;resolution=FIXED&amp;assigned_to=amd64@gentoo.org">zamknięte
+bugi</uri></li>
+<li><mail link="perl@gentoo.org">Perl Devs @ Gentoo</mail>, 25 <uri
+link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-01-15&amp;chfieldto=2006-01-29&amp;resolution=FIXED&amp;assigned_to=perl@gentoo.org">zamkniętych
+bugów</uri></li>
+<li><mail link="gnome@gentoo.org">Gentoo Linux Gnome Desktop Team</mail>, 25
+<uri
+link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-01-15&amp;chfieldto=2006-01-29&amp;resolution=FIXED&amp;assigned_to=gnome@gentoo.org">zamkniętych
+bugów</uri></li>
+<li><mail link="dev-portage@gentoo.org">Portage team</mail>, 23 <uri
+link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-01-15&amp;chfieldto=2006-01-29&amp;resolution=FIXED&amp;assigned_to=dev-portage@gentoo.org">zamknięte
+bugi</uri></li>
+<li><mail link="base-system@gentoo.org">Gentoo's Team for Core System
+packages</mail>, 22 <uri
+link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-01-15&amp;chfieldto=2006-01-29&amp;resolution=FIXED&amp;assigned_to=base-system@gentoo.org">zamknięte
+bugi</uri></li>
+</ul>
+</body>
+</section>
+
+<section>
+<title>Nowe Bugi</title>
+<body>
+<p>
+Deweloperzy oraz zespoły, którym przydzielono najwięcej bugów w minionym tygodniu,
+to:
+</p>
+<ul>
+<li><mail link="maintainer-wanted@gentoo.org">Default Assignee for New
+Packages</mail>, 72 <uri
+link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-01-15&amp;chfieldto=2006-01-29&amp;assigned_to=maintainer-wanted@gentoo.org">nowe
+bugi</uri></li>
+<li><mail link="amd64@gentoo.org">AMD64 Porting Team</mail>, 17 <uri
+link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-01-15&amp;chfieldto=2006-01-29&amp;assigned_to=amd64@gentoo.org">nowych
+bugów</uri></li>
+<li><mail link="maintainer-needed@gentoo.org">Default Assignee for Orphaned
+Packages</mail>, 16 <uri
+link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-01-15&amp;chfieldto=2006-01-29&amp;assigned_to=maintainer-needed@gentoo.org">nowych
+bugów</uri></li>
+<li><mail link="games@gentoo.org">Gentoo Games</mail>, 14 <uri
+link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-01-15&amp;chfieldto=2006-01-29&amp;assigned_to=games@gentoo.org">nowych
+bugów</uri></li>
+<li><mail link="x11-drivers@gentoo.org">X11 External Driver Maintainers</mail>,
+13 <uri
+link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-01-15&amp;chfieldto=2006-01-29&amp;assigned_to=x11-drivers@gentoo.org">nowych
+bugów</uri></li>
+<li><mail link="pva@gentoo.org">Volkov Peter</mail>, 12 <uri
+link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-01-15&amp;chfieldto=2006-01-29&amp;assigned_to=pva@gentoo.org">nowych
+bugów</uri></li>
+<li><mail link="base-system@gentoo.org">Gentoo's Team for Core System
+packages</mail>, 11 <uri
+link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-01-15&amp;chfieldto=2006-01-29&amp;assigned_to=base-system@gentoo.org">nowych
+bugów</uri></li>
+<li><mail link="sound@gentoo.org">Gentoo Sound Team</mail>, 10 <uri
+link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-01-15&amp;chfieldto=2006-01-29&amp;assigned_to=sound@gentoo.org">nowych
+bugów</uri></li>
+</ul>
+</body>
+</section>
+</chapter>
+
+<!-- GWN subscription information -->
+<chapter>
+<title>Subskrypcja Tygodnika Gentoo</title>
+<section>
+<body>
+<p>
+Aby zaprenumerować Tygodnik Gentoo, należy wysłać pustego e-maila na adres
+<mail>gentoo-gwn-pl+subscribe@gentoo.org</mail>.
+</p> 
+<p>
+Aby zrezygnować z subskrypcji, należy wysłać pustego e-maila na adres <mail>
+gentoo-gwn-pl+unsubscribe@gentoo.org</mail> z konta, na które jest
+zarejestrowana.
+</p>
+</body>
+</section>
+</chapter>
+<!-- Other Languages -->
+<chapter>
+<title>Inne języki</title>
+<section>
+<body>
+<p>
+Tygodnik Gentoo jest dostępny w następujących językach:
+</p>
+
+<ul>
+<li><uri link="/news/en/gwn/gwn.xml">angielskim</uri></li>
+<li><uri link="/news/da/gwn/gwn.xml">duńskim</uri></li>
+<li><uri link="/news/fr/gwn/gwn.xml">francuskim</uri></li>
+<li><uri link="/news/es/gwn/gwn.xml">hiszpańskim</uri></li>
+<li><uri link="/news/nl/gwn/gwn.xml">holenderskim</uri></li>
+<li><uri link="/news/ja/gwn/gwn.xml">japońskim</uri></li>
+<li><uri link="/news/ko/gwn/gwn.xml">koreańskim</uri></li>
+<li><uri link="/news/de/gwn/gwn.xml">niemieckim</uri></li>
+<li><uri link="/news/pl/gwn/gwn.xml">polskim</uri></li>
+<li><uri link="/news/pt_br/gwn/gwn.xml">portugalskim (Brazylia)</uri></li>
+<li><uri link="/news/pt/gwn/gwn.xml">portugalskim (Portugalia)</uri></li>
+<li><uri link="/news/ru/gwn/gwn.xml">rosyjskim</uri></li>
+<li><uri link="/news/tr/gwn/gwn.xml">tureckim</uri></li>
+<li><uri link="/news/it/gwn/gwn.xml">włoskim</uri></li>
+</ul></body>
+</section>
+</chapter>
+</guide>
+

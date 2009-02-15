@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+
+<guide link="tlumaczenie-manuali.html" lang="pl">
+<title>Polski projekt tłumaczenia manuali Gentoo</title>
+
+<author title="Autor">
+  <mail link="damjanek@gentoo.pl">Damian Szeluga</mail>
+</author>
+
+<abstract>
+Oficjalna strona polskiego projektu tłumaczenia manuali Gentoo.
+</abstract>
+
+<version>1.1.4</version>
+<date>2006-05-26</date>
+
+<chapter>
+<title>Zasady tłumaczenia</title>
+<section>
+<body>
+
+<p>
+Sprawa jest dość prosta, tłumaczymy wszystkie manuale związane bezpośrednio z
+Portage. Zaczynamy od wersji niestabilnej Portage, czyli w tym wypadku od
+<c>portage-2.1_pre4</c>. Tłumaczymy także manuale związane z pakietem
+gentoolkit, są one takie same zarówno w wersji stabilnej jak i niestabilnej.
+</p>
+
+<p>
+Priorytetem jest wierność tłumaczenia oryginałowi, każda merytoryczna pomyłka
+może tu oznaczać poważne komplikacje dla użytkownika.
+</p>
+
+<p>
+Lista manuali instalowanych przez Portage:
+</p>
+
+<table>
+<tr>
+<th>Strona man</th>
+<th>Tłumacz</th>
+<th>Angielski man</th>
+<th>Polski man</th>
+<th>Wersja HTML</th>
+</tr><tr>
+<ti>dispatch-conf.1</ti>
+<ti>rane</ti>
+<ti><uri link="man-pages/portage/2.1_rc4/en/dispatch-conf.1.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/dispatch-conf.1.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/html/dispatch-conf.1.txt.html">2.1_rc4</uri></ti>
+</tr><tr>
+<ti>ebuild.1</ti>
+<ti>stawrul</ti>
+<ti><uri link="man-pages/portage/2.1_rc4/en/ebuild.1.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/ebuild.1.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/html/ebuild.1.txt.html">2.1_rc4</uri></ti>
+</tr><tr>
+<ti>ebuild.5</ti>
+<ti>iieee</ti>
+<ti><uri link="man-pages/portage/2.1_rc4/en/ebuild.5.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/ebuild.5.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/html/ebuild.5.txt.html">2.1_rc4</uri></ti>
+</tr><tr>
+<ti>emaint.1</ti>
+<ti>rane</ti>
+<ti><uri link="man-pages/portage/2.1_rc4/en/emaint.1.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/emaint.1.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/html/emaint.1.txt.html">2.1_rc4</uri></ti>
+</tr><tr>
+<ti>emerge.1</ti>
+<ti>Damjanek</ti>
+<ti><uri link="man-pages/portage/2.1_rc4/en/emerge.1.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/emerge.1.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/html/emerge.1.txt.html">2.1_rc4</uri></ti>
+</tr><tr>
+<ti>env-update.1</ti>
+<ti>rane</ti>
+<ti><uri link="man-pages/portage/2.1_rc4/en/env-update.1.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/env-update.1.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/html/env-update.1.txt.html">2.1_rc4</uri></ti>
+</tr><tr>
+<ti>etc-update.1</ti>
+<ti>rane</ti>
+<ti><uri link="man-pages/portage/2.1_rc4/en/etc-update.1.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/etc-update.1.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/html/etc-update.1.txt.html">2.1_rc4</uri></ti>
+</tr><tr>
+<ti>make.conf.5</ti>
+<ti>ShadoWW</ti>
+<ti><uri link="man-pages/portage/2.1_rc4/en/make.conf.5.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/make.conf.5.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/html/make.conf.5.txt.html">2.1_rc4</uri></ti>
+</tr><tr>
+<ti>portage.5</ti>
+<ti>moloh</ti>
+<ti><uri link="man-pages/portage/2.1_rc4/en/portage.5.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/portage.5.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/html/portage.5.txt.html">2.1_rc4</uri></ti>
+</tr><tr>
+<ti>quickpkg.1</ti>
+<ti>rane</ti>
+<ti><uri link="man-pages/portage/2.1_rc4/en/quickpkg.1.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/quickpkg.1.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/html/quickpkg.1.txt.html">2.1_rc4</uri></ti>
+</tr><tr>
+<ti>repoman.1</ti>
+<ti>Shadoww</ti>
+<ti><uri link="man-pages/portage/2.1_rc4/en/repoman.1.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/repoman.1.txt">2.1_rc4</uri></ti>
+<ti><uri link="man-pages/portage/2.1_rc4/pl/html/repoman.1.txt.html">2.1_rc4</uri></ti>
+</tr>
+</table>
+
+<p>
+Lista manuali instalowanych przez gentoolkit:
+</p>
+
+<table>
+<tr>
+<th>Strona man</th>
+<th>Tłumacz</th>
+<th>Angielski man</th>
+<th>Polski man</th>
+<th>Wersja HTML</th>
+</tr><tr>
+<ti>eclean.1</ti>
+<ti>heavy_metal</ti>
+<ti><uri link="man-pages/gentoolkit/0.2.2_pre2/en/eclean.1.txt">0.2.2_pre2</uri></ti>
+<ti>-</ti>
+<ti>-</ti>
+</tr><tr>
+</tr><tr>
+<ti>equery.1</ti>
+<ti>ShadoWW</ti>
+<ti><uri link="man-pages/gentoolkit/0.2.2_pre2/en/equery.1.txt">0.2.2_pre2</uri></ti>
+<ti>-</ti>
+<ti>-</ti>
+</tr><tr>
+<ti>etcat.1</ti>
+<ti>heavy_metal</ti>
+<ti><uri link="man-pages/gentoolkit/0.2.2_pre2/en/etcat.1.txt">0.2.2_pre2</uri></ti>
+<ti>-</ti>
+<ti>-</ti>
+</tr><tr>
+<ti>euse.1</ti>
+<ti>keybi</ti>
+<ti><uri link="man-pages/gentoolkit/0.2.2_pre2/en/euse.1.txt">0.2.2_pre2</uri></ti>
+<ti><uri link="man-pages/gentoolkit/0.2.2_pre2/pl/euse.1.txt">0.2.2_pre2</uri></ti>
+<ti><uri link="man-pages/gentoolkit/0.2.2_pre2/pl/html/euse.1.html">0.2.2_pre2</uri></ti>
+
+</tr><tr>
+<ti>glsa-check.1</ti>
+<ti>gogiel</ti>
+<ti><uri link="man-pages/gentoolkit/0.2.2_pre2/en/glsa-check.1.txt">0.2.2_pre2</uri></ti>
+<ti><uri link="man-pages/gentoolkit/0.2.2_pre2/pl/glsa-check.1.txt">0.2.2_pre2</uri></ti>
+<ti><uri link="man-pages/gentoolkit/0.2.2_pre2/pl/html/glsa-check.1.html">0.2.2_pre2</uri></ti>
+</tr><tr>
+<ti>qpkg.1</ti>
+<ti>chojny</ti>
+<ti><uri link="man-pages/gentoolkit/0.2.2_pre2/en/qpkg.1.txt">0.2.2_pre2</uri></ti>
+<ti>-</ti>
+<ti>-</ti>
+</tr><tr>
+<ti>revdep-rebuild.1</ti>
+<ti>yan</ti>
+<ti><uri link="man-pages/gentoolkit/0.2.2_pre2/en/revdep-rebuild.1.txt">0.2.2_pre2</uri></ti>
+<ti><uri link="man-pages/gentoolkit//0.2.2_pre2/pl/revdep-rebuild.1.txt">0.2.2_pre2</uri></ti>
+<ti><uri link="man-pages/gentoolkit//0.2.2_pre2/pl/html/revdep-rebuild.1.html">0.2.2_pre2</uri></ti>
+</tr>
+</table>
+
+<p>
+Pozostałe strony man:
+</p>
+
+<table>
+<tr>
+<th>Strona man</th>
+<th>Tłumacz</th>
+<th>Angielski man</th>
+<th>Polski man</th>
+<th>Wersja HTML</th>
+</tr><tr>
+<ti>genlop</ti>
+<ti>steiner</ti>
+<ti><uri link="man-pages/other/genlop/0.30.5/en/genlop.1.txt">0.30.5</uri></ti>
+<ti><uri link="man-pages/other/genlop/0.30.5/pl/genlop.1.txt">0.30.5</uri></ti>
+<ti><uri link="man-pages/other/genlop/0.30.5/pl/html/genlop.1.html">0.30.5</uri></ti>
+</tr><tr>
+<ti>eix</ti>
+<ti>prizman</ti>
+<ti><uri link="man-pages/other/eix/0.5.1-r1/en/eix.1.in.txt">0.5.1-r1</uri></ti>
+<ti>-</ti>
+<ti>-</ti>
+</tr>
+</table>
+
+
+<p>
+Jak wygląda cały proces?
+</p>
+
+<p>
+Kopiujemy plik z manem do katalogu domowego, otwieramy vimem i tłumaczymy tak
+jak zwykły XML. Potem dzielimy się nim z koordynatorem i po sprawie.
+Przed rozpoczęciem tłumaczenia należy zgłosić, że zamierzamy nim się zajmować,
+zostanie to uwzględnione na powyższej liście.
+</p>
+
+<p>
+Na końcu tłumaczonego pliku należy dodać podpis, jego format jest następujący:
+</p>
+
+<pre caption="Format podpisu tłumaczonej strony man">
+.SH TŁUMACZENIE
+Imię Nazwisko &lt;adres@email.pl&gt;
+.br 
+Polski projekt tłumaczenia manuali Gentoo
+.br 
+http://gentoo.org/~rane/tlumaczenie-manuali.html
+</pre>
+
+<p>
+Jeśli chodzi o aktualizowanie manuali, tu również sprawa nie jest
+skomplikowana. Wraz z wydaniem nowej wersji Portage, katalog z manualami będzie
+diffowany z wersją poprzednią, a naniesione tam przez deweloperów poprawki
+publikowane na tej stronie, a następnie nanoszone na odpowiednie dokumenty.
+</p>
+
+<p>
+W razie pytań co do terminologii, wszelkich problemów technicznych, sugestii i
+jakichkolwiek wątpliwości, należy pisać na adres <mail>damjanek@gentoo.pl</mail>
+lub wejść na kanał <c>#gentoo-docs-pl</c> w sieci FreeNode.
+</p>
+
+</body>
+</section>
+</chapter>
+</guide>

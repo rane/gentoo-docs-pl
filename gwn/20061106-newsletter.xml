@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<guide type="newsletter" link="20061106-newsletter.xml" lang="pl">
+<title>Tygodnik Gentoo</title>
+<subtitle>6 listopada 2006</subtitle>
+
+<author title="Redaktor naczelny">
+  <mail link="plate@gentoo.org">Ulrich Plate</mail>
+</author>
+<author title="Redaktor">
+  <mail link="thirtyyearswar@mindspring.com">Chris Atkinson</mail>
+</author>
+<author title="Redaktor">
+  <mail link="phnix@fastmail.net">Kyle Bishop</mail>
+</author>
+<author title="Redaktor">
+  <mail link="deadhead@wooow.it">Andrea Perotti</mail>
+</author>
+<author title="Redaktor">
+  <mail link="riklaunim@gmail.com">Piotr Maliński</mail>
+</author>
+<author title="Redaktor">
+  <mail link="nightmorph@gentoo.org">Josh Saddler</mail>
+</author>
+<author title="Redaktor">
+  <mail link="wolf31o2@gentoo.org">Chris Gianelloni</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="jbozanowski@gmail.com">Jakub Bożanowski</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="moloh@gentoo.org">Michał Kurgan</mail>
+</author>
+
+<abstract>Wydanie Tygodnika Gentoo z 6 listopada 2006.</abstract>
+<summary/>
+
+<version>Wolumin 5, numer 45</version>
+<date>2006-11-06</date>
+
+<!-- Gentoo News -->
+<!-- Developer of the Week -->
+<!-- Heard in the community -->
+<chapter>
+<title>Społeczność Gentoo</title>
+<!-- forums.gentoo.org -->
+<!-- planet.gentoo.org -->
+<!-- gentoo-user -->
+<section>
+<title>Lista dyskusyjna gentoo-user</title>
+<body>
+
+<p>
+<b>Instalacja Windows XP po Gentoo Linux</b>
+</p>
+
+<p>
+James zapytał na liście gentoo-user o możliwość posiadania na jednym komputerze
+dwóch systemów, Gentoo Linux i Windows XP instalując system firmy Microsoft jako
+drugi. Martwił się, że po instalacji Windowsów, MBR zostanie nadpisany co
+spowoduje niemożność skorzystania z Gentoo w czasie uruchamiania komputera. W
+odpowiedzi dowiedział się, że procedura jest identyczna jak w przypadku
+odwrotnej kolejności instalacji systemów. Teraz także musi skorzystać z płyty
+LiveCD, aby ponownie zainstalować gruba w sektorze rozruchowym. Mark Shields
+przedstawił krótkie podsumowanie poleceń z jakich należy skorzystać w trakcie
+tej procedury:
+</p>
+
+<pre caption="Reinstalacja GRUB-a z użyciem płyty LiveCD">
+# <i>mount /dev/rootpart /mnt/gentoo</i>
+# <i>mount /dev/bootpart /mnt/gentoo/boot</i>
+# <i>mount -t proc none /mnt/gentoo/proc</i>
+# <i>mount -o bind /dev /mnt/gentoo/dev</i>
+# <i>chroot /mnt/gentoo /bin/bash</i>
+# <i>env-update &amp;&amp; source /etc/profile</i>
+# <i>grep -v rootfs /proc/mounts > /etc/mtab</i>
+<comment>(Zakładając że główny dysk twardy to /dev/hda)</comment>
+# <i>grub-install /dev/hda</i>
+</pre>
+
+<ul>
+  <li><uri>http://archives.gentoo.org/gentoo-user/msg_103029.xml</uri></li>
+</ul>
+
+</body>
+</section>
+<!-- gentoo-dev -->
+<section>
+<title>Lista dyskusyjna gentoo-dev</title>
+<body>
+
+<p>
+<b>Przypomnienie o listopadowym zebraniu Rady Gentoo</b>
+</p>
+
+<p>
+Przypomnienie o nadchodzącym zebraniu na IRC-u rozpoczęło interesującą
+dyskusję o istocie Gentoo i lekcję na temat jak najlepiej użyć Gentoo w
+środowisku Enterprise.
+</p>
+
+<p>
+Steve Long zaproponował utworzenie oficjalnego, binarnego repozytorium o
+kilku odmianach (dla małych, średnich i dużych firm). Miałoby zostać
+utworzone z paczek binarnych kompilowanych przez deweloperów przy okazji ich
+codziennej pracy. Stwierdził, że to najlepszy sposób na zademonstrowanie, że
+Gentoo poważnie podchodzi do kwestii zastosowania go jako system klasy
+Enterprise.
+</p>
+
+<p>
+Grant Goodyear odparł, że Steve nie docenia trudności, jakie występują przy
+tworzeniu binarnego repozytorium oraz przecenia zainteresowanie deweloperów całą
+sprawą. Dodał, że Gentoo powinno skupić się na swoich mocnych stronach, czyli
+byciu metadystrybucją, która pozwala użytkownikom tworzyć i wdrażać dostosowane
+do własnych potrzeb dystrybucje za pomocą narzędzia Catalyst.
+</p>
+
+<p>
+Stuart Herbert zauważył, że on i inni chętnie pomogliby przy dostosowaniu
+Gentoo do wymogów środowiska Enterprise poprzez dostarczanie plików
+binarnych inicjatywie „Seeds”. Stwierdził też, że dystrybucje binarne są
+podobnie narażone na awarie jak te oparte na źródłach.
+</p>
+
+<p>
+Robin Johnson napisał, że kompilowane przez niego, jako dewelopera pakiety nie
+przydały by się innym, ponieważ uwzględniają zbyt wiele detali
+charakterystycznych dla jego komputera. Podzielił się także doświadczeniami z
+wdrażania Gentoo w środowisku Enterprise. Zwrócił uwagę na fakt, że duże firmy
+wymagają dostosowywania szczegółów na dużą skalę, na przykład używając
+technologii LDAP lub Kerberos lub innych na skalę całej firmy. Wymagają także
+standardowych pakietów binarnych. Rozwiązanie, które zastosował polegało na
+użyciu jednego systemu do kompilacji, a następnie wykorzystaniu pakietów na
+pozostałych komputerach. Osiągał to za pomocą narzędzia Catalyst i własnych
+skryptów. Największe wdrożenie, w jakim brał udział, stosując się do tego planu
+obejmowało pokaźny zbiór komputerów.
+</p>
+
+<ul>
+  <li>węzły klastra [128 komputerów]</li>
+  <li>główny węzeł klastra [1 komputer]</li>
+  <li>serwery sieciowe [~60 komputerów]</li>
+  <li>serwery ldap [2 komputery]</li>
+  <li>dedykowane serwery plików (sieciowe katalogi domowe) [4 komputery]</li>
+  <li>zarządzanie infrastrukturą [3 komputery]</li>
+  <li>stacje robocze [~60 komputerów]</li>
+</ul>
+
+<ul>
+  <li><uri>http://archives.gentoo.org/gentoo-dev/msg_140734.xml</uri></li>
+</ul>
+
+<p>
+<b>Usunięcie Gnome 1.4</b>
+</p>
+
+<p>
+Doug Goldstein zaproponował usunięcie starożytnego i zmurszałego Gnome'a 1.4.
+Sporządził listę pakietów, które należałoby usunąć w <uri
+link="http://bugs.gentoo.org/154102">bugu 154102</uri>.
+</p>
+
+<ul>
+  <li><uri>http://archives.gentoo.org/gentoo-dev/msg_140785.xml</uri></li>
+</ul>
+
+<p>
+<b>Opcje FEATURES do usuwania zbędnej funkcjonalności</b>
+</p>
+
+<p>
+John Jawed korzystał z Gentoo przy tworzeniu obrazu initrd, który był mu
+potrzebny do uruchamiania PXE przez sieć. Najważniejszy był rozmiar pliku
+initrd, ponieważ zbyt duże pliki powodowały krytyczne błędy jądra.
+Zmniejszył więc rozmiar initrd poprzez usunięcie wszystkich plików man i
+doc. Następnie przygotował łatkę na Portage z dokonanymi w nim zmianami.
+</p>
+
+<p>
+Okazało się jednak, że taką funkcjonalność można uzyskać edytując jedynie
+plik /etc/make.conf.
+</p>
+
+<p>
+Christian Heim polecił Johnowi zapoznanie się z flagami FEATURES "noman" i
+"nodoc", a Tobias Scherbaum przypomniał o fladze "noinfo". Brian Jackson
+dodał jeszcze informacje o fladze INSTALL_MASK, dzięki której możemy podać
+rozdzieloną spacjami listę plików, które nie zostaną dopuszczone do
+zainstalowania w systemie. W ten sposób możemy odfiltrować pliki takie jak
+HACKING.gz i TODO.gz.
+</p>
+
+<ul>
+  <li><uri>http://archives.gentoo.org/gentoo-dev/msg_140812.xml</uri></li>
+</ul>
+
+</body>
+</section>
+<!-- gentoo-catalyst -->
+<!-- gentoo-embedded -->
+<!-- gentoo-security -->
+</chapter>
+
+<!-- Gentoo International-->
+<chapter>
+<title>Międzynarodowe Gentoo</title>
+<section>
+<title>Włochy: Linux Day, Genova</title>
+<body>
+
+<p>
+Włoski ruch Open Source zorganizował 28 października ogólnokrajowy <uri
+link="http://www.linux.it/LinuxDay">Linux Day</uri>. Był to czwarty raz, kiedy
+ciągle rozwijające się środowisko użytkowników Gentoo mogło przeprowadzić
+„ewangelizację” i kampanię reklamową. W tym roku <uri
+link="http://www.gechi.it/node/32">Gentoo Day</uri> został zorganizowany we
+współpracy z <uri link="http://genova.linux.it">GLUG-iem (Genuense Linux Users
+Group)</uri>. Dzięki pomocy ze strony lokalnych władz impreza została
+zorganizowana w Palazzo Ducale, Piazza De Ferrari, w Genui.
+</p>
+
+<p>
+Dzielni krzewiciele wiary, członkowie stowarzyszenia <uri
+link="http://www.gechi.it">Gentoo Channel Italia (GeCHI)</uri> przeprowadzili
+wiele <uri link="http://genova.linux.it/Linux_Day_2006">prezentacji</uri>
+skierowanych zarówno dla zwykłych użytkowników jak i bardziej profesjonalnych
+odbiorców. Wśród poruszonych tematów można było znaleźć m.in.: „Obróbka zdjęć z
+OSS”, „Uwolnij swojego Ipoda: RockBox”, „XGL dla zabawy i pieniędzy” oraz
+„Praktyczne zastosowania Gentoo w środowiskach biznesowych”.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo in the press -->
+<chapter>
+<title>Gentoo w prasie</title>
+<section>
+<title>LinuxHardware.com (2 listopada 2006)</title>
+<body>
+
+<p>
+Kris Kersey (także deweloper Gentoo) recenzuje pierwszy cztero-rdzeniowy
+procesor Intela, Core 2 Extreme QX6700. Do testowania używa on 64-bitowej wersji
+Gentoo Linux. Nowy procesor jest naprawdę demonem szybkości: <c>emerge
+mozilla-firefox</c> zajęło „całe” 8 minut, gdy użyto opcji MAKEOPTS="-j5".
+Każdego zainteresowanego najszybszym dostępnym komputerem biurkowym ten procesor
+powinien z pewnością zainteresować.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Tips and Tricks -->
+<chapter>
+<title>Sztuczki i kruczki</title>
+<section>
+<title>Szukanie ebulidów w nakładkach, które nie są lokalnie dostępne</title>
+<body>
+
+<p>
+Z ogromną ilością nakładek jakie są dostępne dla społeczności, jedną z przeszkód
+na jakie można napotkać przy korzystaniu z ich zawartości jest znalezienie
+interesującego nas pakietu. Niestety, domyślne możliwości Portage pozwalają
+jedynie na przeszukiwanie nakładek, które zostały już zainstalowane w naszym
+systemie. Stefan Schweizer napisał doskonały artykuł znajdujący się w blogu
+Planet Gentoo o narzędziu które umożliwia zdalne przeszukiwanie nakładek, bez
+konieczności ich instalacji.
+</p>
+
+<p>
+To narzędzie to <c>app-portage/eix</c>. By uzyskać dostęp do nowych
+funkcjonalności musimy najpierw odmaskować jego najnowszą wersję:
+</p>
+
+<pre caption="Instalacja app-portage/eix">
+# <i>echo app-portage/eix >> /etc/portage/package.keywords</i>
+# <i>emerge eix</i>
+</pre>
+
+<p>
+Aby upewnić się, że eix posiada wszystkie potrzebne informacje na temat
+dostępnych nakładek, należy wykonać poniższe polecenia:
+</p>
+
+<pre caption="Aktualiazacja listy nakładek">
+# <i>update-eix</i>
+# <i>update-eix-remote update</i>
+</pre>
+
+<p>
+Od tego momentu eix zyskuje możliwość wyszukiwania pakietów we wszystkich
+dostępnych nakładkach znajdujących się na liście laymana. Oczywiście można także
+przeszukiwać oficjalne drzewo Portage.
+</p>
+
+<pre caption="Wyszukiwanie pakietów">
+# <i>eix -e xmms</i>
+
+[D] media-sound/xmms
+Available versions:  [M]1.2.8-r5[2] [M]1.2.10-r6[2] [M]1.2.10-r8[2]
+[M]1.2.10-r14 [M]1.2.10-r14[3] [M]1.2.10-r15 [M]1.2.10-r15[3]
+[M]1.2.10-r16 [M]1.2.10-r16[3] [M]20101010[1]
+Installed:           1.2.10-r15[01:54:46 08/29/06][nls esd mmx
+vorbis 3dnow mikmod -directfb alsa oss arts -jack -sndfile -lirc
+-flac mad mp3]
+Homepage:            http://xmms.org
+Description:         X Multimedia System
+
+[1] (layman/fluidportage)
+[2] (layman/gentoojp)
+[3] (layman/zugaina)
+</pre>
+
+<p>
+Więcej informacji można uzyskać z lektury strony podręcznika man dla polecenia
+eix oraz w opublikowanym wpisie w blogu. Link do niego został umieszczony
+poniżej.
+</p>
+
+<ul>
+  <li><uri>http://planet.gentoo.org/developers/genstef/2006/11/03/searching_for_ebuilds_in_overlays_that_a</uri></li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Używanie 32-bitowego mplayera z 64-bitowym kmplayerem</title>
+<body>
+
+<p>
+Na komputerach bazujących na architekturze amd64, możemy używać pakietu
+<c>media-vide/mplayer-bin</c>, aby odtwarzać multimedia, które wymagają kodeków
+pracujących tylko w środowisku 32-bitowym (win32codecs). Jednak ta wersja
+mplayera nie wygląda tak dobrze, jak jego natywna 64-bitowa wersja. Dodatkowo
+nie integruje się ona z systemem w zadowalający sposób. Użytkownicy KDE mogą
+zainstalować kmplayera, nakładkę graficzną bazującą na KDE. Instaluje on także
+wtyczkę do przeglądarki konqueror. Aby skorzystać z binarnej wersji mplayera
+należy odinstalować jego natywną, kompilowaną wersję. W domyślnej konfiguracji
+kmplayer odmówi współpracy ze względu na brak pliku
+<path>/usr/bin/mplayer</path>. Na szczęście możemy w łatwy sposób temu
+zaradzić.
+</p>
+
+<pre caption="Tworzenie dowiązania symbolicznego">
+ln -sf /usr/bin/mplayer-bin /usr/local/bin/mplayer
+</pre>
+
+<p>
+Po wykonaniu tego polecenia, natywny kmplayer będzie odtwarzał pliki wmv, a w
+konquerorze będziemy mieli możliwość oglądania podglądu takich plików.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo developer moves -->
+<chapter>
+<title>Zmiana statusu deweloperów Gentoo</title>
+<section>
+<title>Odeszli</title>
+<body>
+
+<p>
+Następujący deweloperzy opuścili projekt Gentoo Linux w minionym tygodniu:
+</p>
+
+<ul>
+  <li>Jon Portnoy (avenj)</li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Przybyli</title>
+<body>
+
+<p>
+Następujący deweloperzy przyłączyli się do projektu Gentoo Linux w minionym
+tygodniu:
+</p>
+
+<ul>
+  <li>Naoaki Shindo (shindo) japoński projekt tłumaczenia dokumentacji</li>
+  <li>Hans de Graaff (graaff) Xemacs</li>
+  <li>Dimitry Bradt (diox) koordynator holenderskiego projektu tłumaczenia
+  dokumentacji</li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Zmienili status</title>
+<body>
+
+<p>
+Następujący deweloperzy zmienili w minionym tygodniu pełnioną w projekcie Gentoo
+Linux funkcję:
+</p>
+
+<ul>
+  <li><e>Nikt w tym tygodniu</e></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo security -->
+<chapter>
+<title>Bezpieczeństwo Gentoo</title>
+<!-- paste from the script -->
+<section>
+<title>Asterisk: Wiele usterek</title>
+<body>
+
+<p>
+Asterisk zwiera usterki zdalnego wykonania niepożądanego kodu oraz Denial of
+Service.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200610-15.xml"> komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>Screen: Usterka w obsłudze kodowania UTF-8</title>
+<body>
+
+<p>
+Screen zawiera usterkę w kodzie obsługującym kodowanie UTF-8, która może zostać
+wykorzystana do przeprowadzenia ataku Denial of Service oraz potencjalnie
+zdalnego wykonania niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200611-01.xml"> komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>Qt: Przekroczenie zakresu liczby całkowitej</title>
+<body>
+
+<p>
+Qt zawiera usterkę w kodzie odpowiedzialnym za przetwarzanie obrazów, która może
+zostać wykorzystana do przeprowadzenia ataku Denial of Service lub zdalnego
+wykonania niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200611-02.xml"> komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Upcoming package removals -->
+<chapter>
+<title>Pakiety przewidziane do usunięcia</title>
+<section>
+<body>
+
+<p>
+Poniżej można znaleźć listę pakietów, które zostaną w najbliższym czasie
+usunięte z drzewa Portage. Informacje te pochodzą z różnych źródeł, włączając
+projekt <uri link="/proj/en/qa/treecleaners">Treecleaners</uri> oraz zgłoszenia
+od poszczególnych deweloperów.
+</p>
+
+</body>
+</section>
+<section>
+<title>Ostatnie namaszczenie:</title>
+<body>
+
+<table>
+<tr>
+  <th>Pakiet:</th>
+  <th>Data usunięcia:</th>
+  <th>Kontakt:</th>
+</tr>
+<tr>
+  <ti>x11-misc/commonbox-utils</ti>
+  <ti>29 listopada 06</ti>
+  <ti><mail link="omp@gentoo.org">David Shakaryan</mail></ti>
+</tr>
+<tr>
+  <ti>games-strategy/magnant</ti>
+  <ti>28 listopada 06</ti>
+  <ti><mail link="mr_bones_@gentoo.org">Michael Sterrett</mail></ti>
+</tr>
+<tr>
+  <ti>media-libs/allegttf</ti>
+  <ti>28 listopada 06</ti>
+  <ti><mail link="mr_bones_@gentoo.org">Michael Sterrett</mail></ti>
+</tr>
+<tr>
+  <ti>games-action/phobiaiii</ti>
+  <ti>28 listopada 06</ti>
+  <ti><mail link="mr_bones_@gentoo.org">Michael Sterrett</mail></ti>
+</tr>
+<tr>
+  <ti>games-action/phobiaiii</ti>
+  <ti>28 listopada 06</ti>
+  <ti><mail link="mr_bones_@gentoo.org">Michael Sterrett</mail></ti>
+</tr>
+<tr>
+  <ti>media-sound/bpmdj</ti>
+  <ti>30 listopada 06</ti> 
+  <ti><mail link="flameeyes@gentoo.org">Diego Pettenò</mail></ti>
+</tr>
+<tr>
+  <ti>media-libs/janus</ti>
+  <ti>4 grudnia 06</ti>
+  <ti><mail link="phreak@gentoo.org">Christian Heim</mail></ti>
+</tr>
+<tr>
+  <ti>net-analyzer/tcpick</ti>
+  <ti>4 grudnia 06</ti>
+  <ti><mail link="phreak@gentoo.org">Christian Heim</mail></ti>
+</tr>
+<tr>
+  <ti>x11-wm/qvwm</ti>
+  <ti>4 grudnia 06</ti>
+  <ti><mail link="phreak@gentoo.org">Christian Heim</mail></ti>
+</tr>
+<tr>
+  <ti>media-libs/jpeg-mmx</ti>
+  <ti>5 grudnia 06</ti>
+  <ti><mail link="vapier@gentoo.org">Mike Frysinger</mail></ti>
+</tr>
+<tr>
+  <ti>x11-libs/nucleo</ti>
+  <ti>5 grudnia 06</ti>
+  <ti><mail link="omp@gentoo.org">David Shakaryan</mail></ti>
+</tr>
+<tr>
+  <ti>x11-wm/aewm++</ti>
+  <ti>5 grudnia 06</ti>
+  <ti><mail link="omp@gentoo.org">David Shakaryan</mail></ti>
+</tr>
+<tr>
+  <ti>x11-wm/aewm++-goodies</ti>
+  <ti>5 grudnia 06</ti>
+  <ti><mail link="omp@gentoo.org">David Shakaryan</mail></ti>
+</tr>
+<tr>
+  <ti>x11-wm/golem</ti>
+  <ti>5 grudnia 06</ti>
+  <ti><mail link="omp@gentoo.org">David Shakaryan</mail></ti>
+</tr>
+<tr>
+  <ti>x11-wm/integrity</ti>
+  <ti>5 grudnia 06</ti>
+  <ti><mail link="omp@gentoo.org">David Shakaryan</mail></ti>
+</tr>
+<tr>
+  <ti>x11-wm/lwm</ti>
+  <ti>5 grudnia 06</ti>
+  <ti><mail link="omp@gentoo.org">David Shakaryan</mail></ti>
+</tr>
+<tr>
+  <ti>x11-wm/metisse</ti>
+  <ti>5 grudnia 06</ti>
+  <ti><mail link="omp@gentoo.org">David Shakaryan</mail></ti>
+</tr>
+<tr>
+  <ti>x11-wm/papuawm</ti>
+  <ti>5 grudnia 06</ti>
+  <ti><mail link="omp@gentoo.org">David Shakaryan</mail></ti>
+</tr>
+<tr>
+  <ti>x11-wm/pawm</ti>
+  <ti>5 grudnia 06</ti>
+  <ti><mail link="omp@gentoo.org">David Shakaryan</mail></ti>
+</tr>
+<tr>
+  <ti>x11-wm/pwm</ti>
+  <ti>5 grudnia 06</ti>
+  <ti><mail link="omp@gentoo.org">David Shakaryan</mail></ti>
+</tr>
+<tr>
+  <ti>x11-wm/trswm</ti>
+  <ti>5 grudnia 06</ti>
+  <ti><mail link="omp@gentoo.org">David Shakaryan</mail></ti>
+</tr>
+<tr>
+  <ti>x11-wm/wmi</ti>
+  <ti>5 grudnia 06</ti>
+  <ti><mail link="omp@gentoo.org">David Shakaryan</mail></ti>
+</tr>
+<tr>
+  <ti>x11-wm/xpde</ti>
+  <ti>5 grudnia 06</ti>
+  <ti><mail link="omp@gentoo.org">David Shakaryan</mail></ti>
+</tr>
+
+</table>
+</body>
+</section>
+</chapter>
+
+<!-- Bugzilla -->
+<!-- paste from the script -->
+<chapter>
+<title>Bugzilla</title>
+<section>
+<title>Podsumowanie</title>
+<body>
+
+<ul>
+  <li><uri link="#bugs-stats">Statystyki</uri></li>
+  <li><uri link="#bugs-closed">Zamknięte bugi</uri></li>
+  <li><uri link="#bugs-new">Nowe bugi</uri></li>
+</ul>
+
+</body>
+</section>
+<section id="bug-stats">
+<title>Statystyki</title>
+<body>
+
+<p>
+Społeczność Gentoo używa Bugzilli (<uri
+link="http://bugs.gentoo.org/">bugs.gentoo.org</uri>) do zgłaszania i śledzenia
+błędów, ogłoszeń, sugestii oraz innych form kontaktu z deweloperami. Pomiędzy 29
+października 2006, a 5 listopada 2006 aktywność w serwisie przedstawiała się
+następująco:
+</p>
+
+<ul>
+  <li>zgłoszono 866 nowych bugów</li>
+  <li>zamknięto lub rozwiązano 546 bugów</li>
+  <li>otwarto ponownie 19 uprzednio zamkniętych bugów</li>
+  <li>154 bugi oznaczono jako NEEDINFO/WONTFIX/CANTFIX/INVALID/UPSTREAM</li>
+  <li>200 bugów oznaczono jako duplikaty</li>
+</ul>
+
+<p>
+Spośród 10999 obecnie otwartych bugów: 30 oznaczono jako 'blocker', 107 jako
+'critical', a 514 jako 'major'.
+</p>
+
+</body>
+</section>
+<section id="bugs-closed">
+<title>Zamknięte Bugi</title>
+<body>
+
+<p>
+Deweloperzy oraz zespoły, które zamknęły najwięcej bugów w minionym tygodniu,
+to:
+</p>
+
+<ul>
+  <li><mail link="gnome@gentoo.org">Gentoo Linux Gnome Desktop Team</mail>, 33
+  <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-10-29&amp;chfieldto=2006-11-05&amp;resolution=FIXED&amp;assigned_to=gnome@gentoo.org">zamknięte
+  bugi</uri></li>
+  <li><mail link="games@gentoo.org">Gentoo Games</mail>, 24 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-10-29&amp;chfieldto=2006-11-05&amp;resolution=FIXED&amp;assigned_to=games@gentoo.org">zamknięte
+  bugi</uri></li>
+  <li><mail link="base-system@gentoo.org">Gentoo's Team for Core System
+  packages</mail>, 19 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-10-29&amp;chfieldto=2006-11-05&amp;resolution=FIXED&amp;assigned_to=base-system@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="sound@gentoo.org">Gentoo Sound Team</mail>, 16 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-10-29&amp;chfieldto=2006-11-05&amp;resolution=FIXED&amp;assigned_to=sound@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="netmon@gentoo.org">Netmon Herd</mail>, 16 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-10-29&amp;chfieldto=2006-11-05&amp;resolution=FIXED&amp;assigned_to=netmon@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="emacs@gentoo.org">GNU Emacs Herd</mail>, 16 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-10-29&amp;chfieldto=2006-11-05&amp;resolution=FIXED&amp;assigned_to=emacs@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="amd64@gentoo.org">AMD64 Project</mail>, 15 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-10-29&amp;chfieldto=2006-11-05&amp;resolution=FIXED&amp;assigned_to=amd64@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="maintainer-needed@gentoo.org">Default Assignee for Orphaned
+  Packages</mail>, 14 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-10-29&amp;chfieldto=2006-11-05&amp;resolution=FIXED&amp;assigned_to=maintainer-needed@gentoo.org">zamkniętych
+  bugów</uri></li>
+</ul>
+
+</body>
+</section>
+<section id="bugs-new">
+<title>Nowe Bugi</title>
+<body>
+
+<p>
+Deweloperzy oraz zespoły, którym przydzielono najwięcej bugów w minionym tygodniu,
+to:
+</p>
+
+<ul>
+  <li><mail link="maintainer-wanted@gentoo.org">Default Assignee for New
+  Packages</mail>, 24 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-10-29&amp;chfieldto=2006-11-05&amp;assigned_to=maintainer-wanted@gentoo.org">nowe
+  bugi</uri></li>
+  <li><mail link="maintainer-needed@gentoo.org">Default Assignee for Orphaned
+  Packages</mail>, 10 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-10-29&amp;chfieldto=2006-11-05&amp;assigned_to=maintainer-needed@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="amd64@gentoo.org">AMD64 Project</mail>, 10 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-10-29&amp;chfieldto=2006-11-05&amp;assigned_to=amd64@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="java@gentoo.org">Java team</mail>, 9 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-10-29&amp;chfieldto=2006-11-05&amp;assigned_to=java@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="net-mail@gentoo.org">Net-Mail Packages</mail>, 7 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-10-29&amp;chfieldto=2006-11-05&amp;assigned_to=net-mail@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="kde@gentoo.org">Gentoo KDE team</mail>, 7 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-10-29&amp;chfieldto=2006-11-05&amp;assigned_to=kde@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="base-system@gentoo.org">Gentoo's Team for Core System
+  packages</mail>, 7 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-10-29&amp;chfieldto=2006-11-05&amp;assigned_to=base-system@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="seemant@gentoo.org">Seemant Kulleen</mail>, 6 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-10-29&amp;chfieldto=2006-11-05&amp;assigned_to=seemant@gentoo.org">nowych
+  bugów</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- GWN feedback information -->
+<chapter>
+<title>Opinie czytelników</title>
+<section>
+<body>
+
+<p>
+Tygodnik Gentoo jest tworzony i tłumaczony przez ochotników i członków
+społeczności, którzy nadsyłają swoje pomysły i gotowe artykuły. Zachęcamy
+wszystkich do pomocy i współpracy przy publikacji kolejnych numerów Tygodnika
+Gentoo. Oczekujemy na propozycje artykułów, interesują nas także opinie na temat
+tych już opublikowanych. Wszelkie komentarze prosimy kierować na <mail
+link="gwn-feedback@gentoo.org">adres Tygodnika Gentoo</mail>. Uwagi dotyczące
+tłumaczenia należy zgłaszać na adres <mail
+link="moloh@gentoo.org">koordynatora</mail>. Pomóżcie sprawić, by Tygodnik
+Gentoo był jeszcze lepszy.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- GWN subscription information -->
+<chapter>
+<title>Subskrypcja Tygodnika Gentoo</title>
+<section>
+<body>
+
+<p>
+Aby zaprenumerować Tygodnik Gentoo, należy wysłać pustego emaila na adres <mail
+link="gentoo-gwn-pl+subscribe@gentoo.org">gentoo-gwn-pl+subscribe@gentoo.org</mail>.
+</p>
+
+<p>
+Aby zrezygnować z subskrypcji, należy wysłać pustego emaila na adres <mail
+link="gentoo-gwn-pl+unsubscribe@gentoo.org">
+gentoo-gwn-pl+unsubscribe@gentoo.org</mail> z konta, na które jest
+zarejestrowana.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Other Languages -->
+<chapter>
+<title>Inne języki</title>
+<section>
+<body>
+
+<p>
+Tygodnik Gentoo jest dostępny w następujących językach:
+</p>
+
+<ul>
+  <li><uri link="/news/en/gwn/gwn.xml">angielskim</uri></li>
+  <li><uri link="/news/zh_cn/gwn/gwn.xml">chińskim (uproszczony)</uri></li>
+  <li><uri link="/news/da/gwn/gwn.xml">duńskim</uri></li>
+  <li><uri link="/news/fr/gwn/gwn.xml">francuskim</uri></li>
+  <li><uri link="/news/el/gwn/gwn.xml">greckim</uri></li>
+  <li><uri link="/news/es/gwn/gwn.xml">hiszpańskim</uri></li>
+  <li><uri link="/news/nl/gwn/gwn.xml">holenderskim</uri></li>
+  <li><uri link="/news/ja/gwn/gwn.xml">japońskim</uri></li>
+  <li><uri link="/news/ko/gwn/gwn.xml">koreańskim</uri></li>
+  <li><uri link="/news/de/gwn/gwn.xml">niemieckim</uri></li>
+  <li><uri link="/news/pl/gwn/gwn.xml">polskim</uri></li>
+  <li><uri link="/news/pt_br/gwn/gwn.xml">portugalskim (Brazylia)</uri></li>
+  <li><uri link="/news/pt/gwn/gwn.xml">portugalskim (Portugalia)</uri></li>
+  <li><uri link="/news/ru/gwn/gwn.xml">rosyjskim</uri></li>
+  <li><uri link="/news/sk/gwn/gwn.xml">słowackim</uri></li>
+  <li><uri link="/news/it/gwn/gwn.xml">włoskim</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+</guide>
+

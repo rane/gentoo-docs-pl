@@ -1,0 +1,39 @@
+# Distributed under the terms of the GNU General Public License v2
+# Copyright 2005-2006 The RepoDoc Team
+
+KEYWORDS="* -metadoc"
+
+LEVEL="BASIC"
+
+exec_module() {
+	local LONG_LINES
+
+	# Making exceptions using sed:
+	# 1. <pre> blocks are ignored
+	# 2. <!-- Header lines
+	# 3. Big link=""'s are allowed
+	# 4. <title>s can be very long
+	# 5. <key>s can be very long
+	# 6. <* test=""> can be very long
+	# 7. <guide> lines
+	# 8. Big <uri>something</uri> lines (allowing a possible trailing dot)
+
+	LONG_LINES=$(sed -n -e '
+		/^<pre .*>/,/^<\/pre>/d
+		/<!-- \$Header:/d
+		/^[[:space:]]*link="/d	
+		/^<title>/d		
+		/[[:space:]]*<key id=/d
+		/^<guide .*>$/d
+		/^<[a-z]* test=/d
+		/^[[:blank:]]*<uri>[^<]*<\/uri>\.\?$/d
+		/^.\{81,\}$/{=;p}
+	' ${DOC} | sed -f "${LIB_DIR}/massagelinenumbers.sed")
+
+	if [[ -z ${LONG_LINES} ]] ; then
+		return 0
+	else
+		OUTPUT_TEXT="${LONG_LINES}"
+		return 1
+	fi
+}

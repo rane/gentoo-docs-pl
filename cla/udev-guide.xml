@@ -1,0 +1,462 @@
+<?xml version='1.0' encoding="UTF-8"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/doc/pl/udev-guide.xml,v 1.18 2007/06/05 21:35:01 rane Exp $ -->
+
+<guide link="/doc/pl/udev-guide.xml" lang="pl">
+<title>Praca z udev w Gentoo</title>
+
+<author title="Autor">
+  <mail link="swift@gentoo.org">Sven Vermeulen</mail>
+</author>
+<author title="Współpracownik">
+  <mail link="greg_g@gentoo.org">Gregorio Guidi</mail>
+</author>
+<author title="Tłumaczenie">
+  <mail link="edi15ta@gazeta.pl">Mateusz Kotyrba</mail>
+</author>
+
+<abstract>
+Ten dokument wyjaśnia czym jest udev oraz opisuje jak go używać, aby sprostał
+naszym wymaganiom.
+</abstract>
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
+<license/>
+
+<version>0.32</version>
+<date>2007-08-02</date>
+
+<chapter>
+<title>Czym jest udev?</title>
+<section>
+<title>Katalog /dev</title>
+<body>
+
+<p>
+Kiedy użytkownicy Linuksa rozmawiają o ich sprzęcie w pobliżu ludzi, którzy
+wierzą, że Linux jest pewnego rodzaju wirusem lub gatunkiem kawy, użycie słów
+"ukośnik dev ukośnik coś tam" spowoduje, że zaczną się oni dziwnie na nich
+patrzeć. Ale szczęśliwy użytkownik (i to jesteśmy my) używając
+<path>/dev/hda1</path> skrótowo wyjaśnia, że rozmowa tyczy się pierwszej
+partycji dysku, który jest podpięty jako primary master. Czy nie mam racji?
+</p>
+
+<p>
+Wszyscy wiemy czym jest plik urządzenia. Niektórzy nawet wiedzą dlaczego pliki
+urządzeń posiadają specjalne numery, które widać wykonując polecenie
+<c>ls -l</c> w <path>/dev</path>. Ale zawsze dysk podpięty jako primary master
+jest widoczny jako <path>/dev/hda</path>. Można tego nie widzieć w ten sposób,
+ale jest to wada projektu.
+</p>
+
+<p>
+Pomyślmy o urządzeniach podłączanych podczas pracy takich jak USB, IEEE1394,
+PCI... Co jest pierwszym urządzeniem? I na jak długo? Jak będą inne urządzenia
+nazwane, kiedy to pierwsze zniknie? Jaki to będzie miało wpływ na inne procesy?
+Czyż nie byłoby to zabawne gdyby zadanie do drukowania zostało nagle
+przeniesione z naszej nowiutkiej drukarki laserowej do naszej zrupieciałej
+drukarki mozaikowej, ponieważ mama zdecydowała się wyciągnąć wtyczkę drukarki
+laserowej, która była pierwszą drukarką, z kontaktu?
+</p>
+
+<p>
+Wchodzimy do <e>udev</e>. Główne cele projektu udev są zarówno ciekawe jak i
+konieczne:
+</p>
+
+<ul>
+  <li>Działa w przestrzeni użytkownika</li>
+  <li>Dynamicznie tworzy lub usuwa pliki urządzeń</li>
+  <li>Dostarcza spójne nazewnictwo</li>
+  <li>Dostarcza interfejsu API przestrzeni użytkownika</li>
+</ul>
+
+<p>
+Aby dostarczyć te cechy, udev jest rozwijany w trzech odrębnych projektach:
+<e>namedev</e>, <e>libsysfs</e> oraz <e>udev</e>.
+</p>
+
+</body>
+</section>
+<section>
+<title>namedev</title>
+<body>
+
+<p>
+Namedev pozwala zdefiniować odrębne nazewnictwo niż to w udev. To pozwala na
+elastyczne polityki i schematy nazewnictwa rozwijane przez odrębne jednostki.
+Ten podsystem nazewnictwa urządzeń dostarcza standardowego interfejsu, którego
+może używać udev.
+</p>
+
+<p>
+Obecnie namedev dostarcza tylko jeden schemat nazewnictwa - LANANA, który jest
+używany przez większość obecnych systemów Linuksowych, a zatem pasuje on
+większości użytkowników Linuksa.
+</p>
+
+<p>
+Namedev używa pięciostopniowej procedury pozyskiwania nazwy urządzenia. Jeśli
+nazwa urządzenia zostanie znaleziona w tych pięciu krokach, wtedy zostanie ona
+użyta. Są nimi:
+</p>
+
+<ul>
+  <li>etykieta lub numer seryjny</li>
+  <li>numer urządzenia magistrali</li>
+  <li>topologia magistrali</li>
+  <li>statycznie przydzielana nazwa</li>
+  <li>nazwa dostarczona przez jądro</li>
+</ul>
+
+<p>
+Krok <e>etykieta lub numer seryjny</e> sprawdza czy urządzenie posiada
+jednoznaczny identyfikator. Na przykład urządzenia USB posiadają unikalny numer
+seryjny, urządzenia SCSI posiadają unikalny UUID. Jeśli namedev znajdzie
+odpowiednią nazwę wtedy zostanie ona użyta.
+</p>
+
+<p>
+Krok <e>numer urządzenia magistrali</e> sprawdza numer urządzenia magistrali.
+Dla systemów, które nie mają możliwości podłączania urządzeń w trakcie pracy,
+ten krok jest wystarczający.  Ponieważ numery magistrali bardzo rzadko są
+zmieniane. Ponownie jeśli namedev znajdzie odpowiednią nazwę wtedy zostanie ona
+użyta.
+</p>
+
+<p>
+Podobnie krok <e>topologia magistrali</e> jest statycznym sposobem
+przydzielania nazw, pod warunkiem, że użytkownik nie zamieni urządzeń. Jeśli
+pozycja urządzenia będzie zgodna z tym co podał użytkownik, wtedy towarzysząca
+temu nazwa zostanie użyta.
+</p>
+
+<p>
+Krok czwarty, <e>statycznie przydzielana nazwa</e>, jest prostym zastępowaniem
+ciągów znaków. Kiedy nazwa dostarczona przez jądro (domyślna nazwa) pasuje do
+danego ciągu znaków, wtedy ten ciąg zostanie zastąpiony.
+</p>
+
+<p>
+Ostatnim krokiem (<e>nazwa dostarczona przez jądro</e>) jest nadanie wszystkim
+urządzeniom domyślnej nazwy dostarczonej wraz z jądrem. Większości systemów
+Linuksowych ten krok jest wystarczający.
+</p>
+
+</body>
+</section>
+<section>
+<title>libsysfs</title>
+<body>
+
+<p>
+udev komunikuje się z jądrem poprzez pseudo system plików sysfs. Projekt
+libsysfs dostarcza interfejsu API, który zezwala na dostęp do informacji danych
+przez system plików sysfs. To pozwala na sprawdzenie całego sprzętu bez
+konieczności posiadania wiedzy jakiego typu sprzęt jest sprawdzany.
+</p>
+
+</body>
+</section>
+<section>
+<title>udev</title>
+<body>
+
+<p>
+Za każdym razem kiedy jądro zauważy zmianę w drzewie urządzeń konsultuje się z
+udev. udev najpierw postępuje zgodnie z zasadami z katalogu
+<path>/etc/udev/rules.d/</path>, następnie wprowadza zmiany zasugerowane przez
+jądro (usuwając lub dodając pliki w katalogu <path>/dev</path>.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Praca z udev w Gentoo</title>
+<section>
+<title>Wymagania</title>
+<body>
+
+<p>
+udev został stworzony do pracy wraz jądrem 2.6 (na przykład
+<c>gentoo-sources</c> w domyślnym profilu 2007.0). Jeśli używamy takiego jądra,
+wtedy należy się upewnić, że posiadamy najnowszą wersję pakietu
+<c>sys-apps/baselayout</c>.
+</p>
+
+<pre caption="Instalacja udev">
+# <i>emerge udev</i>
+</pre>
+
+<p>
+Użytkownicy korzystający z ręcznie skompilowanego jądra muszą włączyć
+następujące opcje:
+</p>
+
+<pre caption="Wymagane opcje jądra">
+General setup ---&gt;
+  [*] Support for hot-pluggable devices
+
+File systems ---&gt;
+  Pseudo filesystems ---&gt;
+    [*] /proc file system support
+    [*] Virtual memory file system support (former shm fs)
+</pre>
+
+<p>
+Użytkownicy <c>genkernela</c>, muszą uruchomić ten skrypt z flagą <c>--udev</c>,
+aby włączyć wszystkie instrukcje konfigurujące jądro. Jednak domyślna
+konfiguracja wykonana przez samo polecenie <c>genkernel</c> również wystarczy do
+prawidłowego uruchomienia systemu.
+</p>
+
+</body>
+</section>
+<section>
+<title>Konfiguracja</title>
+<body>
+
+<p>
+Jeśli chcemy, aby poprawki dodane przez deweloperów Gentoo ułatwiły nam życie
+wtedy należy ominąć ten rozdział. Gentoo będzie używał udev, ale katalog
+<path>/dev</path> będzie statyczny, żebyśmy nigdy nie doświadczyli braku
+jakiegokolwiek węzła urządzenia. W tym wariancie skrypty Gentoo nie uruchomią
+demona devfs i wyłączą devfs podczas uruchamiania systemu.
+</p>
+
+<p>
+Jeśli jesteśmy twardzi i chcemy, aby nasz system używał tylko i wyłącznie udev
+(mogą pojawić się brakujące węzły urządzeń spowodowane przez brak wsparcia ze
+strony udev), wtedy należy czytać dalej.
+</p>
+
+<p>
+Wyłączymy reguły, które zachowują węzły urządzeń do pliku: edytujemy zmienną
+<c>RC_DEVICE_TARBALL</c> w <path>/etc/conf.d/rc</path> i ustawiamy ją na
+<c>no</c>:
+</p>
+
+<pre caption="/etc/conf.d/rc">
+RC_DEVICE_TARBALL="no"
+</pre>
+
+<p>
+Jeśli włączyliśmy w jądrze wsparcie dla devfs, możemy je wyłączyć dopisując do
+parametrów jądra w pliku konfiguracyjnym bootloadera: <c>gentoo=nodevfs</c>.
+Jeśli chcemy używać devfs i wyłączyć udev, wtedy jako parametr jądra
+dodajemy <c>gentoo=noudev</c>.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Znane problemy</title>
+<section>
+<title>Brakujące pliki węzła urządzenia podczas ładowania systemu</title>
+<body>
+
+<p>
+Jeśli nie potrafimy pomyślnie zakończyć procesu uruchamiania systemu ponieważ
+wyskakuje nam błąd o nie znalezieniu <path>/dev/null</path> lub ponieważ brakuje
+konsoli startowej, wtedy problemem jest brak pewnych plików urządzeń, które
+musza być dostępne <e>przed</e> zamontowaniem katalogu <path>/dev</path>.
+</p>
+
+<p>
+Jeśli posiadamy <c>sys-apps/baselayout-1.8.12</c> lub nowszy, wtedy ten problem
+jest złagodzony ponieważ proces uruchamiania systemu powinien zakończyć się
+powodzeniem. Jednakże, aby pozbyć się tych denerwujących ostrzeżeń, należy
+stworzyć brakujące węzły urządzeń tak jak jest to przedstawione poniżej.
+</p>
+
+<p>
+Aby sprawdzić które węzły urządzeń są obecne przed zamontowaniem
+katalogu <path>/dev</path> należy wykonać następujące polecenia:
+</p>
+
+<pre caption="Wyświetlanie węzłów urządzeń dostępnych podczas uruchamiania systemu">
+# <i>mkdir test</i>
+# <i>mount --bind / test</i>
+# <i>cd test/dev</i>
+# <i>ls</i>
+</pre>
+
+<p>
+Urządzenia wymagane do pomyślnego załadowania systemu są umieszczone w
+<path>/dev/null</path> oraz w <path>/dev/console</path>. Jeśli się nie pojawiły,
+to należy je stworzyć ręcznie. Będąc w katalogu <path>test/dev/</path> należy
+wykonać:
+</p>
+
+<pre caption="Tworzenie wymaganych plików węzłów urządzeń">
+# <i>mknod -m 660 console c 5 1</i>
+# <i>mknod -m 660 null c 1 3</i>
+</pre>
+
+<p>
+Kiedy skończymy nie należy zapomnieć o odmontowaniu katalogu <path>test/</path>:
+</p>
+
+<pre caption="Odmontowywanie katalogu test/">
+# <i>cd ../..</i>
+# <i>umount test</i>
+# <i>rmdir test</i>
+</pre>
+
+</body>
+</section>
+<section>
+<title>udev i nVidia</title>
+<body>
+
+<p>
+Jeśli używamy odpowiednich sterowników nVidii, ale serwer X nie uruchamia się,
+wtedy należy upewnić się, że mamy:
+</p>
+
+<ul>
+  <li>
+    moduł <c>nvidia</c> w <path>/etc/modules.autoload.d/kernel-2.6</path>
+  </li>
+  <li>
+    wersję baselayout równą lub wyższą <c>sys-apps/baselayout-1.8.12</c>
+  </li>
+ </ul>
+
+</body>
+</section>
+<section>
+<title>Spójne nazewnictwo pomiędzy DevFS a udev</title>
+<body>
+
+<p>
+Pomimo naszych starań, aby posiadać spójne nazewnictwo pomiędzy tymi dwoma
+dynamicznymi sposobami nazewnictwa urządzeń, czasami pewne różnice w nazwach
+występują.
+</p>
+
+<p>
+Jednym ze zgłoszonych błędów jest kolizja z kontrolerem HP Smart Array 5i RAID
+(a dokładniej modułem jądra <c>cciss</c>). W udev, urządzenia są nazywane
+<path>/dev/cciss/cXdYpZ</path> gdzie X, Y i Z są normalnymi liczbami. W devfs
+urządzeniami są <path>/dev/hostX/targetY/partZ</path> lub dowiązane symbolicznie
+z <path>/dev/cciss/cXdY</path>.
+</p>
+
+<p>
+W tym przypadku należy pamiętać o zaktualizowaniu pliku <path>/etc/fstab</path>
+oraz o konfiguracji plików bootloadera
+</p>
+
+<p>
+To samo dzieje się ze wszystkimi dowiązaniami z katalogu <path>/dev</path>,
+takimi jak <path>/dev/mouse</path>, których <c>udev</c> już nie tworzy. Należy
+się upewnić, że w pliku konfiguracyjnym X-ów posiadamy odpowiednie ustawienia.
+</p>
+
+<p>
+Kolejny problemem jest różnica w nazwach terminali pomiędzy devfs i udev.
+Terminale w devfs nazywają się <c>tty</c>, a w udev <c>vc</c> lub <c>tty</c>.
+Może to przysporzyć kłopotu, gdy ogranicza się dostęp do konsoli za pomocą
+pliku <path>/etc/securetty</path>. Należy zmienić wpis <c>tty1</c> na
+<c>vc/1</c> w pliku <path>/etc/securetty</path>, aby root mógł logować się w
+konsoli.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zmiana nazw plików urządzeń</title>
+<body>
+
+<p>
+Nowsze wersje udev (104 i wyżej) oraz nowsze wersje jądra (2.6.19 i wyżej) mogą
+zmienić nazwy plików urządzeń dyskowych, co ma związek ze zmianami implementacji
+libata w jądrze. W związku z tym na przykład urządzenie nagrywarki CD-RW, które
+kiedyś nazywało się <path>/dev/hdc</path> może zmienić nazwę na
+<path>/dev/sr0</path>. W większości systemów nie powoduje to żadnych problemów.
+Istnieje jednak pewna ilość programów, które mają na stałe wpisane gdzie powinno
+znajdować się dane urządzenie, a to może prowadzić do błędów. Przykładem takiego
+programu jest <c>media-sound/rip</c>, który zakłada, że znajdzie czytnik płyt CD
+w pliku <path>/dev/cdrom</path>. W nowszych wersjach udev i jądra czytnik ten
+może się nazywać na przykład <path>/dev/cdrom1</path>.
+</p>
+
+<p>
+Aby zapobiec tego typu problemom, należy odpowiednio zmienić plik
+<path>/etc/udev/rules.d/70-persistent-cd.rules</path> przypisując prawidłowe
+nazwy problematycznym urządzeniom.
+</p>
+
+<p>
+Więcej informacji na temat składni reguł udev znajduje się w <uri
+link="http://www.reactivated.net/udevrules.php">tekście</uri> Daniela Drake'a.
+</p>
+
+</body>
+</section>
+<section>
+<title>Inne problemy</title>
+<body>
+
+<p>
+Jeśli węzły urządzeń nie są tworzone podczas ładowania modułu z
+<path>/etc/modules.autoload.d/kernel-2.6</path>, ale są tworzone jeśli
+załadujemy moduł ręcznie, wtedy powinniśmy spróbować zaktualizować pakiet
+baselayout do wersji <c>sys-apps/baselayout-1.8.12</c> lub późniejszej.
+</p>
+
+<p>
+Wsparcie dla urządzeń bufora ramki (<path>/dev/fb/*</path>) jest w jądrze
+2.6.6-rc2 i powyżej.
+</p>
+
+<p>
+W jądrach starszych od 2.6.4 należy włączyć wsparcie dla systemu plików
+<path>/dev/pts</path>.
+</p>
+
+<pre caption="Włączanie systemu plików /dev/pts">
+File systems ---&gt;
+  Pseudo filesystems ---&gt;
+    [*] /dev/pts file system for Unix98 PTYs
+</pre>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Zasoby i podziękowania</title>
+<section>
+<body>
+
+<p>
+Wykład o udev na Linux Symposium (Ottawa, Ontario Canada - 2003) prowadzony
+przez Greg Kroah-Hartman (IBM Corporation) dostarczył solidnego zrozumienia
+systemu udev.
+</p>
+
+<p>
+<uri
+link="http://webpages.charter.net/decibelshelp/LinuxHelp_UDEVPrimer.html">
+Decibel's UDEV Primer</uri> jest wyczerpującym źródłem o udev i Gentoo.
+</p>
+
+<p>
+<uri link="http://www.reactivated.net/udevrules.php">Writing udev rules</uri>
+stworzony przez dewelopera Gentoo Daniela Drake jest doskonałym przykładem
+dostosowywania systemu udev do własnych potrzeb.
+</p>
+
+</body>
+</section>
+</chapter>
+
+</guide>

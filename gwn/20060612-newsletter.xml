@@ -1,0 +1,1256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<guide type="newsletter" link="20060612-newsletter.xml" lang="pl">
+<title>Tygodnik Gentoo</title>
+<subtitle>12 czerwca 2006</subtitle>
+<author title="Redaktor naczelny">
+  <mail link="plate@gentoo.org">Ulrich Plate</mail>
+</author>
+<author title="Redaktor">
+  <mail link="patrick@gentoo.org">Patrick Lauer</mail>
+</author>
+<author title="Redaktor">
+  <mail link="christel@gentoo.org">Christel Dahlskjaer</mail>
+</author>
+<author title="Redaktor">
+  <mail link="dertobi123@gentoo.org">Tobias Scherbaum</mail>
+</author>
+<author title="Redaktor">
+  <mail link="mark_alec@gentoo.org">Mark Kowarsky</mail>
+</author>
+<author title="Redaktor">
+  <mail link="tcort@gentoo.org">Thomas Cort</mail>
+</author>
+<author title="Redaktor">
+  <mail link="beandog@gentoo.org">Steve Dibb</mail>
+</author>
+<author title="Redaktor">
+  <mail link="antarus@gentoo.org">Alec Warner</mail>
+</author>
+<author title="Redaktor">
+  <mail link="solar@gentoo.org">Ned Ludd</mail>
+</author>
+<author title="Redaktor">
+  <mail link="pylon@gentoo.org">Lars Weiler</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="jbozanowski@gmail.com">Jakub Bożanowski</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="karol.kania@gmail.com">Karol Kania</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="shadoww@gentoo.org">Damian Kuras</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="moloh@gentoo.org">Michał Kurgan</mail>
+</author>
+
+<abstract>Wydanie Tygodnika Gentoo z 12 czerwca 2006.</abstract>
+<summary />
+<version>Wolumin 5, numer 21</version>
+<date>2006-06-12</date>
+
+<!-- Gentoo News -->
+<chapter>
+<title>Wiadomości Gentoo</title>
+<section>
+<title>Portage 2.1 wydane</title>
+<body>
+
+<p>
+Po wielu miesiącach prac, zespół Portage opublikował nową wersję systemu do
+zarządzania pakietami, tym razem oznaczoną numerem 2.1. Znajdziemy w niej wiele
+nowych funkcji i naprawionych błędów, poprawiono także prędkość działania.
+Szczegółowy opis zmian można znaleźć w plikach <uri
+link="http://sources.gentoo.org/viewcvs.py/portage/main/trunk/RELEASE-NOTES?view=markup">
+RELEASE-NOTES</uri> i <uri
+link="http://sources.gentoo.org/viewcvs.py/portage/main/trunk/NEWS?view=markup">
+NEWS</uri> instalowanych razem z pakietem. Najważniejsze z nich to:
+</p>
+
+<ul>
+  <li><b>Integracja confcache</b>: W połączeniu z pakietem
+  <path>dev-util/confcache</path>, użytkownicy mogą korzystać z dodatkowej
+  pamięci podręcznej przechowującej konfigurację, przyśpieszając budowanie wielu
+  pakietów używających skryptów configure</li>
+  <li><b>Zmiany w funkcjonowaniu pamięci podręcznej</b>: Pamięć podręczna
+  Portage cache została całkowicie przebudowana, dzięki czemu znacząco poprawiła
+  się prędkość aktualizacji po synchronizacji drzewa. Zmiany te też
+  przyspieszyły działanie innych operacji wykonywanych przez Portage.</li>
+  <li><b>Funkcja elog</b>: W przeszłości ważne wiadomości znajdujące się w
+  ebuildzie były wyświetlane przy pomocy funkcji <c>einfo</c>, <c>ewarn</c> i
+  <c>eerror</c>, który wyświetlały daną wiadomość na standardowe wyjście.
+  Jednak w przypadku gdy instalowaliśmy naraz kilka pakietów, bardzo łatwo było
+  przeoczyć ważne informacje dostarczane w ten sposób. Nowa funkcja <c>elog</c>
+  pozwala zebrać te wiadomości w jednym miejscu, tak aby można było w łatwy
+  sposób przeglądać je wszystkie za jednym razem. Powinno to w znaczący sposób
+  uprościć aktualizację wielu pakietów jednocześnie.</li>
+  <li><b>Haki w ebuildach</b>: Używając pliku <path>/etc/portage/bashrc</path>,
+  użytkownicy mogą zdefiniować polecenia, które będą wykonywane przez bash przed
+  lub po każdej operacji zawartej w ebuildzie. Funkcja ta może być używana do
+  wprowadzania udoskonaleń w środowisku, w którym budowany jest pakiet.
+  Dodatkowo jest znakomitym narzędziem, dla tych, którzy potrzebują
+  funkcjonalności lub zachowań jakich nie zaimplementowano w Portage.</li>
+  <li><b>Poprawki w plikach sum kontrolnych</b>: Portage może już korzystać z
+  sum kontrolnych SHA256 oraz RMD160 obok obecnego już MD5, służącego do
+  sprawdzania poprawności pobranych plików. Zapewniono także wsparcie dla nowego
+  formatu Manifest2, integrującego informacje zawarte w dotychczasowych plikach
+  Manifest i digest-*.</li>
+  <li><b>Nowe możliwości debugowania</b>: Używając zmiennej
+  FEATURES="splitdebug" możliwe jest połączenie wydajności i posiadania
+  informacji dla debugera w pakietach instalowanych przez portage. Dzięki tej
+  funkcjonalności wszelkie dane ułatwiające proces programowania będą znajdować
+  sie w osobnych plikach, nie wpływając na wydajność bibliotek i aplikacji.
+  Pomoże to z pewnością przy raportowaniu usterek i tworzeniu poprawek.</li>
+  <li><b>Zmiana kolorów</b>: Używając pliku <path>/etc/portage/color.map</path>,
+  możemy samodzielnie zmienić kolory używane przez Portage na generowanych
+  wydrukach. Każdego zainteresowanego posiadaniem różowego Portage z pewnością
+  zainteresuje ta zmiana, gdyż teraz nic nie stoi na przeszkodzie do właśnie
+  takiego dostosowania jego działania, bez zmian w kodzie źródłowym.</li>
+  <li><b>Zmiany w konfiguracji</b>: Niektóre pliki konfiguracyjne mogą być teraz
+  podzielone i umieszczone w osobnych katalogach tak by ułatwić zarządzanie nimi
+  (na przykład, katalogi <path>/etc/portage/package.unmask/kde</path>,
+  <path>/etc/portage/package.unmask/xorg</path> zostaną połączone, aby utworzyć
+  dotychczasowy plik <path>/etc/portage/package.unmask</path>).  Zawartość
+  katalogu <path>/etc/portage</path> może być także pobierana z różnych
+  lokacji.</li>
+  <li><b>Mnóstwo innych zmian</b>: Niektóre błędy bezpieczeństwa znajdujące się
+  w pakietach binarnych mogą teraz zostać naprawione automatycznie. Wstępny
+  import Portage powinien odbywać sie teraz znaczenie szybciej, co przyspieszy
+  działanie zewnętrznych skryptów importujących. Dodano opcję -q do emerge,
+  wymuszającą cichy tryb pracy przez redukcję liczby komunikatów wyświetlanych
+  przez Portage na ekranie.</li>
+</ul>
+
+<p>
+Stworzono odpowiedni raport o <uri
+link="https://bugs.gentoo.org/show_bug.cgi?id=136198">stabilizacji</uri>, gdzie
+można śledzić drogę wersji 2.1 do stabilnej części drzewa Portage. W tej chwili,
+nowej wersji mogą używać użytkownicy architektur x86, Sparc, HPPA oraz PPC. Z
+pewnością inne architektury wkrótce dołączą do tego grona.
+</p>
+
+<p>
+Dziękujemy <mail link="antarus@gentoo.org">Alecowi Warner</mail> i <mail
+link="solar@gentoo.org">Nedowi Ludd</mail>, że zechcieli napisać kilka zdań na
+temat nowego wydania Portage dla Tygodnika Gentoo.
+</p>
+
+</body>
+</section>
+<section>
+<title>Raport: Gentoo/Alpha</title>
+<body>
+
+<p>
+Zespół Gentoo/Alpha odpowiada za wsparcie przez Gentoo architektury Alpha. W
+ostatnim czasie powiększył się on o dwie osoby. Dołączyli <mail
+link="tcort@gentoo.org">Thomas Cort</mail> oraz <mail
+link="christel@gentoo.org">Christel Dahlskjaer</mail>. Przez kilka minionych
+miesięcy wypełnionych ciężką pracą dokonano wielu usprawnień i poprawek. <mail
+link="spb@gentoo.org">Stephen Bennett</mail> ciągle kontynuuje swoją pracę nad
+SELinux, dzięki czemu hardened-sources są już dostępne na tej architekturze.
+<mail link="stefaan@gentoo.org">Stefaana De Roeck</mail> oraz osoby mu
+pomagające zapewniły wsparcie dla modularnych X, obecnie wiadomo że środowisko
+graficzne sprawuje się całkiem nieźle. Zespół Gentoo/Alpha ma również
+przyjemność ogłosić stabilizację gnome-2.12.3 i kde-3.5.2.
+</p>
+
+<p>
+Thomas Cort napisał dwa dokumenty, Alpha Porting Guide oraz Gentoo/Alpha FAQ.
+Aktualnie tworzony jest przewodnik w którym opisane będzie używanie konsoli SRM.
+<mail link="yoswink@gentoo.org">Jose Luis Rivero</mail>, <mail
+link="ferdy@egntoo.org">Fernando Pereda</mail> oraz pozostała część zespołu
+zajęła się odświeżeniem głównej strony projektu. Fernando Pereda opracowywał
+projekt testerów architektury Alpha. Każdego zainteresowanego odwdzięczeniem
+się Gentoo i pomocą w tworzeniu systemu, prosimy o przyjrzenie się stronie
+projektu <uri
+link="http://www.gentoo.org/proj/en/base/alpha/AT/index.xml">testerów
+architektury Alpha</uri>.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zmiany w tetex</title>
+<body>
+
+<p>
+Deweloper zajmujący się rozwojem tetexa, Thomas Esser ogłosił wstrzymanie prac
+nad dalszym jego rozwojem i aktualizacjami. Decyzja ta z pewnością będzie miała
+średnio i długo terminowy wpływ na pakiet znajdujący się w oficjalnym drzewie
+Portage. Deweloper Gentoo <mail link="ehmsen@gentoo.org">Martin Ehmsen</mail>
+przedstawił kilka pomysłów jak poradzić sobie z zaistniałą sytuacją - ciągle nie
+podjął on ostatecznej decyzji, z pewnością należy spodziewać się zmian.
+Wszystkich zainteresowanych rozwojem sytuacji zachęcamy do śledzenia zmian
+związanych z pakietem tetex.
+</p>
+
+<ul>
+  <li><uri
+  link="http://thread.gmane.org/gmane.linux.gentoo.devel/38615">Ogłoszenie o
+  zmianie statusu Tetexa</uri></li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Konflikt shadow i pam-login</title>
+<body>
+
+<p>
+Wielu użytkowników zapewne zauważyło, że nowe wersje pam-login i shadow blokują
+sie wzajemnie. Powodem tego zachowania jest to, że plik <path>/bin/login</path>
+będący częścią pam-login (co wynika z wielu historycznych powodów), od wersji
+4.0 został także dodany przez deweloperów do shadow. By nie wprowadzać
+nadmiernego zamieszania stał się on także częścią pakietu shadow dostępnego w
+drzewie Portage. Dodatkowo włączono do niego także pozostałe pliki, do tej pory
+instalowane wraz z pam-login. W przypadku zobaczenia komunikatu o wspomnianej
+blokadzie należy odinstalować pam-login, a następnie zainstalować shadow w jego
+miejsce.
+</p>
+
+<p>
+Więcej informacji znaleźć można na blogu internetowym <mail
+link="flameeyes@gentoo.org">Diego Pettenò</mail>:
+</p>
+
+<ul>
+  <li><uri
+  link="http://farragut.flameeyes.is-a-geek.org/articles/2006/06/01/refreshing-the-pam-login-and-shadow-problem">
+  Shadow and pam-login conflict</uri></li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Ukraińskie kanały IRC</title>
+<body>
+
+<p>
+Stosunkowo nowa i wciąż nieliczna ukraińska społeczność Gentoo utworzyła
+oficjalny kanał IRC: <c>#gentoo-ua</c> na serwerach irc.freenode.net. Można tam
+porozmawiać o Gentoo w języku ukraińskim lub dołączyć do zespołu tłumaczy,
+obecnie prowadzonego przez <mail link="george@gentoo.org">George'a
+Shapovalova</mail>. Niestety nie istnieje jeszcze dedykowanie ukraińskie
+podforum, ale gdy tylko społeczność się rozwinie to z pewnością ono powstanie -
+póki co sekcja „Other languages” jest najlepszym miejscem do zadawania pytań.
+</p>
+
+</body>
+</section>
+<section>
+<title>Kobiety Gentoo</title>
+<body>
+
+<p>
+Kobieta geek - postać niemalże z legend i mitów. Kobiety stanowią około 30%
+użytkowników regularnie korzystających z komputera, i zaledwie 2% społeczności
+Linuksowej.
+</p>
+
+<p>
+Ale czemu ma to o wszystkim przesądzać? Powód może być równie złudny jak same
+kobiety używające Linuksa - dla każdego badania lub przeglądu twierdzącego, że
+płeć piękna jest gorzej traktowana, istnieje jego odpowiednik stawiający
+odmienną tezę. Wśród tych wszystkich kontrowersji łatwo jednak przeoczyć fakt,
+że bardzo mało, jeśli w ogóle coś, zostało zrobione by zainteresować kobiety
+światem komputerów, Linuksem, czy Gentoo.
+</p>
+
+<p>
+Grupy takie jak Debian Women starają się zmienić tą sytuację. Założony w 2004
+roku projekt powstał by namawiać kobiety do większego zaangażowania w
+społeczność Linuksa. Grupa posiada własny kanał IRC i listę dyskusyjną, gdzie
+można omawiać sprawy techniczne, oraz te dotyczące wizerunku prezentowanego na
+licznych konferencjach lub wydarzeniach związanych z Linuksem. Stworzony został
+również obszerny program patronacki, w ramach którego przydziela się kobietom
+mentora, którego zadaniem jest pomoc w napotkanych problemach, odpowiadanie na
+pojawiające się pytania oraz przedstawienie dystrybucji, Linuksa i zgromadzonej
+wokół nich społeczności. Ów program dodaje element osobisty do całego procesu i
+pomaga w poprawieniu efektywności pracy z Linuksem. Niestety, jak sama nazwa
+wskazuje, całe przedsięwzięcie skupione jest wokół Debiana i dlatego namawia do
+używania właśnie tej dystrybucji.
+</p>
+
+<p>
+Ostatnio pojawił się pomysł stworzenia podobnej grupy, ale związanej z Gentoo.
+Czekamy na wszelkie sugestie i opinie w tej sprawie. Czy taki projekt powinien
+powstać, jaki będzie jego odbiór przez społeczność? Jaki powinien być cel jego
+funkcjonowania? Czy znajdą się chętni do podjęcia wyzwania i przyłączenia sie do
+niego tak by namawiać innych - nie tylko kobiety - do korzystania z Gentoo, oraz
+by zostać mentorem i pomagać innym użytkownikom?
+</p>
+
+<p>
+Wszystkie grupy, bez względu na ich pochodzenie, potrzebują „świeżej krwi” by
+przetrwać - aktualni uczestnicy kiedyś odejdą, a bez ciągłego napływu nowych z
+czasem zespół się rozpadnie. Brak współpracy ze społecznością może skutkować
+przegapieniem świetnych pomysłów, a także utalentowanych osób. Aby zapewnić
+przyszłość temu projektowi musimy stworzyć wokół niego odpowiednią społeczność,
+a nie skupiać się na krytyce i przeciwdziałaniu zmianom.
+</p>
+
+<ul>
+  <li><uri link="http://forums.gentoo.org/viewtopic-p-3375197.html#3375197">
+  Gentoo Women na Forum</uri></li>
+  <li><mail link="userrel@gentoo.org">Gentoo Userrel</mail></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Summer of Code - Najnowsze wieści</title>
+<section>
+<title>Summer of Code -- Po miesiącu</title>
+<body>
+
+<p>
+Upłynął już miesiąc od rozpoczęcia Summer of Code i tempo rozwoju projektów
+Gentoo cały czas rośnie. Nasi studenci ciężko pracują nad swoimi zadaniami i
+dokonali już znacznych postępów. Wspominaliśmy już wcześniej o tym programie w
+jednym z poprzednich numerów <uri
+link="http://www.gentoo.org/news/pl/gwn/20060501-newsletter.xml#doc_chap1">
+Tygodnika Gentoo</uri>. W niniejszym tekście postanowiliśmy rozwinąć temat.
+</p>
+
+<p>
+To już druga edycja <uri link="http://code.google.com/soc">Summer of Code</uri>,
+corocznej programu organizowanego przez Google, mającego na celu sponsorowanie
+studentów pracujących nad rozwojem projektów Open Source w czasie letnich
+wakacji. W zeszłym roku odniósł on spektakularny sukces, co dokumentuje <uri
+link="http://code.google.com/soc-results.html">długa lista efektów prac</uri>,
+na której możemy znaleźć wiele wspaniałych pomysłów. W tym roku program jest
+jeszcze bardziej rozbudowany, ponad dwukrotnie zwiększyła się liczba organizacji
+patronujących uczestnikom, podobnie jest także z ilością realizowanych
+projektów.
+</p>
+
+<p>
+W tym roku Gentoo uczestniczy jako organizacja patronacka z przydzielonymi 14
+projektami. Jeden z nich realizuje najbardziej rozchwytywany studenta, Anant
+Narayanan, który został zaakceptowany w sumie przez 4 organizacje. Spośród nich
+on sam jednak wybrał właśnie Gentoo Linux. Przez pewien czas nie było pewne czy
+Gentoo zostanie przyjęte do programu, biorąc pod uwagę to, ile innych
+dystrybucji Linuksa oraz innych systemów operacyjnych już się zgłosiło. Na
+szczęście w końcu udało się, co więcej, liczba przydzielonych Gentoo projektów
+przekracza średnią w tegorocznej edycji programu SoC.
+</p>
+
+<p>
+„Podoba mi się to, jak w bardzo krótkim czasie Gentoo udało się zbudować
+społeczność wokół projektu. Moim zdaniem dobrze świadczy to o tej społeczności,
+a to właśnie potrzebne jest w SoC, aby patronować znakomitym deweloperom OSS”,
+powiedział Greg Stein z Google, uzasadniając dlaczego postanowił zaakceptować
+akurat Gentoo spośród długiej listy innych projektów. „Przykładowo, włączyliśmy
+Gentoo do programu, ponieważ podobał mi się fakt, że przychodząc praktycznie
+znikąd stali się jedną z największych dystrybucji Linuksa. Spośród tysięcy
+innych dystrybucji trafili do pierwszej dziesiątki w bardzo krótkim czasie.
+Myślę, że stało się tak ze względu na ich duże oddanie dla społeczności, a to
+jest dokładnie to, czego szukamy u organizacji współpracujących z nami przy
+SoC”.
+</p>
+
+<p>
+Pełną listę zaakceptowanych projektów wraz z krótkimi podsumowaniami można
+znaleźć na stronie <uri
+link="http://code.google.com/soc/gentoo/about.html">Gentoo w SoC</uri>,
+natomiast więcej informacji na temat znacznej części projektów można uzyskać w
+blogach studentów, które są agregowane w ramach serwisu <uri
+link="http://planet.gentoo.org">Planet Gentoo</uri>, oraz dodatkowym, stworzonym
+z myślą o programie Summer of Code <uri
+link="http://planet.gentoo.org/soc/">Planet Gentoo SoC</uri>. Na łamach
+Tygodnika Gentoo chcieliśmy jednak przybliżyć kilka projektów, ich tematykę oraz
+dotychczasowe postępy.
+</p>
+
+<p>
+<uri link="http://www.pioto.org/~pioto/gentoo/soc2006/blog/">Michael Kelly</uri>
+pracuje nad zunifikowanym systemem pozwalającym zarządzać użytkownikami i
+grupami, który będzie dodatkowo zintegrowany z menadżerami pakietów i drzewem
+Gentoo, implementując w ten sposób propozycję zawartą w <uri
+link="http://www.gentoo.org/proj/en/glep/glep-0027.html">GLEP 27</uri>. Została
+ona już dawno zaakceptowana, ale do tej pory nikt jej nie zajął się jej
+wdrożeniem. Kod Michaela można przejrzeć w jego własnym, publicznie dostępnym
+repozytorium Subversion. Można w tym celu użyć zwykłej przeglądarki
+internetowej, dzięki narzędziu <uri
+link="http://svn.pioto.org/viewvc">ViewVC</uri>. Jak wynika z jego początkowej
+<uri
+link="http://svn.pioto.org/viewvc/glep27-proposal.txt?view=co">propozycji</uri>,
+implementacja ta powinna znacznie ulepszyć obsługę grup i kont użytkowników
+przez ebuildy - aktualny system, mimo iż działa w większości przypadków, jest
+nieco ograniczony pod względem możliwości i skalowalności. Projekt stopniowo
+nabiera rumieńców, zaś gdy zostanie ukończony, zapewni proste, elastyczne i
+przenośne rozwiązanie problemu zarządzania użytkownikami i grupami w menadżerach
+pakietów i nie tylko.
+</p>
+
+<p>
+<uri link="http://unleashed.amule.org/soc/">Alex Martinez</uri> pracuje nad
+przeportowaniem narzędzia „sandbox” używanego przez Gentoo na systemy FreeBSD.
+Aktywność <uri
+link="http://www.gentoo.org/proj/en/gentoo-alt/bsd/index.xml">projektu
+Gentoo/*BSD</uri> stale wzrastała przez ostatnie miesiące i stał się on
+atrakcyjną platformą do poważnych zastosowań. Jednakże ze względu na różnice w
+bibliotekach C FreeBSD i GNU, narzędzie sandbox, którego używa się głównie do
+kontroli pracy skryptów ebuild, nadal nie działa poprawnie w systemach FreeBSD.
+Projekt Aleksa ma na celu poprawienie tej sytuacji, co będzie polegało na
+przyjrzeniu się najbardziej podstawowym bibliotekom w systemie, aby znaleźć
+przyczynę problemów. Projekt jest wprawdzie chwilowo nieaktywny z powodu sesji
+egzaminacyjnej, ale postępy do tej pory były bardzo obiecujące. Gdy zostanie on
+ukończony, funkcjonalność systemu do zarządzania pakietami w portach Gentoo/*BSD
+będzie znacznie bliższa poziomowi reprezentowanemu przez Gentoo Linux, co jest
+aktualnie jednym z najważniejszych celów deweloperów.
+</p>
+
+<p>
+Podsumowując, Summer of Code to dla studentów świetna okazja do pomocy w rozwoju
+ich ulubionych projektów Open Source, pozwalając im bez przeszkód zająć się tym,
+co lubią przez całe lato. Oczywiście jednocześnie w ten sposób do projektów
+trafia wiele wysokiej jakości kodu, który być może inaczej w ogóle by nie
+powstał, a także potencjalni przyszli deweloperzy. O tym ostatnim wspomniała
+Christel Dahlskjaer, która pełni rolę kontaktu administracyjnego Gentoo dla
+Summer of Code, udzielając wywiadu Tygodnikowi na początku miesiąca: „Staram się
+udzielić studentom tyle wsparcia, ile to tylko możliwe, chcemy także, żeby
+dobrze się bawili przez te letnie miesiące i mamy nadzieję, że pod koniec ich
+'praktyki' nie tylko zasilą Gentoo kodem, który dla nas piszą, ale zechcą także
+zostać z nami jako deweloperzy".
+</p>
+
+</body>
+</section>
+</chapter>
+<chapter>
+<title>Społeczność Gentoo</title>
+<section>
+<title>Forum</title>
+<body>
+
+<p>
+<b>Genetic - nowy frontend Portage</b>
+</p>
+
+<p>
+W ciągu ostatnich dwóch tygodni na Forum można było śledzić dyskusję dotyczącą
+nowego frontendu Portage używającego bibliotek ncurses oraz wxWidgets. Jak na
+razie jest on w fazie planowania i projekt poszukuje chętnych do pomocy
+deweloperów mających doświadczenie z XML-em, ncurses lub pythonem.
+</p>
+
+<ul>
+  <li><uri link="http://forums.gentoo.org/viewtopic-t-463518.html">Genetic
+  Forum Thread</uri></li>
+  <li><uri link="http://genetic.sourceforge.net/">Genetic Homepage</uri></li>
+</ul>
+
+<p><b>GEMS - Gentoo Enterprise Management System</b></p>
+
+<p>
+Na Forum ogłoszono wydanie GEMS, nowego systemu do zarządzania przypominającego
+“Red Hat Network”, ale zaprojektowanego z myślą o Gentoo. Jego celem jest
+ułatwienie zarządzania siecią komputerów działających pod kontrolą systemu
+Gentoo Linux. Obecnie oferuje m.in. zarządzanie zainstalowanym oprogramowaniem,
+prosty dostęp do raportów GLSA z nim związanych, monitoring oraz wiele, wiele
+innych. GEMS opublikowany jest na zasadach licencji GPL i jest dostępny do
+pobrania ze strony domowej projektu.
+</p>
+
+<ul>
+  <li><uri link="http://forums.gentoo.org/viewtopic-t-468071.html">GEMS Forum
+  thread</uri></li>
+  <li><uri link="http://www.gamehound.net/gems/index.php">GEMS
+  homepage</uri></li>
+</ul>
+
+<p>
+<b>Proste błędy popełniane w czasie instalacji Gentoo</b>
+</p>
+
+<p>
+Użytkownik forum new_to_non_X86 przedstawił jak łatwo w czasie instalacji Gentoo
+o proste pomyłki polegając na Podręczniku Gentoo. Czekamy na sugestie jak
+poprawić jakość dokumentacji lub samego procesu instalacji, tak by zmniejszyć
+ilość możliwych błędów.
+</p>
+
+<ul>
+  <li><uri link="https://forums.gentoo.org/viewtopic-t-469616.html">Forum
+  Thread</uri></li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Lista dyskusyjna gentoo-dev</title>
+<body>
+
+<p>
+<b>GLEP 49 - drugie podejście</b>
+</p>
+
+<p>
+Po długiej dyskusji na temat alternatywnych menadżerów pakietów, jaka odbyła się
+w zeszłym tygodniu, <mail link="pauldv@gentoo.org">Paul de Vrieze</mail> i <mail
+link="g2boojum@gentoo.org">Grant Goodyear</mail> zaproponowali dwa różne,
+rywalizujące ze sobą GLEP-y. Oba dotyczyły możliwości, licencji oraz spraw
+związanych z zarządzaniem pakietami jakie powinny się znaleźć w tego typu
+aplikacji, co może zmieni tematykę wątków dotyczących zamienników Portage z
+utarczek słownych mających niewiele wspólnego z tematem na merytoryczną
+techniczne dyskusje.
+</p>
+
+<ul>
+  <li><uri link="http://thread.gmane.org/gmane.linux.gentoo.devel/38476"> GLEP
+  49 - take 2</uri></li>
+</ul>
+
+<p>
+<b>Wiosenne porządki związane z bezpieczeństwem</b>
+</p>
+
+<p>
+Zwykle co jakiś czas odkrywane są błędy bezpieczeństwa. Gdy dotyczy on jednej z
+aplikacji dostępnych w Gentoo to przygotowywany jest odpowiedni raport GLSA, ale
+do tej pory nie miało to bezpośredniego przełożenia na destabilizację,
+zamaskowanie lub nawet usunięcie danego pakietu. Skutkowało to zostawieniem
+ebuildów zawierających usterki bezpieczeństwa w drzewie Portage. <mail
+link="solar@gentoo.org">Ned Ludd</mail> we współpracy z <mail
+link="ferringb@gmail.com">Brianem Harringiem</mail> rozpoczęli proces
+czyszczenia właśnie takich pakietów. Zmiany nie powinny mieć wpływu na
+użytkowników, tylko stare, zawierające usterki oraz pozbawione bezpośredniego
+opiekuna ebuildy będą usuwane.
+</p>
+
+<ul>
+  <li><uri link="http://thread.gmane.org/gmane.linux.gentoo.devel/38472">
+  Security/QA Spring Cleaning</uri></li>
+</ul>
+
+<p>
+<b>Wiosenne porządki, część 2</b>
+</p>
+
+<p>
+Rozpoczęło się czyszczenie drzewa Portage z uszkodzonych i nie posiadających
+opiekunów pakietów. Usuwane są tylko te ebuildy, które wiadomo że nie działają.
+Wiosenne porządki są częścią strategii QA, aby poprawić jakość Gentoo.
+</p>
+
+<ul>
+  <li><uri link="http://thread.gmane.org/gmane.linux.gentoo.devel/38698">
+  app-editors/gnotepad+</uri></li>
+  <li><uri link="http://thread.gmane.org/gmane.linux.gentoo.devel/38685">
+  ipkg-utils</uri></li>
+  <li><uri link="http://thread.gmane.org/gmane.linux.gentoo.devel/38661">
+  media-libs/nurbs++</uri></li>
+  <li><uri link="http://thread.gmane.org/gmane.linux.gentoo.devel/38657">
+  dev-libs/nana</uri></li>
+  <li><uri link="http://thread.gmane.org/gmane.linux.gentoo.devel/38641">
+  sys-fs/convertfs</uri></li>
+  <li><uri link="http://thread.gmane.org/gmane.linux.gentoo.devel/38640">
+  net-misc/powerd</uri></li>
+  <li><uri link="http://thread.gmane.org/gmane.linux.gentoo.devel/38636">
+  www-client/prozilla</uri></li>
+  <li><uri link="http://thread.gmane.org/gmane.linux.gentoo.devel/38633">
+  sys-libs/ldetect{,-lst}</uri></li>
+</ul>
+
+<p>
+<b>Nowe ebuildy zgłaszane w Bugzilli</b>
+</p>
+
+<p>
+Pakiety nadsyłane przez użytkowników dla aplikacji nie posiadających własnego
+opiekuna w Gentoo są przydzielane do aliasu maintainer-wanted w Bugzilli. Co
+było dobrym pomysłem skończyło się ponad 2000 raportami, z których większość nie
+zawiera żadnych dodatkowych zmian, czy poprawek. <mail
+link="antarus@gentoo.org">Alec Warner</mail> zapytał jak należy traktować takie
+bugi. Kilka interesujących pomysłów, jak specjalna nakładka Portage lub
+zamknięcie raportu po ustalonym okresie czasu, zostało przedstawionych i
+omówionych. Dyskusja nie skończyła się jednak podjęciem ostatecznej decyzji.
+</p>
+
+<ul>
+  <li><uri link="http://thread.gmane.org/gmane.linux.gentoo.devel/38663"> [RFC
+  Maintainer-Wanted Bugs/Cleaning]</uri></li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Serwis planet.gentoo.org</title>
+<body>
+
+<p>
+<b>Logo dla nakładek Portage</b>
+</p>
+
+<p>
+<uri link="http://www.gentoo.org/proj/en/overlays/">Nakładki Gentoo</uri> to
+projekt stworzony z myślą o usprawnieniu pracy deweloperów. Udostępnia on
+miejsce dla nakładek Portage pochodzących z różnych projektów Gentoo. Zachęcamy
+do pomocy w stworzeniu logo dla tej inicjatywy i kontakt za pośrednictwem kanału
+<c>#gentoo-overlays</c> w sieci irc.freenode.net.
+</p>
+
+<ul>
+  <li><uri
+  link="http://blog.stuartherbert.com/gentoo.php/2006/06/03/gentoo_overlays_project_needs_a_logo">
+  Gentoo Overlays Project needs a logo</uri></li>
+</ul>
+
+<p>
+<b>Odmaskowanie KDE 3.5.3</b>
+</p>
+
+<p>
+KDE 3.5.3 zostało już odmaskowane. W nowej wersji skrócono czas uruchomienia
+środowiska oraz poprawiono ponad 800 błędów, dodając także kilka nowych
+funkcjonalności w aplikacjach Akregator, KMail i KAlarm.</p>
+
+<ul>
+  <li><uri
+  link="http://farragut.flameeyes.is-a-geek.org/articles/2006/06/02/unmasked">
+  KDE 3.5.3 unmasked</uri></li>
+</ul>
+
+<p>
+<b>Usprawnienia net-setup</b>
+</p>
+
+<p>
+Nazwy interfejsów sieciowych czasami są różne pomiędzy LiveCD, a już
+zainstalowanym Gentoo. By usprawnić konfigurację sieci <c>net-setup</c> zostało
+rozbudowane i obecnie zawiera dwa dodatkowe dialogi zawierające nazwę interfejsu
+oraz dodatkowe informacje na jego temat. Nowe wydanie <c>net-setup</c> zostanie
+dołączone do kolejnej wersji pakietu <c>livecd-tools</c>.
+</p>
+
+<ul>
+  <li><uri
+  link="http://www.reactivated.net/weblog/archives/2006/06/net-setup-enhancements/">
+  net-setup enhancements</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo in the press -->
+<chapter>
+<title>Międzynarodowe Gentoo</title>
+<section>
+<title>Gentoo UK 2006</title>
+<body>
+
+<p>
+Z małym opóźnieniem, proces organizacji konferencji użytkowników i deweloperów
+Gentoo UK 2006 dobiega końca. Odbędzie się ona w sobotę, 8 lipca w Londynie. W
+programie znalazło się kilka prezentacji, które zostaną przedstawione przez
+deweloperów Gentoo oraz innych „zewnętrznych” uczestników. Planowane są także
+mniej oficjalne spotkania i imprezy, które będą odbywały się wokół konferencji.
+</p>
+
+<p>
+Liczba miejsc jest ograniczona, dlatego każdy chętny do wzięcia udziału musi
+dokonać wstępnej rejestracji (nie wymaga ona wniesienia żadnych opłat) i
+zostawienia danych kontaktowych, imienia, nazwiska oraz adresu e-mail. Procedury
+rejestracji już się rozpoczęły, zachęcamy do jak najwcześniejszego skorzystania
+z przygotowanych formularzy.
+</p>
+
+<p>
+Więcej informacji można znaleźć na oficjalnej stronie <uri
+link="http://dev.gentoo.org/~dsd/gentoo-uk-2006/">konferencji</uri>. Zachęcamy
+wszystkich do wzięcia udziału. Do zobaczenia w Londynie!
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Tips and Tricks -->
+<chapter>
+<title>Sztuczki i kruczki</title>
+<section>
+<title>Przeszukiwanie drzewa Portage narzędziem eix</title>
+<body>
+
+<p>
+<c>eix</c> to przydatne narzędzie, które indeksuje i błyskawicznie przeszukuje
+nasze drzewo Portage. Ostatnia stabilna wersja (0.55) jest już kompatybilna z
+nową implementacją metadanych znajdującą się w Portage 2.1.
+</p>
+
+<p>
+Na początek by zainstalować aplikację oraz zindeksować aktualne drzewo Portage:
+</p>
+
+<pre caption="Instalacja eix">
+# <i>emerge eix</i>
+# <i>update-eix</i>
+</pre>
+
+<p>
+Polecenie <c>update-eix</c> zindeksuje oprócz głównego drzewa także ebuildy
+znajdujące się w katalogach znajdujących się w zmiennej <c>PORTDIR_OVERLAY</c>.
+</p>
+
+<p>
+Po zakończeniu tej operacji czas zacząć wyszukiwanie. By skorzystać z domyślnych
+opcji przeszukiwania wystarczy skorzystać z polecenia <c>eix coś</c>, natomiast
+dzięki <c>eix -S opis</c> proces poszukiwań będzie dotyczył tylko opisów
+poszczególnych pakietów. Dzięki poleceniu <c>eix -e nazwapakietu</c> narzędzie
+będzie wyświetli tylko te pakiety o podanej nazwie. W przypadku każdego z
+podanych przykładów można także skorzystać z pomocy wyrażeń regularnych.
+</p>
+
+<p>
+Program <c>eix</c> wyświetla wszystkie dostępne wersje danego pakietu. Numery
+wersji poprzedzone znakiem <c>~</c> oznaczają wersje testowe, zaś znak <c>!</c>
+informuje, że dana wersja jest zamaskowana.
+</p>
+
+<pre caption="eix firefox">
+$ <i>eix firefox</i>
+* www-client/mozilla-firefox
+Available versions:  1.0.7-r4 ~1.0.8 ~1.5-r9 ~1.5-r11 ~1.5.0.1-r2 ~1.5.0.1-r3
+~1.5.0.1-r4 1.5.0.2 ~1.5.0.2-r1 1.5.0.3 1.5.0.4
+Installed:           none
+Homepage:            http://www.mozilla.org/projects/firefox/
+Description:         Firefox Web Browser
+
+* www-client/mozilla-firefox-bin
+Available versions:  1.0.7 ~1.0.8 1.5.0.2 1.5.0.3 1.5.0.4
+Installed:           1.5.0.3
+Homepage:            http://www.mozilla.org/projects/firefox
+Description:         Firefox Web Browser
+
+
+Found 2 matches
+</pre>
+
+<p>
+Na koniec ostatnia porada, zamiast wykonywać <c>emerge --sync</c> i
+<c>update-eix</c> zaraz po sobie można skorzystać z polecenia <c>eix-sync</c>.
+Efekt będzie ten sam, dodatkowo jednak wyświetlone zostaną zmiany w drzewie
+Portage.
+</p>
+
+<note>
+Zachęcamy wszystkich chętnych do nadsyłania własnych propozycji porad, tak by
+podzielić się nimi ze społecznością Gentoo, na adres <mail
+link="gwn-feedback@gentoo.org">gwn-feedback@gentoo.org</mail>.
+</note>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo developer moves -->
+<chapter>
+<title>Zmiana statusu deweloperów Gentoo</title>
+<section>
+<title>Odeszli</title>
+<body>
+
+<p>
+Następujący deweloperzy opuścili projekt Gentoo Linux w minionym tygodniu:
+</p>
+
+<ul>
+  <li>Dan Armak</li>
+  <li>Ryan Phillips</li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Przybyli</title>
+<body>
+
+<p>
+Następujący deweloperzy przyłączyli się do projektu Gentoo Linux w minionym
+tygodniu:
+</p>
+
+<ul>
+  <li>Chris Parrott (haskell)</li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Zmienili status</title>
+<body>
+
+<p>
+Następujący deweloperzy zmienili w minionym tygodniu pełnioną w projekcie Gentoo
+Linux funkcję:
+</p>
+
+<ul>
+  <li><e>Nikt w tym tygodniu</e></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo security -->
+<chapter>
+<title>Bezpieczeństwo Gentoo</title>
+<!-- paste from the script -->
+<section>
+<title>CherryPy: Usterka directory traversal</title>
+<body>
+
+<p>
+CherryPy jest podatne na atak directory traversal, który umożliwia odczytanie
+dowolnych plików.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200605-16.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>libTIFF: Wiele usterek</title>
+<body>
+
+<p>
+libTIFF zawiera wiele usterek, które mogą zostać wykorzystane do wykonania
+niepożądanego lub przeprowadzenia ataku Denial of Service.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200605-17.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>Opera: Przepełnienie bufora</title>
+<body>
+
+<p>
+Opera zawiera błąd w obsłudze znaku liczb całkowitych, którego rezultatem może
+być usterka przepełnienia bufora, która umożliwia zdalnemu napastnikowi
+wykonanie niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200606-01.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>shadow: Przekroczenie uprawnień</title>
+<body>
+
+<p>
+Usterka bezpieczeństwa w shadow umożliwia lokalnemu użytkownikowi wykonanie
+pewnych czynności z przekroczonymi uprawnieniami.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200606-02.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>Dia: Usterki format string</title>
+<body>
+
+<p>
+Dia zawiera usterki format string, które mogą zostać wykorzystane do wykonania
+niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200606-03.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>Tor: Wiele usterek</title>
+<body>
+
+<p>
+Tor zwiera wiele usterek przepełnienia bufora, jest podatny na atak Denial of
+Service oraz ujawnienie i wyciek informacji.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200606-04.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>Pound: HTTP request smuggling</title>
+<body>
+
+<p>
+Pound jest podatne na atak HTTP request smuggling, co może zostać wykorzystane
+do ominięcia procedur bezpieczeństwa lub zatrucia pamięci podręcznej aplikacji.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200606-05.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>AWStats: Zdalne wykonanie niepożądanego kodu</title>
+<body>
+
+<p>
+AWStats zawiera usterkę w procesie walidacji danych wejściowych, co może zostać
+wykorzystane do wykonania niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200606-06.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>Vixie Cron: Przekroczenie uprawnień</title>
+<body>
+
+<p>
+Vixie Cron umożliwiał lokalnym użytkownikom wykonywanie programów jako root.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200606-07.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>WordPress: Wykonanie niepożądanego polecenia</title>
+<body>
+
+<p>
+WordPress niewystarczająco sprawdza format przechowywanych danych użytkownika.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200606-08.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>SpamAssassin: Wykonanie niepożądanego kodu</title>
+<body>
+
+<p>
+SpamAssassin, gdy jest używany z pewnymi opcjami, umożliwia lokalnemu lub nawet
+zdalnemu użytkownikowi na wykonanie niepożądanych poleceń, które mogą być
+wykonanie z prawami superużytkownika.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200606-09.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>Cscope: Wiele usterek przepełnienia bufora</title>
+<body>
+
+<p>
+Cscope zawiera wiele usterek przepełnienia bufora, które mogą zostać
+wykorzystane do wykonania niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200606-10.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>JPEG library: Denial of Service</title>
+<body>
+
+<p>
+JPEG library jet podatne na atak Denial of Service.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200606-11.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>Mozilla Firefox: Wiele usterek</title>
+<body>
+
+<p>
+Mozilla Firefox zawiera wiele usterek które umożliwiają umożliwiają wykonanie
+kodu JavaScript z przekroczonymi uprawnieniami, a także wykonanie niepożądanego
+kodu oraz jest podatny na ataki HTTP response smuggling
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200606-12.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>MySQL: Usterka SQL Injection</title>
+<body>
+
+<p>
+MySQL jest podatne na atak SQL Injection w czasie przetwarzania wielo-bajtowego
+kodowania.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200606-13.xml">komunikacie
+GLSA</uri>
+
+</p>
+</body>
+</section>
+</chapter>
+
+<!-- Bugzilla -->
+<!-- paste from the script -->
+<chapter>
+<title>Bugzilla</title>
+<section>
+<title>Podsumowanie</title>
+<body>
+
+<ul>
+  <li><uri link="#doc_chap1_sect2">Statystyki</uri></li>
+  <li><uri link="#doc_chap1_sect3">Zamknięte bugi</uri></li>
+  <li><uri link="#doc_chap1_sect4">Nowe bugi</uri></li>
+</ul>
+
+</body>
+</section>
+
+<section>
+<title>Statystyki</title>
+<body>
+
+<p>
+Społeczność Gentoo używa Bugzilli (<uri
+link="http://bugs.gentoo.org/">bugs.gentoo.org</uri>) do zgłaszania i śledzenia
+błędów, ogłoszeń, sugestii oraz innych form kontaktu z deweloperami. Pomiędzy 28
+maja 2006, a 11 czerwca 2006 aktywność w serwisie przedstawiała się następująco:
+</p>
+
+<ul>
+  <li>zgłoszono 1756 nowych bugów</li>
+  <li>zamknięto lub rozwiązano 812 bugów</li>
+  <li>54 uprzednio zamknięte bugi zostały ponownie otwarte</li>
+</ul>
+
+<p>
+Spośród 10196 obecnie otwartych bugów: 53 oznaczono jako 'blocker', 144 jako
+'critical', a 549 jako 'major'.
+</p>
+
+</body>
+</section>
+
+<section>
+<title>Zamknięte Bugi</title>
+<body>
+
+<p>
+Deweloperzy oraz zespoły, które zamknęły najwięcej bugów w minionym tygodniu,
+to:
+</p>
+
+<ul>
+  <li><mail link="games@gentoo.org">Gentoo Games</mail>, 49 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-05-28&amp;chfieldto=2006-06-11&amp;resolution=FIXED&amp;assigned_to=games@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="security@gentoo.org">Gentoo Security</mail>, 28 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-05-28&amp;chfieldto=2006-06-11&amp;resolution=FIXED&amp;assigned_to=security@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="printing@gentoo.org">Printing Team</mail>, 28 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-05-28&amp;chfieldto=2006-06-11&amp;resolution=FIXED&amp;assigned_to=printing@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="kde@gentoo.org">Gentoo KDE team</mail>, 28 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-05-28&amp;chfieldto=2006-06-11&amp;resolution=FIXED&amp;assigned_to=kde@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="apache-bugs@gentoo.org">Apache Herd - Bugzilla Reports</mail>,
+  26 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-05-28&amp;chfieldto=2006-06-11&amp;resolution=FIXED&amp;assigned_to=apache-bugs@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="base-system@gentoo.org">Gentoo's Team for Core System
+  packages</mail>, 25 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-05-28&amp;chfieldto=2006-06-11&amp;resolution=FIXED&amp;assigned_to=base-system@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="dev-portage@gentoo.org">Portage team</mail>, 21 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-05-28&amp;chfieldto=2006-06-11&amp;resolution=FIXED&amp;assigned_to=dev-portage@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="flameeyes@gentoo.org">Diego Pettenò</mail>, 19 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-05-28&amp;chfieldto=2006-06-11&amp;resolution=FIXED&amp;assigned_to=flameeyes@gentoo.org">zamkniętych
+  bugów</uri></li>
+</ul>
+</body>
+</section>
+
+<section>
+<title>Nowe Bugi</title>
+<body>
+
+<p>
+Deweloperzy oraz zespoły, którym przydzielono najwięcej bugów w minionym tygodniu,
+to:
+</p>
+
+<ul>
+  <li><mail link="maintainer-wanted@gentoo.org">Default Assignee for New
+  Packages</mail>, 54 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-05-28&amp;chfieldto=2006-06-11&amp;assigned_to=maintainer-wanted@gentoo.org">nowe
+  bugi</uri></li>
+  <li><mail link="mozilla@gentoo.org">Mozilla Gentoo Team</mail>, 16 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-05-28&amp;chfieldto=2006-06-11&amp;assigned_to=mozilla@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="games@gentoo.org">Gentoo Games</mail>, 15 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-05-28&amp;chfieldto=2006-06-11&amp;assigned_to=games@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="maintainer-needed@gentoo.org">Default Assignee for Orphaned
+  Packages</mail>, 14 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-05-28&amp;chfieldto=2006-06-11&amp;assigned_to=maintainer-needed@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="flameeyes@gentoo.org">Diego Pettenò</mail>, 14 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-05-28&amp;chfieldto=2006-06-11&amp;assigned_to=flameeyes@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="chriswhite@gentoo.org">Chris White</mail>, 14 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-05-28&amp;chfieldto=2006-06-11&amp;assigned_to=chriswhite@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="amd64@gentoo.org">AMD64 Project</mail>, 13 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-05-28&amp;chfieldto=2006-06-11&amp;assigned_to=amd64@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="kde@gentoo.org">Gentoo KDE team</mail>, 12 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-05-28&amp;chfieldto=2006-06-11&amp;assigned_to=kde@gentoo.org">nowych
+  bugów</uri></li>
+</ul>
+</body>
+</section>
+</chapter>
+
+<!-- GWN feedback information -->
+<chapter>
+<title>Opinie czytelników</title>
+<section>
+<body>
+
+<p>
+Jeśli chcesz, aby Tygodnik Gentoo był jeszcze lepszy, podziel się z <mail
+link="gwn-feedback@gentoo.org">nami</mail> swoją opinią na jego temat. Uwagi
+dotyczące tłumaczenia można zgłaszać na adres <mail
+link="moloh@gentoo.org">koordynatora</mail>.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- GWN subscription information -->
+<chapter>
+<title>Subskrypcja Tygodnika Gentoo</title>
+<section>
+<body>
+
+<p>
+Aby zaprenumerować Tygodnik Gentoo, należy wysłać pustego e-maila na adres <mail
+link="gentoo-gwn-pl+subscribe@gentoo.org">gentoo-gwn-pl+subscribe@gentoo.org</mail>.
+</p>
+
+<p>
+Aby zrezygnować z subskrypcji, należy wysłać pustego e-maila na adres <mail
+link="gentoo-gwn-pl+unsubscribe@gentoo.org">
+gentoo-gwn-pl+unsubscribe@gentoo.org</mail> z konta, na które jest
+zarejestrowana.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Other Languages -->
+<chapter>
+<title>Inne języki</title>
+<section>
+<body>
+
+<p>
+Tygodnik Gentoo jest dostępny w następujących językach:
+</p>
+
+<ul>
+  <li><uri link="/news/en/gwn/gwn.xml">angielskim</uri></li>
+  <li><uri link="/news/da/gwn/gwn.xml">duńskim</uri></li>
+  <li><uri link="/news/fr/gwn/gwn.xml">francuskim</uri></li>
+  <li><uri link="/news/es/gwn/gwn.xml">hiszpańskim</uri></li>
+  <li><uri link="/news/nl/gwn/gwn.xml">holenderskim</uri></li>
+  <li><uri link="/news/ja/gwn/gwn.xml">japońskim</uri></li>
+  <li><uri link="/news/ko/gwn/gwn.xml">koreańskim</uri></li>
+  <li><uri link="/news/de/gwn/gwn.xml">niemieckim</uri></li>
+  <li><uri link="/news/pl/gwn/gwn.xml">polskim</uri></li>
+  <li><uri link="/news/pt_br/gwn/gwn.xml">portugalskim (Brazylia)</uri></li>
+  <li><uri link="/news/pt/gwn/gwn.xml">portugalskim (Portugalia)</uri></li>
+  <li><uri link="/news/ru/gwn/gwn.xml">rosyjskim</uri></li>
+  <li><uri link="/news/tr/gwn/gwn.xml">tureckim</uri></li>
+  <li><uri link="/news/it/gwn/gwn.xml">włoskim</uri></li>
+</ul>
+</body>
+</section>
+</chapter>
+</guide>
+

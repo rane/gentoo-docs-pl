@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+
+<guide link="jak-tlumaczyc.xml" lang="pl">
+<title>Polski projekt tłumaczenia dokumentacji Gentoo</title>
+
+<author title="Autor">
+  <mail link="rane@gentoo.org">Łukasz Damentko</mail>
+</author>
+
+<abstract>
+Oficjalna strona polskiego projektu tłumaczenia dokumentacji Gentoo.
+</abstract>
+
+<version>1.0</version>
+<date>2006-02-07</date>
+
+<chapter>
+<title>Wprowadzenie</title>
+<section>
+<body>
+
+<p>
+Głównym celem polskiego projektu tłumaczenia dokumentacji Gentoo jest
+przetłumaczenie jak największej części dokumentacji Gentoo Linux. Umożliwi to
+korzystanie z naszej dystrybucji także użytkownikom nie znającym języka
+angielskiego lub znającym go słabo. Na tej stronie przedstawiamy status
+tłumaczeń oraz wszelkie niezbędne informacje dla ludzi chętnych do współpracy.
+</p>
+
+<p>
+Wszystkie dokumenty, które są przez nas tłumaczone są częścią oficjalnej
+dokumentacji Gentoo, a ich lista znajduje się pod adresem
+<uri>http://gentoo.org/doc/pl/list.xml</uri>. Początkujących użytkowników
+szczególnie zachęcamy do zapoznania się z <uri
+link="http://gentoo.org/doc/pl/handbook/">Podręcznikiem Gentoo</uri> opisującym
+proces instalacji oraz podstawy pracy z Gentoo.
+</p>
+
+<p>
+Dokumentacja Gentoo jest wydawana na zasadach licencji <uri
+link="http://creativecommons.org/licenses/by-sa/2.5/">Creative Commons - Share
+Alike</uri>. Dotyczy to również wszystkich jej tłumaczeń, o ile w konkretnym
+dokumencie nie znajduje się inna informacja.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Informacje dla tłumaczy</title>
+<section>
+<body>
+
+<p>
+Wszystkie informacje z jakimi powinni zapoznać się tłumacze spisaliśmy w osobnym
+<uri link="http://dev.gentoo.org/~rane/jak-tlumaczyc.xml">dokumencie</uri>. Jest
+on obowiązkową lekturą dla każdego, kto zamierza dołączyć do naszego projektu.
+Osoby zainteresowane pomocą w aktualizowaniu dokumentacji powinny zapoznać się z
+<uri link="http://dev.gentoo.org/~rane/jak-aktualizowac.xml">opisem</uri>
+wszystkich czynności jakich trzeba w tym celu dokonać.
+</p>
+
+<p>
+Po zapoznaniu się z powyższym tekstem wystarczy wysłać zgłoszenie pod adres
+<mail>rane@gentoo.org</mail>. Na adres ten można również wysyłać wszelkie
+pytania i sugestie dotyczące projektu oraz już przetłumaczonej dokumentacji.
+Jest to służbowa skrzynka koordynatora projektu.
+</p>
+
+<p>
+Postęp prac nad dokumentacją można śledzić w oficjalnym <uri
+link="http://sources.gentoo.org/viewcvs.py/gentoo/xml/htdocs/doc/pl/">repozytorium
+CVS</uri> projektu Gentoo.
+</p>
+
+<p>
+Dzięki uprzejmości osób administrujących projektem <uri
+link="http://www.gentoo.org/proj/en/overlays/">Gentoo Overlays</uri> projekt
+dysponuje także nieoficjalnym (roboczym) <uri
+link="http://overlays.gentoo.org/proj/docs-pl/browser">repozytorium SVN</uri>.
+Dostęp do niego można uzyskać kontaktując się z <mail
+link="rane@gentoo.org">koordynatorem</mail> projektu. Mogą z niego korzystać
+wszystkie osoby pomagające w pracy nad polską dokumentacją Gentoo.
+</p>
+
+<p>
+Z uczestnikami projektu można porozmawiać na naszym oficjalnym kanale
+<c>#gentoo-docs-pl</c> w sieci <uri link="http://freenode.net/">freenode</uri>.
+Zapraszamy również tam.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Strony</title>
+<section>
+<body>
+
+<ul>
+  <li>
+    <uri link="http://dev.gentoo.org/~shadoww/trads.xml">Tabela</uri> przedstawiająca listę wszystkich
+    przetłumaczonych dokumentów
+  </li>
+  <li>
+    <uri link="http://dev.gentoo.org/~shadoww/trads-0.xml">Skrócona wersja</uri> powyższej tabeli, przedstawiająca
+    jedynie dokumenty wymagające aktualizacji
+  </li>
+</ul>
+
+<ul>
+  <li><uri link="jak-tlumaczyc.xml">Instrukcje dla tłumaczy</uri></li>
+  <li><uri link="jak-aktualizowac.xml">Opis aktualizowania dokumentów</uri></li>
+  <li><uri link="tlumaczenie-manuali.xml">Projekt tłumaczenia manuali Gentoo</uri></li>
+  <li><uri link="http://sources.gentoo.org/viewcvs.py/gentoo/xml/htdocs/doc/pl/">Katalog z polską dokumentacją w CVS Gentoo</uri></li>
+  <li><uri link="http://overlays.gentoo.org/proj/docs-pl/browser">Robocze repozytorium SVN projektu</uri></li>
+  <li><uri link="http://gentoo.org/news/pl/gwn/gwn.xml">Bratni projekt tłumaczenia Tygodnika Gentoo</uri></li>
+</ul>
+
+<ul>
+  <li>
+    <uri link="http://dev.gentoo.org/~rane/docget.py">Program docget</uri>
+  </li>
+  <li>  
+    <uri link="http://dev.gentoo.org/~rane/tlumacz">Skrypt tlumacz</uri>
+  </li>
+  <li>
+    <uri link="http://dev.gentoo.org/~rane/slownik.gz">Słownik</uri>
+  </li>
+</ul>
+
+<ul>
+  <li>
+    <uri link="http://gentoo.org/proj/en/gdp/tests/topdocs.xml">Statystyki</uri>
+    poczytności poszczególnych dokumentów na stronach Gentoo
+  </li>
+  <li>
+    <uri link="http://dev.gentoo.org/~rane/other/status.html">Statystyki</uri>
+    dotyczące ilości przetłumaczonych dokumentów
+  </li>
+</ul>
+
+<pre caption="Pobieranie repozytoriów ze źródłami polskiej dokumentacji">
+<comment>(Nieoficjalne robocze repozytorium na overlays.gentoo.org)</comment>
+$ <i>svn co http://overlays.gentoo.org/svn/proj/docs-pl/</i>
+<comment>(Dokumentacja z gentoo.org)</comment>
+$ <i>cvs -d :pserver:anonymous@anoncvs.gentoo.org/var/cvsroot co gentoo/xml/htdocs/doc/pl</i>
+</pre>
+
+</body>
+</section>
+</chapter>
+
+<chapter>
+<title>Uczestnicy projektu</title>
+<section>
+<body>
+
+<p>
+W projekcie na pełnym etacie pracują następujące osoby:
+</p>
+
+<table>
+  <tr>
+    <th>Imię i nazwisko</th>
+    <th>Pseudonim</th>
+    <th>E-mail</th>
+  </tr><tr>
+    <ti>Łukasz Damentko</ti><ti>rane</ti><ti><mail>rane@gentoo.org</mail></ti>
+  </tr><tr>
+    <ti>Damian Kuras</ti><ti>shadow</ti><ti><mail>shadoww@gentoo.org</mail></ti>
+  </tr><tr>
+    <ti>Waldemar Korłub</ti><ti>stawrul</ti><ti><mail>stawrul@gmail.com</mail></ti>
+  </tr><tr>
+    <ti>Damian Szeluga</ti><ti>Damjanek</ti><ti><mail>damjanek@gentoo.pl</mail></ti>
+  </tr><tr>
+    <ti>Kuba Bożanowski</ti><ti>iieee</ti><ti><mail>jbozanowski@gmail.com</mail></ti>
+  </tr>
+</table>
+
+<p>
+W przeszłości pomagało nam znacznie więcej osób. Poniżej znajduje się lista
+nazwisk ludzi, których teksty znajdują się na polskich stronach Gentoo.
+</p>
+
+<ul>
+  <li>Adrian Spaleniak</li>
+  <li>Aleksander Kamil Modzelewski</li>
+  <li>Antoni Grzymała</li>
+  <li>Bartosz Bielecki</li>
+  <li>Dawid Węgliński</li>
+  <li>Hubert Kromer</li>
+  <li>Janusz Bossy</li>
+  <li>Jarosław Ogrodnik</li>
+  <li>Jerzy Pawelec</li>
+  <li>Kamil Górnik</li>
+  <li>Karol Góralski</li>
+  <li>Karol Wojtaszek</li>
+  <li>Krzysztof Nowicki</li>
+  <li>Krzysztof Smirnow</li>
+  <li>Łukasz Czyżykowski</li>
+  <li>Łukasz Strzygowski</li>
+  <li>Marcin Kryczek</li>
+  <li>Marek Więcek</li>
+  <li>Mariusz Wołos</li>
+  <li>Mateusz Kotyrba</li>
+  <li>Michał Brudka</li>
+  <li>Michał Januszewski</li>
+  <li>Michał Kurgan</li>
+  <li>Paweł Drobek</li>
+  <li>Paweł Kilian</li>
+  <li>Paweł Kwiatkowski</li>
+  <li>Paweł Seremak</li>
+  <li>Piotr Chmyłkowski</li>
+  <li>Radosław Szkodziński</li>
+  <li>Rafał Stolarski</li>
+  <li>Robert Frączek</li>
+  <li>Robert Muchacki</li>
+  <li>Robert Sebastian Gerus</li>
+  <li>Tomasz Bukowski</li>
+  <li>Tomasz Jankowski</li>
+  <li>Tomasz Tofel</li>
+  <li>Wojciech Arabczyk</li>
+  <li>Wojciech Baran</li>
+  <li>Maciej Majnusz</li>
+  <li>Artur Czepiel</li>
+  <li>Szymon Migaj</li>
+</ul>
+
+</body>
+</section>
+</chapter>
+</guide>

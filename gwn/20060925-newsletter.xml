@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<guide type="newsletter" link="20060925-newsletter.xml" lang="pl">
+<title>Tygodnik Gentoo</title>
+<subtitle>25 września 2006</subtitle>
+
+<author title="Redaktor naczelny">
+  <mail link="plate@gentoo.org">Ulrich Plate</mail>
+</author>
+<author title="Redaktor">
+  <mail link="jmbsvicetto@gentoo.org">Jorge Vicetto</mail>
+</author>
+<author title="Redaktor">
+  <mail link="dams@gentoo.org">Damien Krotkine</mail>
+</author>
+<author title="Redaktor">
+  <mail link="wolf31o2@gentoo.org">Chris Gianelloni</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="jbozanowski@gmail.com">Kuba Bożanowski</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="karol.kania@gmail.com">Karol Kania</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="moloh@gentoo.org">Michał Kurgan</mail>
+</author>
+
+<abstract>Wydanie Tygodnika Gentoo z 25 września 2006.</abstract>
+<summary/>
+
+<version>Wolumin 5, numer 39</version>
+<date>2006-09-25</date>
+
+<!-- Gentoo News -->
+
+<chapter>
+<title>Wiadomości Gentoo</title>
+
+<section>
+<title>Aktualizacja nośników 2006.1 LiveCD/LiveDVD</title>
+<body>
+
+<p>
+Z powodu wystąpienia kilka problemów z nośnikami instalacyjnymi, postanowiono
+zastąpić je nowymi, poprawionymi wersjami. W porównaniu do oryginalnego wydania
+2006.1 nie zmieniły się jednak wersje pakietów. Poprawione problemy to między
+innymi błąd przy instalacji bez połączenia z internetem, który mógł doprowadzić
+do jej błędnego zakończenia. Dodatkowo przebudowano także płytę Universal
+InstallCD dla architektury SPARC, aby poprawić znaleziony błąd w PAM, oraz płytę
+Minimal InstallCD dla x86, gdyż nie współpracowała ona z procesorami starszymi
+niż i686. Oto lista wszystkich poprawionych nośników:
+</p>
+
+<ul>
+  <li>AMD64 LiveCD</li>
+  <li>SPARC Universal InstallCD</li>
+  <li>x86 LiveCD</li>
+  <li>x86 Minimal InstallCD</li>
+</ul>
+
+<p>
+Uaktualnione obrazy płyt znajdują się już na serwerach lustrzanych w katalogach
+wydania 2006.1. Stare obrazy zostały nadpisane. Jeśli jednak problemy z
+instalacją bez dostępu do sieci nie stanowią nas problemu to nie ma potrzeby
+ściągać niczego od nowa.
+</p>
+
+<note>
+Obrazy rozpowszechniane przez sieć Bittorrent także zostaną uaktualnione. Po
+ich opublikowaniu zostanie wydany osobny komunikat.
+</note>
+
+</body>
+</section>
+</chapter>
+
+<!-- Developer of the Week -->
+<!-- Heard in the community -->
+<!-- forums -->
+<!-- planet.gentoo.org -->
+<!-- gentoo-user -->
+<!-- gentoo-dev -->
+<!-- Gentoo International-->
+<!-- Gentoo in the press -->
+<chapter>
+<title>Gentoo w prasie</title>
+
+<section>
+<title>LinuxDevices.com (14 września 2006)</title>
+<body>
+
+<p>
+Na pustynnych terenach Arizony NASA testowała roboty działające pod kontrolą
+Linuksa, których zadaniem jest badanie powierzchni planety. Jeden z nich, The
+Scout, to pojazd który może być sterowany zdalnie lub lokalnie za pomocą
+klawiatury i ekranu dotykowego. Scout pracuje pod kontrolą dwóch laptopów Dell
+D400, na obu znajduje się Gentoo Linux.
+</p>
+
+<figure link="/images/gwn/20060925_scout.jpg"
+        caption="Scout"
+        short="Scout" />
+
+<ul>
+  <li><uri>http://www.linuxdevices.com/news/NS4892438264.html</uri></li>
+  <li><uri>http://robonaut.jsc.nasa.gov/desert06.htm</uri></li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Open Source On The Air (15 września 2006)</title>
+<body>
+
+<p>
+James Purser w ubiegłym tygodniu w swoim programie <uri
+link="http://www.localfoss.org/node/260">LA Update</uri> emitowanym na antenie
+Open Source On The Air przeprowadził wywiad z jednym z deweloperów Gentoo. <mail
+link="mark_alec@gentoo.org">Mark Kowarsky</mail>, ukrywający się pod
+pseudonimem <b>mark_alec</b>, należy do zespołów Forums i User Relations.
+</p>
+
+<p>
+Wywiad rozpoczyna Mark mówiąc parę słów o sobie, swoich doświadczeniach i pracy
+z Gentoo. Po tym krótkim wprowadzeniu James pyta o australijską społeczność
+Gentoo i jej rozwój. Po tym pytaniu Mark zaczął omawiać społeczność jako
+całość, i odpowiadał na pytania dotyczące jego spostrzeżeń na temat przeszkód
+związanych z rozwojem Gentoo. Ponadto James spytał także w jaki sposób tworzone
+są kolejne wydania Gentoo i jak społeczność odbiera pochodne dystrybucje.
+Kolejnymi poruszanymi przez Marka tematami była przyszłość naszej dystrybucji
+oraz jej przewodzenie. Na zakończenie podał kilka pomysłów rozwoju Gentoo w
+Australii.
+</p>
+
+<p>
+Cały wywiad (w języku angielskim) można wysłuchać w formatach <uri
+link="http://www.localfoss.org/files/osota_laupdate_6.ogg">ogg vorbis</uri>lub
+<uri link="http://www.localfoss.org/files/osota_laupdate_6.mp3">mp3</uri>.
+Więcej szczegółów na temat samego wywiadu, włączając w to jego transkrypcję oraz
+poprawioną wersję można znaleźć w <uri
+link="http://planet.gentoo.org/developers/mark_alec/2006/09/24/i_m_on_an_austrlian_radio">
+blogu Marka</uri>.
+</p>
+
+</body>
+</section>
+<section>
+<title>APC Magazine (22 września 2006)</title>
+<body>
+
+<p>
+Ashton Mills napisał artykuł o dystrybucjach opartych na kodzie źródłowym, w
+szczególności Gentoo. Opatrzony tytułem „Use the source, Luke?” zawiera opis
+ulubionych/znienawidzonych związków autora z Gentoo. Przedstawia pozytywne
+doświadczenia pracy z Portage, i doskonałych możliwościach przystosowania
+środowiska do własnych potrzeb. Wymienia również parę niedogodności związanych
+z długimi okresami ściągania plików, ogromną zajętością przepustowości i jeden z
+największych problemów wszystkich tego typu dystrybucji, fakt, że co jakiś czas
+można spodziewać się problemów z kompilacją.
+</p>
+
+<ul>
+  <li><uri>http://www.apcstart.com/site/amills/2006/09/1589/use-the-source-luke</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- Tips and Tricks -->
+<chapter>
+<title>Sztuczki i kruczki</title>
+<section>
+<title>GNU screen w praktyce</title>
+<body>
+
+<p>
+<uri link="http://en.wikipedia.org/wiki/GNU_Screen">GNU screen</uri> to bardzo
+przydatne narzędzie, szczególnie dla administratorów i programistów, jednak nie
+jest łatwo przebrnąć przez jego ogromną dokumentację man. Poniżej można znaleźć
+listę kilku przydatnych opcji, które powinny znaleźć się w pliku
+<path>~/.screenrc</path>.
+</p>
+
+<p>
+Jedną z najbardziej przydatnych modyfikacji jest zastąpienie głównego klawisza
+funkcyjnego programu screen. Kombinacja 'ctrl-A' zostanie zmieniona na 'ctrl-O',
+gdyż tej pierwszej używa wiele innych aplikacji, na przykład emacs, bash i
+links.
+</p>
+
+<p>
+Kolejnym dodatkiem, bez którego trudno się obejść to pasek statusu znajdujący
+się w ostatniej linijce. Wyświetla on listę otwartych okien wraz z ich numerami
+i tytułami, przy czym aktualnie aktywne okno jest wyświetlone jako biały tekst
+na niebieskim tle. Oprócz tego po prawej stronie znajduje się także kilka
+dodatkowych informacji.
+</p>
+
+<pre caption="Ustawienia w pliku ~/.screenrc">
+# wizualny alarm
+vbell on
+# zamiana ctrl-A na ctrl-O
+escape ^Oo
+# duży bufor przewijania
+defscrollback 5000
+# pasek statusu w ostatniej linijce
+caption always "%{= kw}%-w%{= BW}%n %t%{-}%+w %-= @%H - %LD %d %LM - %c"
+</pre>
+
+<p>
+Oto zrzut ekranu, na którym można na własne oczy przekonać się jak wygląda
+linijka z opisywanym statusem sesji.
+</p>
+
+<figure link="/images/gwn/20060925_screen.png"
+        caption="GNU screen z włączonym statusem"
+        short="screen" />
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo developer moves -->
+<chapter>
+<title>Zmiana statusu deweloperów Gentoo</title>
+<section>
+<title>Odeszli</title>
+<body>
+
+<p>
+Następujący deweloperzy opuścili projekt Gentoo Linux w minionym tygodniu:
+</p>
+
+<ul>
+  <li><e>Nikt w tym tygodniu</e></li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Przybyli</title>
+<body>
+
+<p>
+Następujący deweloperzy przyłączyli się do projektu Gentoo Linux w minionym
+tygodniu:
+</p>
+
+<ul>
+  <li><e>Nikt w tym tygodniu</e></li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Zmienili status</title>
+<body>
+
+<p>
+Następujący deweloperzy zmienili w minionym tygodniu pełnioną w projekcie Gentoo
+Linux funkcję:
+</p>
+
+<ul>
+  <li><e>Nikt w tym tygodniu</e></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo security -->
+<chapter>
+<title>Bezpieczeństwo Gentoo</title>
+<!-- paste from the script -->
+<section>
+<title>Mailman: Wiele usterek</title>
+<body>
+
+<p>
+Mailman zawiera wiele usterek, które mogą zostać wykorzystane do przeprowadzenia
+ataku Denial of Service, wstrzyknięcia zawartości logów oraz ataków XSS.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200609-12.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>gzip: Wiele usterek</title>
+<body>
+
+<p>
+gzip zawiera wiele usterek, włączając przepełnienie bufora, nieskończone pętle,
+które mogą zostać wykorzystane do wykonania niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200609-13.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Bugzilla -->
+<!-- paste from the script -->
+<chapter>
+<title>Bugzilla</title>
+<section>
+<title>Podsumowanie</title>
+<body>
+
+<ul>
+  <li><uri link="#doc_chap1_sect2">Statystyki</uri></li>
+  <li><uri link="#doc_chap1_sect3">Zamknięte bugi</uri></li>
+  <li><uri link="#doc_chap1_sect4">Nowe bugi</uri></li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Statystyki</title>
+<body>
+
+<p>
+Społeczność Gentoo używa Bugzilli (<uri
+link="http://bugs.gentoo.org/">bugs.gentoo.org</uri>) do zgłaszania i śledzenia
+błędów, ogłoszeń, sugestii oraz innych form kontaktu z deweloperami. Pomiędzy 17
+września 2006, a 24 września 2006 aktywność w serwisie przedstawiała się
+następująco:
+</p>
+
+<ul>
+  <li>zgłoszono 995 nowych bugów</li>
+  <li>zamknięto lub rozwiązano 473 bugi</li>
+  <li>41 uprzednio zamkniętych bugów zostało ponownie otwartych</li>
+  <li>152 bugi oznaczono jako NEEDINFO/WONTFIX/CANTFIX/INVALID/UPSTREAM</li>
+  <li>211 bugów oznaczono jako duplikaty</li>
+</ul>
+
+<p>
+Spośród 11225 obecnie otwartych bugów: 36 oznaczono jako 'blocker', 122 jako
+'critical', a 528 jako 'major'.
+</p>
+
+</body>
+</section>
+<section>
+<title>Zamknięte Bugi</title>
+<body>
+
+<p>
+Deweloperzy oraz zespoły, które zamknęły najwięcej bugów w minionym tygodniu,
+to:
+</p>
+
+<ul>
+  <li><mail link="amd64@gentoo.org">AMD64 Project</mail>, 41 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-17&amp;chfieldto=2006-09-24&amp;resolution=FIXED&amp;assigned_to=amd64@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="kde@gentoo.org">Gentoo KDE team</mail>, 21 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-17&amp;chfieldto=2006-09-24&amp;resolution=FIXED&amp;assigned_to=kde@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="games@gentoo.org">Gentoo Games</mail>, 20 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-17&amp;chfieldto=2006-09-24&amp;resolution=FIXED&amp;assigned_to=games@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="java@gentoo.org">Java team</mail>, 19 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-17&amp;chfieldto=2006-09-24&amp;resolution=FIXED&amp;assigned_to=java@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="chtekk@gentoo.org">Luca Longinotti</mail>, 16 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-17&amp;chfieldto=2006-09-24&amp;resolution=FIXED&amp;assigned_to=chtekk@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="base-system@gentoo.org">Gentoo's Team for Core System
+  packages</mail>, 16 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-17&amp;chfieldto=2006-09-24&amp;resolution=FIXED&amp;assigned_to=base-system@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="vapier@gentoo.org">SpanKY</mail>, 14 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-17&amp;chfieldto=2006-09-24&amp;resolution=FIXED&amp;assigned_to=vapier@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="crypto@gentoo.org">Crypto herd</mail>, 14 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-17&amp;chfieldto=2006-09-24&amp;resolution=FIXED&amp;assigned_to=crypto@gentoo.org">zamkniętych
+  bugów</uri></li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Nowe Bugi</title>
+<body>
+
+<p>
+Deweloperzy oraz zespoły, którym przydzielono najwięcej bugów w minionym tygodniu,
+to:
+</p>
+
+<ul>
+  <li><mail link="maintainer-wanted@gentoo.org">Default Assignee for New
+  Packages</mail>, 27 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-17&amp;chfieldto=2006-09-24&amp;assigned_to=maintainer-wanted@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="gnome@gentoo.org">Gentoo Linux Gnome Desktop Team</mail>, 18
+  <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-17&amp;chfieldto=2006-09-24&amp;assigned_to=gnome@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="nelchael@gentoo.org">Krzysiek Pawlik</mail>, 17 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-17&amp;chfieldto=2006-09-24&amp;assigned_to=nelchael@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="games@gentoo.org">Gentoo Games</mail>, 14 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-17&amp;chfieldto=2006-09-24&amp;assigned_to=games@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="amd64@gentoo.org">AMD64 Project</mail>, 12 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-17&amp;chfieldto=2006-09-24&amp;assigned_to=amd64@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="kde@gentoo.org">Gentoo KDE team</mail>, 11 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-17&amp;chfieldto=2006-09-24&amp;assigned_to=kde@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="net-im@gentoo.org">Gentoo net-im Herd</mail>, 10 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-17&amp;chfieldto=2006-09-24&amp;assigned_to=net-im@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="maintainer-needed@gentoo.org">Default Assignee for Orphaned
+  Packages</mail>, 10 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-17&amp;chfieldto=2006-09-24&amp;assigned_to=maintainer-needed@gentoo.org">nowych
+  bugów</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- GWN feedback information -->
+<chapter>
+<title>Opinie czytelników</title>
+<section>
+<body>
+
+<p>
+Jeśli chcesz, aby Tygodnik Gentoo był jeszcze lepszy, podziel się z <mail
+link="gwn-feedback@gentoo.org">nami</mail> swoją opinią na jego temat. Uwagi
+dotyczące tłumaczenia można zgłaszać na adres <mail
+link="moloh@gentoo.org">koordynatora</mail>.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- GWN subscription information -->
+<chapter>
+<title>Subskrypcja Tygodnika Gentoo</title>
+<section>
+<body>
+
+<p>
+Aby zaprenumerować Tygodnik Gentoo, należy wysłać pustego emaila na adres <mail
+link="gentoo-gwn-pl+subscribe@gentoo.org">gentoo-gwn-pl+subscribe@gentoo.org</mail>.
+</p>
+
+<p>
+Aby zrezygnować z subskrypcji, należy wysłać pustego emaila na adres <mail
+link="gentoo-gwn-pl+unsubscribe@gentoo.org">
+gentoo-gwn-pl+unsubscribe@gentoo.org</mail> z konta, na które jest
+zarejestrowana.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Other Languages -->
+
+<chapter>
+<title>Inne języki</title>
+<section>
+<body>
+
+<p>
+Tygodnik Gentoo jest dostępny w następujących językach:
+</p>
+
+<ul>
+  <li><uri link="/news/en/gwn/gwn.xml">angielskim</uri></li>
+  <li><uri link="/news/zh_cn/gwn/gwn.xml">chińskim (uproszczony)</uri></li>
+  <li><uri link="/news/da/gwn/gwn.xml">duńskim</uri></li>
+  <li><uri link="/news/fr/gwn/gwn.xml">francuskim</uri></li>
+  <li><uri link="/news/el/gwn/gwn.xml">greckim</uri></li>
+  <li><uri link="/news/es/gwn/gwn.xml">hiszpańskim</uri></li>
+  <li><uri link="/news/nl/gwn/gwn.xml">holenderskim</uri></li>
+  <li><uri link="/news/ja/gwn/gwn.xml">japońskim</uri></li>
+  <li><uri link="/news/ko/gwn/gwn.xml">koreańskim</uri></li>
+  <li><uri link="/news/de/gwn/gwn.xml">niemieckim</uri></li>
+  <li><uri link="/news/pl/gwn/gwn.xml">polskim</uri></li>
+  <li><uri link="/news/pt_br/gwn/gwn.xml">portugalskim (Brazylia)</uri></li>
+  <li><uri link="/news/pt/gwn/gwn.xml">portugalskim (Portugalia)</uri></li>
+  <li><uri link="/news/ru/gwn/gwn.xml">rosyjskim</uri></li>
+  <li><uri link="/news/it/gwn/gwn.xml">włoskim</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+</guide>
+

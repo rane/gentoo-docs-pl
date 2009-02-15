@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl"?>
+<!DOCTYPE guide SYSTEM "/dtd/guide.dtd">
+<guide type="newsletter" link="20060918-newsletter.xml" lang="pl">
+<title>Tygodnik Gentoo</title>
+<subtitle>18 września 2006</subtitle>
+
+<author title="Redaktor naczelny">
+  <mail link="plate@gentoo.org">Ulrich Plate</mail>
+</author>
+<author title="Redaktor">
+  <mail link="flameeyes@gentoo.org">Diego Pettenò</mail>
+</author>
+<author title="Redaktor">
+  <mail link="tillalfred@spray.se">Alfred Carlsson</mail>
+</author>
+<author title="Redaktor">
+  <mail link="ellotheth@gmail.com">Ellotheth Rimmwen</mail>
+</author>
+<author title="Redaktor">
+  <mail link="wolf31o2@gentoo.org">Chris Gianelloni</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="jbozanowski@gmail.com">Kuba Bożanowski</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="karol.kania@gmail.com">Karol Kania</mail>
+</author>
+<author title="Tłumacz">
+  <mail link="moloh@gentoo.org">Michał Kurgan</mail>
+</author>
+
+<abstract>Wydanie Tygodnika Gentoo z 18 września 2006.</abstract>
+<summary/>
+
+<version>Wolumin 5, numer 38</version>
+<date>2006-09-18</date>
+
+<!-- Gentoo News -->
+
+<chapter>
+<title>Wiadomości Gentoo</title>
+<section>
+<title>Problemy z openssl</title>
+<body>
+
+<p>
+W wersji 0.9.8c-r2 pakietu <c>dev-libs/openssl</c> wykryto ostatnio kilka
+błędów. Użytkownicy x86 po aktualizacji z poprzednich wersji 0.9.8 powinni
+przeinstalować openssh i inne aplikacje go wykorzystujące. W przypadku
+napotkania problemów z zawieszania się ssh, należy przeinstalować wszystkie
+zależne od niego pakiety, gdyż tym właśnie mogą objawić się wykryte usterki.
+</p>
+
+</body>
+</section>
+<section>
+<title>Wydano Portage 2.1.1</title>
+<body>
+
+<p>
+Zazwyczaj nie praktykuje się informowania o drobnych poprawkach pakietów, ta
+jednak zasługuje na chwilę uwagi. Portage w wersji 2.1.1 został na większości
+architektur oznaczony jako stabilny. To kolejne wydanie posiada zupełnie nową
+implementację dla opcji <c>--depclean</c>. Jest ona teraz zdecydowanie bardziej
+ostrożna w oznaczaniu pakietów do usunięcia. W przypadku niepewności co do
+jakiegoś pakietu, zostaje on pominięty. Wskazane zostaną również braki w
+zależnościach pakietów należących do specjalnej klasy world. Dzięki tym zmianom
+używanie tej funkcji w zaktualizowanym systemie powinno być zdecydowanie
+bardziej stabilne i bezpieczne. Nowością jest też zwiększenie funkcjonalności
+<c>--newuse</c>, które jest teraz bardziej wyczulone na zmiany w IUSE. Zaraz po
+migracji z Portage 2.1, użytkownicy mogą zaobserwować znacznie większą ilość
+wskazanych pakietów, gdy zostanie użyty parametr --newuse. Wynik jest jak
+najbardziej prawidłowy. By uzyskać więcej informacji dotyczących tych zmian,
+prosimy odwiedzić strony bugów o numerach <uri
+link="http://bugs.gentoo.org/116955">#116995</uri>, <uri
+link="http://bugs.gentoo.org/144333">#144333</uri>, <uri
+link="http://bugs.gentoo.org/144661">#144661</uri> i <uri
+link="http://bugs.gentoo.org/146060">#146060</uri>.
+</p>
+
+</body>
+</section>
+<section>
+<title>Porządki w pakietach autotools</title>
+<body>
+
+<p>
+<mail link="vapier@gentoo.org">Mike Frysinger</mail> zmodyfikował ebuildy będące
+nakładkami dla poszczególnych wersji autotools, tak żeby nie potrzebowały już
+wszystkich istniejących wersji. Użytkownicy powinni uważać na pakiety, które
+mogą mieć problemy z zależnościami spowodowanymi tą zmianą. Jeśli aplikacja
+wymaga specyficznej wersji autotools, to powinna ona teraz wymagać właśnie jej,
+a nie ogólnego interfejsu. Prosimy osoby, które napotkały na jakiekolwiek
+problemy związane z brakiem odpowiedniej wersji autotools o stworzenie
+odpowiedniego <uri link="http://bugs.gentoo.org">raportu o błędzie</uri>.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Developer of the Week -->
+<!-- Heard in the community -->
+<chapter>
+<title>Społeczność Gentoo</title>
+<!-- forums -->
+<section>
+<title>Forum</title>
+<body>
+
+<p>
+<b>Niech Larry zagości na naszych ekranach!</b>
+</p>
+
+<p>
+Jeden z użytkowników forum, Tom Lloyd, używający pseudonimu Napalm Llama napisał
+poprawkę na jądro zamieniającą domyślny obrazek pingwina na maskotkę Gentoo -
+Larrego. Tom zapytał, czy jego patch powinien zostać dołączony do zestawu
+poprawek Gentoo tak, aby maskotka dystrybucji zdobiła ekrany jej użytkowników.
+Jak na razie jego propozycji spotkała się z dość ciepłym przyjęciem.
+</p>
+
+<ul>
+  <li><uri>http://forums.gentoo.org/viewtopic-t-493774.html</uri></li>
+</ul>
+
+</body>
+</section>
+<!-- planet.gentoo.org -->
+<section>
+<title>Serwis planet.gentoo.org</title>
+<body>
+
+<p>
+<b>Lepiej zapytać zawczasu... nowa funkcjonalność Amaroka</b>
+</p>
+
+<p>
+<mail link="flameeyes@gentoo.org">Diego Pettenò</mail>, opiekun pakietu
+media-sound/amarok, w oczekiwaniu na kolejne wydanie w którym zostanie dodane
+opcjonalne wsparcie dla odtwarzaczy mp3 Rio Karma, liczy na uzyskanie opinii
+użytkowników w sprawie tej funkcjonalności. Prosimy wszystkich posiadaczy tego
+modelu odtwarzacza, którzy chcą by Amarok z nim współpracował lub
+zainteresowanych podstawowym wsparciem dla Rio Karma w Gentoo o przeczytanie
+opublikowanego wpisu.
+</p>
+
+<ul>
+  <li><uri>http://farragut.flameeyes.is-a-geek.org/articles/2006/09/13/trying-to-ask-before-new-amarok-support</uri></li>
+</ul>
+
+</body>
+</section>
+<!-- gentoo-user -->
+<section>
+<title>gentoo-user</title>
+<body>
+
+<p>
+<b>Usuwanie środowiska Gnome z systemu</b>
+</p>
+
+<p>
+Użytkownik Etaoin Shrdlu poprosił o pomoc przy usunięciu Gnome z systemu. Bo
+Ørsted Andresen zasugerował: „usuń ręcznie z pliku /var/lib/portage/world te
+aplikacje należące do środowiska Gnome, które nie są już Ci potrzebne i pozwól
+poleceniu emerge --depclean -va zająć się resztą”.
+</p>
+
+<ul>
+  <li><uri>http://thread.gmane.org/gmane.linux.gentoo.user/170041</uri></li>
+</ul>
+
+<p>
+<b>Aktualizacja BIOS-u</b>
+</p>
+
+<p>
+Grant spytał o porady dotyczące aktualizacji BIOS-u. Użytkownicy sugerowali
+różne rozwiązania, począwszy od standardowego, z użyciem dyskietki, aż po
+konwersję partycji wymiany do formatu DOS-a i wykorzystanie jej do tego procesu.
+Ostatecznie jednak Grant użył płyty LiveCD, zalecanej w Linux Mini HOWTO.
+</p>
+
+<ul>
+  <li><uri>http://thread.gmane.org/gmane.linux.gentoo.user/170106</uri></li>
+  <li><uri>http://www.nenie.org/misc/flashbootcd.html</uri></li>
+</ul>
+
+<p>
+<b>Co jest z nową konfiguracją nazwy domeny?</b>
+</p>
+
+<p>
+Użytkownicy wciąż mają problemy z użyciem nowego sposobu konfiguracji nazwy
+domeny jaki jest stosowany w nowszych wersjach pakietu baselayout. W ramach
+przypomnienia: odpowiednim miejscem na te ustawienia jest plik /etc/conf.d/net.
+Więcej informacji na ten temat można znaleźć standardowo dołączanym przykładzie
+/etc/conf.d/net.example.
+</p>
+
+<ul>
+  <li><uri>http://thread.gmane.org/gmane.linux.gentoo.user/170468</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- gentoo-dev -->
+<!-- Gentoo International-->
+<!-- Gentoo in the press -->
+<!-- Tips and Tricks -->
+<chapter>
+<title>Sztuczki i kruczki</title>
+<section>
+<title>Zmiana domyślnych kolorów Portage</title>
+<body>
+
+<p>
+Jeśli używamy białego tła w emulatorze terminala i Portage wyświetla jakiś tekst
+w kolorze żółtym (na przykład nowe flagi USE z symbolem "%"), może być on trudny
+do przeczytania. Aby zmienić globalnie w całym systemie domyślny żółty na jakiś
+bardziej czytelny kolor, można na przykład dodać następujące parametry do pliku
+<path>/etc/portage/color.map</path>:
+</p>
+
+<pre caption="/etc/portage/color.map">
+yellow=0xAA00AA
+WARN=0xAA00AA
+MERGE_LIST_PROGRESS=0xAA00AA
+</pre>
+
+<p>
+Przykłady kolorów, które są widoczne jednakowo dobrze zarówno na czarnym, jak i
+białym tle to:
+purpurowy: 0xAA00AA
+ciemnożółty: 0xAA5500 (wygląda brązowo/pomarańczowo)
+</p>
+
+<p>
+Więcej informacji na ten temat można znaleźć w następujących wątkach.
+</p>
+
+<ul>
+  <li><uri>http://forums.gentoo.org/viewtopic-t-427948.html</uri></li>
+  <li><uri>http://forums.gentoo.org/viewtopic-p-3376132.html</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo developer moves -->
+<chapter>
+<title>Zmiana statusu deweloperów Gentoo</title>
+<section>
+<title>Odeszli</title>
+<body>
+
+<p>
+Następujący deweloperzy opuścili projekt Gentoo Linux w minionym tygodniu:
+</p>
+
+<ul>
+  <li><e>Nikt w tym tygodniu</e></li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Przybyli</title>
+<body>
+
+<p>
+Następujący deweloperzy przyłączyli się do projektu Gentoo Linux w minionym
+tygodniu:
+</p>
+
+<ul>
+  <li><e>Nikt w tym tygodniu</e></li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Zmienili status</title>
+<body>
+
+<p>
+Następujący deweloperzy zmienili w minionym tygodniu pełnioną w projekcie Gentoo
+Linux funkcję:
+</p>
+
+<ul>
+  <li><e>Nikt w tym tygodniu</e></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- Gentoo security -->
+<chapter>
+<title>Bezpieczeństwo Gentoo</title>
+<!-- paste from the script -->
+<section>
+<title>AdPlug: Wiele usterek</title>
+<body>
+
+<p>
+AdPlug posiada wiele usterek przepełnienia bufora i stery.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200609-06.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>LibXfont, monolityczny X.org: Wiele usterek przekroczenia zakresu liczby
+całkowitej</title>
+<body>
+
+<p>
+Parser fontów CID zawiera usterki przepełnienia bufora, które mogą zostać
+wykorzystane do wykonania niepożądanego kodu z przekroczonymi uprawnieniami.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200609-07.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>xine-lib: Usterki przepełnienia bufora</title>
+<body>
+
+<p>
+xine-lib zawiera wiele usterek przepełnienia bufora, które mogą zostać
+wykorzystane do wykonania niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200609-08.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>FFmpeg: Usterki przepełnienia bufora</title>
+<body>
+
+<p>
+FFmpeg zawiera wiele usterek przepełnienia bufora, które mogą zostać
+wykorzystane do wykonania niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200609-09.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+
+<section>
+<title>DokuWiki: Wykonanie niepożądanego polecenia</title>
+<body>
+
+<p>
+DokuWiki zawiera kilka podatnych skryptów, które mogą zostać wykorzystane do
+wykonania niepożądanego kodu.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200609-10.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+<section>
+<title>BIND: Denial of Service</title>
+<body>
+
+<p>
+ISC BIND zawiera dwie usterki umożliwiające, w pewnych warunkach,
+przeprowadzenie ataku Denial of Serwice.
+</p>
+
+<p>
+Więcej informacji można znaleźć w <uri
+link="http://www.gentoo.org/security/en/glsa/glsa-200609-11.xml">komunikacie
+GLSA</uri>
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Bugzilla -->
+<chapter>
+<title>Bugzilla</title>
+<section>
+<title>Podsumowanie</title>
+<body>
+
+<ul>
+  <li><uri link="#doc_chap1_sect2">Statystyki</uri></li>
+  <li><uri link="#doc_chap1_sect3">Zamknięte bugi</uri></li>
+  <li><uri link="#doc_chap1_sect4">Nowe bugi</uri></li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Statystyki</title>
+<body>
+
+<p>
+Społeczność Gentoo używa Bugzilli (<uri
+link="http://bugs.gentoo.org/">bugs.gentoo.org</uri>) do zgłaszania i śledzenia
+błędów, ogłoszeń, sugestii oraz innych form kontaktu z deweloperami. Pomiędzy 10
+września 2006, a 17 września 2006 aktywność w serwisie przedstawiała się
+następująco:
+</p>
+
+<ul>
+  <li>zgłoszono 861 nowych bugów</li>
+  <li>zamknięto lub rozwiązano 430 bugów</li>
+  <li>32 uprzednio zamknięte bugi zostały ponownie otwarte</li>
+  <li>166 bugów oznaczono jako NEEDINFO/WONTFIX/CANTFIX/INVALID/UPSTREAM</li>
+  <li>202 bugi oznaczono jako duplikaty</li>
+</ul>
+
+<p>
+Spośród 11130 obecnie otwartych bugów: 37 oznaczono jako 'blocker', 126 jako
+'critical', a 530 jako 'major'.
+</p>
+
+</body>
+</section>
+
+<section>
+<title>Zamknięte Bugi</title>
+<body>
+
+<p>
+Deweloperzy oraz zespoły, które zamknęły najwięcej bugów w minionym tygodniu,
+to:
+</p>
+
+<ul>
+  <li><mail link="java@gentoo.org">Java team</mail>, 27 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-10&amp;chfieldto=2006-09-17&amp;resolution=FIXED&amp;assigned_to=java@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="gnome@gentoo.org">Gentoo Linux Gnome Desktop Team</mail>, 20
+  <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-10&amp;chfieldto=2006-09-17&amp;resolution=FIXED&amp;assigned_to=gnome@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="games@gentoo.org">Gentoo Games</mail>, 16 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-10&amp;chfieldto=2006-09-17&amp;resolution=FIXED&amp;assigned_to=games@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="amd64@gentoo.org">AMD64 Project</mail>, 15 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-10&amp;chfieldto=2006-09-17&amp;resolution=FIXED&amp;assigned_to=amd64@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="base-system@gentoo.org">Gentoo's Team for Core System
+  packages</mail>, 13 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-10&amp;chfieldto=2006-09-17&amp;resolution=FIXED&amp;assigned_to=base-system@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="vapier@gentoo.org">SpanKY</mail>, 12 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-10&amp;chfieldto=2006-09-17&amp;resolution=FIXED&amp;assigned_to=vapier@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="security@gentoo.org">Gentoo Security</mail>, 8 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-10&amp;chfieldto=2006-09-17&amp;resolution=FIXED&amp;assigned_to=security@gentoo.org">zamkniętych
+  bugów</uri></li>
+  <li><mail link="genkernel@gentoo.org">Gentoo Genkernel Maintainers</mail>, 8
+  <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=CLOSED&amp;chfield=bug_status&amp;chfieldfrom=2006-09-10&amp;chfieldto=2006-09-17&amp;resolution=FIXED&amp;assigned_to=genkernel@gentoo.org">zamkniętych
+  bugów</uri></li>
+</ul>
+
+</body>
+</section>
+<section>
+<title>Nowe Bugi</title>
+<body>
+
+<p>
+Deweloperzy oraz zespoły, którym przydzielono najwięcej bugów w minionym tygodniu,
+to:
+</p>
+
+<ul>
+  <li><mail link="maintainer-wanted@gentoo.org">Default Assignee for New
+  Packages</mail>, 55 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-10&amp;chfieldto=2006-09-17&amp;assigned_to=maintainer-wanted@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="devrel@gentoo.org">Gentoo Developer Relations Team</mail>, 13
+  <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-10&amp;chfieldto=2006-09-17&amp;assigned_to=devrel@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="amd64@gentoo.org">AMD64 Project</mail>, 13 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-10&amp;chfieldto=2006-09-17&amp;assigned_to=amd64@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="mozilla@gentoo.org">Mozilla Gentoo Team</mail>, 10 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-10&amp;chfieldto=2006-09-17&amp;assigned_to=mozilla@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="hanno@gentoo.org">Hanno Boeck</mail>, 10 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-10&amp;chfieldto=2006-09-17&amp;assigned_to=hanno@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="sound@gentoo.org">Gentoo Sound Team</mail>, 9 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-10&amp;chfieldto=2006-09-17&amp;assigned_to=sound@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="games@gentoo.org">Gentoo Games</mail>, 8 <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-10&amp;chfieldto=2006-09-17&amp;assigned_to=games@gentoo.org">nowych
+  bugów</uri></li>
+  <li><mail link="gnome@gentoo.org">Gentoo Linux Gnome Desktop Team</mail>, 7
+  <uri
+  link="http://bugs.gentoo.org/buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;chfield=assigned_to&amp;chfieldfrom=2006-09-10&amp;chfieldto=2006-09-17&amp;assigned_to=gnome@gentoo.org">nowych
+  bugów</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+
+<!-- GWN feedback information -->
+<chapter>
+<title>Opinie czytelników</title>
+<section>
+<body>
+
+<p>
+Jeśli chcesz, aby Tygodnik Gentoo był jeszcze lepszy, podziel się z <mail
+link="gwn-feedback@gentoo.org">nami</mail> swoją opinią na jego temat. Uwagi
+dotyczące tłumaczenia można zgłaszać na adres <mail
+link="moloh@gentoo.org">koordynatora</mail>.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- paste from the script -->
+<!-- GWN subscription information -->
+<chapter>
+<title>Subskrypcja Tygodnika Gentoo</title>
+<section>
+<body>
+
+<p>
+Aby zaprenumerować Tygodnik Gentoo, należy wysłać pustego emaila na adres <mail
+link="gentoo-gwn-pl+subscribe@gentoo.org">gentoo-gwn-pl+subscribe@gentoo.org</mail>.
+</p>
+
+<p>
+Aby zrezygnować z subskrypcji, należy wysłać pustego emaila na adres <mail
+link="gentoo-gwn-pl+unsubscribe@gentoo.org">
+gentoo-gwn-pl+unsubscribe@gentoo.org</mail> z konta, na które jest
+zarejestrowana.
+</p>
+
+</body>
+</section>
+</chapter>
+
+<!-- Other Languages -->
+<chapter>
+<title>Inne języki</title>
+<section>
+<body>
+
+<p>
+Tygodnik Gentoo jest dostępny w następujących językach:
+</p>
+
+<ul>
+  <li><uri link="/news/en/gwn/gwn.xml">angielskim</uri></li>
+  <li><uri link="/news/zh_cn/gwn/gwn.xml">chińskim (uproszczony)</uri></li>
+  <li><uri link="/news/da/gwn/gwn.xml">duńskim</uri></li>
+  <li><uri link="/news/fr/gwn/gwn.xml">francuskim</uri></li>
+  <li><uri link="/news/el/gwn/gwn.xml">greckim</uri></li>
+  <li><uri link="/news/es/gwn/gwn.xml">hiszpańskim</uri></li>
+  <li><uri link="/news/nl/gwn/gwn.xml">holenderskim</uri></li>
+  <li><uri link="/news/ja/gwn/gwn.xml">japońskim</uri></li>
+  <li><uri link="/news/ko/gwn/gwn.xml">koreańskim</uri></li>
+  <li><uri link="/news/de/gwn/gwn.xml">niemieckim</uri></li>
+  <li><uri link="/news/pl/gwn/gwn.xml">polskim</uri></li>
+  <li><uri link="/news/pt_br/gwn/gwn.xml">portugalskim (Brazylia)</uri></li>
+  <li><uri link="/news/pt/gwn/gwn.xml">portugalskim (Portugalia)</uri></li>
+  <li><uri link="/news/ru/gwn/gwn.xml">rosyjskim</uri></li>
+  <li><uri link="/news/it/gwn/gwn.xml">włoskim</uri></li>
+</ul>
+
+</body>
+</section>
+</chapter>
+</guide>
+
+
