@@ -20,3 +20,4 @@
 09:16 < CIA-71> rane * gentoo/xml/htdocs/doc/pl/handbook/2008.0/hb-install-config.xml: -> 1.8
 09:17 < CIA-71> rane * gentoo/xml/htdocs/doc/pl/handbook/hb-install-config.xml: -> 1.100
 
+shadow shadow shadow!
