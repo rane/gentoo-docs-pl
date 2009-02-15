@@ -15,6 +15,10 @@
     <match path="module"> proj/docs-pl </match>
    </and>
 
+  <and>
+    <match path="project"> gentoo-docs-pl </match>
+  </and>
+
 </or>
 
 <formatter medium="irc"/>
