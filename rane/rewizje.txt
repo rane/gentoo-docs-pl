@@ -1,0 +1,22 @@
+08:13 < CIA-71> rane * gentoo/xml/htdocs/doc/pl/fluxbox-config.xml: -> 1.32
+08:23 < CIA-71> rane * gentoo/xml/htdocs/doc/pl/guide-localization.xml: -> 1.52
+08:28 < CIA-71> rane * gentoo/xml/htdocs/doc/pl/liveusb.xml: -> 1.18
+08:31 < CIA-71> rane * gentoo/xml/htdocs/doc/pl/nvidia-guide.xml: -> 1.47
+08:32 < CIA-71> rane * gentoo/xml/htdocs/doc/pl/xorg-config.xml: -> 1.28
+08:34 < CIA-71> rane * gentoo/xml/htdocs/doc/pl/gentoo-x86+raid+lvm2-quickinstall.xml: -> 1.23
+08:37 < CIA-71> rane * gentoo/xml/htdocs/doc/pl/gentoo-x86-quickinstall.xml: -> 1.82
+08:38 < CIA-71> rane * gentoo/xml/htdocs/doc/pl/gentoo-x86-quickinstall-stage.xml: -> 1.8
+08:41 < CIA-71> rane * gentoo/xml/htdocs/proj/pl/desktop/kde/kde4.xml: -> 1.24
+08:43 < CIA-71> rane * gentoo/xml/htdocs/proj/pl/overlays/userguide.xml: -> 1.6
+08:45 < CIA-71> rane * gentoo/xml/htdocs/doc/pl/diskless-howto.xml: -> 1.35
+08:49 < CIA-71> rane * gentoo/xml/htdocs/doc/pl/gentoo-kernel.xml: -> 1.54
+08:50 < CIA-71> rane * gentoo/xml/htdocs/doc/pl/lvm2.xml: -> 1.25
+08:51 < CIA-71> rane * gentoo/xml/htdocs/doc/pl/mysql-howto.xml: -> 1.9
+08:58 < CIA-71> rane * gentoo/xml/htdocs/doc/pl/openrc-migration.xml: -> 1.13
+09:00 < CIA-71> rane * gentoo/xml/htdocs/doc/pl/printing-howto.xml: -> 1.73
+09:04 < CIA-71> rane * gentoo/xml/htdocs/doc/pl/quick-samba-howto.xml: -> 1.41
+09:10 < CIA-71> rane * gentoo/xml/htdocs/doc/pl/udev-guide.xml: -> 1.49
+09:14 < CIA-71> rane * gentoo/xml/htdocs/doc/pl/handbook/hb-install-config.xml: -> 1.100
+09:16 < CIA-71> rane * gentoo/xml/htdocs/doc/pl/handbook/2008.0/hb-install-config.xml: -> 1.8
+09:17 < CIA-71> rane * gentoo/xml/htdocs/doc/pl/handbook/hb-install-config.xml: -> 1.100
+
