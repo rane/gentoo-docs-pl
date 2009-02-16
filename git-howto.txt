@@ -1,0 +1,18 @@
+- Zainstalować git.
+  - Założyć konto na github.com.
+  - Poprosić rejna o dodanie konta do projektu.
+       
+git magic:
+ 
+- git clone git@github.com:rane/gentoo-docs-pl.git
+- cd gentoo-docs-pl
+- mkdir username
+- cd username
+- cp {tłumaczenia} ..
+- git add .
+- git commit -am "new translations"
+- git push żeby wysłać
+                 
+- git pull synchronizuje repo na dysku z tym z serwera jak svn co.
+   
+Więcej w RTFM.
