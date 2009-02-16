@@ -1,18 +1,23 @@
-- Zainstalować git.
-  - Założyć konto na github.com.
-  - Poprosić rejna o dodanie konta do projektu.
-       
+- Założyć konto na github.com, wgrać klucz SSH, poprosić rejna o dodanie do projektu.
+
 git magic:
- 
-- git clone git@github.com:rane/gentoo-docs-pl.git
-- cd gentoo-docs-pl
-- mkdir username
-- cd username
-- cp {tłumaczenia} ..
-- git add .
+
+Pobieranie repo:
+- git clone git@github.com:rane/gentoo-docs-pl.git 
+Dodawanie do niego plików:
+- mkdir user
+- cp files user/
+- git add user
+Zatwierdzanie zmian:
 - git commit -am "new translations"
-- git push żeby wysłać
-                 
-- git pull synchronizuje repo na dysku z tym z serwera jak svn co.
-   
-Więcej w RTFM.
+Wysyłanie zmian na serwer:
+- git push
+Pobieranie zmian z serwera:
+- cd gentoo-docs-pl
+- git pull
+
+Przed popchnięciem warto zrobić:
+- git status
+- git diff
+
+Reszta w RTFM. Baw się do woli, naprawimy.
