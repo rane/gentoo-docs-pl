@@ -1,0 +1,259 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sections SYSTEM "/dtd/book.dtd">
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/proj/en/devrel/handbook/hb-guide-metadata.xml,v 1.9 2007/07/31 18:00:22 phreak Exp $-->
+
+<!-- The content of this document is licensed under the CC-BY-SA license -->
+<!-- See http://creativecommons.org/licenses/by-sa/2.5 -->
+
+<sections>
+<version>1.0.7</version>
+<date>2008-09-11</date>
+
+<section>
+<title>Dlaczego metadata.xml jest potrzebne?</title>
+<subsection>
+<body>
+
+<p>
+Plik <c>metadata.xml</c> zawiera dodatkowe informacje o ebuildach i powinien
+istnieć w każdym katalogu z pakietem. Jego plik szkieletowy ma nazwę
+<c>skel.metadata.xml</c> i znajduje się w drzewie Portage.
+</p>
+
+<note>
+Musimy użyć polecenia <c>xmllint --valid metadata.xml</c> zanim wyślemy plik
+<c>metadata.xml</c>. Już niebawem testy te będzie wykonywał repoman.
+</note>
+
+</body>
+</subsection>
+</section>
+<section>
+<title>Struktura pliku Metadata</title>
+<subsection>
+<body>
+
+<p>
+Plik <c>metadata.xml</c> może zawierać kilka etykiet:
+</p>
+
+<table>
+<tr>
+  <th>etykieta</th>
+  <th>opis</th>
+</tr>
+<tr>
+  <ti>
+    <brite>&lt;pkgmetadata&gt;</brite>
+  </ti>
+  <ti>
+    Jest to źródłowy element pliku metadata.xml dla pakietów. Nie posiada
+    żadnych atrybutów. Wymagana, drugorzędna etykieta tego pliku to:
+    <brite>&lt;herd&gt;</brite>. Następujące podrzędne etykiety są dozwolone:
+    <brite>&lt;email&gt;</brite> czyli adres e-mail herdu,
+    <brite>&lt;maintainer&gt;</brite> oraz
+    <brite>&lt;longdescription&gt;</brite>,
+    <brite>&lt;use&gt;</brite>, and
+    <brite>&lt;upstream&gt;</brite>.
+  </ti>
+</tr>
+<tr>
+  <ti>
+    <brite>&lt;catmetadata&gt;</brite>
+  </ti>
+  <ti>
+    Jest to główny element pliku metadata.xml dla kategorii, tak jak w <uri
+    link="/proj/en/glep/glep-0034.html">GLEP 34</uri>. Nie posiada on
+    atrybutów. Zawiera pewną ilość etykiet
+    <brite>&lt;longdescription&gt;</brite>, każda dla innego języka.
+  </ti>
+</tr>
+<tr>
+  <ti>
+    <brite>&lt;herd&gt;</brite>
+  </ti>
+  <ti>
+    Musi istnieć przynajmniej jedna "podetykieta" herd. Zawartość tej
+    etykiety musi składać się z nazwy herd, jak przedstawia plik <uri
+    link="http://sources.gentoo.org/viewcvs.py/*checkout*/gentoo/xml/htdocs/proj/en/metastructure/herds/herds.xml?content-type=text/plain&amp;rev=HEAD">herds.xml</uri>.
+    Opcja ta musi się pojawić przynajmniej raz o ile nie wybrano no-herd.
+    
+  </ti>
+</tr>
+<tr>
+  <ti>
+    <brite>&lt;maintainer&gt;</brite>
+  </ti>
+  <ti>
+    Poza przynależnością do herdu, pakiet może również być zarządzany
+    bezpośrednio. Zarządzający pakietem mogą zostać określeni za pomocą
+    etykiety <brite>&lt;maintainer&gt;</brite>. Ta etykieta nie musi zawierać
+    "podetykiet": <brite>&lt;email&gt;</brite>. Posiada dwie opcjonalna
+    "podetykiety": <brite>&lt;name&gt;</brite>, oraz
+    <brite>&lt;description&gt;</brite>.
+  </ti>
+</tr>
+<tr>
+  <ti><brite>&lt;email&gt;</brite></ti>
+  <ti>
+    Tutaj znajduje się adres e-mail osoby zarządzającej. Opcja wymagana.
+  </ti>
+</tr>
+<tr>
+  <ti><brite>&lt;name&gt;</brite></ti>
+  <ti>
+    Ta etykieta zawiera imię i nazwisko osoby zarządzającej. Jest opcjonalna.
+  </ti>
+</tr>
+<tr>
+  <ti><brite>&lt;description&gt;</brite></ti>
+  <ti>
+    Etykieta opisu zawiera opis zarządzania lub na przykład informację o tym,
+    że jeśli pojawią się chętni, to mogą przejąć zarządzanie pakietem. Opcja
+    nie jest wymagana.
+  </ti>
+</tr>
+<tr>
+  <ti><brite>&lt;longdescription&gt;</brite></ti>
+  <ti>
+    Ta etykieta zawiera opis pakietu. Służy ona do powiększania pola OPISU w
+    ebuildach.
+  </ti>
+</tr>
+</table>
+
+<p>
+Istnieją również pewne atrybuty, których możemy uzyć z tymi etykietami.
+Wszystkie są opcjonalne:
+</p>
+
+<table>
+<tr>
+  <th>atrybut</th>
+  <th>etykiety</th>
+  <th>opis</th>
+</tr>
+<tr>
+  <ti>lang</ti>
+  <ti>
+    <brite>&lt;description&gt;</brite>, <brite>&lt;longdescription&gt;</brite>
+  </ti>
+  <ti>
+    W każdym przypadku, gdy opis jest wymagany, musi istnieć
+    <e>przynajmniej</e> anglojęzyczny opis.  Jeżeli podano dodatkowy opis w
+    innym języku, atrybut ten jest używany do określenia języka w jakim został
+    napisany.  Format języka jest dwuznakowy i jest definiowany normą <uri
+    link="http://www.w3.org/WAI/ER/IG/ert/iso639.htm#2letter">ISO-639-1</uri>.
+  </ti>
+</tr>
+<tr>
+  <ti>restrict</ti>
+  <ti>
+    <brite>&lt;herd&gt;</brite>, <brite>&lt;maintainer&gt;</brite>,
+    <brite>&lt;longdescription&gt;</brite>
+  </ti>
+  <ti>
+    Atrybut restrict pozwala na ograniczanie aplikacji z konkretnymi etykietami
+    dla konkretnych wersji pakietu. Kiedy atrybut ten zostanie użyty, etykieta
+    bez atrybutu musi zostać utworzona. Etykieta bez atrybutu restrict posłuży
+    nam jako domyślny przykład. Format atrybutu restrict jest taki sam jak
+    format flagi DEPEND, z wyjątkiem "&lt;" i "&gt;", które
+    muszą być określone poprzez &amp;lt; i &amp;gt;.<br /> <br /> Dla
+    przykładu, w pakiecie db <c>restrict="&gt;=sys-libs/db-3.2.9-r5"</c> na
+    etykiecie maintainer wskazuje, iż zarządzający administruje w tej chwili
+    wszystkimi wersjami większymi od 3.2.9-r5.
+  </ti>
+</tr>
+</table>
+
+</body>
+</subsection>
+</section>
+<section>
+<title>Przykłady Metadata</title>
+<subsection>
+<title>Pierwszy przykład</title>
+<body>
+
+<p>
+W pierwszym przykładzie widzimy plik <path>metadata.xml</path> dla pakietu
+OpenOffice, którego ebuildy należą do herdu o nazwie <c>openoffice</c>:
+</p>
+
+<pre caption="Pakiety zarządzane przez herd">
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd"&gt;
+&lt;pkgmetadata&gt;
+  &lt;herd&gt;openoffice&lt;/herd&gt;
+  &lt;longdescription&gt;
+    OpenOffice is the  opensource version of staroffice.
+    This ebuild allows you to compile it yourself. Unfortunately this
+    compilation can take up to a day depending on the speed of your
+    computer. It will however make a snappier openoffice than the binary
+    version.
+  &lt;/longdescription&gt;
+&lt;/pkgmetadata&gt;
+</pre>
+
+<p>
+Herd <c>openoffice</c> jest zdefiniowany w pliku <path>herds.xml</path> przez
+<uri link="/proj/en/metastructure">Projekt Metastruktury Gentoo</uri>:
+</p>
+
+<note>
+Ten przykład może być przestarzały w momencie czytania. To tylko przykład!
+</note>
+
+<pre caption="Przykład wpisu dla herdu OpenOffice">
+&lt;herd&gt;
+  &lt;name&gt;openoffice&lt;/name&gt;
+  &lt;email&gt;openoffice@gentoo.org&lt;/email&gt;
+  &lt;description&gt;openoffice related packages&lt;/description&gt;
+  &lt;maintainer&gt;&lt;email&gt;pauldv@gentoo.org&lt;/email&gt;&lt;/maintainer&gt;
+  &lt;maintainer&gt;&lt;email&gt;brad@gentoo.org&lt;/email&gt;&lt;/maintainer&gt;
+&lt;/herd&gt;
+</pre>
+
+<p>
+Jeżeli chcemy dodać (lub usunąć) siebie z herdu, edytujemy
+<path>herds.xml</path> znajdujący się w
+<path>[gentoo]/xml/htdocs/proj/en/metastructure/herds</path> w
+repozytorium Gentoo CVS. Musimy znać aliasy e-maili, którymi posługuje
+się herd (na przykład herd "sound" posiada <mail
+link="sound@gentoo.org">sound@gentoo.org</mail>) i dodać się do aliasu
+(edytując <path>/var/mail/alias/misc/&lt;alias name&gt;</path> na
+dev.gentoo.org).
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Drugi przykład</title>
+<body>
+
+<p>
+W drugim przykładzie przeglądamy plik <path>metadata.xml</path> dla
+<c>mirrorselect</c>. Ebuild jest zarządzany przez herd <c>tools-portage</c>,
+ale posiada oddzielnych zarządzających.
+</p>
+
+<pre caption="Pakiet zarządzany indywidualnie i przez herd">
+&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd"&gt;
+&lt;pkgmetadata&gt;
+  &lt;herd&gt;tools-portage&lt;/herd&gt;
+  &lt;maintainer&gt;
+    &lt;email&gt;johnm@gentoo.org&lt;/email&gt;
+    &lt;name&gt;John Mylchreest&lt;/name&gt;
+  &lt;/maintainer&gt;
+  &lt;longdescription&gt;
+    This utility is used to select the fastest mirror (distfiles) and provide a
+    nicer front-end for mirror selection (both rsync + distfiles) to a user.
+  &lt;/longdescription&gt;
+&lt;/pkgmetadata&gt;
+</pre>
+
+</body>
+</subsection>
+</section>
+</sections>

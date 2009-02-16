@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sections SYSTEM "/dtd/book.dtd">
+
+<!-- $Header: /var/cvsroot/gentoo/xml/htdocs/proj/en/devrel/handbook/hb-introduction-staffers.xml,v 1.1 2008/10/01 17:08:39 rane Exp $ -->
+
+<sections>
+<version>1</version>
+<date>2008-09-13</date>
+
+<section>
+<title>Polityka członków personelu w Gentoo</title>
+<subsection>
+<title>Wstęp</title>
+<body>
+
+<p>
+Utrzymywanie dystrybucji Linuksa to wiele aspektów i spora część z nich nie jest
+bezpośrednio związana z programowaniem. Każda dystrybucja potrzebuje ludzi do
+obsługi swoich serwerów, pomagania społeczności, dostarczania dokumentacji,
+zajmowania się finansami projektu i jego stroną prawną oraz obsługiwania wielu
+innych zadań. Ich udział jest tak samo ważny jak udział programistów. Tacy
+deweloperzy są w Gentoo nazywani personelem.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Rodzaje członków personelu</title>
+<body>
+
+<p>
+Poniższa lista przedstawia wszystkie typy członków personelu, którzy aktualnie
+są potrzebni w Gentoo.
+</p>
+
+<ul>
+  <li><uri link="/proj/en/infrastructure/">Gentoo Infrastructure</uri> członkowie projektu</li>
+  <li><uri link="/proj/en/gdp/">Gentoo Documentation</uri> redaktorzy i tłumacze</li>
+  <li><uri link="/news/en/gmn/">Gentoo Monthly Newsletter</uri> redaktorzy i tłumacze</li>
+  <li><uri link="/proj/en/forums/">Gentoo Forums</uri> moderatorzy globalni i administratorzy</li>
+  <li><uri link="/proj/en/devrel/">Gentoo Developer Relations</uri> członkowie</li>
+  <li><uri link="/proj/en/userrel/">Gentoo User Relations</uri> członkowie</li>
+  <li><uri link="/proj/en/pr/">Gentoo Public Relations</uri> członkowie</li>
+  <li><uri link="/proj/en/security/">Gentoo Security</uri> koordynatorzy GLSA</li>
+  <li><uri link="/proj/en/sunrise/">Gentoo Sunrise</uri> deweloperzy</li>
+  <li><uri link="/foundation/en">Gentoo Foundation</uri> urzędnicy</li>
+</ul>
+
+<impo>
+Jeśli projektu, do którego chciałbyś wnieść swój wkład jako członek personelu,
+nie ma na powyższej liście, a uważasz, że być powinien, skontaktuj się z
+<mail link="devrel@gentoo.org">Developer Relations</mail>
+w sprawie zmiany polityki.
+</impo>
+
+</body>
+</subsection>
+<subsection>
+<title>Czym różni się dostęp członka personelu od dostępu dewelopera pracującego
+nad repozytorium ebuildów?</title>
+<body>
+
+<p>
+Przyznawany dostęp bazuje na zakresie odpowiedzialności członka personelu.
+Wszyscy deweloperzy Gentoo dostają adres e-mail w domenie gentoo.org, dostęp
+przez ssh do dev.gentoo.org (shell, ldap, public_html, itp.) tak jak i dostęp
+przez cvs do stron projektu. Jako członek personelu nie zostanie Ci dany dostęp
+do drzewa ebuildów, tak jak deweloperom pracującym nad repozytorium, ale,
+bazując na Twoim zakresie odpowiedzialności, możesz uzyskać dostęp do innych
+obszarów.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Jak można zostać członkiem personelu w Gentoo?</title>
+<body>
+
+<p>
+Należy pracować z członkami projektu, któremu chce się pomóc. Do zespołu można
+zostać zaproszonym jeśli poziom Twojej pomocy i znajomości projektu uzasadni
+fakt, że możesz stać się deweloperem w tym konkretnym projekcie. Może to trochę
+potrwać i może też wymagać przejścia wewnętrznych procedur rekrutacji w obrębie
+projektu. Procedury te mają miejsce po to, by upewnić się, że kandydat wie
+z czym wiąże się jego przyszła funkcja w Gentoo; są stworzone i zarządzane przez
+projekt.
+</p>
+
+<p>
+Jeśli kandydat jest już gotowy, musi znaleźć mentora i rozpocząć procedurę
+rekrutacji. Procedura rozpocznie się w momencie gdy mentor zaakceptuje tzw.
+<uri link="http://www.gentoo.org/proj/en/devrel/quiz/staff-quiz.txt">staff
+quiz</uri> kandydata.
+Jeśli rekruter został przypisany do procedury, on i kandydat muszą zaplanować
+weryfikację kandydata. Dla większej ilości informacji warto przeczytać dokument
+<uri link="http://www.gentoo.org/proj/en/devrel/recruiters/mentor.xml">opieka
+nad rekrutami</uri>.
+</p>
+
+<note>
+Jako członek personelu, który nie będzie pracował nad ebuildami, kandydat nie
+będzie pytany o techniczne aspekty z nimi związane. Na tym etapie rekrutacji
+wymagane będzie jedynie dobre zrozumienie wewnętrznego działania Gentoo.
+</note>
+
+</body>
+</subsection>
+<subsection>
+<title>
+Chciałbym zostać zrekrutowany jako członek personelu, ale w przyszłości
+chciałbym dołączyć do innych projektów.
+</title>
+<body>
+
+<p>
+Każdy deweloper Gentoo może dołączyć do dowolnego projektu do jakiego sobie
+życzy jeśli tylko deweloperzy już związani z projektem się z tym zgadzają. Zanim
+zacznie się pomagać przy repozytorium ebuildów, należy złożyć podanie do procesu
+rekrutacji dla dewelopera zajmującego się drzewem ebuildów. Oznacza to, że
+potrzebny będzie mentor, historia technicznego wkładu (poprawienia bugów,
+zewnętrzne repozytoria, itp.) i odpowiedni trening. W razie wątpliwości należy
+skontaktować się z rekruterami.
+</p>
+
+</body>
+</subsection>
+<subsection>
+<title>Jak rozwiązywane jest wycofanie się personelu?</title>
+<body>
+
+<p>
+Należy pozostać aktywnym w projekcie, do którego się dołączyło lub przenieść się
+do innego projektu. Jeśli nie jest się aktywnym w żadnym z projektów Gentoo,
+zostaje się przedmiotem procedur podjętych przez
+<uri link="/proj/en/devrel/undertakers/">Gentoo
+Undertakers</uri>.
+</p>
+
+</body>
+</subsection>
+</section>
+</sections>
