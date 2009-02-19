@@ -1,0 +1,1 @@
+dodać: doc/pl/inserts.xml -> 1.2
