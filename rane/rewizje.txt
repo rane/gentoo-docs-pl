@@ -1,8 +1,0 @@
-dodać: doc/pl/inserts.xml -> 1.2
-
-09:45 <+CIA-46> rane * gentoo/xml/htdocs/doc/pl/gentoo-amd64-faq.xml: -> 1.31
-09:47 <+CIA-46> rane * gentoo/xml/htdocs/main/pl/irc.xml: -> 1.123
-09:48 <+CIA-46> rane * gentoo/xml/htdocs/doc/pl/guide-localization.xml: -> 1.54
-09:50 <+CIA-46> rane * gentoo/xml/htdocs/doc/pl/gentoo-x86+raid+lvm2-quickinstall.xml: -> 1.24
-09:51 <+CIA-46> rane * gentoo/xml/htdocs/doc/pl/gentoo-x86-quickinstall.xml: -> 1.83
-09:52 <+CIA-46> rane * gentoo/xml/htdocs/doc/pl/xml-guide.xml: -> 1.69
